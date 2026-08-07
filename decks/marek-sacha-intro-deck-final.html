@@ -25,7 +25,7 @@ html,body{background:#dfe3e8;
 .slide::after{content:''; position:absolute; width:340px; height:340px; border-radius:9999px;
   background:radial-gradient(circle,#dbeafe,transparent 70%); opacity:.5; top:-150px; right:-90px; filter:blur(70px); pointer-events:none}
 .slide>*{position:relative; z-index:1}
-.top{display:flex; justify-content:space-between; align-items:center; margin-bottom:16px}
+.top{display:flex; justify-content:space-between; align-items:center; margin-bottom:26px}
 .brand{font-size:16px; font-weight:600; letter-spacing:-.01em; display:flex; align-items:center; gap:9px}
 .brand .amp{font-family:'Times New Roman',serif; font-style:italic; font-weight:400}
 .brand .co{display:inline-flex; align-items:center; gap:6px; font-weight:700; color:var(--co)}
@@ -188,7 +188,8 @@ svg.i{width:16px; height:16px; flex:none; stroke:currentColor; fill:none; stroke
   .slide{box-shadow:none; border-radius:0; page-break-after:always; break-after:page; width:1280px; max-width:1280px}
   .slide::after{display:none}
 }
-.brand img{display:block; height:38px; width:auto}
+.brand img{display:block; height:12.8px; width:auto}
+.skill-faded{border:1px solid var(--line); color:var(--muted); background:#fff; border-radius:99px; padding:7px 15px; font-size:12.5px; font-weight:600; white-space:nowrap; opacity:.85}
 </style>
 </head>
 <body>
@@ -197,19 +198,98 @@ svg.i{width:16px; height:16px; flex:none; stroke:currentColor; fill:none; stroke
 <!-- 1. COVER + SOLUTION (merged) -->
 <section class="slide center">
   <div class="top" style="position:absolute; top:34px; left:54px; right:54px; margin:0">
-    <span class="brand"><img src="../brand/logo/logo_mindsmodels-normal-black.png" alt="Minds&Models"></span>
-    <span class="meta">Marek's Section<br>Confidential</span>
+    <span class="brand"><img src="../brand/logo/logo_mindsmodels-normal-black-trim.png" alt="Minds&Models"></span>
   </div>
-  <p class="label">Minds & Models</p>
-  <h1>Teaching physical stores<br><span class="accent-co">who their customers are.</span></h1>
-  <p class="lead mt14" style="max-width:72ch; font-size:20px; font-weight:500; color:var(--ink)">The behavior e-commerce runs on? We're the first to read it: capturing in-store behavior and matching it to purchases. 92% of orders, no loyalty card, no survey.</p>
-  <div class="flow"><b>COVER</b> → PROBLEM → SOLUTION → TRACTION</div><div class="pageno">01 / 14</div>
+  <p class="label" style="text-align:center;">Minds & Models</p>
+  <h1 style="text-align:center; margin:10px auto 0; font-size:50px; line-height:1.16;">Every in-store shopper<br>carries 100s of visual data points.<br><span class="accent-co">We're the first to use them.</span></h1>
+  <div class="flow"><b>COVER</b> → PROBLEM → SOLUTION → TRACTION</div><div class="pageno">01 / 15</div>
+</section>
+<!-- 1a. Meet the Team -->
+<section class="slide">
+  <div class="top"><span class="brand"><img src="../brand/logo/logo_mindsmodels-normal-black-trim.png" alt="Minds&Models"></span><span class="meta">The Team</span></div>
+  <p class="label">01 · Team</p>
+  <h2>Meet the <span class="accent">team.</span></h2>
+
+  <div style="flex:1; display:flex; flex-direction:column; justify-content:center; gap:20px;">
+
+    <!-- Founders -->
+    <div style="display:flex; justify-content:center; gap:24px;">
+
+      <!-- Ondrej -->
+      <div class="card" style="flex:1; max-width:490px; display:flex; gap:20px; align-items:center; padding:20px 22px;">
+        <img src="avatars/IMG_6725%20(1).jpg" alt="Ondřej Šantora" style="width:112px; height:112px; border-radius:50%; object-fit:cover; object-position:center; flex:none;">
+        <div style="min-width:0;">
+          <div style="font-size:19px; font-weight:800; color:var(--blue); letter-spacing:-.01em;">Ondřej Šantora</div>
+          <div style="display:inline-block; border:1.5px solid var(--blue); color:var(--blue); font-weight:700; font-size:12px; border-radius:8px; padding:4px 13px; margin-top:8px;">Co-Founder</div>
+          <div style="font-size:13px; color:var(--muted); margin-top:10px; line-height:1.4;">4+ years in GTM Scaling of AI products</div>
+          <div style="display:flex; align-items:center; gap:15px; margin-top:13px; height:30px; opacity:.9;">
+            <img src="avatars/image%20(18).png" alt="ČVUT" style="height:28px; width:auto; object-fit:contain;">
+            <img src="avatars/image%20(19).png" alt="Beihang University" style="height:30px; width:auto; object-fit:contain;">
+            <img src="avatars/image%20(20).png" alt="Missouri S&amp;T" style="height:23px; width:auto; object-fit:contain;">
+          </div>
+        </div>
+      </div>
+
+      <!-- Josef -->
+      <div class="card" style="flex:1; max-width:490px; display:flex; gap:20px; align-items:center; padding:20px 22px;">
+        <img src="avatars/1753714933950%20(1).jpg" alt="Josef Němeček" style="width:112px; height:112px; border-radius:50%; object-fit:cover; object-position:center; flex:none;">
+        <div style="min-width:0;">
+          <div style="font-size:19px; font-weight:800; color:var(--blue); letter-spacing:-.01em;">Josef Němeček</div>
+          <div style="display:inline-block; border:1.5px solid var(--blue); color:var(--blue); font-weight:700; font-size:12px; border-radius:8px; padding:4px 13px; margin-top:8px;">Co-Founder</div>
+          <div style="font-size:13px; color:var(--muted); margin-top:10px; line-height:1.4;">Research in Algorithmic Personalization</div>
+          <div style="display:flex; align-items:center; gap:15px; margin-top:13px; height:30px; opacity:.9;">
+            <img src="avatars/image%20(21).png" alt="Erasmus University Rotterdam" style="height:28px; width:auto; object-fit:contain;">
+            <img src="avatars/image%20(22).png" alt="University of Copenhagen" style="height:30px; width:auto; object-fit:contain;">
+            <img src="avatars/image%20(23).png" alt="Charles University" style="height:22px; width:auto; object-fit:contain;">
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- divider -->
+    <div style="display:flex; align-items:center; gap:14px; max-width:900px; margin:34px auto 0; width:100%;">
+      <div style="flex:1; height:1px; background:var(--line);"></div>
+      <span style="font-size:10px; font-weight:800; text-transform:uppercase; letter-spacing:.12em; color:var(--muted-2);">The skills behind the build</span>
+      <div style="flex:1; height:1px; background:var(--line);"></div>
+    </div>
+
+    <!-- Wider team + faded skills -->
+    <div style="display:flex; justify-content:center; align-items:center; gap:30px;">
+
+      <div style="display:flex; flex-direction:column; gap:10px; align-items:flex-end;">
+        <span class="skill-faded">500+ academic pages</span>
+        <span class="skill-faded" style="margin-right:24px;">Consumer Intelligence @ NielsenIQ</span>
+        <span class="skill-faded">AI infrastructure</span>
+      </div>
+
+      <div style="display:flex; align-items:center; gap:14px; flex:none;">
+        <div style="display:flex; align-items:center;">
+          <img src="avatars/1740690737863.jpg" alt="" style="width:60px; height:60px; border-radius:50%; object-fit:cover; border:3px solid #fff; box-shadow:0 3px 10px rgba(15,23,42,.16); position:relative; z-index:4;">
+          <img src="avatars/1764282078147.jpeg" alt="" style="width:60px; height:60px; border-radius:50%; object-fit:cover; border:3px solid #fff; box-shadow:0 3px 10px rgba(15,23,42,.16); margin-left:-15px; position:relative; z-index:3;">
+          <img src="avatars/image%20(24).png" alt="" style="width:60px; height:60px; border-radius:50%; object-fit:cover; border:3px solid #fff; box-shadow:0 3px 10px rgba(15,23,42,.16); margin-left:-15px; position:relative; z-index:2;">
+          <img src="avatars/image%20(25).png" alt="" style="width:60px; height:60px; border-radius:50%; object-fit:cover; border:3px solid #fff; box-shadow:0 3px 10px rgba(15,23,42,.16); margin-left:-15px; position:relative; z-index:1;">
+        </div>
+        <span style="font-size:30px; font-weight:800; color:var(--muted-2); line-height:1;">+</span>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:10px; align-items:flex-start;">
+        <span class="skill-faded">Recommender systems @ Alza</span>
+        <span class="skill-faded" style="margin-left:24px;">Computer vision</span>
+        <span class="skill-faded">Product &amp; GTM @ SpaceKnow</span>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="flow">COVER → <b>TEAM</b> → PROBLEM → SOLUTION</div><div class="pageno">02 / 15</div>
 </section>
 <!-- 2. Problem: Physical retail is blind -->
 <section class="slide">
-  <div class="top"><span class="brand"><img src="../brand/logo/logo_mindsmodels-normal-black.png" alt="Minds&Models"></span><span class="meta">The Problem</span></div>
+  <div class="top"><span class="brand"><img src="../brand/logo/logo_mindsmodels-normal-black-trim.png" alt="Minds&Models"></span><span class="meta">The Problem</span></div>
   <p class="label">02 · The Problem</p>
-  <h2>Physical retail is blind. They know <span class="accent">what</span> was bought, but not <span class="accent">who</span> is buying it.</h2>
+  <h2>The Offline <span class="accent">Blind Spot.</span></h2>
 
   <div class="grid3 mt14" style="margin-top:40px;">
     <div class="card" style="padding:32px;">
@@ -236,11 +316,11 @@ svg.i{width:16px; height:16px; flex:none; stroke:currentColor; fill:none; stroke
       <p class="lead" style="font-size:15px;"><strong>80% of retail traffic is offline</strong>, but brand advertisers withhold budgets due to a complete lack of real-time targeting and closed-loop attribution.</p>
     </div>
   </div>
-  <div class="flow">COVER → <b>PROBLEM</b> → SOLUTION → TRACTION</div><div class="pageno">02 / 14</div>
+  <div class="flow">COVER → <b>PROBLEM</b> → SOLUTION → TRACTION</div><div class="pageno">03 / 15</div>
 </section>
 <!-- 3. What we do in 3 steps (product overview) -->
 <section class="slide">
-  <div class="top"><span class="brand"><img src="../brand/logo/logo_mindsmodels-normal-black.png" alt="Minds&Models"></span><span class="meta">Product Overview</span></div>
+  <div class="top"><span class="brand"><img src="../brand/logo/logo_mindsmodels-normal-black-trim.png" alt="Minds&Models"></span><span class="meta">Product Overview</span></div>
   <p class="label">03 · How It Works</p>
   <h2>Privacy-first intelligence: <span class="accent">in three steps.</span></h2>
   <p class="lead mt10" style="max-width:72ch">We turned a real-world data type never used at scale before into the behavioral layer physical retail has been missing.</p>
@@ -262,7 +342,7 @@ svg.i{width:16px; height:16px; flex:none; stroke:currentColor; fill:none; stroke
     <div class="step">
       <div class="step-n">02</div>
       <h3>Understand</h3>
-      <p>We interpret that raw visual signal into behavioral insight — spending tier, life stage, mission and intent — turning primary observation into a rich, structured customer profile.</p>
+      <p>We interpret that raw visual signal into behavioral insight - spending tier, life stage, mission and intent - turning primary observation into a rich, structured customer profile.</p>
     </div>
 
     <div class="step-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
@@ -270,17 +350,17 @@ svg.i{width:16px; height:16px; flex:none; stroke:currentColor; fill:none; stroke
     <div class="step">
       <div class="step-n">03</div>
       <h3>Action</h3>
-      <p>We put that intelligence to work: real-time on-screen personalization, closed-loop measurement sold to FMCG brands, retail-media activation and licensed audience insight — multiple revenue streams from a single screen.</p>
+      <p>We turn that intelligence into revenue: on-screen personalization, closed-loop measurement for brands, and licensed audience data. Many streams, one screen.</p>
     </div>
   </div>
 
-  <div class="flow">COVER → PROBLEM → <b>SOLUTION</b> → TRACTION</div><div class="pageno">03 / 14</div>
+  <div class="flow">COVER → PROBLEM → <b>SOLUTION</b> → TRACTION</div><div class="pageno">04 / 15</div>
 </section>
 <!-- 6. Depth of data per customer (real visit ef225f8b) -->
 <section class="slide">
-  <div class="top"><span class="brand"><img src="../brand/logo/logo_mindsmodels-normal-black.png" alt="Minds&Models"></span><span class="meta">Data Depth</span></div>
+  <div class="top"><span class="brand"><img src="../brand/logo/logo_mindsmodels-normal-black-trim.png" alt="Minds&Models"></span><span class="meta">Data Depth</span></div>
   <p class="label">04 · What We See</p>
-  <h2>From <span class="accent">94 observed features</span> to actionable interpretations.</h2>
+  <h2>One customer, <span class="accent">94 observed features.</span></h2>
 
   <div class="console">
     <div class="cbar">
@@ -289,7 +369,7 @@ svg.i{width:16px; height:16px; flex:none; stroke:currentColor; fill:none; stroke
       <span class="sp"></span>12 sections&nbsp;·&nbsp;<b>94 fields</b>&nbsp;·&nbsp;~1.6&nbsp;s edge inference&nbsp;·&nbsp;48.2&nbsp;s dwell
     </div>
     <div class="cbody">
-      <!-- OBSERVED §1–10 -->
+      <!-- OBSERVED §1-10 -->
       <div class="obs">
         <div class="phd"><svg viewBox="0 0 24 24" style="width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2;"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>OBSERVED <span class="sub">· direct visual read</span></div>
         <div class="pcmt">// read directly from the frame</div>
@@ -346,7 +426,7 @@ svg.i{width:16px; height:16px; flex:none; stroke:currentColor; fill:none; stroke
         <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         <div class="lb">interpret</div>
       </div>
-      <!-- INTERPRETED §11–12 -->
+      <!-- INTERPRETED §11-12 -->
       <div class="intp">
         <div class="phd"><svg viewBox="0 0 24 24" style="width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2;"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.6c.6.5 1 1.3 1 2.4h6c0-1.1.4-1.9 1-2.4A7 7 0 0 0 12 2z"/></svg>INTERPRETED <span class="sub">· actionable signals</span></div>
         <div class="pcmt">// derived from a subset of the observed features</div>
@@ -371,11 +451,11 @@ svg.i{width:16px; height:16px; flex:none; stroke:currentColor; fill:none; stroke
     </div>
   </div>
 
-  <div class="flow">COVER → PROBLEM → <b>SOLUTION</b> → TRACTION</div><div class="pageno">04 / 14</div>
+  <div class="flow">COVER → PROBLEM → <b>SOLUTION</b> → TRACTION</div><div class="pageno">05 / 15</div>
 </section>
 <!-- 7. Data clustering (NMF personas) -->
 <section class="slide">
-  <div class="top"><span class="brand"><img src="../brand/logo/logo_mindsmodels-normal-black.png" alt="Minds&Models"></span><span class="meta">Clustering</span></div>
+  <div class="top"><span class="brand"><img src="../brand/logo/logo_mindsmodels-normal-black-trim.png" alt="Minds&Models"></span><span class="meta">Clustering</span></div>
 
   <p class="label">05 · Segments</p>
   <h2>From 54,613 visits to a handful of <span class="accent">named segments.</span></h2>
@@ -440,115 +520,109 @@ svg.i{width:16px; height:16px; flex:none; stroke:currentColor; fill:none; stroke
     </div>
   </div>
 
-  <div class="flow">COVER → PROBLEM → <b>SOLUTION</b> → TRACTION</div><div class="pageno">05 / 14</div>
+  <div class="flow">COVER → PROBLEM → <b>SOLUTION</b> → TRACTION</div><div class="pageno">06 / 15</div>
 </section>
 <!-- 8. Chatting with data -->
 <section class="slide">
-  <div class="top"><span class="brand"><img src="../brand/logo/logo_mindsmodels-normal-black.png" alt="Minds&Models"></span><span class="meta">Data Interaction</span></div>
+  <div class="top"><span class="brand"><img src="../brand/logo/logo_mindsmodels-normal-black-trim.png" alt="Minds&Models"></span><span class="meta">Data Interaction</span></div>
   <p class="label">06 · Chatting with Data</p>
-  <h2>Conversational insights: <br><span class="accent">Ask your store a question.</span></h2>
+  <h2>Conversational insights: <span class="accent">ask your store a question.</span></h2>
   
-  <p class="lead mt10" style="max-width:78ch">Natural-language querying over 88+ live features — two audiences, two very different questions, answered from the same shelf-level data.</p>
+  <p class="lead mt10" style="max-width:74ch">Natural-language querying over 88+ live shopper features. The same shelf-level data answers questions no loyalty card ever could.</p>
 
-  <div class="grid2 mt18" style="flex:1; align-items:stretch;">
+  <div style="display:flex; gap:52px; justify-content:center; align-items:center; max-width:900px; margin:0 auto; flex:1;">
 
     <!-- A. Brand -->
-    <div class="card" style="padding:24px 26px; display:flex; flex-direction:column; border-top:3px solid var(--pos);">
-      <div style="display:flex; align-items:center; gap:11px; margin-bottom:14px;">
-        <div class="itile" style="background:#dcfce7; color:var(--pos);"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg></div>
-        <div style="font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:.08em; color:var(--pos);">Brand &amp; Advertiser asks</div>
+    <div style="flex:1; max-width:410px; position:relative; background:#f0fdf4; border:1px solid #bbf7d0; border-radius:20px 20px 20px 5px; padding:22px 26px 24px; box-shadow:0 10px 24px rgba(5,150,105,0.10);">
+      <div style="position:absolute; top:8px; right:20px; font-family:Georgia,'Times New Roman',serif; font-size:56px; line-height:1; font-weight:800; color:var(--pos); opacity:.12;">&rdquo;</div>
+      <div style="display:inline-flex; align-items:center; gap:8px; background:#fff; border:1px solid #bbf7d0; border-radius:99px; padding:4px 12px 4px 5px; margin-bottom:15px;">
+        <span style="width:22px; height:22px; border-radius:50%; background:var(--pos); color:#fff; display:inline-flex; align-items:center; justify-content:center; flex:none;"><svg class="i" viewBox="0 0 24 24" style="width:13px; height:13px; stroke:#fff; stroke-width:2.4;"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/></svg></span>
+        <span style="font-size:10.5px; font-weight:800; text-transform:uppercase; letter-spacing:.09em; color:var(--pos);">A brand asks</span>
       </div>
-      <div style="font-size:17px; font-weight:650; color:var(--ink); font-style:italic; line-height:1.35; margin-bottom:15px;">"Is the audience at these screens actually my buyer — and can I measure the lift?"</div>
-      <div style="height:1px; background:var(--line); margin-bottom:14px;"></div>
-      <div style="display:flex; flex-direction:column; gap:10px;">
-        <div style="display:flex; gap:9px; font-size:13px; color:var(--ink-2); line-height:1.42;"><span style="color:var(--pos); font-weight:800;">›</span><span><b>63% male · 78% aged 20–39</b> — a young, male-skewed reach</span></div>
-        <div style="display:flex; gap:9px; font-size:13px; color:var(--ink-2); line-height:1.42;"><span style="color:var(--pos); font-weight:800;">›</span><span><b>83% mid-range spenders</b> — mass-market, value-led basket</span></div>
-        <div style="display:flex; gap:9px; font-size:13px; color:var(--ink-2); line-height:1.42;"><span style="color:var(--pos); font-weight:800;">›</span><span><b>19.9 s avg attention</b> — exposure you can match to the receipt</span></div>
-      </div>
+      <div style="font-size:16.5px; font-weight:650; color:var(--ink); font-style:italic; line-height:1.48;">Are shoppers in workwear more likely to reach for Tiger, Monster or Red Bull than the average EuroOil customer?</div>
     </div>
 
     <!-- B. Retailer -->
-    <div class="card" style="padding:24px 26px; display:flex; flex-direction:column; border-top:3px solid var(--blue);">
-      <div style="display:flex; align-items:center; gap:11px; margin-bottom:14px;">
-        <div class="itile" style="background:var(--blue-soft); color:var(--blue);"><svg class="i" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></div>
-        <div style="font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:.08em; color:var(--blue);">Retailer asks</div>
+    <div style="flex:1; max-width:410px; position:relative; background:#eff5ff; border:1px solid #cfe0fd; border-radius:20px 20px 5px 20px; padding:22px 26px 24px; box-shadow:0 10px 24px rgba(37,99,235,0.10);">
+      <div style="position:absolute; top:8px; right:20px; font-family:Georgia,'Times New Roman',serif; font-size:56px; line-height:1; font-weight:800; color:var(--blue); opacity:.12;">&rdquo;</div>
+      <div style="display:inline-flex; align-items:center; gap:8px; background:#fff; border:1px solid #cfe0fd; border-radius:99px; padding:4px 12px 4px 5px; margin-bottom:15px;">
+        <span style="width:22px; height:22px; border-radius:50%; background:var(--blue); color:#fff; display:inline-flex; align-items:center; justify-content:center; flex:none;"><svg class="i" viewBox="0 0 24 24" style="width:13px; height:13px; stroke:#fff; stroke-width:2.2;"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></span>
+        <span style="font-size:10.5px; font-weight:800; text-transform:uppercase; letter-spacing:.09em; color:var(--blue);">A retailer asks</span>
       </div>
-      <div style="font-size:17px; font-weight:650; color:var(--ink); font-style:italic; line-height:1.35; margin-bottom:15px;">"When is my store busiest, who am I serving, and is my screen space worth selling?"</div>
-      <div style="height:1px; background:var(--line); margin-bottom:14px;"></div>
-      <div style="display:flex; flex-direction:column; gap:10px;">
-        <div style="display:flex; gap:9px; font-size:13px; color:var(--ink-2); line-height:1.42;"><span style="color:var(--blue); font-weight:800;">›</span><span><b>Footfall peaks 07–08 &amp; 12–13</b> — commute and lunch waves</span></div>
-        <div style="display:flex; gap:9px; font-size:13px; color:var(--ink-2); line-height:1.42;"><span style="color:var(--blue); font-weight:800;">›</span><span><b>Core shopper: 30-something</b>, value-conscious, quick stop</span></div>
-        <div style="display:flex; gap:9px; font-size:13px; color:var(--ink-2); line-height:1.42;"><span style="color:var(--blue); font-weight:800;">›</span><span><b>588k shoppers read</b> — no loyalty card, no survey</span></div>
-      </div>
+      <div style="font-size:16.5px; font-weight:650; color:var(--ink); font-style:italic; line-height:1.48;">Does my morning crowd differ from my lunch crowd, and how should I merchandise for each?</div>
     </div>
 
   </div>
-  <div class="note" style="text-align:center; margin-top:14px;">Live answers drawn from 588k analysed shoppers across one fuel-retail network — same data, asked two ways.</div>
+  <div class="note" style="text-align:center; margin-top:16px;">One shelf-level dataset, sliced live by any visual trait, hour or screen. No loyalty card, no survey.</div>
   
-  <div class="flow">COVER → PROBLEM → <b>SOLUTION</b> → TRACTION</div><div class="pageno">06 / 14</div>
+  <div class="flow">COVER → PROBLEM → <b>SOLUTION</b> → TRACTION</div><div class="pageno">07 / 15</div>
 </section>
 <!-- 1. Who is customer -->
 <section class="slide">
-  <div class="top"><span class="brand"><img src="../brand/logo/logo_mindsmodels-normal-black.png" alt="Minds&Models"></span><span class="meta">Customers</span></div>
+  <div class="top"><span class="brand"><img src="../brand/logo/logo_mindsmodels-normal-black-trim.png" alt="Minds&Models"></span><span class="meta">Customers</span></div>
   <p class="label">07 · The Ecosystem</p>
   <h2>Value created across the <span class="accent">entire retail chain.</span></h2>
   
-  <div style="display:flex; flex-direction:column; gap:12px; margin-top:14px; align-items:center; width:100%;">
-    
-    <!-- Top Row: Brands -->
-    <div class="card" style="width:100%; max-width:440px; padding:16px; text-align:center; border-color:var(--pos); box-shadow:0 4px 14px rgba(5,150,105,0.1); position:relative; z-index:2;">
-      <h3 class="big" style="color:var(--pos); justify-content:center; font-size:16px; margin-bottom:6px;">Brands & Advertisers</h3>
-      <p style="font-size:13px; color:var(--muted);">Pay <b>CASH</b> for closed-loop measurement (1–8M CZK/yr/brand).</p>
+  <div style="flex:1; display:flex; flex-direction:column; justify-content:center; align-items:center; gap:16px; width:100%; margin-top:6px;">
+
+    <!-- Top: Data Brokers -->
+    <div class="card" style="width:100%; max-width:470px; padding:16px 22px; text-align:center; border:1px solid var(--line); border-top:3px solid var(--amber); background:var(--amber-soft); box-shadow:0 6px 18px rgba(217,119,6,0.12); z-index:2;">
+      <h3 class="big" style="color:var(--amber); justify-content:center; font-size:16px; margin-bottom:5px;">Data Brokers</h3>
+      <p style="font-size:12.5px; color:var(--ink-2);">Own the "what sold" data. Pay to license M&amp;M's "who bought" layer.</p>
     </div>
 
-    <!-- Arrow down from Brands -->
-    <div style="display:flex; align-items:center; justify-content:center; gap:8px; color:var(--pos); font-weight:800; font-size:13px; margin:-4px 0;">
-      <span>$$$ Measurement & Media Spend $$$</span>
-      <svg class="i" viewBox="0 0 24 24" style="width:20px; height:20px; stroke:currentColor; stroke-width:3;"><path d="M12 4v16m-6-6l6 6l6-6"/></svg>
+    <!-- flow: data brokers pay licensing down to centre -->
+    <div style="display:flex; align-items:center; gap:8px; color:var(--amber); font-weight:800; font-size:10.5px; text-transform:uppercase; letter-spacing:.08em;">
+      <span>Schema licensing</span>
+      <svg class="i" viewBox="0 0 24 24" style="width:18px; height:18px; stroke:currentColor; stroke-width:3;"><path d="M12 4v16m-6-6l6 6l6-6"/></svg>
     </div>
 
-    <!-- Middle Row: Retailers -> Center <- Data Brokers -->
-    <div style="display:flex; align-items:center; justify-content:center; width:100%; max-width:1000px; gap:8px;">
-      
-      <!-- Left: Retailers -->
-      <div class="card" style="flex:1; padding:16px; text-align:center; border-color:var(--blue); position:relative; z-index:2;">
-        <h3 class="big" style="color:var(--blue); justify-content:center; font-size:16px; margin-bottom:6px;">Retailers</h3>
-        <p style="font-size:12px; color:var(--muted);">Provide Data Rights & Audience.<br>Earn 40-70% Rev Share.</p>
+    <!-- Middle row -->
+    <div style="display:flex; align-items:center; justify-content:center; width:100%; max-width:1080px; gap:12px;">
+
+      <!-- Retailers (supply the data asset) -->
+      <div class="card" style="flex:1; max-width:240px; padding:18px 16px; text-align:center; border:1px solid var(--line); border-top:3px solid var(--blue); z-index:2;">
+        <h3 class="big" style="color:var(--blue); justify-content:center; font-size:16px; margin-bottom:5px;">Retailers</h3>
+        <p style="font-size:12px; color:var(--muted);">Provide data rights &amp; audience.<br>Earn 40 to 70% rev share.</p>
       </div>
 
-      <!-- Arrow from Retailers to Center -->
-      <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; color:var(--blue); font-weight:800; font-size:12px; width:140px; flex:none;">
-        <span style="text-align:center; margin-bottom:4px; line-height:1.2;">$$$ Activation<br>(€120/screen/mo)</span>
-        <svg class="i" viewBox="0 0 24 24" style="width:24px; height:24px; stroke:currentColor; stroke-width:3; transform:rotate(-90deg);"><path d="M12 4v16m-6-6l6 6l6-6"/></svg>
+      <!-- flow: retailers supply data into centre -->
+      <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; color:var(--blue); font-weight:800; font-size:10.5px; text-transform:uppercase; letter-spacing:.05em; width:132px; flex:none;">
+        <span style="text-align:center; margin-bottom:5px; line-height:1.25;">Shopper data<br>&amp; audience</span>
+        <svg class="i" viewBox="0 0 24 24" style="width:22px; height:22px; stroke:currentColor; stroke-width:3; transform:rotate(-90deg);"><path d="M12 4v16m-6-6l6 6l6-6"/></svg>
       </div>
 
-      <!-- Center: M&M Logo -->
-      <div class="card" style="padding:24px 32px; text-align:center; background:var(--card); border:2px solid var(--ink); border-radius:16px; box-shadow:0 12px 30px rgba(15,23,42,0.15); display:flex; flex-direction:column; align-items:center; justify-content:center; flex:none; width:360px; height:auto; min-height:140px; z-index:10;">
-        <img src="../brand/logo/logo_mindsmodels-normal-black.png" alt="Minds&Models" style="height:48px; display:block; margin:0 auto;">
-        <div style="font-size:12px; font-weight:800; color:var(--ink-2); text-transform:uppercase; letter-spacing:.05em; margin-top:14px;">Infrastructure Centerpiece &amp;<br>Intelligence Layer</div>
-        <div style="font-size:12px; color:var(--muted); margin-top:8px; line-height:1.4;">We collect data at the shelf (the moat), generate insights, and enable execution.</div>
+      <!-- Center M&M -->
+      <div class="card" style="padding:26px 34px; text-align:center; background:var(--card); border:2px solid var(--ink); border-radius:16px; box-shadow:0 14px 34px rgba(15,23,42,0.16); display:flex; flex-direction:column; align-items:center; justify-content:center; flex:none; width:360px; min-height:150px; z-index:10;">
+        <img src="../brand/logo/logo_mindsmodels-normal-black-trim.png" alt="Minds&Models" style="width:250px; height:auto; display:block; margin:0 auto;">
+        <div style="font-size:11.5px; font-weight:800; color:var(--ink-2); text-transform:uppercase; letter-spacing:.06em; margin-top:14px;">Infrastructure Centerpiece &amp; Intelligence Layer</div>
+        <div style="font-size:12px; color:var(--muted); margin-top:7px; line-height:1.45;">We collect data at the shelf (the moat), generate the insight, and enable execution.</div>
       </div>
 
-      <!-- Arrow from Data Brokers to Center -->
-      <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; color:var(--amber); font-weight:800; font-size:12px; width:140px; flex:none;">
-        <span style="text-align:center; margin-bottom:4px; line-height:1.2;">$$$ Schema<br>Licensing</span>
-        <svg class="i" viewBox="0 0 24 24" style="width:24px; height:24px; stroke:currentColor; stroke-width:3; transform:rotate(90deg);"><path d="M12 4v16m-6-6l6 6l6-6"/></svg>
+      <!-- flow: brands pay cash into centre -->
+      <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; color:var(--pos); font-weight:800; font-size:10.5px; text-transform:uppercase; letter-spacing:.05em; width:132px; flex:none;">
+        <span style="text-align:center; margin-bottom:5px; line-height:1.25;">Media &amp;<br>measurement spend</span>
+        <svg class="i" viewBox="0 0 24 24" style="width:22px; height:22px; stroke:currentColor; stroke-width:3; transform:rotate(90deg);"><path d="M12 4v16m-6-6l6 6l6-6"/></svg>
       </div>
 
-      <!-- Right: Data Brokers -->
-      <div class="card" style="flex:1; padding:16px; text-align:center; border-color:var(--amber); background:var(--amber-soft); position:relative; z-index:2;">
-        <h3 class="big" style="color:var(--amber); justify-content:center; font-size:16px; margin-bottom:6px;">Data Brokers</h3>
-        <p style="font-size:12px; color:var(--ink-2);">Provide Distribution Reach.<br>Own "what sold" legacy data.</p>
+      <!-- Brands & Advertisers (demand, pay cash) -->
+      <div class="card" style="flex:1; max-width:240px; padding:18px 16px; text-align:center; border:1px solid var(--line); border-top:3px solid var(--pos); z-index:2;">
+        <h3 class="big" style="color:var(--pos); justify-content:center; font-size:16px; margin-bottom:5px;">Brands &amp; Advertisers</h3>
+        <p style="font-size:12px; color:var(--muted);">Pay <b>cash</b> for closed-loop measurement.<br>1 to 8M CZK / yr / brand.</p>
       </div>
 
     </div>
+
+    <!-- takeaway -->
+    <div class="note" style="text-align:center; margin-top:6px; font-size:12px; color:var(--muted);">Retailers bring the data. Brands and brokers bring the cash. Minds &amp; Models turns one into the other.</div>
+
   </div>
   
-  <div class="flow">COVER → <b>CUSTOMERS</b> → TRACTION → ECONOMICS → GTM</div><div class="pageno">07 / 14</div>
+  <div class="flow">COVER → <b>CUSTOMERS</b> → TRACTION → ECONOMICS → GTM</div><div class="pageno">08 / 15</div>
 </section>
 <!-- 5. Traction -->
 <section class="slide">
-  <div class="top"><span class="brand"><img src="../brand/logo/logo_mindsmodels-normal-black.png" alt="Minds&Models"></span><span class="meta">Traction</span></div>
+  <div class="top"><span class="brand"><img src="../brand/logo/logo_mindsmodels-normal-black-trim.png" alt="Minds&Models"></span><span class="meta">Traction</span></div>
   <p class="label">08 · Traction</p>
   <h2>Velocity: From <span class="accent">zero</span> to <span class="accent">8 live pilots</span> in 3.5 months.</h2>
 
@@ -559,9 +633,9 @@ svg.i{width:16px; height:16px; flex:none; stroke:currentColor; fill:none; stroke
       <div class="s">$3.24M ARR potential</div>
     </div>
     <div class="card tile" style="text-align: center; padding: 30px 10px;">
-      <div class="v c">~4k</div>
-      <div class="k">Store Footprint</div>
-      <div class="s">Current pilots total potential.</div>
+      <div class="v c">45K+</div>
+      <div class="k">Store locations</div>
+      <div class="s">Via 3 signed shop-fitting partners</div>
     </div>
     <div class="card tile" style="text-align: center; padding: 30px 10px;">
       <div class="v b">6.4M+</div>
@@ -612,13 +686,13 @@ svg.i{width:16px; height:16px; flex:none; stroke:currentColor; fill:none; stroke
     </div>
   </div>
 
-  <div class="flow">COVER → CUSTOMERS → <b>TRACTION</b> → ECONOMICS → GTM</div><div class="pageno">08 / 14</div>
+  <div class="flow">COVER → CUSTOMERS → <b>TRACTION</b> → ECONOMICS → GTM</div><div class="pageno">09 / 15</div>
 </section>
 
 <!-- NEW 1. Dual Monetization Engine (Combines Unit Economics and Business Model) -->
 <section class="slide">
-  <div class="top"><span class="brand"><img src="../brand/logo/logo_mindsmodels-normal-black.png" alt="Minds&Models"></span><span class="meta">Business Model &amp; Unit Economics</span></div>
-  <p class="label">10 · Business Model</p>
+  <div class="top"><span class="brand"><img src="../brand/logo/logo_mindsmodels-normal-black-trim.png" alt="Minds&Models"></span><span class="meta">Business Model &amp; Unit Economics</span></div>
+  <p class="label">09 · Business Model</p>
   
   <h2>The <span class="accent">Dual Monetization</span> Engine</h2>
   
@@ -629,7 +703,7 @@ svg.i{width:16px; height:16px; flex:none; stroke:currentColor; fill:none; stroke
       <div style="width:280px; flex:none; text-align:left;">
         <div style="font-size:16px; font-weight:700; color:var(--ink-2); line-height:1.3;">Data Brokers</div>
         <div style="font-size:14px; font-weight:600; color:var(--muted); margin-top:6px;">Data &amp; Measurement</div>
-        <div style="font-size:16px; font-weight:800; color:var(--ink); margin-top:6px;">€40k–320k <span style="font-size:12px; font-weight:600; color:var(--muted);">/ yr / customer</span></div>
+        <div style="font-size:16px; font-weight:800; color:var(--ink); margin-top:6px;">€40k-320k <span style="font-size:12px; font-weight:600; color:var(--muted);">/ yr / customer</span></div>
       </div>
       <div style="width:1px; height:40px; background:var(--line); flex:none;"></div>
       <div style="flex:1; text-align:left;">
@@ -645,7 +719,7 @@ svg.i{width:16px; height:16px; flex:none; stroke:currentColor; fill:none; stroke
       <div style="width:280px; flex:none; text-align:left;">
         <div style="font-size:16px; font-weight:700; color:var(--ink-2); line-height:1.3;">Brands</div>
         <div style="font-size:14px; font-weight:600; color:var(--muted); margin-top:6px;">Service-based</div>
-        <div style="font-size:16px; font-weight:800; color:var(--ink); margin-top:6px;">€40k–320k <span style="font-size:12px; font-weight:600; color:var(--muted);">/ yr / customer</span></div>
+        <div style="font-size:16px; font-weight:800; color:var(--ink); margin-top:6px;">€40k-320k <span style="font-size:12px; font-weight:600; color:var(--muted);">/ yr / customer</span></div>
       </div>
       <div style="width:1px; height:40px; background:var(--line); flex:none;"></div>
       <div style="flex:1; text-align:left;">
@@ -676,13 +750,13 @@ svg.i{width:16px; height:16px; flex:none; stroke:currentColor; fill:none; stroke
     
   </div>
 
-  <div class="flow">COVER → CUSTOMERS → TRACTION → <b>ECONOMICS</b> → GTM</div><div class="pageno">09 / 14</div>
+  <div class="flow">COVER → CUSTOMERS → TRACTION → <b>ECONOMICS</b> → GTM</div><div class="pageno">10 / 15</div>
 </section>
 
 <!-- NEW 2. H2 2026 Pipeline Projection -->
 <section class="slide">
-  <div class="top"><span class="brand"><img src="../brand/logo/logo_mindsmodels-normal-black.png" alt="Minds&Models"></span><span class="meta">GTM &amp; Roadmap</span></div>
-  <p class="label">11 · H2 2026 Execution Pipeline</p>
+  <div class="top"><span class="brand"><img src="../brand/logo/logo_mindsmodels-normal-black-trim.png" alt="Minds&Models"></span><span class="meta">GTM &amp; Roadmap</span></div>
+  <p class="label">10 · H2 2026 Execution Pipeline</p>
   <h2>The Next 6 Months: <span class="accent">Tangible execution</span> of the dual monetization model.</h2>
   <p class="lead mt10" style="max-width:80ch; font-size:15px;">Personalization is sold to retailers, while data is sold to brands and data brokers.</p>
 
@@ -705,7 +779,7 @@ svg.i{width:16px; height:16px; flex:none; stroke:currentColor; fill:none; stroke
           <td style="padding:16px 24px; color:var(--muted); text-align:right;">€0</td>
           <td style="padding:16px 24px; color:var(--muted); text-align:right;">€0</td>
           <td style="padding:16px 24px; font-weight:800; color:var(--ink); text-align:right; background:var(--blue-soft);">€0</td>
-          <td style="padding:16px 24px; color:var(--ink-2);">—</td>
+          <td style="padding:16px 24px; color:var(--ink-2);">-</td>
         </tr>
         <tr style="border-bottom:1px solid #eef2f6;">
           <td style="padding:16px 24px; font-weight:700; color:var(--ink);">Aug-26</td>
@@ -751,12 +825,12 @@ svg.i{width:16px; height:16px; flex:none; stroke:currentColor; fill:none; stroke
     </table>
   </div>
   
-  <div class="flow">COVER → CUSTOMERS → TRACTION → ECONOMICS → <b>GTM</b></div><div class="pageno">10 / 14</div>
+  <div class="flow">COVER → CUSTOMERS → TRACTION → ECONOMICS → <b>GTM</b></div><div class="pageno">11 / 15</div>
 </section>
 <!-- 3. Unit Economics -->
 <section class="slide" style="opacity: 0.5; filter: grayscale(1);">
-  <div class="top"><span class="brand"><img src="../brand/logo/logo_mindsmodels-normal-black.png" alt="Minds&Models"></span><span class="meta">Unit Economics</span></div>
-  <p class="label">09 · Unit Economics</p>
+  <div class="top"><span class="brand"><img src="../brand/logo/logo_mindsmodels-normal-black-trim.png" alt="Minds&Models"></span><span class="meta">Unit Economics</span></div>
+  <p class="label">11 · Unit Economics</p>
   <h2 style="text-decoration: line-through;">The <span class="accent">Dual Monetization</span> Engine</h2>
   
   <div style="display:flex; gap:30px; align-items:stretch; margin-top:18px;">
@@ -792,7 +866,7 @@ svg.i{width:16px; height:16px; flex:none; stroke:currentColor; fill:none; stroke
       <!-- Stream B -->
       <div class="card" style="display:flex; padding: 24px 32px; gap:24px; align-items:center; border:2px solid var(--pos); background:#dcfce7; box-shadow:0 8px 24px rgba(5,150,105,0.12);">
         <div style="flex:none; width:150px;">
-          <div style="font-size: 32px; font-weight: 800; color: var(--pos); line-height:1; letter-spacing:-0.03em;">€40k–320k</div>
+          <div style="font-size: 32px; font-weight: 800; color: var(--pos); line-height:1; letter-spacing:-0.03em;">€40k-320k</div>
           <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--pos); letter-spacing: 0.05em; margin-top:6px;">/ yr / brand</div>
         </div>
         <div style="flex:1;">
@@ -816,15 +890,15 @@ svg.i{width:16px; height:16px; flex:none; stroke:currentColor; fill:none; stroke
     </div>
   </div>
   
-  <div class="flow">COVER → CUSTOMERS → TRACTION → <b>ECONOMICS</b> → GTM</div><div class="pageno">09 / 14</div>
+  <div class="flow">COVER → CUSTOMERS → TRACTION → <b>ECONOMICS</b> → GTM</div><div class="pageno">12 / 15</div>
 </section>
 <!-- Business Model (3 phases) -->
 <section class="slide center" style="padding-top:60px;">
   <div class="top" style="position:absolute; top:34px; left:54px; right:54px; margin:0">
-    <span class="brand"><img src="../brand/logo/logo_mindsmodels-normal-black.png" alt="Minds&Models"></span>
+    <span class="brand"><img src="../brand/logo/logo_mindsmodels-normal-black-trim.png" alt="Minds&Models"></span>
     <span class="meta">Business Model</span>
   </div>
-  <p class="label" style="text-align:center;">10 · Business Model</p>
+  <p class="label" style="text-align:center;">12 · Business Model</p>
   
   <h1 style="text-decoration: line-through;" style="text-align:center; font-size:44px; font-weight:700; color:#1e293b; margin-bottom:40px;">3 Phases of <span style="color:#3b82f6;">Business Model</span></h1>
   
@@ -878,12 +952,12 @@ svg.i{width:16px; height:16px; flex:none; stroke:currentColor; fill:none; stroke
     
   </div>
   
-  <div class="flow">COVER → CUSTOMERS → TRACTION → ECONOMICS → <b>GTM</b></div><div class="pageno">10 / 14</div>
+  <div class="flow">COVER → CUSTOMERS → TRACTION → ECONOMICS → <b>GTM</b></div><div class="pageno">13 / 15</div>
 </section>
 <!-- 4. Business Plan -->
 <section class="slide" style="opacity: 0.5; filter: grayscale(1);">
-  <div class="top"><span class="brand"><img src="../brand/logo/logo_mindsmodels-normal-black.png" alt="Minds&Models"></span><span class="meta">GTM &amp; Roadmap</span></div>
-  <p class="label">11 · GTM &amp; Execution Roadmap</p>
+  <div class="top"><span class="brand"><img src="../brand/logo/logo_mindsmodels-normal-black-trim.png" alt="Minds&Models"></span><span class="meta">GTM &amp; Roadmap</span></div>
+  <p class="label">13 · GTM &amp; Execution Roadmap</p>
   <h2 style="text-decoration: line-through;">The Next 6 Months: <span class="accent">Securing the footprint</span> & unlocking the currency.</h2>
   
   <div class="grid3 mt18" style="align-items: stretch; position: relative;">
@@ -894,7 +968,7 @@ svg.i{width:16px; height:16px; flex:none; stroke:currentColor; fill:none; stroke
     <!-- Phase 1 -->
     <div class="card" style="padding: 24px; position: relative; z-index: 1; display:flex; flex-direction:column; border-color:var(--blue);">
       <div style="width:24px; height:24px; border-radius:50%; background:var(--blue); color:#fff; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; margin:0 auto 16px; border:4px solid var(--card); box-sizing:content-box;">1</div>
-      <div style="text-align:center; font-size:11px; font-weight:800; text-transform:uppercase; color:var(--blue); letter-spacing:.05em; margin-bottom:4px;">Months 1–2</div>
+      <div style="text-align:center; font-size:11px; font-weight:800; text-transform:uppercase; color:var(--blue); letter-spacing:.05em; margin-bottom:4px;">Months 1-2</div>
       <h3 class="big" style="text-align:center; color:var(--ink); font-size:18px; margin-bottom:16px;">Lock the Footprint</h3>
       
       <div style="flex:1;">
@@ -914,7 +988,7 @@ svg.i{width:16px; height:16px; flex:none; stroke:currentColor; fill:none; stroke
     <!-- Phase 2 -->
     <div class="card" style="padding: 24px; position: relative; z-index: 1; display:flex; flex-direction:column; border-color:var(--pos);">
       <div style="width:24px; height:24px; border-radius:50%; background:var(--pos); color:#fff; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; margin:0 auto 16px; border:4px solid var(--card); box-sizing:content-box;">2</div>
-      <div style="text-align:center; font-size:11px; font-weight:800; text-transform:uppercase; color:var(--pos); letter-spacing:.05em; margin-bottom:4px;">Months 3–4</div>
+      <div style="text-align:center; font-size:11px; font-weight:800; text-transform:uppercase; color:var(--pos); letter-spacing:.05em; margin-bottom:4px;">Months 3-4</div>
       <h3 class="big" style="text-align:center; color:var(--ink); font-size:18px; margin-bottom:16px;">Activate Revenue</h3>
       
       <div style="flex:1;">
@@ -934,7 +1008,7 @@ svg.i{width:16px; height:16px; flex:none; stroke:currentColor; fill:none; stroke
     <!-- Phase 3 -->
     <div class="card" style="padding: 24px; position: relative; z-index: 1; display:flex; flex-direction:column; border-color:var(--amber);">
       <div style="width:24px; height:24px; border-radius:50%; background:var(--amber); color:#fff; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; margin:0 auto 16px; border:4px solid var(--card); box-sizing:content-box;">3</div>
-      <div style="text-align:center; font-size:11px; font-weight:800; text-transform:uppercase; color:var(--amber); letter-spacing:.05em; margin-bottom:4px;">Months 5–6</div>
+      <div style="text-align:center; font-size:11px; font-weight:800; text-transform:uppercase; color:var(--amber); letter-spacing:.05em; margin-bottom:4px;">Months 5-6</div>
       <h3 class="big" style="text-align:center; color:var(--ink); font-size:18px; margin-bottom:16px;">Launch Currency</h3>
       
       <div style="flex:1;">
@@ -947,25 +1021,25 @@ svg.i{width:16px; height:16px; flex:none; stroke:currentColor; fill:none; stroke
 
       <div style="background:var(--amber-soft); padding:12px; border-radius:8px; margin-top:auto;">
         <div style="font-size:10px; color:var(--amber); font-weight:800; text-transform:uppercase; margin-bottom:2px;">Outcome</div>
-        <div style="font-size:13px; font-weight:700; color:var(--amber); line-height:1.3;">€1.5–3.2M capture path initiated.</div>
+        <div style="font-size:13px; font-weight:700; color:var(--amber); line-height:1.3;">€1.5-3.2M capture path initiated.</div>
       </div>
     </div>
     
   </div>
   
-  <div class="flow">COVER → CUSTOMERS → TRACTION → ECONOMICS → <b>GTM</b></div><div class="pageno">11 / 14</div>
+  <div class="flow">COVER → CUSTOMERS → TRACTION → ECONOMICS → <b>GTM</b></div><div class="pageno">14 / 15</div>
 </section>
 <!-- 15. Investment -->
 <section class="slide center">
   <div class="top" style="position:absolute; top:34px; left:54px; right:54px; margin:0">
-    <span class="brand"><img src="../brand/logo/logo_mindsmodels-normal-black.png" alt="Minds&Models"></span>
+    <span class="brand"><img src="../brand/logo/logo_mindsmodels-normal-black-trim.png" alt="Minds&Models"></span>
     <span class="meta">Investment</span>
   </div>
-  <p class="label">12 · The Ask</p>
+  <p class="label">14 · The Ask</p>
   <h1>Fueling the <span class="accent-co">measurement standard</span><br>for physical retail.</h1>
   <p class="lead mt14" style="max-width:70ch">We are raising capital to accelerate our chain deployments and lock in the data layer across Central Europe.</p>
   
-  <div class="flow">COVER → PROBLEM → SOLUTION → <b>INVESTMENT</b></div><div class="pageno">12 / 14</div>
+  <div class="flow">COVER → PROBLEM → SOLUTION → <b>INVESTMENT</b></div><div class="pageno">15 / 15</div>
 </section>
 
 </div>
