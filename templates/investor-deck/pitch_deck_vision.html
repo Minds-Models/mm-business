@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minds & Models: Pitch Deck Viewer</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#0f172a',
+                            panel: '#1e293b',
+                            neonBlue: '#22d3ee',
+                            neonGreen: '#34d399',
+                            accent: '#818cf8',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'ui-monospace', 'SFMono-Regular', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- React & ReactDOM -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <!-- Babel for JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <!-- Recharts (for the Pie Chart) -->
+    <script crossorigin src="https://unpkg.com/react-is@18/umd/react-is.production.min.js"></script>
+    <script src="https://unpkg.com/prop-types/prop-types.min.js"></script>
+    <script src="https://unpkg.com/recharts@2.12.7/umd/Recharts.js"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #050b14; color: #f8fafc; overflow-x: hidden; }
+        .font-mono { font-family: 'JetBrains Mono', monospace; }
+        .slide-container { aspect-ratio: 16/9; background: #0f172a; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); }
+        .glass-panel { background: rgba(30, 41, 59, 0.6); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        
+        /* Grid background for slides */
+        .bg-grid { background-size: 40px 40px; background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px); }
+        
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col">
+    <div id="root" class="flex-grow flex flex-col"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+        const { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, Legend } = window.Recharts;
+
+        // --- Icons ---
+        const IconChevronLeft = () => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></svg>;
+        const IconChevronRight = () => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>;
+        const IconEye = () => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>;
+
+        // Data for Pie Chart
+        const pieData = [
+            { name: 'Fulfilling Pilot Demand', value: 50, color: '#22d3ee' },
+            { name: 'Tech & AI Refinement', value: 28, color: '#34d399' },
+            { name: 'Partner Rollout & Ops', value: 22, color: '#818cf8' }
+        ];
+
+        const slides = [
+            {
+                id: 1,
+                title: "The Hook",
+                content: (
+                    <div className="flex flex-col items-center justify-center h-full text-center p-12 bg-grid relative overflow-hidden">
+                        <div className="absolute top-0 right-0 w-96 h-96 bg-brand-neonBlue/10 rounded-full blur-[100px] -mr-48 -mt-48"></div>
+                        <div className="flex items-center gap-4 mb-8">
+                            <IconEye className="w-12 h-12 text-brand-neonBlue" />
+                            <h1 className="text-3xl font-bold tracking-widest text-slate-300">MINDS & MODELS</h1>
+                        </div>
+                        <h2 className="text-6xl font-extrabold text-white mb-6 leading-tight">
+                            The Ultimate Offline <br/>
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-neonBlue to-brand-neonGreen">Behavioral Dataset</span>
+                        </h2>
+                        <p className="text-2xl text-slate-400 max-w-3xl font-light">
+                            Every in-store shopper carries 100s of visual data points. <br/> We're the first to use them to build the offline cookie.
+                        </p>
+                    </div>
+                )
+            },
+            {
+                id: 2,
+                title: "The Problem",
+                content: (
+                    <div className="flex flex-col h-full p-16">
+                        <h2 className="text-4xl font-bold text-white mb-4">Physical Retail is <span className="text-rose-500">Blind</span>.</h2>
+                        <div className="w-24 h-1 bg-rose-500 mb-12"></div>
+                        
+                        <div className="flex-1 grid grid-cols-2 gap-12 items-center">
+                            <div>
+                                <p className="text-2xl text-slate-300 leading-relaxed mb-8">
+                                    They know <strong className="text-brand-neonBlue">what</strong> was bought, but not <strong className="text-brand-neonBlue">who</strong> is buying it. Legacy measurement giants rely purely on receipt-only knowledge.
+                                </p>
+                                <p className="text-lg text-slate-400">While E-commerce tracks every micro-behavior, <strong className="text-rose-400">80% of retail transactions</strong> happen in a physical black box.</p>
+                            </div>
+                            
+                            {/* Visualizing the Problem */}
+                            <div className="h-full flex flex-col justify-center gap-8">
+                                <div className="glass-panel p-6 rounded-xl border border-brand-neonGreen/50 flex flex-col relative shadow-[0_0_30px_rgba(52,211,153,0.1)]">
+                                    <h3 className="text-lg font-bold text-brand-neonGreen mb-4 uppercase tracking-wider font-mono">E-Commerce Data 🟢</h3>
+                                    <div className="flex flex-wrap gap-2 mb-4">
+                                        <span className="bg-brand-neonGreen/20 text-brand-neonGreen px-3 py-1 rounded-full text-xs font-mono border border-brand-neonGreen/30">Demographics</span>
+                                        <span className="bg-brand-neonGreen/20 text-brand-neonGreen px-3 py-1 rounded-full text-xs font-mono border border-brand-neonGreen/30">Browsing History</span>
+                                        <span className="bg-brand-neonGreen/20 text-brand-neonGreen px-3 py-1 rounded-full text-xs font-mono border border-brand-neonGreen/30">Dwell Time</span>
+                                        <span className="bg-brand-neonGreen/20 text-brand-neonGreen px-3 py-1 rounded-full text-xs font-mono border border-brand-neonGreen/30">Cart Abandonment</span>
+                                        <span className="bg-brand-neonGreen/20 text-brand-neonGreen px-3 py-1 rounded-full text-xs font-mono border border-brand-neonGreen/30">Search Queries</span>
+                                        <span className="bg-brand-neonGreen/20 text-brand-neonGreen px-3 py-1 rounded-full text-xs font-mono border border-brand-neonGreen/30">Purchase</span>
+                                    </div>
+                                </div>
+                                
+                                <div className="glass-panel p-6 rounded-xl border border-rose-500/50 flex flex-col relative shadow-[0_0_30px_rgba(244,63,94,0.1)]">
+                                    <h3 className="text-lg font-bold text-rose-500 mb-4 uppercase tracking-wider font-mono">Physical Retail Data 🔴</h3>
+                                    <div className="flex flex-wrap gap-2 mb-4">
+                                        <span className="bg-slate-800 text-slate-500 px-3 py-1 rounded-full text-xs font-mono border border-slate-700">Shopper Demographics ???</span>
+                                        <span className="bg-slate-800 text-slate-500 px-3 py-1 rounded-full text-xs font-mono border border-slate-700">Clothing Style & Brand ???</span>
+                                        <span className="bg-slate-800 text-slate-500 px-3 py-1 rounded-full text-xs font-mono border border-slate-700">Spending Tier/Value ???</span>
+                                        <span className="bg-slate-800 text-slate-500 px-3 py-1 rounded-full text-xs font-mono border border-slate-700">Group Size ???</span>
+                                        <span className="bg-slate-800 text-slate-500 px-3 py-1 rounded-full text-xs font-mono border border-slate-700">Ad Attention ???</span>
+                                        <span className="bg-rose-500/20 text-rose-400 px-3 py-1 rounded-full text-xs font-mono border border-rose-500/30">SKU Purchased</span>
+                                        <span className="bg-rose-500/20 text-rose-400 px-3 py-1 rounded-full text-xs font-mono border border-rose-500/30">Receipt Total</span>
+                                    </div>
+                                    <div className="flex justify-between items-center text-rose-400 font-medium text-sm mt-2 border-t border-rose-500/30 pt-4">
+                                        <div className="flex flex-col items-center"><div className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center mb-2 text-xl text-slate-600">?</div> Pre-Purchase</div>
+                                        <div className="w-full h-0.5 bg-rose-500/30 mx-2 border-t border-dashed border-rose-500/50"></div>
+                                        <div className="flex flex-col items-center"><div className="w-10 h-10 rounded-full bg-rose-500/20 flex items-center justify-center mb-2">🛒</div> Purchase</div>
+                                    </div>
+                                    <p className="text-center text-xs text-rose-400/80 mt-4 font-mono">87% of in-store analytics are collected AFTER payment.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                )
+            },
+            {
+                id: 3,
+                title: "The Solution",
+                content: (
+                    <div className="flex flex-col h-full p-16 bg-grid">
+                        <h2 className="text-4xl font-bold text-white mb-4">Privacy-First Intelligence</h2>
+                        <div className="w-24 h-1 bg-brand-neonBlue mb-12"></div>
+                        
+                        <div className="flex-1 flex flex-col justify-center gap-12">
+                            <p className="text-2xl text-slate-300 text-center max-w-4xl mx-auto">
+                                We turn physical stores into trackable environments. <br/> No facial recognition. No cross-visit ID. <strong className="text-brand-neonBlue">100% GDPR & AI Act Compliant.</strong>
+                            </p>
+
+                            <div className="grid grid-cols-3 gap-8">
+                                <div className="glass-panel p-8 rounded-xl border border-slate-700 relative flex flex-col items-center text-center">
+                                    <div className="absolute -top-6 w-12 h-12 bg-brand-neonBlue rounded-full flex items-center justify-center text-slate-900 font-bold text-xl shadow-[0_0_20px_rgba(34,211,238,0.4)]">1</div>
+                                    <h3 className="text-2xl font-bold text-white mb-4 mt-2">Sense</h3>
+                                    <p className="text-slate-400 text-lg">We deploy edge-AI sensors (or tap into existing infrastructure) that detect <strong className="text-brand-neonBlue">450+ visual attributes</strong> per customer in near real-time.</p>
+                                </div>
+                                
+                                <div className="glass-panel p-8 rounded-xl border border-slate-700 relative flex flex-col items-center text-center">
+                                    <div className="absolute -top-6 w-12 h-12 bg-brand-neonBlue rounded-full flex items-center justify-center text-slate-900 font-bold text-xl shadow-[0_0_20px_rgba(34,211,238,0.4)]">2</div>
+                                    <h3 className="text-2xl font-bold text-white mb-4 mt-2">Correlate</h3>
+                                    <p className="text-slate-400 text-lg">We ingest POS receipts and time-stamp correlate them to the visual sessions, achieving a proven <strong className="text-brand-neonBlue">92-93% match rate</strong>.</p>
+                                </div>
+
+                                <div className="glass-panel p-8 rounded-xl border border-slate-700 relative flex flex-col items-center text-center">
+                                    <div className="absolute -top-6 w-12 h-12 bg-brand-neonBlue rounded-full flex items-center justify-center text-slate-900 font-bold text-xl shadow-[0_0_20px_rgba(34,211,238,0.4)]">3</div>
+                                    <h3 className="text-2xl font-bold text-white mb-4 mt-2">Monetize</h3>
+                                    <p className="text-slate-400 text-lg">We aggregate and sell this closed-loop measurement data to FMCG brands previously starved of in-store visibility.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                )
+            },
+            {
+                id: 4,
+                title: "The Product",
+                content: (
+                    <div className="flex flex-col h-full p-16">
+                        <h2 className="text-4xl font-bold text-white mb-4">The Depth of our Data</h2>
+                        <div className="w-24 h-1 bg-brand-neonBlue mb-8"></div>
+                        
+                        <div className="flex-1 flex flex-col">
+                            <div className="text-center mb-10">
+                                <h3 className="text-3xl font-bold text-white mb-2">450+ VISUAL ATTRIBUTES CAPTURED PER SHOPPER</h3>
+                                <p className="text-slate-400">Extracted locally at the edge. No imagery is ever saved or sent to the cloud.</p>
+                            </div>
+
+                            <div className="grid grid-cols-2 gap-8 flex-1">
+                                {/* Left Column: Raw Visual Data */}
+                                <div className="bg-slate-800/40 rounded-2xl border border-slate-700 p-8 flex flex-col gap-6">
+                                    <h4 className="text-brand-neonBlue font-mono text-sm tracking-widest border-b border-slate-700 pb-2">RAW VISUAL ATTRIBUTES</h4>
+                                    
+                                    <div className="flex items-start gap-4">
+                                        <div className="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center text-xl shrink-0 border border-slate-700">👤</div>
+                                        <div>
+                                            <h5 className="text-white font-bold mb-1">Demographics</h5>
+                                            <p className="text-slate-400 text-sm">Age Estimation (25-35 yrs), Gender (Male), Build/Physique (Athletic), Group Size (Shopping alone vs. Couple)</p>
+                                        </div>
+                                    </div>
+
+                                    <div className="flex items-start gap-4">
+                                        <div className="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center text-xl shrink-0 border border-slate-700">👕</div>
+                                        <div>
+                                            <h5 className="text-white font-bold mb-1">Style & Apparel</h5>
+                                            <p className="text-slate-400 text-sm">Style Profile (Athleisure, Formal, Casual), Specific Brands worn (Under Armour), Colors, Layering</p>
+                                        </div>
+                                    </div>
+
+                                    <div className="flex items-start gap-4">
+                                        <div className="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center text-xl shrink-0 border border-slate-700">🎒</div>
+                                        <div>
+                                            <h5 className="text-white font-bold mb-1">Accessories & Tech</h5>
+                                            <p className="text-slate-400 text-sm">Bags (Gym Bag, Designer Handbag), Wristwear (Smartwatch, Luxury Watch), Tech (Smartphone in hand)</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* Right Column: Synthesized & Behavioral Data */}
+                                <div className="bg-brand-neonBlue/5 rounded-2xl border border-brand-neonBlue/30 p-8 flex flex-col gap-6 shadow-[0_0_30px_rgba(34,211,238,0.05)] relative">
+                                    <div className="absolute top-4 right-4 bg-brand-neonBlue text-slate-900 text-xs font-bold px-3 py-1 rounded uppercase tracking-wider">The Value Layer</div>
+                                    <h4 className="text-brand-neonGreen font-mono text-sm tracking-widest border-b border-brand-neonBlue/30 pb-2">SYNTHESIZED & BEHAVIORAL</h4>
+                                    
+                                    <div className="flex items-start gap-4">
+                                        <div className="w-10 h-10 rounded-full bg-brand-neonBlue/20 flex items-center justify-center text-xl shrink-0 border border-brand-neonBlue/30 text-brand-neonBlue">🎯</div>
+                                        <div>
+                                            <h5 className="text-white font-bold mb-1">Interpreted Lifestyle Data</h5>
+                                            <p className="text-slate-400 text-sm"><strong className="text-slate-300">Shopper Mission:</strong> Post-Workout<br/><strong className="text-slate-300">Spending Tier:</strong> Premium / High-Value<br/><strong className="text-slate-300">Lifestyle Segment:</strong> Active Urban</p>
+                                        </div>
+                                    </div>
+
+                                    <div className="flex items-start gap-4">
+                                        <div className="w-10 h-10 rounded-full bg-brand-neonBlue/20 flex items-center justify-center text-xl shrink-0 border border-brand-neonBlue/30 text-brand-neonBlue">⏱️</div>
+                                        <div>
+                                            <h5 className="text-white font-bold mb-1">In-Store Engagement</h5>
+                                            <p className="text-slate-400 text-sm">Dwell time at specific shelves (35s), Ad attention duration (12s), Physical interaction with product displays</p>
+                                        </div>
+                                    </div>
+
+                                    <div className="flex items-start gap-4">
+                                        <div className="w-10 h-10 rounded-full bg-brand-neonGreen/20 flex items-center justify-center text-xl shrink-0 border border-brand-neonGreen/30 text-brand-neonGreen">🧾</div>
+                                        <div>
+                                            <h5 className="text-white font-bold mb-1">POS Match (The Outcome)</h5>
+                                            <p className="text-slate-400 text-sm">Correlated specific visual profile (Athletic male, 25-35, Under Armour) to the exact receipt (Bought Protein Bar & Hydration Drink).</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                )
+            },
+            {
+                id: 5,
+                title: "Traction & ROI",
+                content: (
+                    <div className="flex flex-col h-full p-16">
+                        <h2 className="text-4xl font-bold text-white mb-4">Traction: The Data is Flowing</h2>
+                        <div className="w-24 h-1 bg-brand-neonGreen mb-12"></div>
+                        
+                        <div className="flex-1 flex flex-col justify-center">
+                            
+                            <p className="text-2xl text-slate-300 text-center mb-12 max-w-4xl mx-auto">
+                                In just 120 days post-launch, we have proven the technology works, <br/>retailers will adopt it, and the data is highly accurate.
+                            </p>
+
+                            <div className="grid grid-cols-3 gap-8">
+                                {/* Highlight 1 */}
+                                <div className="glass-panel p-8 rounded-xl border border-slate-700 relative overflow-hidden group hover:border-brand-neonBlue transition-colors">
+                                    <div className="absolute top-0 right-0 w-32 h-32 bg-brand-neonBlue/10 rounded-full blur-2xl -mr-16 -mt-16 group-hover:bg-brand-neonBlue/20 transition-colors"></div>
+                                    <h3 className="text-sm font-mono text-slate-400 tracking-widest mb-4">DATA AT SCALE</h3>
+                                    <div className="text-5xl font-extrabold text-white mb-4">6.4M+</div>
+                                    <p className="text-lg text-slate-300 font-medium mb-2">Visual Data Points Collected</p>
+                                    <p className="text-sm text-slate-500">Across 7 active pilots in live retail environments, proving the edge-AI infrastructure is robust and scalable.</p>
+                                </div>
+
+                                {/* Highlight 2 */}
+                                <div className="glass-panel p-8 rounded-xl border border-slate-700 relative overflow-hidden group hover:border-brand-neonGreen transition-colors">
+                                    <div className="absolute top-0 right-0 w-32 h-32 bg-brand-neonGreen/10 rounded-full blur-2xl -mr-16 -mt-16 group-hover:bg-brand-neonGreen/20 transition-colors"></div>
+                                    <h3 className="text-sm font-mono text-slate-400 tracking-widest mb-4">THE "TROJAN HORSE" WORKS</h3>
+                                    <div className="text-5xl font-extrabold text-brand-neonGreen mb-4">12x</div>
+                                    <p className="text-lg text-slate-300 font-medium mb-2">Monthly ROI for Retailers</p>
+                                    <p className="text-sm text-slate-500">Proved at Manufaktura. By delivering a +4% sales uplift via screen personalization, retailers are eagerly installing our sensors.</p>
+                                </div>
+
+                                {/* Highlight 3 */}
+                                <div className="glass-panel p-8 rounded-xl border border-brand-accent/50 relative overflow-hidden shadow-[0_0_20px_rgba(129,140,248,0.15)]">
+                                    <div className="absolute top-0 right-0 w-32 h-32 bg-brand-accent/20 rounded-full blur-2xl -mr-16 -mt-16"></div>
+                                    <h3 className="text-sm font-mono text-brand-accent tracking-widest mb-4">THE HOLY GRAIL ACHIEVED</h3>
+                                    <div className="text-5xl font-extrabold text-brand-neonBlue mb-4">92%</div>
+                                    <p className="text-lg text-white font-bold mb-2">Visual-to-POS Match Rate</p>
+                                    <p className="text-sm text-slate-300">Validated at GymBeam & SuperZoo. We successfully tied the visual attributes of the shopper directly to the transaction.</p>
+                                </div>
+                            </div>
+                            
+                            <div className="mt-12 text-center">
+                                <span className="inline-block bg-slate-800 text-slate-300 px-4 py-2 rounded-full border border-slate-700 font-mono text-sm">
+                                    <strong>Access Secured:</strong> 45,000+ store locations available via 3 signed shop-fitting partners.
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                )
+            },
+            {
+                id: 6,
+                title: "Market Size",
+                content: (
+                    <div className="flex flex-col h-full p-16 bg-grid">
+                        <h2 className="text-4xl font-bold text-white mb-4">The Multi-Billion Dollar Opportunity</h2>
+                        <div className="w-24 h-1 bg-brand-accent mb-12"></div>
+                        
+                        <div className="flex-1 flex flex-col items-center justify-center">
+                            <p className="text-2xl text-slate-300 text-center mb-8 max-w-4xl">
+                                We are not just taking a slice of an existing market. <br/> We are <strong className="text-white">creating a new category of data</strong> that doesn't exist in the physical world.
+                            </p>
+
+                            {/* TAM / SAM / SOM Visualization */}
+                            <div className="relative w-full max-w-4xl h-96 flex flex-col items-center mt-4">
+                                {/* TAM */}
+                                <div className="absolute top-0 w-full h-full bg-slate-800/40 rounded-full border-2 border-slate-600 flex justify-center pt-8">
+                                    <div className="text-center">
+                                        <p className="text-slate-400 font-mono text-sm tracking-widest">TAM (GLOBAL MARKET)</p>
+                                        <h3 className="text-3xl font-bold text-white">$100B+</h3>
+                                        <p className="text-xs text-slate-500 mt-1">Global Retail Media & Syndicated Data</p>
+                                    </div>
+                                </div>
+                                
+                                {/* SAM */}
+                                <div className="absolute top-20 w-3/4 h-3/4 bg-indigo-900/30 rounded-full border-2 border-indigo-500/50 flex justify-center pt-10 shadow-[0_0_30px_rgba(99,102,241,0.1)]">
+                                    <div className="text-center">
+                                        <p className="text-indigo-300 font-mono text-sm tracking-widest">SAM (ADDRESSABLE MARKET)</p>
+                                        <h3 className="text-3xl font-bold text-white">$30B+</h3>
+                                        <p className="text-xs text-indigo-400 mt-1">In-Store Behavioral Measurement</p>
+                                    </div>
+                                </div>
+
+                                {/* SOM */}
+                                <div className="absolute top-44 w-1/2 h-1/2 bg-brand-neonBlue/20 rounded-full border-2 border-brand-neonBlue shadow-[0_0_40px_rgba(34,211,238,0.3)] flex items-center justify-center">
+                                    <div className="text-center">
+                                        <p className="text-brand-neonBlue font-mono text-sm tracking-widest">SOM (IMMEDIATE TARGET)</p>
+                                        <h3 className="text-3xl font-bold text-white">€1B+</h3>
+                                        <p className="text-xs text-brand-neonBlue/80 mt-1">Tier-1 European Retailers</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <p className="text-sm text-slate-500 font-mono text-center mt-6">
+                                We lock the CZ market as our definitive proof-of-concept, then rapidly scale to EU/US via multi-national retail partners.
+                            </p>
+                        </div>
+                    </div>
+                )
+            },
+            {
+                id: 7,
+                title: "GTM: The Trojan Horse",
+                content: (
+                    <div className="flex flex-col h-full p-16">
+                        <h2 className="text-4xl font-bold text-white mb-4">GTM: The "Trojan Horse"</h2>
+                        <div className="w-24 h-1 bg-indigo-500 mb-12"></div>
+                        
+                        <div className="flex-1 flex flex-col justify-center items-center">
+                            <p className="text-2xl text-slate-300 text-center mb-12 max-w-4xl">
+                                Why would a retailer give us this data? <br/>
+                                <strong className="text-white">We don't ask to buy it. We give them a "Retail Media Network (RMN) in a box."</strong>
+                            </p>
+                            
+                            <div className="flex items-center gap-8 w-full max-w-5xl mb-8">
+                                <div className="flex-1 glass-panel p-8 rounded-2xl text-center border-indigo-500/30">
+                                    <h3 className="text-xl font-bold text-white mb-2">We Provide</h3>
+                                    <p className="text-slate-400">Screen Personalization + Retail Media Infrastructure (Free/Cheap) + Unseen data from the retailer's own stores.</p>
+                                </div>
+                                <div className="text-indigo-400">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                                </div>
+                                <div className="flex-1 glass-panel p-8 rounded-2xl text-center border-brand-neonBlue/30 shadow-[0_0_20px_rgba(34,211,238,0.1)]">
+                                    <h3 className="text-xl font-bold text-white mb-2">Retailer Gets</h3>
+                                    <p className="text-slate-400">A new high-margin profit center, monetizing their own audience (Retailer-as-Monetizer).</p>
+                                </div>
+                            </div>
+                            
+                            <p className="text-lg text-brand-neonBlue text-center border-t border-slate-700/50 pt-8 w-full max-w-3xl">
+                                Why do we do this? To unlock the <strong>Holy Grail</strong>: the cross-retailer aggregated data.
+                            </p>
+                        </div>
+                    </div>
+                )
+            },
+            {
+                id: 8,
+                title: "The Business Model",
+                content: (
+                    <div className="flex flex-col h-full p-16 bg-grid">
+                        <h2 className="text-4xl font-bold text-white mb-4">Aligning Incentives for Scale</h2>
+                        <div className="w-24 h-1 bg-brand-neonBlue mb-12"></div>
+                        
+                        <div className="flex-1 grid grid-cols-2 gap-16 items-center">
+                            <div className="space-y-8">
+                                <div className="border-l-4 border-slate-500 pl-6">
+                                    <h3 className="text-2xl font-bold text-white mb-2">The Retailer Split</h3>
+                                    <p className="text-slate-400 text-lg">Retailers keep <strong className="text-white">60-70%</strong> of the Retail Media revenue. It becomes a massive upside (<strong className="text-brand-neonBlue">≥€400k/yr per chain</strong>) with zero Capex.</p>
+                                </div>
+                                <div className="border-l-4 border-brand-neonBlue pl-6">
+                                    <h3 className="text-2xl font-bold text-brand-neonBlue mb-2">The M&M Moat</h3>
+                                    <p className="text-slate-400 text-lg">We take the infrastructure cut AND we secure the <strong className="text-white">perpetual, irrevocable license to the cross-retailer aggregated data.</strong></p>
+                                </div>
+                            </div>
+                            
+                            <div className="bg-slate-900 p-8 rounded-2xl border border-slate-700 shadow-2xl relative">
+                                <h4 className="text-xl font-mono text-slate-300 mb-6 border-b border-slate-700 pb-4">"THE DATA PARTNER AGREEMENT"</h4>
+                                <p className="text-xl text-slate-400 leading-relaxed italic">
+                                    "We concede the rev-share to win the data rights. This transforms us from an enablement vendor into a measurement currency charging FMCG brands <strong className="text-brand-neonGreen">€120k - €320k/yr</strong> for the data."
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                )
+            },
+            {
+                id: 9,
+                title: "Competition",
+                content: (
+                    <div className="flex flex-col h-full p-16 bg-grid">
+                        <h2 className="text-4xl font-bold text-white mb-4">The Competitive Landscape</h2>
+                        <div className="w-24 h-1 bg-brand-neonBlue mb-12"></div>
+                        
+                        <div className="flex-1 relative mt-8">
+                            {/* Matrix Lines */}
+                            <div className="absolute inset-0 flex items-center justify-center">
+                                <div className="w-full h-px bg-slate-600 relative">
+                                    <span className="absolute left-0 -top-8 text-slate-400 font-bold uppercase tracking-widest text-sm">Digital Retail</span>
+                                    <span className="absolute right-0 -top-8 text-slate-400 font-bold uppercase tracking-widest text-sm">Physical Retail</span>
+                                </div>
+                                <div className="absolute h-full w-px bg-slate-600">
+                                    <span className="absolute top-0 -left-24 text-slate-400 font-bold uppercase tracking-widest text-sm">Data Rich</span>
+                                    <span className="absolute bottom-0 -left-28 text-slate-400 font-bold uppercase tracking-widest text-sm">Data Poor</span>
+                                </div>
+                            </div>
+                            
+                            {/* Top Left: Digital + Rich */}
+                            <div className="absolute top-12 left-24 flex flex-col items-center opacity-70">
+                                <div className="flex items-center gap-4 text-4xl font-bold">
+                                    <span className="text-blue-500">Meta</span> 
+                                    <span className="text-red-500">Google</span>
+                                </div>
+                                <div className="text-sm text-slate-400 mt-2 font-mono">Thousands of digital touchpoints</div>
+                            </div>
+                            
+                            {/* Top Right: Physical + Rich (US) */}
+                            <div className="absolute top-8 right-16 bg-brand-neonBlue/10 p-6 rounded-xl border border-brand-neonBlue/50 shadow-[0_0_30px_rgba(34,211,238,0.2)] flex flex-col items-center z-10 max-w-md text-center">
+                                <h3 className="text-3xl font-bold text-white">Minds & Models</h3>
+                                <p className="text-brand-neonBlue font-mono text-sm mt-2">450+ visual attributes / shopper</p>
+                                <p className="text-xs text-slate-300 mt-4 border-t border-brand-neonBlue/30 pt-4">We are the ONLY player bringing digital-grade data richness to the physical world at scale.</p>
+                            </div>
+
+                            {/* Bottom Right: Physical + Poor */}
+                            <div className="absolute bottom-12 right-24 opacity-80 flex flex-col items-center">
+                                <h3 className="text-2xl font-bold text-slate-300">Quividi / JCDecaux</h3>
+                                <p className="text-slate-400 font-mono text-sm mt-2">≤ 3 basic attributes (Age, Gender)</p>
+                            </div>
+                            
+                            {/* Bottom Left: Digital + Poor */}
+                            <div className="absolute bottom-12 left-24 opacity-50 flex flex-col items-center">
+                                <h3 className="text-xl font-bold text-slate-400">Legacy Cookies</h3>
+                                <p className="text-slate-500 font-mono text-sm mt-2">Depreciating tracking</p>
+                            </div>
+                        </div>
+                    </div>
+                )
+            },
+            {
+                id: 10,
+                title: "The Financial Arc",
+                content: (
+                    <div className="flex flex-col h-full p-16">
+                        <h2 className="text-4xl font-bold text-white mb-4">The Path to €100M+</h2>
+                        <div className="w-24 h-1 bg-brand-neonGreen mb-12"></div>
+                        
+                        <div className="flex-1 flex flex-col justify-end">
+                            <div className="grid grid-cols-3 gap-4 items-end h-full pb-8">
+                                {/* Bar 1 */}
+                                <div className="flex flex-col items-center">
+                                    <div className="w-full bg-slate-800 rounded-t-lg border border-slate-700 border-b-0 relative flex items-center justify-center flex-col transition-all duration-1000" style={{ height: '20%' }}>
+                                        <span className="text-2xl font-bold text-white mb-1">~135</span>
+                                        <span className="text-xs text-slate-400 font-mono">SENSORS</span>
+                                    </div>
+                                    <div className="mt-4 text-center">
+                                        <h4 className="font-bold text-white">2026 (Today)</h4>
+                                        <p className="text-sm text-brand-neonGreen font-mono mt-1">€54k Net ARR</p>
+                                        <p className="text-sm text-slate-400 mt-1">Proof of Concept (Studies)</p>
+                                    </div>
+                                </div>
+                                {/* Bar 2 */}
+                                <div className="flex flex-col items-center">
+                                    <div className="w-full bg-brand-neonBlue/20 rounded-t-lg border border-brand-neonBlue/40 border-b-0 relative flex items-center justify-center flex-col shadow-[0_0_15px_rgba(34,211,238,0.2)] transition-all duration-1000" style={{ height: '40%' }}>
+                                        <span className="text-2xl font-bold text-brand-neonBlue mb-1">1,100+</span>
+                                        <span className="text-xs text-brand-neonBlue/70 font-mono">SENSORS</span>
+                                    </div>
+                                    <div className="mt-4 text-center">
+                                        <h4 className="font-bold text-white">Dec 2027</h4>
+                                        <p className="text-sm text-brand-neonGreen font-mono mt-1">€421k Net ARR</p>
+                                        <p className="text-sm text-slate-400 mt-1">Footprint Expansion</p>
+                                    </div>
+                                </div>
+                                {/* Bar 3 */}
+                                <div className="flex flex-col items-center">
+                                    <div className="w-full bg-brand-neonGreen/20 rounded-t-lg border border-brand-neonGreen/40 border-b-0 relative flex items-center justify-center flex-col shadow-[0_0_30px_rgba(52,211,153,0.3)] transition-all duration-1000" style={{ height: '90%' }}>
+                                        <span className="text-3xl font-bold text-brand-neonGreen mb-1">7,600+</span>
+                                        <span className="text-xs text-brand-neonGreen/70 font-mono">SENSORS</span>
+                                        <div className="absolute -top-6 -right-16 text-xs text-brand-neonBlue bg-brand-neonBlue/10 px-2 py-1 rounded border border-brand-neonBlue/30 shadow-lg">15x Currency Multiple</div>
+                                    </div>
+                                    <div className="mt-4 text-center">
+                                        <h4 className="font-bold text-white">2030 / 2031 (Scale)</h4>
+                                        <p className="text-lg font-bold text-brand-neonGreen font-mono mt-1">€6.0M Net ARR</p>
+                                        <p className="text-sm text-slate-400 mt-1">The Measurement Currency</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                )
+            },
+            {
+                id: 11,
+                title: "Exit Landscape",
+                content: (
+                    <div className="flex flex-col h-full p-16">
+                        <h2 className="text-4xl font-bold text-white mb-4">Exit Landscape: €100M+ Target</h2>
+                        <div className="w-24 h-1 bg-indigo-500 mb-12"></div>
+                        
+                        <div className="flex-1 grid grid-cols-3 gap-8">
+                            <div className="glass-panel p-8 rounded-xl border border-indigo-500/30 flex flex-col justify-start relative">
+                                <div className="absolute top-4 right-4 text-xs font-mono text-indigo-400 bg-indigo-500/10 px-2 py-1 rounded">10x - 15x Rev Multiple</div>
+                                <h3 className="text-2xl font-bold text-white mb-4 mt-4">Legacy Measurement</h3>
+                                <div className="flex gap-2 mb-6 flex-wrap">
+                                    <span className="text-sm bg-indigo-500/20 text-indigo-300 px-3 py-1 rounded-full border border-indigo-500/30">NielsenIQ</span>
+                                    <span className="text-sm bg-indigo-500/20 text-indigo-300 px-3 py-1 rounded-full border border-indigo-500/30">Kantar</span>
+                                    <span className="text-sm bg-indigo-500/20 text-indigo-300 px-3 py-1 rounded-full border border-indigo-500/30">Circana</span>
+                                </div>
+                                <p className="text-slate-400 text-sm mb-4">Desperately need real-time visual AI to modernize their panel data. We are the next-gen physical data feed.</p>
+                                <div className="mt-auto pt-4 border-t border-slate-700/50">
+                                    <p className="text-xs text-slate-500 font-mono">PRECEDENT:</p>
+                                    <p className="text-sm text-white">NielsenIQ acquired by Advent Int. for ~$2.7B to consolidate the fragmented measurement market.</p>
+                                </div>
+                            </div>
+ 
+                            <div className="glass-panel p-8 rounded-xl border border-brand-neonGreen/30 flex flex-col justify-start relative">
+                                <div className="absolute top-4 right-4 text-xs font-mono text-brand-neonGreen bg-brand-neonGreen/10 px-2 py-1 rounded">4x - 6x Rev Multiple</div>
+                                <h3 className="text-2xl font-bold text-white mb-4 mt-4">Retail Media Aggregators</h3>
+                                <div className="flex gap-2 mb-6 flex-wrap">
+                                    <span className="text-sm bg-brand-neonGreen/20 text-brand-neonGreen px-3 py-1 rounded-full border border-brand-neonGreen/30">Criteo</span>
+                                    <span className="text-sm bg-brand-neonGreen/20 text-brand-neonGreen px-3 py-1 rounded-full border border-brand-neonGreen/30">The Trade Desk</span>
+                                </div>
+                                <p className="text-slate-400 text-sm mb-4">As online cookies die, they need proprietary offline targeting to capture the €28.8B European RMN market.</p>
+                                <div className="mt-auto pt-4 border-t border-slate-700/50">
+                                    <p className="text-xs text-slate-500 font-mono">PRECEDENT:</p>
+                                    <p className="text-sm text-white">Criteo acquiring Mabaya (Retail Media tech) to expand their physical/digital footprint.</p>
+                                </div>
+                            </div>
+ 
+                            <div className="glass-panel p-8 rounded-xl border border-brand-neonBlue/30 flex flex-col justify-start relative">
+                                <div className="absolute top-4 right-4 text-xs font-mono text-brand-neonBlue bg-brand-neonBlue/10 px-2 py-1 rounded">15x+ Strategic Premium</div>
+                                <h3 className="text-2xl font-bold text-white mb-4 mt-4">Big Tech Ecosystems</h3>
+                                <div className="flex gap-2 mb-6 flex-wrap">
+                                    <span className="text-sm bg-brand-neonBlue/20 text-brand-neonBlue px-3 py-1 rounded-full border border-brand-neonBlue/30">Amazon</span>
+                                    <span className="text-sm bg-brand-neonBlue/20 text-brand-neonBlue px-3 py-1 rounded-full border border-brand-neonBlue/30">Google</span>
+                                </div>
+                                <p className="text-slate-400 text-sm mb-4">Acquiring the definitive physical-world data pipeline to feed their retail ecosystems and train broader AI models.</p>
+                                <div className="mt-auto pt-4 border-t border-slate-700/50">
+                                    <p className="text-xs text-slate-500 font-mono">PRECEDENT:</p>
+                                    <p className="text-sm text-white">Amazon acquiring One Medical & Whole Foods purely to ingest closed-loop behavioral & health data.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                )
+            },
+            {
+                id: 12,
+                title: "Meet the Team",
+                content: (
+                    <div className="flex flex-col h-full p-16">
+                        <h2 className="text-4xl font-bold text-white mb-4">Meet the Team</h2>
+                        <div className="w-24 h-1 bg-brand-accent mb-12"></div>
+                        
+                        <div className="flex-1 flex flex-col justify-between">
+                            {/* Co-Founders */}
+                            <div className="grid grid-cols-2 gap-16 items-start">
+                                {/* Ondrej */}
+                                <div className="flex flex-col items-center text-center">
+                                    <img src="./extracted_images/img_8_800x800.jpg" alt="Ondřej Šantora" className="w-48 h-48 rounded-full border-4 border-brand-neonBlue mb-6 shadow-[0_0_20px_rgba(34,211,238,0.2)] object-cover" onError={(e) => { e.target.src = "https://ui-avatars.com/api/?name=Ondřej+Šantora&background=1e293b&color=22d3ee&size=200" }} />
+                                    <h3 className="text-3xl font-bold text-white mb-2">Ondřej Šantora</h3>
+                                    <div className="bg-brand-neonBlue/20 text-brand-neonBlue px-4 py-1 rounded-full text-sm font-mono mb-4 border border-brand-neonBlue/30">Co-Founder</div>
+                                    <p className="text-slate-300 mb-4 max-w-sm">4+ years in GTM Scaling of AI products</p>
+                                    
+                                    <div className="flex flex-wrap gap-2 justify-center max-w-sm">
+                                        <span className="bg-slate-800 text-slate-300 px-3 py-1 rounded-full text-sm border border-slate-700">AI Infrastructure</span>
+                                        <span className="bg-slate-800 text-slate-300 px-3 py-1 rounded-full text-sm border border-slate-700">500+ academic pages</span>
+                                    </div>
+                                </div>
+                                
+                                {/* Josef */}
+                                <div className="flex flex-col items-center text-center">
+                                    <img src="./extracted_images/img_9_800x800.jpg" alt="Josef Němeček" className="w-48 h-48 rounded-full border-4 border-brand-neonGreen mb-6 shadow-[0_0_20px_rgba(52,211,153,0.2)] object-cover" onError={(e) => { e.target.src = "https://ui-avatars.com/api/?name=Josef+Němeček&background=1e293b&color=34d399&size=200" }} />
+                                    <h3 className="text-3xl font-bold text-white mb-2">Josef Němeček</h3>
+                                    <div className="bg-brand-neonGreen/20 text-brand-neonGreen px-4 py-1 rounded-full text-sm font-mono mb-4 border border-brand-neonGreen/30">Co-Founder</div>
+                                    <p className="text-slate-300 mb-4 max-w-sm">Research in Algorithmic Personalization</p>
+                                    
+                                    <div className="flex flex-wrap gap-2 justify-center max-w-md">
+                                        <span className="bg-slate-800 text-slate-300 px-3 py-1 rounded-full text-sm border border-slate-700">Product & GTM @ SpaceKnow</span>
+                                        <span className="bg-slate-800 text-slate-300 px-3 py-1 rounded-full text-sm border border-slate-700">Consumer Intelligence @ NielsenIQ</span>
+                                        <span className="bg-slate-800 text-slate-300 px-3 py-1 rounded-full text-sm border border-slate-700">Computer Vision</span>
+                                        <span className="bg-slate-800 text-slate-300 px-3 py-1 rounded-full text-sm border border-slate-700">Recommender systems @ Alza</span>
+                                    </div>
+                                </div>
+                            </div>
+ 
+                            {/* Rest of Team */}
+                            <div className="flex justify-center items-center gap-6 mt-8">
+                                <div className="text-slate-500 font-mono text-xl mr-4">+ Core Team</div>
+                                <img src="./extracted_images/img_10_800x800.png" className="w-20 h-20 rounded-full border-2 border-slate-700 object-cover opacity-80" onError={(e) => { e.target.style.display = 'none' }}/>
+                                <img src="./extracted_images/img_11_800x800.png" className="w-20 h-20 rounded-full border-2 border-slate-700 object-cover opacity-80" onError={(e) => { e.target.style.display = 'none' }}/>
+                                <img src="./extracted_images/img_12_800x800.png" className="w-20 h-20 rounded-full border-2 border-slate-700 object-cover opacity-80" onError={(e) => { e.target.style.display = 'none' }}/>
+                                <img src="./extracted_images/img_16_800x800.png" className="w-20 h-20 rounded-full border-2 border-slate-700 object-cover opacity-80" onError={(e) => { e.target.style.display = 'none' }}/>
+                            </div>
+                        </div>
+                    </div>
+                )
+            },
+            {
+                id: 13,
+                title: "The Ask",
+                content: (
+                    <div className="flex flex-col items-center justify-center h-full p-16 text-center bg-grid relative">
+                        <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-brand-neonBlue via-brand-neonGreen to-brand-accent"></div>
+                        
+                        <h2 className="text-5xl font-extrabold text-white mb-6">Aug 2026: Closing Pre-Seed Round</h2>
+                        <h3 className="text-7xl font-extrabold text-brand-neonBlue mb-6">€ 500k</h3>
+                        <p className="text-2xl text-slate-400 mb-12 max-w-3xl">
+                            Unlocking the Deployment Bottleneck to convert our existing pilot pipeline into <strong className="text-white">€1.6M ARR in 12 months</strong>.
+                        </p>
+                        
+                        <div className="flex w-full max-w-5xl items-center justify-center gap-16">
+                            {/* Left Side: Recharts Pie Chart */}
+                            <div className="w-1/2 h-64 flex justify-center items-center">
+                                <ResponsiveContainer width="100%" height="100%">
+                                    <PieChart>
+                                        <Pie
+                                            data={pieData}
+                                            cx="50%"
+                                            cy="50%"
+                                            innerRadius={60}
+                                            outerRadius={100}
+                                            paddingAngle={5}
+                                            dataKey="value"
+                                            stroke="none"
+                                        >
+                                            {pieData.map((entry, index) => (
+                                                <Cell key={`cell-${index}`} fill={entry.color} />
+                                            ))}
+                                        </Pie>
+                                        <Tooltip 
+                                            contentStyle={{ backgroundColor: '#0f172a', borderColor: '#334155', borderRadius: '8px', color: '#f8fafc' }}
+                                            itemStyle={{ fontWeight: 'bold' }}
+                                            formatter={(value) => [`${value}%`]}
+                                        />
+                                    </PieChart>
+                                </ResponsiveContainer>
+                            </div>
+ 
+                            {/* Right Side: Legend / Use of Funds */}
+                            <div className="w-1/2 flex flex-col justify-center text-left gap-6">
+                                <div className="flex items-center gap-4">
+                                    <div className="w-4 h-4 rounded-full bg-brand-neonBlue"></div>
+                                    <div>
+                                        <h3 className="text-2xl font-bold text-white">50%</h3>
+                                        <p className="text-slate-400 text-sm font-mono">Fulfilling Pilot Demand (Hardware Gap)</p>
+                                    </div>
+                                </div>
+                                <div className="flex items-center gap-4">
+                                    <div className="w-4 h-4 rounded-full bg-brand-neonGreen"></div>
+                                    <div>
+                                        <h3 className="text-2xl font-bold text-white">28%</h3>
+                                        <p className="text-slate-400 text-sm font-mono">Tech & AI Refinement</p>
+                                    </div>
+                                </div>
+                                <div className="flex items-center gap-4">
+                                    <div className="w-4 h-4 rounded-full bg-brand-accent"></div>
+                                    <div>
+                                        <h3 className="text-2xl font-bold text-white">22%</h3>
+                                        <p className="text-slate-400 text-sm font-mono">Partner Rollout & Ops</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                )
+            }
+        ];
+
+        const PitchDeckViewer = () => {
+            const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
+
+            const nextSlide = () => {
+                if (currentSlideIndex < slides.length - 1) {
+                    setCurrentSlideIndex(prev => prev + 1);
+                }
+            };
+
+            const prevSlide = () => {
+                if (currentSlideIndex > 0) {
+                    setCurrentSlideIndex(prev => prev - 1);
+                }
+            };
+
+            // Keyboard navigation
+            useEffect(() => {
+                const handleKeyDown = (e) => {
+                    if (e.key === 'ArrowRight' || e.key === 'Space') nextSlide();
+                    if (e.key === 'ArrowLeft') prevSlide();
+                };
+                window.addEventListener('keydown', handleKeyDown);
+                return () => window.removeEventListener('keydown', handleKeyDown);
+            }, [currentSlideIndex]);
+
+            return (
+                <div className="flex flex-col h-screen bg-[#050b14] p-4 md:p-8">
+                    {/* Header bar */}
+                    <div className="flex justify-between items-center mb-6 px-4">
+                        <div className="flex items-center gap-2">
+                            <IconEye className="text-brand-neonBlue w-6 h-6" />
+                            <span className="font-bold text-white tracking-wide">Minds & Models</span>
+                            <span className="text-slate-500 font-mono text-xs ml-4 bg-slate-900 px-2 py-1 rounded">SERIES SEED DRAFT v6.0</span>
+                        </div>
+                        <div className="text-slate-400 text-sm font-mono">
+                            {currentSlideIndex + 1} / {slides.length}
+                        </div>
+                    </div>
+
+                    {/* Main Slide Area */}
+                    <div className="flex-grow flex items-center justify-center relative">
+                        {/* Slide Container (Maintains 16:9 Aspect Ratio) */}
+                        <div className="w-full max-w-6xl slide-container rounded-lg overflow-hidden relative">
+                            {slides[currentSlideIndex].content}
+                        </div>
+
+                        {/* Navigation Overlay Arrows */}
+                        <button 
+                            onClick={prevSlide}
+                            disabled={currentSlideIndex === 0}
+                            className={`absolute left-4 p-4 rounded-full bg-slate-900/50 text-white hover:bg-brand-neonBlue hover:text-slate-900 transition-colors ${currentSlideIndex === 0 ? 'opacity-20 cursor-not-allowed' : 'opacity-100 cursor-pointer'}`}
+                        >
+                            <IconChevronLeft />
+                        </button>
+                        
+                        <button 
+                            onClick={nextSlide}
+                            disabled={currentSlideIndex === slides.length - 1}
+                            className={`absolute right-4 p-4 rounded-full bg-slate-900/50 text-white hover:bg-brand-neonBlue hover:text-slate-900 transition-colors ${currentSlideIndex === slides.length - 1 ? 'opacity-20 cursor-not-allowed' : 'opacity-100 cursor-pointer'}`}
+                        >
+                            <IconChevronRight />
+                        </button>
+                    </div>
+
+                    {/* Footer / Old Deck Reference Note */}
+                    <div className="mt-8 text-center px-4">
+                        <p className="text-slate-500 text-sm">
+                            Use <kbd className="bg-slate-800 px-2 py-1 rounded font-mono text-xs text-slate-300 mx-1">←</kbd> and <kbd className="bg-slate-800 px-2 py-1 rounded font-mono text-xs text-slate-300 mx-1">→</kbd> arrows to navigate.
+                        </p>
+                    </div>
+                </div>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<PitchDeckViewer />);
+    </script>
+</body>
+</html>
