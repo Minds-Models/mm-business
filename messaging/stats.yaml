@@ -1,0 +1,103 @@
+# Single source of truth for every number used in any deliverable.
+# Rule: a number not in this file may not appear in any material.
+# status: verified | needs-source | internal-estimate
+# internal_only: true => NEVER in external materials.
+
+pilot_gymbeam:
+  visitors: 7475
+  matched_orders: 2622
+  match_rate: "92%"
+  matched_revenue_czk: 1290000
+  duration_days: 21
+  stores: 1
+  source: "internal pilot data (datalayer), Praha store"
+  status: verified
+  note: "The flagship methodology proof. Real receipt-level POS matching."
+
+pilot_attributes:
+  value: "88+ visual attributes per shopper (~155 columns, 12 sections)"
+  source: "datalayer sessions schema"
+  status: verified
+
+anonymity_threshold:
+  value: "k>=25 aggregates only; no facial recognition; no biometric templates"
+  source: "internal privacy policy"
+  status: verified
+
+deck_87_after_payment:
+  value: "87% of in-store analytics are collected only after payment"
+  source: "existing pitch deck — RE-CONFIRM original source before reuse"
+  status: needs-source
+
+deck_70_marketers:
+  value: "70% of marketers struggle to target & measure offline ads"
+  source: "existing pitch deck — RE-CONFIRM original source before reuse"
+  status: needs-source
+
+deck_71_personalization:
+  value: "71% of customers expect personalized interactions"
+  source: "McKinsey Next in Personalization (verify edition/year)"
+  status: needs-source
+
+fmcg_offline_share:
+  value: "~90% of FMCG is still bought in physical stores"
+  source: "NIQ / Euromonitor — pick and cite exact publication"
+  status: needs-source
+
+cz_fmcg_market:
+  value: "Czech FMCG retail ~550-600B CZK/yr"
+  source: "NIQ Czech retail barometer"
+  status: verified
+
+eu_retail_media:
+  value: "European retail media: EUR 13.7B (2024) -> EUR 28.8B (2028F)"
+  source: "IAB Europe"
+  status: verified
+
+instore_retail_media_screens:
+  value: "In-store retail media led by digital screens (70% of retailers, 54% of buyers)"
+  source: "IAB Europe in-store retail media report"
+  status: verified
+
+niq_global_revenue:
+  value: "NIQ global revenue ~$4.0B"
+  source: "NIQ IPO filing"
+  status: verified
+
+uzei_acnielsen:
+  value: "UZEI (CZ state agency) pays ACNielsen ~3.7M CZK/yr for monthly sell-out feed; ~230-240k CZK for narrow category reports"
+  source: "public procurement records (hlidacstatu.cz)"
+  status: verified
+  note: "Public, citable price anchor for study-vs-subscription ladder."
+
+# ------------- INTERNAL ONLY — never in external materials -------------
+
+niq_dm_supply_price:
+  value: "NIQ pays DM drugstore (261 stores) ~900k CZK/yr for raw POS (~287 CZK/store/mo)"
+  source: "founder intel"
+  status: internal-estimate
+  internal_only: true
+
+brand_demand_side_prices:
+  value: "PMI ~8M CZK/yr (2021, tobacco petrol/convenience); Nestle ~18.5M CZK/yr (2023, broad food retail)"
+  source: "founder intel"
+  status: internal-estimate
+  internal_only: true
+
+our_cost_structure:
+  value: "all-in cost <1,000 CZK/store/mo; personalization price EUR 120/device/mo"
+  source: "internal"
+  status: verified
+  internal_only: true
+
+pricing_ladder:
+  value: "T0 insight study 150-500k CZK one-off; T1 chain-category subscription 1-3M CZK/yr/brand (30-60 stores); T2 channel currency 3-8M CZK/yr/brand (150-300 stores, >=2 chains)"
+  source: "internal strategy (2026-07)"
+  status: internal-estimate
+  internal_only: true
+
+rev_share_model:
+  value: "data/measurement products: retailer ~40-50%; retail-media revenue: retailer ~60-70%"
+  source: "internal strategy (2026-07)"
+  status: internal-estimate
+  internal_only: true

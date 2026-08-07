@@ -1,0 +1,246 @@
+<title>GymBeam · POS × Personas — pilot</title>
+<style>
+:root{
+  --paper:#fafafa; --card:#ffffff; --ink:#17181a; --ink-2:#54565b; --ink-3:#8a8c92;
+  --line:#e6e5e3; --accent:#c8471c; --accent-ink:#b23f18;
+  --s1:#2a78d6; --s1-soft:#9ec5f4; --f:#e87ba4; --m:#2a78d6; --aqua:#1baf7a;
+  --good-bg:#fbeee7; --warn-bg:#f7ecd9; --null-bg:#efeee9;
+}
+@media (prefers-color-scheme: dark){:root{
+  --paper:#161719; --card:#1e1f22; --ink:#f1f1ef; --ink-2:#b6b7bc; --ink-3:#82848a;
+  --line:#313338; --accent:#f0834a; --accent-ink:#f0834a;
+  --s1:#3987e5; --s1-soft:#1c5cab; --f:#d55181; --m:#3987e5; --aqua:#199e70;
+  --good-bg:#2a1f18; --warn-bg:#2d2619; --null-bg:#242521;
+}}
+:root[data-theme="dark"]{
+  --paper:#161719; --card:#1e1f22; --ink:#f1f1ef; --ink-2:#b6b7bc; --ink-3:#82848a;
+  --line:#313338; --accent:#f0834a; --accent-ink:#f0834a;
+  --s1:#3987e5; --s1-soft:#1c5cab; --f:#d55181; --m:#3987e5; --aqua:#199e70;
+  --good-bg:#2a1f18; --warn-bg:#2d2619; --null-bg:#242521;
+}
+:root[data-theme="light"]{
+  --paper:#fafafa; --card:#ffffff; --ink:#17181a; --ink-2:#54565b; --ink-3:#8a8c92;
+  --line:#e6e5e3; --accent:#c8471c; --accent-ink:#b23f18;
+  --s1:#2a78d6; --s1-soft:#9ec5f4; --f:#e87ba4; --m:#2a78d6; --aqua:#1baf7a;
+  --good-bg:#fbeee7; --warn-bg:#f7ecd9; --null-bg:#efeee9;
+}
+*{box-sizing:border-box}
+body{background:var(--paper); color:var(--ink); margin:0;
+  font:16px/1.55 Seravek,'Gill Sans Nova','Segoe UI',Candara,Calibri,system-ui,sans-serif;}
+main{max-width:900px; margin:0 auto; padding:48px 24px 96px}
+h1{font-size:2rem; line-height:1.15; margin:.2em 0 .3em; text-wrap:balance; font-weight:650; letter-spacing:-.01em}
+h2{font-size:1.3rem; margin:0 0 .35em; font-weight:650; text-wrap:balance}
+p{max-width:68ch; color:var(--ink-2); margin:.4em 0 .9em}
+p strong, li strong{color:var(--ink)}
+.eyebrow{font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; color:var(--accent-ink); font-weight:700; margin:0 0 .4em}
+section{margin-top:56px}
+.scope{color:var(--ink-3); font-size:.9rem; margin-top:0}
+.tiles{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px; margin:28px 0 0}
+.tile{background:var(--card); border:1px solid var(--line); border-radius:6px; padding:14px 16px}
+.tile .v{font-size:1.5rem; font-weight:680; font-variant-numeric:tabular-nums; letter-spacing:-.01em}
+.tile .k{font-size:.75rem; color:var(--ink-3); letter-spacing:.06em; text-transform:uppercase; margin-top:2px}
+.tile .sub{font-size:.78rem; color:var(--ink-2); margin-top:4px}
+figure{margin:20px 0; background:var(--card); border:1px solid var(--line); border-radius:6px; padding:18px 18px 12px; overflow-x:auto}
+figcaption{font-size:.8rem; color:var(--ink-3); margin-top:10px; max-width:76ch}
+svg text{font:12px Seravek,'Segoe UI',system-ui,sans-serif; fill:var(--ink-2)}
+svg .lbl{fill:var(--ink); font-weight:600; font-variant-numeric:tabular-nums}
+svg .name{fill:var(--ink)}
+svg .mut{fill:var(--ink-3); font-size:11px}
+svg .grid{stroke:var(--line); stroke-width:1}
+table{border-collapse:collapse; width:100%; font-size:.88rem; font-variant-numeric:tabular-nums}
+th{font-size:.72rem; text-transform:uppercase; letter-spacing:.08em; color:var(--ink-3); text-align:left; font-weight:650; padding:6px 10px; border-bottom:1px solid var(--line)}
+td{padding:7px 10px; border-bottom:1px solid var(--line); color:var(--ink-2)}
+td:first-child{color:var(--ink)}
+th.num, td.num{text-align:right}
+.tablewrap{overflow-x:auto; background:var(--card); border:1px solid var(--line); border-radius:6px; padding:6px 10px; margin:20px 0}
+.call{border-left:3px solid var(--accent); background:var(--good-bg); border-radius:0 6px 6px 0; padding:12px 18px; margin:20px 0; max-width:74ch}
+.call p{margin:.3em 0}
+.null{border-left-color:var(--ink-3); background:var(--null-bg)}
+.pill{display:inline-block; font-size:.72rem; font-weight:700; border-radius:99px; padding:1px 9px; letter-spacing:.03em; vertical-align:1px}
+.pill.sig{background:var(--good-bg); color:var(--accent-ink)}
+.pill.ns{background:var(--null-bg); color:var(--ink-3)}
+.legend{display:flex; gap:16px; font-size:.78rem; color:var(--ink-2); margin:2px 0 0}
+.legend span{display:inline-flex; align-items:center; gap:5px}
+.sw{width:11px; height:11px; border-radius:2px; display:inline-block}
+ul{color:var(--ink-2); max-width:72ch; padding-left:1.2em}
+li{margin:.35em 0}
+.foot{margin-top:64px; padding-top:16px; border-top:1px solid var(--line); color:var(--ink-3); font-size:.8rem; max-width:none}
+code{font:.85em ui-monospace,'Cascadia Code','SF Mono',Menlo,monospace; background:var(--null-bg); padding:.1em .35em; border-radius:4px; color:var(--ink)}
+</style>
+<main>
+<p class="eyebrow">Pilot analysis · GymBeam · Prague store</p>
+<h1>Who buys what: purchasing behavior by shopper persona</h1>
+<p class="scope">Point-of-sale orders (23 Jun – 16 Jul 2026) × checkout-camera visitors, visual features &amp; the 7 live shopper personas · one Prague store, 3 registers, one checkout camera · CZK</p>
+
+<div class="tiles">
+  <div class="tile"><div class="v">2,622</div><div class="k">orders</div><div class="sub">1.29M CZK · 21 days</div></div>
+  <div class="tile"><div class="v">491 Kč</div><div class="k">avg order</div><div class="sub">median 292 Kč · 3.5 items</div></div>
+  <div class="tile"><div class="v">92%</div><div class="k">orders linked</div><div class="sub">2,414 matched to a visitor</div></div>
+  <div class="tile"><div class="v">1,707</div><div class="k">with visual features</div><div class="sub">71% of linked</div></div>
+  <div class="tile"><div class="v">954</div><div class="k">persona-tagged orders</div><div class="sub">987 high-confidence matches</div></div>
+</div>
+
+<section>
+<p class="eyebrow">01 · Method</p>
+<h2>Orders matched to checkout visits by time correlation — after removing staff</h2>
+<p>The order feed carries no customer identity, so each order is matched to the shopper standing at the tills when it closed. Two things shape the match here. First, the store runs <strong>three registers under a single checkout camera</strong>, so several shoppers are usually in view at once — the match picks the one whose departure lines up with the order, and carries a confidence score used to re-check every finding on a strict subset. Second, this location has <strong>many staff on the floor</strong>; they were filtered out before analysis using an appearance-based scan plus an automated visual check, so employee movement doesn't pollute the shopper picture.</p>
+<figure>
+<svg viewBox="0 0 560 150" width="560" height="150" role="img" aria-label="Share of orders with a visitor present, by clock offset">
+  <line class="grid" x1="50" y1="20" x2="50" y2="115"/>
+  <line class="grid" x1="50" y1="115" x2="540" y2="115"/>
+  <text class="mut" x="50" y="132" text-anchor="middle">−5 min</text>
+  <text class="mut" x="295" y="132" text-anchor="middle">0 (order closes)</text>
+  <text class="mut" x="540" y="132" text-anchor="middle">+5 min</text>
+  <text class="mut" x="44" y="24" text-anchor="end">100%</text>
+  <text class="mut" x="44" y="118" text-anchor="end">85%</text>
+  <polyline fill="none" stroke="var(--s1)" stroke-width="2"
+    points="50,96 99,92 148,86 197,72 246,50 295,32 344,55 393,80 442,92 491,99 540,102"/>
+  <circle cx="271" cy="38" r="4" fill="var(--s1)" stroke="var(--card)" stroke-width="2"/>
+  <text class="lbl" x="271" y="28" text-anchor="middle">97%</text>
+</svg>
+<figcaption>Share of orders with a matching visitor present at the tills, scanning a simulated clock offset. The peak just before the order timestamp confirms the pairing; the high baseline reflects a busy checkout where several shoppers overlap — which is why matches carry confidence weights.</figcaption>
+</figure>
+</section>
+
+<section>
+<p class="eyebrow">02 · Personas × spend</p>
+<h2>The athletic core spends the most: top personas out-spend the store by 6–15%</h2>
+<p><strong>Athletic Young Men</strong> and <strong>Men in their 30s–50s</strong> are the highest-value shoppers per visit — 566 and 554 Kč against the 491 Kč store average (Athletic Young Men significant at p = 0.02). The three women's personas run below average on ticket size (370–426 Kč) but, as the next section shows, buy a distinctly different mix — the value gap is partly a category-mix gap, not just a spending one.</p>
+<figure>
+<svg viewBox="0 0 620 250" width="620" height="250" role="img" aria-label="Average order value by persona">
+  <g font-size="12">
+  <g transform="translate(0,10)"><text class="name" x="212" y="11" text-anchor="end">Athletic Young Men</text>
+    <rect x="220" y="2" width="205" height="13" rx="4" fill="var(--s1)"/><text class="lbl" x="430" y="13">566</text></g>
+  <g transform="translate(0,36)"><text class="name" x="212" y="11" text-anchor="end">Men in their 30s–50s</text>
+    <rect x="220" y="2" width="200" height="13" rx="4" fill="var(--s1)"/><text class="lbl" x="425" y="13">554</text></g>
+  <g transform="translate(0,62)"><text class="name" x="212" y="11" text-anchor="end">Athletic Men in Streetwear</text>
+    <rect x="220" y="2" width="181" height="13" rx="4" fill="var(--s1)"/><text class="lbl" x="406" y="13">520</text></g>
+  <g transform="translate(0,88)"><text class="name" x="212" y="11" text-anchor="end">Young Women Professionals</text>
+    <rect x="220" y="2" width="145" height="13" rx="4" fill="var(--f)"/><text class="lbl" x="370" y="13">426</text></g>
+  <g transform="translate(0,114)"><text class="name" x="212" y="11" text-anchor="end">Student Casual Youth</text>
+    <rect x="220" y="2" width="130" height="13" rx="4" fill="var(--s1)"/><text class="lbl" x="355" y="13">405</text></g>
+  <g transform="translate(0,140)"><text class="name" x="212" y="11" text-anchor="end">Young Women, Yoga Athleisure</text>
+    <rect x="220" y="2" width="128" height="13" rx="4" fill="var(--f)"/><text class="lbl" x="353" y="13">401</text></g>
+  <g transform="translate(0,166)"><text class="name" x="212" y="11" text-anchor="end">Young Women, Minimalist Casual</text>
+    <rect x="220" y="2" width="108" height="13" rx="4" fill="var(--f)"/><text class="lbl" x="333" y="13">370</text></g>
+  </g>
+  <line x1="424.5" y1="6" x2="424.5" y2="195" stroke="var(--ink-3)" stroke-dasharray="3 3"/>
+  <text class="mut" x="424.5" y="210" text-anchor="middle">store avg 491 Kč</text>
+  <line class="grid" x1="220" y1="182" x2="220" y2="6"/>
+  <div></div>
+  <text class="mut" x="20" y="238">Average order value, Kč. Blue = male-leaning persona, pink = female-leaning. Bars scaled from 0.</text>
+</svg>
+<div class="legend"><span><span class="sw" style="background:var(--m)"></span>male-leaning persona</span><span><span class="sw" style="background:var(--f)"></span>female-leaning persona</span></div>
+</figure>
+<div class="tablewrap"><table>
+<thead><tr><th>Persona</th><th class="num">orders</th><th class="num">avg order Kč</th><th class="num">median</th><th class="num">items</th><th class="num">p vs rest</th></tr></thead>
+<tbody>
+<tr><td>Athletic Young Men</td><td class="num">175</td><td class="num">566</td><td class="num">339</td><td class="num">3.9</td><td class="num"><span class="pill sig">0.02</span></td></tr>
+<tr><td>Men in their 30s–50s</td><td class="num">308</td><td class="num">554</td><td class="num">349</td><td class="num">3.9</td><td class="num"><span class="pill ns">0.36</span></td></tr>
+<tr><td>Athletic Men in Streetwear</td><td class="num">54</td><td class="num">520</td><td class="num">328</td><td class="num">3.7</td><td class="num"><span class="pill ns">0.43</span></td></tr>
+<tr><td>Young Women Professionals</td><td class="num">132</td><td class="num">426</td><td class="num">289</td><td class="num">3.2</td><td class="num"><span class="pill ns">0.22</span></td></tr>
+<tr><td>Student Casual Youth</td><td class="num">103</td><td class="num">405</td><td class="num">280</td><td class="num">3.4</td><td class="num"><span class="pill ns">0.44</span></td></tr>
+<tr><td>Young Women, Yoga Athleisure</td><td class="num">88</td><td class="num">401</td><td class="num">281</td><td class="num">3.3</td><td class="num"><span class="pill ns">0.17</span></td></tr>
+<tr><td>Young Women, Minimalist Casual</td><td class="num">94</td><td class="num">370</td><td class="num">264</td><td class="num">3.1</td><td class="num"><span class="pill ns">0.12</span></td></tr>
+</tbody></table></div>
+</section>
+
+<section>
+<p class="eyebrow">03 · Personas × what's in the basket</p>
+<h2>Each persona has a signature category — and it matches who they visibly are</h2>
+<p>Share of each persona's items by product category, relative to the store average (a lift of 1.5× = that persona buys that category 50% more than the typical shopper; cells below 10 orders suppressed). The pattern is coherent and on-brand for a supplement retailer:</p>
+<figure>
+<svg viewBox="0 0 620 250" width="620" height="250" role="img" aria-label="Category over-index by persona">
+  <line x1="330" y1="16" x2="330" y2="205" stroke="var(--ink-3)" stroke-dasharray="3 3"/>
+  <text class="mut" x="330" y="230" text-anchor="middle">1.0× = store average</text>
+  <text class="mut" x="220" y="230" text-anchor="middle">0.5×</text>
+  <text class="mut" x="470" y="230" text-anchor="middle">2.0×</text>
+  <line class="grid" x1="220" y1="16" x2="220" y2="205"/><line class="grid" x1="470" y1="16" x2="470" y2="205"/>
+  <g font-size="12">
+  <g transform="translate(0,26)"><text class="name" x="300" y="4" text-anchor="end">Athletic Men Streetwear → Protein</text>
+    <line x1="330" y1="0" x2="480" y2="0" stroke="var(--s1)" stroke-width="2"/><circle cx="480" cy="0" r="5" fill="var(--s1)" stroke="var(--card)" stroke-width="2"/><text class="lbl" x="490" y="4">1.95×</text></g>
+  <g transform="translate(0,52)"><text class="name" x="300" y="4" text-anchor="end">Young Women Prof. → Apparel</text>
+    <line x1="330" y1="0" x2="461" y2="0" stroke="var(--f)" stroke-width="2"/><circle cx="461" cy="0" r="5" fill="var(--f)" stroke="var(--card)" stroke-width="2"/><text class="lbl" x="471" y="4">1.74×</text></g>
+  <g transform="translate(0,78)"><text class="name" x="300" y="4" text-anchor="end">Student Casual Youth → Creatine</text>
+    <line x1="330" y1="0" x2="405" y2="0" stroke="var(--s1)" stroke-width="2"/><circle cx="405" cy="0" r="5" fill="var(--s1)" stroke="var(--card)" stroke-width="2"/><text class="lbl" x="415" y="4">1.50×</text></g>
+  <g transform="translate(0,104)"><text class="name" x="300" y="4" text-anchor="end">Young Women Prof. → Accessories</text>
+    <line x1="330" y1="0" x2="391" y2="0" stroke="var(--f)" stroke-width="2"/><circle cx="391" cy="0" r="5" fill="var(--f)" stroke="var(--card)" stroke-width="2"/><text class="lbl" x="401" y="4">1.41×</text></g>
+  <g transform="translate(0,130)"><text class="name" x="300" y="4" text-anchor="end">Men 30s–50s → Amino / BCAA</text>
+    <line x1="330" y1="0" x2="390" y2="0" stroke="var(--s1)" stroke-width="2"/><circle cx="390" cy="0" r="5" fill="var(--s1)" stroke="var(--card)" stroke-width="2"/><text class="lbl" x="400" y="4">1.40×</text></g>
+  <g transform="translate(0,156)"><text class="name" x="300" y="4" text-anchor="end">Young Women Yoga → Vitamins</text>
+    <line x1="207" y1="0" x2="330" y2="0" stroke="var(--f)" stroke-width="2"/><circle cx="207" cy="0" r="5" fill="var(--f)" stroke="var(--card)" stroke-width="2"/><text class="lbl" x="199" y="4" text-anchor="end">0.53×</text></g>
+  <g transform="translate(0,182)"><text class="name" x="300" y="4" text-anchor="end">Young Women Prof. → Functional drinks</text>
+    <line x1="217" y1="0" x2="330" y2="0" stroke="var(--f)" stroke-width="2"/><circle cx="217" cy="0" r="5" fill="var(--f)" stroke="var(--card)" stroke-width="2"/><text class="lbl" x="209" y="4" text-anchor="end">0.57×</text></g>
+  </g>
+</svg>
+<figcaption>Category over-/under-index vs store average. Athletic men skew hard to protein and creatine (building muscle); women professionals to apparel and accessories (the lifestyle end); the older men's persona to amino acids. Directional at 10–30 orders per cell.</figcaption>
+</figure>
+<div class="call">
+<p><strong>Read:</strong> the value gap in §02 is really a <em>mix</em> gap. Athletic men load up on protein tubs and creatine — high-price, high-volume staples — which lifts their ticket. Women's personas buy lighter, lifestyle-tilted baskets (apparel, accessories, functional drinks). Same store, two different shopping missions, and the camera can tell them apart before the first item is scanned.</p>
+</div>
+</section>
+
+<section>
+<p class="eyebrow">04 · Product categories × who buys them</p>
+<h2>Category buyers split sharply by sex — a second, independent confirmation</h2>
+<p>Looking at it from the product side and using only the raw visual sex attribute (no persona model involved), the same story appears: some categories are strongly male, others female. Because this uses a single raw feature rather than the persona bundle, it's an independent check that the signal is real.</p>
+<figure>
+<svg viewBox="0 0 620 300" width="620" height="300" role="img" aria-label="Share of category buyers by sex">
+  <text class="mut" x="250" y="12">← more female　　　more male →</text>
+  <line x1="250" y1="20" x2="250" y2="270" stroke="var(--ink-3)" stroke-dasharray="3 3"/>
+  <text class="mut" x="250" y="286" text-anchor="middle">50 / 50</text>
+  <g font-size="12">
+  <!-- bar: center 250, scale: male_share-0.5 mapped; width 300px for full 0-1 => 3px per pct point from 50 -->
+  <g transform="translate(0,28)"><text class="name" x="150" y="4" text-anchor="end">Creatine</text>
+    <rect x="250" y="-6" width="100" height="12" rx="3" fill="var(--m)"/><text class="lbl" x="356" y="4">67% M</text></g>
+  <g transform="translate(0,54)"><text class="name" x="150" y="4" text-anchor="end">Nut butters &amp; spreads</text>
+    <rect x="250" y="-6" width="52" height="12" rx="3" fill="var(--m)"/><text class="lbl" x="308" y="4">59% M</text></g>
+  <g transform="translate(0,80)"><text class="name" x="150" y="4" text-anchor="end">Vitamins &amp; Health</text>
+    <rect x="250" y="-6" width="46" height="12" rx="3" fill="var(--m)"/><text class="lbl" x="302" y="4">58% M</text></g>
+  <g transform="translate(0,106)"><text class="name" x="150" y="4" text-anchor="end">Apparel</text>
+    <rect x="250" y="-6" width="37" height="12" rx="3" fill="var(--m)"/><text class="lbl" x="293" y="4">56% M</text></g>
+  <g transform="translate(0,132)"><text class="name" x="150" y="4" text-anchor="end">Protein</text>
+    <rect x="250" y="-6" width="4" height="12" rx="3" fill="var(--m)"/><text class="lbl" x="260" y="4">51% M</text></g>
+  <g transform="translate(0,158)"><text class="name" x="150" y="4" text-anchor="end">Food &amp; meals</text>
+    <rect x="214" y="-6" width="36" height="12" rx="3" fill="var(--f)"/><text class="lbl" x="208" y="4" text-anchor="end">56% F</text></g>
+  <g transform="translate(0,184)"><text class="name" x="150" y="4" text-anchor="end">Functional drinks</text>
+    <rect x="211" y="-6" width="39" height="12" rx="3" fill="var(--f)"/><text class="lbl" x="205" y="4" text-anchor="end">56% F</text></g>
+  <g transform="translate(0,210)"><text class="name" x="150" y="4" text-anchor="end">Amino / BCAA</text>
+    <rect x="205" y="-6" width="45" height="12" rx="3" fill="var(--f)"/><text class="lbl" x="199" y="4" text-anchor="end">65% F</text></g>
+  <g transform="translate(0,236)"><text class="name" x="150" y="4" text-anchor="end">Snacks &amp; Bars</text>
+    <rect x="205" y="-6" width="45" height="12" rx="3" fill="var(--f)"/><text class="lbl" x="199" y="4" text-anchor="end">65% F</text></g>
+  </g>
+</svg>
+<figcaption>Sex split of buyers per category (by item volume, feature-tagged orders). Creatine is the most male-skewed category; snacks, bars and amino acids the most female. Protein sells ~50/50. Independent of the persona model.</figcaption>
+</figure>
+</section>
+
+<section>
+<p class="eyebrow">05 · Single features × spend</p>
+<h2>What a visitor visibly is carries spend signal</h2>
+<ul>
+<li><strong>Sex:</strong> male-presenting shoppers average a higher order value than female (p = 0.007) — consistent with the persona ranking, visible in this one raw attribute.</li>
+<li><strong>Build &amp; activity signal:</strong> body-composition archetype (p = 0.04) and visible activity orientation (p = 0.05) both track order value — the more athletic the visible build, the larger the basket, fitting a store whose top baskets are protein-and-creatine loads.</li>
+<li><strong>Category composition</strong> is where features speak loudest: sex alone cleanly separates creatine buyers (male) from snack and amino buyers (female), as shown above.</li>
+</ul>
+<div class="call null">
+<p><strong>Honest null:</strong> the model's visual guess at spending tier (how affluent someone looks) does <em>not</em> predict order value here. In a fitness store, what someone buys is driven by their training goal, not their apparent budget — useful to know when deciding which visual signals deserve weight.</p>
+</div>
+</section>
+
+<section>
+<p class="eyebrow">06 · Scope &amp; caveats</p>
+<h2>Read before quoting numbers</h2>
+<ul>
+<li><strong>One store, 21 trading days</strong> (23 Jun – 16 Jul), one Prague location with three registers and a single checkout camera.</li>
+<li><strong>Matching is probabilistic.</strong> The busy three-register checkout means several shoppers are usually in view, so the typical order has ~4 candidate shoppers; matches carry a confidence score and all headline findings were re-checked on the high-confidence subset. Treat category cells (10–30 orders) as leads, not settled facts.</li>
+<li><strong>Order value is whole-basket.</strong> The feed gives an order total, not per-item prices, so category analysis uses item counts, not spend — directionally sound, but a category's share of <em>revenue</em> can't be stated from this data.</li>
+<li><strong>Staff removed up front.</strong> This location has heavy staff presence; employees were excluded before analysis via an appearance scan plus an automated visual check, tuned to avoid mislabelling real customers as staff. Some staff inevitably remain, adding noise (which dilutes differences, never invents them).</li>
+<li><strong>Buyers only.</strong> The checkout camera sees people who bought; questions about conversion or browsers who left empty-handed need a different vantage point.</li>
+<li><strong>Overall persona spread</strong> is borderline at this sample size (p ≈ 0.07 across all seven personas); the top persona is individually significant. A few more weeks of data settles it.</li>
+<li><strong>Privacy:</strong> analysis on de-identified aggregates; every reported figure combines at least 10 orders; sensitive attributes used only in aggregate.</li>
+</ul>
+</section>
+
+<p class="foot">Method: point-of-sale orders from the GymBeam Prague store (23 Jun – 16 Jul 2026) matched to anonymous checkout visits by time correlation — a shopper is credited with an order when their departure lines up with the order closing; recognized staff are excluded and every match carries a confidence score used to re-check findings on a strict subset. No identities are stored; all reported cells aggregate 10+ orders. Category from product names; order value is whole-basket (no per-item prices in the feed). Tests: Mann–Whitney / Kruskal–Wallis on order totals. All figures CZK. Analysis 17 Jul 2026.</p>
+</main>

@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Super Zoo × Minds&Models — Pilotní deck (Kozomín)</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+:root{
+  --ink:#0f172a; --ink-2:#334155; --muted:#64748b; --muted-2:#94a3b8; --line:#e2e8f0;
+  --card:#ffffff; --page:linear-gradient(158deg,#ffffff 0%,#f8fafc 40%,#eef2f7 100%);
+  --blue:#2563EB; --blue-d:#1e40af; --blue-soft:#eff5ff; --blue-100:#dbeafe;
+  --amber:#d97706; --amber-soft:#fef6e7; --pos:#059669; --neg:#dc2626;
+  --slate:#94a3b8;
+}
+*{box-sizing:border-box; margin:0; padding:0}
+html,body{background:#dfe3e8;
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  color:var(--ink); -webkit-font-smoothing:antialiased; font-feature-settings:'cv11','ss01';}
+.deck{display:flex; flex-direction:column; align-items:center; gap:26px; padding:34px 16px 60px}
+
+.slide{position:relative; width:1280px; max-width:100%; aspect-ratio:16/9; background:var(--page);
+  border-radius:16px; overflow:hidden; box-shadow:0 16px 40px rgba(15,23,42,.16);
+  padding:44px 54px 42px; display:flex; flex-direction:column}
+.slide.center{justify-content:center}
+.slide::after{content:''; position:absolute; width:340px; height:340px; border-radius:9999px;
+  background:radial-gradient(circle,#dbeafe,transparent 70%); opacity:.5; top:-150px; right:-90px; filter:blur(70px); pointer-events:none}
+.slide>*{position:relative; z-index:1}
+
+.top{display:flex; justify-content:space-between; align-items:center; margin-bottom:16px}
+.brand{display:flex; align-items:center; gap:12px}
+.brand .logo{display:block; width:auto; object-fit:contain}
+.brand .logo-sz{height:34px}
+.brand .logo-mm{height:46px}
+.brand .amp{font-family:'Times New Roman',serif; font-style:italic; font-weight:400; font-size:18px; color:var(--muted-2); line-height:1}
+.meta{font-size:11px; color:var(--muted); text-align:right; line-height:1.4}
+
+.label{font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:var(--blue); margin-bottom:9px}
+h1{font-size:46px; font-weight:800; letter-spacing:-.03em; line-height:1.04}
+h2{font-size:29px; font-weight:750; letter-spacing:-.02em; line-height:1.12; margin-bottom:2px}
+.accent{color:var(--blue)}
+.sub{font-size:15px; color:var(--muted); line-height:1.5; max-width:80ch}
+.lead{font-size:16px; color:var(--ink-2); line-height:1.4}
+.mt6{margin-top:6px}.mt10{margin-top:10px}.mt14{margin-top:14px}.mt18{margin-top:18px}
+
+.pageno{position:absolute; bottom:15px; right:54px; font-size:11px; color:var(--muted-2); font-variant-numeric:tabular-nums}
+.flow{position:absolute; bottom:15px; left:54px; font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--muted-2); font-weight:700}
+.flow b{color:var(--blue)}
+
+svg.i{width:16px; height:16px; flex:none; stroke:currentColor; fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round}
+.itile{width:30px; height:30px; border-radius:8px; background:var(--blue-soft); color:var(--blue);
+  display:flex; align-items:center; justify-content:center; flex:none}
+.itile .i{width:17px; height:17px}
+
+.card{background:var(--card); border:1px solid var(--line); border-radius:13px; padding:15px 17px; box-shadow:0 1px 2px rgba(15,23,42,.04)}
+.card h3{font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.05em; color:var(--muted); margin-bottom:11px; display:flex; align-items:center; gap:8px}
+.card h3 .i{width:15px; height:15px; color:var(--muted-2); stroke-width:2}
+.card h3.big{font-size:13px; text-transform:none; letter-spacing:0; color:var(--ink)}
+
+.grid2{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px}
+.grid3{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px}
+.grid4{display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:14px}
+.two{display:flex; gap:22px; flex:1; align-items:flex-start; --l:1; --r:1}
+/* flex-basis:0 + min-width:0 → columns can never collapse to per-word min-content */
+.two>*{min-width:0}
+.two>*:first-child{flex:var(--l) 1 0}
+.two>*:last-child{flex:var(--r) 1 0}
+.grid2>*,.grid3>*,.grid4>*,.tk>*{min-width:0}
+
+.tile .v{font-size:29px; font-weight:800; letter-spacing:-.03em; line-height:1; font-variant-numeric:tabular-nums}
+.tile .v.b{color:var(--blue)}
+.tile .k{font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.03em; color:var(--muted); margin-top:8px}
+.tile .s{font-size:11px; color:var(--muted-2); margin-top:3px}
+
+/* robust bars */
+.hbars{display:flex; flex-direction:column; gap:7px}
+.hbar{display:grid; grid-template-columns:78px 1fr 44px; gap:9px; align-items:center; font-size:12px}
+.hbar .nm{color:var(--ink-2); font-weight:500; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.hbar .track{position:relative; height:11px; background:#eef2f6; border-radius:99px; overflow:hidden}
+.hbar .fill{position:absolute; left:0; top:0; height:100%; border-radius:99px; background:var(--blue)}
+.hbar .vl{font-variant-numeric:tabular-nums; font-weight:700; color:var(--ink); text-align:right}
+
+svg text{font-family:'Inter',sans-serif; fill:var(--muted)}
+svg .lbl{fill:var(--ink); font-weight:700; font-variant-numeric:tabular-nums}
+svg .nm{fill:var(--ink-2); font-weight:500}
+svg .mut{fill:var(--muted-2); font-size:10px}
+svg .grid{stroke:var(--line); stroke-width:1}
+
+/* persona cards */
+.pcards{display:grid; grid-template-columns:repeat(4,1fr); gap:14px}
+.pcard{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:15px 16px; display:flex; flex-direction:column; box-shadow:0 1px 2px rgba(15,23,42,.04); position:relative}
+.pcard.key{border-color:#f0c98a; box-shadow:0 0 0 1px #f0c98a, 0 6px 16px rgba(217,119,6,.12)}
+.pcard .head{display:flex; align-items:center; gap:12px}
+.av{width:56px; height:56px; border-radius:50%; overflow:hidden; flex:none; background:#eef2f6; position:relative; display:flex; align-items:center; justify-content:center}
+.av .fb{font-size:20px; font-weight:700; color:var(--muted-2)}
+.av img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:top center}
+.pcard .share{font-size:26px; font-weight:800; letter-spacing:-.03em; line-height:1; color:var(--ink)}
+.pcard .cnt{font-size:11px; color:var(--muted-2); font-weight:600; margin-top:3px}
+.pcard .nm{font-size:14.5px; font-weight:750; margin-top:12px; line-height:1.15}
+.pcard .rl{font-size:11px; color:var(--muted); margin-top:2px}
+.pcard .kv{font-size:12px; margin-top:11px; padding-top:11px; border-top:1px solid var(--line); display:flex; align-items:center; justify-content:space-between; color:var(--muted)}
+.pcard .kv b{font-size:15px; font-weight:800; font-variant-numeric:tabular-nums; color:var(--ink)}
+.pcard ul{margin-top:10px; list-style:none; font-size:11.5px; color:var(--muted); display:flex; flex-direction:column; gap:5px}
+.pcard ul li{padding-left:14px; position:relative; line-height:1.3}
+.pcard ul li:before{content:''; position:absolute; left:2px; top:6px; width:4px; height:4px; border-radius:50%; background:var(--muted-2)}
+.ktag{position:absolute; top:13px; right:14px; font-size:9.5px; font-weight:800; letter-spacing:.06em; text-transform:uppercase; color:var(--amber); background:var(--amber-soft); padding:3px 8px; border-radius:99px}
+
+.tk{display:grid; gap:14px; margin-top:auto}
+.tk.c2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.box{border-radius:12px; padding:13px 16px; font-size:13px; line-height:1.42; min-width:0}
+.box .l{font-size:9.5px; font-weight:800; text-transform:uppercase; letter-spacing:.11em; margin-bottom:5px}
+.box.i{background:#fff; border:1px solid var(--line)} .box.i .l{color:var(--muted-2)}
+.box.i,.box.m{overflow-wrap:break-word; word-wrap:break-word}
+.box.m{background:var(--ink); color:#e2e8f0} .box.m .l{color:#7f9cc4} .box.m b{color:#fff}
+.box.full{grid-column:1/-1}
+
+.scn{background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; display:flex; gap:13px; align-items:flex-start; box-shadow:0 1px 2px rgba(15,23,42,.04)}
+.scn .itile{width:38px; height:38px}
+.scn .h{font-weight:750; font-size:14px}
+.scn p{font-size:12.5px; color:var(--muted); margin-top:3px; line-height:1.42}
+.arw{color:var(--blue); font-weight:800}
+
+.legend{display:flex; gap:14px; flex-wrap:wrap; font-size:11px; color:var(--muted); margin-top:8px}
+.legend span{display:inline-flex; align-items:center; gap:5px}
+.sw{width:10px; height:10px; border-radius:3px}
+.note{font-size:10.5px; color:var(--muted-2); margin-top:8px; line-height:1.4}
+.brow{display:flex; justify-content:space-between; font-size:12.5px; padding:5px 0; border-bottom:1px solid var(--line); color:var(--ink-2)}
+.brow:last-child{border-bottom:none}
+.brow .v{font-variant-numeric:tabular-nums; font-weight:700; color:var(--ink)}
+.chip{font-size:10px; font-weight:700; color:var(--muted); background:#f1f5f9; padding:1px 7px; border-radius:99px}
+.chip.a{color:var(--amber); background:var(--amber-soft)}
+
+@media print{
+  @page{size:1280px 720px; margin:0}
+  html,body{background:#fff}
+  .deck{gap:0; padding:0}
+  .slide{box-shadow:none; border-radius:0; page-break-after:always; break-after:page; width:1280px; max-width:1280px}
+  .slide::after{display:none}
+}
+</style>
+</head>
+<body>
+<div class="deck">
+
+<!-- ========= 1 · TITLE ========= -->
+<section class="slide center">
+  <div class="top" style="position:absolute; top:34px; left:54px; right:54px; margin:0">
+    <span class="brand"><img class="logo logo-sz" src="super-zoo_znacka-zakladni-RGB@2x.png" alt="Super Zoo"><span class="amp">×</span><img class="logo logo-mm" src="logo_mindsmodels-normal-black.png" alt="Minds&amp;Models"></span>
+    <span class="meta">Pilot Kozomín · 16 Jun – 2 Jul 2026<br>Důvěrné — pro vedení Super Zoo</span>
+  </div>
+  <p class="label">Pilotní zpráva</p>
+  <h1>Pokladna, která<br><span class="accent">pozná zákazníka</span> u regálu.</h1>
+  <p class="lead mt14" style="max-width:64ch">Poprvé propojujeme fyzické chování návštěvníků s pokladními daty — kdo přišel, jak vypadá, co koupil a za kolik.</p>
+  <div class="grid4 mt18" style="max-width:900px">
+    <div class="card tile"><div class="v b">2 305</div><div class="k">zákazníků*</div><div class="s">bez personálu</div></div>
+    <div class="card tile"><div class="v b">650 234 Kč</div><div class="k">spárovaný obrat</div><div class="s">1 526 účtenek · 10 dní</div></div>
+    <div class="card tile"><div class="v b">96 %</div><div class="k">účtenek</div><div class="s">spárováno s personou</div></div>
+    <div class="card tile"><div class="v b">8</div><div class="k">živých person</div><div class="s">každá s hodnotou koše</div></div>
+  </div>
+  <p class="note" style="margin-top:20px; max-width:92ch">*Unikátní návštěvníci ≥5 s u kamery, čelem, po odfiltrování personálu. Zdroj: customer report Kozomín (rpi-0017) + párování POS × personas (prodejna CS314).</p>
+  <div class="flow"><b>DATA</b> → INSIGHT → DOPAD</div><div class="pageno">01 / 10</div>
+</section>
+
+<!-- ========= 2 · MAKRO ========= -->
+<section class="slide">
+  <div class="top"><span class="brand"><img class="logo logo-sz" src="super-zoo_znacka-zakladni-RGB@2x.png" alt="Super Zoo"><span class="amp">×</span><img class="logo logo-mm" src="logo_mindsmodels-normal-black.png" alt="Minds&amp;Models"></span><span class="meta">Makro pohled · 2 305 návštěvníků</span></div>
+  <p class="label">02 · Kdo chodí do Kozomína</p>
+  <h2>Rychlý, sólový, pragmatický nákup <span class="accent">střední třídy</span></h2>
+  <div class="grid4 mt14" style="flex:1; align-items:start">
+    <div class="card">
+      <h3 class="big"><svg class="i" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg> Věk</h3>
+      <div class="hbars">
+        <div class="hbar"><span class="nm">20+</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="vl">33,3 %</span></div>
+        <div class="hbar"><span class="nm">30+</span><span class="track"><span class="fill" style="width:82%"></span></span><span class="vl">27,4 %</span></div>
+        <div class="hbar"><span class="nm">40+</span><span class="track"><span class="fill" style="width:48%"></span></span><span class="vl">16,1 %</span></div>
+        <div class="hbar"><span class="nm">50+</span><span class="track"><span class="fill" style="width:40%"></span></span><span class="vl">13,4 %</span></div>
+        <div class="hbar"><span class="nm">60+</span><span class="track"><span class="fill" style="width:13%"></span></span><span class="vl">4,3 %</span></div>
+        <div class="hbar"><span class="nm">10+</span><span class="track"><span class="fill" style="width:8%"></span></span><span class="vl">2,8 %</span></div>
+      </div>
+      <h3 class="big" style="margin-top:16px"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M5 21v-1a7 7 0 0 1 14 0v1"/></svg> Pohlaví</h3>
+      <div style="display:flex; align-items:center; gap:16px">
+        <svg viewBox="0 0 68 68" width="68" height="68" style="flex:none">
+          <path d="M34,34 L34,2 A32,32 0 1 1 15.2,59.9 Z" fill="var(--blue)"/>
+          <path d="M34,34 L15.2,59.9 A32,32 0 0 1 34,2 Z" fill="var(--slate)"/>
+        </svg>
+        <div style="font-size:12.5px; line-height:1.9">
+          <div style="display:flex; align-items:center; gap:7px"><i class="sw" style="background:var(--blue)"></i> Ženy <b style="margin-left:auto; font-variant-numeric:tabular-nums">60,0 %</b></div>
+          <div style="display:flex; align-items:center; gap:7px"><i class="sw" style="background:var(--slate)"></i> Muži <b style="margin-left:auto; font-variant-numeric:tabular-nums">40,0 %</b></div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <h3 class="big"><svg class="i" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20v-1a6.5 6.5 0 0 1 13 0v1"/><path d="M17 5.5a3.5 3.5 0 0 1 0 6M18.5 20v-1a6.5 6.5 0 0 0-3-5.5"/></svg> Sociální kontext</h3>
+      <div class="hbars">
+        <div class="hbar"><span class="nm">Solo</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="vl">83,3 %</span></div>
+        <div class="hbar"><span class="nm">Pár</span><span class="track"><span class="fill" style="width:18%"></span></span><span class="vl">14,9 %</span></div>
+        <div class="hbar"><span class="nm">Skupina</span><span class="track"><span class="fill" style="width:3%"></span></span><span class="vl">1,7 %</span></div>
+      </div>
+      <h3 class="big" style="margin-top:16px"><svg class="i" viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2 3h3l2.4 12a1.6 1.6 0 0 0 1.6 1.3h8.8a1.6 1.6 0 0 0 1.6-1.3L21 7H6"/></svg> Nákupní příležitost</h3>
+      <div class="hbars">
+        <div class="hbar"><span class="nm">Pochůzka</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="vl">59,6 %</span></div>
+        <div class="hbar"><span class="nm">Po práci</span><span class="track"><span class="fill" style="width:31%"></span></span><span class="vl">18,6 %</span></div>
+        <div class="hbar"><span class="nm">Víkend</span><span class="track"><span class="fill" style="width:22%"></span></span><span class="vl">13,2 %</span></div>
+        <div class="hbar"><span class="nm">Rychlá</span><span class="track"><span class="fill" style="width:13%"></span></span><span class="vl">7,8 %</span></div>
+      </div>
+    </div>
+    <div class="card">
+      <h3 class="big"><svg class="i" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg> Kupní síla</h3>
+      <div class="hbars">
+        <div class="hbar"><span class="nm">Mid-range</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="vl">47,0 %</span></div>
+        <div class="hbar"><span class="nm">Value</span><span class="track"><span class="fill" style="width:97%"></span></span><span class="vl">45,8 %</span></div>
+        <div class="hbar"><span class="nm">Budget</span><span class="track"><span class="fill" style="width:10%"></span></span><span class="vl">4,5 %</span></div>
+        <div class="hbar"><span class="nm">Premium</span><span class="track"><span class="fill" style="width:6%"></span></span><span class="vl">2,7 %</span></div>
+      </div>
+      <h3 class="big" style="margin-top:16px"><svg class="i" viewBox="0 0 24 24"><path d="M20.8 4.6a5 5 0 0 0-7.1 0L12 6.3l-1.7-1.7a5 5 0 1 0-7.1 7.1L12 20.5l8.8-8.8a5 5 0 0 0 0-7.1z"/></svg> Sebeprezentace</h3>
+      <div class="hbars">
+        <div class="hbar"><span class="nm">Practical</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="vl">70,8 %</span></div>
+        <div class="hbar"><span class="nm">Invisible</span><span class="track"><span class="fill" style="width:30%"></span></span><span class="vl">21,4 %</span></div>
+        <div class="hbar"><span class="nm">Status</span><span class="track"><span class="fill" style="width:11%"></span></span><span class="vl">7,7 %</span></div>
+      </div>
+    </div>
+    <div class="card">
+      <h3 class="big"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3.5 9h17M3.5 15h17M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg> Subkultura</h3>
+      <div class="hbars">
+        <div class="hbar"><span class="nm">Mainstream</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="vl">43,1 %</span></div>
+        <div class="hbar"><span class="nm">Ostatní</span><span class="track"><span class="fill" style="width:38%"></span></span><span class="vl">16,2 %</span></div>
+        <div class="hbar"><span class="nm">Fitness</span><span class="track"><span class="fill" style="width:30%"></span></span><span class="vl">12,8 %</span></div>
+        <div class="hbar"><span class="nm">Studenti</span><span class="track"><span class="fill" style="width:22%"></span></span><span class="vl">9,7 %</span></div>
+        <div class="hbar"><span class="nm">Blue collar</span><span class="track"><span class="fill" style="width:13%"></span></span><span class="vl">5,6 %</span></div>
+      </div>
+      <div class="tile" style="margin-top:14px"><div class="v b" style="font-size:22px">60 %+</div><div class="k">trafficu je 20–30 let → mladá prodejna</div></div>
+    </div>
+  </div>
+  <div class="tk c2">
+    <div class="box i"><div class="l">Insight</div>Typický zákazník: žena 20–30, sama, na pochůzce, prakticky oblečená, střední třída. Rozhoduje se rychle — krátké okno na ovlivnění.</div>
+    <div class="box m"><div class="l">Dopad</div>Masa je cenově citlivá → hodnota je v <b>cross-sellu u pokladny</b> a v přeložení do <b>vlastních značek</b>, ne v up-sellu celého davu.</div>
+  </div>
+  <div class="flow"><b>DATA</b> → INSIGHT → DOPAD</div><div class="pageno">02 / 10</div>
+</section>
+
+<!-- ========= 3 · PERSONY ========= -->
+<section class="slide">
+  <div class="top"><span class="brand"><img class="logo logo-sz" src="super-zoo_znacka-zakladni-RGB@2x.png" alt="Super Zoo"><span class="amp">×</span><img class="logo logo-mm" src="logo_mindsmodels-normal-black.png" alt="Minds&amp;Models"></span><span class="meta">Mikro pohled · 8 person, 4 klíčové</span></div>
+  <p class="label">03 · Klíčové zákaznické persony</p>
+  <h2>Za průměrem se skrývají segmenty s <span class="accent">dramaticky jinou hodnotou</span></h2>
+  <div class="pcards mt14">
+    <div class="pcard">
+      <div class="head">
+        <div class="av"><span class="fb">Ž</span><img src="avatars/women.png" alt="" onerror="this.remove()"></div>
+        <div><div class="share">24,3 %</div><div class="cnt">1 885 relací · největší</div></div>
+      </div>
+      <div class="nm">Ženy 30+ z předměstí</div><div class="rl">„Super Mom" · nejspolehlivější segment</div>
+      <div class="kv"><span>Ø košík</span><span><b>379 Kč</b> &nbsp;<span class="chip">−11 %</span></span></div>
+      <ul><li>Objemový tahoun — nejvíc účtenek</li><li>Kočičí krmivo 1,44×, pamlsky</li></ul>
+    </div>
+    <div class="pcard key">
+      <span class="ktag">Nejvyšší koš</span>
+      <div class="head">
+        <div class="av"><span class="fb">M</span><img src="avatars/men40.png" alt="" onerror="this.remove()"></div>
+        <div><div class="share">18,3 %</div><div class="cnt">1 416 relací · 2. největší</div></div>
+      </div>
+      <div class="nm">Muži 40+ z předměstí</div><div class="rl">Upravené vousy · „Dad style"</div>
+      <div class="kv"><span>Ø košík</span><span><b style="color:var(--amber)">533–661 Kč</b> &nbsp;<span class="chip a">+25–55 %</span></span></div>
+      <ul><li>Nejbonitnější zákazníci (p = 0,008)</li><li>Ignorují privátky → VAFO/Brit</li></ul>
+    </div>
+    <div class="pcard">
+      <div class="head">
+        <div class="av"><span class="fb">A</span><img src="avatars/active.png" alt="" onerror="this.remove()"></div>
+        <div><div class="share">8,8 %</div><div class="cnt">685 relací</div></div>
+      </div>
+      <div class="nm">Aktivní mladí dospělí</div><div class="rl">„Post Workout" · Gym Goer</div>
+      <div class="kv"><span>Ø košík</span><span><b>330 Kč</b> &nbsp;<span class="chip">nejnižší</span></span></div>
+      <ul><li>Sportovní životní styl</li><li>Táhnou odpolední špičku</li></ul>
+    </div>
+    <div class="pcard">
+      <div class="head">
+        <div class="av"><span class="fb">S</span><img src="avatars/seniors.png" alt="" onerror="this.remove()"></div>
+        <div><div class="share">4,6 %</div><div class="cnt">355 relací</div></div>
+      </div>
+      <div class="nm">Senioři 60+</div><div class="rl">„Suburban Retiree"</div>
+      <div class="kv"><span>Ø košík</span><span><b>445 Kč</b> &nbsp;<span class="chip">nadprůměr</span></span></div>
+      <ul><li>Psí krmivo 1,29×</li><li>Privátky jen 22,4 % → VAFO</li></ul>
+    </div>
+  </div>
+  <div class="tk c2">
+    <div class="box i"><div class="l">Insight</div>Dvě persony táhnou prodejnu opačně: Ženy 30+ dělají objem (nízký koš), Muži 40+ a Senioři dělají hodnotu (vysoký koš mimo privátky). Průměr 426 Kč obojí maskuje.</div>
+    <div class="box m"><div class="l">Dopad</div>Každá persona má <b>změřenou hodnotu koše</b> → z demografie je targeting brief: koho růst cross-sellem, koho up-sellovat do marže.</div>
+  </div>
+  <div class="flow">DATA → <b>INSIGHT</b> → DOPAD</div><div class="pageno">03 / 10</div>
+</section>
+
+<!-- ========= 4 · ČAS ========= -->
+<section class="slide">
+  <div class="top"><span class="brand"><img class="logo logo-sz" src="super-zoo_znacka-zakladni-RGB@2x.png" alt="Super Zoo"><span class="amp">×</span><img class="logo logo-mm" src="logo_mindsmodels-normal-black.png" alt="Minds&amp;Models"></span><span class="meta">Časový kontext · Footfall by segment</span></div>
+  <p class="label">04 · Kdy se publikum střídá</p>
+  <h2>Prodejna nemá jedno publikum — <span class="accent">má jich během dne několik</span></h2>
+  <div class="two mt14" style="--l:1.35; --r:.95">
+    <div class="card">
+      <h3 class="big">Návštěvnost během dne · špička 16:00–17:00 (242 návštěv)</h3>
+      <svg viewBox="0 0 660 250" width="100%" height="250">
+        <defs>
+          <linearGradient id="fa" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2563EB" stop-opacity=".22"/><stop offset="1" stop-color="#2563EB" stop-opacity="0"/></linearGradient>
+          <linearGradient id="fb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d97706" stop-opacity=".20"/><stop offset="1" stop-color="#d97706" stop-opacity="0"/></linearGradient>
+        </defs>
+        <line class="grid" x1="46" y1="20" x2="46" y2="196"/><line class="grid" x1="46" y1="196" x2="640" y2="196"/>
+        <g class="mut" text-anchor="middle"><text x="46" y="212">08</text><text x="145" y="212">11</text><text x="244" y="212">13</text><text x="343" y="212">15</text><text x="442" y="212">17</text><text x="541" y="212">19</text><text x="636" y="212">21</text></g>
+        <path d="M46,194 L145,178 L244,120 L343,58 L392,64 L442,110 L491,158 L541,182 L636,193 L636,196 L46,196 Z" fill="url(#fa)"/>
+        <path d="M46,192 L145,168 L244,150 L343,120 L392,86 L442,60 L491,74 L541,120 L636,190 L636,196 L46,196 Z" fill="url(#fb)"/>
+        <path d="M46,194 L145,178 L244,120 L343,58 L392,64 L442,110 L491,158 L541,182 L636,193" fill="none" stroke="#2563EB" stroke-width="2.4"/>
+        <path d="M46,192 L145,168 L244,150 L343,120 L392,86 L442,60 L491,74 L541,120 L636,190" fill="none" stroke="#d97706" stroke-width="2.4"/>
+        <line x1="392" y1="44" x2="392" y2="196" stroke="var(--muted-2)" stroke-width="1" stroke-dasharray="3 3"/>
+        <circle cx="392" cy="60" r="4" fill="var(--ink)"/><text class="lbl" x="392" y="36" text-anchor="middle">16–17 h · 242</text>
+      </svg>
+      <div class="legend"><span><i class="sw" style="background:#2563EB"></i> Mladí / studenti / 20+ (odpoledne)</span><span><i class="sw" style="background:#d97706"></i> Muži 40+ / Ženy 30+ (podvečer)</span></div>
+      <p class="note">Špička 16–17 h (242) je měřená. Tvary křivek ilustrují posun složení publika, ne přesné hodinové počty per segment.</p>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:12px; height:100%">
+      <div class="scn"><span class="itile"><svg class="i" viewBox="0 0 24 24"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1.3 2.7 2.5 6 2.5s6-1.2 6-2.5v-5"/></svg></span><div><div class="h">Odpoledne (po 15. h)</div><p>Nástup studentů, teenagerů a mladých žen (20+) po škole a práci.</p></div></div>
+      <div class="scn"><span class="itile"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4 12H2M22 12h-2M5 5l1.4 1.4M17.6 17.6L19 19M19 5l-1.4 1.4M6.4 17.6L5 19"/></svg></span><div><div class="h">Podvečer</div><p>Střídají je pracující muži (40+) a ženy (30+) — právě ti s nejvyšším košem, cestou z práce.</p></div></div>
+      <div class="box m" style="margin-top:auto"><div class="l">Dopad</div><b>Statická reklama míjí cílovku o stovky procent.</b> Hodnota vzniká, když se sdělení mění s tím, kdo stojí u regálu.</div>
+    </div>
+  </div>
+  <div class="flow">DATA → <b>INSIGHT</b> → DOPAD</div><div class="pageno">04 / 10</div>
+</section>
+
+<!-- ========= 5 · POS PARADOX ========= -->
+<section class="slide">
+  <div class="top"><span class="brand"><img class="logo logo-sz" src="super-zoo_znacka-zakladni-RGB@2x.png" alt="Super Zoo"><span class="amp">×</span><img class="logo logo-mm" src="logo_mindsmodels-normal-black.png" alt="Minds&amp;Models"></span><span class="meta">POS × personas · párování</span></div>
+  <p class="label">05 · Propojení chování s penězi</p>
+  <h2>POS paradox: nejpočetnější segment <span class="accent">nedělá největší peníze</span></h2>
+  <div class="grid4 mt14">
+    <div class="card tile"><div class="v b">96 %</div><div class="k">účtenek spárováno</div><div class="s">1 471 přiřazeno k návštěvě</div></div>
+    <div class="card tile"><div class="v b">650 234 Kč</div><div class="k">obrat pilotu</div><div class="s">1 526 účtenek · 10 dní</div></div>
+    <div class="card tile"><div class="v">426 Kč</div><div class="k">Ø košík prodejny</div><div class="s">medián 280 Kč · 2,6 položky</div></div>
+    <div class="card tile"><div class="v">472 vs 405</div><div class="k">koš muž vs žena (Kč)</div><div class="s">p = 0,006</div></div>
+  </div>
+  <div class="two mt14" style="--l:1.25; --r:.75">
+    <div class="card">
+      <h3 class="big">Ø hodnota košíku dle persony (Kč)</h3>
+      <svg viewBox="0 0 520 236" width="100%" height="228">
+        <line x1="296" y1="10" x2="296" y2="196" stroke="var(--muted-2)" stroke-dasharray="4 3"/>
+        <text class="mut" x="296" y="210" text-anchor="middle">Ø prodejny 426 Kč</text>
+        <g font-size="11.5">
+        <g transform="translate(0,16)"><text class="nm" x="160" y="11" text-anchor="end">Muži 40+</text>
+          <rect x="168" y="2" width="199" height="14" rx="4" fill="var(--amber)" opacity=".32"/><rect x="168" y="2" width="160" height="14" rx="4" fill="var(--amber)"/><text class="lbl" x="373" y="13">533–661</text></g>
+        <g transform="translate(0,42)"><text class="nm" x="160" y="11" text-anchor="end">Ženy 20+</text>
+          <rect x="168" y="2" width="135" height="14" rx="4" fill="var(--blue)"/><text class="lbl" x="309" y="13">450</text></g>
+        <g transform="translate(0,68)"><text class="nm" x="160" y="11" text-anchor="end">Cenově uvědomělí</text>
+          <rect x="168" y="2" width="134" height="14" rx="4" fill="var(--blue)"/><text class="lbl" x="308" y="13">446</text></g>
+        <g transform="translate(0,94)"><text class="nm" x="160" y="11" text-anchor="end">Senioři 60+</text>
+          <rect x="168" y="2" width="134" height="14" rx="4" fill="var(--blue)"/><text class="lbl" x="308" y="13">445</text></g>
+        <g transform="translate(0,120)"><text class="nm" x="160" y="11" text-anchor="end">Mladí muži</text>
+          <rect x="168" y="2" width="129" height="14" rx="4" fill="var(--blue)"/><text class="lbl" x="303" y="13">429</text></g>
+        <g transform="translate(0,146)"><text class="nm" x="160" y="11" text-anchor="end">Ženy 30+</text>
+          <rect x="168" y="2" width="114" height="14" rx="4" fill="var(--slate)"/><text class="lbl" x="288" y="13">379</text></g>
+        <g transform="translate(0,172)"><text class="nm" x="160" y="11" text-anchor="end">Aktivní mladí</text>
+          <rect x="168" y="2" width="99" height="14" rx="4" fill="var(--slate)"/><text class="lbl" x="273" y="13">330</text></g>
+        </g>
+        <text class="mut" x="0" y="230">Světlá část u Mužů 40+ = pásmo do 661 Kč na jistých párováních. n = 1 085 spárovaných účtenek.</text>
+      </svg>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:12px; height:100%">
+      <div class="box i"><div class="l">Objemový tahoun</div>Ženy 30+ = nejvíc nákupů, ale koš jen <b>379 Kč</b>. Růst přes cross-sell — víc do košíku.</div>
+      <div class="box i"><div class="l">Prémiová persona</div>Muži 40+ = méně transakcí, ale koš <b>533–661 Kč</b>, až +55 %. Cíl up-sellu do marže.</div>
+      <div class="box m" style="margin-top:auto"><div class="l">Dopad</div>Párování 96 % / 9,8 s = <b>nezávislý audit</b>, kdo reálně platí za obrat. Poprvé bez věrnostní karty.</div>
+    </div>
+  </div>
+  <div class="flow">DATA → INSIGHT → <b>DOPAD</b></div><div class="pageno">05 / 10</div>
+</section>
+
+<!-- ========= 6 · KATEGORIE ========= -->
+<section class="slide">
+  <div class="top"><span class="brand"><img class="logo logo-sz" src="super-zoo_znacka-zakladni-RGB@2x.png" alt="Super Zoo"><span class="amp">×</span><img class="logo logo-mm" src="logo_mindsmodels-normal-black.png" alt="Minds&amp;Models"></span><span class="meta">Co je v košíku · afinita ke kategoriím</span></div>
+  <p class="label">06 · Co která persona kupuje</p>
+  <h2>Každá persona nakupuje <span class="accent">jinou kategorii</span> — a data to potvrzují třikrát</h2>
+  <div class="two mt14" style="--l:.8; --r:1.2">
+    <div>
+      <div class="grid3">
+        <div class="card tile" style="text-align:center"><div class="v b">54 %</div><div class="k">Psi</div></div>
+        <div class="card tile" style="text-align:center"><div class="v b">22 %</div><div class="k">Kočky</div></div>
+        <div class="card tile" style="text-align:center"><div class="v b">10 %</div><div class="k">Malá zvířata</div></div>
+      </div>
+      <p class="note" style="margin-top:6px">Podíl na útratě prodejny (baseline).</p>
+      <div class="box i" style="margin-top:14px"><div class="l">Proč tomu věřit</div>Signál „studenti → kočky" se objeví <b>3× nezávisle</b>: v personě, v syrovém rysu life-stage (studenti dělí psy/kočky 50/50, obchod 70/30) i v pokladně. Tři pohledy na tutéž kameru se shodnou s kasou.</div>
+    </div>
+    <div class="card">
+      <h3 class="big">Afinita persony ke kategorii vs průměr prodejny</h3>
+      <svg viewBox="0 0 560 226" width="100%" height="222">
+        <!-- ref line at 1,0× (x=310); bars start x=210, scale 100px/1,0× -->
+        <line x1="310" y1="12" x2="310" y2="182" stroke="var(--muted-2)" stroke-dasharray="4 3"/>
+        <g class="mut" text-anchor="middle" font-size="10"><text x="260" y="198">0,5×</text><text x="310" y="198">1,0× = průměr</text><text x="410" y="198">2,0×</text></g>
+        <g font-size="11">
+        <g transform="translate(0,22)"><text class="nm" x="200" y="4" text-anchor="end">Muži 40+ → kočičí hygiena</text>
+          <rect x="210" y="-4.5" width="187" height="9" rx="4.5" fill="var(--blue)"/><text class="lbl" x="403" y="4">1,87×</text></g>
+        <g transform="translate(0,50)"><text class="nm" x="200" y="4" text-anchor="end">Studenti → kočky</text>
+          <rect x="210" y="-4.5" width="167" height="9" rx="4.5" fill="var(--blue)"/><text class="lbl" x="383" y="4">1,67×</text></g>
+        <g transform="translate(0,78)"><text class="nm" x="200" y="4" text-anchor="end">Ženy 30+ → kočičí krmivo</text>
+          <rect x="210" y="-4.5" width="144" height="9" rx="4.5" fill="var(--blue)"/><text class="lbl" x="360" y="4">1,44×</text></g>
+        <g transform="translate(0,106)"><text class="nm" x="200" y="4" text-anchor="end">Senioři → psi</text>
+          <rect x="210" y="-4.5" width="129" height="9" rx="4.5" fill="var(--blue)"/><text class="lbl" x="345" y="4">1,29×</text></g>
+        <g transform="translate(0,134)"><text class="nm" x="200" y="4" text-anchor="end">Studenti → psi</text>
+          <rect x="210" y="-4.5" width="55" height="9" rx="4.5" fill="var(--slate)"/><text class="lbl" x="271" y="4">0,55×</text></g>
+        <g transform="translate(0,162)"><text class="nm" x="200" y="4" text-anchor="end">Senioři → kočky</text>
+          <rect x="210" y="-4.5" width="51" height="9" rx="4.5" fill="var(--slate)"/><text class="lbl" x="267" y="4">0,51×</text></g>
+        </g>
+      </svg>
+      <div class="legend"><span><i class="sw" style="background:var(--blue)"></i> nadprůměr (over-index)</span><span><i class="sw" style="background:var(--slate)"></i> podprůměr</span></div>
+    </div>
+  </div>
+  <div class="tk c2">
+    <div class="box i"><div class="l">Insight</div>Kategorie v košíku jde odvodit z persony u vstupu — ještě než člověk dojde k regálu. Vstup do cíleného obsahu i skladby sortimentu.</div>
+    <div class="box m"><div class="l">Dopad</div>Cross-sell „přidej pamlsek" je univerzální: <b>pamlsky × krmivo v 97 účtenkách</b>. Kategorie + persona = konkrétní nabídka ve správný čas.</div>
+  </div>
+  <div class="flow">DATA → <b>INSIGHT</b> → DOPAD</div><div class="pageno">06 / 10</div>
+</section>
+
+<!-- ========= 7 · PRIVÁTKY ========= -->
+<section class="slide">
+  <div class="top"><span class="brand"><img class="logo logo-sz" src="super-zoo_znacka-zakladni-RGB@2x.png" alt="Super Zoo"><span class="amp">×</span><img class="logo logo-mm" src="logo_mindsmodels-normal-black.png" alt="Minds&amp;Models"></span><span class="meta">Maržová páka · vlastní značky</span></div>
+  <p class="label">07 · Kde žije marže</p>
+  <h2>Privátky = 38 % tržeb, ale <span class="accent">nejbonitnější zákazníci je míjejí</span></h2>
+  <div class="two mt14" style="--l:1; --r:1">
+    <div>
+      <div class="card">
+        <h3 class="big">Rozdělení obratu dle značkové skupiny · 650k Kč</h3>
+        <svg viewBox="0 0 560 54" width="100%" height="54">
+          <rect x="0" y="8" width="213" height="30" rx="5" fill="var(--blue)"/>
+          <rect x="216" y="8" width="150" height="30" rx="5" fill="#cbd5e1"/>
+          <rect x="369" y="8" width="76" height="30" rx="5" fill="var(--amber)"/>
+          <rect x="448" y="8" width="112" height="30" rx="5" fill="#e9eef4"/>
+          <text x="6" y="28" style="font-size:12px;font-weight:800;fill:#fff">38,1 %</text>
+          <text x="222" y="28" style="font-size:11px;fill:#475569">26,8 %</text>
+          <text x="374" y="28" style="font-size:11px;font-weight:700;fill:#fff">13,6 %</text>
+          <text x="453" y="28" style="font-size:11px;fill:#64748b">21,4 %</text>
+        </svg>
+        <div class="legend"><span><i class="sw" style="background:var(--blue)"></i> Privátky Super Zoo</span><span><i class="sw" style="background:#cbd5e1"></i> 3. strany</span><span><i class="sw" style="background:var(--amber)"></i> VAFO</span><span><i class="sw" style="background:#e9eef4"></i> nezařazeno</span></div>
+        <p class="note">Jen krmivo: privátky 42,8 %, VAFO 21,3 %.</p>
+      </div>
+      <div class="card mt14">
+        <h3 class="big">Top značky · obrat za 10 dní</h3>
+        <div class="brow"><span>Ontario <span class="chip">privátka</span></span><span class="v" style="color:var(--blue)">97 442 Kč</span></div>
+        <div class="brow"><span>Brit <span class="chip a">VAFO</span></span><span class="v">71 012 Kč</span></div>
+        <div class="brow"><span>Dog Fantasy <span class="chip">privátka</span></span><span class="v">42 568 Kč</span></div>
+        <div class="brow"><span>Elbeville <span class="chip">privátka</span></span><span class="v">14 461 Kč</span></div>
+        <p class="note">Ontario (privátní krmivo &amp; pamlsky Super Zoo) je absolutní tahoun.</p>
+      </div>
+    </div>
+    <div>
+      <div class="card">
+        <h3 class="big">Podíl privátek v košíku dle persony</h3>
+        <div class="hbars">
+          <div class="hbar"><span class="nm">Studenti</span><span class="track"><span class="fill" style="width:95%"></span></span><span class="vl">37,9 %</span></div>
+          <div class="hbar"><span class="nm">Mladí muži</span><span class="track"><span class="fill" style="width:91%"></span></span><span class="vl">36,2 %</span></div>
+          <div class="hbar"><span class="nm">Ženy 20+</span><span class="track"><span class="fill" style="width:89%"></span></span><span class="vl">35,4 %</span></div>
+          <div class="hbar"><span class="nm">Ženy 30+</span><span class="track"><span class="fill" style="width:83%"></span></span><span class="vl">33,3 %</span></div>
+          <div class="hbar"><span class="nm">Cenově uvěd.</span><span class="track"><span class="fill" style="width:72%"></span></span><span class="vl">28,7 %</span></div>
+          <div class="hbar"><span class="nm">Muži 40+</span><span class="track"><span class="fill" style="width:70%;background:var(--amber)"></span></span><span class="vl">27,9 %</span></div>
+          <div class="hbar"><span class="nm">Senioři</span><span class="track"><span class="fill" style="width:56%;background:var(--amber)"></span></span><span class="vl">22,4 %</span></div>
+        </div>
+        <p class="note">Zrcadlově obrácený vzorec (χ² p = 0,007): mladí kupují privátky, bonitní starší (oranžově) jdou do VAFO/Brit. Velké koše (599 Kč) drží značkové krmivo.</p>
+      </div>
+      <div class="tk c2" style="margin-top:14px">
+        <div class="box i"><div class="l">Insight</div>Největší koše (Muži 40+, Senioři) mají <b>nejnižší podíl privátek</b>. Marže odtéká tam, kde jsou peníze.</div>
+        <div class="box m"><div class="l">Úkol pro Category Mgmt</div>Překlopit bonitní muže a seniory do <b>prémiových vlastních značek</b> (Elbeville) → marže z největších košů.</div>
+      </div>
+    </div>
+  </div>
+  <div class="flow">DATA → INSIGHT → <b>DOPAD</b></div><div class="pageno">07 / 10</div>
+</section>
+
+<!-- ========= 8 · MONETIZACE A ========= -->
+<section class="slide">
+  <div class="top"><span class="brand"><img class="logo logo-sz" src="super-zoo_znacka-zakladni-RGB@2x.png" alt="Super Zoo"><span class="amp">×</span><img class="logo logo-mm" src="logo_mindsmodels-normal-black.png" alt="Minds&amp;Models"></span><span class="meta">Monetizace · Možnost A</span></div>
+  <p class="label">08 · Možnost A — s digitálními obrazovkami</p>
+  <h2>Real-Time Retail Media: <span class="accent">obsah se mění s tím, kdo přišel</span></h2>
+  <p class="sub mt6">Obrazovka na vstupní gondole automaticky mění sdělení podle přicházející persony. Reklama přestává být statická a stává se prodejným inventářem.</p>
+  <div class="grid2 mt14">
+    <div class="scn"><span class="itile"><svg class="i" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span><div><div class="h">Scénář 1 · Odpoledne přijdou studenti</div><p>Po 15. h <span class="arw">→</span> promo na kočky. Tato persona má <b>1,67× vyšší</b> útratu v kočičím segmentu.</p></div></div>
+    <div class="scn"><span class="itile"><svg class="i" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span><div><div class="h">Scénář 2 · Přijdou Ženy 30+</div><p>Akce na pamlsky (cross-sell) <span class="arw">→</span> pamlsky se vážou na krmivo: <b>97 účtenek</b> pamlsky × suché, 91 × mokré.</p></div></div>
+  </div>
+  <div class="card mt14">
+    <h3 class="big">Monetizační model — cílené real-time imprese dodavatelům</h3>
+    <div class="grid3" style="margin-top:6px">
+      <div><div class="tile"><div class="v b" style="font-size:21px">VAFO · Trixie</div></div><p class="note" style="margin-top:3px">Platí za zásah přesně své cílovky ve chvíli rozhodování u regálu.</p></div>
+      <div><div class="tile"><div class="v b" style="font-size:21px">1,67×</div></div><p class="note" style="margin-top:3px">Ověřená afinita dělá z impresí doložitelný zásah, ne odhad.</p></div>
+      <div><div class="tile"><div class="v b" style="font-size:21px">Nový výnos</div></div><p class="note" style="margin-top:3px">Super Zoo inkasuje za media, ne jen za zboží — přírůstková marže.</p></div>
+    </div>
+  </div>
+  <div class="tk c2">
+    <div class="box i"><div class="l">Insight</div>Afinita persona × kategorie je změřená v POS, ne odhadnutá. Rozdíl mezi „reklamou" a <b>prodejným retail-media inventářem</b>.</div>
+    <div class="box m"><div class="l">Dopad</div>Dva výnosové proudy: <b>(1)</b> vyšší cross-sell na prodejně, <b>(2)</b> media budget od dodavatelů za cílené imprese.</div>
+  </div>
+  <div class="flow">DATA → INSIGHT → <b>MONETIZACE</b></div><div class="pageno">08 / 10</div>
+</section>
+
+<!-- ========= 9 · MONETIZACE B ========= -->
+<section class="slide">
+  <div class="top"><span class="brand"><img class="logo logo-sz" src="super-zoo_znacka-zakladni-RGB@2x.png" alt="Super Zoo"><span class="amp">×</span><img class="logo logo-mm" src="logo_mindsmodels-normal-black.png" alt="Minds&amp;Models"></span><span class="meta">Monetizace · Možnost B</span></div>
+  <p class="label">09 · Možnost B — čistá analytika, bez obrazovek</p>
+  <h2>Data vydělávají i na pozadí — <span class="accent">s minimální instalací</span></h2>
+  <div class="two mt14" style="--l:.95; --r:1.05">
+    <div style="display:flex; flex-direction:column; gap:12px">
+      <div class="scn"><span class="itile"><svg class="i" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M2 12h20"/></svg></span><div><div class="h">Vyjednávací síla vůči dodavatelům</div><p>Kupující VAFO generují koše <b>599 Kč</b> vs 428 Kč průměr a tvoří 13,6 % tržeb. Poprvé máte nezávislý audit, že tyto prémiové značky drží hlavně Muži 40+ a Senioři.</p></div></div>
+      <div class="scn"><span class="itile"><svg class="i" viewBox="0 0 24 24"><path d="M21 8l-9-5-9 5v8l9 5 9-5V8z"/><path d="M3 8l9 5 9-5M12 13v8"/></svg></span><div><div class="h">Lokální optimalizace zásob</div><p>Demografická stopa řídí sklad: Kozomín je mladá prodejna (60 %+ trafficu 20–30 let) → jiný mix než senior-heavy pobočka.</p></div></div>
+    </div>
+    <div class="card">
+      <h3 class="big">Košík dle značkové skupiny — páka na jednání s dodavateli</h3>
+      <svg viewBox="0 0 500 168" width="100%" height="164">
+        <line class="grid" x1="150" y1="10" x2="150" y2="128"/>
+        <g font-size="12.5">
+        <g transform="translate(0,22)"><text x="142" y="14" text-anchor="end" class="nm">VAFO košíky</text>
+          <rect x="150" y="2" width="238" height="20" rx="5" fill="var(--amber)"/><text class="lbl" x="396" y="17">599 Kč</text></g>
+        <g transform="translate(0,56)"><text x="142" y="14" text-anchor="end" class="nm">Privátky</text>
+          <rect x="150" y="2" width="182" height="20" rx="5" fill="var(--blue)"/><text class="lbl" x="340" y="17">501 Kč</text></g>
+        <g transform="translate(0,90)"><text x="142" y="14" text-anchor="end" class="nm">3. strany</text>
+          <rect x="150" y="2" width="104" height="20" rx="5" fill="var(--slate)"/><text class="lbl" x="262" y="17">428 Kč</text></g>
+        </g>
+        <text class="mut" x="150" y="156">Košíky s převahou VAFO značek jsou nejvyšší. „Kdo kupuje Brit" je doložitelné publikum.</text>
+      </svg>
+      <div class="box m" style="margin-top:12px"><div class="l">Dopad</div>Doložitelný audit „kdo drží prémiové značky" je <b>extrémní páka</b> pro vyjednávání ročních bonusů a marketingových budgetů od VAFO.</div>
+    </div>
+  </div>
+  <div class="tk c2">
+    <div class="box i"><div class="l">Insight</div>I bez obrazovek jsou data samostatné aktivum: vyjednávací páka vůči dodavatelům + demograficky řízený sklad a category mix.</div>
+    <div class="box i"><div class="l">Proč teď</div>Stačí <b>minimální instalace</b> u pokladní zóny — žádné displeje, okamžitý vstup do nákupních a obchodních jednání.</div>
+  </div>
+  <div class="flow">DATA → INSIGHT → <b>MONETIZACE</b></div><div class="pageno">09 / 10</div>
+</section>
+
+<!-- ========= 10 · ZÁVĚR ========= -->
+<section class="slide">
+  <div class="top"><span class="brand"><img class="logo logo-sz" src="super-zoo_znacka-zakladni-RGB@2x.png" alt="Super Zoo"><span class="amp">×</span><img class="logo logo-mm" src="logo_mindsmodels-normal-black.png" alt="Minds&amp;Models"></span><span class="meta">Závěr &amp; další krok</span></div>
+  <p class="label">10 · Od pilotu k rolloutu</p>
+  <h2>Jedna prodejna dokázala princip. <span class="accent">Síť ho znásobí.</span></h2>
+  <div class="two mt14" style="--l:1; --r:1">
+    <div>
+      <div class="card" style="border-color:#f0c98a; box-shadow:0 0 0 1px #f0c98a">
+        <h3 class="big" style="color:var(--amber)">Byznysový potenciál — maržový posun</h3>
+        <p class="lead" style="font-size:15px">Posun <b style="color:var(--amber)">pouhých 1,5 %</b> kupujících z low-margin dodavatelských produktů do prémiových vlastních značek odemyká výrazný nárůst čisté marže — protože se týká té nejbonitnější části košů.</p>
+        <p class="note">Bez slibovaných termínů návratnosti. Mluvíme o potenciálu růstu marže při posunu mixu.</p>
+      </div>
+      <div class="grid2 mt14">
+        <div class="card tile"><div class="v b" style="font-size:20px">2 modely</div><div class="k">A: obrazovky · B: analytika</div></div>
+        <div class="card tile"><div class="v" style="font-size:20px;color:var(--pos)">Princip ✓</div><div class="k">prokázán pilotem</div></div>
+      </div>
+    </div>
+    <div class="card" style="border-color:#a9c3f5; box-shadow:0 0 0 1px #a9c3f5">
+      <h3 class="big" style="color:var(--blue-d)">Doporučený další krok</h3>
+      <div class="scn" style="border:none; box-shadow:none; padding:8px 0"><span class="itile"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg></span><div><div class="h">Rozšíření na reprezentativní cluster prodejen</div><p>Mix poboček (mladé × senior-heavy) pro celosíťově platné závěry.</p></div></div>
+      <div class="scn" style="border:none; box-shadow:none; padding:8px 0"><span class="itile"><svg class="i" viewBox="0 0 24 24"><path d="M3 11v2a4 4 0 0 0 4 4h1l6 4V3L8 7H7a4 4 0 0 0-4 4z"/><path d="M16 8a5 5 0 0 1 0 8"/></svg></span><div><div class="h">Využití insightů pro stavbu kampaní</div><p>Persony, afinita ke kategoriím a denní rytmus prodejny → konkrétní briefy pro on-store obsah, retail media i marketing.</p></div></div>
+      <div class="scn" style="border:none; box-shadow:none; padding:8px 0"><span class="itile"><svg class="i" viewBox="0 0 24 24"><path d="M23 6l-9.5 9.5-5-5L1 18"/><path d="M17 6h6v6"/></svg></span><div><div class="h">Kontinuální denní feed</div><p>Další týdny dat uzavřou statistiku napříč všemi 8 personami a zpřesní afinity.</p></div></div>
+    </div>
+  </div>
+  <div class="tk">
+    <div class="box m full"><div class="l">Rozhodnutí pro vedení</div>Nasazení je <b>maržový akcelerátor</b>: doložitelná páka na dodavatele, cílený cross-sell na prodejně a přeložení bonitních košů do vlastních značek. <b>Reprezentativní cluster prodejen je logický další krok k síťovému rolloutu.</b></div>
+  </div>
+  <div class="flow">DATA → INSIGHT → <b>ROLLOUT</b></div><div class="pageno">10 / 10</div>
+</section>
+
+</div>
+</body>
+</html>

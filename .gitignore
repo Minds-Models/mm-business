@@ -1,0 +1,11 @@
+.DS_Store
+data/snapshots/*
+!data/snapshots/**/MANIFEST.md
+dist/
+*.psd
+*.mp4
+*.mov
+*.heic
+*.HEIC
+node_modules/
+.env

@@ -1,0 +1,19 @@
+name: Sportisimo
+legal_entity: Sportisimo s.r.o.
+segment: sporting-goods
+stores_total: 108        # VERIFY
+stores_live: 0
+
+pilot: {pos_matching: none, key_metrics: {}}
+
+deal:
+  status: pipeline
+  next_step: "deck delivered (see delivered/decks)"
+  personalization_live: false
+
+rights: {mandate_signed: false, aggregate_license: false, notes: ""}
+
+naming: {can_name_publicly: false, approved_fallback: "", written_ok_for: []}
+
+contacts: []
+sensitivities: ""

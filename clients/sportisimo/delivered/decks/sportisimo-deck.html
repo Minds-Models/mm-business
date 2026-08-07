@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Obchod se sportovními potřebami × Minds&Models — Pilotní deck</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+:root{
+  --ink:#0f172a; --ink-2:#334155; --muted:#64748b; --muted-2:#94a3b8; --line:#e2e8f0;
+  --card:#ffffff; --page:linear-gradient(158deg,#ffffff 0%,#f8fafc 40%,#eef2f7 100%);
+  --blue:#2563EB; --blue-d:#1e40af; --blue-soft:#eff5ff; --blue-100:#dbeafe;
+  --amber:#d97706; --amber-soft:#fef6e7; --pos:#059669; --neg:#dc2626; --slate:#94a3b8;
+  --co:#2563EB; --co-soft:#eff5ff; /* sjednoceno s hlavní modrou paletou */
+}
+*{box-sizing:border-box; margin:0; padding:0}
+html,body{background:#dfe3e8;
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  color:var(--ink); -webkit-font-smoothing:antialiased; font-feature-settings:'cv11','ss01';}
+.deck{display:flex; flex-direction:column; align-items:center; gap:26px; padding:34px 16px 60px}
+.slide{position:relative; width:1280px; max-width:100%; aspect-ratio:16/9; background:var(--page);
+  border-radius:16px; overflow:hidden; box-shadow:0 16px 40px rgba(15,23,42,.16);
+  padding:44px 54px 42px; display:flex; flex-direction:column}
+.slide.center{justify-content:center}
+.slide::after{content:''; position:absolute; width:340px; height:340px; border-radius:9999px;
+  background:radial-gradient(circle,#dbeafe,transparent 70%); opacity:.5; top:-150px; right:-90px; filter:blur(70px); pointer-events:none}
+.slide>*{position:relative; z-index:1}
+.top{display:flex; justify-content:space-between; align-items:center; margin-bottom:16px}
+.brand{font-size:16px; font-weight:600; letter-spacing:-.01em; display:flex; align-items:center; gap:9px}
+.brand .amp{font-family:'Times New Roman',serif; font-style:italic; font-weight:400}
+.brand .co{display:inline-flex; align-items:center; gap:6px; font-weight:700; color:var(--co)}
+.brand .dot{width:16px; height:16px; border-radius:4px; background:var(--co)}
+.brand img{display:block; width:auto}
+.brand .mm{height:14px}
+.bsep{width:1px; height:20px; background:var(--line); display:inline-block; flex:none; margin:0 2px}
+.meta{font-size:11px; color:var(--muted); text-align:right; line-height:1.4}
+.label{font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:var(--blue); margin-bottom:9px}
+h1{font-size:44px; font-weight:800; letter-spacing:-.03em; line-height:1.05}
+h2{font-size:28px; font-weight:750; letter-spacing:-.02em; line-height:1.12; margin-bottom:2px}
+.accent{color:var(--blue)} .accent-co{color:var(--co)}
+.sub{font-size:15px; color:var(--muted); line-height:1.5; max-width:82ch}
+.lead{font-size:16px; color:var(--ink-2); line-height:1.4}
+.mt6{margin-top:6px}.mt10{margin-top:10px}.mt14{margin-top:14px}.mt18{margin-top:18px}
+.pageno{position:absolute; bottom:15px; right:54px; font-size:11px; color:var(--muted-2); font-variant-numeric:tabular-nums}
+.flow{position:absolute; bottom:15px; left:54px; font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--muted-2); font-weight:700}
+.flow b{color:var(--blue)}
+svg.i{width:16px; height:16px; flex:none; stroke:currentColor; fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round}
+.itile{width:34px; height:34px; border-radius:9px; background:var(--blue-soft); color:var(--blue); display:flex; align-items:center; justify-content:center; flex:none}
+.itile .i{width:19px; height:19px}
+.card{background:var(--card); border:1px solid var(--line); border-radius:13px; padding:15px 17px; box-shadow:0 1px 2px rgba(15,23,42,.04)}
+.card h3{font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.05em; color:var(--muted); margin-bottom:11px; display:flex; align-items:center; gap:8px}
+.card h3 .i{width:15px; height:15px; color:var(--muted-2); stroke-width:2}
+.card h3.big{font-size:13px; text-transform:none; letter-spacing:0; color:var(--ink)}
+.grid2{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px}
+.grid3{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px}
+.grid4{display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:14px}
+.two{display:flex; gap:22px; flex:1; align-items:flex-start; --l:1; --r:1}
+.two>*{min-width:0}
+.two>*:first-child{flex:var(--l) 1 0}
+.two>*:last-child{flex:var(--r) 1 0}
+.grid2>*,.grid3>*,.grid4>*,.tk>*{min-width:0}
+.tile .v{font-size:28px; font-weight:800; letter-spacing:-.03em; line-height:1; font-variant-numeric:tabular-nums}
+.tile .v.b{color:var(--blue)} .tile .v.c{color:var(--co)} .tile .v.g{color:var(--pos)}
+.tile .k{font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.03em; color:var(--muted); margin-top:8px}
+.tile .s{font-size:11px; color:var(--muted-2); margin-top:3px}
+.hbars{display:flex; flex-direction:column; gap:7px}
+.hbar{display:grid; grid-template-columns:96px 1fr 46px; gap:9px; align-items:center; font-size:12px}
+.hbar .nm{color:var(--ink-2); font-weight:500; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.hbar .track{position:relative; height:11px; background:#eef2f6; border-radius:99px; overflow:hidden}
+.hbar .fill{position:absolute; left:0; top:0; height:100%; border-radius:99px; background:var(--blue)}
+.hbar .vl{font-variant-numeric:tabular-nums; font-weight:700; color:var(--ink); text-align:right}
+.vbars{display:flex; align-items:flex-end; gap:9px; height:104px; margin-top:4px}
+.vbar{flex:1; display:flex; flex-direction:column; align-items:center; justify-content:flex-end; gap:5px; height:100%}
+.vbar .col{width:100%; border-radius:5px 5px 0 0; background:linear-gradient(180deg,#3B82F6,#bfdbfe); min-height:3px}
+.vbar .col.hi{background:linear-gradient(180deg,#d97706,#fcd9a3)}
+.vbar .cl{font-size:9.5px; color:var(--muted-2); font-weight:600}
+.vbar .cv{font-size:10px; font-weight:700; color:var(--ink); font-variant-numeric:tabular-nums}
+.sbar{display:flex; height:30px; border-radius:8px; overflow:hidden; margin-top:4px}
+.sbar>span{display:flex; align-items:center; justify-content:center; font-size:10px; font-weight:700; color:#fff}
+.bpill{display:inline-flex; align-items:baseline; gap:4px; font-size:11px; font-weight:600; padding:4px 10px; border-radius:99px; background:#f1f5f9; color:var(--ink-2); margin:0 5px 6px 0}
+.bpill b{color:var(--ink); font-variant-numeric:tabular-nums}
+.mstat{display:flex; align-items:baseline; gap:6px}
+.mstat .n{font-size:18px; font-weight:800; color:var(--ink); font-variant-numeric:tabular-nums; letter-spacing:-.02em}
+.mstat .t{font-size:11px; color:var(--muted)}
+.mh{font-size:10px; font-weight:800; text-transform:uppercase; letter-spacing:.06em; color:var(--blue); margin-bottom:8px}
+.mhl{display:flex; align-items:baseline; gap:8px; margin-bottom:10px}
+.mhl b{font-size:22px; font-weight:800; letter-spacing:-.02em; color:var(--ink); font-variant-numeric:tabular-nums}
+.mhl span{font-size:11px; color:var(--muted)}
+.hbarw{display:grid; grid-template-columns:58px 1fr auto; gap:8px; align-items:center}
+.hbarw .nm{color:var(--ink-2); font-weight:500; font-size:10.5px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.hbarw .track{position:relative; height:9px; background:#eef2f6; border-radius:99px; overflow:hidden}
+.hbarw .fill{position:absolute; left:0; top:0; height:100%; border-radius:99px; background:var(--blue)}
+.hbarw .vl{font-variant-numeric:tabular-nums; font-weight:700; color:var(--ink); text-align:right; font-size:10px; white-space:nowrap}
+.brow2{display:flex; justify-content:space-between; align-items:center; font-size:11px; padding:3px 0; color:var(--ink-2)}
+.brow2 b{font-variant-numeric:tabular-nums; color:var(--ink)}
+svg text{font-family:'Inter',sans-serif; fill:var(--muted)}
+svg .lbl{fill:var(--ink); font-weight:700; font-variant-numeric:tabular-nums}
+svg .nm{fill:var(--ink-2); font-weight:500}
+svg .mut{fill:var(--muted-2); font-size:10px}
+svg .grid{stroke:var(--line); stroke-width:1}
+.pcards{display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px}
+.pcard{background:var(--card); border:1px solid var(--line); border-radius:13px; padding:11px 13px; display:flex; flex-direction:column; box-shadow:0 1px 2px rgba(15,23,42,.04); position:relative}
+.pcard.key{border-color:#f0c98a; box-shadow:0 0 0 1px #f0c98a, 0 5px 14px rgba(217,119,6,.12)}
+.pcard .head{display:flex; align-items:center; gap:10px}
+.pav{width:38px; height:38px; border-radius:10px; display:flex; align-items:center; justify-content:center; color:#fff; flex:none}
+.pav .i{width:20px; height:20px; stroke-width:1.9}
+.pcard .share{font-size:19px; font-weight:800; letter-spacing:-.02em; line-height:1; color:var(--ink)}
+.pcard .cnt{font-size:10px; color:var(--muted-2); font-weight:600; margin-top:2px}
+.pcard .nm{font-size:12.5px; font-weight:700; margin-top:9px; line-height:1.2}
+.pcard .kv{font-size:11px; margin-top:8px; padding-top:8px; border-top:1px solid var(--line); display:flex; align-items:center; justify-content:space-between; color:var(--muted)}
+.pcard .kv b{font-size:13px; font-weight:800; font-variant-numeric:tabular-nums; color:var(--ink)}
+.pcard .cat{font-size:10.5px; color:var(--muted); margin-top:6px}
+.av{width:44px; height:44px; border-radius:50%; overflow:hidden; flex:none; background:#eef2f6; position:relative; display:flex; align-items:center; justify-content:center}
+.av .fb{font-size:16px; font-weight:700; color:var(--muted-2)}
+.av img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:top center}
+.pcard .rl{font-size:10.5px; color:var(--muted); margin-top:3px; line-height:1.25}
+.pcard ul{margin-top:9px; list-style:none; font-size:10.5px; color:var(--muted); display:flex; flex-direction:column; gap:4px}
+.pcard ul li{padding-left:13px; position:relative; line-height:1.3}
+.pcard ul li:before{content:''; position:absolute; left:2px; top:6px; width:4px; height:4px; border-radius:50%; background:var(--muted-2)}
+.chip.a{color:var(--amber); background:var(--amber-soft)}
+.ktag{position:absolute; top:11px; right:12px; font-size:9px; font-weight:800; letter-spacing:.05em; text-transform:uppercase; color:var(--amber); background:var(--amber-soft); padding:3px 7px; border-radius:99px}
+.tk{display:grid; gap:14px; margin-top:auto}
+.tk.c2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.box{border-radius:12px; padding:13px 16px; font-size:13px; line-height:1.42; min-width:0; overflow-wrap:break-word}
+.box .l{font-size:9.5px; font-weight:800; text-transform:uppercase; letter-spacing:.11em; margin-bottom:5px}
+.box.i{background:#fff; border:1px solid var(--line)} .box.i .l{color:var(--muted-2)}
+.box.m{background:var(--ink); color:#e2e8f0} .box.m .l{color:#7f9cc4} .box.m b{color:#fff}
+.box.co{background:var(--co-soft); border:1px solid #f6cfcb} .box.co .l{color:var(--co)}
+.box.full{grid-column:1/-1}
+.scn{background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; display:flex; gap:13px; align-items:flex-start; box-shadow:0 1px 2px rgba(15,23,42,.04)}
+.scn .h{font-weight:750; font-size:14px}
+.scn p{font-size:12.5px; color:var(--muted); margin-top:3px; line-height:1.42}
+.arw{color:var(--co); font-weight:800}
+.legend{display:flex; gap:14px; flex-wrap:wrap; font-size:11px; color:var(--muted); margin-top:8px}
+.legend span{display:inline-flex; align-items:center; gap:5px}
+.sw{width:10px; height:10px; border-radius:3px}
+.note{font-size:10.5px; color:var(--muted-2); margin-top:8px; line-height:1.4}
+.brow{display:flex; justify-content:space-between; align-items:center; font-size:12.5px; padding:6px 0; border-bottom:1px solid var(--line); color:var(--ink-2)}
+.brow:last-child{border-bottom:none}
+.brow .v{font-variant-numeric:tabular-nums; font-weight:700; color:var(--ink)}
+.chip{font-size:10px; font-weight:700; color:var(--muted); background:#f1f5f9; padding:1px 7px; border-radius:99px}
+.chip.c{color:var(--co); background:var(--co-soft)} .chip.b{color:var(--blue); background:var(--blue-soft)} .chip.g{color:var(--pos); background:#dcfce7}
+@media print{
+  @page{size:1280px 720px; margin:0}
+  html,body{background:#fff}
+  .deck{gap:0; padding:0}
+  .slide{box-shadow:none; border-radius:0; page-break-after:always; break-after:page; width:1280px; max-width:1280px}
+  .slide::after{display:none}
+}
+</style>
+</head>
+<body>
+<div class="deck">
+
+<!-- ===== 1 · TITLE ===== -->
+<section class="slide center">
+  <div class="top" style="position:absolute; top:34px; left:54px; right:54px; margin:0">
+    <span class="brand"><img class="mm" src="mm-logo.png" alt="Minds&Models"></span>
+    <span class="meta">Pilot · obchod se sportovními potřebami<br>Důvěrné</span>
+  </div>
+  <p class="label">Pilotní zpráva · obchod se sportovními potřebami</p>
+  <h1>Kdo chodí do prodejny —<br>a <span style="color:var(--blue)">co si odnese.</span></h1>
+  <p class="lead mt14" style="max-width:70ch">Propojujeme, kdo k vám přijde a jak vypadá, s tím, do které kategorie zamíří, jaký set si poskládá a co si u pokladny odnese.</p>
+  <div class="grid4 mt18" style="max-width:960px">
+    <div class="card tile"><div class="v b">2 834</div><div class="k">unikátních zákazníků</div><div class="s">25 dní pozorování</div></div>
+    <div class="card tile"><div class="v b">65 %</div><div class="k">ve věku 20–39</div><div class="s">mladé, aktivní publikum</div></div>
+    <div class="card tile"><div class="v b">1,48 mil. Kč</div><div class="k">obrat prodejny (pilot)</div><div class="s">1 180 nákupů · Ø 1 250 Kč</div></div>
+    <div class="card tile"><div class="v b">8</div><div class="k">zákaznických person</div><div class="s">unikátních živých segmentů</div></div>
+  </div>
+  <p class="note" style="margin-top:20px; max-width:98ch">Pilot v obchodě se sportovními potřebami. Vizuální persony z kamery × pokladní data. Demografie a chování = data z pilotu; košíky, kategorie a značkové podíly = ilustrativní model pro tuto ukázku.</p>
+  <div class="flow"><b>DATA</b> → INSIGHT → AKCE</div><div class="pageno">01 / 07</div>
+</section>
+
+<!-- ===== 2 · KDO K VÁM CHODÍ ===== -->
+<section class="slide">
+  <div class="top"><span class="brand"><img class="mm" src="mm-logo.png" alt="Minds&Models"></span><span class="meta">Kdo k vám reálně chodí · 7 signálů · N = 2 834</span></div>
+  <p class="label">02 · Kdo k vám reálně chodí</p>
+  <h2>Mladé, aktivní publikum — <span class="accent">sedm signálů o návštěvníkovi</span></h2>
+  <div class="grid4 mt14" style="grid-template-columns:repeat(4,minmax(0,1fr)); align-items:start; gap:12px">
+    <div class="card">
+      <div class="mh">1 · Věk</div>
+      <div class="mhl"><b style="color:var(--amber)">65 %</b><span>20–39 let</span></div>
+      <div class="vbars" style="height:78px">
+        <div class="vbar"><div class="col" style="height:8%"></div><span class="cl">10s</span></div>
+        <div class="vbar"><div class="col hi" style="height:100%"></div><span class="cl">20s</span></div>
+        <div class="vbar"><div class="col" style="height:67%"></div><span class="cl">30s</span></div>
+        <div class="vbar"><div class="col" style="height:44%"></div><span class="cl">40s</span></div>
+        <div class="vbar"><div class="col" style="height:28%"></div><span class="cl">50s</span></div>
+        <div class="vbar"><div class="col" style="height:10%"></div><span class="cl">60+</span></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="mh">2 · Pohlaví</div>
+      <div class="mhl"><b style="color:var(--blue)">52,9 %</b><span>mužů</span></div>
+      <div style="display:flex; align-items:center; gap:12px">
+        <svg viewBox="0 0 36 36" width="66" height="66" style="flex:none">
+          <circle cx="18" cy="18" r="15.9" fill="#f8fafc"/>
+          <circle cx="18" cy="18" r="15.9" fill="none" stroke="var(--blue)" stroke-width="5" stroke-dasharray="52.9 47.1" stroke-dashoffset="25"/>
+          <circle cx="18" cy="18" r="15.9" fill="none" stroke="#EC4899" stroke-width="5" stroke-dasharray="47.0 53.0" stroke-dashoffset="-27.9"/>
+        </svg>
+        <div style="font-size:11px; line-height:1.5">
+          <div style="display:flex; align-items:center; gap:6px"><i class="sw" style="background:var(--blue)"></i> Muži <b style="margin-left:auto">1 499</b></div>
+          <div style="color:var(--muted-2); margin:1px 0 5px 16px">52,9 %</div>
+          <div style="display:flex; align-items:center; gap:6px"><i class="sw" style="background:#EC4899"></i> Ženy <b style="margin-left:auto">1 332</b></div>
+          <div style="color:var(--muted-2); margin:1px 0 0 16px">47,0 %</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="mh">3 · Pohybová orientace</div>
+      <div class="mhl"><b>368</b><span>gym lifting · drtivě muži</span></div>
+      <div style="display:flex; flex-direction:column; gap:9px; font-size:10.5px; margin-top:2px">
+        <div style="display:grid; grid-template-columns:66px 1fr 34px; gap:7px; align-items:center">
+          <span>Wellness</span>
+          <span style="position:relative; height:9px; background:#eef2f6; border-radius:99px; overflow:hidden"><span style="position:absolute; left:0; top:0; height:100%; width:100%; display:flex; border-radius:99px; overflow:hidden"><span style="width:44%; background:var(--blue)"></span><span style="width:56%; background:#EC4899"></span></span></span>
+          <span style="text-align:right; font-weight:700">1 195</span>
+        </div>
+        <div style="display:grid; grid-template-columns:66px 1fr 34px; gap:7px; align-items:center">
+          <span>Gym lifting</span>
+          <span style="position:relative; height:9px; background:#eef2f6; border-radius:99px; overflow:hidden"><span style="position:absolute; left:0; top:0; height:100%; width:31%; display:flex; border-radius:99px; overflow:hidden"><span style="width:99%; background:var(--blue)"></span><span style="width:1%; background:#EC4899"></span></span></span>
+          <span style="text-align:right; font-weight:700">368</span>
+        </div>
+        <div style="display:grid; grid-template-columns:66px 1fr 34px; gap:7px; align-items:center">
+          <span>Endurance</span>
+          <span style="position:relative; height:9px; background:#eef2f6; border-radius:99px; overflow:hidden"><span style="position:absolute; left:0; top:0; height:100%; width:8%; display:flex; border-radius:99px; overflow:hidden"><span style="width:85%; background:var(--blue)"></span><span style="width:15%; background:#EC4899"></span></span></span>
+          <span style="text-align:right; font-weight:700">20</span>
+        </div>
+      </div>
+      <div class="legend" style="margin-top:9px; font-size:10px"><span><i class="sw" style="background:var(--blue)"></i> muži</span><span><i class="sw" style="background:#EC4899"></i> ženy</span></div>
+    </div>
+    <div class="card">
+      <div class="mh">4 · Subkultura</div>
+      <div class="mhl"><b>609</b><span>subkulturní signál</span></div>
+      <div style="display:flex; flex-direction:column; gap:4px">
+        <div class="hbarw"><span class="nm">Granola / wellness</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="vl">236</span></div>
+        <div class="hbarw"><span class="nm">Streetwear</span><span class="track"><span class="fill" style="width:96%"></span></span><span class="vl">227</span></div>
+        <div class="hbarw"><span class="nm">Minimalista</span><span class="track"><span class="fill" style="width:29%"></span></span><span class="vl">68</span></div>
+        <div class="hbarw"><span class="nm">Klasik</span><span class="track"><span class="fill" style="width:21%"></span></span><span class="vl">49</span></div>
+        <div class="hbarw"><span class="nm">Grunge</span><span class="track"><span class="fill" style="width:7%"></span></span><span class="vl">17</span></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="mh">5 · S kým nakupují</div>
+      <div class="mhl"><b style="color:var(--amber)">68 %</b><span>nakupuje sám</span></div>
+      <div class="hbars">
+        <div class="hbar"><span class="nm">Jednotlivec</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="vl">1 927</span></div>
+        <div class="hbar"><span class="nm">Rodina</span><span class="track"><span class="fill" style="width:31%;background:var(--amber)"></span></span><span class="vl">595</span></div>
+        <div class="hbar"><span class="nm">Přátelé / pár</span><span class="track"><span class="fill" style="width:16%"></span></span><span class="vl">312</span></div>
+      </div>
+      <p class="note">Rodiny (oranžově) = nejvyšší potenciál pro sety.</p>
+    </div>
+    <div class="card">
+      <div class="mh">6 · Nákupní tašky</div>
+      <div class="mhl"><b>18 %</b><span>s košíkem / taškou</span></div>
+      <div class="hbars">
+        <div class="hbar"><span class="nm">Košík</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="vl">243</span></div>
+        <div class="hbar"><span class="nm">Papírová</span><span class="track"><span class="fill" style="width:65%"></span></span><span class="vl">158</span></div>
+        <div class="hbar"><span class="nm">Plastová</span><span class="track"><span class="fill" style="width:37%"></span></span><span class="vl">89</span></div>
+        <div class="hbar"><span class="nm">Látková</span><span class="track"><span class="fill" style="width:13%"></span></span><span class="vl">31</span></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="mh">7 · Značky &amp; loga</div>
+      <div style="display:flex; gap:12px; margin-top:2px">
+        <div style="flex:1">
+          <div style="font-size:8.5px; font-weight:800; text-transform:uppercase; letter-spacing:.04em; color:var(--muted-2); margin-bottom:5px">Typ značek</div>
+          <div class="brow2"><span>Mainstream</span><b>1 892</b></div>
+          <div class="brow2"><span>Atletický výkon</span><b>712</b></div>
+          <div class="brow2"><span>Outdoor / hory</span><b>168</b></div>
+          <div class="brow2"><span>Hype / street</span><b>94</b></div>
+        </div>
+        <div style="flex:1">
+          <div style="font-size:8.5px; font-weight:800; text-transform:uppercase; letter-spacing:.04em; color:var(--muted-2); margin-bottom:5px">Viditelná loga</div>
+          <div class="brow2"><span>Nike</span><b>214</b></div>
+          <div class="brow2"><span>adidas</span><b>188</b></div>
+          <div class="brow2"><span>Vans</span><b>140</b></div>
+          <div class="brow2"><span>Puma</span><b>96</b></div>
+          <div class="brow2"><span>LA Sportiva</span><b>31</b></div>
+        </div>
+      </div>
+    </div>
+    <div class="box i" style="align-self:stretch"><div class="l">Insight pro obchod</div>Návštěvníka tvoří z 53 % muži, <b>65 % ve věku 20–39</b>, aktivní (gym / wellness), nakupující převážně sami. Mladé, sportovně orientované publikum — ideální pro cílené kategorie.</div>
+  </div>
+  <div class="flow"><b>DATA</b> → INSIGHT → AKCE</div><div class="pageno">02 / 07</div>
+</section>
+
+<!-- ===== 3 · PERSONY ===== -->
+<section class="slide">
+  <div class="top"><span class="brand"><img class="mm" src="mm-logo.png" alt="Minds&Models"></span><span class="meta">Persona clustery · 8 typů, 6 klíčových</span></div>
+  <p class="label">03 · Klíčové typy zákazníků</p>
+  <h2>Jiný zákazník – <span class="accent">jiná kategorie</span></h2>
+  <div class="pcards mt14" style="grid-template-columns:repeat(3,minmax(0,1fr)); grid-auto-rows:min-content; gap:12px">
+    <div class="pcard">
+      <div class="head"><div class="av"><span class="fb">S</span><img src="avatars/gymbeam_5.png" alt="" onerror="this.remove()"></div>
+        <div><div class="share">22,0 %</div><div class="cnt">623 návštěv</div></div></div>
+      <div class="nm">Student / budget 20+</div>
+      <div class="rl">životní fáze · student 3,0× &middot; batoh 2,1× &middot; brýle 1,5×</div>
+      <div class="kv"><span>Ø koš</span><span><b>760 Kč</b> <span class="chip">−39 %</span></span></div>
+      <ul><li>Malý koš, ale nejvyšší frekvence — 1–2 kusy, hlavně tenisky</li></ul>
+    </div>
+    <div class="pcard">
+      <div class="head"><div class="av"><span class="fb">A</span><img src="avatars/gymbeam_0.png" alt="" onerror="this.remove()"></div>
+        <div><div class="share">20,0 %</div><div class="cnt">567 návštěv</div></div></div>
+      <div class="nm">Aktivní muž 30+</div>
+      <div class="rl">věk · 30s 2,4× &middot; postava atletická 2,0× &middot; vousy 1,8×</div>
+      <div class="kv"><span>Ø koš</span><span><b>1 480 Kč</b> <span class="chip">+18 %</span></span></div>
+      <ul><li>Opakovaný nákup obuvi a funkčního textilu (Nike, adidas)</li></ul>
+    </div>
+    <div class="pcard">
+      <div class="head"><div class="av"><span class="fb">M</span><img src="avatars/gymbeam_2.png" alt="" onerror="this.remove()"></div>
+        <div><div class="share">15,0 %</div><div class="cnt">425 návštěv</div></div></div>
+      <div class="nm">Mladý streetwear</div>
+      <div class="rl">subkultura · streetwear 2,8× &middot; logo hype 2,2× &middot; věk 20s 2,0×</div>
+      <div class="kv"><span>Ø koš</span><span><b>920 Kč</b> <span class="chip">−26 %</span></span></div>
+      <ul><li>Tenisky (Vans) + volnočasový textil, cenově citlivý</li></ul>
+    </div>
+    <div class="pcard">
+      <div class="head"><div class="av"><span class="fb">Ž</span><img src="avatars/gymbeam_1.png" alt="" onerror="this.remove()"></div>
+        <div><div class="share">15,0 %</div><div class="cnt">425 návštěv</div></div></div>
+      <div class="nm">Sportovní žena</div>
+      <div class="rl">wellness styl 2,6× &middot; legíny 2,3× &middot; vlasy culík 1,9×</div>
+      <div class="kv"><span>Ø koš</span><span><b>1 090 Kč</b> <span class="chip">−13 %</span></span></div>
+      <ul><li>Legíny, sportovní podprsenky a wellness doplňky</li></ul>
+    </div>
+    <div class="pcard">
+      <div class="head"><div class="av"><span class="fb">M</span><img src="avatars/gymbeam_4.png" alt="" onerror="this.remove()"></div>
+        <div><div class="share">13,0 %</div><div class="cnt">368 návštěv</div></div></div>
+      <div class="nm">Minimalistka</div>
+      <div class="rl">clean / minimalist 2,4× &middot; neutrální barvy 2,0× &middot; jemné šperky 1,6×</div>
+      <div class="kv"><span>Ø koš</span><span><b>1 290 Kč</b> <span class="chip">+3 %</span></span></div>
+      <ul><li>Neutrální athleisure — ochotná připlatit za kvalitu</li></ul>
+    </div>
+    <div class="pcard key"><span class="ktag">Nejvyšší koš</span>
+      <div class="head"><div class="av"><span class="fb">T</span><img src="avatars/gymbeam_3.png" alt="" onerror="this.remove()"></div>
+        <div><div class="share">15,0 %</div><div class="cnt">425 návštěv</div></div></div>
+      <div class="nm">Táta 40+</div>
+      <div class="rl">věk · 40s+ 2,5× &middot; brýle 1,9× &middot; vrstvené oblečení 1,7×</div>
+      <div class="kv"><span>Ø koš</span><span><b style="color:var(--amber)">2 180 Kč</b> <span class="chipa">+74 %</span></span></div>
+      <ul><li>Nakupuje pro celou rodinu — ideální cíl pro sety</li></ul>
+    </div>
+  </div>
+  <div class="tk" style="margin-top:auto">
+    <div class="box i"><div class="l">Insight pro obchod</div>Segmenty se poznají podle <b>vizuálních rysů u vstupu</b> — a liší se řádově v koši: nejpočetnější jsou studenti (nízký koš), ale <b>Táta 40+</b> má koš 2 180 Kč (+74 %). Objem vs. hodnota — koho růst objemem a koho marží.</div>
+  </div>
+  <div class="flow">DATA → <b>INSIGHT</b> → AKCE</div><div class="pageno">03 / 07</div>
+</section>
+
+<!-- ===== 4 · KDO MÍŘÍ DO KTERÉ KATEGORIE ===== -->
+<section class="slide">
+  <div class="top"><span class="brand"><img class="mm" src="mm-logo.png" alt="Minds&Models"></span><span class="meta">Kategorie × persony · afinita</span></div>
+  <p class="label">04 · Kdo míří do které kategorie</p>
+  <h2>Persona u vstupu <span class="accent">prozradí kategorii</span>, do které zamíří</h2>
+  <div class="two mt14" style="--l:.8; --r:1.2">
+    <div class="card">
+      <h3 class="big">Podíl obratu dle kategorie</h3>
+      <div class="hbars">
+        <div class="hbar"><span class="nm">Volný čas</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="vl">30 %</span></div>
+        <div class="hbar"><span class="nm">Performance</span><span class="track"><span class="fill" style="width:73%"></span></span><span class="vl">22 %</span></div>
+        <div class="hbar"><span class="nm">Turistika</span><span class="track"><span class="fill" style="width:53%"></span></span><span class="vl">16 %</span></div>
+        <div class="hbar"><span class="nm">Sport / Fotbal</span><span class="track"><span class="fill" style="width:47%"></span></span><span class="vl">14 %</span></div>
+        <div class="hbar"><span class="nm">Dětský</span><span class="track"><span class="fill" style="width:33%"></span></span><span class="vl">10 %</span></div>
+        <div class="hbar"><span class="nm">Sezónní / Lyže</span><span class="track"><span class="fill" style="width:27%"></span></span><span class="vl">8 %</span></div>
+      </div>
+      <p class="note">Ilustrativní rozdělení obratu do hlavních kategorií sortimentu.</p>
+    </div>
+    <div class="card">
+      <h3 class="big">Afinita persony ke kategorii — vs průměr prodejny</h3>
+      <svg viewBox="0 0 560 226" width="100%" height="222">
+        <line x1="300" y1="12" x2="300" y2="184" stroke="var(--muted-2)" stroke-dasharray="4 3"/>
+        <text class="mut" x="300" y="9" text-anchor="middle" font-size="9">1,0× = průměr prodejny</text><g class="mut" text-anchor="middle" font-size="10"><text x="255" y="200">0,5×</text><text x="300" y="200">1,0×</text><text x="390" y="200">2,0×</text><text x="480" y="200">3,0×</text></g>
+        <g font-size="11">
+        <g transform="translate(0,22)"><text class="nm" x="200" y="4" text-anchor="end">Táta 40+ → Turistika</text><rect x="210" y="-4.5" width="270" height="9" rx="4.5" fill="var(--blue)"/><text class="lbl" x="486" y="4">3,0×</text></g>
+        <g transform="translate(0,52)"><text class="nm" x="200" y="4" text-anchor="end">Aktivní muž 30+ → Performance</text><rect x="210" y="-4.5" width="234" height="9" rx="4.5" fill="var(--blue)"/><text class="lbl" x="450" y="4">2,6×</text></g>
+        <g transform="translate(0,82)"><text class="nm" x="200" y="4" text-anchor="end">Student → Volný čas</text><rect x="210" y="-4.5" width="216" height="9" rx="4.5" fill="var(--blue)"/><text class="lbl" x="432" y="4">2,4×</text></g>
+        <g transform="translate(0,112)"><text class="nm" x="200" y="4" text-anchor="end">Sportovní žena → Performance</text><rect x="210" y="-4.5" width="180" height="9" rx="4.5" fill="var(--blue)"/><text class="lbl" x="396" y="4">2,0×</text></g>
+        <g transform="translate(0,142)"><text class="nm" x="200" y="4" text-anchor="end">Mladý streetwear → Sport</text><rect x="210" y="-4.5" width="171" height="9" rx="4.5" fill="var(--blue)"/><text class="lbl" x="387" y="4">1,9×</text></g>
+        <g transform="translate(0,172)"><text class="nm" x="200" y="4" text-anchor="end">Minimalistka → Volný čas</text><rect x="210" y="-4.5" width="153" height="9" rx="4.5" fill="var(--blue)"/><text class="lbl" x="369" y="4">1,7×</text></g>
+        </g>
+      </svg>
+    </div>
+  </div>
+  <div class="tk c2">
+    <div class="box i"><div class="l">Insight</div>Vizuální persona u vstupu <b>předpovídá kategorii</b>, do které zákazník zamíří — ještě než dojde k regálu. Vstup do cíleného obsahu na obrazovkách i do skladby sortimentu.</div>
+    <div class="box m"><div class="l">Dopad pro obchod</div>Kategorie i navigace fungují, jen když víte, <b>kdo do které míří</b>. Data to měří v reálném provozu — podklad pro rozmístění, in-store obsah i řízení sortimentu.</div>
+  </div>
+  <div class="flow">DATA → <b>INSIGHT</b> → AKCE</div><div class="pageno">04 / 07</div>
+</section>
+
+<!-- ===== 5 · POS × PENÍZE + SETY ===== -->
+<section class="slide">
+  <div class="top"><span class="brand"><img class="mm" src="mm-logo.png" alt="Minds&Models"></span><span class="meta">POS × persona · košík a sety</span></div>
+  <p class="label">05 · Propojení chování s penězi</p>
+  <h2>Z produktů na zážitek – <span class="accent">sety táhnou koš</span></h2>
+  <div class="grid4 mt14">
+    <div class="card tile"><div class="v b">94 %</div><div class="k">účtenek spárováno</div><div class="s">1 180 nákupů</div></div>
+    <div class="card tile"><div class="v b">1 250 Kč</div><div class="k">Ø košík prodejny</div><div class="s">medián 890 Kč</div></div>
+    <div class="card tile"><div class="v" style="color:var(--amber)">2,3×</div><div class="k">koš u „setů"</div><div class="s">vs jednotlivý produkt</div></div>
+    <div class="card tile"><div class="v">2 180 Kč</div><div class="k">koš tatínků 40+</div><div class="s">+74 % nad průměr</div></div>
+  </div>
+  <div class="two mt14" style="--l:1.25; --r:.75">
+    <div class="card">
+      <h3 class="big">Ø košík dle persony (Kč)</h3>
+      <svg viewBox="0 0 520 200" width="100%" height="196">
+        <line x1="266" y1="10" x2="266" y2="164" stroke="var(--muted-2)" stroke-dasharray="4 3"/>
+        <text class="mut" x="266" y="178" text-anchor="middle">Ø 1 250 Kč</text>
+        <g font-size="11.5">
+        <g transform="translate(0,16)"><text class="nm" x="150" y="11" text-anchor="end">Táta 40+</text><rect x="158" y="2" width="188" height="14" rx="4" fill="var(--amber)"/><text class="lbl" x="352" y="13">2 180</text></g>
+        <g transform="translate(0,44)"><text class="nm" x="150" y="11" text-anchor="end">Aktivní muž 30+</text><rect x="158" y="2" width="128" height="14" rx="4" fill="var(--blue)"/><text class="lbl" x="292" y="13">1 480</text></g>
+        <g transform="translate(0,72)"><text class="nm" x="150" y="11" text-anchor="end">Minimalistka</text><rect x="158" y="2" width="111" height="14" rx="4" fill="var(--blue)"/><text class="lbl" x="275" y="13">1 290</text></g>
+        <g transform="translate(0,100)"><text class="nm" x="150" y="11" text-anchor="end">Sportovní žena</text><rect x="158" y="2" width="94" height="14" rx="4" fill="var(--slate)"/><text class="lbl" x="258" y="13">1 090</text></g>
+        <g transform="translate(0,128)"><text class="nm" x="150" y="11" text-anchor="end">Mladý streetwear</text><rect x="158" y="2" width="79" height="14" rx="4" fill="var(--slate)"/><text class="lbl" x="243" y="13">920</text></g>
+        <g transform="translate(0,156)"><text class="nm" x="150" y="11" text-anchor="end">Student / budget</text><rect x="158" y="2" width="66" height="14" rx="4" fill="var(--slate)"/><text class="lbl" x="230" y="13">760</text></g>
+        </g>
+      </svg>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:12px; height:100%">
+      <div class="card">
+        <h3 class="big">Cross-sell sety (attach)</h3>
+        <div class="brow"><span>Kopačky × míč × chrániče</span><span class="v">41 %</span></div>
+        <div class="brow"><span>Běž. obuv × funkční textil</span><span class="v">38 %</span></div>
+        <div class="brow"><span>Turist. obuv × batoh</span><span class="v">33 %</span></div>
+      </div>
+      <div class="box m" style="margin-top:auto"><div class="l">Insight pro obchod</div>Koš u setu je <b>2,3× vyšší</b>. Skládat sety pro segmenty, které je berou (rodiny, Táta 40+), je nejrychlejší cesta k vyššímu koši.</div>
+    </div>
+  </div>
+  <div class="flow">DATA → INSIGHT → <b>AKCE</b></div><div class="pageno">05 / 07</div>
+</section>
+
+<!-- ===== 6 · ZNAČKY & MARŽE ===== -->
+<section class="slide">
+  <div class="top"><span class="brand"><img class="mm" src="mm-logo.png" alt="Minds&Models"></span><span class="meta">Značky × kategorie × marže</span></div>
+  <p class="label">06 · Kde je skrytá marže</p>
+  <h2>Bonitní zákazníci kupují dodavatelské značky — <span class="accent">a míjejí ty exkluzivní</span></h2>
+  <div class="two mt14" style="--l:1; --r:1">
+    <div class="card">
+      <h3 class="big">Top značky dle obratu (ilustrativně)</h3>
+      <div class="hbars">
+        <div class="hbar"><span class="nm">Nike</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="vl">14,2 %</span></div>
+        <div class="hbar"><span class="nm">adidas</span><span class="track"><span class="fill" style="width:90%"></span></span><span class="vl">12,8 %</span></div>
+        <div class="hbar"><span class="nm">Salomon</span><span class="track"><span class="fill" style="width:50%"></span></span><span class="vl">7,1 %</span></div>
+        <div class="hbar"><span class="nm">Vans</span><span class="track"><span class="fill" style="width:45%"></span></span><span class="vl">6,4 %</span></div>
+        <div class="hbar"><span class="nm">ASICS</span><span class="track"><span class="fill" style="width:42%"></span></span><span class="vl">5,9 %</span></div>
+        <div class="hbar"><span class="nm">La Sportiva</span><span class="track"><span class="fill" style="width:37%"></span></span><span class="vl">5,2 %</span></div>
+        <div class="hbar"><span class="nm">ALPINE PRO</span><span class="track"><span class="fill" style="width:34%;background:var(--amber)"></span></span><span class="vl">4,8 %</span></div>
+        <div class="hbar"><span class="nm">The North Face</span><span class="track"><span class="fill" style="width:29%"></span></span><span class="vl">4,1 %</span></div>
+        <div class="hbar"><span class="nm">KILPI</span><span class="track"><span class="fill" style="width:20%;background:var(--amber)"></span></span><span class="vl">2,9 %</span></div>
+      </div>
+      <p class="note">Oranžově = exkluzivní / vlastní značky (vyšší marže). Podíly jsou ilustrativní model.</p>
+    </div>
+    <div>
+      <div class="card">
+        <h3 class="big">Podíl exkluzivních značek v košíku dle persony</h3>
+        <div class="hbars">
+          <div class="hbar"><span class="nm">Mladý street</span><span class="track"><span class="fill" style="width:92%"></span></span><span class="vl">34 %</span></div>
+          <div class="hbar"><span class="nm">Student</span><span class="track"><span class="fill" style="width:86%"></span></span><span class="vl">32 %</span></div>
+          <div class="hbar"><span class="nm">Sport. žena</span><span class="track"><span class="fill" style="width:73%"></span></span><span class="vl">27 %</span></div>
+          <div class="hbar"><span class="nm">Minimalistka</span><span class="track"><span class="fill" style="width:62%"></span></span><span class="vl">23 %</span></div>
+          <div class="hbar"><span class="nm">Aktivní muž</span><span class="track"><span class="fill" style="width:46%;background:var(--amber)"></span></span><span class="vl">17 %</span></div>
+          <div class="hbar"><span class="nm">Táta 40+</span><span class="track"><span class="fill" style="width:35%;background:var(--amber)"></span></span><span class="vl">13 %</span></div>
+        </div>
+        <p class="note">Nejbonitnější segmenty (aktivní muž, Táta 40+ — oranžově) mají nejnižší podíl exkluzivních značek.</p>
+      </div>
+      <div class="tk c2" style="margin-top:14px">
+        <div class="box i"><div class="l">Insight</div>Největší koše (Táta 40+, aktivní muž) drží <b>prémiové dodavatelské značky</b> (Salomon, Nike) a exkluzivní značky s vyšší marží míjejí.</div>
+        <div class="box m"><div class="l">Úkol pro nákup</div>Překlopit bonitní segmenty do <b>exkluzivních značek</b> (ALPINE PRO / KILPI / LOAP) → vyšší marže z největších košů.</div>
+      </div>
+    </div>
+  </div>
+  <div class="flow">DATA → INSIGHT → <b>AKCE</b></div><div class="pageno">06 / 07</div>
+</section>
+
+<!-- ===== 7 · CTA ===== -->
+<section class="slide center">
+  <div class="top" style="position:absolute; top:34px; left:54px; right:54px; margin:0">
+    <span class="brand"><img class="mm" src="mm-logo.png" alt="Minds&Models"></span>
+    <span class="meta">Další krok</span>
+  </div>
+  <p class="label">Tohle byla jen ukázka</p>
+  <h1>Kolik toho ještě <span style="color:var(--blue)">nevíte</span><br>o zákaznících ve vašich prodejnách?</h1>
+  <p class="lead mt14" style="max-width:66ch">Tento pilot je jen výřez. Rádi vám ukážeme hloubkovou analýzu na míru vašemu sortimentu — kdo míří do které kategorie, které sety táhnou koš, cílený obsah na obrazovkách a data pro rollout.</p>
+  <div style="display:flex; gap:20px; margin-top:28px; flex-wrap:wrap; max-width:760px">
+    <div class="card" style="flex:1; min-width:280px; display:flex; align-items:center; gap:14px; padding:16px 18px">
+      <div style="width:46px; height:46px; border-radius:12px; overflow:hidden; flex:none"><img src="santora_ondrej.png" alt="Ondřej Šantora" style="width:100%; height:100%; object-fit:cover; display:block"></div>
+      <div><div style="font-size:11px; color:var(--muted)">Co-Founder</div><div style="font-weight:750; font-size:15px">Ondřej Šantora</div><div class="note" style="margin:2px 0 0">ondrej@mindsmodels.ai · +420 720 571 736</div></div>
+    </div>
+    <div class="card" style="flex:1; min-width:280px; display:flex; align-items:center; gap:14px; padding:16px 18px">
+      <div style="width:46px; height:46px; border-radius:12px; overflow:hidden; flex:none"><img src="josef_nemecek.png" alt="Josef Němeček" style="width:100%; height:100%; object-fit:cover; display:block"></div>
+      <div><div style="font-size:11px; color:var(--muted)">Co-Founder</div><div style="font-weight:750; font-size:15px">Josef Němeček</div><div class="note" style="margin:2px 0 0">josef@mindsmodels.ai · +420 737 138 638</div></div>
+    </div>
+  </div>
+  <p class="note" style="margin-top:26px">mindsmodels.ai · Become the next gen of retail. One that understands people.</p>
+  <div class="flow">DALŠÍ KROK → <b>OZVĚTE SE</b></div><div class="pageno">07 / 07</div>
+</section>
+
+</div>
+</body>
+</html>

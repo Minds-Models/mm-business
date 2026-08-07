@@ -1,0 +1,25 @@
+name: O2
+legal_entity: O2 Czech Republic (VERIFY)
+segment: telco-retail
+stores_total: 177
+stores_live: 1              # VERIFY
+
+pilot:
+  pos_matching: none
+  key_metrics: {}
+
+deal:
+  status: pilot-live
+  next_step: "Warm door to O2 data/media product unit (broker-track test D8 — intro email)"
+  personalization_live: false
+
+rights: {mandate_signed: false, aggregate_license: false, notes: ""}
+
+naming:
+  can_name_publicly: false
+  approved_fallback: "a Czech telco retail network"
+  written_ok_for: []
+
+contacts: []
+
+sensitivities: "No POS link. Strategic value: partner door to O2's data/media products."

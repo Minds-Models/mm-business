@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GymBeam × Minds&Models — Pilotní deck (Praha)</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+:root{
+  --ink:#17181a; --ink-2:#3f4146; --muted:#6b6d73; --muted-2:#9a9ca2; --line:#e6e5e3;
+  --card:#ffffff; --page:linear-gradient(158deg,#ffffff 0%,#fbfaf9 40%,#f2efec 100%);
+  --blue:#C8471C; --blue-d:#8f300f; --blue-soft:#fbeee7; --blue-100:#f6ddd0;
+  --amber:#1F6F4A; --amber-soft:#e8f4ee; --pos:#1F6F4A; --neg:#dc2626;
+  --slate:#a8a6a2;
+}
+*{box-sizing:border-box; margin:0; padding:0}
+html,body{background:#e3e0dc;
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  color:var(--ink); -webkit-font-smoothing:antialiased; font-feature-settings:'cv11','ss01';}
+.deck{display:flex; flex-direction:column; align-items:center; gap:26px; padding:34px 16px 60px}
+
+.slide{position:relative; width:1280px; max-width:100%; aspect-ratio:16/9; background:var(--page);
+  border-radius:16px; overflow:hidden; box-shadow:0 16px 40px rgba(23,24,26,.16);
+  padding:44px 54px 42px; display:flex; flex-direction:column}
+.slide.center{justify-content:center}
+.slide::after{content:''; position:absolute; width:340px; height:340px; border-radius:9999px;
+  background:radial-gradient(circle,#f6ddd0,transparent 70%); opacity:.55; top:-150px; right:-90px; filter:blur(70px); pointer-events:none}
+.slide>*{position:relative; z-index:1}
+
+.top{display:flex; justify-content:space-between; align-items:center; margin-bottom:16px}
+.brand{display:flex; align-items:center; gap:12px}
+.brand .logo{display:block; width:auto; object-fit:contain}
+.brand .logo-gb{height:28px}
+.brand .logo-mm{height:68px; position:relative; left:-10px; top:0}
+.scn .itile.av-tile{padding:0; overflow:hidden; border-radius:50%; background:#f1eeeb}
+.scn .itile.av-tile img{width:100%; height:100%; object-fit:cover; object-position:top center; transform:scale(1.9); transform-origin:50% 12%}
+.brand .amp{font-family:'Times New Roman',serif; font-style:italic; font-weight:400; font-size:18px; color:var(--muted-2); line-height:1}
+.meta{font-size:11px; color:var(--muted); text-align:right; line-height:1.4}
+
+.label{font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:var(--blue); margin-bottom:9px}
+h1{font-size:46px; font-weight:800; letter-spacing:-.03em; line-height:1.04}
+h2{font-size:29px; font-weight:750; letter-spacing:-.02em; line-height:1.12; margin-bottom:2px}
+.accent{color:var(--blue)}
+.sub{font-size:15px; color:var(--muted); line-height:1.5; max-width:80ch}
+.lead{font-size:16px; color:var(--ink-2); line-height:1.4}
+.mt6{margin-top:6px}.mt10{margin-top:10px}.mt14{margin-top:14px}.mt18{margin-top:18px}
+
+.pageno{position:absolute; bottom:15px; right:54px; font-size:11px; color:var(--muted-2); font-variant-numeric:tabular-nums}
+.flow{position:absolute; bottom:15px; left:54px; font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--muted-2); font-weight:700}
+.flow b{color:var(--blue)}
+
+svg.i{width:16px; height:16px; flex:none; stroke:currentColor; fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round}
+.itile{width:30px; height:30px; border-radius:8px; background:var(--blue-soft); color:var(--blue);
+  display:flex; align-items:center; justify-content:center; flex:none}
+.itile .i{width:17px; height:17px}
+
+.card{background:var(--card); border:1px solid var(--line); border-radius:13px; padding:15px 17px; box-shadow:0 1px 2px rgba(23,24,26,.04)}
+.card h3{font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.05em; color:var(--muted); margin-bottom:11px; display:flex; align-items:center; gap:8px}
+.card h3 .i{width:15px; height:15px; color:var(--muted-2); stroke-width:2}
+.card h3.big{font-size:13px; text-transform:none; letter-spacing:0; color:var(--ink)}
+
+.grid2{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px}
+.grid3{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px}
+.grid4{display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:14px}
+.two{display:flex; gap:22px; flex:1; align-items:flex-start; --l:1; --r:1}
+.two>*{min-width:0}
+.two>*:first-child{flex:var(--l) 1 0}
+.two>*:last-child{flex:var(--r) 1 0}
+.grid2>*,.grid3>*,.grid4>*,.tk>*{min-width:0}
+
+.tile .v{font-size:29px; font-weight:800; letter-spacing:-.03em; line-height:1; font-variant-numeric:tabular-nums}
+.tile .v.b{color:var(--blue)}
+.tile .k{font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.03em; color:var(--muted); margin-top:8px}
+.tile .s{font-size:11px; color:var(--muted-2); margin-top:3px}
+
+.hbars{display:flex; flex-direction:column; gap:7px}
+.hbar{display:grid; grid-template-columns:78px 1fr 44px; gap:9px; align-items:center; font-size:12px}
+.hbar.w{grid-template-columns:96px 1fr 62px}
+.hbar .nm{color:var(--ink-2); font-weight:500; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.hbar .track{position:relative; height:11px; background:#efece9; border-radius:99px; overflow:hidden}
+.hbar .fill{position:absolute; left:0; top:0; height:100%; border-radius:99px; background:var(--blue)}
+.hbar .vl{font-variant-numeric:tabular-nums; font-weight:700; color:var(--ink); text-align:right}
+
+svg text{font-family:'Inter',sans-serif; fill:var(--muted)}
+svg .lbl{fill:var(--ink); font-weight:700; font-variant-numeric:tabular-nums}
+svg .nm{fill:var(--ink-2); font-weight:500}
+svg .mut{fill:var(--muted-2); font-size:10px}
+svg .grid{stroke:var(--line); stroke-width:1}
+
+/* persona cards */
+.pcards{display:grid; grid-template-columns:repeat(3,1fr); gap:13px}
+.pcard{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:10px 13px; display:flex; flex-direction:column; box-shadow:0 1px 2px rgba(23,24,26,.04); position:relative}
+.pcard.key{border-color:#8fc4a8; box-shadow:0 0 0 1px #8fc4a8, 0 6px 16px rgba(31,111,74,.12)}
+.pcard .head{display:flex; align-items:center; gap:11px}
+.av{width:48px; height:48px; border-radius:50%; overflow:hidden; flex:none; background:#f1eeeb; position:relative; display:flex; align-items:center; justify-content:center}
+.av .fb{font-size:19px; font-weight:700; color:var(--muted-2)}
+.av img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:top center; transform:scale(1.9); transform-origin:50% 12%}
+.pcard .share{font-size:24px; font-weight:800; letter-spacing:-.03em; line-height:1; color:var(--ink)}
+.pcard .cnt{font-size:10.5px; color:var(--muted-2); font-weight:600; margin-top:3px}
+.pcard .nm{font-size:14px; font-weight:750; margin-top:8px; line-height:1.15}
+.pcard .rl{font-size:10.5px; color:var(--muted); margin-top:2px; line-height:1.3}
+.pcard .kv{font-size:11.5px; margin-top:9px; padding-top:9px; border-top:1px solid var(--line); display:flex; align-items:center; justify-content:space-between; color:var(--muted)}
+.pcard .kv b{font-size:15px; font-weight:800; font-variant-numeric:tabular-nums; color:var(--ink)}
+.pcard ul{margin-top:8px; list-style:none; font-size:11px; color:var(--muted); display:flex; flex-direction:column; gap:3px}
+.pcard ul li{padding-left:13px; position:relative; line-height:1.3}
+.pcard ul li:before{content:''; position:absolute; left:2px; top:5.5px; width:4px; height:4px; border-radius:50%; background:var(--muted-2)}
+.pcard ul li b{color:var(--blue); font-variant-numeric:tabular-nums}
+.ktag{position:absolute; top:11px; right:12px; font-size:9px; font-weight:800; letter-spacing:.06em; text-transform:uppercase; color:var(--amber); background:var(--amber-soft); padding:3px 7px; border-radius:99px}
+
+.tk{display:grid; gap:14px; margin-top:auto}
+.tk.c2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.box{border-radius:12px; padding:13px 16px; font-size:13px; line-height:1.42; min-width:0}
+.box .l{font-size:9.5px; font-weight:800; text-transform:uppercase; letter-spacing:.11em; margin-bottom:5px}
+.box.i{background:#fff; border:1px solid var(--line)} .box.i .l{color:var(--muted-2)}
+.box.i,.box.m{overflow-wrap:break-word; word-wrap:break-word}
+.box.m{background:var(--ink); color:#e8e6e3} .box.m .l{color:#e0a184} .box.m b{color:#fff}
+.box.full{grid-column:1/-1}
+
+.scn{background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; display:flex; gap:13px; align-items:flex-start; box-shadow:0 1px 2px rgba(23,24,26,.04)}
+.scn .itile{width:38px; height:38px}
+.scn .h{font-weight:750; font-size:14px}
+.scn p{font-size:12.5px; color:var(--muted); margin-top:3px; line-height:1.42}
+.arw{color:var(--blue); font-weight:800}
+
+.legend{display:flex; gap:14px; flex-wrap:wrap; font-size:11px; color:var(--muted); margin-top:8px}
+.legend span{display:inline-flex; align-items:center; gap:5px}
+.sw{width:10px; height:10px; border-radius:3px}
+.note{font-size:10.5px; color:var(--muted-2); margin-top:8px; line-height:1.4}
+.brow{display:flex; justify-content:space-between; font-size:12.5px; padding:5px 0; border-bottom:1px solid var(--line); color:var(--ink-2)}
+.brow:last-child{border-bottom:none}
+.brow .v{font-variant-numeric:tabular-nums; font-weight:700; color:var(--ink)}
+.chip{font-size:10px; font-weight:700; color:var(--muted); background:#f2efec; padding:1px 7px; border-radius:99px}
+.chip.a{color:var(--amber); background:var(--amber-soft)}
+
+@media print{
+  @page{size:1280px 720px; margin:0}
+  html,body{background:#fff}
+  .deck{gap:0; padding:0}
+  .slide{box-shadow:none; border-radius:0; page-break-after:always; break-after:page; width:1280px; max-width:1280px;
+    /* print ignores aspect-ratio as a definite height, so the slide grows and fragments across pages — pin it */
+    height:720px; overflow:hidden}
+  .slide:last-child{page-break-after:auto; break-after:auto}
+  .slide::after{display:none}
+}
+</style>
+</head>
+<body>
+<div class="deck">
+
+<!-- ========= 1 · TITLE ========= -->
+<section class="slide center">
+  <div class="top" style="position:absolute; top:34px; left:54px; right:54px; margin:0">
+    <span class="brand"><img class="logo logo-gb" src="GymBeam_logo.png" alt="GymBeam"><span class="amp">×</span><img class="logo logo-mm" src="logo_mindsmodels-normal-black.png" alt="Minds&amp;Models"></span>
+    <span class="meta">Pilot Praha · 23. 6. – 16. 7. 2026<br>Důvěrné — pro vedení GymBeam</span>
+  </div>
+  <p class="label">Pilotní zpráva</p>
+  <h1>Pokladna, která<br><span class="accent">pozná zákazníka</span> u regálu.</h1>
+  <p class="lead mt14" style="max-width:64ch">Poprvé propojujeme fyzické chování návštěvníků s pokladními daty — kdo přišel, jak vypadá, co koupil a za kolik. Bez věrnostní karty a bez dotazníků.</p>
+  <div class="grid4 mt18" style="max-width:900px">
+    <div class="card tile"><div class="v b">1,29 M Kč</div><div class="k">spárovaný obrat</div><div class="s">2 622 objednávek · 21 dní</div></div>
+    <div class="card tile"><div class="v b">92 %</div><div class="k">objednávek</div><div class="s">spárováno s návštěvou</div></div>
+    <div class="card tile"><div class="v b">491 Kč</div><div class="k">Ø objednávka</div><div class="s">medián 292 Kč · 3,5 položky</div></div>
+    <div class="card tile"><div class="v b">7 475</div><div class="k">návštěvníků</div><div class="s">7 person se změřeným košem</div></div>
+  </div>
+  <p class="note" style="margin-top:20px; max-width:96ch">Zdroj: pokladní objednávky prodejny GymBeam Praha (23. 6. – 16. 7. 2026) × návštěvy u pokladní kamery, spárované časovou korelací; personál odfiltrován předem. Profil návštěvnosti (str. 02, 07) ze stejného období — 7 475 návštěvníků. Persona clustery (str. 03) vychází ze samostatného skenu prodejny (20.–27. 5. 2026, N = 2 834 návštěv).</p>
+  <div class="flow"><b>DATA</b> → INSIGHT → DOPAD</div><div class="pageno">01 / 09</div>
+</section>
+
+<!-- ========= 2 · MAKRO ========= -->
+<section class="slide">
+  <div class="top"><span class="brand"><img class="logo logo-gb" src="GymBeam_logo.png" alt="GymBeam"><span class="amp">×</span><img class="logo logo-mm" src="logo_mindsmodels-normal-black.png" alt="Minds&amp;Models"></span><span class="meta">Makro pohled · 7 475 návštěvníků · 23. 6. – 16. 7. 2026</span></div>
+  <p class="label">02 · Kdo k vám reálně chodí</p>
+  <h2>Mladá, atletická a <span class="accent">cenově uvědomělá</span> prodejna</h2>
+  <p class="sub" style="margin-top:4px; font-size:13px; max-width:none">Všechna data na této stránce vycházejí z <b>vizuálních insightů z prodejny</b>.</p>
+  <div class="grid4 mt14" style="flex:1; align-items:start">
+    <div class="card">
+      <h3 class="big"><svg class="i" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg> Věk</h3>
+      <div class="hbars">
+        <div class="hbar"><span class="nm">20+</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="vl">71,6 %</span></div>
+        <div class="hbar"><span class="nm">30+</span><span class="track"><span class="fill" style="width:21%"></span></span><span class="vl">15,3 %</span></div>
+        <div class="hbar"><span class="nm">40+</span><span class="track"><span class="fill" style="width:6.7%"></span></span><span class="vl">4,8 %</span></div>
+        <div class="hbar"><span class="nm">50+</span><span class="track"><span class="fill" style="width:6%"></span></span><span class="vl">4,3 %</span></div>
+        <div class="hbar"><span class="nm">60+</span><span class="track"><span class="fill" style="width:1.3%"></span></span><span class="vl">0,9 %</span></div>
+        <div class="hbar"><span class="nm">10+</span><span class="track"><span class="fill" style="width:1%"></span></span><span class="vl">0,7 %</span></div>
+      </div>
+      <h3 class="big" style="margin-top:16px"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M5 21v-1a7 7 0 0 1 14 0v1"/></svg> Pohlaví</h3>
+      <div style="display:flex; align-items:center; gap:16px">
+        <svg viewBox="0 0 68 68" width="68" height="68" style="flex:none">
+          <path d="M34,34 L34,2 A32,32 0 1 1 28.4,65.5 Z" fill="var(--blue)"/>
+          <path d="M34,34 L28.4,65.5 A32,32 0 0 1 34,2 Z" fill="var(--slate)"/>
+        </svg>
+        <div style="font-size:12.5px; line-height:1.9">
+          <div style="display:flex; align-items:center; gap:7px"><i class="sw" style="background:var(--blue)"></i> Muži <b style="margin-left:auto; font-variant-numeric:tabular-nums">52,8 %</b></div>
+          <div style="display:flex; align-items:center; gap:7px"><i class="sw" style="background:var(--slate)"></i> Ženy <b style="margin-left:auto; font-variant-numeric:tabular-nums">47,2 %</b></div>
+        </div>
+      </div>
+      <p class="note">3 847 mužů · 3 436 žen. Fitness není mužská prodejna. Věk: 2,4 % neurčeno.</p>
+    </div>
+    <div class="card">
+      <h3 class="big"><svg class="i" viewBox="0 0 24 24"><path d="M6 12h12M4 9v6M20 9v6M8 7v10M16 7v10"/></svg> Postava</h3>
+      <div class="hbars">
+        <div class="hbar w"><span class="nm">Průměrná</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="vl">30,5 %</span></div>
+        <div class="hbar w"><span class="nm">Atletická</span><span class="track"><span class="fill" style="width:97%"></span></span><span class="vl">29,5 %</span></div>
+        <div class="hbar w"><span class="nm">Toned lean</span><span class="track"><span class="fill" style="width:83%"></span></span><span class="vl">25,3 %</span></div>
+        <div class="hbar w"><span class="nm">Štíhlá</span><span class="track"><span class="fill" style="width:30%"></span></span><span class="vl">9,2 %</span></div>
+        <div class="hbar w"><span class="nm">Plus size</span><span class="track"><span class="fill" style="width:4.6%"></span></span><span class="vl">1,4 %</span></div>
+        <div class="hbar w"><span class="nm">Sedavá</span><span class="track"><span class="fill" style="width:3.3%"></span></span><span class="vl">1,0 %</span></div>
+      </div>
+      <p class="note"><b style="color:var(--ink)">54,8 %</b> návštěvníků má atletickou nebo toned-lean postavu — vaše publikum reálně trénuje.</p>
+      <h3 class="big" style="margin-top:14px"><svg class="i" viewBox="0 0 24 24"><path d="M20.4 14.5L16 10 4 20"/><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/></svg> Formálnost outfitu</h3>
+      <div class="hbars">
+        <div class="hbar w"><span class="nm">Casual</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="vl">72,7 %</span></div>
+        <div class="hbar w"><span class="nm">Velmi casual</span><span class="track"><span class="fill" style="width:28%"></span></span><span class="vl">20,1 %</span></div>
+        <div class="hbar w"><span class="nm">Smart casual</span><span class="track"><span class="fill" style="width:6%"></span></span><span class="vl">4,6 %</span></div>
+        <div class="hbar w"><span class="nm">Formální</span><span class="track"><span class="fill" style="width:0.5%"></span></span><span class="vl">0,1 %</span></div>
+      </div>
+    </div>
+    <div class="card">
+      <h3 class="big"><svg class="i" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg> Kupní síla</h3>
+      <div class="hbars">
+        <div class="hbar w"><span class="nm">Mid-range</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="vl">54,3 %</span></div>
+        <div class="hbar w"><span class="nm">Value</span><span class="track"><span class="fill" style="width:73%"></span></span><span class="vl">39,8 %</span></div>
+        <div class="hbar w"><span class="nm">Premium</span><span class="track"><span class="fill" style="width:7.7%;background:var(--amber)"></span></span><span class="vl">4,2 %</span></div>
+        <div class="hbar w"><span class="nm">Budget</span><span class="track"><span class="fill" style="width:3.1%"></span></span><span class="vl">1,7 %</span></div>
+      </div>
+      <p class="note"><b style="color:var(--ink)">94,1 %</b> je mid-range nebo value. Premium jen 4,2 % — masa je cenově citlivá.</p>
+      <h3 class="big" style="margin-top:14px"><svg class="i" viewBox="0 0 24 24"><path d="M20.8 4.6a5 5 0 0 0-7.1 0L12 6.3l-1.7-1.7a5 5 0 1 0-7.1 7.1L12 20.5l8.8-8.8a5 5 0 0 0 0-7.1z"/></svg> Sebeprezentace</h3>
+      <div class="hbars">
+        <div class="hbar w"><span class="nm">Practical</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="vl">68,0 %</span></div>
+        <div class="hbar w"><span class="nm">Invisible</span><span class="track"><span class="fill" style="width:29%"></span></span><span class="vl">19,5 %</span></div>
+        <div class="hbar w"><span class="nm">Status</span><span class="track"><span class="fill" style="width:18%"></span></span><span class="vl">12,5 %</span></div>
+      </div>
+    </div>
+    <div class="card">
+      <h3 class="big"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3.5 9h17M3.5 15h17M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg> Subkultura</h3>
+      <div class="hbars">
+        <div class="hbar w"><span class="nm">Mainstream</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="vl">82,1 %</span></div>
+        <div class="hbar w"><span class="nm">Granola</span><span class="track"><span class="fill" style="width:8%"></span></span><span class="vl">6,5 %</span></div>
+        <div class="hbar w"><span class="nm">Streetwear</span><span class="track"><span class="fill" style="width:6.5%"></span></span><span class="vl">5,3 %</span></div>
+        <div class="hbar w"><span class="nm">Minimalista</span><span class="track"><span class="fill" style="width:3%"></span></span><span class="vl">2,4 %</span></div>
+      </div>
+      <h3 class="big" style="margin-top:14px">Značky na zákaznících</h3>
+      <div class="hbars">
+        <div class="hbar w"><span class="nm">Nike</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="vl">2,3 %</span></div>
+        <div class="hbar w"><span class="nm">Adidas</span><span class="track"><span class="fill" style="width:87%"></span></span><span class="vl">2,0 %</span></div>
+        <div class="hbar w"><span class="nm">GymBeam</span><span class="track"><span class="fill" style="width:65%;background:var(--amber)"></span></span><span class="vl">1,5 %</span></div>
+        <div class="hbar w"><span class="nm">New Balance</span><span class="track"><span class="fill" style="width:26%"></span></span><span class="vl">0,6 %</span></div>
+      </div>
+      <div class="tile" style="margin-top:12px"><div class="v b" style="font-size:22px">71,6 %</div><div class="k">trafficu je 20–29 let → mladá prodejna</div></div>
+    </div>
+  </div>
+  <div class="tk">
+    <div class="box i full"><div class="l">Insight</div>Typický návštěvník: 20–29 let, prakticky oblečený (68 %), s atletickou postavou (54,8 %) a <b>mid-range až value peněženkou (94,1 %)</b>. Poměr mužů a žen je téměř 50/50 — fitness prodejna, ne mužský klub.</div>
+  </div>
+  <div class="flow"><b>DATA</b> → INSIGHT → DOPAD</div><div class="pageno">02 / 09</div>
+</section>
+
+<!-- ========= 3 · PERSONY ========= -->
+<section class="slide">
+  <div class="top"><span class="brand"><img class="logo logo-gb" src="GymBeam_logo.png" alt="GymBeam"><span class="amp">×</span><img class="logo logo-mm" src="logo_mindsmodels-normal-black.png" alt="Minds&amp;Models"></span><span class="meta">Mikro pohled · 7 person, 6 klíčových</span></div>
+  <p class="label">03 · Zákaznické persony</p>
+  <h2>Za průměrem se skrývají persony s <span class="accent">dramaticky jinou hodnotou</span></h2>
+  <p class="sub" style="margin-top:4px; font-size:12px; max-width:none">Pod jménem je <b>vizuální charakteristika</b> — podle čeho personu poznáte u vstupu. V odrážkách to, <b>co koupí u pokladny</b>.</p>
+  <div class="pcards mt6">
+    <div class="pcard key">
+      <span class="ktag">Největší</span>
+      <div class="head">
+        <div class="av"><span class="fb">M</span><img src="avatars/gymbeam_0.png" alt="" onerror="this.remove()"></div>
+        <div><div class="share">21,6 %</div><div class="cnt">největší segment</div></div>
+      </div>
+      <div class="nm">Muži 30–50</div><div class="rl">Vousy · praktické oblečení</div>
+      <div class="kv"><span>Ø košík</span><span><b style="color:var(--amber)">554 Kč</b> &nbsp;<span class="chip a">+13 %</span></span></div>
+      <ul><li>Aminokyseliny a BCAA <b>1,40×</b> nad průměrem prodejny</li><li>3,9 položky v koši — jeden z nejplnějších</li></ul>
+    </div>
+    <div class="pcard key">
+      <span class="ktag">Nejvyšší koš</span>
+      <div class="head">
+        <div class="av"><span class="fb">A</span><img src="avatars/active.png" alt="" onerror="this.remove()"></div>
+        <div><div class="share">16,9 %</div><div class="cnt">2. největší</div></div>
+      </div>
+      <div class="nm">Atletičtí mladí muži</div><div class="rl">Atletická postava · sportovní oblečení</div>
+      <div class="kv"><span>Ø košík</span><span><b style="color:var(--amber)">566 Kč</b> &nbsp;<span class="chip a">+15 %</span></span></div>
+      <ul><li><b>Nejvyšší koš v prodejně</b></li><li>3,9 položky v koši — jeden z nejplnějších</li></ul>
+    </div>
+    <div class="pcard">
+      <div class="head">
+        <div class="av"><span class="fb">W</span><img src="avatars/gymbeam_1.png" alt="" onerror="this.remove()"></div>
+        <div><div class="share">14,1 %</div><div class="cnt">3. největší</div></div>
+      </div>
+      <div class="nm">Wellness ženy 20+</div><div class="rl">Sportovní ženský outfit · fit postava</div>
+      <div class="kv"><span>Ø košík</span><span><b>401 Kč</b> &nbsp;<span class="chip">−18 %</span></span></div>
+      <ul><li>Vitamíny kupují <b>0,53×</b> méně často než je průměr prodejny</li><li>3,3 položky · lehčí, lifestylový košík</li></ul>
+    </div>
+    <div class="pcard">
+      <div class="head">
+        <div class="av"><span class="fb">P</span><img src="avatars/gymbeam_4.png" alt="" onerror="this.remove()"></div>
+        <div><div class="share">13,0 %</div><div class="cnt">&nbsp;</div></div>
+      </div>
+      <div class="nm">Mladé profesionálky</div><div class="rl">Upravený vzhled · elegantní casual</div>
+      <div class="kv"><span>Ø košík</span><span><b>426 Kč</b> &nbsp;<span class="chip">−13 %</span></span></div>
+      <ul><li>Oblečení <b>1,74×</b> a doplňky <b>1,41×</b> nad průměrem</li><li>Funkční nápoje jen <b>0,57×</b></li></ul>
+    </div>
+    <div class="pcard">
+      <div class="head">
+        <div class="av"><span class="fb">S</span><img src="avatars/gymbeam_5.png" alt="" onerror="this.remove()"></div>
+        <div><div class="share">12,8 %</div><div class="cnt">&nbsp;</div></div>
+      </div>
+      <div class="nm">Studentská mládež</div><div class="rl">Mladistvý vzhled · běžné oblečení</div>
+      <div class="kv"><span>Ø košík</span><span><b>405 Kč</b> &nbsp;<span class="chip">−18 %</span></span></div>
+      <ul><li>Kreatin <b>1,50×</b> nad průměrem — levný vstup do suplementů</li><li>Nejcitlivější segment na cenu — objem, ne marže</li></ul>
+    </div>
+    <div class="pcard">
+      <div class="head">
+        <div class="av"><span class="fb">V</span><img src="avatars/gymbeam_2.png" alt="" onerror="this.remove()"></div>
+        <div><div class="share">8,7 %</div><div class="cnt">&nbsp;</div></div>
+      </div>
+      <div class="nm">Mladí muži ve streetwearu</div><div class="rl">Pouliční styl · tmavé sportovní oblečení</div>
+      <div class="kv"><span>Ø košík</span><span><b>520 Kč</b> &nbsp;<span class="chip a">+6 %</span></span></div>
+      <ul><li>Protein <b>1,95×</b> — nejsilnější afinita ke kategorii v prodejně</li><li>Malý segment, ale koš nad průměrem prodejny</li></ul>
+    </div>
+  </div>
+  <div class="tk c2">
+    <div class="box i"><div class="l">Insight</div>Mužské persony = <b>60 % návštěv</b> a všechny koše nad průměrem. Ženské = <b>40 % návštěv</b>, všechny pod ním. Průměr 491 Kč obojí maskuje.</div>
+    <div class="box m"><div class="l">Dopad</div>Z vizuálních atributů zákazníka dokážeme vyčíst <b>nejefektivnější cílení</b> — koho oslovit cross-sellem a na koho mířit s vysokomaržovými produkty.</div>
+  </div>
+  <div class="flow">DATA → <b>INSIGHT</b> → DOPAD</div><div class="pageno">03 / 09</div>
+</section>
+
+<!-- ========= 4 · POS PARADOX ========= -->
+<section class="slide">
+  <div class="top"><span class="brand"><img class="logo logo-gb" src="GymBeam_logo.png" alt="GymBeam"><span class="amp">×</span><img class="logo logo-mm" src="logo_mindsmodels-normal-black.png" alt="Minds&amp;Models"></span><span class="meta">POS × personas · párování</span></div>
+  <p class="label">04 · Propojení chování s penězi</p>
+  <h2>Atletické jádro platí nejvíc — <span class="accent">a poznáte ho od pohledu</span></h2>
+  <div class="grid4 mt14">
+    <div class="card tile"><div class="v b">92 %</div><div class="k">objednávek spárováno</div><div class="s">2 414 přiřazeno k návštěvě</div></div>
+    <div class="card tile"><div class="v b">1,29 M Kč</div><div class="k">obrat pilotu</div><div class="s">2 622 objednávek · 21 dní</div></div>
+    <div class="card tile"><div class="v">491 Kč</div><div class="k">Ø objednávka prodejny</div><div class="s">medián 292 Kč · 3,5 položky</div></div>
+    <div class="card tile"><div class="v">566 vs 370</div><div class="k">nejvyšší vs nejnižší koš (Kč)</div><div class="s">rozdíl +53 %</div></div>
+  </div>
+  <div class="two mt14" style="--l:1.25; --r:.75">
+    <div class="card">
+      <h3 class="big">Ø hodnota objednávky dle persony (Kč)</h3>
+      <svg viewBox="0 0 520 236" width="100%" height="222">
+        <line x1="398" y1="8" x2="398" y2="196" stroke="var(--muted-2)" stroke-dasharray="4 3"/>
+        <text class="mut" x="398" y="210" text-anchor="middle">Ø prodejny 491 Kč</text>
+        <line class="grid" x1="220" y1="8" x2="220" y2="196"/>
+        <g font-size="11.5">
+        <g transform="translate(0,14)"><text class="nm" x="212" y="11" text-anchor="end">Atletičtí mladí muži</text>
+          <rect x="220" y="2" width="205" height="14" rx="4" fill="var(--amber)"/><text class="lbl" x="431" y="13">566</text></g>
+        <g transform="translate(0,40)"><text class="nm" x="212" y="11" text-anchor="end">Muži 30–50</text>
+          <rect x="220" y="2" width="200" height="14" rx="4" fill="var(--amber)"/><text class="lbl" x="426" y="13">554</text></g>
+        <g transform="translate(0,66)"><text class="nm" x="212" y="11" text-anchor="end">Mladí muži ve streetwearu</text>
+          <rect x="220" y="2" width="188" height="14" rx="4" fill="var(--amber)"/><text class="lbl" x="414" y="13">520</text></g>
+        <g transform="translate(0,92)"><text class="nm" x="212" y="11" text-anchor="end">Mladé profesionálky</text>
+          <rect x="220" y="2" width="154" height="14" rx="4" fill="var(--blue)"/><text class="lbl" x="380" y="13">426</text></g>
+        <g transform="translate(0,118)"><text class="nm" x="212" y="11" text-anchor="end">Studentská mládež</text>
+          <rect x="220" y="2" width="147" height="14" rx="4" fill="var(--slate)"/><text class="lbl" x="373" y="13">405</text></g>
+        <g transform="translate(0,144)"><text class="nm" x="212" y="11" text-anchor="end">Wellness ženy 20+</text>
+          <rect x="220" y="2" width="145" height="14" rx="4" fill="var(--blue)"/><text class="lbl" x="371" y="13">401</text></g>
+        <g transform="translate(0,170)"><text class="nm" x="212" y="11" text-anchor="end">Minimalistky 20+</text>
+          <rect x="220" y="2" width="134" height="14" rx="4" fill="var(--blue)"/><text class="lbl" x="360" y="13">370</text></g>
+        </g>
+        <text class="mut" x="0" y="230">n = 954 objednávek s přiřazenou personou (987 párování s vysokou jistotou). Atletičtí mladí muži signifikantní (p = 0,02).</text>
+      </svg>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:12px">
+      <div class="box i"><div class="l">Prémiové persony</div>Atletičtí muži = koš <b>520–566 Kč</b>, tj. až +15 % nad průměr a 3,7–3,9 položky. Nakupují nejdráž — a jsou vizuálně nejsnáz rozpoznatelní.</div>
+      <div class="box i"><div class="l">Objemový potenciál</div>Tři ženské persony jedou pod průměrem (<b>370–426 Kč</b>). Není to menší kupní síla — je to <b>jiný mix košíku</b> (str. 05).</div>
+      <div class="box m"><div class="l">Dopad</div>Párování 92 % = <b>nezávislý audit</b>, kdo reálně platí za obrat prodejny. Poprvé bez věrnostní karty a bez dotazníku.</div>
+    </div>
+  </div>
+  <div class="flow">DATA → INSIGHT → <b>DOPAD</b></div><div class="pageno">04 / 09</div>
+</section>
+
+<!-- ========= 5 · KATEGORIE ========= -->
+<section class="slide">
+  <div class="top"><span class="brand"><img class="logo logo-gb" src="GymBeam_logo.png" alt="GymBeam"><span class="amp">×</span><img class="logo logo-mm" src="logo_mindsmodels-normal-black.png" alt="Minds&amp;Models"></span><span class="meta">Co je v košíku · afinita ke kategoriím</span></div>
+  <p class="label">05 · Co která persona kupuje</p>
+  <h2>Každá persona má <span class="accent">svou charakteristickou kategorii</span></h2>
+  <div class="two mt14" style="--l:.78; --r:1.22">
+    <div>
+      <div class="grid2">
+        <div class="card tile" style="text-align:center"><div class="v b" style="font-size:24px">1,95×</div><div class="k">Muži ve streetwearu → protein</div></div>
+        <div class="card tile" style="text-align:center"><div class="v b" style="font-size:24px">1,74×</div><div class="k">Profesionálky → oblečení</div></div>
+      </div>
+      <p class="note" style="margin-top:6px">Nadprůměrná afinita vs průměr prodejny.</p>
+      <div class="box i" style="margin-top:14px"><div class="l">Insight</div>Muži nakupují v objemu <b>protein a kreatin</b> — drahé, objemné základní produkty. Ženy mají naopak lehčí lifestylový košík: <b>oblečení, doplňky a funkční nápoje</b>. Rozdíl v hodnotě koše ze str. 04 není rozdíl v kupní síle — je to rozdíl v nákupní misi.</div>
+    </div>
+    <div class="card">
+      <h3 class="big">Afinita persony ke kategorii vs průměr prodejny</h3>
+      <svg viewBox="0 0 620 240" width="100%" height="234">
+        <line x1="330" y1="12" x2="330" y2="200" stroke="var(--muted-2)" stroke-dasharray="4 3"/>
+        <g class="mut" text-anchor="middle"><text x="250" y="216">0,5×</text><text x="330" y="216">1,0× = průměr</text><text x="490" y="216">2,0×</text></g>
+        <line class="grid" x1="250" y1="12" x2="250" y2="200"/><line class="grid" x1="490" y1="12" x2="490" y2="200"/>
+        <g font-size="11">
+        <g transform="translate(0,26)"><text class="nm" x="205" y="4" text-anchor="end">Muži ve streetwearu → Protein</text>
+          <line x1="330" y1="0" x2="482" y2="0" stroke="var(--blue)" stroke-width="2"/><circle cx="482" cy="0" r="5" fill="var(--blue)" stroke="#fff" stroke-width="2"/><text class="lbl" x="493" y="4">1,95×</text></g>
+        <g transform="translate(0,54)"><text class="nm" x="205" y="4" text-anchor="end">Profesionálky → Oblečení</text>
+          <line x1="330" y1="0" x2="448" y2="0" stroke="var(--blue)" stroke-width="2"/><circle cx="448" cy="0" r="5" fill="var(--blue)" stroke="#fff" stroke-width="2"/><text class="lbl" x="459" y="4">1,74×</text></g>
+        <g transform="translate(0,82)"><text class="nm" x="205" y="4" text-anchor="end">Studentská mládež → Kreatin</text>
+          <line x1="330" y1="0" x2="410" y2="0" stroke="var(--blue)" stroke-width="2"/><circle cx="410" cy="0" r="5" fill="var(--blue)" stroke="#fff" stroke-width="2"/><text class="lbl" x="421" y="4">1,50×</text></g>
+        <g transform="translate(0,110)"><text class="nm" x="205" y="4" text-anchor="end">Profesionálky → Doplňky</text>
+          <line x1="330" y1="0" x2="396" y2="0" stroke="var(--blue)" stroke-width="2"/><circle cx="396" cy="0" r="5" fill="var(--blue)" stroke="#fff" stroke-width="2"/><text class="lbl" x="407" y="4">1,41×</text></g>
+        <g transform="translate(0,138)"><text class="nm" x="205" y="4" text-anchor="end">Muži 30–50 → Aminokyseliny</text>
+          <line x1="330" y1="0" x2="394" y2="0" stroke="var(--blue)" stroke-width="2"/><circle cx="394" cy="0" r="5" fill="var(--blue)" stroke="#fff" stroke-width="2"/><text class="lbl" x="405" y="4">1,40×</text></g>
+        <g transform="translate(0,166)"><text class="nm" x="205" y="4" text-anchor="end">Wellness ženy → Vitamíny</text>
+          <line x1="255" y1="0" x2="330" y2="0" stroke="var(--slate)" stroke-width="2"/><circle cx="255" cy="0" r="5" fill="var(--slate)" stroke="#fff" stroke-width="2"/><text class="lbl" x="245" y="4" text-anchor="end">0,53×</text></g>
+        <g transform="translate(0,194)"><text class="nm" x="205" y="4" text-anchor="end">Profesionálky → Funkční nápoje</text>
+          <line x1="261" y1="0" x2="330" y2="0" stroke="var(--slate)" stroke-width="2"/><circle cx="261" cy="0" r="5" fill="var(--slate)" stroke="#fff" stroke-width="2"/><text class="lbl" x="251" y="4" text-anchor="end">0,57×</text></g>
+        </g>
+      </svg>
+      <div class="legend"><span><i class="sw" style="background:var(--blue)"></i> nadprůměr</span><span><i class="sw" style="background:var(--slate)"></i> podprůměr</span></div>
+      <p class="note">Směrové při 10–30 objednávkách na buňku; buňky pod 10 objednávkami potlačeny.</p>
+    </div>
+  </div>
+  <div class="tk">
+    <div class="box m full"><div class="l">Dopad</div>Persona + kategorie = konkrétní nabídka ve správný čas: <b>protein tomu, kdo si pro něj stejně jde</b>, oblečení té, která ho reálně kupuje 1,74×.</div>
+  </div>
+  <div class="flow">DATA → <b>INSIGHT</b> → DOPAD</div><div class="pageno">05 / 09</div>
+</section>
+
+<!-- ========= 6 · NEZÁVISLÉ OVĚŘENÍ ========= -->
+<section class="slide">
+  <div class="top"><span class="brand"><img class="logo logo-gb" src="GymBeam_logo.png" alt="GymBeam"><span class="amp">×</span><img class="logo logo-mm" src="logo_mindsmodels-normal-black.png" alt="Minds&amp;Models"></span><span class="meta">Ověření · jediný syrový rys, bez modelu person</span></div>
+  <p class="label">06 · Nezávislá kontrola signálu</p>
+  <h2>Kupující kategorií se štěpí podle <span class="accent">pohlaví</span></h2>
+  <div class="two mt14" style="--l:1.15; --r:.85">
+    <div class="card">
+      <h3 class="big">Podíl kupujících dané kategorie dle pohlaví</h3>
+      <svg viewBox="0 0 620 292" width="100%" height="278">
+        <text class="mut" x="250" y="12" text-anchor="middle">← více žen　　　více mužů →</text>
+        <line x1="250" y1="20" x2="250" y2="266" stroke="var(--muted-2)" stroke-dasharray="3 3"/>
+        <text class="mut" x="250" y="282" text-anchor="middle">50 / 50</text>
+        <g font-size="11.5">
+        <g transform="translate(0,32)"><text class="nm" x="150" y="4" text-anchor="end">Kreatin</text>
+          <rect x="250" y="-6" width="100" height="12" rx="3" fill="var(--blue)"/><text class="lbl" x="356" y="4">67 % M</text></g>
+        <g transform="translate(0,60)"><text class="nm" x="150" y="4" text-anchor="end">Ořechová másla</text>
+          <rect x="250" y="-6" width="52" height="12" rx="3" fill="var(--blue)"/><text class="lbl" x="308" y="4">59 % M</text></g>
+        <g transform="translate(0,88)"><text class="nm" x="150" y="4" text-anchor="end">Vitamíny &amp; zdraví</text>
+          <rect x="250" y="-6" width="46" height="12" rx="3" fill="var(--blue)"/><text class="lbl" x="302" y="4">58 % M</text></g>
+        <g transform="translate(0,116)"><text class="nm" x="150" y="4" text-anchor="end">Oblečení</text>
+          <rect x="250" y="-6" width="37" height="12" rx="3" fill="var(--blue)"/><text class="lbl" x="293" y="4">56 % M</text></g>
+        <g transform="translate(0,144)"><text class="nm" x="150" y="4" text-anchor="end">Protein</text>
+          <rect x="250" y="-6" width="4" height="12" rx="3" fill="var(--blue)"/><text class="lbl" x="260" y="4">51 % M</text></g>
+        <g transform="translate(0,172)"><text class="nm" x="150" y="4" text-anchor="end">Jídlo &amp; hotová jídla</text>
+          <rect x="214" y="-6" width="36" height="12" rx="3" fill="var(--slate)"/><text class="lbl" x="208" y="4" text-anchor="end">56 % Ž</text></g>
+        <g transform="translate(0,200)"><text class="nm" x="150" y="4" text-anchor="end">Funkční nápoje</text>
+          <rect x="211" y="-6" width="39" height="12" rx="3" fill="var(--slate)"/><text class="lbl" x="205" y="4" text-anchor="end">56 % Ž</text></g>
+        <g transform="translate(0,228)"><text class="nm" x="150" y="4" text-anchor="end">Aminokyseliny / BCAA</text>
+          <rect x="205" y="-6" width="45" height="12" rx="3" fill="var(--slate)"/><text class="lbl" x="199" y="4" text-anchor="end">65 % Ž</text></g>
+        <g transform="translate(0,256)"><text class="nm" x="150" y="4" text-anchor="end">Snacky &amp; tyčinky</text>
+          <rect x="205" y="-6" width="45" height="12" rx="3" fill="var(--slate)"/><text class="lbl" x="199" y="4" text-anchor="end">65 % Ž</text></g>
+        </g>
+      </svg>
+      <p class="note">Podíl kupujících dle pohlaví (objemem položek, objednávky s vizuálními rysy). Nezávislé na modelu person.</p>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:12px">
+      <div class="scn"><span class="itile"><svg class="i" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span><div><div class="h">Pohlaví samo nese signál útraty</div><p>Muži mají vyšší hodnotu objednávky než ženy (<b>p = 0,007</b>) — konzistentní s pořadím person, viditelné v jediném rysu.</p></div></div>
+      <div class="scn"><span class="itile"><svg class="i" viewBox="0 0 24 24"><path d="M6 12h12M4 9v6M20 9v6M8 7v10M16 7v10"/></svg></span><div><div class="h">Postava a sportovní orientace platí</div><p>Typ postavy (<b>p = 0,04</b>) i viditelná sportovní orientace (<b>p = 0,05</b>) sledují hodnotu koše — čím atletičtější vzhled, tím větší nákup.</p></div></div>
+      <div class="box m"><div class="l">Dopad</div>Kreatin je nejmužštější kategorie (67 %), snacky a aminokyseliny nejženštější (65 %), protein prodává <b>50/50</b>. To je hotový brief pro planogram i pro obsah obrazovky.</div>
+    </div>
+  </div>
+  <div class="flow">DATA → <b>INSIGHT</b> → DOPAD</div><div class="pageno">06 / 09</div>
+</section>
+
+<!-- ========= 7 · ZNAČKY / MARŽE ========= -->
+<section class="slide">
+  <div class="top"><span class="brand"><img class="logo logo-gb" src="GymBeam_logo.png" alt="GymBeam"><span class="amp">×</span><img class="logo logo-mm" src="logo_mindsmodels-normal-black.png" alt="Minds&amp;Models"></span><span class="meta">Maržová páka · apparel &amp; vlastní značka</span></div>
+  <p class="label">07 · Kde leží nevyužitá marže</p>
+  <h2>Ve vaší prodejně vede <span class="accent">Nike a Adidas</span> — GymBeam je až třetí</h2>
+  <div class="two mt14" style="--l:1; --r:1">
+    <div>
+      <div class="card">
+        <h3 class="big">Viditelné značky na návštěvnících · 7 475 návštěvníků · 23. 6. – 16. 7.</h3>
+        <div class="hbars">
+          <div class="hbar w"><span class="nm">Nike</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="vl">174</span></div>
+          <div class="hbar w"><span class="nm">Adidas</span><span class="track"><span class="fill" style="width:88%"></span></span><span class="vl">153</span></div>
+          <div class="hbar w"><span class="nm">GymBeam</span><span class="track"><span class="fill" style="width:63%;background:var(--amber)"></span></span><span class="vl">109</span></div>
+          <div class="hbar w"><span class="nm">New Balance</span><span class="track"><span class="fill" style="width:24%"></span></span><span class="vl">42</span></div>
+          <div class="hbar w"><span class="nm">Vans</span><span class="track"><span class="fill" style="width:19%"></span></span><span class="vl">33</span></div>
+          <div class="hbar w"><span class="nm">Under Armour</span><span class="track"><span class="fill" style="width:17%"></span></span><span class="vl">29</span></div>
+          <div class="hbar w"><span class="nm">Asics</span><span class="track"><span class="fill" style="width:14%"></span></span><span class="vl">24</span></div>
+          <div class="hbar w"><span class="nm">Gymshark</span><span class="track"><span class="fill" style="width:14%"></span></span><span class="vl">24</span></div>
+          <div class="hbar w"><span class="nm">Puma</span><span class="track"><span class="fill" style="width:13%"></span></span><span class="vl">23</span></div>
+        </div>
+        <p class="note">Samotné <b style="color:var(--ink)">Nike (174)</b> předběhne GymBeam <b style="color:var(--ink)">1,6×</b>. Sportovní značky dohromady (Nike, Adidas, UA, Asics, Puma) = <b style="color:var(--ink)">403 návštěvníků</b> vs GymBeam 109 → <b style="color:var(--ink)">3,7×</b>. Nejnošenější značka v prodejně je vůbec <b style="color:var(--ink)">Apple (532 · 7,1 %)</b> — tech je z tohoto pohledu vyfiltrován.</p>
+      </div>
+      <div class="grid2 mt14">
+        <div class="card tile"><div class="v b" style="font-size:22px">1,74×</div><div class="k">profesionálky → apparel</div><div class="s">nejsilnější ne-suplementová afinita</div></div>
+        <div class="card tile"><div class="v" style="font-size:22px;color:var(--amber)">24</div><div class="k">návštěvníků nosí Gymshark</div><div class="s">přímý DTC konkurent ve vaší prodejně</div></div>
+      </div>
+    </div>
+    <div>
+      <div class="card">
+        <h3 class="big">Kdo apparel reálně kupuje</h3>
+        <svg viewBox="0 0 500 132" width="100%" height="128">
+          <line class="grid" x1="170" y1="8" x2="170" y2="104"/>
+          <g font-size="12.5">
+          <g transform="translate(0,16)"><text x="162" y="14" text-anchor="end" class="nm">Profesionálky</text>
+            <rect x="170" y="2" width="218" height="20" rx="5" fill="var(--blue)"/><text class="lbl" x="396" y="17">1,74× afinita</text></g>
+          <g transform="translate(0,52)"><text x="162" y="14" text-anchor="end" class="nm">Kupující apparelu</text>
+            <rect x="170" y="2" width="140" height="20" rx="5" fill="var(--slate)"/><text class="lbl" x="318" y="17">56 % muži</text></g>
+          </g>
+          <text class="mut" x="0" y="126">Afinita z modelu person · pohlaví kupujících ze syrového rysu — dva nezávislé pohledy.</text>
+        </svg>
+      </div>
+      <div class="tk c2" style="margin-top:14px">
+        <div class="box i"><div class="l">Insight</div>Prodejna je každý den <b>showroom cizích značek</b>. Suplementy jsou vyřešené — apparel je kategorie, kde GymBeam vlastní marži, ale zákazník má na sobě někoho jiného.</div>
+        <div class="box i"><div class="l">Druhá páka</div>Mladé profesionálky mají <b>nejnižší košík (426 Kč)</b>, ale <b>nejvyšší afinitu k apparelu (1,74×)</b>. Objemový segment s nevyužitým maržovým stropem.</div>
+      </div>
+      <div class="box m" style="margin-top:14px"><div class="l">Úkol pro Category Management</div>Přeložit doloženou poptávku po sportovním oblečení do <b>vlastní apparel řady</b> — a cílit ji na segment, o kterém data říkají, že ji koupí. <b>Marže z vlastní značky místo obrátky cizí.</b></div>
+    </div>
+  </div>
+  <div class="flow">DATA → INSIGHT → <b>DOPAD</b></div><div class="pageno">07 / 09</div>
+</section>
+
+<!-- ========= 8 · MONETIZACE A + B ========= -->
+<section class="slide">
+  <div class="top"><span class="brand"><img class="logo logo-gb" src="GymBeam_logo.png" alt="GymBeam"><span class="amp">×</span><img class="logo logo-mm" src="logo_mindsmodels-normal-black.png" alt="Minds&amp;Models"></span><span class="meta">Monetizace · dvě cesty</span></div>
+  <p class="label">08 · Dvě cesty k monetizaci</p>
+  <div class="two mt10" style="--l:1; --r:1; flex:1; gap:18px; align-items:stretch">
+    <div style="display:flex; flex-direction:column; gap:10px; height:100%">
+      <div>
+        <p style="font-size:20px; font-weight:800; letter-spacing:-.02em; line-height:1.15; margin-bottom:4px">Možnost A — <span class="accent">s digitálními obrazovkami</span></p>
+        <p class="lead" style="font-size:14px">Obsah se mění s tím, kdo přišel</p>
+        <p class="note" style="margin-top:3px">Obrazovka u vstupu i u regálu mění sdělení podle persony — odezva 1,6 s.</p>
+      </div>
+      <div class="scn"><span class="itile av-tile"><img src="avatars/gymbeam_4.png" alt="" onerror="this.remove()"></span><div><div class="h">Přijde mladá profesionálka</div><p>Oblečení &amp; doplňky <span class="arw">→</span> afinita <b>1,74×</b> a <b>1,41×</b>. Segment s nižším košem dostane přesně tu kategorii, kterou nakupuje.</p></div></div>
+      <div class="scn"><span class="itile av-tile"><img src="avatars/gymbeam_5.png" alt="" onerror="this.remove()"></span><div><div class="h">Přijde studentská mládež</div><p>Kreatin <span class="arw">→</span> afinita <b>1,50×</b>, koš <b>405 Kč</b>. Citlivý segment na cenu vidí objemové balení a akci, ne premium řadu.</p></div></div>
+      <div class="box m" style="margin-top:auto"><div class="l">Dopad</div>Každá kampaň má vlastní atribuci: <b>víte, kolik lidí ji vidělo, jakého byli typu a co si pak koupili</b>. Plus retail media pro dodavatele.</div>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:10px; height:100%; border-left:1px solid var(--line); padding-left:18px">
+      <div>
+        <p style="font-size:20px; font-weight:800; letter-spacing:-.02em; line-height:1.15; margin-bottom:4px">Možnost B — <span class="accent">čistá analytika</span></p>
+        <p class="lead" style="font-size:14px">Kamenné prodejny jako senzor pro omnichannel</p>
+        <p class="note" style="margin-top:3px">Kamenná prodejna je jediné místo, kde je zákazník fyzicky vidět — a tento pohled lze přenést do všech kanálů.</p>
+      </div>
+      <div class="scn"><span class="itile"><svg class="i" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M2 12h20"/></svg></span><div><div class="h">Síla vůči dodavatelům</div><p>Doložíte, <b>kdo drží které značky</b> a kategorie — páka pro roční bonusy a marketingové budgety.</p></div></div>
+      <div class="scn"><span class="itile"><svg class="i" viewBox="0 0 24 24"><path d="M21 8l-9-5-9 5v8l9 5 9-5V8z"/><path d="M3 8l9 5 9-5M12 13v8"/></svg></span><div><div class="h">Řízení sortimentu</div><p>Kreatin <b>67 % muži</b>, snacky a aminokyseliny <b>65 % ženy</b>, protein <b>50/50</b>. Planogram a launch na datech.</p></div></div>
+      <div class="scn"><span class="itile"><svg class="i" viewBox="0 0 24 24"><path d="M4 4h16v12H4z"/><path d="M2 20h20M9 8l2 2 4-4"/></svg></span><div><div class="h">Offline persona → online kampaň</div><p>Segmenty z prodejny do <b>e-mailu, push notifikací a cílení na e-shopu</b>.</p></div></div>
+      <div class="box m" style="margin-top:auto"><div class="l">Dopad</div>Data jsou <b>samostatné aktivum</b> i bez obrazovky: páka na dodavatele, sortiment a <b>persona vrstva pro celý online marketing</b>.</div>
+    </div>
+  </div>
+  <div class="flow">DATA → INSIGHT → <b>MONETIZACE</b></div><div class="pageno">08 / 09</div>
+</section>
+
+<!-- ========= 9 · ZÁVĚR ========= -->
+<section class="slide">
+  <div class="top"><span class="brand"><img class="logo logo-gb" src="GymBeam_logo.png" alt="GymBeam"><span class="amp">×</span><img class="logo logo-mm" src="logo_mindsmodels-normal-black.png" alt="Minds&amp;Models"></span><span class="meta">Závěr &amp; další krok</span></div>
+  <p class="label">09 · Od pilotu k rolloutu</p>
+  <h2>Jedna prodejna dokázala princip. <span class="accent">Omnichannel ho znásobí.</span></h2>
+  <div class="two mt14" style="--l:1; --r:1">
+    <div>
+      <div class="card" style="border-color:#8fc4a8; box-shadow:0 0 0 1px #8fc4a8">
+        <h3 class="big" style="color:var(--amber)">Byznysový potenciál — maržový posun</h3>
+        <p class="lead" style="font-size:15px">Kamenné prodejny nejsou objemový byznys — jsou <b style="color:var(--amber)">jediný senzor</b>, kterým GymBeam vidí zákazníka fyzicky. Posun ženských segmentů do apparelu a premium řad a cílený cross-sell u atletického jádra působí na tu část košů, kde marže reálně vzniká.</p>
+        <p class="note">Bez slibovaných termínů návratnosti. Mluvíme o potenciálu růstu marže při posunu mixu — a o hodnotě persona vrstvy pro celý online kanál.</p>
+      </div>
+      <div class="grid2 mt14">
+        <div class="card tile"><div class="v b" style="font-size:20px">2 modely</div><div class="k">A: obrazovky · B: analytika</div></div>
+        <div class="card tile"><div class="v" style="font-size:20px;color:var(--pos)">Princip ✓</div><div class="k">prokázán pilotem</div></div>
+      </div>
+    </div>
+    <div class="card" style="border-color:#eab89f; box-shadow:0 0 0 1px #eab89f">
+      <h3 class="big" style="color:var(--blue-d)">Doporučený další krok</h3>
+      <div class="scn" style="border:none; box-shadow:none; padding:8px 0"><span class="itile"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg></span><div><div class="h">Rozšíření na všechny prodejny</div><p>Praha už běží. Další lokace dají srovnání a celosíťově platné závěry — a uzavřou statistiku napříč všemi personami.</p></div></div>
+      <div class="scn" style="border:none; box-shadow:none; padding:8px 0"><span class="itile"><svg class="i" viewBox="0 0 24 24"><path d="M3 11v2a4 4 0 0 0 4 4h1l6 4V3L8 7H7a4 4 0 0 0-4 4z"/><path d="M16 8a5 5 0 0 1 0 8"/></svg></span><div><div class="h">Překlopení insightů do kampaní</div><p>Persony, afinity ke kategoriím a rozdíl mužské/ženské mise → konkrétní briefy pro on-store obsah, retail media, e-mail i app.</p></div></div>
+      <div class="scn" style="border:none; box-shadow:none; padding:8px 0"><span class="itile"><svg class="i" viewBox="0 0 24 24"><path d="M23 6l-9.5 9.5-5-5L1 18"/><path d="M17 6h6v6"/></svg></span><div><div class="h">Instalace obrazovek = spuštění modelu A</div><p>Pilot běžel jako data-only. Obrazovky přidávají recommender, atribuci kampaní a retail-media inventář nad již ověřenou datovou vrstvou.</p></div></div>
+    </div>
+  </div>
+  <div class="tk">
+    <div class="box m full"><div class="l">Rozhodnutí pro vedení</div>Nasazení je <b>maržový akcelerátor</b>: doložitelná páka na dodavatele, cílený cross-sell na prodejně, posunutí nejbonitnějších zákaznických segmentů k vysokomaržovým řadám a unikátní zákaznická data přímo z fyzického retailu.</div>
+  </div>
+  <div class="flow">DATA → INSIGHT → <b>ROLLOUT</b></div><div class="pageno">09 / 09</div>
+</section>
+
+</div>
+</body>
+</html>

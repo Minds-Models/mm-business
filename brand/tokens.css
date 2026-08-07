@@ -1,0 +1,41 @@
+/* Minds & Models — report/deck design tokens
+ * Base system extracted from the GymBeam pilot deck (best current deliverable).
+ * Warm-paper neutral ground is FIXED across all client reports;
+ * the accent pair swaps per client (see per-client blocks below).
+ * TODO: confirm exact M&M brand blue from Pitch Deck 2026 master. */
+
+:root {
+  /* ground & surfaces (warm paper — shared by all reports) */
+  --paper: #fbfaf9;
+  --surface: #ffffff;
+  --surface-2: #f2efec;
+  --line: #e3e0dc;
+  --line-soft: #efece9;
+
+  /* ink */
+  --ink: #1a1a1a;
+  --ink-2: #4a4a48;
+  --muted: #8a8781;
+
+  /* default accent = M&M blue (VERIFY exact hex from brand master) */
+  --accent: #3d6bfb;
+  --accent-soft: #e8edfe;
+  --negative: #c0504d;
+  --positive: #1f6f4a;
+
+  /* type */
+  --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  /* charts: tabular numerals always */
+  --numeric: 'Inter', sans-serif;
+}
+
+/* --- per-client accent overrides (add as clients are onboarded) --- */
+.client-gymbeam { --accent: #1f6f4a; --accent-soft: #e8f4ee; --accent-2: #eab89f; }
+.client-superzoo { /* TODO: extract from superzoo pilot deck */ }
+.client-eurooil { /* TODO */ }
+
+/* --- base typography for HTML reports --- */
+body { font-family: var(--sans); color: var(--ink); background: var(--paper); line-height: 1.55; }
+h1, h2, h3 { letter-spacing: -0.01em; text-wrap: balance; }
+.stat { font-variant-numeric: tabular-nums; }
+.label { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }

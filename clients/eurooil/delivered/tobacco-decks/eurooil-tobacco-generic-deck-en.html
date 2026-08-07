@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EuroOil × Minds&Models — Pilot deck (forecourt nicotine · generic)</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+:root{
+  --ink:#0f172a; --ink-2:#334155; --muted:#64748b; --muted-2:#94a3b8; --line:#e2e8f0;
+  --card:#ffffff; --page:linear-gradient(158deg,#ffffff 0%,#f8fafc 40%,#eef2f7 100%);
+  --blue:#2563EB; --blue-d:#1e40af; --blue-soft:#eff5ff; --blue-100:#dbeafe;
+  --amber:#d97706; --amber-soft:#fef6e7; --pos:#059669; --neg:#dc2626; --slate:#94a3b8;
+  --co:#2563EB; --co-soft:#eff5ff; /* sjednoceno s hlavní modrou paletou */
+}
+*{box-sizing:border-box; margin:0; padding:0}
+html,body{background:#dfe3e8;
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  color:var(--ink); -webkit-font-smoothing:antialiased; font-feature-settings:'cv11','ss01';}
+.deck{display:flex; flex-direction:column; align-items:center; gap:26px; padding:34px 16px 60px}
+.slide{position:relative; width:1280px; max-width:100%; aspect-ratio:16/9; background:var(--page);
+  border-radius:16px; overflow:hidden; box-shadow:0 16px 40px rgba(15,23,42,.16);
+  padding:44px 54px 42px; display:flex; flex-direction:column}
+.slide.center{justify-content:center}
+.slide::after{content:''; position:absolute; width:340px; height:340px; border-radius:9999px;
+  background:radial-gradient(circle,#dbeafe,transparent 70%); opacity:.5; top:-150px; right:-90px; filter:blur(70px); pointer-events:none}
+.slide>*{position:relative; z-index:1}
+.top{display:flex; justify-content:space-between; align-items:center; margin-bottom:16px}
+.brand{font-size:16px; font-weight:600; letter-spacing:-.01em; display:flex; align-items:center; gap:9px}
+.brand .amp{font-family:'Times New Roman',serif; font-style:italic; font-weight:400}
+.brand .co{display:inline-flex; align-items:center; gap:6px; font-weight:700; color:var(--co)}
+.brand .dot{width:16px; height:16px; border-radius:4px; background:var(--co)}
+.brand img{display:block; width:auto}
+.brand .mm{height:14px}
+.bsep{width:1px; height:20px; background:var(--line); display:inline-block; flex:none; margin:0 2px}
+.meta{font-size:11px; color:var(--muted); text-align:right; line-height:1.4}
+.label{font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:var(--blue); margin-bottom:9px}
+h1{font-size:44px; font-weight:800; letter-spacing:-.03em; line-height:1.05}
+h2{font-size:28px; font-weight:750; letter-spacing:-.02em; line-height:1.12; margin-bottom:2px}
+.accent{color:var(--blue)} .accent-co{color:var(--co)}
+.sub{font-size:15px; color:var(--muted); line-height:1.5; max-width:82ch}
+.lead{font-size:16px; color:var(--ink-2); line-height:1.4}
+.mt6{margin-top:6px}.mt10{margin-top:10px}.mt14{margin-top:14px}.mt18{margin-top:18px}
+.pageno{position:absolute; bottom:15px; right:54px; font-size:11px; color:var(--muted-2); font-variant-numeric:tabular-nums}
+.flow{position:absolute; bottom:15px; left:54px; font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--muted-2); font-weight:700}
+.flow b{color:var(--blue)}
+svg.i{width:16px; height:16px; flex:none; stroke:currentColor; fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round}
+.itile{width:34px; height:34px; border-radius:9px; background:var(--blue-soft); color:var(--blue); display:flex; align-items:center; justify-content:center; flex:none}
+.itile .i{width:19px; height:19px}
+.card{background:var(--card); border:1px solid var(--line); border-radius:13px; padding:15px 17px; box-shadow:0 1px 2px rgba(15,23,42,.04)}
+.card h3{font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.05em; color:var(--muted); margin-bottom:11px; display:flex; align-items:center; gap:8px}
+.card h3 .i{width:15px; height:15px; color:var(--muted-2); stroke-width:2}
+.card h3.big{font-size:13px; text-transform:none; letter-spacing:0; color:var(--ink)}
+.grid2{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px}
+.grid3{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px}
+.grid4{display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:14px}
+.two{display:flex; gap:22px; flex:1; align-items:flex-start; --l:1; --r:1}
+.two>*{min-width:0}
+.two>*:first-child{flex:var(--l) 1 0}
+.two>*:last-child{flex:var(--r) 1 0}
+.grid2>*,.grid3>*,.grid4>*,.tk>*{min-width:0}
+.tile .v{font-size:28px; font-weight:800; letter-spacing:-.03em; line-height:1; font-variant-numeric:tabular-nums}
+.tile .v.b{color:var(--blue)} .tile .v.c{color:var(--co)} .tile .v.g{color:var(--pos)}
+.tile .k{font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.03em; color:var(--muted); margin-top:8px}
+.tile .s{font-size:11px; color:var(--muted-2); margin-top:3px}
+.hbars{display:flex; flex-direction:column; gap:7px}
+.hbar{display:grid; grid-template-columns:96px 1fr 46px; gap:9px; align-items:center; font-size:12px}
+.hbar .nm{color:var(--ink-2); font-weight:500; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.hbar .track{position:relative; height:11px; background:#eef2f6; border-radius:99px; overflow:hidden}
+.hbar .fill{position:absolute; left:0; top:0; height:100%; border-radius:99px; background:var(--blue)}
+.hbar .vl{font-variant-numeric:tabular-nums; font-weight:700; color:var(--ink); text-align:right}
+.vbars{display:flex; align-items:flex-end; gap:9px; height:104px; margin-top:4px}
+.vbar{flex:1; display:flex; flex-direction:column; align-items:center; justify-content:flex-end; gap:5px; height:100%}
+.vbar .col{width:100%; border-radius:5px 5px 0 0; background:linear-gradient(180deg,#3B82F6,#bfdbfe); min-height:3px}
+.vbar .col.hi{background:linear-gradient(180deg,#d97706,#fcd9a3)}
+.vbar .cl{font-size:9.5px; color:var(--muted-2); font-weight:600}
+.vbar .cv{font-size:10px; font-weight:700; color:var(--ink); font-variant-numeric:tabular-nums}
+.sbar{display:flex; height:30px; border-radius:8px; overflow:hidden; margin-top:4px}
+.sbar>span{display:flex; align-items:center; justify-content:center; font-size:10px; font-weight:700; color:#fff}
+.bpill{display:inline-flex; align-items:baseline; gap:4px; font-size:11px; font-weight:600; padding:4px 10px; border-radius:99px; background:#f1f5f9; color:var(--ink-2); margin:0 5px 6px 0}
+.bpill b{color:var(--ink); font-variant-numeric:tabular-nums}
+.mstat{display:flex; align-items:baseline; gap:6px}
+.mstat .n{font-size:18px; font-weight:800; color:var(--ink); font-variant-numeric:tabular-nums; letter-spacing:-.02em}
+.mstat .t{font-size:11px; color:var(--muted)}
+.mh{font-size:10px; font-weight:800; text-transform:uppercase; letter-spacing:.06em; color:var(--blue); margin-bottom:8px}
+.mhl{display:flex; align-items:baseline; gap:8px; margin-bottom:10px}
+.mhl b{font-size:22px; font-weight:800; letter-spacing:-.02em; color:var(--ink); font-variant-numeric:tabular-nums}
+.mhl span{font-size:11px; color:var(--muted)}
+.hbarw{display:grid; grid-template-columns:58px 1fr auto; gap:8px; align-items:center}
+.hbarw .nm{color:var(--ink-2); font-weight:500; font-size:10.5px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.hbarw .track{position:relative; height:9px; background:#eef2f6; border-radius:99px; overflow:hidden}
+.hbarw .fill{position:absolute; left:0; top:0; height:100%; border-radius:99px; background:var(--blue)}
+.hbarw .vl{font-variant-numeric:tabular-nums; font-weight:700; color:var(--ink); text-align:right; font-size:10px; white-space:nowrap}
+.brow2{display:flex; justify-content:space-between; align-items:center; font-size:11px; padding:3px 0; color:var(--ink-2)}
+.brow2 b{font-variant-numeric:tabular-nums; color:var(--ink)}
+svg text{font-family:'Inter',sans-serif; fill:var(--muted)}
+svg .lbl{fill:var(--ink); font-weight:700; font-variant-numeric:tabular-nums}
+svg .nm{fill:var(--ink-2); font-weight:500}
+svg .mut{fill:var(--muted-2); font-size:10px}
+svg .grid{stroke:var(--line); stroke-width:1}
+.pcards{display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px}
+.pcard{background:var(--card); border:1px solid var(--line); border-radius:13px; padding:13px 14px; display:flex; flex-direction:column; box-shadow:0 1px 2px rgba(15,23,42,.04); position:relative}
+.pcard.key{border-color:#f0c98a; box-shadow:0 0 0 1px #f0c98a, 0 5px 14px rgba(217,119,6,.12)}
+.pcard .head{display:flex; align-items:center; gap:10px}
+.pav{width:38px; height:38px; border-radius:10px; display:flex; align-items:center; justify-content:center; color:#fff; flex:none}
+.pav .i{width:20px; height:20px; stroke-width:1.9}
+.pcard .share{font-size:19px; font-weight:800; letter-spacing:-.02em; line-height:1; color:var(--ink)}
+.pcard .cnt{font-size:10px; color:var(--muted-2); font-weight:600; margin-top:2px}
+.pcard .nm{font-size:12.5px; font-weight:700; margin-top:9px; line-height:1.2}
+.pcard .kv{font-size:11px; margin-top:8px; padding-top:8px; border-top:1px solid var(--line); display:flex; align-items:center; justify-content:space-between; color:var(--muted)}
+.pcard .kv b{font-size:13px; font-weight:800; font-variant-numeric:tabular-nums; color:var(--ink)}
+.pcard .cat{font-size:10.5px; color:var(--muted); margin-top:6px}
+.av{width:44px; height:44px; border-radius:50%; overflow:hidden; flex:none; background:#eef2f6; position:relative; display:flex; align-items:center; justify-content:center}
+.av .fb{font-size:16px; font-weight:700; color:var(--muted-2)}
+.av img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:top center}
+.pcard .rl{font-size:10.5px; color:var(--muted); margin-top:3px; line-height:1.25}
+.pcard ul{margin-top:9px; list-style:none; font-size:10.5px; color:var(--muted); display:flex; flex-direction:column; gap:4px}
+.pcard ul li{padding-left:13px; position:relative; line-height:1.3}
+.pcard ul li:before{content:''; position:absolute; left:2px; top:6px; width:4px; height:4px; border-radius:50%; background:var(--muted-2)}
+.chip.a{color:var(--amber); background:var(--amber-soft)}
+.ktag{position:absolute; top:11px; right:12px; font-size:9px; font-weight:800; letter-spacing:.05em; text-transform:uppercase; color:var(--amber); background:var(--amber-soft); padding:3px 7px; border-radius:99px}
+.tk{display:grid; gap:14px; margin-top:auto}
+.tk.c2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.box{border-radius:12px; padding:13px 16px; font-size:13px; line-height:1.42; min-width:0; overflow-wrap:break-word}
+.box .l{font-size:9.5px; font-weight:800; text-transform:uppercase; letter-spacing:.11em; margin-bottom:5px}
+.box.i{background:#fff; border:1px solid var(--line)} .box.i .l{color:var(--muted-2)}
+.box.m{background:var(--ink); color:#e2e8f0} .box.m .l{color:#7f9cc4} .box.m b{color:#fff}
+.box.co{background:var(--co-soft); border:1px solid #f6cfcb} .box.co .l{color:var(--co)}
+.box.full{grid-column:1/-1}
+.scn{background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; display:flex; gap:13px; align-items:flex-start; box-shadow:0 1px 2px rgba(15,23,42,.04)}
+.scn .h{font-weight:750; font-size:14px}
+.scn p{font-size:12.5px; color:var(--muted); margin-top:3px; line-height:1.42}
+.arw{color:var(--co); font-weight:800}
+.legend{display:flex; gap:14px; flex-wrap:wrap; font-size:11px; color:var(--muted); margin-top:8px}
+.legend span{display:inline-flex; align-items:center; gap:5px}
+.sw{width:10px; height:10px; border-radius:3px}
+.note{font-size:10.5px; color:var(--muted-2); margin-top:8px; line-height:1.4}
+.brow{display:flex; justify-content:space-between; align-items:center; font-size:12.5px; padding:6px 0; border-bottom:1px solid var(--line); color:var(--ink-2)}
+.brow:last-child{border-bottom:none}
+.brow .v{font-variant-numeric:tabular-nums; font-weight:700; color:var(--ink)}
+.chip{font-size:10px; font-weight:700; color:var(--muted); background:#f1f5f9; padding:1px 7px; border-radius:99px}
+.chip.c{color:var(--co); background:var(--co-soft)} .chip.b{color:var(--blue); background:var(--blue-soft)} .chip.g{color:var(--pos); background:#dcfce7}
+@media print{
+  @page{size:1280px 720px; margin:0}
+  html,body{background:#fff}
+  .deck{gap:0; padding:0}
+  .slide{box-shadow:none; border-radius:0; page-break-after:always; break-after:page; width:1280px; max-width:1280px}
+  .slide::after{display:none}
+}
+</style>
+</head>
+<body>
+<div class="deck">
+
+<!-- ===== 1 · TITLE ===== -->
+<section class="slide center">
+  <div class="top" style="position:absolute; top:34px; left:54px; right:54px; margin:0">
+    <span class="brand">EuroOil <span class="amp">×</span> <img class="mm" src="mm-logo.png" alt="Minds&Models"></span>
+    <span class="meta">Pilot EuroOil · Odolena Voda · 4–28 May 2026<br>Confidential — for a tobacco manufacturer</span>
+  </div>
+  <p class="label">Pilot report · nicotine category</p>
+  <h1>Who buys nicotine at the forecourt —<br>and how they <span class="accent-co">switch to smoke-free.</span></h1>
+  <p class="lead mt14" style="max-width:70ch">For the first time we connect who drives up to the forecourt and how they look with which nicotine category and brand they buy at the till.</p>
+  <div class="grid4 mt18" style="max-width:960px">
+    <div class="card tile"><div class="v b">54,613</div><div class="k">unique customers</div><div class="s">17,529 visitors · 25 days</div></div>
+    <div class="card tile"><div class="v b">3.92M CZK</div><div class="k">tobacco revenue</div><div class="s">11,840 transactions · 93% matched</div></div>
+    <div class="card tile"><div class="v b">8</div><div class="k">customer personas</div><div class="s">unique live segments</div></div>
+    <div class="card tile"><div class="v b">5</div><div class="k">nicotine categories</div><div class="s">cigarettes · heated · pouches · vapes · loose</div></div>
+  </div>
+  <p class="note" style="margin-top:20px; max-width:96ch">Pilot at the EuroOil forecourt (Odolena Voda). Visual personas from the sales-zone camera × POS data on tobacco purchases. Personas and demographics = real pilot data; the tobacco POS layer, product names and shares = an illustrative model for this showcase.</p>
+  <div class="flow"><b>DATA</b> → INSIGHT → MONETIZATION</div><div class="pageno">01 / 07</div>
+</section>
+
+<!-- ===== 2 · KDO TANKUJE A KOUŘÍ ===== -->
+<section class="slide">
+  <div class="top"><span class="brand">EuroOil <span class="amp">×</span> <img class="mm" src="mm-logo.png" alt="Minds&Models"></span><span class="meta">Macro view · 54,613 customers</span></div>
+  <p class="label">02 · Who actually drives up</p>
+  <h2>Man 40+, driver, on a weekday — <span class="accent">the ideal audience for nicotine</span></h2>
+  <div class="grid3 mt14" style="align-items:start">
+    <div class="card">
+      <div class="mh">1 · Age</div>
+      <div class="mhl"><b style="color:var(--amber)">50.7%</b><span>of visits aged 40–59</span></div>
+      <div class="vbars" style="height:90px">
+        <div class="vbar"><div class="col" style="height:3%"></div><span class="cl">10s</span></div>
+        <div class="vbar"><div class="col" style="height:71%"></div><span class="cl">20s</span></div>
+        <div class="vbar"><div class="col" style="height:77%"></div><span class="cl">30s</span></div>
+        <div class="vbar"><div class="col hi" style="height:100%"></div><span class="cl">40s</span></div>
+        <div class="vbar"><div class="col hi" style="height:81%"></div><span class="cl">50s</span></div>
+        <div class="vbar"><div class="col" style="height:25%"></div><span class="cl">60+</span></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="mh">2 · Gender</div>
+      <div class="mhl"><b style="color:var(--blue)">75.3%</b><span>male — strongly skewed</span></div>
+      <div style="display:flex; align-items:center; gap:14px">
+        <svg viewBox="0 0 36 36" width="80" height="80" style="flex:none">
+          <circle cx="18" cy="18" r="15.9" fill="#f8fafc"/>
+          <circle cx="18" cy="18" r="15.9" fill="none" stroke="var(--blue)" stroke-width="5" stroke-dasharray="75.25 24.75" stroke-dashoffset="25"/>
+          <circle cx="18" cy="18" r="15.9" fill="none" stroke="#EC4899" stroke-width="5" stroke-dasharray="24.39 75.61" stroke-dashoffset="-50.25"/>
+        </svg>
+        <div style="font-size:12px; flex:1">
+          <div style="display:flex; align-items:center; gap:7px; padding:5px 0; border-bottom:1px solid var(--line)"><i class="sw" style="background:var(--blue)"></i> Men <b style="margin-left:auto; font-variant-numeric:tabular-nums">41,098 · 75.3%</b></div>
+          <div style="display:flex; align-items:center; gap:7px; padding:5px 0"><i class="sw" style="background:#EC4899"></i> Women <b style="margin-left:auto; font-variant-numeric:tabular-nums">13,318 · 24.4%</b></div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="mh">3 · When they come</div>
+      <div class="mhl"><b style="color:var(--blue)">75.5%</b><span>of visits on weekdays</span></div>
+      <div class="hbars">
+        <div class="hbar"><span class="nm">Morning 5–11</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="vl">34.7%</span></div>
+        <div class="hbar"><span class="nm">Afternoon 12–17</span><span class="track"><span class="fill" style="width:87%"></span></span><span class="vl">30.3%</span></div>
+        <div class="hbar"><span class="nm">Evening 18–21</span><span class="track"><span class="fill" style="width:42%"></span></span><span class="vl">14.5%</span></div>
+        <div class="hbar"><span class="nm">Night 22–4</span><span class="track"><span class="fill" style="width:59%"></span></span><span class="vl">20.3%</span></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="mh">4 · Mobility &amp; trades</div>
+      <div style="display:flex; gap:20px; margin-bottom:12px">
+        <div><div style="font-size:22px; font-weight:800; letter-spacing:-.02em; font-variant-numeric:tabular-nums">1,164</div><div style="font-size:11px; color:var(--muted)">bikers · 2.1%</div></div>
+        <div><div style="font-size:22px; font-weight:800; letter-spacing:-.02em; color:var(--pos); font-variant-numeric:tabular-nums">2,981</div><div style="font-size:11px; color:var(--muted)">manual trades · 5.5%</div></div>
+      </div>
+      <div class="hbars">
+        <div class="hbar"><span class="nm">Bikers</span><span class="track"><span class="fill" style="width:38%"></span></span><span class="vl">2.1%</span></div>
+        <div class="hbar"><span class="nm">Manual</span><span class="track"><span class="fill" style="width:100%; background:var(--pos)"></span></span><span class="vl">5.5%</span></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="mh">5 · Customer types</div>
+      <div style="display:flex; flex-direction:column; gap:6px">
+        <div class="hbarw"><span class="nm">Tourists</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="vl">4,956 · 9.1%</span></div>
+        <div class="hbarw"><span class="nm">Students</span><span class="track"><span class="fill" style="width:76%"></span></span><span class="vl">3,784 · 6.9%</span></div>
+        <div class="hbarw"><span class="nm">Fitness</span><span class="track"><span class="fill" style="width:74%"></span></span><span class="vl">3,680 · 6.7%</span></div>
+        <div class="hbarw"><span class="nm">Retirees</span><span class="track"><span class="fill" style="width:65%"></span></span><span class="vl">3,243 · 5.9%</span></div>
+        <div class="hbarw"><span class="nm">Parents</span><span class="track"><span class="fill" style="width:52%"></span></span><span class="vl">2,548 · 4.7%</span></div>
+        <div class="hbarw"><span class="nm">Couriers</span><span class="track"><span class="fill" style="width:18%"></span></span><span class="vl">899 · 1.6%</span></div>
+        <div class="hbarw"><span class="nm">Truckers</span><span class="track"><span class="fill" style="width:12%"></span></span><span class="vl">605 · 1.1%</span></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="mh">6 · Top 5 apparel brands</div>
+      <div style="display:flex; gap:18px">
+        <div style="flex:1">
+          <div style="font-size:9px; font-weight:800; text-transform:uppercase; letter-spacing:.06em; color:var(--muted-2); margin-bottom:6px">Apparel</div>
+          <div class="brow2"><span>Adidas</span><b>3.4%</b></div>
+          <div class="brow2"><span>Nike</span><b>2.4%</b></div>
+          <div class="brow2"><span>Puma</span><b>0.7%</b></div>
+          <div class="brow2"><span>Under Armour</span><b>0.5%</b></div>
+          <div class="brow2"><span>Karl Lagerfeld</span><b>0.4%</b></div>
+        </div>
+        <div style="flex:1">
+          <div style="font-size:9px; font-weight:800; text-transform:uppercase; letter-spacing:.06em; color:var(--muted-2); margin-bottom:6px">Lifestyle</div>
+          <div class="brow2"><span>Apple</span><b>4.1%</b></div>
+          <div class="brow2"><span>Adidas</span><b>0.1%</b></div>
+          <div class="brow2"><span>Casio</span><b>0.1%</b></div>
+          <div class="brow2"><span>Garmin</span><b>0.1%</b></div>
+          <div class="brow2"><span>Nike</span><b>0.1%</b></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="tk" style="margin-top:14px">
+    <div class="box i"><div class="l">Insight</div>Forecourt visitors are 75% male, half aged 40–59, driving alone on weekdays — <b>a concentrated, recurring audience</b> for the nicotine category.</div>
+  </div>
+  <div class="flow"><b>DATA</b> → INSIGHT → MONETIZATION</div><div class="pageno">02 / 07</div>
+</section>
+
+<!-- ===== 3 · 8 PERSON ===== -->
+<section class="slide">
+  <div class="top"><span class="brand">EuroOil <span class="amp">×</span> <img class="mm" src="mm-logo.png" alt="Minds&Models"></span><span class="meta">Persona clusters · 8 types</span></div>
+  <p class="label">03 · Key customer types</p>
+  <h2>Different customer – <span class="accent">different preference</span></h2>
+  <div class="pcards mt14" style="grid-template-columns:repeat(3,minmax(0,1fr)); flex:1">
+    <div class="pcard key">
+      <span class="ktag">Highest basket</span><div class="head"><div class="av"><span class="fb">Ř</span><img src="avatars/eurooil_0.png" alt="" onerror="this.remove()"></div>
+        <div><div class="share">15.4%</div><div class="cnt">8,385 customers</div></div></div>
+      <div class="nm">Suburban driver 40+</div>
+      <div class="rl">Civilian normcore · weekend stop from the city</div>
+      <div class="kv"><span>Avg</span><span><b>412 CZK</b> <span class="chip a">+24%</span></span></div>
+      <ul><li>Affinity to heated tobacco 2.3×</li><li>61% of basket already smoke-free</li></ul>
+    </div>
+    <div class="pcard">
+      <div class="head"><div class="av"><span class="fb">M</span><img src="avatars/eurooil_5.png" alt="" onerror="this.remove()"></div>
+        <div><div class="share">12.9%</div><div class="cnt">7,046 customers</div></div></div>
+      <div class="nm">Young 20+ in streetwear</div>
+      <div class="rl">Streetwear &amp; athleisure · high grooming</div>
+      <div class="kv"><span>Avg</span><span><b>268 CZK</b> <span class="chip">−19%</span></span></div>
+      <ul><li>Highest share of smoke-free (68%)</li><li>Vapes 2.8×, pouches 2.1× — next-gen core</li></ul>
+    </div>
+    <div class="pcard">
+      <div class="head"><div class="av"><span class="fb">Ř</span><img src="avatars/eurooil_6.png" alt="" onerror="this.remove()"></div>
+        <div><div class="share">6.7%</div><div class="cnt">3,678 customers</div></div></div>
+      <div class="nm">Field tradesmen</div>
+      <div class="rl">Workwear · pragmatic no-nonsense presentation</div>
+      <div class="kv"><span>Avg</span><span><b>289 CZK</b> <span class="chip">−13%</span></span></div>
+      <ul><li>Loose tobacco 3.1× — strongest in category</li><li>Only 22% smoke-free — large conversion headroom</li></ul>
+    </div>
+    <div class="pcard">
+      <div class="head"><div class="av"><span class="fb">N</span><img src="avatars/eurooil_1.png" alt="" onerror="this.remove()"></div>
+        <div><div class="share">16.9%</div><div class="cnt">9,211 customers</div></div></div>
+      <div class="nm">Night 30+ on a quick stop</div>
+      <div class="rl">Late-night convenience run · basic casual</div>
+      <div class="kv"><span>Avg</span><span><b>244 CZK</b> <span class="chip">−26%</span></span></div>
+      <ul><li>Largest store segment (16.9%)</li><li>Cigarettes + energy drink — impulse purchase</li></ul>
+    </div>
+    <div class="pcard">
+      <div class="head"><div class="av"><span class="fb">S</span><img src="avatars/eurooil_3.png" alt="" onerror="this.remove()"></div>
+        <div><div class="share">17.2%</div><div class="cnt">9,387 customers</div></div></div>
+      <div class="nm">Seniors 50+</div>
+      <div class="rl">Functional dad-style · glasses, minimalism</div>
+      <div class="kv"><span>Avg</span><span><b>356 CZK</b> <span class="chip g">+8%</span></span></div>
+      <ul><li>Loyal to combustible tobacco — only 14% smoke-free</li><li>Premium cigarettes 1.5×, heated tobacco 0.4×</li></ul>
+    </div>
+    <div class="pcard">
+      <div class="head"><div class="av"><span class="fb">Ž</span><img src="avatars/eurooil_4.png" alt="" onerror="this.remove()"></div>
+        <div><div class="share">15.1%</div><div class="cnt">8,260 customers</div></div></div>
+      <div class="nm">Practical women 30+</div>
+      <div class="rl">Neat casual · natural look, leggings</div>
+      <div class="kv"><span>Avg</span><span><b>301 CZK</b> <span class="chip">−9%</span></span></div>
+      <ul><li>Nicotine pouches 1.7× — tobacco-free preference</li><li>44% of basket already smoke-free</li></ul>
+    </div>
+  </div>
+  <div class="tk" style="margin-top:14px">
+    <div class="box i"><div class="l">Insight</div>Segments split into two groups: <b>loyal to combustible tobacco</b> (seniors, tradesmen, night) and <b>switching to smoke-free</b> (driver 40+, young 20+, women 30+). The highest basket belongs to Driver 40+.</div>
+  </div>
+  <div class="flow">DATA → <b>INSIGHT</b> → MONETIZATION</div><div class="pageno">03 / 07</div>
+</section>
+
+<!-- ===== 4 · NIKOTINOVÁ MAPA ===== -->
+<section class="slide">
+  <div class="top"><span class="brand">EuroOil <span class="amp">×</span> <img class="mm" src="mm-logo.png" alt="Minds&Models"></span><span class="meta">Nicotine map · category × persona</span></div>
+  <p class="label">04 · Kdo co kupuje</p>
+  <h2>Who switches to smoke-free — <span class="accent">and who pulls which category</span></h2>
+  <div class="two mt14" style="--l:.8; --r:1.2">
+    <div class="card">
+      <h3 class="big">Share of smoke-free in basket by persona</h3>
+      <div class="hbars">
+        <div class="hbar"><span class="nm">Young 20+</span><span class="track"><span class="fill" style="width:100%;background:var(--pos)"></span></span><span class="vl">68%</span></div>
+        <div class="hbar"><span class="nm">Driver 40+</span><span class="track"><span class="fill" style="width:90%;background:var(--pos)"></span></span><span class="vl">61%</span></div>
+        <div class="hbar"><span class="nm">Functional 40+</span><span class="track"><span class="fill" style="width:69%;background:var(--pos)"></span></span><span class="vl">47%</span></div>
+        <div class="hbar"><span class="nm">Women 30+</span><span class="track"><span class="fill" style="width:65%;background:var(--pos)"></span></span><span class="vl">44%</span></div>
+        <div class="hbar"><span class="nm">Night 30+</span><span class="track"><span class="fill" style="width:46%;background:var(--slate)"></span></span><span class="vl">31%</span></div>
+        <div class="hbar"><span class="nm">Tradesmen</span><span class="track"><span class="fill" style="width:32%;background:var(--slate)"></span></span><span class="vl">22%</span></div>
+        <div class="hbar"><span class="nm">Seniors 50+</span><span class="track"><span class="fill" style="width:21%;background:var(--slate)"></span></span><span class="vl">14%</span></div>
+      </div>
+      <div class="legend" style="margin-top:8px"><span><i class="sw" style="background:var(--pos)"></i> switching to smoke-free</span><span><i class="sw" style="background:var(--slate)"></i> loyal to combustible</span></div>
+    </div>
+    <div class="card">
+      <h3 class="big">Who pulls which category — vs forecourt average</h3>
+      <svg viewBox="0 0 560 226" width="100%" height="222">
+        <line x1="300" y1="12" x2="300" y2="184" stroke="var(--muted-2)" stroke-dasharray="4 3"/>
+        <text class="mut" x="300" y="9" text-anchor="middle" font-size="9">1.0× = forecourt average</text><g class="mut" text-anchor="middle" font-size="10"><text x="255" y="200">0.5×</text><text x="300" y="200">1.0×</text><text x="390" y="200">2.0×</text><text x="480" y="200">3.0×</text></g>
+        <g font-size="11">
+        <g transform="translate(0,20)"><text class="nm" x="200" y="4" text-anchor="end">Tradesmen → loose tobacco</text><rect x="210" y="-4.5" width="279" height="9" rx="4.5" fill="var(--blue)"/><text class="lbl" x="495" y="4">3.1×</text></g>
+        <g transform="translate(0,46)"><text class="nm" x="200" y="4" text-anchor="end">Young 20+ → vapes</text><rect x="210" y="-4.5" width="252" height="9" rx="4.5" fill="var(--blue)"/><text class="lbl" x="468" y="4">2.8×</text></g>
+        <g transform="translate(0,72)"><text class="nm" x="200" y="4" text-anchor="end">Athletes → pouches (tobacco-free)</text><rect x="210" y="-4.5" width="216" height="9" rx="4.5" fill="var(--blue)"/><text class="lbl" x="432" y="4">2.4×</text></g>
+        <g transform="translate(0,98)"><text class="nm" x="200" y="4" text-anchor="end">Driver 40+ → heated tobacco</text><rect x="210" y="-4.5" width="207" height="9" rx="4.5" fill="var(--blue)"/><text class="lbl" x="423" y="4">2.3×</text></g>
+        <g transform="translate(0,124)"><text class="nm" x="200" y="4" text-anchor="end">Women 30+ → pouches</text><rect x="210" y="-4.5" width="153" height="9" rx="4.5" fill="var(--blue)"/><text class="lbl" x="369" y="4">1.7×</text></g>
+        <g transform="translate(0,150)"><text class="nm" x="200" y="4" text-anchor="end">Seniors → premium cigarettes</text><rect x="210" y="-4.5" width="135" height="9" rx="4.5" fill="var(--blue)"/><text class="lbl" x="351" y="4">1.5×</text></g>
+        <g transform="translate(0,176)"><text class="nm" x="200" y="4" text-anchor="end">Seniors → heated tobacco</text><rect x="210" y="-4.5" width="36" height="9" rx="4.5" fill="var(--slate)"/><text class="lbl" x="252" y="4">0.4×</text></g>
+        </g>
+      </svg>
+      <div class="legend"><span><i class="sw" style="background:var(--blue)"></i> nadprůměr</span><span><i class="sw" style="background:var(--slate)"></i> podprůměr</span></div>
+    </div>
+  </div>
+  <div class="tk c2">
+    <div class="box i">
+      <div class="l">Revenue split by category</div>
+      <div style="display:flex; height:16px; border-radius:5px; overflow:hidden; margin:2px 0 9px">
+        <span style="width:56%; background:var(--slate)"></span><span style="width:24%; background:var(--blue)"></span><span style="width:9%; background:var(--pos)"></span><span style="width:7%; background:#0891b2"></span><span style="width:4%; background:#e9eef4"></span>
+      </div>
+      <div class="legend" style="gap:5px 11px; font-size:10px">
+        <span><i class="sw" style="background:var(--slate)"></i> Cigarety 56%</span>
+        <span><i class="sw" style="background:var(--blue)"></i> Zahřívaný 24%</span>
+        <span><i class="sw" style="background:var(--pos)"></i> Sáčky 9%</span>
+        <span><i class="sw" style="background:#0891b2"></i> Vapes 7%</span>
+        <span><i class="sw" style="background:#e9eef4;border:1px solid var(--line)"></i> Balený 4%</span>
+      </div>
+    </div>
+    <div class="box i"><div class="l">Insight</div>The switch to smoke-free is <b>mirror-inverted by age and trade</b>: young people and drivers 40+ are already 60–68% smoke-free, while seniors and tradesmen stay with cigarettes and loose tobacco. One persona, one preference.</div>
+  </div>
+  <div class="flow">DATA → <b>INSIGHT</b> → MONETIZATION</div><div class="pageno">04 / 07</div>
+</section>
+
+<!-- ===== 5 · POS ===== -->
+<section class="slide">
+  <div class="top"><span class="brand">EuroOil <span class="amp">×</span> <img class="mm" src="mm-logo.png" alt="Minds&Models"></span><span class="meta">POS × persona · behaviour and money</span></div>
+  <p class="label">05 · Linking behaviour to money</p>
+  <h2>Driver 40+ carries the <span class="accent">highest nicotine basket</span></h2>
+  <div class="grid4 mt14">
+    <div class="card tile"><div class="v b">93%</div><div class="k">tobacco receipts matched</div><div class="s">to a specific visit</div></div>
+    <div class="card tile"><div class="v b">3.92M CZK</div><div class="k">tobacco revenue</div><div class="s">11,840 transactions · 25 days</div></div>
+    <div class="card tile"><div class="v">331 CZK</div><div class="k">Avg tobacco basket</div><div class="s">~34% of shop revenue</div></div>
+    <div class="card tile"><div class="v">412 CZK</div><div class="k">switcher 40+ basket</div><div class="s">+24% above average</div></div>
+  </div>
+  <div class="two mt14" style="--l:1.25; --r:.75">
+    <div class="card">
+      <h3 class="big">Avg tobacco basket by persona (CZK)</h3>
+      <svg viewBox="0 0 520 224" width="100%" height="220">
+        <line x1="286" y1="10" x2="286" y2="186" stroke="var(--muted-2)" stroke-dasharray="4 3"/>
+        <text class="mut" x="286" y="200" text-anchor="middle">Ø 331 CZK</text>
+        <g font-size="11.5">
+        <g transform="translate(0,16)"><text class="nm" x="150" y="11" text-anchor="end">Driver 40+</text><rect x="158" y="2" width="182" height="14" rx="4" fill="var(--amber)"/><text class="lbl" x="346" y="13">412</text></g>
+        <g transform="translate(0,42)"><text class="nm" x="150" y="11" text-anchor="end">Seniors 50+</text><rect x="158" y="2" width="145" height="14" rx="4" fill="var(--blue)"/><text class="lbl" x="309" y="13">356</text></g>
+        <g transform="translate(0,68)"><text class="nm" x="150" y="11" text-anchor="end">Functional 40+</text><rect x="158" y="2" width="138" height="14" rx="4" fill="var(--blue)"/><text class="lbl" x="302" y="13">348</text></g>
+        <g transform="translate(0,94)"><text class="nm" x="150" y="11" text-anchor="end">Women 30+</text><rect x="158" y="2" width="107" height="14" rx="4" fill="var(--blue)"/><text class="lbl" x="271" y="13">301</text></g>
+        <g transform="translate(0,120)"><text class="nm" x="150" y="11" text-anchor="end">Tradesmen</text><rect x="158" y="2" width="93" height="14" rx="4" fill="var(--slate)"/><text class="lbl" x="257" y="13">289</text></g>
+        <g transform="translate(0,146)"><text class="nm" x="150" y="11" text-anchor="end">Night 30+</text><rect x="158" y="2" width="70" height="14" rx="4" fill="var(--slate)"/><text class="lbl" x="234" y="13">244</text></g>
+        <g transform="translate(0,172)"><text class="nm" x="150" y="11" text-anchor="end">Budget</text><rect x="158" y="2" width="52" height="14" rx="4" fill="var(--slate)"/><text class="lbl" x="216" y="13">231</text></g>
+        </g>
+      </svg>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:12px; height:100%">
+      <div class="card">
+        <h3 class="big">Cross-sell at the till</h3>
+        <div class="brow"><span>Nicotine × coffee</span><span class="v">38%</span></div>
+        <div class="brow"><span>Nicotine × energy drink</span><span class="v">29%</span></div>
+        <div class="brow"><span>Nicotine × fuel</span><span class="v">61%</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="flow">DATA → INSIGHT → <b>MONETIZATION</b></div><div class="pageno">05 / 07</div>
+</section>
+
+<!-- ===== 6 · PORTFOLIO × BASELINE ===== -->
+<section class="slide">
+  <div class="top"><span class="brand">EuroOil <span class="amp">×</span> <img class="mm" src="mm-logo.png" alt="Minds&Models"></span><span class="meta">Portfolio × category baseline</span></div>
+  <p class="label">06 · Your portfolio at the forecourt</p>
+  <h2>Where <span class="accent-co">you lead</span> and <span class="accent">vs the competition</span></h2>
+  <div class="two mt14" style="--l:1.15; --r:.85">
+    <div class="card">
+      <h3 class="big">Your brand's share within its category (share of category)</h3>
+      <svg viewBox="0 0 560 220" width="100%" height="216">
+        <g font-size="11.5">
+        <g transform="translate(0,20)"><text class="nm" x="150" y="4" text-anchor="end">HeatCore</text><text class="mut" x="150" y="16" text-anchor="end" font-size="9.5">heated tobacco · 24% of revenue</text>
+          <rect x="158" y="-6" width="284" height="16" rx="4" fill="var(--co)"/><text class="lbl" x="448" y="6">71%</text></g>
+        <g transform="translate(0,58)"><text class="nm" x="150" y="4" text-anchor="end">FrostPouch</text><text class="mut" x="150" y="16" text-anchor="end" font-size="9.5">nicotine pouches · 9% of revenue</text>
+          <rect x="158" y="-6" width="176" height="16" rx="4" fill="var(--co)"/><text class="lbl" x="340" y="6">44%</text></g>
+        <g transform="translate(0,96)"><text class="nm" x="150" y="4" text-anchor="end">Crown</text><text class="mut" x="150" y="16" text-anchor="end" font-size="9.5">cigarettes · 56% of revenue</text>
+          <rect x="158" y="-6" width="88" height="16" rx="4" fill="var(--co)"/><text class="lbl" x="252" y="6">22%</text></g>
+        <g transform="translate(0,134)"><text class="nm" x="150" y="4" text-anchor="end">Everyday</text><text class="mut" x="150" y="16" text-anchor="end" font-size="9.5">value cigarettes</text>
+          <rect x="158" y="-6" width="68" height="16" rx="4" fill="var(--co)" opacity=".7"/><text class="lbl" x="232" y="6">17%</text></g>
+        <g transform="translate(0,172)"><text class="nm" x="150" y="4" text-anchor="end">AeroVape</text><text class="mut" x="150" y="16" text-anchor="end" font-size="9.5">vapes · 7% of revenue</text>
+          <rect x="158" y="-6" width="52" height="16" rx="4" fill="var(--co)" opacity=".7"/><text class="lbl" x="216" y="6">13%</text></g>
+        </g>
+      </svg>
+      <p class="note">Brand's share of its category revenue at the forecourt. Baseline = how much that category makes up of total tobacco revenue.</p>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:10px">
+      <div class="card" style="padding:12px 15px">
+        <div class="brow"><span><b style="color:var(--co)">HeatCore</b> · heated tobacco</span><span class="chip c">Driver 40+ 2.3×</span></div>
+        <div class="brow"><span><b style="color:var(--co)">FrostPouch</b> · pouches</span><span class="chip c">Young 20+ · Fitness</span></div>
+        <div class="brow"><span><b style="color:var(--co)">Crown</b> · cigarettes</span><span class="chip c">Seniors · driver 40+</span></div>
+        <div class="brow"><span><b style="color:var(--co)">Everyday</b> · value</span><span class="chip c">Tradesmen · budget</span></div>
+        <div class="brow"><span><b style="color:var(--co)">AeroVape</b> · vapes</span><span class="chip c">Young 20+</span></div>
+      </div>
+      <div class="box co"><div class="l">Where you lead</div><b>HeatCore holds 71% of heated tobacco</b> and <b>FrostPouch 44% of pouches</b> — you lead the switch to smoke-free among drivers 40+ and young people.</div>
+    </div>
+  </div>
+  <div class="tk c2">
+    <div class="box i"><div class="l">Insight</div>Your portfolio is strong precisely in the <b>growing smoke-free categories</b> (heated tobacco, pouches), while in classic cigarettes it holds a premium share via Crown and volume via Everyday.</div>
+    <div class="box m"><div class="l">Dopad</div>The data shows <b>exactly which personas hold which product</b> — a basis for targeted campaigns and for negotiating space and listing with EuroOil.</div>
+  </div>
+  <div class="flow">DATA → <b>INSIGHT</b> → MONETIZATION</div><div class="pageno">06 / 07</div>
+</section>
+
+
+<!-- ===== 07 · KONTAKT / CTA ===== -->
+<section class="slide center">
+  <div class="top" style="position:absolute; top:34px; left:54px; right:54px; margin:0">
+    <span class="brand">EuroOil <span class="amp">×</span> <img class="mm" src="mm-logo.png" alt="Minds&Models"></span>
+    <span class="meta">Next step</span>
+  </div>
+  <p class="label">This was just a taste</p>
+  <h1>How much do you still <span class="accent-co">not know</span><br>about customers at the forecourt?</h1>
+  <p class="lead mt14" style="max-width:64ch">This report is a showcase built on mocked (illustrative) data. On a real pilot we'll prepare a deep-dive analysis tailored to your portfolio — custom segments, the switch to smoke-free over time and data across the EuroOil network.</p>
+  <div style="display:flex; gap:20px; margin-top:28px; flex-wrap:wrap; max-width:760px">
+    <div class="card" style="flex:1; min-width:280px; display:flex; align-items:center; gap:14px; padding:16px 18px">
+      <div style="width:46px; height:46px; border-radius:12px; overflow:hidden; flex:none"><img src="santora_ondrej.png" alt="Ondřej Šantora" style="width:100%; height:100%; object-fit:cover; display:block"></div>
+      <div><div style="font-size:11px; color:var(--muted)">Co-Founder</div><div style="font-weight:750; font-size:15px">Ondřej Šantora</div><div class="note" style="margin:2px 0 0">ondrej@mindsmodels.ai · +420 720 571 736</div></div>
+    </div>
+    <div class="card" style="flex:1; min-width:280px; display:flex; align-items:center; gap:14px; padding:16px 18px">
+      <div style="width:46px; height:46px; border-radius:12px; overflow:hidden; flex:none"><img src="josef_nemecek.png" alt="Josef Němeček" style="width:100%; height:100%; object-fit:cover; display:block"></div>
+      <div><div style="font-size:11px; color:var(--muted)">Co-Founder</div><div style="font-weight:750; font-size:15px">Josef Němeček</div><div class="note" style="margin:2px 0 0">josef@mindsmodels.ai · +420 737 138 638</div></div>
+    </div>
+  </div>
+  <p class="note" style="margin-top:26px">mindsmodels.ai · Become the next gen of retail. One that understands people.</p>
+  <div class="flow">NEXT STEP → <b>GET IN TOUCH</b></div><div class="pageno">07 / 07</div>
+</section>
+
+</div>
+</body>
+</html>

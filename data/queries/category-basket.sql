@@ -1,0 +1,3 @@
+-- category-basket
+-- TODO: port real SQL from datalayer notebooks/queries.
+-- Output must be k>=25 aggregates only.

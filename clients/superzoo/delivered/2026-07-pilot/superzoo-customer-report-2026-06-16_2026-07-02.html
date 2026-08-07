@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Super Zoo Customer Report — 16 Jun – 2 Jul 2026</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.5;
+      color: #111827;
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1.5rem 3rem;
+      background: #f9fafb;
+    }
+    h1, h2, h3 { color: #111827; margin-top: 2rem; }
+    h1 { font-size: 1.75rem; margin-top: 0; }
+    h2 { font-size: 1.25rem; border-bottom: 1px solid #e5e7eb; padding-bottom: 0.4rem; }
+    h3 { font-size: 1rem; margin-bottom: 0.5rem; }
+    p, li { color: #374151; }
+    .meta { background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; padding: 1rem 1.25rem; }
+    .highlight { font-size: 1.1rem; font-weight: 600; color: #065f46; background: #ecfdf5; display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; }
+    table { width: 100%; border-collapse: collapse; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; overflow: hidden; margin: 0.75rem 0 1.5rem; }
+    th, td { padding: 0.55rem 0.75rem; text-align: left; border-bottom: 1px solid #f3f4f6; }
+    th { background: #f9fafb; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.03em; color: #6b7280; }
+    td.num, th.num { text-align: right; }
+    tr:last-child td { border-bottom: none; }
+    .note { font-size: 0.9rem; color: #6b7280; }
+    section { margin-top: 1.5rem; }
+  </style>
+</head>
+<body>
+
+  <h1>Super Zoo — Customer Report</h1>
+
+  <div class="meta">
+    <p><strong>Store:</strong> Super Zoo · Kozomín</p>
+    <p><strong>Device:</strong> rpi-0017-prod (Pokladní zóna)</p>
+    <p><strong>Period:</strong> 16 Jun – 2 Jul 2026 (Europe/Prague)</p>
+    <p><strong>Population:</strong> Engaged visitors (≥5 s, facing camera, image captured, normalized), staff excluded</p>
+    <p><strong>Staff exclusion:</strong> Yellow upper (<code>llm_analysis → 6 → col</code> contains yellow) AND polo-shirt in <code>apparel_items</code> keywords</p>
+    <p><strong>Unique customers:</strong> <span class="highlight">2,305</span></p>
+  </div>
+
+  <section>
+    <h2>Headline KPIs</h2>
+    <table>
+      <thead>
+        <tr><th>Metric</th><th class="num">Value</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Unique visitors</td><td class="num"><strong>2,305</strong></td></tr>
+        <tr><td>Average attention (median)</td><td class="num">14.5 s</td></tr>
+        <tr><td>Peak hour</td><td class="num">16:00–17:00 (242 visits)</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>Total Store Visitors</h2>
+    <p class="note">Demographic and behavioral breakdown — mirrors the webapp “Total store visitors” section.</p>
+
+    <h3>Demographics — Age</h3>
+    <p>Top group: <span class="highlight">20s — 33.3%</span></p>
+    <table>
+      <thead>
+        <tr><th>Age band</th><th class="num">Count</th><th class="num">Share</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>20s</td><td class="num">767</td><td class="num">33.3%</td></tr>
+        <tr><td>30s</td><td class="num">631</td><td class="num">27.4%</td></tr>
+        <tr><td>40s</td><td class="num">370</td><td class="num">16.1%</td></tr>
+        <tr><td>50s</td><td class="num">309</td><td class="num">13.4%</td></tr>
+        <tr><td>60s+</td><td class="num">98</td><td class="num">4.3%</td></tr>
+        <tr><td>unknown</td><td class="num">66</td><td class="num">2.9%</td></tr>
+        <tr><td>10s</td><td class="num">64</td><td class="num">2.8%</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Demographics — Gender</h3>
+    <p>Top group: <span class="highlight">Female — 60.0%</span></p>
+    <table>
+      <thead>
+        <tr><th>Gender</th><th class="num">Count</th><th class="num">Share</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Female</td><td class="num">1,334</td><td class="num">60.0%</td></tr>
+        <tr><td>Male</td><td class="num">889</td><td class="num">40.0%</td></tr>
+      </tbody>
+    </table>
+    <p class="note">Unknown/other genders excluded (same as webapp).</p>
+
+    <h3>Social Context</h3>
+    <p>Top: <span class="highlight">Solo — 83.3%</span></p>
+    <table>
+      <thead>
+        <tr><th>Formation</th><th class="num">Count</th><th class="num">Share</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Solo</td><td class="num">1,919</td><td class="num">83.3%</td></tr>
+        <tr><td>Couple</td><td class="num">343</td><td class="num">14.9%</td></tr>
+        <tr><td>Group</td><td class="num">40</td><td class="num">1.7%</td></tr>
+        <tr><td>Unknown</td><td class="num">3</td><td class="num">0.1%</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Shopping Occasion</h3>
+    <p>Top: <span class="highlight">Errand — 59.6%</span></p>
+    <table>
+      <thead>
+        <tr><th>Occasion</th><th class="num">Count</th><th class="num">Share*</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Errand</td><td class="num">1,297</td><td class="num">59.6%</td></tr>
+        <tr><td>After work</td><td class="num">406</td><td class="num">18.6%</td></tr>
+        <tr><td>Weekend</td><td class="num">288</td><td class="num">13.2%</td></tr>
+        <tr><td>Quick stop</td><td class="num">170</td><td class="num">7.8%</td></tr>
+        <tr><td>Commute</td><td class="num">15</td><td class="num">0.7%</td></tr>
+        <tr><td>Late night</td><td class="num">2</td><td class="num">0.1%</td></tr>
+      </tbody>
+    </table>
+    <p class="note">*Share among visitors with a classifiable occasion (2,178 placed).</p>
+
+    <h3>Shopper Profile — Economic Scale</h3>
+    <p>Top: <span class="highlight">Mid-range — 47.0%</span></p>
+    <table>
+      <thead>
+        <tr><th>Tier</th><th class="num">Count</th><th class="num">Share*</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Mid-range</td><td class="num">1,064</td><td class="num">47.0%</td></tr>
+        <tr><td>Value</td><td class="num">1,038</td><td class="num">45.8%</td></tr>
+        <tr><td>Budget</td><td class="num">103</td><td class="num">4.5%</td></tr>
+        <tr><td>Premium</td><td class="num">61</td><td class="num">2.7%</td></tr>
+      </tbody>
+    </table>
+    <p class="note">*Share among visitors placed in a tier (2,266 placed).</p>
+
+    <h3>Shopper Profile — Self-presentation</h3>
+    <p>Top: <span class="highlight">Practical — 70.8%</span></p>
+    <table>
+      <thead>
+        <tr><th>Tier</th><th class="num">Count</th><th class="num">Share*</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Practical</td><td class="num">1,609</td><td class="num">70.8%</td></tr>
+        <tr><td>Invisible</td><td class="num">487</td><td class="num">21.4%</td></tr>
+        <tr><td>Status-seeking</td><td class="num">176</td><td class="num">7.7%</td></tr>
+      </tbody>
+    </table>
+    <p class="note">*Share among visitors placed in a tier (2,272 placed).</p>
+
+    <h3>Subculture</h3>
+    <p>Top: <span class="highlight">Mainstream — 43.1%</span></p>
+    <table>
+      <thead>
+        <tr><th>Segment</th><th class="num">Count</th><th class="num">Share*</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Mainstream</td><td class="num">993</td><td class="num">43.1%</td></tr>
+        <tr><td>Other</td><td class="num">374</td><td class="num">16.2%</td></tr>
+        <tr><td>Fitness active</td><td class="num">295</td><td class="num">12.8%</td></tr>
+        <tr><td>Student / youth</td><td class="num">224</td><td class="num">9.7%</td></tr>
+        <tr><td>Blue collar</td><td class="num">130</td><td class="num">5.6%</td></tr>
+        <tr><td>Professional</td><td class="num">110</td><td class="num">4.8%</td></tr>
+        <tr><td>Alternative</td><td class="num">94</td><td class="num">4.1%</td></tr>
+        <tr><td>Senior</td><td class="num">79</td><td class="num">3.4%</td></tr>
+        <tr><td>Riders</td><td class="num">5</td><td class="num">0.2%</td></tr>
+      </tbody>
+    </table>
+    <p class="note">*Share among visitors placed in a segment (2,304 placed).</p>
+
+    <h3>Brands (Top 10)</h3>
+    <p>#1: <span class="highlight">Apple — 4.7%</span></p>
+    <table>
+      <thead>
+        <tr><th>Rank</th><th>Brand</th><th class="num">Visitors</th><th class="num">Share</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>Apple</td><td class="num">109</td><td class="num">4.7%</td></tr>
+        <tr><td>2</td><td>Ontario</td><td class="num">69</td><td class="num">3.0%</td></tr>
+        <tr><td>3</td><td>Nike</td><td class="num">58</td><td class="num">2.5%</td></tr>
+        <tr><td>4</td><td>Adidas</td><td class="num">34</td><td class="num">1.5%</td></tr>
+        <tr><td>5</td><td>Vans</td><td class="num">33</td><td class="num">1.4%</td></tr>
+        <tr><td>6</td><td>Super Zoo</td><td class="num">24</td><td class="num">1.0%</td></tr>
+        <tr><td>7</td><td>Brit</td><td class="num">13</td><td class="num">0.6%</td></tr>
+        <tr><td>8</td><td>Under Armour</td><td class="num">13</td><td class="num">0.6%</td></tr>
+        <tr><td>9</td><td>Puma</td><td class="num">12</td><td class="num">0.5%</td></tr>
+        <tr><td>10</td><td>Guess</td><td class="num">7</td><td class="num">0.3%</td></tr>
+      </tbody>
+    </table>
+    <p class="note">Brand share = distinct visitors wearing brand ÷ 2,305 base. Shares can sum above 100% (multi-brand).</p>
+  </section>
+
+  <section>
+    <h2>Notes</h2>
+    <ul>
+      <li>Staff excluded: 1,092 person IDs (yellow polo uniform rule).</li>
+      <li>Webapp does not apply staff filter by default.</li>
+      <li>Same analytics logic as <code>/api/analytics/*</code> endpoints (winner device = rpi-0017-prod for this window).</li>
+    </ul>
+  </section>
+
+</body>
+</html>

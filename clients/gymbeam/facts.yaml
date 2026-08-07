@@ -1,0 +1,37 @@
+name: GymBeam
+legal_entity: GymBeam s.r.o. (VERIFY exact entity)
+segment: sports-nutrition (majority monobrand, e-commerce-first)
+stores_total: null          # VERIFY
+stores_live: 1              # Praha
+
+pilot:
+  start: 2026-06            # VERIFY exact dates
+  pos_matching: real
+  match_rate: "92%"
+  key_metrics:
+    visitors: 7475
+    matched_orders: 2622
+    matched_revenue_czk: 1290000
+    duration_days: 21
+
+deal:
+  status: pilot-live
+  next_step: "Post-pilot direction selection (email sent 2026-07); methodology-lab role"
+  personalization_live: false
+
+rights:
+  mandate_signed: false
+  aggregate_license: false
+  notes: "Monobrand => limited brand-sale value; highest value = methodology proof (92%)"
+
+naming:
+  can_name_publicly: false
+  approved_fallback: "a leading Czech sports-nutrition retailer"
+  written_ok_for: []        # TODO: get written OK for the 92% case study (asked 2026-07-30)
+
+contacts: []                # TODO fill
+
+sensitivities: >
+  Strategic role = methodology lab + case study, NOT a brand-revenue channel.
+  Brand-affinity findings (Nike/Adidas lead, GymBeam third, Gymshark present) are for
+  GymBeam's own use (own-brand development), not external decks without approval.

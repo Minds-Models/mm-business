@@ -1,0 +1,35 @@
+# Client facts — single source of truth for this company.
+# Agents: use ONLY these values in deliverables. Missing value => ask, don't invent.
+
+name: ""                    # display name used in materials
+legal_entity: ""
+segment: ""                 # e.g. pet-specialist, fuel-convenience, drugstore
+stores_total: null          # chain size (verify before external use)
+stores_live: 0              # stores with our sensors deployed
+
+pilot:
+  start: null
+  end: null
+  pos_matching: none        # none | modeled | real
+  match_rate: null
+  key_metrics: {}           # visitors, matched_orders, revenue_matched_czk, ...
+
+deal:
+  status: ""                # pipeline | pilot-live | mandate-pending | mandate-signed
+                            # | study-rights | subscription-rights | churned
+  next_step: ""
+  personalization_live: false
+
+rights:
+  mandate_signed: false
+  aggregate_license: false
+  notes: ""
+
+naming:
+  can_name_publicly: false
+  approved_fallback: ""     # e.g. "a leading Czech pet-specialist chain"
+  written_ok_for: []        # materials with written naming approval
+
+contacts: []                # - {name, role, email, notes}
+
+sensitivities: ""           # what must never appear in materials for/about this client

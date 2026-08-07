@@ -1,0 +1,19 @@
+name: Teta drogerie
+legal_entity: p.k. Solvent
+segment: drugstore
+stores_total: 511        # VERIFY
+stores_live: 0
+
+pilot: {pos_matching: none, key_metrics: {}}
+
+deal:
+  status: pipeline
+  next_step: "counter-NIQ play — pitch who-layer + revenue share vs NIQ-DM deal"
+  personalization_live: false
+
+rights: {mandate_signed: false, aggregate_license: false, notes: ""}
+
+naming: {can_name_publicly: false, approved_fallback: "", written_ok_for: []}
+
+contacts: []
+sensitivities: ""

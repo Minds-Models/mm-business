@@ -1,0 +1,33 @@
+name: EuroOil
+legal_entity: ČEPRO, a.s. (state-owned)
+segment: fuel-convenience
+stores_total: 200           # VERIFY (EuroOil network ~190-200 stations)
+stores_live: 1
+
+pilot:
+  pos_matching: modeled     # !! tobacco decks use ILLUSTRATIVE POS — always label as such
+  key_metrics: {}
+
+deal:
+  status: pilot-live
+  next_step: "Tobacco roundtable (JTI/PMI/BAT/Asahi ~Aug 2026): co-funding + contingent LOIs;
+    then aggregate-data license; real POS feed integration scoped"
+  personalization_live: true   # EUR 120/device model — EuroOil wants brands to pay it
+
+rights:
+  mandate_signed: false
+  aggregate_license: false
+  notes: "TIME-SENSITIVE: parent ČEPRO expanded ACNielsen/NIQ contract Jun 2025 —
+    NIQ is inside the parent. 50-store wave planned."
+
+naming:
+  can_name_publicly: false
+  approved_fallback: "a Czech fuel & convenience network"
+  written_ok_for: []
+
+contacts: []                # TODO fill
+
+sensitivities: >
+  1) Modeled POS must never be presented as real. 2) State-owned parent => procurement
+  sensitivities. 3) NEVER mention EuroOil pipeline/rights ambitions to NIQ or other brokers.
+  4) Tobacco brand materials: "age estimation with error bands" language mandatory.

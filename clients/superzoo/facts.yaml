@@ -1,0 +1,32 @@
+name: Super zoo
+legal_entity: Plaček Pet Products (VERIFY exact entity)
+segment: pet-specialist
+stores_total: 200           # ~ CZ chain; ≈ the CZ pet-specialist channel
+stores_live: 1
+
+pilot:
+  pos_matching: real
+  key_metrics: {}           # TODO: fill from superzoo-pos-pilot report
+
+deal:
+  status: pilot-live
+  next_step: "Mandate-letter ask + concierge action brief #1; 10-15 store expansion planned"
+  personalization_live: false
+
+rights:
+  mandate_signed: false
+  aggregate_license: false
+  notes: "Warmest rights prospect. Marketing loves the data; thinking retail media.
+    Ladder: mandate (60d, revocable, veto) -> study-rights (pet category) -> chain subscription."
+
+naming:
+  can_name_publicly: false
+  approved_fallback: "the leading Czech pet-specialist chain"
+  written_ok_for: []
+
+contacts: []                # TODO fill
+
+sensitivities: >
+  NEVER approach pet brands with SuperZoo aggregates before the mandate is signed
+  (methodology-only talk allowed). Competitor chain = Pet Center — do not mention
+  cross-chain benchmarking ambitions yet.

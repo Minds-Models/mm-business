@@ -1,0 +1,342 @@
+{
+  "report": "GymBeam · zákaznické persony (report-ready)",
+  "companyId": "org_3Dz5RuSax9fq9BSwcK5OY9Q9rEy",
+  "companyName": "GymBeam",
+  "store": { "id": 11, "name": "GymBeam Fitness Hub Praha" },
+  "segmentation": {
+    "runId": "f6eaa632-e3c1-4845-bedd-d508a6f4d8e8",
+    "publishedAt": "2026-07-08T15:44:43.784Z",
+    "source": "prod · tenant_active_segmentation → nmf_persona_card_v2 + nmf_persona_trait_v2",
+    "nPersonas": 7,
+    "totalVisits": 16271,
+    "shareSumPct": 100.0,
+    "note": "Persony jsou run-scoped (ne windowované). share_pct a visits pocházejí z publikované karty. Distinctive traits = lift vs. corpus. Čísla jsou přímo použitelná ve stejném formátu jako Super Zoo karty (share · relací · název · role · lifestyle · bullet s lift)."
+  },
+  "cardFormat": {
+    "example": {
+      "share": "8,8 %",
+      "count": "685 relací",
+      "name": "Aktivní mladí dospělí",
+      "roleLine": "„Post Workout\" · Gym Goer",
+      "lifestyle": "Sportovní životní styl"
+    },
+    "fieldMap": {
+      "share": "sharePctDisplay / sharePct",
+      "count": "visitsDisplay / visits",
+      "name": "nameCs (nebo nameEn)",
+      "roleLine": "roleLine",
+      "lifestyle": "lifestyleLine",
+      "bullets": "bullets[].text (s lift×)"
+    }
+  },
+  "personas": [
+    {
+      "topicId": 2,
+      "displayRank": 0,
+      "badge": "největší",
+      "sharePct": 21.6,
+      "sharePctDisplay": "21,6 %",
+      "visits": 3517,
+      "visitsDisplay": "3 517 relací · největší",
+      "nameEn": "Men in their 30s-50s",
+      "nameCs": "Muži 30–50 · dad-style",
+      "roleLine": "„Dad style\" · etablovaný adult",
+      "lifestyleLine": "Casual leisure · normcore · praktický nákup",
+      "headline": "30s · male · normcore · standard upkeep · dad style",
+      "summary": "These mature adults with average builds and receding hairlines prefer practical boots and beard grooming for their daily mid-day errands.",
+      "confidence": "solid",
+      "themes": ["established adult life-stage", "casual leisure", "normcore style"],
+      "demographics": {
+        "age": "30s",
+        "ageLift": 3.08,
+        "sex": "male",
+        "sexClusterPct": 0.7,
+        "lifeStage": "established_adult",
+        "lifeStageLift": 3.5
+      },
+      "signatureTags": ["Normcore", "Standard Upkeep", "Dad Style", "Average Build", "Practicality First", "Receding Hairline"],
+      "medianAttentionSeconds": 17.5,
+      "overlapsWithTopicId": 4,
+      "bullets": [
+        { "text": "Věk 30s 3,08×", "dim": "age", "value": "30s", "lift": 3.08 },
+        { "text": "Dad-style 4,56× · receding hairline 4,30×", "dim": "style_archetype", "value": "dad-style", "lift": 4.56 },
+        { "text": "Established adult 3,50× · white-collar 3,30×", "dim": "social_role", "value": "established-adult", "lift": 3.5 },
+        { "text": "Nejdelší median attention (17,5 s) ze všech person", "dim": "dwell", "value": "median_attention", "lift": null }
+      ],
+      "distinctiveTraits": [
+        { "source": "keyword", "dim": "style_archetype", "value": "dad-style", "lift": 4.56, "clusterPct": 0.2 },
+        { "source": "keyword", "dim": "demographic_observable", "value": "receding-hairline", "lift": 4.3, "clusterPct": 0.2 },
+        { "source": "keyword", "dim": "social_role", "value": "established-adult", "lift": 4.24, "clusterPct": 0.2 },
+        { "source": "keyword", "dim": "social_role", "value": "white-collar-professional", "lift": 3.3, "clusterPct": 0.2 },
+        { "source": "enum", "dim": "apparent_life_stage", "value": "established_adult", "lift": 3.5, "clusterPct": 0.9 },
+        { "source": "enum", "dim": "age", "value": "30s", "lift": 3.08, "clusterPct": 0.5 }
+      ]
+    },
+    {
+      "topicId": 1,
+      "displayRank": 5,
+      "badge": "2. největší · atletické jádro",
+      "sharePct": 16.9,
+      "sharePctDisplay": "16,9 %",
+      "visits": 2754,
+      "visitsDisplay": "2 754 relací · 2. největší",
+      "nameEn": "Athletic Young Men",
+      "nameCs": "Atletičtí mladí muži",
+      "roleLine": "„Post Workout\" · Gym Goer",
+      "lifestyleLine": "Sportovní životní styl · athleisure",
+      "headline": "20s · male · fitness enthusiast · gym goer · athleisure",
+      "summary": "Highly active men in their 20s with athletic builds frequent the store for shorts and supplements while maintaining a short-haired, stubbled appearance.",
+      "confidence": "ok",
+      "themes": ["active sporty lifestyle", "athletic performance brands", "gym-goer subculture"],
+      "demographics": {
+        "age": "20s",
+        "sex": "male",
+        "sexClusterPct": 0.9,
+        "lifestyle": "active_sporty",
+        "lifestyleLift": 2.45
+      },
+      "signatureTags": ["Fitness Enthusiast", "Gym Goer", "Athleisure", "Sporty Casual", "Fitness Consumer", "Athletic Shorts"],
+      "medianAttentionSeconds": 9.7,
+      "overlapsWithTopicId": 6,
+      "bullets": [
+        { "text": "Fitness-enthusiast 2,61× · gym-goer 2,07×", "dim": "subculture_signal", "value": "fitness-enthusiast", "lift": 2.61 },
+        { "text": "Active sporty 2,45× · athletic shorts 2,80×", "dim": "apparent_lifestyle_orientation", "value": "active_sporty", "lift": 2.45 },
+        { "text": "Post-workout stop 2,42×", "dim": "life_context", "value": "post-workout-stop", "lift": 2.42 },
+        { "text": "Muži 1,64× · broad shoulders 3,06×", "dim": "sex", "value": "male", "lift": 1.64 }
+      ],
+      "distinctiveTraits": [
+        { "source": "keyword", "dim": "subculture_signal", "value": "fitness-enthusiast", "lift": 2.61, "clusterPct": 0.9 },
+        { "source": "keyword", "dim": "subculture_signal", "value": "gym-goer", "lift": 2.07, "clusterPct": 0.8 },
+        { "source": "keyword", "dim": "apparel_items", "value": "athletic-shorts", "lift": 2.8, "clusterPct": 0.3 },
+        { "source": "keyword", "dim": "life_context", "value": "post-workout-stop", "lift": 2.42, "clusterPct": 0.3 },
+        { "source": "keyword", "dim": "demographic_observable", "value": "visible-arm-tattoos", "lift": 3.18, "clusterPct": 0.2 },
+        { "source": "enum", "dim": "apparent_lifestyle_orientation", "value": "active_sporty", "lift": 2.45, "clusterPct": 0.8 }
+      ]
+    },
+    {
+      "topicId": 3,
+      "displayRank": 1,
+      "badge": null,
+      "sharePct": 14.1,
+      "sharePctDisplay": "14,1 %",
+      "visits": 2300,
+      "visitsDisplay": "2 300 relací",
+      "nameEn": "Young Women in Yoga Athleisure",
+      "nameCs": "Wellness 20+ v athleisure",
+      "roleLine": "„Yoga Athleisure\" · Gym Goer",
+      "lifestyleLine": "Health-conscious granola · performance casual",
+      "headline": "20s · female · athleisure · health conscious · gym goer",
+      "summary": "Young active women wearing cycling shorts and hair buns shop for functional gear to support their high-performance fitness and yoga routines.",
+      "confidence": "solid",
+      "themes": ["health-conscious granola", "yoga enthusiast", "very casual performance"],
+      "demographics": {
+        "age": "20s",
+        "sex": "female",
+        "sexClusterPct": 1.0,
+        "sexLift": 2.08,
+        "lifestyle": "active_sporty",
+        "lifestyleLift": 2.77,
+        "outfitFormality": "very_casual",
+        "outfitFormalityLift": 3.6
+      },
+      "signatureTags": ["Athleisure", "Health Conscious", "Gym Goer", "Fitness Enthusiast", "Minimalist Sport", "Focused"],
+      "medianAttentionSeconds": 5.0,
+      "overlapsWithTopicId": 1,
+      "bullets": [
+        { "text": "Yoga-enthusiast 6,25× · health-conscious 5,29×", "dim": "subculture_signal", "value": "yoga-enthusiast", "lift": 6.25 },
+        { "text": "Athleisure 2,96× · athletic performance 4,51×", "dim": "style_archetype", "value": "athleisure", "lift": 2.96 },
+        { "text": "Ženy 2,08× · very casual 3,60×", "dim": "sex", "value": "female", "lift": 2.08 },
+        { "text": "Toned legs 5,75×", "dim": "demographic_observable", "value": "toned-legs", "lift": 5.75 }
+      ],
+      "distinctiveTraits": [
+        { "source": "keyword", "dim": "aspirational_projection", "value": "health-conscious", "lift": 5.29, "clusterPct": 0.5 },
+        { "source": "keyword", "dim": "subculture_signal", "value": "yoga-enthusiast", "lift": 6.25, "clusterPct": 0.3 },
+        { "source": "keyword", "dim": "style_archetype", "value": "athleisure", "lift": 2.96, "clusterPct": 0.9 },
+        { "source": "keyword", "dim": "style_archetype", "value": "minimalist-sport", "lift": 3.65, "clusterPct": 0.5 },
+        { "source": "enum", "dim": "outfit_functionality", "value": "athletic_performance", "lift": 4.51, "clusterPct": 0.86 },
+        { "source": "enum", "dim": "outfit_formality", "value": "very_casual", "lift": 3.6, "clusterPct": 0.8 }
+      ]
+    },
+    {
+      "topicId": 4,
+      "displayRank": 2,
+      "badge": "premium mix",
+      "sharePct": 13.0,
+      "sharePctDisplay": "13,0 %",
+      "visits": 2117,
+      "visitsDisplay": "2 117 relací",
+      "nameEn": "Young Women Professionals",
+      "nameCs": "Mladé profesionálky",
+      "roleLine": "„Clean Girl\" · urban professional",
+      "lifestyleLine": "Smart-casual · city dweller · polished",
+      "headline": "20s · female · city dweller · young professional · polished appearance",
+      "summary": "Slender city dwellers in their 20s favor polished appearances and premium wide-leg trousers while shopping during lunch breaks or after work.",
+      "confidence": "solid",
+      "themes": ["smart casual attire", "urban professional role", "highly coordinated outfits"],
+      "demographics": {
+        "age": "20s",
+        "sex": "female",
+        "sexClusterPct": 0.8,
+        "sexLift": 1.67,
+        "lifestyle": "casual_leisure"
+      },
+      "signatureTags": ["City Dweller", "Young Professional", "Polished Appearance", "Clean Girl Aesthetic", "Urban Professional", "Wide Leg Trousers"],
+      "medianAttentionSeconds": 14.2,
+      "overlapsWithTopicId": 2,
+      "bullets": [
+        { "text": "Clean-girl aesthetic 5,00× · polished appearance 5,76×", "dim": "style_archetype", "value": "clean-girl-aesthetic", "lift": 5.0 },
+        { "text": "Urban professional 4,53× · city-dweller 3,19×", "dim": "subculture_signal", "value": "urban-professional", "lift": 4.53 },
+        { "text": "Wide-leg trousers 5,24× · slender build 2,55×", "dim": "apparel_items", "value": "wide-leg-trousers", "lift": 5.24 },
+        { "text": "Dlouhá median attention (14,2 s) — pečlivější prohlížení", "dim": "dwell", "value": "median_attention", "lift": null }
+      ],
+      "distinctiveTraits": [
+        { "source": "keyword", "dim": "grooming_presentation", "value": "polished-appearance", "lift": 5.76, "clusterPct": 0.2 },
+        { "source": "keyword", "dim": "style_archetype", "value": "clean-girl-aesthetic", "lift": 5.0, "clusterPct": 0.2 },
+        { "source": "keyword", "dim": "apparel_items", "value": "wide-leg-trousers", "lift": 5.24, "clusterPct": 0.2 },
+        { "source": "keyword", "dim": "subculture_signal", "value": "urban-professional", "lift": 4.53, "clusterPct": 0.2 },
+        { "source": "keyword", "dim": "subculture_signal", "value": "city-dweller", "lift": 3.19, "clusterPct": 0.4 },
+        { "source": "keyword", "dim": "aspirational_projection", "value": "effortless-style", "lift": 4.23, "clusterPct": 0.2 }
+      ]
+    },
+    {
+      "topicId": 0,
+      "displayRank": 6,
+      "badge": null,
+      "sharePct": 12.9,
+      "sharePctDisplay": "12,9 %",
+      "visits": 2092,
+      "visitsDisplay": "2 092 relací",
+      "nameEn": "Young Women in Minimalist Casual",
+      "nameCs": "Mladé ženy · minimalist",
+      "roleLine": "Minimalist-casual · low-profile",
+      "lifestyleLine": "Normcore · young professional · matte fabrics",
+      "headline": "20s · female · normcore · young professional · minimalist",
+      "summary": "These slim 20s women prioritize a low-profile aesthetic with matte fabrics and sweaters for everyday errands and light exercise.",
+      "confidence": "ok",
+      "themes": ["minimalist-casual style", "indoor fitness leggings", "long hair"],
+      "demographics": {
+        "age": "20s",
+        "ageClusterPct": 1.0,
+        "sex": "female",
+        "sexClusterPct": 0.7,
+        "lifestyle": "casual_leisure"
+      },
+      "signatureTags": ["Normcore", "Young Professional", "Minimalist", "Minimalist Casual", "Basic Casual", "Practicality First"],
+      "medianAttentionSeconds": 7.2,
+      "overlapsWithTopicId": 5,
+      "bullets": [
+        { "text": "Minimalist 3,02× · minimalist-casual 3,19× · basic-casual 4,71×", "dim": "style_archetype", "value": "basic-casual", "lift": 4.71 },
+        { "text": "Mainstream-youth 3,81× · city-dweller 2,07×", "dim": "subculture_signal", "value": "mainstream-youth", "lift": 3.81 },
+        { "text": "Low-profile 1,98× · practicality-first 1,74×", "dim": "aspirational_projection", "value": "low-profile", "lift": 1.98 },
+        { "text": "Ženy 20s · casual leisure 1,52×", "dim": "sex", "value": "female", "lift": 1.45 }
+      ],
+      "distinctiveTraits": [
+        { "source": "keyword", "dim": "style_archetype", "value": "basic-casual", "lift": 4.71, "clusterPct": 0.2 },
+        { "source": "keyword", "dim": "style_archetype", "value": "minimalist-casual", "lift": 3.19, "clusterPct": 0.3 },
+        { "source": "keyword", "dim": "style_archetype", "value": "minimalist", "lift": 3.02, "clusterPct": 0.4 },
+        { "source": "keyword", "dim": "subculture_signal", "value": "mainstream-youth", "lift": 3.81, "clusterPct": 0.2 },
+        { "source": "keyword", "dim": "aspirational_projection", "value": "low-profile", "lift": 1.98, "clusterPct": 0.3 },
+        { "source": "enum", "dim": "sex", "value": "female", "lift": 1.45, "clusterPct": 0.7 }
+      ]
+    },
+    {
+      "topicId": 5,
+      "displayRank": 3,
+      "badge": "cenově citlivý",
+      "sharePct": 12.8,
+      "sharePctDisplay": "12,8 %",
+      "visits": 2075,
+      "visitsDisplay": "2 075 relací",
+      "nameEn": "Student Casual Youth",
+      "nameCs": "Studentská mládež · mass-market",
+      "roleLine": "Student Casual · comfort-first",
+      "lifestyleLine": "College student · normcore · budget",
+      "headline": "20s · male · student · college student · normcore",
+      "summary": "Budget-conscious teenagers and 20s students with slim builds prioritize comfort and mass-market apparel for their afternoon errands and campus life.",
+      "confidence": "solid",
+      "themes": ["college student lifestyle", "comfort-first spending", "youthful appearance"],
+      "demographics": {
+        "age": "20s",
+        "sex": "male",
+        "sexClusterPct": 0.6,
+        "lifestyle": "casual_leisure"
+      },
+      "signatureTags": ["Student", "College Student", "Normcore", "Student Casual", "Mass Market Apparel", "Comfort First"],
+      "medianAttentionSeconds": 12.7,
+      "overlapsWithTopicId": 0,
+      "bullets": [
+        { "text": "College-student 6,49× · student 4,83× · student-casual 7,47×", "dim": "subculture_signal", "value": "college-student", "lift": 6.49 },
+        { "text": "Mass-market apparel 1,91× · comfort-first 2,09×", "dim": "economic_signal", "value": "mass-market-apparel", "lift": 1.91 },
+        { "text": "Youthful appearance 2,80×", "dim": "demographic_observable", "value": "youthful-appearance", "lift": 2.8 },
+        { "text": "Nejcenověji citlivý segment — objem, ne premium", "dim": "narrative", "value": "budget", "lift": null }
+      ],
+      "distinctiveTraits": [
+        { "source": "keyword", "dim": "style_archetype", "value": "student-casual", "lift": 7.47, "clusterPct": 0.2 },
+        { "source": "keyword", "dim": "subculture_signal", "value": "college-student", "lift": 6.49, "clusterPct": 0.6 },
+        { "source": "keyword", "dim": "social_role", "value": "student", "lift": 4.83, "clusterPct": 0.8 },
+        { "source": "keyword", "dim": "economic_signal", "value": "mass-market-apparel", "lift": 1.91, "clusterPct": 0.4 },
+        { "source": "keyword", "dim": "aspirational_projection", "value": "comfort-first", "lift": 2.09, "clusterPct": 0.3 },
+        { "source": "keyword", "dim": "demographic_observable", "value": "youthful-appearance", "lift": 2.8, "clusterPct": 0.2 }
+      ]
+    },
+    {
+      "topicId": 6,
+      "displayRank": 4,
+      "badge": null,
+      "sharePct": 8.7,
+      "sharePctDisplay": "8,7 %",
+      "visits": 1416,
+      "visitsDisplay": "1 416 relací",
+      "nameEn": "Athletic Men in Streetwear",
+      "nameCs": "Streetwear gym-goer 20+",
+      "roleLine": "Vans · skate × gym",
+      "lifestyleLine": "Sporty-casual · athletic shorts · all-black",
+      "headline": "20s · male · forearm tattoo · vans side stripe · crew socks",
+      "summary": "Masculine shoppers with athletic builds and forearm tattoos blend discreetly branded skate shoes with fitness apparel for a modern urban look.",
+      "confidence": "solid",
+      "themes": ["streetwear subcultural alignment", "skate-culture influence", "all-black ensemble"],
+      "demographics": {
+        "age": "20s",
+        "sex": "male",
+        "sexClusterPct": 1.0,
+        "sexLift": 1.81,
+        "lifestyle": "casual_leisure"
+      },
+      "signatureTags": ["Forearm Tattoo", "Vans Side Stripe", "Crew Socks", "Gym Goer", "Young Professional", "All Black Ensemble"],
+      "medianAttentionSeconds": 5.7,
+      "overlapsWithTopicId": 1,
+      "bullets": [
+        { "text": "Skate-culture 10,38× · Vans side-stripe 9,53×", "dim": "subculture_signal", "value": "skate-culture", "lift": 10.38 },
+        { "text": "Forearm tattoo 6,31× · crew socks 3,85×", "dim": "demographic_observable", "value": "forearm-tattoo", "lift": 6.31 },
+        { "text": "All-black ensemble 3,14× · athletic shorts 3,08×", "dim": "material_color_signal", "value": "all-black-ensemble", "lift": 3.14 },
+        { "text": "Gym-goer 1,79× · muži 20s 1,81×", "dim": "subculture_signal", "value": "gym-goer", "lift": 1.79 }
+      ],
+      "distinctiveTraits": [
+        { "source": "keyword", "dim": "subculture_signal", "value": "skate-culture", "lift": 10.38, "clusterPct": 0.2 },
+        { "source": "keyword", "dim": "apparel_brand_logo", "value": "vans-side-stripe", "lift": 9.53, "clusterPct": 0.4 },
+        { "source": "keyword", "dim": "demographic_observable", "value": "forearm-tattoo", "lift": 6.31, "clusterPct": 0.5 },
+        { "source": "keyword", "dim": "apparel_items", "value": "crew-socks", "lift": 3.85, "clusterPct": 0.5 },
+        { "source": "keyword", "dim": "material_color_signal", "value": "all-black-ensemble", "lift": 3.14, "clusterPct": 0.4 },
+        { "source": "enum", "dim": "logo_prominence", "value": "discreet", "lift": 2.47, "clusterPct": 0.7 }
+      ]
+    }
+  ],
+  "orderedByShare": [
+    { "topicId": 2, "nameCs": "Muži 30–50 · dad-style", "sharePct": 21.6 },
+    { "topicId": 1, "nameCs": "Atletičtí mladí muži", "sharePct": 16.9 },
+    { "topicId": 3, "nameCs": "Wellness 20+ v athleisure", "sharePct": 14.1 },
+    { "topicId": 4, "nameCs": "Mladé profesionálky", "sharePct": 13.0 },
+    { "topicId": 0, "nameCs": "Mladé ženy · minimalist", "sharePct": 12.9 },
+    { "topicId": 5, "nameCs": "Studentská mládež · mass-market", "sharePct": 12.8 },
+    { "topicId": 6, "nameCs": "Streetwear gym-goer 20+", "sharePct": 8.7 }
+  ],
+  "reportHints": {
+    "superZooStyleCard": "Použij sharePctDisplay + visitsDisplay + nameCs + roleLine + lifestyleLine + bullets[0..1].text",
+    "czechRoleLineExamples": {
+      "Athletic Young Men": "„Post Workout\" · Gym Goer",
+      "Young Women Professionals": "„Clean Girl\" · urban professional",
+      "Men in their 30s-50s": "„Dad style\" · etablovaný adult"
+    },
+    "posSpendNote": "Ø košík dle persony není v dashboard warehouse — je v POS×persona pilotu (gymbeam-pos-pilot / gymbeam-pilot-deck): Athletic Young Men 566 Kč, Men 30–50 554 Kč, Streetwear 520 Kč, Professionals 426 Kč, Students 405 Kč, Yoga 401 Kč, Minimalist 370 Kč (store avg 491 Kč, 23.6.–16.7.2026)."
+  }
+}

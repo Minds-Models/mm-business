@@ -1,0 +1,143 @@
+{
+  "report": "GymBeam · Total store visitors (dashboard Analytics section)",
+  "companyId": "org_3Dz5RuSax9fq9BSwcK5OY9Q9rEy",
+  "companyName": "GymBeam",
+  "store": { "id": 11, "name": "GymBeam Fitness Hub Praha" },
+  "window": {
+    "from": "2026-06-23",
+    "to": "2026-07-16",
+    "timezone": "Europe/Prague",
+    "inclusive": true
+  },
+  "population": {
+    "uniqueVisitorsImagePresent": 7480,
+    "normalizedVisitors": 7475,
+    "note": "Panel shares use the winner-device + engaged (≥5s facing) warehouse model. Demographics / drivers join visitors_normalized_v2 (N=7475). Brand & shopping-tool shares use that same normalized base."
+  },
+  "source": "prod dashboard Postgres · same SQL as /api/analytics/* visitor panels",
+  "panels": {
+    "demographics": {
+      "title": "Demographics",
+      "age": {
+        "total": 7475,
+        "asShown": [
+          { "label": "20s", "count": 5350, "percentage": 71.6 },
+          { "label": "30s", "count": 1146, "percentage": 15.3 },
+          { "label": "40s", "count": 362, "percentage": 4.8 },
+          { "label": "50s", "count": 321, "percentage": 4.3 },
+          { "label": "Unknown", "count": 177, "percentage": 2.4 },
+          { "label": "60s+", "count": 68, "percentage": 0.9 },
+          { "label": "10s", "count": 51, "percentage": 0.7 }
+        ],
+        "topGroup": { "label": "20s", "percentage": 71.6 }
+      },
+      "gender": {
+        "total": 7283,
+        "asShown": [
+          { "label": "M", "value": "male", "count": 3847, "percentage": 52.8 },
+          { "label": "F", "value": "female", "count": 3436, "percentage": 47.2 }
+        ],
+        "topGroup": { "label": "M", "percentage": 52.8 }
+      }
+    },
+    "shoppingTools": {
+      "title": "Shopping tools",
+      "baseVisitors": 7475,
+      "feShows": "top 4 tools by share (excludes none/unknown); share = % of visitors carrying the tool",
+      "asShown": [
+        { "value": "reusable_bag", "label": "Reusable bag", "count": 67, "percentage": 0.9 },
+        { "value": "store_paper_bag", "label": "Paper bag", "count": 65, "percentage": 0.9 },
+        { "value": "shopping_basket", "label": "Shopping basket", "count": 46, "percentage": 0.6 },
+        { "value": "shopping_cart", "label": "Shopping cart", "count": 19, "percentage": 0.3 }
+      ],
+      "headline": { "label": "Reusable bag", "percentage": 1 }
+    },
+    "culturalPreference": {
+      "title": "Cultural preference",
+      "feShows": "top 6 non-unknown values on radar; share of normalized visitors",
+      "asShown": [
+        { "value": "mainstream", "label": "Mainstream", "count": 6137, "percentage": 82.1 },
+        { "value": "granola", "label": "Granola", "count": 486, "percentage": 6.5 },
+        { "value": "streetwear", "label": "Streetwear", "count": 397, "percentage": 5.3 },
+        { "value": "minimalist", "label": "Minimalist", "count": 182, "percentage": 2.4 },
+        { "value": "classic", "label": "Classic", "count": 42, "percentage": 0.6 },
+        { "value": "bohemian", "label": "Bohemian", "count": 15, "percentage": 0.2 }
+      ],
+      "headline": { "label": "Mainstream", "percentage": 82 }
+    },
+    "bodyAndOutfit": {
+      "title": "Body & outfit",
+      "body": {
+        "total": 7475,
+        "asShown": [
+          { "value": "average", "label": "Average", "count": 2279, "percentage": 30.5 },
+          { "value": "athletic", "label": "Athletic", "count": 2203, "percentage": 29.5 },
+          { "value": "toned_lean", "label": "Toned Lean", "count": 1892, "percentage": 25.3 },
+          { "value": "slim", "label": "Slim", "count": 688, "percentage": 9.2 },
+          { "value": "unknown", "label": "Unknown", "count": 210, "percentage": 2.8 },
+          { "value": "plus_size", "label": "Plus Size", "count": 103, "percentage": 1.4 },
+          { "value": "soft_sedentary", "label": "Soft Sedentary", "count": 76, "percentage": 1.0 },
+          { "value": "muscular", "label": "Muscular", "count": 24, "percentage": 0.3 }
+        ],
+        "headline": { "label": "Average", "percentage": 31 }
+      },
+      "outfit": {
+        "total": 7475,
+        "asShown": [
+          { "value": "casual", "label": "Casual", "count": 5437, "percentage": 72.7 },
+          { "value": "very_casual", "label": "Very Casual", "count": 1499, "percentage": 20.1 },
+          { "value": "smart_casual", "label": "Smart Casual", "count": 346, "percentage": 4.6 },
+          { "value": "unknown", "label": "Unknown", "count": 186, "percentage": 2.5 },
+          { "value": "formal", "label": "Formal", "count": 7, "percentage": 0.1 }
+        ],
+        "headline": { "label": "Casual", "percentage": 73 }
+      }
+    },
+    "shopperProfile": {
+      "title": "Shopper profile",
+      "economic": {
+        "tab": "Spend",
+        "totalPlaced": 7327,
+        "asShown": [
+          { "value": "premium", "label": "Premium", "count": 311, "percentage": 4.2 },
+          { "value": "mid_range", "label": "Mid-range", "count": 3976, "percentage": 54.3 },
+          { "value": "value", "label": "Value", "count": 2916, "percentage": 39.8 },
+          { "value": "budget", "label": "Budget", "count": 124, "percentage": 1.7 }
+        ],
+        "headline": { "label": "Mid-range", "percentage": 54.3 }
+      },
+      "presentation": {
+        "tab": "Style",
+        "totalPlaced": 7142,
+        "asShown": [
+          { "value": "status_seeking", "label": "Status-seeking", "count": 894, "percentage": 12.5 },
+          { "value": "practical", "label": "Practical", "count": 4854, "percentage": 68.0 },
+          { "value": "invisible", "label": "Invisible", "count": 1394, "percentage": 19.5 }
+        ],
+        "headline": { "label": "Practical", "percentage": 68.0 }
+      }
+    },
+    "brands": {
+      "title": "Brands",
+      "baseVisitors": 7475,
+      "feShows": "top 10 apparel + lifestyle only (tech hidden for GymBeam); share = % of visitors wearing brand",
+      "method": "shoe_brand column excluded from brand union — footwear-only logos (Vans/NB/Asics/Converse as shoes) dropped; Nike/Adidas/Puma remain when seen on apparel/other slots",
+      "filteredOutTopTech": [
+        { "brand": "Apple", "count": 532, "percentage": 7.1, "category": "tech" }
+      ],
+      "asShown": [
+        { "rank": 1, "brand": "GymBeam", "category": "lifestyle", "count": 109, "percentage": 1.5 },
+        { "rank": 2, "brand": "Nike", "category": "apparel", "count": 76, "percentage": 1.0 },
+        { "rank": 3, "brand": "Adidas", "category": "apparel", "count": 72, "percentage": 1.0 },
+        { "rank": 4, "brand": "Under Armour", "category": "lifestyle", "count": 28, "percentage": 0.4 },
+        { "rank": 5, "brand": "Gymshark", "category": "lifestyle", "count": 24, "percentage": 0.3 },
+        { "rank": 6, "brand": "Puma", "category": "apparel", "count": 18, "percentage": 0.2 },
+        { "rank": 7, "brand": "Polo Ralph Lauren", "category": "lifestyle", "count": 11, "percentage": 0.1 },
+        { "rank": 8, "brand": "Champion", "category": "lifestyle", "count": 10, "percentage": 0.1 },
+        { "rank": 9, "brand": "Jordan", "category": "lifestyle", "count": 9, "percentage": 0.1 },
+        { "rank": 10, "brand": "Calvin Klein", "category": "apparel", "count": 7, "percentage": 0.1 }
+      ],
+      "headline": { "brand": "GymBeam", "rank": 1 }
+    }
+  }
+}
