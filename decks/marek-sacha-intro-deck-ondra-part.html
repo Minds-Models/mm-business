@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Minds&Models — Pitch Deck 2026</title>
+<title>Minds&Models — Pitch Deck (Ondra's Part)</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 :root{
@@ -30,9 +30,7 @@ html,body{background:#dfe3e8;
 .brand .amp{font-family:'Times New Roman',serif; font-style:italic; font-weight:400}
 .brand .co{display:inline-flex; align-items:center; gap:6px; font-weight:700; color:var(--co)}
 .brand .dot{width:16px; height:16px; border-radius:4px; background:var(--co)}
-.brand img{display:block; width:auto}
-.brand .mm{height:14px}
-.bsep{width:1px; height:20px; background:var(--line); display:inline-block; flex:none; margin:0 2px}
+.brand img{display:block; height:38px; width:auto} /* Increased styling for actual logo */
 .meta{font-size:11px; color:var(--muted); text-align:right; line-height:1.4}
 .label{font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:var(--blue); margin-bottom:9px}
 h1{font-size:44px; font-weight:800; letter-spacing:-.03em; line-height:1.05}
@@ -45,11 +43,8 @@ h2{font-size:28px; font-weight:750; letter-spacing:-.02em; line-height:1.12; mar
 .flow{position:absolute; bottom:15px; left:54px; font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--muted-2); font-weight:700}
 .flow b{color:var(--blue)}
 svg.i{width:16px; height:16px; flex:none; stroke:currentColor; fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round}
-.itile{width:34px; height:34px; border-radius:9px; background:var(--blue-soft); color:var(--blue); display:flex; align-items:center; justify-content:center; flex:none}
-.itile .i{width:19px; height:19px}
 .card{background:var(--card); border:1px solid var(--line); border-radius:13px; padding:15px 17px; box-shadow:0 1px 2px rgba(15,23,42,.04)}
 .card h3{font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.05em; color:var(--muted); margin-bottom:11px; display:flex; align-items:center; gap:8px}
-.card h3 .i{width:15px; height:15px; color:var(--muted-2); stroke-width:2}
 .card h3.big{font-size:13px; text-transform:none; letter-spacing:0; color:var(--ink)}
 .grid2{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px}
 .grid3{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px}
@@ -83,272 +78,248 @@ svg.i{width:16px; height:16px; flex:none; stroke:currentColor; fill:none; stroke
 <body>
 <div class="deck">
 
-<!-- SLIDE 1 · COVER -->
+<!-- 0. COVER -->
 <section class="slide center">
   <div class="top" style="position:absolute; top:34px; left:54px; right:54px; margin:0">
-    <span class="brand">Minds&Models</span>
-    <span class="meta">Pitch Deck 2026<br>Confidential</span>
+    <span class="brand"><img src="../brand/logo/logo_mindsmodels-normal-black.png" alt="Minds&Models"></span>
+    <span class="meta">Ondřej's Section<br>Confidential</span>
   </div>
   <p class="label">Minds & Models</p>
-  <h1>Teaching physical stores<br><span class="accent-co">who their customers are.</span></h1>
-  <p class="lead mt14" style="max-width:70ch">Minds & Models — shopper intelligence for physical stores, matched to every purchase.</p>
-  <div class="flow"><b>COVER</b> → PROBLEM → SOLUTION → TRACTION</div><div class="pageno">01 / 11</div>
+  <h1>Scaling the <span class="accent-co">intelligence layer</span><br>of physical retail.</h1>
+  <p class="lead mt14" style="max-width:70ch">Business model, unit economics, and go-to-market execution.</p>
+  <div class="flow"><b>COVER</b> → CUSTOMERS → GTM → ECONOMICS → PLAN → TRACTION</div><div class="pageno">01 / 06</div>
 </section>
 
-<!-- SLIDE 2 · PROBLEM -->
+<!-- 1. Who is customer -->
 <section class="slide">
-  <div class="top"><span class="brand">Minds&Models</span><span class="meta">The Problem</span></div>
-  <p class="label">02 · The Disconnect</p>
-  <h2>E-commerce runs on behavior. <br>Physical retail got left behind — <span class="accent">with receipts.</span></h2>
-  <p class="lead mt14" style="max-width:80ch">Physical retail knows what sold — but not who buys.</p>
+  <div class="top"><span class="brand"><img src="../brand/logo/logo_mindsmodels-normal-black.png" alt="Minds&Models"></span><span class="meta">Customers</span></div>
+  <p class="label">01 · The Ecosystem</p>
+  <h2>Value created across the <span class="accent">entire retail chain.</span></h2>
   
-  <div class="grid3 mt18">
-    <div class="card tile">
-      <div class="v b">87%</div>
-      <div class="k">No behavioral data</div>
-      <div class="s">of in-store analytics are collected only after payment.</div>
-    </div>
-    <div class="card tile">
-      <div class="v b">70%</div>
-      <div class="k">No measurability</div>
-      <div class="s">of marketers struggle to target & measure offline ads.</div>
-    </div>
-    <div class="card tile">
-      <div class="v b">71%</div>
-      <div class="k">No way to respond</div>
-      <div class="s">of customers expect personalized interactions — stores can't deliver.</div>
-    </div>
-  </div>
-  
-  <div class="flow">COVER → <b>PROBLEM</b> → SOLUTION → TRACTION</div><div class="pageno">02 / 11</div>
-</section>
-
-<!-- SLIDE 3 · HOOK/TURN -->
-<section class="slide center">
-  <div class="top" style="position:absolute; top:34px; left:54px; right:54px; margin:0">
-    <span class="brand">Minds&Models</span>
-    <span class="meta">The Opportunity</span>
-  </div>
-  <h1>The behavior e-commerce runs on? <br><span class="accent-co">It walks into your store every day.</span></h1>
-  <p class="lead mt14" style="font-size:24px; font-weight: 500; color:var(--ink)">We're the first to read it.</p>
-  <div class="flow">COVER → <b>PROBLEM</b> → SOLUTION → TRACTION</div><div class="pageno">03 / 11</div>
-</section>
-
-<!-- SLIDE 4 · SOLUTION -->
-<section class="slide">
-  <div class="top"><span class="brand">Minds&Models</span><span class="meta">Our Solution</span></div>
-  <p class="label">04 · The Missing Link</p>
-  <h2>We capture in-store behavior and <br><span class="accent">match it to purchases.</span></h2>
-  
-  <div class="grid3 mt18" style="align-items: center; justify-content: center;">
-    <div class="card tile" style="text-align: center; padding: 40px 20px;">
-      <div class="v g">92%</div>
-      <div class="k">Matched Orders</div>
-      <div class="s">High-fidelity tie between visual traits and real POS data.</div>
-    </div>
-    <div class="card tile" style="text-align: center; padding: 40px 20px;">
-      <div class="v c">0</div>
-      <div class="k">Loyalty Cards Needed</div>
-      <div class="s">No signup friction, works for every customer.</div>
-    </div>
-    <div class="card tile" style="text-align: center; padding: 40px 20px;">
-      <div class="v b">0</div>
-      <div class="k">Surveys Required</div>
-      <div class="s">Passive, frictionless data collection at scale.</div>
-    </div>
-  </div>
-
-  <div class="tk" style="margin-top:auto">
-    <div class="box i"><div class="l">Privacy First</div>No faces. No identities. Aggregated patterns only (k≥25). We understand every shopper — without identifying anyone.</div>
-  </div>
-  
-  <div class="flow">COVER → PROBLEM → <b>SOLUTION</b> → TRACTION</div><div class="pageno">04 / 11</div>
-</section>
-
-<!-- SLIDE 5 · WHY NOW -->
-<section class="slide">
-  <div class="top"><span class="brand">Minds&Models</span><span class="meta">Why Now</span></div>
-  <p class="label">05 · Market Timing</p>
-  <h2>Vision AI makes shopper understanding scalable, <br>just as <span class="accent">retail media explodes.</span></h2>
-  
-  <div class="grid2 mt18" style="height: 100%;">
-    <div class="card" style="display:flex; flex-direction:column; justify-content:center; padding: 40px;">
-      <h3 class="big" style="font-size:20px; font-weight:800; margin-bottom: 20px;">AI Maturation</h3>
-      <p style="font-size: 16px; color: var(--muted); line-height: 1.5;">Computer vision models can now process edge data efficiently and affordably, unlocking deep visual analytics for physical stores without requiring massive hardware investments.</p>
-    </div>
-    <div class="card" style="display:flex; flex-direction:column; justify-content:center; padding: 40px;">
-      <h3 class="big" style="font-size:20px; font-weight:800; margin-bottom: 20px;">EU Retail Media Growth</h3>
-      <div style="font-size: 32px; font-weight: 800; color: var(--blue); margin-bottom: 10px;">€13.7B → €28.8B</div>
-      <p style="font-size: 16px; color: var(--muted); line-height: 1.5;">By 2028, the European retail media market is set to double. But it's arriving without audience proof. Physical stores need measurement currency to capture this spend.</p>
-    </div>
-  </div>
-  
-  <div class="flow">COVER → PROBLEM → <b>SOLUTION</b> → TRACTION</div><div class="pageno">05 / 11</div>
-</section>
-
-<!-- SLIDE 6 · PRODUCT/HOW -->
-<section class="slide">
-  <div class="top"><span class="brand">Minds&Models</span><span class="meta">How it Works</span></div>
-  <p class="label">06 · Mechanism</p>
-  <h2>From the shelf to the <span class="accent">transaction.</span></h2>
-  
-  <div class="grid4 mt18">
-    <div class="card" style="padding: 20px;">
-      <h3 class="big" style="color:var(--blue)">1. Computer Vision</h3>
-      <p style="font-size:13px; color:var(--muted); line-height: 1.4; margin-top: 10px;">Edge devices at the shelf capture visual presence anonymously.</p>
-    </div>
-    <div class="card" style="padding: 20px;">
-      <h3 class="big" style="color:var(--blue)">2. 88+ Attributes</h3>
-      <p style="font-size:13px; color:var(--muted); line-height: 1.4; margin-top: 10px;">Extracting rich context: demographics, clothing, groups, interactions.</p>
-    </div>
-    <div class="card" style="padding: 20px;">
-      <h3 class="big" style="color:var(--blue)">3. Personas</h3>
-      <p style="font-size:13px; color:var(--muted); line-height: 1.4; margin-top: 10px;">Grouping behaviors into actionable customer archetypes.</p>
-    </div>
-    <div class="card" style="padding: 20px; border-color: var(--blue); background: var(--blue-soft);">
-      <h3 class="big" style="color:var(--blue)">4. Matched to POS</h3>
-      <p style="font-size:13px; color:var(--ink); font-weight: 500; line-height: 1.4; margin-top: 10px;">The breakthrough: joining who they are with exactly what they bought on the receipt.</p>
-    </div>
-  </div>
-  
-  <div class="flow">COVER → PROBLEM → <b>SOLUTION</b> → TRACTION</div><div class="pageno">06 / 11</div>
-</section>
-
-<!-- SLIDE 7 · COMPETITION -->
-<section class="slide">
-  <div class="top"><span class="brand">Minds&Models</span><span class="meta">Competitive Landscape</span></div>
-  <p class="label">07 · The Moat</p>
-  <h2>The only solution uniting <span class="accent">audience depth</span> and <span class="accent">transactions.</span></h2>
-  
-  <div style="position:relative; width: 100%; max-width: 800px; margin: 30px auto 0; height: 360px; background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 20px;">
-    <!-- Axes -->
-    <div style="position:absolute; top: 10%; bottom: 10%; left: 50%; width: 1px; background: var(--line);"></div>
-    <div style="position:absolute; left: 10%; right: 10%; top: 50%; height: 1px; background: var(--line);"></div>
+  <div style="display:flex; flex-direction:column; gap:12px; margin-top:14px; align-items:center; width:100%;">
     
-    <div style="position:absolute; top: 5%; left: 50%; transform: translateX(-50%); font-size: 11px; font-weight: 700; color: var(--muted); text-transform: uppercase;">High Depth of Understanding</div>
-    <div style="position:absolute; bottom: 5%; left: 50%; transform: translateX(-50%); font-size: 11px; font-weight: 700; color: var(--muted); text-transform: uppercase;">Low Depth</div>
-    
-    <div style="position:absolute; left: 5%; top: 50%; transform: translateY(-50%) rotate(-90deg); font-size: 11px; font-weight: 700; color: var(--muted); text-transform: uppercase;">No Link to POS</div>
-    <div style="position:absolute; right: -2%; top: 50%; transform: translateY(-50%) rotate(-90deg); font-size: 11px; font-weight: 700; color: var(--muted); text-transform: uppercase;">Linked to Transactions</div>
-    
-    <!-- Quadrants -->
-    <div style="position:absolute; top: 20%; left: 20%; background: #f8fafc; padding: 8px 12px; border-radius: 6px; font-size: 13px; font-weight: 600; color: var(--ink-2); border: 1px solid var(--line);">Web Analytics</div>
-    <div style="position:absolute; bottom: 20%; left: 20%; background: #f8fafc; padding: 8px 12px; border-radius: 6px; font-size: 13px; font-weight: 600; color: var(--ink-2); border: 1px solid var(--line);">Counters & Heatmaps</div>
-    <div style="position:absolute; bottom: 20%; right: 20%; background: #f8fafc; padding: 8px 12px; border-radius: 6px; font-size: 13px; font-weight: 600; color: var(--ink-2); border: 1px solid var(--line);">Loyalty Programs</div>
-    
-    <div style="position:absolute; top: 18%; right: 18%; background: var(--blue); padding: 10px 16px; border-radius: 8px; font-size: 14px; font-weight: 700; color: #fff; box-shadow: 0 4px 12px rgba(37,99,235,0.3);">Minds & Models</div>
+    <!-- Top Row: Brands -->
+    <div class="card" style="width:100%; max-width:440px; padding:16px; text-align:center; border-color:var(--pos); box-shadow:0 4px 14px rgba(5,150,105,0.1); position:relative; z-index:2;">
+      <h3 class="big" style="color:var(--pos); justify-content:center; font-size:16px; margin-bottom:6px;">Brands & Advertisers</h3>
+      <p style="font-size:13px; color:var(--muted);">Pay <b>CASH</b> for closed-loop measurement (1–8M CZK/yr/brand).</p>
+    </div>
+
+    <!-- Arrow down from Brands -->
+    <div style="display:flex; align-items:center; justify-content:center; gap:8px; color:var(--pos); font-weight:800; font-size:13px; margin:-4px 0;">
+      <span>$$$ Measurement & Media Spend $$$</span>
+      <svg class="i" viewBox="0 0 24 24" style="width:20px; height:20px; stroke:currentColor; stroke-width:3;"><path d="M12 4v16m-6-6l6 6l6-6"/></svg>
+    </div>
+
+    <!-- Middle Row: Retailers -> Center <- Data Brokers -->
+    <div style="display:flex; align-items:center; justify-content:center; width:100%; max-width:1000px; gap:8px;">
+      
+      <!-- Left: Retailers -->
+      <div class="card" style="flex:1; padding:16px; text-align:center; border-color:var(--blue); position:relative; z-index:2;">
+        <h3 class="big" style="color:var(--blue); justify-content:center; font-size:16px; margin-bottom:6px;">Retailers</h3>
+        <p style="font-size:12px; color:var(--muted);">Provide Data Rights & Audience.<br>Earn 40-70% Rev Share.</p>
+      </div>
+
+      <!-- Arrow from Retailers to Center -->
+      <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; color:var(--blue); font-weight:800; font-size:12px; width:140px; flex:none;">
+        <span style="text-align:center; margin-bottom:4px; line-height:1.2;">$$$ Activation<br>(€120/screen/mo)</span>
+        <svg class="i" viewBox="0 0 24 24" style="width:24px; height:24px; stroke:currentColor; stroke-width:3; transform:rotate(-90deg);"><path d="M12 4v16m-6-6l6 6l6-6"/></svg>
+      </div>
+
+      <!-- Center: M&M Logo -->
+      <div class="card" style="padding:24px 32px; text-align:center; background:var(--card); border:2px solid var(--ink); border-radius:16px; box-shadow:0 12px 30px rgba(15,23,42,0.15); display:flex; flex-direction:column; align-items:center; justify-content:center; flex:none; width:360px; height:auto; min-height:140px; z-index:10;">
+        <img src="../brand/logo/logo_mindsmodels-normal-black.png" alt="Minds&Models" style="height:48px; display:block; margin:0 auto;">
+        <div style="font-size:12px; font-weight:800; color:var(--ink-2); text-transform:uppercase; letter-spacing:.05em; margin-top:14px;">Infrastructure Centerpiece &amp;<br>Intelligence Layer</div>
+        <div style="font-size:12px; color:var(--muted); margin-top:8px; line-height:1.4;">We collect data at the shelf (the moat), generate insights, and enable execution.</div>
+      </div>
+
+      <!-- Arrow from Data Brokers to Center -->
+      <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; color:var(--amber); font-weight:800; font-size:12px; width:140px; flex:none;">
+        <span style="text-align:center; margin-bottom:4px; line-height:1.2;">$$$ Schema<br>Licensing</span>
+        <svg class="i" viewBox="0 0 24 24" style="width:24px; height:24px; stroke:currentColor; stroke-width:3; transform:rotate(90deg);"><path d="M12 4v16m-6-6l6 6l6-6"/></svg>
+      </div>
+
+      <!-- Right: Data Brokers -->
+      <div class="card" style="flex:1; padding:16px; text-align:center; border-color:var(--amber); background:var(--amber-soft); position:relative; z-index:2;">
+        <h3 class="big" style="color:var(--amber); justify-content:center; font-size:16px; margin-bottom:6px;">Data Brokers</h3>
+        <p style="font-size:12px; color:var(--ink-2);">Provide Distribution Reach.<br>Own "what sold" legacy data.</p>
+      </div>
+
+    </div>
   </div>
   
-  <div class="flow">COVER → PROBLEM → SOLUTION → <b>TRACTION</b></div><div class="pageno">07 / 11</div>
+  <div class="flow">COVER → <b>CUSTOMERS</b> → GTM → ECONOMICS → PLAN → TRACTION</div><div class="pageno">02 / 06</div>
 </section>
 
-<!-- SLIDE 8 · BUSINESS MODEL -->
+<!-- 2. Go to market -->
 <section class="slide">
-  <div class="top"><span class="brand">Minds&Models</span><span class="meta">Business Model</span></div>
-  <p class="label">08 · Monetization</p>
-  <h2>Expanding from <span class="accent">activation</span> to <span class="accent-co">measurement.</span></h2>
+  <div class="top"><span class="brand"><img src="../brand/logo/logo_mindsmodels-normal-black.png" alt="Minds&Models"></span><span class="meta">Go To Market</span></div>
+  <p class="label">02 · GTM Strategy</p>
+  <h2>The <span class="accent">Trojan Horse</span> Strategy</h2>
+  
+  <div class="grid3 mt18" style="align-items: stretch;">
+    <div class="card" style="padding: 24px; display:flex; flex-direction:column; border-color:var(--blue); position:relative;">
+      <div style="position:absolute; top:-12px; left:24px; background:var(--blue); color:#fff; font-size:12px; font-weight:800; padding:4px 12px; border-radius:12px;">Step 1: The Entry</div>
+      <h3 class="big" style="color:var(--blue); font-size:18px; margin-top:8px; margin-bottom:12px;">Retailer Traction</h3>
+      <p style="font-size:13px; color:var(--muted); line-height: 1.5; margin-bottom:16px;">
+        We step into the game by offering retailers free operational insights and new retail media revenue. They grant us data rights.
+      </p>
+      <div style="margin-top:auto; background:var(--blue-soft); padding:12px; border-radius:8px;">
+        <b style="color:var(--blue); font-size:18px;">8 Chains</b>
+        <div style="font-size:11px; color:var(--ink-2); margin-top:2px;">in active pipeline (3.5 months)</div>
+      </div>
+    </div>
+    
+    <div class="card" style="padding: 24px; display:flex; flex-direction:column; border-color:var(--pos); position:relative;">
+      <div style="position:absolute; top:-12px; left:24px; background:var(--pos); color:#fff; font-size:12px; font-weight:800; padding:4px 12px; border-radius:12px;">Step 2: The Moat</div>
+      <h3 class="big" style="color:var(--pos); font-size:18px; margin-top:8px; margin-bottom:12px;">Data Collection</h3>
+      <p style="font-size:13px; color:var(--muted); line-height: 1.5; margin-bottom:16px;">
+        We piggyback on existing screens to build the moat: collecting the missing "who buys" layer, matching visual traits to POS receipts.
+      </p>
+      <div style="margin-top:auto; background:#dcfce7; padding:12px; border-radius:8px;">
+        <b style="color:var(--pos); font-size:18px;">~4,000</b>
+        <div style="font-size:11px; color:var(--ink-2); margin-top:2px;">store footprint reachable</div>
+      </div>
+    </div>
+    
+    <div class="card" style="padding: 24px; display:flex; flex-direction:column; border-color:var(--amber); position:relative;">
+      <div style="position:absolute; top:-12px; left:24px; background:var(--amber); color:#fff; font-size:12px; font-weight:800; padding:4px 12px; border-radius:12px;">Step 3: Monetization</div>
+      <h3 class="big" style="color:var(--amber); font-size:18px; margin-top:8px; margin-bottom:12px;">Brands & Brokers</h3>
+      <p style="font-size:13px; color:var(--muted); line-height: 1.5; margin-bottom:16px;">
+        Once the data moat is built, we monetize the aggregated insights as a new measurement currency to brands and consumer intelligence companies.
+      </p>
+      <div style="margin-top:auto; background:var(--amber-soft); padding:12px; border-radius:8px;">
+        <b style="color:var(--amber); font-size:18px;">High Margin</b>
+        <div style="font-size:11px; color:var(--ink-2); margin-top:2px;">insight sales (studies & subs)</div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="flow">COVER → CUSTOMERS → <b>GTM</b> → ECONOMICS → PLAN → TRACTION</div><div class="pageno">03 / 06</div>
+</section>
+
+<!-- 3. Unit Economics -->
+<section class="slide">
+  <div class="top"><span class="brand"><img src="../brand/logo/logo_mindsmodels-normal-black.png" alt="Minds&Models"></span><span class="meta">Unit Economics</span></div>
+  <p class="label">03 · Unit Economics</p>
+  <h2>The <span class="accent">Dual Monetization</span> Engine</h2>
+  
+  <div style="display:flex; gap:30px; align-items:stretch; margin-top:18px;">
+    
+    <!-- Cost Column (Visually smaller, darker/muted) -->
+    <div class="card" style="display:flex; flex-direction:column; padding: 24px; border:none; background:var(--ink); color:var(--card); width:240px; flex:none; justify-content:center; position:relative;">
+      <div style="position:absolute; top: -10px; left: 24px; background:var(--slate); color:#fff; font-size:10px; font-weight:800; padding:4px 8px; border-radius:8px; text-transform:uppercase;">COGS</div>
+      <h3 class="big" style="color:#94a3b8; font-size:14px; margin-bottom:12px;">Infrastructure Cost</h3>
+      <div style="font-size: 38px; font-weight: 800; color: #fff; margin-bottom: 4px; line-height:1;">~€20</div>
+      <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: #64748b; letter-spacing: 0.05em; margin-bottom:16px;">per device / mo</div>
+      <p style="font-size:12px; color:#94a3b8; line-height: 1.5; margin-top:auto;">
+        All-in operating cost for edge compute and hardware maintenance.
+      </p>
+    </div>
+
+    <!-- Revenue Columns (Bigger, brighter) -->
+    <div style="display:flex; flex-direction:column; gap:16px; flex:1;">
+      
+      <!-- Stream A -->
+      <div class="card" style="display:flex; padding: 24px 32px; gap:24px; align-items:center; border:2px solid var(--blue); background:var(--blue-soft); box-shadow:0 8px 24px rgba(37,99,235,0.12);">
+        <div style="flex:none; width:150px;">
+          <div style="font-size: 44px; font-weight: 800; color: var(--blue); line-height:1;">€120</div>
+          <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--blue); letter-spacing: 0.05em; margin-top:6px;">per device/mo</div>
+        </div>
+        <div style="flex:1;">
+          <h3 class="big" style="color:var(--blue); font-size:18px; margin-bottom:8px;">Stream A: In-Store Activation</h3>
+          <p style="font-size:14px; color:var(--ink-2); line-height: 1.5;">
+            Base price paid by advertisers for real-time personalization. <b>Verified with 8 enterprise chains.</b> Covers device costs immediately.
+          </p>
+        </div>
+      </div>
+      
+      <!-- Stream B -->
+      <div class="card" style="display:flex; padding: 24px 32px; gap:24px; align-items:center; border:2px solid var(--pos); background:#dcfce7; box-shadow:0 8px 24px rgba(5,150,105,0.12);">
+        <div style="flex:none; width:150px;">
+          <div style="font-size: 32px; font-weight: 800; color: var(--pos); line-height:1; letter-spacing:-0.03em;">€40k–320k</div>
+          <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--pos); letter-spacing: 0.05em; margin-top:6px;">/ yr / brand</div>
+        </div>
+        <div style="flex:1;">
+          <h3 class="big" style="color:var(--pos); font-size:18px; margin-bottom:8px;">Stream B: Data & Measurement</h3>
+          <p style="font-size:14px; color:var(--ink-2); line-height: 1.5;">
+            Selling closed-loop behavioral data to brands. Since the hardware is already paid for by Stream A, this is <b>pure scalable margin</b>.
+          </p>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+  <div class="tk mt18">
+    <div class="box i" style="display:flex; justify-content:space-around; padding:18px 24px; align-items:center; background:#fff;">
+      <div style="text-align:center;"><div style="font-size:11px; font-weight:800; text-transform:uppercase; color:var(--muted); letter-spacing:.05em;">Unit Gross Margin</div><div style="font-size:26px; font-weight:800; color:var(--ink); margin-top:4px;">&gt; 80%</div></div>
+      <div style="width:1px; height:40px; background:var(--line);"></div>
+      <div style="text-align:center;"><div style="font-size:11px; font-weight:800; text-transform:uppercase; color:var(--muted); letter-spacing:.05em;">Base Gross Profit</div><div style="font-size:26px; font-weight:800; color:var(--ink); margin-top:4px;">~€100 <span style="font-size:14px; font-weight:600; color:var(--muted);">/ mo</span></div></div>
+      <div style="width:1px; height:40px; background:var(--line);"></div>
+      <div style="text-align:center;"><div style="font-size:11px; font-weight:800; text-transform:uppercase; color:var(--muted); letter-spacing:.05em;">Revenue Quality</div><div style="font-size:26px; font-weight:800; color:var(--pos); margin-top:4px;">Recurring</div></div>
+    </div>
+  </div>
+  
+  <div class="flow">COVER → CUSTOMERS → GTM → <b>ECONOMICS</b> → PLAN → TRACTION</div><div class="pageno">04 / 06</div>
+</section>
+
+<!-- 4. Business Plan -->
+<section class="slide">
+  <div class="top"><span class="brand"><img src="../brand/logo/logo_mindsmodels-normal-black.png" alt="Minds&Models"></span><span class="meta">Business Plan</span></div>
+  <p class="label">04 · Market Expansion</p>
+  <h2>Capturing the <span class="accent">syndicated measurement</span> and retail media markets.</h2>
   
   <div class="two mt18" style="--l:1; --r:1; align-items: stretch;">
-    <div class="card" style="display:flex; flex-direction:column; padding: 30px;">
-      <h3 class="big" style="font-size: 18px; font-weight: 800; color: var(--ink); margin-bottom: 15px;">Revenue Today</h3>
-      <p style="font-size: 14px; color: var(--muted); margin-bottom: 25px;">In-store activation and personalization.</p>
-      <div style="font-size: 32px; font-weight: 800; color: var(--blue); margin-bottom: 5px;">€120</div>
-      <div style="font-size: 12px; font-weight: 600; text-transform: uppercase; color: var(--muted); letter-spacing: 0.05em;">per screen / month (Live)</div>
+    <div class="card" style="padding: 30px;">
+      <h3 class="big" style="font-size: 18px; font-weight: 800; margin-bottom: 15px;">Local Validation (CZ)</h3>
+      <div style="font-size: 28px; font-weight: 800; color: var(--ink); margin-bottom: 8px;">250–500M <span style="font-size: 16px; font-weight: 600; color: var(--muted);">CZK/yr</span></div>
+      <p style="font-size: 14px; color: var(--muted); margin-bottom: 15px;">Current CZ syndicated measurement market size. We target a <b>40-80M CZK capture path</b> on our active pipeline alone.</p>
     </div>
     
-    <div class="card" style="display:flex; flex-direction:column; padding: 30px; border-color: var(--co); background: var(--co-soft);">
-      <h3 class="big" style="font-size: 18px; font-weight: 800; color: var(--co); margin-bottom: 15px;">Expanding: Measurement</h3>
-      <p style="font-size: 14px; color: var(--ink-2); margin-bottom: 25px;">Insight & measurement products leveraging matched POS data.</p>
-      <ul style="list-style:none; font-size:14px; color:var(--ink-2); display:flex; flex-direction:column; gap:10px;">
-        <li style="display: flex; align-items: center; gap: 8px;">
-          <svg class="i" viewBox="0 0 24 24" style="color:var(--co); width:18px; height:18px;"><path d="M5 12l5 5l10 -10"/></svg>
-          <b>Studies sold</b> to major brands
-        </li>
-        <li style="display: flex; align-items: center; gap: 8px;">
-          <svg class="i" viewBox="0 0 24 24" style="color:var(--co); width:18px; height:18px;"><path d="M5 12l5 5l10 -10"/></svg>
-          <b>Continuous subscriptions</b> (in validation)
-        </li>
-      </ul>
+    <div class="card" style="padding: 30px; border-color: var(--blue); background: var(--blue-soft);">
+      <h3 class="big" style="font-size: 18px; font-weight: 800; color: var(--blue); margin-bottom: 15px;">European Scale (~2030)</h3>
+      <div style="font-size: 28px; font-weight: 800; color: var(--blue); margin-bottom: 8px;">€28.8B <span style="font-size: 16px; font-weight: 600; color: var(--muted);">Market</span></div>
+      <p style="font-size: 14px; color: var(--ink-2); margin-bottom: 15px;">EU retail media market size by 2028. It is arriving without audience proof — we provide the missing measurement layer.</p>
     </div>
   </div>
   
-  <div class="flow">COVER → PROBLEM → SOLUTION → <b>TRACTION</b></div><div class="pageno">08 / 11</div>
+  <div class="flow">COVER → CUSTOMERS → GTM → ECONOMICS → <b>PLAN</b> → TRACTION</div><div class="pageno">05 / 06</div>
 </section>
 
-<!-- SLIDE 9 · TRACTION -->
+<!-- 5. Traction -->
 <section class="slide">
-  <div class="top"><span class="brand">Minds&Models</span><span class="meta">Traction & Pipeline</span></div>
-  <p class="label">09 · Velocity</p>
-  <h2>Proven with <span class="accent">leading retailers</span> and growing fast.</h2>
+  <div class="top"><span class="brand"><img src="../brand/logo/logo_mindsmodels-normal-black.png" alt="Minds&Models"></span><span class="meta">Traction</span></div>
+  <p class="label">05 · Traction</p>
+  <h2>Velocity: From <span class="accent">zero</span> to <span class="accent">8 chains</span> in 3.5 months.</h2>
   
   <div class="grid4 mt18">
     <div class="card tile" style="text-align: center; padding: 30px 10px;">
       <div class="v b">4</div>
       <div class="k">Live Chain Pilots</div>
-      <div class="s">Across multiple retail segments.</div>
-    </div>
-    <div class="card tile" style="text-align: center; padding: 30px 10px;">
-      <div class="v b">92%</div>
-      <div class="k">Match Rate</div>
-      <div class="s">Proven POS matching in flagship case study.</div>
+      <div class="s">Rapid deployment.</div>
     </div>
     <div class="card tile" style="text-align: center; padding: 30px 10px;">
       <div class="v b">8</div>
       <div class="k">Chains in Pipeline</div>
-      <div class="s">Accelerated from 0 to 8 in just 3.5 months.</div>
+      <div class="s">Strong market pull.</div>
     </div>
     <div class="card tile" style="text-align: center; padding: 30px 10px;">
       <div class="v c">~4k</div>
       <div class="k">Store Footprint</div>
-      <div class="s">Potential reach of current pipeline.</div>
+      <div class="s">Total stores in active pipeline.</div>
+    </div>
+    <div class="card tile" style="text-align: center; padding: 30px 10px;">
+      <div class="v g">92%</div>
+      <div class="k">POS Match Rate</div>
+      <div class="s">Proven at GymBeam.</div>
     </div>
   </div>
   
-  <div class="flow">COVER → PROBLEM → SOLUTION → <b>TRACTION</b></div><div class="pageno">09 / 11</div>
-</section>
-
-<!-- SLIDE 10 · MARKET -->
-<section class="slide">
-  <div class="top"><span class="brand">Minds&Models</span><span class="meta">Market Size</span></div>
-  <p class="label">10 · The Opportunity</p>
-  <h2>Creating the <span class="accent">measurement currency</span> for physical retail.</h2>
-  
-  <div class="grid3 mt18" style="align-items: stretch;">
-    <div class="card" style="padding: 24px;">
-      <div style="font-size: 11px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 12px;">Capture Path</div>
-      <div style="font-size: 28px; font-weight: 800; color: var(--ink); margin-bottom: 8px;">40–80M <span style="font-size: 16px; font-weight: 600; color: var(--muted);">CZK/yr</span></div>
-      <p style="font-size: 13px; color: var(--muted); line-height: 1.4;">Conditioned on current pipeline execution in the Czech market.</p>
-    </div>
-    <div class="card" style="padding: 24px;">
-      <div style="font-size: 11px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 12px;">Full CZ Market</div>
-      <div style="font-size: 28px; font-weight: 800; color: var(--ink); margin-bottom: 8px;">100–200M <span style="font-size: 16px; font-weight: 600; color: var(--muted);">CZK/yr</span></div>
-      <p style="font-size: 13px; color: var(--muted); line-height: 1.4;">Projected market capture within CZ syndicated measurement.</p>
-    </div>
-    <div class="card" style="padding: 24px; background: var(--blue-soft); border-color: var(--blue-100);">
-      <div style="font-size: 11px; font-weight: 700; color: var(--blue); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 12px;">European Expansion</div>
-      <div style="font-size: 28px; font-weight: 800; color: var(--blue); margin-bottom: 8px;">from ~2030</div>
-      <p style="font-size: 13px; color: var(--ink-2); line-height: 1.4;">Scaling the measurement layer across European retail media.</p>
-    </div>
-  </div>
-
-  <div class="tk" style="margin-top:auto">
-    <div class="box i"><div class="l">Context</div>The Czech syndicated measurement market is currently valued at 250-500M CZK/yr. We are introducing a fundamentally new layer of actionable, behavioral data.</div>
+  <div class="tk mt18">
+    <div class="box i"><div class="l">Momentum</div>Our flagship pilots are converting into continuous deployments. We have the data and the use-cases to lock in the initial markets.</div>
   </div>
   
-  <div class="flow">COVER → PROBLEM → SOLUTION → <b>TRACTION</b></div><div class="pageno">10 / 11</div>
-</section>
-
-<!-- SLIDE 11 · VISION -->
-<section class="slide center">
-  <div class="top" style="position:absolute; top:34px; left:54px; right:54px; margin:0">
-    <span class="brand">Minds&Models</span>
-    <span class="meta">Our Vision</span>
-  </div>
-  <p class="label">11 · The Future</p>
-  <h1>The first recommender system<br><span class="accent-co">for physical stores.</span></h1>
-  <p class="lead mt14" style="max-width:70ch">Once stores know their customers, we power what they do with it.</p>
-  
-  <div class="flow">COVER → PROBLEM → SOLUTION → <b>VISION</b></div><div class="pageno">11 / 11</div>
+  <div class="flow">COVER → CUSTOMERS → GTM → ECONOMICS → PLAN → <b>TRACTION</b></div><div class="pageno">06 / 06</div>
 </section>
 
 </div>
