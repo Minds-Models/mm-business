@@ -203,45 +203,46 @@ svg.i{width:16px; height:16px; flex:none; stroke:currentColor; fill:none; stroke
   <p class="label">03 · Unit Economics</p>
   <h2>The <span class="accent">Dual Monetization</span> Engine</h2>
   
-  <div class="two mt18" style="--l:0.7; --r:2; align-items: stretch;">
+  <div style="display:flex; gap:30px; align-items:stretch; margin-top:18px;">
     
-    <!-- Cost Column -->
-    <div class="card" style="display:flex; flex-direction:column; padding: 24px; border-color:var(--slate); background:#f8fafc;">
-      <h3 class="big" style="color:var(--ink-2); font-size:16px; margin-bottom:12px;">Infrastructure Cost</h3>
-      <div style="font-size: 36px; font-weight: 800; color: var(--ink); margin-bottom: 4px; line-height:1;">&lt; 1k <span style="font-size:16px;">CZK</span></div>
-      <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--muted); letter-spacing: 0.05em; margin-bottom:16px;">per device / month</div>
-      <p style="font-size:13px; color:var(--muted); line-height: 1.5; margin-top:auto;">
-        All-in cost for hardware and edge compute. Extremely lightweight, enabling rapid deployment at scale without heavy CapEx.
+    <!-- Cost Column (Visually smaller, darker/muted) -->
+    <div class="card" style="display:flex; flex-direction:column; padding: 24px; border:none; background:var(--ink); color:var(--card); width:240px; flex:none; justify-content:center; position:relative;">
+      <div style="position:absolute; top: -10px; left: 24px; background:var(--slate); color:#fff; font-size:10px; font-weight:800; padding:4px 8px; border-radius:8px; text-transform:uppercase;">COGS</div>
+      <h3 class="big" style="color:#94a3b8; font-size:14px; margin-bottom:12px;">Infrastructure Cost</h3>
+      <div style="font-size: 38px; font-weight: 800; color: #fff; margin-bottom: 4px; line-height:1;">~€20</div>
+      <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: #64748b; letter-spacing: 0.05em; margin-bottom:16px;">per device / mo</div>
+      <p style="font-size:12px; color:#94a3b8; line-height: 1.5; margin-top:auto;">
+        All-in operating cost for edge compute. Extremely lightweight, avoiding heavy CapEx.
       </p>
     </div>
 
-    <!-- Revenue Columns -->
-    <div style="display:flex; flex-direction:column; gap:16px;">
+    <!-- Revenue Columns (Bigger, brighter) -->
+    <div style="display:flex; flex-direction:column; gap:16px; flex:1;">
       
       <!-- Stream A -->
-      <div class="card" style="display:flex; padding: 20px 24px; gap:20px; align-items:center; border-color:var(--blue); background:var(--blue-soft);">
-        <div style="flex:none; width:110px;">
-          <div style="font-size: 32px; font-weight: 800; color: var(--blue); line-height:1;">€120</div>
-          <div style="font-size: 10px; font-weight: 700; text-transform: uppercase; color: var(--blue); letter-spacing: 0.05em; margin-top:6px;">per device/mo</div>
+      <div class="card" style="display:flex; padding: 24px 32px; gap:24px; align-items:center; border:2px solid var(--blue); background:var(--blue-soft); box-shadow:0 8px 24px rgba(37,99,235,0.12);">
+        <div style="flex:none; width:150px;">
+          <div style="font-size: 44px; font-weight: 800; color: var(--blue); line-height:1;">€120</div>
+          <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--blue); letter-spacing: 0.05em; margin-top:6px;">per device/mo</div>
         </div>
         <div style="flex:1;">
-          <h3 class="big" style="color:var(--blue); font-size:15px; margin-bottom:6px;">Stream A: In-Store Activation</h3>
-          <p style="font-size:13px; color:var(--ink-2); line-height: 1.4;">
-            Base price paid by advertisers for real-time personalization. <b>Verified with 8 enterprise retailers.</b> Covers device costs immediately.
+          <h3 class="big" style="color:var(--blue); font-size:18px; margin-bottom:8px;">Stream A: In-Store Activation</h3>
+          <p style="font-size:14px; color:var(--ink-2); line-height: 1.5;">
+            Base price paid by advertisers for real-time personalization. <b>Verified with 8 enterprise chains.</b> Covers device costs immediately.
           </p>
         </div>
       </div>
       
       <!-- Stream B -->
-      <div class="card" style="display:flex; padding: 20px 24px; gap:20px; align-items:center; border-color:var(--pos); background:#dcfce7;">
-        <div style="flex:none; width:110px;">
-          <div style="font-size: 32px; font-weight: 800; color: var(--pos); line-height:1;">1–8M</div>
-          <div style="font-size: 10px; font-weight: 700; text-transform: uppercase; color: var(--pos); letter-spacing: 0.05em; margin-top:6px;">CZK/yr/brand</div>
+      <div class="card" style="display:flex; padding: 24px 32px; gap:24px; align-items:center; border:2px solid var(--pos); background:#dcfce7; box-shadow:0 8px 24px rgba(5,150,105,0.12);">
+        <div style="flex:none; width:150px;">
+          <div style="font-size: 32px; font-weight: 800; color: var(--pos); line-height:1; letter-spacing:-0.03em;">€40k–320k</div>
+          <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--pos); letter-spacing: 0.05em; margin-top:6px;">/ yr / brand</div>
         </div>
         <div style="flex:1;">
-          <h3 class="big" style="color:var(--pos); font-size:15px; margin-bottom:6px;">Stream B: Data & Measurement</h3>
-          <p style="font-size:13px; color:var(--ink-2); line-height: 1.4;">
-            Selling closed-loop behavioral data and insights to brands. Since hardware is already paid for, this is <b>pure scalable margin</b>.
+          <h3 class="big" style="color:var(--pos); font-size:18px; margin-bottom:8px;">Stream B: Data & Measurement</h3>
+          <p style="font-size:14px; color:var(--ink-2); line-height: 1.5;">
+            Selling closed-loop behavioral data to brands. Since the hardware is already paid for by Stream A, this is <b>pure scalable margin</b>.
           </p>
         </div>
       </div>
@@ -253,7 +254,7 @@ svg.i{width:16px; height:16px; flex:none; stroke:currentColor; fill:none; stroke
     <div class="box i" style="display:flex; justify-content:space-around; padding:18px 24px; align-items:center; background:#fff;">
       <div style="text-align:center;"><div style="font-size:11px; font-weight:800; text-transform:uppercase; color:var(--muted); letter-spacing:.05em;">Unit Gross Margin</div><div style="font-size:26px; font-weight:800; color:var(--ink); margin-top:4px;">&gt; 80%</div></div>
       <div style="width:1px; height:40px; background:var(--line);"></div>
-      <div style="text-align:center;"><div style="font-size:11px; font-weight:800; text-transform:uppercase; color:var(--muted); letter-spacing:.05em;">Marginal Cost of Data</div><div style="font-size:26px; font-weight:800; color:var(--ink); margin-top:4px;">Zero</div></div>
+      <div style="text-align:center;"><div style="font-size:11px; font-weight:800; text-transform:uppercase; color:var(--muted); letter-spacing:.05em;">POS Match Rate</div><div style="font-size:26px; font-weight:800; color:var(--ink); margin-top:4px;">&gt; 90%</div></div>
       <div style="width:1px; height:40px; background:var(--line);"></div>
       <div style="text-align:center;"><div style="font-size:11px; font-weight:800; text-transform:uppercase; color:var(--muted); letter-spacing:.05em;">Revenue Quality</div><div style="font-size:26px; font-weight:800; color:var(--pos); margin-top:4px;">Recurring</div></div>
     </div>
