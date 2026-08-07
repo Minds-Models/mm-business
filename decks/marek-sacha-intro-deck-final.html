@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Minds&Models — Pitch Deck (Final)</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+:root{
+  --ink:#0f172a; --ink-2:#334155; --muted:#64748b; --muted-2:#94a3b8; --line:#e2e8f0;
+  --card:#ffffff; --page:linear-gradient(158deg,#ffffff 0%,#f8fafc 40%,#eef2f7 100%);
+  --blue:#2563EB; --blue-d:#1e40af; --blue-soft:#eff5ff; --blue-100:#dbeafe;
+  --amber:#d97706; --amber-soft:#fef6e7; --pos:#059669; --neg:#dc2626; --slate:#94a3b8;
+  --co:#2563EB; --co-soft:#eff5ff;
+}
+*{box-sizing:border-box; margin:0; padding:0}
+html,body{background:#dfe3e8;
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  color:var(--ink); -webkit-font-smoothing:antialiased; font-feature-settings:'cv11','ss01';}
+.deck{display:flex; flex-direction:column; align-items:center; gap:26px; padding:34px 16px 60px}
+.slide{position:relative; width:1280px; max-width:100%; aspect-ratio:16/9; background:var(--page);
+  border-radius:16px; overflow:hidden; box-shadow:0 16px 40px rgba(15,23,42,.16);
+  padding:44px 54px 42px; display:flex; flex-direction:column}
+.slide.center{justify-content:center}
+.slide::after{content:''; position:absolute; width:340px; height:340px; border-radius:9999px;
+  background:radial-gradient(circle,#dbeafe,transparent 70%); opacity:.5; top:-150px; right:-90px; filter:blur(70px); pointer-events:none}
+.slide>*{position:relative; z-index:1}
+.top{display:flex; justify-content:space-between; align-items:center; margin-bottom:16px}
+.brand{font-size:16px; font-weight:600; letter-spacing:-.01em; display:flex; align-items:center; gap:9px}
+.brand .amp{font-family:'Times New Roman',serif; font-style:italic; font-weight:400}
+.brand .co{display:inline-flex; align-items:center; gap:6px; font-weight:700; color:var(--co)}
+.brand .dot{width:16px; height:16px; border-radius:4px; background:var(--co)}
+.meta{font-size:11px; color:var(--muted); text-align:right; line-height:1.4}
+.label{font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:var(--blue); margin-bottom:9px}
+h1{font-size:44px; font-weight:800; letter-spacing:-.03em; line-height:1.05}
+h2{font-size:28px; font-weight:750; letter-spacing:-.02em; line-height:1.12; margin-bottom:2px}
+.accent{color:var(--blue)} .accent-co{color:var(--co)}
+.sub{font-size:15px; color:var(--muted); line-height:1.5; max-width:82ch}
+.lead{font-size:16px; color:var(--ink-2); line-height:1.4}
+.mt6{margin-top:6px}.mt10{margin-top:10px}.mt14{margin-top:14px}.mt18{margin-top:18px}
+.pageno{position:absolute; bottom:15px; right:54px; font-size:11px; color:var(--muted-2); font-variant-numeric:tabular-nums}
+.flow{position:absolute; bottom:15px; left:54px; font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--muted-2); font-weight:700}
+.flow b{color:var(--blue)}
+svg.i{width:16px; height:16px; flex:none; stroke:currentColor; fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round}
+.card{background:var(--card); border:1px solid var(--line); border-radius:13px; padding:15px 17px; box-shadow:0 1px 2px rgba(15,23,42,.04)}
+.card h3{font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.05em; color:var(--muted); margin-bottom:11px; display:flex; align-items:center; gap:8px}
+.card h3.big{font-size:13px; text-transform:none; letter-spacing:0; color:var(--ink)}
+.grid2{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px}
+.grid3{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px}
+.grid4{display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:14px}
+.two{display:flex; gap:22px; flex:1; align-items:flex-start; --l:1; --r:1}
+.two>*{min-width:0}
+.two>*:first-child{flex:var(--l) 1 0}
+.two>*:last-child{flex:var(--r) 1 0}
+.grid2>*,.grid3>*,.grid4>*,.tk>*{min-width:0}
+.tile .v{font-size:28px; font-weight:800; letter-spacing:-.03em; line-height:1; font-variant-numeric:tabular-nums}
+.tile .v.b{color:var(--blue)} .tile .v.c{color:var(--co)} .tile .v.g{color:var(--pos)}
+.tile .k{font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.03em; color:var(--muted); margin-top:8px}
+.tile .s{font-size:11px; color:var(--muted-2); margin-top:3px}
+.tk{display:grid; gap:14px; margin-top:auto}
+.tk.c2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.box{border-radius:12px; padding:13px 16px; font-size:13px; line-height:1.42; min-width:0; overflow-wrap:break-word}
+.box .l{font-size:9.5px; font-weight:800; text-transform:uppercase; letter-spacing:.11em; margin-bottom:5px}
+.box.i{background:#fff; border:1px solid var(--line)} .box.i .l{color:var(--muted-2)}
+.box.m{background:var(--ink); color:#e2e8f0} .box.m .l{color:#7f9cc4} .box.m b{color:#fff}
+.box.co{background:var(--co-soft); border:1px solid #f6cfcb} .box.co .l{color:var(--co)}
+.note{font-size:10.5px; color:var(--muted-2); margin-top:8px; line-height:1.4}
+
+/* ── icon tiles + helpers (ported from component library) ── */
+.itile{width:32px; height:32px; border-radius:8px; background:var(--blue-soft); color:var(--blue); display:flex; align-items:center; justify-content:center; flex:none}
+.itile .i{width:18px; height:18px}
+.card h3 .i{width:15px; height:15px; color:var(--muted-2); stroke-width:2}
+.box.full{grid-column:1/-1}
+
+/* ── Slide: 3-step flow (scanable) ── */
+.priv{display:flex; flex-wrap:wrap; gap:8px; margin-top:14px}
+.priv span{font-size:12px; font-weight:600; color:var(--ink-2); background:#fff; border:1px solid var(--line); border-radius:99px; padding:5px 12px}
+.steps{display:grid; grid-template-columns:1fr auto 1fr auto 1fr; gap:0; align-items:stretch; margin-top:28px; min-height:220px; max-height:260px}
+.step{display:flex; flex-direction:column; padding:24px 22px; min-width:0;
+  background:linear-gradient(180deg,#f7faff 0%,#eff5ff 100%);
+  border:1px solid var(--blue-100); border-top:3px solid var(--blue); border-radius:12px}
+.step-arrow{display:flex; align-items:center; justify-content:center; color:var(--muted-2); padding:0 12px; flex:none}
+.step-arrow svg{width:18px; height:18px; stroke:currentColor; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round}
+.step-n{font-size:12px; font-weight:800; letter-spacing:.1em; color:var(--blue); margin-bottom:14px; font-variant-numeric:tabular-nums}
+.step h3{font-size:22px; font-weight:800; letter-spacing:-.02em; color:var(--ink); margin-bottom:10px}
+.step p{font-size:14px; color:var(--muted); line-height:1.45}
+
+/* ── Slide: enrichment ladder ── */
+.ladder{display:flex; align-items:stretch; gap:0; flex:1; min-height:0}
+.lcol{display:flex; flex-direction:column; min-width:0}
+.larrow{display:flex; align-items:center; justify-content:center; color:var(--muted-2); padding:0 10px; flex:none}
+.larrow svg{width:20px; height:20px; stroke:currentColor; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round}
+.lk{font-size:9.5px; font-weight:800; text-transform:uppercase; letter-spacing:.11em; color:var(--muted-2); margin-bottom:10px; display:flex; align-items:center; gap:7px}
+.lk b{color:var(--blue)}
+.attrsheet{display:flex; flex-direction:column; gap:0}
+.arow{display:grid; grid-template-columns:98px 1fr; gap:12px; align-items:baseline; padding:6px 0; border-bottom:1px solid #eef2f6}
+.arow:last-child{border-bottom:0}
+.arow .g{font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.03em; color:var(--muted-2); white-space:nowrap}
+.arow .v{font-size:12px; color:var(--ink-2); line-height:1.35}
+.arow .v b{color:var(--ink); font-weight:650}
+.arow .v .br{color:var(--blue); font-weight:700}
+.hl{display:flex; flex-direction:column; gap:9px}
+.hl .r{display:flex; align-items:baseline; justify-content:space-between; gap:8px; font-size:12px}
+.hl .r span{color:var(--muted)} .hl .r b{color:var(--ink); font-weight:700; text-align:right}
+.pquote{font-size:12.5px; font-style:italic; color:var(--ink-2); line-height:1.4; padding:11px 13px; background:var(--blue-soft); border-radius:9px; border:1px solid var(--blue-100)}
+.pquote .mono{font-style:normal; font-weight:700; color:var(--blue-d); font-variant-numeric:tabular-nums}
+.rawstat{display:flex; align-items:baseline; justify-content:space-between; padding:6px 0; border-bottom:1px solid #eef2f6; font-size:12px}
+.rawstat:last-child{border-bottom:0} .rawstat span{color:var(--muted)} .rawstat b{color:var(--ink); font-weight:700; font-variant-numeric:tabular-nums}
+.frameph{border-radius:9px; background:linear-gradient(135deg,#e8eef6,#f4f7fb); border:1px solid var(--line); height:66px; display:flex; align-items:center; justify-content:center; color:var(--muted-2); margin-bottom:12px}
+
+/* ── Slide: persona cards (clustering) ── */
+.pcards{display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:14px}
+.pcard{background:var(--card); border:1px solid var(--line); border-radius:16px; padding:15px 16px; display:flex; flex-direction:column; box-shadow:0 1px 2px rgba(15,23,42,.04); position:relative}
+.pcard.key{border-color:#f0c98a; box-shadow:0 0 0 1px #f0c98a, 0 5px 14px rgba(217,119,6,.12)}
+.pcard .head{display:flex; align-items:center; gap:10px}
+.pcard .share{font-size:20px; font-weight:800; letter-spacing:-.02em; line-height:1; color:var(--ink)}
+.pcard .cnt{font-size:10px; color:var(--muted-2); font-weight:600; margin-top:2px}
+.pcard .nm{font-size:13.5px; font-weight:750; margin-top:11px; line-height:1.2}
+.pcard .rl{font-size:10.5px; color:var(--muted); margin-top:3px; line-height:1.3}
+.pcard .kv{font-size:11px; margin-top:10px; padding-top:10px; border-top:1px solid var(--line); display:flex; align-items:center; justify-content:space-between; color:var(--muted)}
+.pcard .kv b{font-size:14px; font-weight:800; font-variant-numeric:tabular-nums; color:var(--ink)}
+.pcard ul{margin-top:10px; list-style:none; font-size:11px; color:var(--muted); display:flex; flex-direction:column; gap:5px}
+.pcard ul li{padding-left:13px; position:relative; line-height:1.32}
+.pcard ul li:before{content:''; position:absolute; left:2px; top:6px; width:4px; height:4px; border-radius:50%; background:var(--muted-2)}
+.av{width:46px; height:46px; border-radius:50%; overflow:hidden; flex:none; background:#eef2f6; display:flex; align-items:center; justify-content:center; font-size:16px; font-weight:800; color:#fff}
+.av img{width:100%; height:100%; object-fit:cover; object-position:center top; display:block}
+.pmix{margin-top:14px; padding-top:12px; border-top:1px solid var(--line)}
+.pmix-h{font-size:9px; font-weight:800; text-transform:uppercase; letter-spacing:.06em; color:var(--muted-2); margin-bottom:9px}
+.pmb{display:grid; grid-template-columns:42px 1fr; gap:9px; align-items:center; margin-bottom:6px}
+.pmb:last-child{margin-bottom:0}
+.pmb-l{font-size:10px; color:var(--muted); font-weight:600}
+.pmb-t{height:6px; background:#eef2f6; border-radius:99px; overflow:hidden}
+.pmb-t i{display:block; height:100%; background:var(--blue); border-radius:99px}
+.chip{font-size:10px; font-weight:700; color:var(--muted); background:#f1f5f9; padding:1px 7px; border-radius:99px}
+.chip.a{color:var(--amber); background:var(--amber-soft)}
+.chip.g{color:var(--pos); background:#dcfce7}
+.ktag{position:absolute; top:11px; right:12px; font-size:9px; font-weight:800; letter-spacing:.05em; text-transform:uppercase; color:var(--amber); background:var(--amber-soft); padding:3px 7px; border-radius:99px}
+.mchip{font-size:10.5px; font-weight:700; color:var(--ink-2); background:#fff; border:1px solid var(--line); padding:4px 10px; border-radius:99px; display:inline-flex; align-items:center; gap:6px}
+.mchip .d{width:6px; height:6px; border-radius:50%; background:var(--blue); flex:none}
+
+/* ── Slide 06 dense: 12-group matrix + detected/possible chips ── */
+.dp-input{display:flex; flex-wrap:wrap; gap:7px; align-items:center; margin-top:11px}
+.dp-pill{font-size:10.5px; font-weight:600; color:var(--ink-2); background:#fff; border:1px solid var(--line); border-radius:99px; padding:3px 10px; display:inline-flex; align-items:center; gap:6px}
+.dp-pill b{color:var(--ink); font-weight:750}
+.dp-pill .d{width:6px; height:6px; border-radius:50%; background:var(--pos); flex:none}
+.dp-legend{font-size:10px; color:var(--muted-2); margin-left:auto; display:inline-flex; align-items:center; gap:12px}
+.dp-legend i{font-style:normal; display:inline-flex; align-items:center; gap:5px}
+.lg-sw{width:9px; height:9px; border-radius:3px; display:inline-block}
+:root{--mono:ui-monospace,'SF Mono','JetBrains Mono',Menlo,Consolas,'Liberation Mono',monospace}
+.console{border:1px solid #d7dfea; border-radius:12px; background:#fff; overflow:hidden; flex:1; display:flex; flex-direction:column; min-height:0; box-shadow:0 2px 12px rgba(15,23,42,.06); margin-top:12px}
+.cbar{display:flex; align-items:center; gap:11px; padding:8px 15px; background:#f5f8fc; border-bottom:1px solid #e6ecf3; font-family:var(--mono); font-size:11px; color:var(--muted); white-space:nowrap; overflow:hidden}
+.cbar .dots{display:flex; gap:5px; flex:none}
+.cbar .dots i{width:8px; height:8px; border-radius:50%; display:inline-block; background:#d3dbe6}
+.cbar b{color:var(--ink-2); font-weight:700}
+.cbar .sp{margin-left:auto}
+.cbody{display:grid; grid-template-columns:1.78fr 50px 1fr; flex:1; min-height:0}
+.obs{padding:12px 17px 11px; display:flex; flex-direction:column; min-height:0}
+.gutter{display:flex; flex-direction:column; align-items:center; justify-content:center; gap:9px; border-left:1px dashed #e2e8f0; border-right:1px dashed #e2e8f0; background:#fbfcfe}
+.gutter .fn{font-family:var(--mono); font-size:12px; font-weight:800; color:var(--blue)}
+.gutter svg{width:17px; height:17px; stroke:var(--blue); fill:none; stroke-width:2.2; stroke-linecap:round; stroke-linejoin:round}
+.gutter .lb{font-family:var(--mono); font-size:8px; letter-spacing:.06em; color:var(--muted-2); text-transform:uppercase}
+.intp{padding:12px 16px 11px; display:flex; flex-direction:column; min-height:0; background:linear-gradient(180deg,#fbfcff,#f5f8ff)}
+.phd{font-family:var(--mono); font-size:10px; font-weight:800; letter-spacing:.02em; color:var(--blue); display:flex; align-items:center; gap:7px}
+.phd .sub{color:var(--muted-2); font-weight:600}
+.pcmt{font-family:var(--mono); font-size:9px; color:#9aa6b5; margin:4px 0 9px}
+.obscols{display:grid; grid-template-columns:1fr 1fr; gap:0 24px; flex:1; min-height:0}
+.sec{font-family:var(--mono); font-size:8.5px; font-weight:700; letter-spacing:.04em; color:#9aa6b5; text-transform:uppercase; margin:9px 0 4px; display:flex; align-items:center; gap:6px}
+.sec svg{width:12px; height:12px; stroke:currentColor; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; flex:none; color:#aab4c2}
+.sec:first-child{margin-top:0}
+.frow{font-family:var(--mono); font-size:10.5px; line-height:1.62; display:flex; gap:6px; white-space:nowrap; overflow:hidden}
+.fk{color:#8593a5}
+.fk::after{content:':'}
+.fv{color:var(--ink); font-weight:700}
+.fv.str{color:#0e7490}
+.fv.hot{color:var(--blue)}
+.fv.num{color:#b45309}
+.fen{color:#aeb8c6; font-weight:500; opacity:.75; filter:blur(.4px)}
+.irow{font-family:var(--mono); font-size:11px; line-height:1.5; display:flex; flex-wrap:wrap; gap:5px; padding:2px 0}
+.iper{font-family:var(--mono); font-size:11px; line-height:1.45; padding:4px 0}
+.iper .fv{display:block; margin-top:2px; word-break:break-all}
+.iseg{margin-top:auto; border-top:1px dashed #c9cdf0; padding-top:9px}
+.iseg .snm{font-family:var(--mono); font-size:14px; font-weight:800; color:var(--ink); letter-spacing:-.01em}
+
+@media print{
+  @page{size:1280px 720px; margin:0}
+  html,body{background:#fff}
+  .deck{gap:0; padding:0}
+  .slide{box-shadow:none; border-radius:0; page-break-after:always; break-after:page; width:1280px; max-width:1280px}
+  .slide::after{display:none}
+}
+.brand img{display:block; height:38px; width:auto}
+</style>
+</head>
+<body>
+<div class="deck">
+
+<!-- 0. COVER -->
+<section class="slide center">
+  <div class="top" style="position:absolute; top:34px; left:54px; right:54px; margin:0">
+    <span class="brand"><img src="../brand/logo/logo_mindsmodels-normal-black.png" alt="Minds&Models"></span>
+    <span class="meta">Marek's Section<br>Confidential</span>
+  </div>
+  <p class="label">Minds & Models</p>
+  <h1>Teaching physical stores<br><span class="accent-co">who their customers are.</span></h1>
+  <p class="lead mt14" style="max-width:70ch">Minds & Models — shopper intelligence for physical stores, matched to every purchase.</p>
+  <div class="flow"><b>COVER</b> → OUTLINE → PROBLEM → SOLUTION</div><div class="pageno">01 / 16</div>
+</section>
+<!-- 1. Outline -->
+<section class="slide">
+  <div class="top"><span class="brand"><img src="../brand/logo/logo_mindsmodels-normal-black.png" alt="Minds&Models"></span><span class="meta">Outline</span></div>
+  <p class="label">01 · Agenda</p>
+  <h2>Presentation <span class="accent">Overview</span></h2>
+  
+  <div class="card mt18" style="padding: 30px 40px; max-width: 800px;">
+    <ol style="color: var(--ink-2); font-size: 16px; line-height: 1.8; padding-left: 20px;">
+      <li style="margin-bottom: 8px;"><b>The Problem & Data Accessibility</b></li>
+      <li style="margin-bottom: 8px;"><b>Product Intro & Solution</b></li>
+      <li style="margin-bottom: 8px;"><b>Primary Data Collection (RPI Demo)</b></li>
+      <li style="margin-bottom: 8px;"><b>Data Interpretation & Clustering</b></li>
+      <li style="margin-bottom: 8px;"><b>Chatting with Data & POS Connection</b></li>
+      <li style="margin-bottom: 8px;"><b>Customers & Go-To-Market</b></li>
+      <li style="margin-bottom: 8px;"><b>Unit Economics & Business Plan</b></li>
+      <li style="margin-bottom: 8px;"><b>Traction & Investment</b></li>
+    </ol>
+  </div>
+  <div class="flow">COVER → <b>OUTLINE</b> → PROBLEM → SOLUTION</div><div class="pageno">02 / 16</div>
+</section>
+<!-- 2. Problem intro -->
+<section class="slide">
+  <div class="top"><span class="brand"><img src="../brand/logo/logo_mindsmodels-normal-black.png" alt="Minds&Models"></span><span class="meta">The Problem</span></div>
+  <p class="label">02 · Problem Intro</p>
+  <h2>E-commerce runs on behavior. <br>Physical retail got left behind — <span class="accent">with receipts.</span></h2>
+  <p class="lead mt14" style="max-width:80ch">Physical retail knows what sold — but not who buys.</p>
+  
+  <div class="tk mt18">
+    <div class="box i" style="padding:40px; font-size:16px;">
+      <b>~90% of FMCG</b> is still bought in physical stores, yet the richest behavioral data walks in the door and leaves entirely unread. Stores only know the outcome, not the journey.
+    </div>
+  </div>
+  <div class="flow">COVER → OUTLINE → <b>PROBLEM</b> → SOLUTION</div><div class="pageno">03 / 16</div>
+</section>
+<!-- 3. Data accessibility -->
+<section class="slide">
+  <div class="top"><span class="brand"><img src="../brand/logo/logo_mindsmodels-normal-black.png" alt="Minds&Models"></span><span class="meta">Data Accessibility</span></div>
+  <p class="label">03 · Data Accessibility</p>
+  <h2>The data disconnect: <br><span class="accent">Blind spots in physical retail.</span></h2>
+  
+  <div class="grid3 mt18">
+    <div class="card tile">
+      <div class="v b">87%</div>
+      <div class="k">No behavioral data</div>
+      <div class="s">of in-store analytics are collected only after payment.</div>
+    </div>
+    <div class="card tile">
+      <div class="v b">70%</div>
+      <div class="k">No measurability</div>
+      <div class="s">of marketers struggle to target & measure offline ads.</div>
+    </div>
+    <div class="card tile">
+      <div class="v b">71%</div>
+      <div class="k">No way to respond</div>
+      <div class="s">of customers expect personalized interactions — stores can't deliver.</div>
+    </div>
+  </div>
+  
+  <div class="flow">COVER → OUTLINE → <b>PROBLEM</b> → SOLUTION</div><div class="pageno">04 / 16</div>
+</section>
+<!-- 4. Product intro = solution -->
+<section class="slide center">
+  <div class="top" style="position:absolute; top:34px; left:54px; right:54px; margin:0">
+    <span class="brand"><img src="../brand/logo/logo_mindsmodels-normal-black.png" alt="Minds&Models"></span>
+    <span class="meta">Product Intro</span>
+  </div>
+  <p class="label">04 · Solution</p>
+  <h1>The behavior e-commerce runs on? <br><span class="accent-co">We're the first to read it.</span></h1>
+  <p class="lead mt14" style="max-width:80ch; font-size:24px; font-weight: 500; color:var(--ink)">We capture in-store behavior and match it to purchases — 92% of orders, no loyalty card, no survey.</p>
+  
+  <div class="flow">COVER → PROBLEM → <b>SOLUTION</b> → TRACTION</div><div class="pageno">05 / 16</div>
+</section>
+<!-- 5. What we do in 3 steps (product overview) -->
+<section class="slide">
+  <div class="top"><span class="brand"><img src="../brand/logo/logo_mindsmodels-normal-black.png" alt="Minds&Models"></span><span class="meta">Product Overview</span></div>
+  <p class="label">05 · How It Works</p>
+  <h2>Privacy-first intelligence — <span class="accent">in three steps.</span></h2>
+  <p class="lead mt10" style="max-width:68ch">We turn physical stores into trackable environments.</p>
+  <div class="priv">
+    <span>No facial recognition</span>
+    <span>No cross-visit ID</span>
+    <span>100% GDPR &amp; AI Act compliant</span>
+  </div>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-n">01</div>
+      <h3>Sense</h3>
+      <p>We deploy edge-AI sensors (or tap into existing infrastructure) that detect 450+ visual attributes per customer in near real-time.</p>
+    </div>
+
+    <div class="step-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+
+    <div class="step">
+      <div class="step-n">02</div>
+      <h3>Correlate</h3>
+      <p>We ingest POS receipts and time-stamp correlate them to the visual sessions, achieving a proven 92–93% match rate.</p>
+    </div>
+
+    <div class="step-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+
+    <div class="step">
+      <div class="step-n">03</div>
+      <h3>Monetize</h3>
+      <p>We aggregate and sell this closed-loop measurement data to FMCG brands previously starved of in-store visibility.</p>
+    </div>
+  </div>
+
+  <div class="flow">COVER → PROBLEM → <b>SOLUTION</b> → TRACTION</div><div class="pageno">06 / 16</div>
+</section>
+<!-- 6. Depth of data per customer (real visit ef225f8b) -->
+<section class="slide">
+  <div class="top"><span class="brand"><img src="../brand/logo/logo_mindsmodels-normal-black.png" alt="Minds&Models"></span><span class="meta">Data Depth</span></div>
+  <p class="label">06 · What We See</p>
+  <h2>From <span class="accent">94 observed features</span> to actionable interpretations.</h2>
+
+  <div class="console">
+    <div class="cbar">
+      <span class="dots"><i></i><i></i><i></i></span>
+      <b>visitor_analysis.jsonb</b>&nbsp;·&nbsp;visit&nbsp;ef22…8b
+      <span class="sp"></span>12 sections&nbsp;·&nbsp;<b>94 fields</b>&nbsp;·&nbsp;~1.6&nbsp;s edge inference&nbsp;·&nbsp;48.2&nbsp;s dwell
+    </div>
+    <div class="cbody">
+      <!-- OBSERVED §1–10 -->
+      <div class="obs">
+        <div class="phd"><svg viewBox="0 0 24 24" style="width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2;"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>OBSERVED <span class="sub">· direct visual read</span></div>
+        <div class="pcmt">// read directly from the frame</div>
+        <div class="obscols">
+          <div>
+            <div class="sec"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>demographics</div>
+            <div class="frow"><span class="fk">age</span><span class="fv">30s</span><span class="fen">{20s|40s}</span></div>
+            <div class="frow"><span class="fk">sex</span><span class="fv">male</span><span class="fen">{female}</span></div>
+            <div class="sec"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>social</div>
+            <div class="frow"><span class="fk">group_size</span><span class="fv num">1</span></div>
+            <div class="frow"><span class="fk">activity</span><span class="fv">on_phone</span></div>
+            <div class="sec"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8.5 14.5s1.4 1.6 3.5 1.6 3.5-1.6 3.5-1.6"/><path d="M9 10h.01"/><path d="M15 10h.01"/></svg>body</div>
+            <div class="frow"><span class="fk">body_type</span><span class="fv">athletic</span><span class="fen">{slim}</span></div>
+            <div class="frow"><span class="fk">hair_colour</span><span class="fv">brown</span><span class="fen">{black}</span></div>
+            <div class="frow"><span class="fk">hair_length</span><span class="fv">short</span></div>
+            <div class="frow"><span class="fk">facial_hair</span><span class="fv">stubble</span><span class="fen">{beard}</span></div>
+            <div class="frow"><span class="fk">grooming</span><span class="fv">standard</span></div>
+            <div class="sec"><svg viewBox="0 0 24 24"><path d="M5 4h3v8l7 4h4a1 1 0 0 1 1 1v2H7a2 2 0 0 1-2-2V4z"/></svg>footwear</div>
+            <div class="frow"><span class="fk">shoe_type</span><span class="fv">performance</span></div>
+            <div class="frow"><span class="fk">shoe_color</span><span class="fv">white</span></div>
+            <div class="frow"><span class="fk">shoe_brand</span><span class="fv str hot">"Nike"</span></div>
+            <div class="sec"><svg viewBox="0 0 24 24"><path d="M7 3h10l-1 8-2 10h-3l-1-9-1 9H8L6 11z"/></svg>lower_body</div>
+            <div class="frow"><span class="fk">bottom_type</span><span class="fv">cycling_shorts</span></div>
+            <div class="frow"><span class="fk">bottom_color</span><span class="fv">black</span></div>
+          </div>
+          <div>
+            <div class="sec"><svg viewBox="0 0 24 24"><path d="M9 3L4 6l2 4 2-1v9h8v-9l2 1 2-4-5-3-2 2z"/></svg>upper_body</div>
+            <div class="frow"><span class="fk">upper_type</span><span class="fv">jersey</span><span class="fen">{hoodie}</span></div>
+            <div class="frow"><span class="fk">upper_color</span><span class="fv">blue</span></div>
+            <div class="frow"><span class="fk">upper_brand</span><span class="fv str hot">"Alpecin"</span></div>
+            <div class="frow"><span class="fk">graphics</span><span class="fv">sports_team</span></div>
+            <div class="sec"><svg viewBox="0 0 24 24"><path d="M3 15a9 9 0 0 1 18 0z"/><path d="M12 15l9-2.5"/></svg>headwear</div>
+            <div class="frow"><span class="fk">headwear_type</span><span class="fv">cap</span><span class="fen">{beanie}</span></div>
+            <div class="sec"><svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="5"/><path d="M12 11v2l1.5 1"/><path d="M9.2 4.5 9.7 2h4.6l.5 2.5"/><path d="M9.2 21.5 9.7 24h4.6l.5-2.5"/></svg>accessories</div>
+            <div class="frow"><span class="fk">watch_type</span><span class="fv">fitness_tracker</span></div>
+            <div class="frow"><span class="fk">watch_brand</span><span class="fv str hot">"Garmin"</span></div>
+            <div class="frow"><span class="fk">glasses_type</span><span class="fv">sunglasses</span></div>
+            <div class="frow"><span class="fk">condition</span><span class="fv">well_maintained</span></div>
+            <div class="sec"><svg viewBox="0 0 24 24"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8a3 3 0 0 1 6 0"/></svg>personal_items</div>
+            <div class="frow"><span class="fk">gadgets</span><span class="fv">[smartphone]</span></div>
+            <div class="frow"><span class="fk">consumables</span><span class="fv">[bottle,&nbsp;can]</span></div>
+            <div class="frow"><span class="fk">smoking_type</span><span class="fv">none</span><span class="fen">{vape}</span></div>
+            <div class="sec"><svg viewBox="0 0 24 24"><circle cx="9" cy="20" r="1.3"/><circle cx="18" cy="20" r="1.3"/><path d="M2 3h3l2.2 11.3a1 1 0 0 0 1 .8h8.4a1 1 0 0 0 1-.8L20 7H6"/></svg>shopping</div>
+            <div class="frow"><span class="fk">merch_items</span><span class="fv str">["orange&nbsp;drink","energy&nbsp;can"]</span></div>
+            <div class="frow"><span class="fk">merch_brands</span><span class="fv str hot">["Fanta","Red&nbsp;Bull"]</span></div>
+            <div class="frow"><span class="fk">merch_qty</span><span class="fv num">2</span></div>
+            <div class="frow"><span class="fk">location</span><span class="fv">in_hand</span></div>
+          </div>
+        </div>
+      </div>
+      <!-- gutter -->
+      <div class="gutter">
+        <div class="fn">ƒ(x)</div>
+        <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        <div class="lb">interpret</div>
+      </div>
+      <!-- INTERPRETED §11–12 -->
+      <div class="intp">
+        <div class="phd"><svg viewBox="0 0 24 24" style="width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2;"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.6c.6.5 1 1.3 1 2.4h6c0-1.1.4-1.9 1-2.4A7 7 0 0 0 12 2z"/></svg>INTERPRETED <span class="sub">· actionable signals</span></div>
+        <div class="pcmt">// derived from a subset of the observed features</div>
+        <div class="irow"><span class="fk">spending_tier</span><span class="fv hot">mid_range</span><span class="fen">{luxury|budget}</span></div>
+        <div class="irow"><span class="fk">subcultural_align</span><span class="fv">mainstream</span><span class="fen">{streetwear}</span></div>
+        <div class="irow"><span class="fk">brand_culture</span><span class="fv">athletic_performance</span></div>
+        <div class="irow"><span class="fk">brand_tier_mix</span><span class="fv">mainstream</span></div>
+        <div class="irow"><span class="fk">outfit_coord</span><span class="fv">highly_coordinated</span></div>
+        <div class="irow"><span class="fk">logo_prominence</span><span class="fv">prominent</span><span class="fen">{discreet}</span></div>
+        <div class="irow"><span class="fk">life_stage</span><span class="fv">young_adult</span></div>
+        <div class="irow"><span class="fk">phys_activity</span><span class="fv">high</span><span class="fen">{moderate}</span></div>
+        <div class="irow"><span class="fk">tech_ecosystem</span><span class="fv">mainstream_tech</span></div>
+        <div class="irow"><span class="fk">engagement</span><span class="fv">distracted</span></div>
+        <div class="iper"><span class="fk">commercial_persona</span><span class="fv str hot">"weekend-road-cyclist-on-mid-ride-pit-stop"</span></div>
+        <div class="irow"><span class="fk">kw.social_role</span><span class="fv str">["amateur-cyclist",+4]</span><span class="fen">conf&nbsp;2</span></div>
+        <div class="iseg">
+          <div style="font-family:var(--mono); font-size:9px; color:var(--muted-2); margin-bottom:3px;">→ nmf_segment · lift-ranked</div>
+          <div class="snm">Active / Endurance</div>
+          <div style="font-family:var(--mono); font-size:9.5px; color:var(--ink-2); margin-top:4px; line-height:1.4;">shelf → isotonic, gels, recovery</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flow">COVER → PROBLEM → <b>SOLUTION</b> → TRACTION</div><div class="pageno">07 / 16</div>
+</section>
+<!-- 7. Data clustering (NMF personas) -->
+<section class="slide">
+  <div class="top"><span class="brand"><img src="../brand/logo/logo_mindsmodels-normal-black.png" alt="Minds&Models"></span><span class="meta">Clustering</span></div>
+
+  <p class="label">07 · Segments</p>
+  <h2>From 54,613 visits to a handful of <span class="accent">named segments.</span></h2>
+  <p class="lead mt10" style="max-width:94ch; font-size:14px;">An NMF topic model runs over 450+ canonicalized visual signals and groups every visit into stable, self-emerging personas — each with typical traits, lift-ranked distinctive traits, and a confidence tier. No hand-picking.</p>
+  <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:14px;">
+    <span class="mchip"><span class="d"></span>450+ signals / visit</span>
+    <span class="mchip"><span class="d"></span>NMF topic model</span>
+    <span class="mchip"><span class="d"></span>Lift-ranked traits</span>
+    <span class="mchip"><span class="d"></span>Aggregates only · k≥25</span>
+  </div>
+
+  <div class="pcards mt18" style="flex:1; align-items:center;">
+    <div class="pcard key">
+      <span class="ktag">Highest basket</span>
+      <div class="head"><div class="av"><img src="avatars/eurooil_0.png" alt=""></div>
+        <div><div class="share">15.4%</div><div class="cnt">8,385 visits</div></div></div>
+      <div class="nm">Suburban driver 40+</div>
+      <div class="rl">Civilian normcore · weekend stop from the city</div>
+      <div class="kv"><span>Avg shop basket</span><span><b>182 CZK</b> <span class="chip a">+24%</span></span></div>
+      <ul><li>Coca-Cola &amp; hot coffee on the go</li><li>Rajec water + snack — chips, chocolate</li><li>Largest shop basket — drinks + snacks + coffee</li></ul>
+      <div class="pmix"><div class="pmix-h">Typical basket · excl. fuel</div>
+        <div class="pmb"><span class="pmb-l">Drinks</span><span class="pmb-t"><i style="width:60%"></i></span></div>
+        <div class="pmb"><span class="pmb-l">Snacks</span><span class="pmb-t"><i style="width:48%"></i></span></div>
+        <div class="pmb"><span class="pmb-l">Coffee</span><span class="pmb-t"><i style="width:55%"></i></span></div>
+        <div class="pmb"><span class="pmb-l">Food</span><span class="pmb-t"><i style="width:72%"></i></span></div>
+      </div>
+    </div>
+    <div class="pcard">
+      <div class="head"><div class="av"><img src="avatars/eurooil_5.png" alt=""></div>
+        <div><div class="share">12.9%</div><div class="cnt">7,046 visits</div></div></div>
+      <div class="nm">Young 20+ in streetwear</div>
+      <div class="rl">Streetwear & athleisure · high grooming</div>
+      <div class="kv"><span>Avg shop basket</span><span><b>119 CZK</b> <span class="chip">−19%</span></span></div>
+      <ul><li>Energy core: Monster 2.8×, Tiger 2.1×</li><li>Red Bull, isotonics, protein bars</li><li>Grab-and-go snacks, rarely coffee</li></ul>
+      <div class="pmix"><div class="pmix-h">Typical basket · excl. fuel</div>
+        <div class="pmb"><span class="pmb-l">Drinks</span><span class="pmb-t"><i style="width:88%"></i></span></div>
+        <div class="pmb"><span class="pmb-l">Snacks</span><span class="pmb-t"><i style="width:62%"></i></span></div>
+        <div class="pmb"><span class="pmb-l">Coffee</span><span class="pmb-t"><i style="width:18%"></i></span></div>
+        <div class="pmb"><span class="pmb-l">Food</span><span class="pmb-t"><i style="width:22%"></i></span></div>
+      </div>
+    </div>
+    <div class="pcard">
+      <div class="head"><div class="av"><img src="avatars/eurooil_6.png" alt=""></div>
+        <div><div class="share">6.7%</div><div class="cnt">3,678 visits</div></div></div>
+      <div class="nm">Field tradesmen</div>
+      <div class="rl">Workwear · pragmatic, no-nonsense presentation</div>
+      <div class="kv"><span>Avg shop basket</span><span><b>128 CZK</b> <span class="chip">−13%</span></span></div>
+      <ul><li>Large coffee + hot food at counter</li><li>Pepsi &amp; Tiger energy, salty snacks 3.1×</li><li>Quick functional visits, high frequency</li></ul>
+      <div class="pmix"><div class="pmix-h">Typical basket · excl. fuel</div>
+        <div class="pmb"><span class="pmb-l">Drinks</span><span class="pmb-t"><i style="width:58%"></i></span></div>
+        <div class="pmb"><span class="pmb-l">Snacks</span><span class="pmb-t"><i style="width:68%"></i></span></div>
+        <div class="pmb"><span class="pmb-l">Coffee</span><span class="pmb-t"><i style="width:82%"></i></span></div>
+        <div class="pmb"><span class="pmb-l">Food</span><span class="pmb-t"><i style="width:42%"></i></span></div>
+      </div>
+    </div>
+    <div class="pcard">
+      <div class="head"><div class="av"><img src="avatars/eurooil_3.png" alt=""></div>
+        <div><div class="share">17.2%</div><div class="cnt">9,387 visits</div></div></div>
+      <div class="nm">Seniors 50+</div>
+      <div class="rl">Functional dad-style · glasses, minimalism</div>
+      <div class="kv"><span>Avg shop basket</span><span><b>159 CZK</b> <span class="chip g">+8%</span></span></div>
+      <ul><li>Coca-Cola classic, Rajec water</li><li>Pastry, newspaper, lottery ticket</li><li>Loyal, steady mid-size basket</li></ul>
+      <div class="pmix"><div class="pmix-h">Typical basket · excl. fuel</div>
+        <div class="pmb"><span class="pmb-l">Drinks</span><span class="pmb-t"><i style="width:52%"></i></span></div>
+        <div class="pmb"><span class="pmb-l">Snacks</span><span class="pmb-t"><i style="width:42%"></i></span></div>
+        <div class="pmb"><span class="pmb-l">Coffee</span><span class="pmb-t"><i style="width:48%"></i></span></div>
+        <div class="pmb"><span class="pmb-l">Food</span><span class="pmb-t"><i style="width:50%"></i></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flow">COVER → PROBLEM → <b>SOLUTION</b> → TRACTION</div><div class="pageno">08 / 16</div>
+</section>
+<!-- 8. Chatting with data -->
+<section class="slide">
+  <div class="top"><span class="brand"><img src="../brand/logo/logo_mindsmodels-normal-black.png" alt="Minds&Models"></span><span class="meta">Data Interaction</span></div>
+  <p class="label">08 · Chatting with Data</p>
+  <h2>Conversational insights: <br><span class="accent">Ask your store a question.</span></h2>
+  
+  <div class="card mt18" style="padding: 40px; text-align: center;">
+    <div style="font-size: 20px; font-weight: 600; color: var(--ink-2); margin-bottom: 20px; font-style: italic;">
+      "How did our promotional end-cap perform on weekday mornings among young adults?"
+    </div>
+    <div style="width: 2px; height: 40px; background: var(--blue); margin: 0 auto 20px;"></div>
+    <div style="font-size: 16px; color: var(--muted); line-height: 1.5; max-width: 600px; margin: 0 auto;">
+      Our interactive dashboard allows natural language querying. Because we extract 88+ features in real-time, stores have a <b>24/7 deep customer intelligence layer</b> they can literally chat with.
+    </div>
+  </div>
+  
+  <div class="flow">COVER → PROBLEM → <b>SOLUTION</b> → TRACTION</div><div class="pageno">09 / 16</div>
+</section>
+<!-- 9. POS data - connection to persona -->
+<section class="slide">
+  <div class="top"><span class="brand"><img src="../brand/logo/logo_mindsmodels-normal-black.png" alt="Minds&Models"></span><span class="meta">POS Connection</span></div>
+  <p class="label">09 · The Wedge</p>
+  <h2>We connect <span class="accent">who buys</span> (visual behavior) <br>with <span class="accent">what sold</span> (receipt).</h2>
+  
+  <div class="grid3 mt18" style="align-items: center; justify-content: center;">
+    <div class="card tile" style="text-align: center; padding: 40px 20px; background: var(--blue-soft); border-color: var(--blue-100);">
+      <div class="v b">92%</div>
+      <div class="k">Matched Orders</div>
+      <div class="s">Live POS matching achieved in GymBeam pilot.</div>
+    </div>
+    <div class="card tile" style="text-align: center; padding: 40px 20px;">
+      <div class="v c">No Cards</div>
+      <div class="k">Zero Friction</div>
+      <div class="s">Loyalty programs capture ~30%. We capture >90%.</div>
+    </div>
+    <div class="card tile" style="text-align: center; padding: 40px 20px;">
+      <div class="v c">Receipt Level</div>
+      <div class="k">Line Item Granularity</div>
+      <div class="s">Tying visual traits directly to the SKUs purchased.</div>
+    </div>
+  </div>
+
+  <div class="tk" style="margin-top:auto">
+    <div class="box i"><div class="l">The Holy Grail</div>This closed-loop in-store measurement exists nowhere else. It's the ultimate measurement currency.</div>
+  </div>
+  
+  <div class="flow">COVER → PROBLEM → <b>SOLUTION</b> → TRACTION</div><div class="pageno">10 / 16</div>
+</section>
+<!-- 1. Who is customer -->
+<section class="slide">
+  <div class="top"><span class="brand"><img src="../brand/logo/logo_mindsmodels-normal-black.png" alt="Minds&Models"></span><span class="meta">Customers</span></div>
+  <p class="label">10 · The Ecosystem</p>
+  <h2>Value created across the <span class="accent">entire retail chain.</span></h2>
+  
+  <div style="display:flex; flex-direction:column; gap:12px; margin-top:14px; align-items:center; width:100%;">
+    
+    <!-- Top Row: Brands -->
+    <div class="card" style="width:100%; max-width:440px; padding:16px; text-align:center; border-color:var(--pos); box-shadow:0 4px 14px rgba(5,150,105,0.1); position:relative; z-index:2;">
+      <h3 class="big" style="color:var(--pos); justify-content:center; font-size:16px; margin-bottom:6px;">Brands & Advertisers</h3>
+      <p style="font-size:13px; color:var(--muted);">Pay <b>CASH</b> for closed-loop measurement (1–8M CZK/yr/brand).</p>
+    </div>
+
+    <!-- Arrow down from Brands -->
+    <div style="display:flex; align-items:center; justify-content:center; gap:8px; color:var(--pos); font-weight:800; font-size:13px; margin:-4px 0;">
+      <span>$$$ Measurement & Media Spend $$$</span>
+      <svg class="i" viewBox="0 0 24 24" style="width:20px; height:20px; stroke:currentColor; stroke-width:3;"><path d="M12 4v16m-6-6l6 6l6-6"/></svg>
+    </div>
+
+    <!-- Middle Row: Retailers -> Center <- Data Brokers -->
+    <div style="display:flex; align-items:center; justify-content:center; width:100%; max-width:1000px; gap:8px;">
+      
+      <!-- Left: Retailers -->
+      <div class="card" style="flex:1; padding:16px; text-align:center; border-color:var(--blue); position:relative; z-index:2;">
+        <h3 class="big" style="color:var(--blue); justify-content:center; font-size:16px; margin-bottom:6px;">Retailers</h3>
+        <p style="font-size:12px; color:var(--muted);">Provide Data Rights & Audience.<br>Earn 40-70% Rev Share.</p>
+      </div>
+
+      <!-- Arrow from Retailers to Center -->
+      <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; color:var(--blue); font-weight:800; font-size:12px; width:140px; flex:none;">
+        <span style="text-align:center; margin-bottom:4px; line-height:1.2;">$$$ Activation<br>(€120/screen/mo)</span>
+        <svg class="i" viewBox="0 0 24 24" style="width:24px; height:24px; stroke:currentColor; stroke-width:3; transform:rotate(-90deg);"><path d="M12 4v16m-6-6l6 6l6-6"/></svg>
+      </div>
+
+      <!-- Center: M&M Logo -->
+      <div class="card" style="padding:24px 32px; text-align:center; background:var(--card); border:2px solid var(--ink); border-radius:16px; box-shadow:0 12px 30px rgba(15,23,42,0.15); display:flex; flex-direction:column; align-items:center; justify-content:center; flex:none; width:360px; height:auto; min-height:140px; z-index:10;">
+        <img src="../brand/logo/logo_mindsmodels-normal-black.png" alt="Minds&Models" style="height:48px; display:block; margin:0 auto;">
+        <div style="font-size:12px; font-weight:800; color:var(--ink-2); text-transform:uppercase; letter-spacing:.05em; margin-top:14px;">Infrastructure Centerpiece &amp;<br>Intelligence Layer</div>
+        <div style="font-size:12px; color:var(--muted); margin-top:8px; line-height:1.4;">We collect data at the shelf (the moat), generate insights, and enable execution.</div>
+      </div>
+
+      <!-- Arrow from Data Brokers to Center -->
+      <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; color:var(--amber); font-weight:800; font-size:12px; width:140px; flex:none;">
+        <span style="text-align:center; margin-bottom:4px; line-height:1.2;">$$$ Schema<br>Licensing</span>
+        <svg class="i" viewBox="0 0 24 24" style="width:24px; height:24px; stroke:currentColor; stroke-width:3; transform:rotate(90deg);"><path d="M12 4v16m-6-6l6 6l6-6"/></svg>
+      </div>
+
+      <!-- Right: Data Brokers -->
+      <div class="card" style="flex:1; padding:16px; text-align:center; border-color:var(--amber); background:var(--amber-soft); position:relative; z-index:2;">
+        <h3 class="big" style="color:var(--amber); justify-content:center; font-size:16px; margin-bottom:6px;">Data Brokers</h3>
+        <p style="font-size:12px; color:var(--ink-2);">Provide Distribution Reach.<br>Own "what sold" legacy data.</p>
+      </div>
+
+    </div>
+  </div>
+  
+  <div class="flow">COVER → <b>CUSTOMERS</b> → GTM → ECONOMICS → PLAN → TRACTION</div><div class="pageno">11 / 16</div>
+</section>
+<!-- 2. Go to market -->
+<section class="slide">
+  <div class="top"><span class="brand"><img src="../brand/logo/logo_mindsmodels-normal-black.png" alt="Minds&Models"></span><span class="meta">Go To Market</span></div>
+  <p class="label">11 · GTM Strategy</p>
+  <h2>The <span class="accent">Trojan Horse</span> Strategy</h2>
+  
+  <div class="grid3 mt18" style="align-items: stretch;">
+    <div class="card" style="padding: 24px; display:flex; flex-direction:column; border-color:var(--blue); position:relative;">
+      <div style="position:absolute; top:-12px; left:24px; background:var(--blue); color:#fff; font-size:12px; font-weight:800; padding:4px 12px; border-radius:12px;">Step 1: The Entry</div>
+      <h3 class="big" style="color:var(--blue); font-size:18px; margin-top:8px; margin-bottom:12px;">Retailer Traction</h3>
+      <p style="font-size:13px; color:var(--muted); line-height: 1.5; margin-bottom:16px;">
+        We step into the game by offering retailers free operational insights and new retail media revenue. They grant us data rights.
+      </p>
+      <div style="margin-top:auto; background:var(--blue-soft); padding:12px; border-radius:8px;">
+        <b style="color:var(--blue); font-size:18px;">8 Chains</b>
+        <div style="font-size:11px; color:var(--ink-2); margin-top:2px;">in active pipeline (3.5 months)</div>
+      </div>
+    </div>
+    
+    <div class="card" style="padding: 24px; display:flex; flex-direction:column; border-color:var(--pos); position:relative;">
+      <div style="position:absolute; top:-12px; left:24px; background:var(--pos); color:#fff; font-size:12px; font-weight:800; padding:4px 12px; border-radius:12px;">Step 2: The Moat</div>
+      <h3 class="big" style="color:var(--pos); font-size:18px; margin-top:8px; margin-bottom:12px;">Data Collection</h3>
+      <p style="font-size:13px; color:var(--muted); line-height: 1.5; margin-bottom:16px;">
+        We piggyback on existing screens to build the moat: collecting the missing "who buys" layer, matching visual traits to POS receipts.
+      </p>
+      <div style="margin-top:auto; background:#dcfce7; padding:12px; border-radius:8px;">
+        <b style="color:var(--pos); font-size:18px;">~4,000</b>
+        <div style="font-size:11px; color:var(--ink-2); margin-top:2px;">store footprint reachable</div>
+      </div>
+    </div>
+    
+    <div class="card" style="padding: 24px; display:flex; flex-direction:column; border-color:var(--amber); position:relative;">
+      <div style="position:absolute; top:-12px; left:24px; background:var(--amber); color:#fff; font-size:12px; font-weight:800; padding:4px 12px; border-radius:12px;">Step 3: Monetization</div>
+      <h3 class="big" style="color:var(--amber); font-size:18px; margin-top:8px; margin-bottom:12px;">Brands & Brokers</h3>
+      <p style="font-size:13px; color:var(--muted); line-height: 1.5; margin-bottom:16px;">
+        Once the data moat is built, we monetize the aggregated insights as a new measurement currency to brands and consumer intelligence companies.
+      </p>
+      <div style="margin-top:auto; background:var(--amber-soft); padding:12px; border-radius:8px;">
+        <b style="color:var(--amber); font-size:18px;">High Margin</b>
+        <div style="font-size:11px; color:var(--ink-2); margin-top:2px;">insight sales (studies & subs)</div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="flow">COVER → CUSTOMERS → <b>GTM</b> → ECONOMICS → PLAN → TRACTION</div><div class="pageno">12 / 16</div>
+</section>
+<!-- 3. Unit Economics -->
+<section class="slide">
+  <div class="top"><span class="brand"><img src="../brand/logo/logo_mindsmodels-normal-black.png" alt="Minds&Models"></span><span class="meta">Unit Economics</span></div>
+  <p class="label">12 · Unit Economics</p>
+  <h2>The <span class="accent">Dual Monetization</span> Engine</h2>
+  
+  <div style="display:flex; gap:30px; align-items:stretch; margin-top:18px;">
+    
+    <!-- Cost Column (Visually smaller, darker/muted) -->
+    <div class="card" style="display:flex; flex-direction:column; padding: 24px; border:none; background:var(--ink); color:var(--card); width:240px; flex:none; justify-content:center; position:relative;">
+      <div style="position:absolute; top: -10px; left: 24px; background:var(--slate); color:#fff; font-size:10px; font-weight:800; padding:4px 8px; border-radius:8px; text-transform:uppercase;">COGS</div>
+      <h3 class="big" style="color:#94a3b8; font-size:14px; margin-bottom:12px;">Infrastructure Cost</h3>
+      <div style="font-size: 38px; font-weight: 800; color: #fff; margin-bottom: 4px; line-height:1;">~€20</div>
+      <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: #64748b; letter-spacing: 0.05em; margin-bottom:16px;">per device / mo</div>
+      <p style="font-size:12px; color:#94a3b8; line-height: 1.5; margin-top:auto;">
+        All-in operating cost for edge compute and hardware maintenance.
+      </p>
+    </div>
+
+    <!-- Revenue Columns (Bigger, brighter) -->
+    <div style="display:flex; flex-direction:column; gap:16px; flex:1;">
+      
+      <!-- Stream A -->
+      <div class="card" style="display:flex; padding: 24px 32px; gap:24px; align-items:center; border:2px solid var(--blue); background:var(--blue-soft); box-shadow:0 8px 24px rgba(37,99,235,0.12);">
+        <div style="flex:none; width:150px;">
+          <div style="font-size: 44px; font-weight: 800; color: var(--blue); line-height:1;">€120</div>
+          <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--blue); letter-spacing: 0.05em; margin-top:6px;">per device/mo</div>
+        </div>
+        <div style="flex:1;">
+          <h3 class="big" style="color:var(--blue); font-size:18px; margin-bottom:8px;">Stream A: In-Store Activation</h3>
+          <p style="font-size:14px; color:var(--ink-2); line-height: 1.5;">
+            Base price paid by advertisers for real-time personalization. <b>Verified with 8 enterprise chains.</b> Covers device costs immediately.
+          </p>
+        </div>
+      </div>
+      
+      <!-- Stream B -->
+      <div class="card" style="display:flex; padding: 24px 32px; gap:24px; align-items:center; border:2px solid var(--pos); background:#dcfce7; box-shadow:0 8px 24px rgba(5,150,105,0.12);">
+        <div style="flex:none; width:150px;">
+          <div style="font-size: 32px; font-weight: 800; color: var(--pos); line-height:1; letter-spacing:-0.03em;">€40k–320k</div>
+          <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--pos); letter-spacing: 0.05em; margin-top:6px;">/ yr / brand</div>
+        </div>
+        <div style="flex:1;">
+          <h3 class="big" style="color:var(--pos); font-size:18px; margin-bottom:8px;">Stream B: Data & Measurement</h3>
+          <p style="font-size:14px; color:var(--ink-2); line-height: 1.5;">
+            Selling closed-loop behavioral data to brands. Since the hardware is already paid for by Stream A, this is <b>pure scalable margin</b>.
+          </p>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+  <div class="tk mt18">
+    <div class="box i" style="display:flex; justify-content:space-around; padding:18px 24px; align-items:center; background:#fff;">
+      <div style="text-align:center;"><div style="font-size:11px; font-weight:800; text-transform:uppercase; color:var(--muted); letter-spacing:.05em;">Unit Gross Margin</div><div style="font-size:26px; font-weight:800; color:var(--ink); margin-top:4px;">&gt; 80%</div></div>
+      <div style="width:1px; height:40px; background:var(--line);"></div>
+      <div style="text-align:center;"><div style="font-size:11px; font-weight:800; text-transform:uppercase; color:var(--muted); letter-spacing:.05em;">Base Gross Profit</div><div style="font-size:26px; font-weight:800; color:var(--ink); margin-top:4px;">~€100 <span style="font-size:14px; font-weight:600; color:var(--muted);">/ mo</span></div></div>
+      <div style="width:1px; height:40px; background:var(--line);"></div>
+      <div style="text-align:center;"><div style="font-size:11px; font-weight:800; text-transform:uppercase; color:var(--muted); letter-spacing:.05em;">Revenue Quality</div><div style="font-size:26px; font-weight:800; color:var(--pos); margin-top:4px;">Recurring</div></div>
+    </div>
+  </div>
+  
+  <div class="flow">COVER → CUSTOMERS → GTM → <b>ECONOMICS</b> → PLAN → TRACTION</div><div class="pageno">13 / 16</div>
+</section>
+<!-- 4. Business Plan -->
+<section class="slide">
+  <div class="top"><span class="brand"><img src="../brand/logo/logo_mindsmodels-normal-black.png" alt="Minds&Models"></span><span class="meta">Business Plan</span></div>
+  <p class="label">13 · Execution Roadmap</p>
+  <h2>The Next 6 Months: <span class="accent">Securing the footprint</span> & unlocking the currency.</h2>
+  
+  <div class="grid3 mt18" style="align-items: stretch; position: relative;">
+    
+    <!-- Timeline Line -->
+    <div style="position:absolute; top:36px; left:10%; right:10%; height:2px; background:var(--line); z-index:0;"></div>
+
+    <!-- Phase 1 -->
+    <div class="card" style="padding: 24px; position: relative; z-index: 1; display:flex; flex-direction:column; border-color:var(--blue);">
+      <div style="width:24px; height:24px; border-radius:50%; background:var(--blue); color:#fff; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; margin:0 auto 16px; border:4px solid var(--card); box-sizing:content-box;">1</div>
+      <div style="text-align:center; font-size:11px; font-weight:800; text-transform:uppercase; color:var(--blue); letter-spacing:.05em; margin-bottom:4px;">Months 1–2</div>
+      <h3 class="big" style="text-align:center; color:var(--ink); font-size:18px; margin-bottom:16px;">Lock the Footprint</h3>
+      
+      <div style="flex:1;">
+        <div style="font-size:10px; color:var(--muted); font-weight:800; text-transform:uppercase; margin-bottom:4px;">Goal</div>
+        <p style="font-size:13px; color:var(--ink-2); line-height: 1.4; margin-bottom:14px;">Convert the 8-chain pipeline and live pilots into long-term retailer mandates.</p>
+        
+        <div style="font-size:10px; color:var(--muted); font-weight:800; text-transform:uppercase; margin-bottom:4px;">Action</div>
+        <p style="font-size:13px; color:var(--ink-2); line-height: 1.4; margin-bottom:14px;">Start rolling out edge hardware across the initial target of ~4,000 stores. Continue onboarding new retailers.</p>
+      </div>
+
+      <div style="background:var(--blue-soft); padding:12px; border-radius:8px; margin-top:auto;">
+        <div style="font-size:10px; color:var(--blue); font-weight:800; text-transform:uppercase; margin-bottom:2px;">Outcome</div>
+        <div style="font-size:13px; font-weight:700; color:var(--blue); line-height:1.3;">Data rights secured. Physical moat built.</div>
+      </div>
+    </div>
+    
+    <!-- Phase 2 -->
+    <div class="card" style="padding: 24px; position: relative; z-index: 1; display:flex; flex-direction:column; border-color:var(--pos);">
+      <div style="width:24px; height:24px; border-radius:50%; background:var(--pos); color:#fff; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; margin:0 auto 16px; border:4px solid var(--card); box-sizing:content-box;">2</div>
+      <div style="text-align:center; font-size:11px; font-weight:800; text-transform:uppercase; color:var(--pos); letter-spacing:.05em; margin-bottom:4px;">Months 3–4</div>
+      <h3 class="big" style="text-align:center; color:var(--ink); font-size:18px; margin-bottom:16px;">Activate Revenue</h3>
+      
+      <div style="flex:1;">
+        <div style="font-size:10px; color:var(--muted); font-weight:800; text-transform:uppercase; margin-bottom:4px;">Goal</div>
+        <p style="font-size:13px; color:var(--ink-2); line-height: 1.4; margin-bottom:14px;">Make the infrastructure immediately cash-flow positive.</p>
+        
+        <div style="font-size:10px; color:var(--muted); font-weight:800; text-transform:uppercase; margin-bottom:4px;">Action</div>
+        <p style="font-size:13px; color:var(--ink-2); line-height: 1.4; margin-bottom:14px;">Turn on Stream A. Retailers pay €120/screen for personalization inventory.</p>
+      </div>
+
+      <div style="background:#dcfce7; padding:12px; border-radius:8px; margin-top:auto;">
+        <div style="font-size:10px; color:var(--pos); font-weight:800; text-transform:uppercase; margin-bottom:2px;">Outcome</div>
+        <div style="font-size:13px; font-weight:700; color:var(--pos); line-height:1.3;">Hardware paid off. Retailers earn Rev Share.</div>
+      </div>
+    </div>
+    
+    <!-- Phase 3 -->
+    <div class="card" style="padding: 24px; position: relative; z-index: 1; display:flex; flex-direction:column; border-color:var(--amber);">
+      <div style="width:24px; height:24px; border-radius:50%; background:var(--amber); color:#fff; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; margin:0 auto 16px; border:4px solid var(--card); box-sizing:content-box;">3</div>
+      <div style="text-align:center; font-size:11px; font-weight:800; text-transform:uppercase; color:var(--amber); letter-spacing:.05em; margin-bottom:4px;">Months 5–6</div>
+      <h3 class="big" style="text-align:center; color:var(--ink); font-size:18px; margin-bottom:16px;">Launch Currency</h3>
+      
+      <div style="flex:1;">
+        <div style="font-size:10px; color:var(--muted); font-weight:800; text-transform:uppercase; margin-bottom:4px;">Goal</div>
+        <p style="font-size:13px; color:var(--ink-2); line-height: 1.4; margin-bottom:14px;">Unlock the highly scalable, pure-margin insight revenue.</p>
+        
+        <div style="font-size:10px; color:var(--muted); font-weight:800; text-transform:uppercase; margin-bottom:4px;">Action</div>
+        <p style="font-size:13px; color:var(--ink-2); line-height: 1.4; margin-bottom:14px;">Sell POS-matched behavioral studies & subs to major brands.</p>
+      </div>
+
+      <div style="background:var(--amber-soft); padding:12px; border-radius:8px; margin-top:auto;">
+        <div style="font-size:10px; color:var(--amber); font-weight:800; text-transform:uppercase; margin-bottom:2px;">Outcome</div>
+        <div style="font-size:13px; font-weight:700; color:var(--amber); line-height:1.3;">€1.5–3.2M capture path initiated.</div>
+      </div>
+    </div>
+    
+  </div>
+  
+  <div class="flow">COVER → CUSTOMERS → GTM → ECONOMICS → <b>PLAN</b> → TRACTION</div><div class="pageno">14 / 16</div>
+</section>
+<!-- 5. Traction -->
+<section class="slide">
+  <div class="top"><span class="brand"><img src="../brand/logo/logo_mindsmodels-normal-black.png" alt="Minds&Models"></span><span class="meta">Traction</span></div>
+  <p class="label">14 · Traction</p>
+  <h2>Velocity: From <span class="accent">zero</span> to <span class="accent">8 live pilots</span> in 3.5 months.</h2>
+  
+  <div class="grid3 mt18">
+    <div class="card tile" style="text-align: center; padding: 30px 10px;">
+      <div class="v b">8</div>
+      <div class="k">Live Enterprise Pilots</div>
+      <div class="s">Strong market pull.</div>
+    </div>
+    <div class="card tile" style="text-align: center; padding: 30px 10px;">
+      <div class="v c">~4k</div>
+      <div class="k">Store Footprint</div>
+      <div class="s">Current pilots total potential.</div>
+    </div>
+    <div class="card tile" style="text-align: center; padding: 30px 10px;">
+      <div class="v g">92%</div>
+      <div class="k">POS Match Rate</div>
+      <div class="s">Proven at GymBeam.</div>
+    </div>
+  </div>
+  
+  <div style="margin-top:20px; padding: 24px; background:#fff; border:1px solid var(--line); border-radius:12px; text-align:center; box-shadow:0 4px 14px rgba(15,23,42,0.03);">
+    <div style="font-size:11px; font-weight:800; text-transform:uppercase; color:var(--muted); letter-spacing:.05em; margin-bottom:16px;">Trusted by Forward-Thinking Retailers & Brands</div>
+    <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:24px 40px; align-items:flex-end;">
+      <div style="display:flex; flex-direction:column; align-items:center; gap:8px;">
+        <img src="logos/superzoo.png" alt="SuperZoo" style="height:38px; object-fit:contain;">
+        <span style="font-size:12px; font-weight:700; color:var(--ink-2);">SuperZoo</span>
+      </div>
+      <div style="display:flex; flex-direction:column; align-items:center; gap:8px;">
+        <img src="logos/eurooil.svg" alt="EuroOil" style="height:38px; object-fit:contain;">
+        <span style="font-size:12px; font-weight:700; color:var(--ink-2);">EuroOil</span>
+      </div>
+      <div style="display:flex; flex-direction:column; align-items:center; gap:8px;">
+        <div style="height:38px; display:flex; align-items:center; justify-content:center;"><span style="font-size:24px; font-weight:900; font-style:italic; color:#E3000F; letter-spacing:-0.05em;">RobinOil</span></div>
+        <span style="font-size:12px; font-weight:700; color:var(--ink-2);">RobinOil</span>
+      </div>
+      <div style="display:flex; flex-direction:column; align-items:center; gap:8px;">
+        <img src="logos/gymbeam.png" alt="GymBeam" style="height:38px; object-fit:contain;">
+        <span style="font-size:12px; font-weight:700; color:var(--ink-2);">GymBeam</span>
+      </div>
+      <div style="display:flex; flex-direction:column; align-items:center; gap:8px;">
+        <img src="logos/vilgain.png" alt="Vilgain" style="height:38px; object-fit:contain;">
+        <span style="font-size:12px; font-weight:700; color:var(--ink-2);">Vilgain</span>
+      </div>
+      <div style="display:flex; flex-direction:column; align-items:center; gap:8px;">
+        <img src="logos/o2.png" alt="O2" style="height:38px; object-fit:contain;">
+        <span style="font-size:12px; font-weight:700; color:var(--ink-2);">O2</span>
+      </div>
+      <div style="display:flex; flex-direction:column; align-items:center; gap:8px;">
+        <img src="logos/cpi.png" alt="CPI Property Group" style="height:38px; object-fit:contain;">
+        <span style="font-size:12px; font-weight:700; color:var(--ink-2);">CPI Property Group</span>
+      </div>
+      <div style="display:flex; flex-direction:column; align-items:center; gap:8px;">
+        <img src="logos/olympia.png" alt="Olympia" style="height:38px; object-fit:contain;">
+        <span style="font-size:12px; font-weight:700; color:var(--ink-2);">Olympia</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="flow">COVER → CUSTOMERS → GTM → ECONOMICS → PLAN → <b>TRACTION</b></div><div class="pageno">15 / 16</div>
+</section>
+<!-- 15. Investment -->
+<section class="slide center">
+  <div class="top" style="position:absolute; top:34px; left:54px; right:54px; margin:0">
+    <span class="brand"><img src="../brand/logo/logo_mindsmodels-normal-black.png" alt="Minds&Models"></span>
+    <span class="meta">Investment</span>
+  </div>
+  <p class="label">15 · The Ask</p>
+  <h1>Fueling the <span class="accent-co">measurement standard</span><br>for physical retail.</h1>
+  <p class="lead mt14" style="max-width:70ch">We are raising capital to accelerate our chain deployments and lock in the data layer across Central Europe.</p>
+  
+  <div class="flow">COVER → PROBLEM → SOLUTION → <b>INVESTMENT</b></div><div class="pageno">16 / 16</div>
+</section>
+
+</div>
+</body>
+</html>
