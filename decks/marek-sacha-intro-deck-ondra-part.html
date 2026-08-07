@@ -99,46 +99,50 @@ svg.i{width:16px; height:16px; flex:none; stroke:currentColor; fill:none; stroke
   <div style="display:flex; flex-direction:column; gap:12px; margin-top:14px; align-items:center; width:100%;">
     
     <!-- Top Row: Brands -->
-    <div class="card" style="width:100%; max-width:500px; padding:16px; text-align:center; border-color:var(--pos); box-shadow:0 4px 14px rgba(5,150,105,0.1);">
+    <div class="card" style="width:100%; max-width:440px; padding:16px; text-align:center; border-color:var(--pos); box-shadow:0 4px 14px rgba(5,150,105,0.1); position:relative; z-index:2;">
       <h3 class="big" style="color:var(--pos); justify-content:center; font-size:16px; margin-bottom:6px;">Brands & Advertisers</h3>
-      <p style="font-size:13px; color:var(--muted);">Pay <b>CASH</b> for closed-loop measurement, studies, and targeted retail media.</p>
+      <p style="font-size:13px; color:var(--muted);">Pay <b>CASH</b> for closed-loop measurement (1–8M CZK/yr/brand).</p>
     </div>
 
-    <!-- Arrow down -->
-    <div style="display:flex; align-items:center; justify-content:center; gap:8px; color:var(--pos); font-weight:800; font-size:12px;">
+    <!-- Arrow down from Brands -->
+    <div style="display:flex; align-items:center; justify-content:center; gap:8px; color:var(--pos); font-weight:800; font-size:13px; margin:-4px 0;">
+      <span>$$$ Measurement & Media Spend $$$</span>
       <svg class="i" viewBox="0 0 24 24" style="width:20px; height:20px; stroke:currentColor; stroke-width:3;"><path d="M12 4v16m-6-6l6 6l6-6"/></svg>
-      <span>$$$ Revenue $$$</span>
     </div>
 
-    <!-- Middle: Minds & Models -->
-    <div class="card" style="width:100%; max-width:700px; padding:20px; text-align:center; background:var(--blue-soft); border-color:var(--blue); box-shadow:0 8px 24px rgba(37,99,235,0.15);">
-      <h3 class="big" style="color:var(--blue); justify-content:center; font-size:18px; margin-bottom:8px;">Minds & Models (Intelligence Layer)</h3>
-      <p style="font-size:14px; color:var(--ink-2);">We collect data at the shelf (the moat), generate insights, and enable execution.</p>
-    </div>
-
-    <!-- Split Arrows down -->
-    <div style="display:flex; width:100%; max-width:700px; justify-content:space-between; padding:0 80px;">
-      <div style="display:flex; flex-direction:column; align-items:center; color:var(--blue); font-weight:800; font-size:12px; transform:translate(-20px, 0);">
-        <svg class="i" viewBox="0 0 24 24" style="width:20px; height:20px; stroke:currentColor; stroke-width:3; transform:rotate(-25deg);"><path d="M12 4v16m-6-6l6 6l6-6"/></svg>
-        <span style="margin-top:4px;">40–70% Rev Share</span>
-      </div>
-      <div style="display:flex; flex-direction:column; align-items:center; color:var(--amber); font-weight:800; font-size:12px; transform:translate(20px, 0);">
-        <svg class="i" viewBox="0 0 24 24" style="width:20px; height:20px; stroke:currentColor; stroke-width:3; transform:rotate(25deg);"><path d="M12 4v16m-6-6l6 6l6-6"/></svg>
-        <span style="margin-top:4px;">Data & Schema</span>
-      </div>
-    </div>
-
-    <!-- Bottom Row: Retailers & Brokers -->
-    <div style="display:flex; gap:24px; width:100%; max-width:800px;">
-      <div class="card" style="flex:1; padding:16px; text-align:center;">
-        <h3 class="big" style="color:var(--blue); justify-content:center; font-size:16px; margin-bottom:6px;">Retailers</h3>
-        <p style="font-size:12px; color:var(--muted);">Pay in <b>RIGHTS</b>. They license anonymized aggregates, keep full control, and receive a majority revenue share.</p>
-      </div>
+    <!-- Middle Row: Retailers -> Center <- Data Brokers -->
+    <div style="display:flex; align-items:center; justify-content:center; width:100%; max-width:1000px; gap:8px;">
       
-      <div class="card" style="flex:1; padding:16px; text-align:center; border-color:var(--amber); background:var(--amber-soft);">
-        <h3 class="big" style="color:var(--amber); justify-content:center; font-size:16px; margin-bottom:6px;">Data Brokers</h3>
-        <p style="font-size:12px; color:var(--ink-2);">Provide distribution. They own "what sold", we add the missing "who buys" schema.</p>
+      <!-- Left: Retailers -->
+      <div class="card" style="flex:1; padding:16px; text-align:center; border-color:var(--blue); position:relative; z-index:2;">
+        <h3 class="big" style="color:var(--blue); justify-content:center; font-size:16px; margin-bottom:6px;">Retailers</h3>
+        <p style="font-size:12px; color:var(--muted);">Provide Data Rights & Audience.<br>Earn 40-70% Rev Share.</p>
       </div>
+
+      <!-- Arrow from Retailers to Center -->
+      <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; color:var(--blue); font-weight:800; font-size:12px; width:140px; flex:none;">
+        <span style="text-align:center; margin-bottom:4px; line-height:1.2;">$$$ Activation<br>(€120/screen/mo)</span>
+        <svg class="i" viewBox="0 0 24 24" style="width:24px; height:24px; stroke:currentColor; stroke-width:3; transform:rotate(-90deg);"><path d="M12 4v16m-6-6l6 6l6-6"/></svg>
+      </div>
+
+      <!-- Center: M&M Logo -->
+      <div class="card" style="padding:24px 32px; text-align:center; background:var(--card); border:2px solid var(--ink); border-radius:16px; box-shadow:0 12px 30px rgba(15,23,42,0.15); display:flex; flex-direction:column; align-items:center; justify-content:center; flex:none; width:280px; height:120px; z-index:10;">
+        <img src="../brand/logo/logo_mindsmodels-normal-black.png" alt="Minds&Models" style="height:36px; display:block; margin:0 auto;">
+        <div style="font-size:11px; font-weight:700; color:var(--ink-2); text-transform:uppercase; letter-spacing:.05em; margin-top:12px;">Intelligence Layer</div>
+      </div>
+
+      <!-- Arrow from Data Brokers to Center -->
+      <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; color:var(--amber); font-weight:800; font-size:12px; width:140px; flex:none;">
+        <span style="text-align:center; margin-bottom:4px; line-height:1.2;">$$$ Schema<br>Licensing</span>
+        <svg class="i" viewBox="0 0 24 24" style="width:24px; height:24px; stroke:currentColor; stroke-width:3; transform:rotate(90deg);"><path d="M12 4v16m-6-6l6 6l6-6"/></svg>
+      </div>
+
+      <!-- Right: Data Brokers -->
+      <div class="card" style="flex:1; padding:16px; text-align:center; border-color:var(--amber); background:var(--amber-soft); position:relative; z-index:2;">
+        <h3 class="big" style="color:var(--amber); justify-content:center; font-size:16px; margin-bottom:6px;">Data Brokers</h3>
+        <p style="font-size:12px; color:var(--ink-2);">Provide Distribution Reach.<br>Own "what sold" legacy data.</p>
+      </div>
+
     </div>
   </div>
   
