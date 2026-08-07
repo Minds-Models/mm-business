@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Minds&Models — Pitch Deck 2026</title>
+<title>Minds&Models — Pitch Deck (Marek's Part)</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 :root{
@@ -30,9 +30,6 @@ html,body{background:#dfe3e8;
 .brand .amp{font-family:'Times New Roman',serif; font-style:italic; font-weight:400}
 .brand .co{display:inline-flex; align-items:center; gap:6px; font-weight:700; color:var(--co)}
 .brand .dot{width:16px; height:16px; border-radius:4px; background:var(--co)}
-.brand img{display:block; width:auto}
-.brand .mm{height:14px}
-.bsep{width:1px; height:20px; background:var(--line); display:inline-block; flex:none; margin:0 2px}
 .meta{font-size:11px; color:var(--muted); text-align:right; line-height:1.4}
 .label{font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:var(--blue); margin-bottom:9px}
 h1{font-size:44px; font-weight:800; letter-spacing:-.03em; line-height:1.05}
@@ -45,11 +42,8 @@ h2{font-size:28px; font-weight:750; letter-spacing:-.02em; line-height:1.12; mar
 .flow{position:absolute; bottom:15px; left:54px; font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--muted-2); font-weight:700}
 .flow b{color:var(--blue)}
 svg.i{width:16px; height:16px; flex:none; stroke:currentColor; fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round}
-.itile{width:34px; height:34px; border-radius:9px; background:var(--blue-soft); color:var(--blue); display:flex; align-items:center; justify-content:center; flex:none}
-.itile .i{width:19px; height:19px}
 .card{background:var(--card); border:1px solid var(--line); border-radius:13px; padding:15px 17px; box-shadow:0 1px 2px rgba(15,23,42,.04)}
 .card h3{font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.05em; color:var(--muted); margin-bottom:11px; display:flex; align-items:center; gap:8px}
-.card h3 .i{width:15px; height:15px; color:var(--muted-2); stroke-width:2}
 .card h3.big{font-size:13px; text-transform:none; letter-spacing:0; color:var(--ink)}
 .grid2{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px}
 .grid3{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px}
@@ -83,24 +77,59 @@ svg.i{width:16px; height:16px; flex:none; stroke:currentColor; fill:none; stroke
 <body>
 <div class="deck">
 
-<!-- SLIDE 1 · COVER -->
+<!-- 0. COVER -->
 <section class="slide center">
   <div class="top" style="position:absolute; top:34px; left:54px; right:54px; margin:0">
     <span class="brand">Minds&Models</span>
-    <span class="meta">Pitch Deck 2026<br>Confidential</span>
+    <span class="meta">Marek's Section<br>Confidential</span>
   </div>
   <p class="label">Minds & Models</p>
   <h1>Teaching physical stores<br><span class="accent-co">who their customers are.</span></h1>
   <p class="lead mt14" style="max-width:70ch">Minds & Models — shopper intelligence for physical stores, matched to every purchase.</p>
-  <div class="flow"><b>COVER</b> → PROBLEM → SOLUTION → TRACTION</div><div class="pageno">01 / 11</div>
+  <div class="flow"><b>COVER</b> → OUTLINE → PROBLEM → SOLUTION</div><div class="pageno">01 / 16</div>
 </section>
 
-<!-- SLIDE 2 · PROBLEM -->
+<!-- 1. Outline -->
+<section class="slide">
+  <div class="top"><span class="brand">Minds&Models</span><span class="meta">Outline</span></div>
+  <p class="label">01 · Agenda</p>
+  <h2>Presentation <span class="accent">Overview</span></h2>
+  
+  <div class="card mt18" style="padding: 30px 40px; max-width: 800px;">
+    <ol style="color: var(--ink-2); font-size: 16px; line-height: 1.8; padding-left: 20px;">
+      <li style="margin-bottom: 8px;"><b>The Problem & Data Accessibility</b></li>
+      <li style="margin-bottom: 8px;"><b>Product Intro & Solution</b></li>
+      <li style="margin-bottom: 8px;"><b>Primary Data Collection (RPI Demo)</b></li>
+      <li style="margin-bottom: 8px;"><b>Data Interpretation & Clustering</b></li>
+      <li style="margin-bottom: 8px;"><b>Chatting with Data & POS Connection</b></li>
+      <li style="margin-bottom: 8px;"><b>Customers & Go-To-Market</b></li>
+      <li style="margin-bottom: 8px;"><b>Unit Economics & Business Plan</b></li>
+      <li style="margin-bottom: 8px;"><b>Traction & Investment</b></li>
+    </ol>
+  </div>
+  <div class="flow">COVER → <b>OUTLINE</b> → PROBLEM → SOLUTION</div><div class="pageno">02 / 16</div>
+</section>
+
+<!-- 2. Problem intro -->
 <section class="slide">
   <div class="top"><span class="brand">Minds&Models</span><span class="meta">The Problem</span></div>
-  <p class="label">02 · The Disconnect</p>
+  <p class="label">02 · Problem Intro</p>
   <h2>E-commerce runs on behavior. <br>Physical retail got left behind — <span class="accent">with receipts.</span></h2>
   <p class="lead mt14" style="max-width:80ch">Physical retail knows what sold — but not who buys.</p>
+  
+  <div class="tk mt18">
+    <div class="box i" style="padding:40px; font-size:16px;">
+      <b>~90% of FMCG</b> is still bought in physical stores, yet the richest behavioral data walks in the door and leaves entirely unread. Stores only know the outcome, not the journey.
+    </div>
+  </div>
+  <div class="flow">COVER → OUTLINE → <b>PROBLEM</b> → SOLUTION</div><div class="pageno">03 / 16</div>
+</section>
+
+<!-- 3. Data accessibility -->
+<section class="slide">
+  <div class="top"><span class="brand">Minds&Models</span><span class="meta">Data Accessibility</span></div>
+  <p class="label">03 · Data Accessibility</p>
+  <h2>The data disconnect: <br><span class="accent">Blind spots in physical retail.</span></h2>
   
   <div class="grid3 mt18">
     <div class="card tile">
@@ -120,235 +149,325 @@ svg.i{width:16px; height:16px; flex:none; stroke:currentColor; fill:none; stroke
     </div>
   </div>
   
-  <div class="flow">COVER → <b>PROBLEM</b> → SOLUTION → TRACTION</div><div class="pageno">02 / 11</div>
+  <div class="flow">COVER → OUTLINE → <b>PROBLEM</b> → SOLUTION</div><div class="pageno">04 / 16</div>
 </section>
 
-<!-- SLIDE 3 · HOOK/TURN -->
+<!-- 4. Product intro = solution -->
 <section class="slide center">
   <div class="top" style="position:absolute; top:34px; left:54px; right:54px; margin:0">
     <span class="brand">Minds&Models</span>
-    <span class="meta">The Opportunity</span>
+    <span class="meta">Product Intro</span>
   </div>
-  <h1>The behavior e-commerce runs on? <br><span class="accent-co">It walks into your store every day.</span></h1>
-  <p class="lead mt14" style="font-size:24px; font-weight: 500; color:var(--ink)">We're the first to read it.</p>
-  <div class="flow">COVER → <b>PROBLEM</b> → SOLUTION → TRACTION</div><div class="pageno">03 / 11</div>
+  <p class="label">04 · Solution</p>
+  <h1>The behavior e-commerce runs on? <br><span class="accent-co">We're the first to read it.</span></h1>
+  <p class="lead mt14" style="max-width:80ch; font-size:24px; font-weight: 500; color:var(--ink)">We capture in-store behavior and match it to purchases — 92% of orders, no loyalty card, no survey.</p>
+  
+  <div class="flow">COVER → PROBLEM → <b>SOLUTION</b> → TRACTION</div><div class="pageno">05 / 16</div>
 </section>
 
-<!-- SLIDE 4 · SOLUTION -->
+<!-- 5. Primary data collection - RPI demo -->
 <section class="slide">
-  <div class="top"><span class="brand">Minds&Models</span><span class="meta">Our Solution</span></div>
-  <p class="label">04 · The Missing Link</p>
-  <h2>We capture in-store behavior and <br><span class="accent">match it to purchases.</span></h2>
-  
-  <div class="grid3 mt18" style="align-items: center; justify-content: center;">
-    <div class="card tile" style="text-align: center; padding: 40px 20px;">
-      <div class="v g">92%</div>
-      <div class="k">Matched Orders</div>
-      <div class="s">High-fidelity tie between visual traits and real POS data.</div>
-    </div>
-    <div class="card tile" style="text-align: center; padding: 40px 20px;">
-      <div class="v c">0</div>
-      <div class="k">Loyalty Cards Needed</div>
-      <div class="s">No signup friction, works for every customer.</div>
-    </div>
-    <div class="card tile" style="text-align: center; padding: 40px 20px;">
-      <div class="v b">0</div>
-      <div class="k">Surveys Required</div>
-      <div class="s">Passive, frictionless data collection at scale.</div>
-    </div>
-  </div>
-
-  <div class="tk" style="margin-top:auto">
-    <div class="box i"><div class="l">Privacy First</div>No faces. No identities. Aggregated patterns only (k≥25). We understand every shopper — without identifying anyone.</div>
-  </div>
-  
-  <div class="flow">COVER → PROBLEM → <b>SOLUTION</b> → TRACTION</div><div class="pageno">04 / 11</div>
-</section>
-
-<!-- SLIDE 5 · WHY NOW -->
-<section class="slide">
-  <div class="top"><span class="brand">Minds&Models</span><span class="meta">Why Now</span></div>
-  <p class="label">05 · Market Timing</p>
-  <h2>Vision AI makes shopper understanding scalable, <br>just as <span class="accent">retail media explodes.</span></h2>
-  
-  <div class="grid2 mt18" style="height: 100%;">
-    <div class="card" style="display:flex; flex-direction:column; justify-content:center; padding: 40px;">
-      <h3 class="big" style="font-size:20px; font-weight:800; margin-bottom: 20px;">AI Maturation</h3>
-      <p style="font-size: 16px; color: var(--muted); line-height: 1.5;">Computer vision models can now process edge data efficiently and affordably, unlocking deep visual analytics for physical stores without requiring massive hardware investments.</p>
-    </div>
-    <div class="card" style="display:flex; flex-direction:column; justify-content:center; padding: 40px;">
-      <h3 class="big" style="font-size:20px; font-weight:800; margin-bottom: 20px;">EU Retail Media Growth</h3>
-      <div style="font-size: 32px; font-weight: 800; color: var(--blue); margin-bottom: 10px;">€13.7B → €28.8B</div>
-      <p style="font-size: 16px; color: var(--muted); line-height: 1.5;">By 2028, the European retail media market is set to double. But it's arriving without audience proof. Physical stores need measurement currency to capture this spend.</p>
-    </div>
-  </div>
-  
-  <div class="flow">COVER → PROBLEM → <b>SOLUTION</b> → TRACTION</div><div class="pageno">05 / 11</div>
-</section>
-
-<!-- SLIDE 6 · PRODUCT/HOW -->
-<section class="slide">
-  <div class="top"><span class="brand">Minds&Models</span><span class="meta">How it Works</span></div>
-  <p class="label">06 · Mechanism</p>
-  <h2>From the shelf to the <span class="accent">transaction.</span></h2>
-  
-  <div class="grid4 mt18">
-    <div class="card" style="padding: 20px;">
-      <h3 class="big" style="color:var(--blue)">1. Computer Vision</h3>
-      <p style="font-size:13px; color:var(--muted); line-height: 1.4; margin-top: 10px;">Edge devices at the shelf capture visual presence anonymously.</p>
-    </div>
-    <div class="card" style="padding: 20px;">
-      <h3 class="big" style="color:var(--blue)">2. 88+ Attributes</h3>
-      <p style="font-size:13px; color:var(--muted); line-height: 1.4; margin-top: 10px;">Extracting rich context: demographics, clothing, groups, interactions.</p>
-    </div>
-    <div class="card" style="padding: 20px;">
-      <h3 class="big" style="color:var(--blue)">3. Personas</h3>
-      <p style="font-size:13px; color:var(--muted); line-height: 1.4; margin-top: 10px;">Grouping behaviors into actionable customer archetypes.</p>
-    </div>
-    <div class="card" style="padding: 20px; border-color: var(--blue); background: var(--blue-soft);">
-      <h3 class="big" style="color:var(--blue)">4. Matched to POS</h3>
-      <p style="font-size:13px; color:var(--ink); font-weight: 500; line-height: 1.4; margin-top: 10px;">The breakthrough: joining who they are with exactly what they bought on the receipt.</p>
-    </div>
-  </div>
-  
-  <div class="flow">COVER → PROBLEM → <b>SOLUTION</b> → TRACTION</div><div class="pageno">06 / 11</div>
-</section>
-
-<!-- SLIDE 7 · COMPETITION -->
-<section class="slide">
-  <div class="top"><span class="brand">Minds&Models</span><span class="meta">Competitive Landscape</span></div>
-  <p class="label">07 · The Moat</p>
-  <h2>The only solution uniting <span class="accent">audience depth</span> and <span class="accent">transactions.</span></h2>
-  
-  <div style="position:relative; width: 100%; max-width: 800px; margin: 30px auto 0; height: 360px; background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 20px;">
-    <!-- Axes -->
-    <div style="position:absolute; top: 10%; bottom: 10%; left: 50%; width: 1px; background: var(--line);"></div>
-    <div style="position:absolute; left: 10%; right: 10%; top: 50%; height: 1px; background: var(--line);"></div>
-    
-    <div style="position:absolute; top: 5%; left: 50%; transform: translateX(-50%); font-size: 11px; font-weight: 700; color: var(--muted); text-transform: uppercase;">High Depth of Understanding</div>
-    <div style="position:absolute; bottom: 5%; left: 50%; transform: translateX(-50%); font-size: 11px; font-weight: 700; color: var(--muted); text-transform: uppercase;">Low Depth</div>
-    
-    <div style="position:absolute; left: 5%; top: 50%; transform: translateY(-50%) rotate(-90deg); font-size: 11px; font-weight: 700; color: var(--muted); text-transform: uppercase;">No Link to POS</div>
-    <div style="position:absolute; right: -2%; top: 50%; transform: translateY(-50%) rotate(-90deg); font-size: 11px; font-weight: 700; color: var(--muted); text-transform: uppercase;">Linked to Transactions</div>
-    
-    <!-- Quadrants -->
-    <div style="position:absolute; top: 20%; left: 20%; background: #f8fafc; padding: 8px 12px; border-radius: 6px; font-size: 13px; font-weight: 600; color: var(--ink-2); border: 1px solid var(--line);">Web Analytics</div>
-    <div style="position:absolute; bottom: 20%; left: 20%; background: #f8fafc; padding: 8px 12px; border-radius: 6px; font-size: 13px; font-weight: 600; color: var(--ink-2); border: 1px solid var(--line);">Counters & Heatmaps</div>
-    <div style="position:absolute; bottom: 20%; right: 20%; background: #f8fafc; padding: 8px 12px; border-radius: 6px; font-size: 13px; font-weight: 600; color: var(--ink-2); border: 1px solid var(--line);">Loyalty Programs</div>
-    
-    <div style="position:absolute; top: 18%; right: 18%; background: var(--blue); padding: 10px 16px; border-radius: 8px; font-size: 14px; font-weight: 700; color: #fff; box-shadow: 0 4px 12px rgba(37,99,235,0.3);">Minds & Models</div>
-  </div>
-  
-  <div class="flow">COVER → PROBLEM → SOLUTION → <b>TRACTION</b></div><div class="pageno">07 / 11</div>
-</section>
-
-<!-- SLIDE 8 · BUSINESS MODEL -->
-<section class="slide">
-  <div class="top"><span class="brand">Minds&Models</span><span class="meta">Business Model</span></div>
-  <p class="label">08 · Monetization</p>
-  <h2>Expanding from <span class="accent">activation</span> to <span class="accent-co">measurement.</span></h2>
+  <div class="top"><span class="brand">Minds&Models</span><span class="meta">Primary Data Collection</span></div>
+  <p class="label">05 · RPI Demo</p>
+  <h2>Frictionless capture: <br><span class="accent">Plug & Play Edge Devices.</span></h2>
   
   <div class="two mt18" style="--l:1; --r:1; align-items: stretch;">
-    <div class="card" style="display:flex; flex-direction:column; padding: 30px;">
-      <h3 class="big" style="font-size: 18px; font-weight: 800; color: var(--ink); margin-bottom: 15px;">Revenue Today</h3>
-      <p style="font-size: 14px; color: var(--muted); margin-bottom: 25px;">In-store activation and personalization.</p>
-      <div style="font-size: 32px; font-weight: 800; color: var(--blue); margin-bottom: 5px;">€120</div>
-      <div style="font-size: 12px; font-weight: 600; text-transform: uppercase; color: var(--muted); letter-spacing: 0.05em;">per screen / month (Live)</div>
+    <div class="card" style="display:flex; flex-direction:column; justify-content:center; padding: 30px;">
+      <h3 class="big" style="font-size: 18px; font-weight: 800; color: var(--ink); margin-bottom: 15px;">Hardware Setup</h3>
+      <p style="font-size: 14px; color: var(--muted); margin-bottom: 25px;">Connect our mini-computer (RPI) with a camera to any existing screen. <b>5-minute installation.</b></p>
+      <div style="font-size: 32px; font-weight: 800; color: var(--blue); margin-bottom: 5px;">Edge AI</div>
+      <div style="font-size: 12px; font-weight: 600; text-transform: uppercase; color: var(--muted); letter-spacing: 0.05em;">Processes locally in milliseconds</div>
     </div>
     
-    <div class="card" style="display:flex; flex-direction:column; padding: 30px; border-color: var(--co); background: var(--co-soft);">
-      <h3 class="big" style="font-size: 18px; font-weight: 800; color: var(--co); margin-bottom: 15px;">Expanding: Measurement</h3>
-      <p style="font-size: 14px; color: var(--ink-2); margin-bottom: 25px;">Insight & measurement products leveraging matched POS data.</p>
+    <div class="card" style="display:flex; flex-direction:column; justify-content:center; padding: 30px; border-color: var(--co); background: var(--co-soft);">
+      <h3 class="big" style="font-size: 18px; font-weight: 800; color: var(--co); margin-bottom: 15px;">Zero Disruption</h3>
+      <p style="font-size: 14px; color: var(--ink-2); margin-bottom: 25px;">Existing screen networks remain untouched. We piggyback on them to collect data.</p>
       <ul style="list-style:none; font-size:14px; color:var(--ink-2); display:flex; flex-direction:column; gap:10px;">
         <li style="display: flex; align-items: center; gap: 8px;">
           <svg class="i" viewBox="0 0 24 24" style="color:var(--co); width:18px; height:18px;"><path d="M5 12l5 5l10 -10"/></svg>
-          <b>Studies sold</b> to major brands
+          No store layout changes
         </li>
         <li style="display: flex; align-items: center; gap: 8px;">
           <svg class="i" viewBox="0 0 24 24" style="color:var(--co); width:18px; height:18px;"><path d="M5 12l5 5l10 -10"/></svg>
-          <b>Continuous subscriptions</b> (in validation)
+          Works instantly
         </li>
       </ul>
     </div>
   </div>
   
-  <div class="flow">COVER → PROBLEM → SOLUTION → <b>TRACTION</b></div><div class="pageno">08 / 11</div>
+  <div class="flow">COVER → PROBLEM → <b>SOLUTION</b> → TRACTION</div><div class="pageno">06 / 16</div>
 </section>
 
-<!-- SLIDE 9 · TRACTION -->
+<!-- 6. Primary data interpretation -->
 <section class="slide">
-  <div class="top"><span class="brand">Minds&Models</span><span class="meta">Traction & Pipeline</span></div>
-  <p class="label">09 · Velocity</p>
-  <h2>Proven with <span class="accent">leading retailers</span> and growing fast.</h2>
+  <div class="top"><span class="brand">Minds&Models</span><span class="meta">Data Interpretation</span></div>
+  <p class="label">06 · What We See</p>
+  <h2>Beyond simple demographics: <br><span class="accent">Deep visual attributes.</span></h2>
+  
+  <div class="grid3 mt18" style="align-items: center; justify-content: center;">
+    <div class="card tile" style="text-align: center; padding: 40px 20px;">
+      <div class="v g">88+</div>
+      <div class="k">Visual Attributes</div>
+      <div class="s">Extracted per shopper in real-time.</div>
+    </div>
+    <div class="card tile" style="text-align: center; padding: 40px 20px;">
+      <div class="v b">Context</div>
+      <div class="k">Clothing, Groups & Mood</div>
+      <div class="s">We understand context, not just count faces.</div>
+    </div>
+    <div class="card tile" style="text-align: center; padding: 40px 20px;">
+      <div class="v c">Privacy</div>
+      <div class="k">100% Anonymous</div>
+      <div class="s">No faces. No identities. Aggregates only (k≥25).</div>
+    </div>
+  </div>
+  
+  <div class="flow">COVER → PROBLEM → <b>SOLUTION</b> → TRACTION</div><div class="pageno">07 / 16</div>
+</section>
+
+<!-- 7. Clustering = segmenty -->
+<section class="slide">
+  <div class="top"><span class="brand">Minds&Models</span><span class="meta">Clustering</span></div>
+  <p class="label">07 · Segments</p>
+  <h2>Transforming raw data into <br><span class="accent">actionable customer archetypes.</span></h2>
+  
+  <div class="two mt18" style="--l:1; --r:1;">
+    <div class="card" style="padding: 24px;">
+      <h3 class="big" style="color:var(--ink); font-size:16px;">Segment A: The Urban Driver (40+)</h3>
+      <p style="font-size:13px; color:var(--muted); margin-top:8px;">Suburban commuter, practical clothing, high basket value (412 CZK). <b>61% already switched to smoke-free tobacco.</b></p>
+    </div>
+    <div class="card" style="padding: 24px;">
+      <h3 class="big" style="color:var(--ink); font-size:16px;">Segment B: Gen-Z Streetwear (20+)</h3>
+      <p style="font-size:13px; color:var(--muted); margin-top:8px;">Athleisure, group shoppers. <b>Drives next-gen nicotine (Vapes 2.8x, Pouches 2.1x).</b> Highest non-combustible share (68%).</p>
+    </div>
+    <div class="card" style="padding: 24px;">
+      <h3 class="big" style="color:var(--ink); font-size:16px;">Segment C: Field Workers</h3>
+      <p style="font-size:13px; color:var(--muted); margin-top:8px;">Workwear, functional visits. <b>Loyal to combustible tobacco (Rolling tobacco 3.1x).</b> Only 22% smoke-free.</p>
+    </div>
+  </div>
+
+  <div class="tk mt18">
+    <div class="box i"><div class="l">Insight</div>Knowing the persona dictates which exact category or brand cross-sell is highly likely to convert at the shelf.</div>
+  </div>
+  
+  <div class="flow">COVER → PROBLEM → <b>SOLUTION</b> → TRACTION</div><div class="pageno">08 / 16</div>
+</section>
+
+<!-- 8. Chatting with data -->
+<section class="slide">
+  <div class="top"><span class="brand">Minds&Models</span><span class="meta">Data Interaction</span></div>
+  <p class="label">08 · Chatting with Data</p>
+  <h2>Conversational insights: <br><span class="accent">Ask your store a question.</span></h2>
+  
+  <div class="card mt18" style="padding: 40px; text-align: center;">
+    <div style="font-size: 20px; font-weight: 600; color: var(--ink-2); margin-bottom: 20px; font-style: italic;">
+      "How did our promotional end-cap perform on weekday mornings among young adults?"
+    </div>
+    <div style="width: 2px; height: 40px; background: var(--blue); margin: 0 auto 20px;"></div>
+    <div style="font-size: 16px; color: var(--muted); line-height: 1.5; max-width: 600px; margin: 0 auto;">
+      Our interactive dashboard allows natural language querying. Because we extract 88+ features in real-time, stores have a <b>24/7 deep customer intelligence layer</b> they can literally chat with.
+    </div>
+  </div>
+  
+  <div class="flow">COVER → PROBLEM → <b>SOLUTION</b> → TRACTION</div><div class="pageno">09 / 16</div>
+</section>
+
+<!-- 9. POS data - connection to persona -->
+<section class="slide">
+  <div class="top"><span class="brand">Minds&Models</span><span class="meta">POS Connection</span></div>
+  <p class="label">09 · The Wedge</p>
+  <h2>We connect <span class="accent">who buys</span> (visual behavior) <br>with <span class="accent">what sold</span> (receipt).</h2>
+  
+  <div class="grid3 mt18" style="align-items: center; justify-content: center;">
+    <div class="card tile" style="text-align: center; padding: 40px 20px; background: var(--blue-soft); border-color: var(--blue-100);">
+      <div class="v b">92%</div>
+      <div class="k">Matched Orders</div>
+      <div class="s">Live POS matching achieved in GymBeam pilot.</div>
+    </div>
+    <div class="card tile" style="text-align: center; padding: 40px 20px;">
+      <div class="v c">No Cards</div>
+      <div class="k">Zero Friction</div>
+      <div class="s">Loyalty programs capture ~30%. We capture >90%.</div>
+    </div>
+    <div class="card tile" style="text-align: center; padding: 40px 20px;">
+      <div class="v c">Receipt Level</div>
+      <div class="k">Line Item Granularity</div>
+      <div class="s">Tying visual traits directly to the SKUs purchased.</div>
+    </div>
+  </div>
+
+  <div class="tk" style="margin-top:auto">
+    <div class="box i"><div class="l">The Holy Grail</div>This closed-loop in-store measurement exists nowhere else. It's the ultimate measurement currency.</div>
+  </div>
+  
+  <div class="flow">COVER → PROBLEM → <b>SOLUTION</b> → TRACTION</div><div class="pageno">10 / 16</div>
+</section>
+
+<!-- 10. Who is customer -->
+<section class="slide">
+  <div class="top"><span class="brand">Minds&Models</span><span class="meta">Customers</span></div>
+  <p class="label">10 · The Ecosystem</p>
+  <h2>Value created across the <span class="accent">entire retail chain.</span></h2>
+  
+  <div class="grid3 mt18">
+    <div class="card" style="padding: 24px;">
+      <h3 class="big" style="color:var(--blue); font-size:18px; margin-bottom:12px;">1. Retailers</h3>
+      <p style="font-size:13px; color:var(--muted); line-height: 1.4;">
+        <b>Value:</b> Free insights & retail media monetization.<br><br>
+        We tell them what to change and prove it worked. They license the anonymized aggregates and keep full control of their audience.
+      </p>
+    </div>
+    <div class="card" style="padding: 24px;">
+      <h3 class="big" style="color:var(--pos); font-size:18px; margin-bottom:12px;">2. Brands</h3>
+      <p style="font-size:13px; color:var(--muted); line-height: 1.4;">
+        <b>Value:</b> Measurement & targeted advertising.<br><br>
+        Brands finally get closed-loop measurement for offline spending. They buy studies, category subscriptions, and ad placements.
+      </p>
+    </div>
+    <div class="card" style="padding: 24px;">
+      <h3 class="big" style="color:var(--amber); font-size:18px; margin-bottom:12px;">3. Data Brokers</h3>
+      <p style="font-size:13px; color:var(--muted); line-height: 1.4;">
+        <b>Value:</b> The missing layer.<br><br>
+        Brokers own "what sold." We provide the missing "who buys" schema, distributing insights at scale.
+      </p>
+    </div>
+  </div>
+  
+  <div class="flow">COVER → PROBLEM → SOLUTION → <b>BUSINESS</b></div><div class="pageno">11 / 16</div>
+</section>
+
+<!-- 11. Go to market -->
+<section class="slide">
+  <div class="top"><span class="brand">Minds&Models</span><span class="meta">Go To Market</span></div>
+  <p class="label">11 · GTM Strategy</p>
+  <h2>From <span class="accent">pilot studies</span> to <span class="accent">channel currency.</span></h2>
+  
+  <div class="card mt18" style="padding: 30px;">
+    <div style="display: flex; flex-direction: column; gap: 20px;">
+      <div style="display: flex; gap: 20px; align-items: center;">
+        <div style="width: 40px; height: 40px; background: var(--line); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 800; color: var(--muted);">T0</div>
+        <div>
+          <div style="font-size: 16px; font-weight: 700; color: var(--ink);">Insight Study (One-off)</div>
+          <div style="font-size: 13px; color: var(--muted); margin-top: 4px;">150k – 500k CZK. Fast entry, validating the technology and discovering initial persona-driven insights.</div>
+        </div>
+      </div>
+      <div style="display: flex; gap: 20px; align-items: center;">
+        <div style="width: 40px; height: 40px; background: var(--blue-100); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 800; color: var(--blue);">T1</div>
+        <div>
+          <div style="font-size: 16px; font-weight: 700; color: var(--ink);">Chain-Category Subscription</div>
+          <div style="font-size: 13px; color: var(--muted); margin-top: 4px;">1M – 3M CZK/yr/brand (30-60 stores). Ongoing access to POS-matched behavioral trends.</div>
+        </div>
+      </div>
+      <div style="display: flex; gap: 20px; align-items: center;">
+        <div style="width: 40px; height: 40px; background: var(--co-soft); border-color: var(--co); border: 1px solid; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 800; color: var(--co);">T2</div>
+        <div>
+          <div style="font-size: 16px; font-weight: 700; color: var(--ink);">Channel Currency</div>
+          <div style="font-size: 13px; color: var(--muted); margin-top: 4px;">3M – 8M CZK/yr/brand (150-300 stores, ≥2 chains). The standard measurement for an entire retail channel.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="flow">COVER → PROBLEM → SOLUTION → <b>BUSINESS</b></div><div class="pageno">12 / 16</div>
+</section>
+
+<!-- 12. Unit Economics -->
+<section class="slide">
+  <div class="top"><span class="brand">Minds&Models</span><span class="meta">Unit Economics</span></div>
+  <p class="label">12 · Unit Economics</p>
+  <h2>High margin at <span class="accent">insights</span>, moat at <span class="accent">data collection.</span></h2>
+  
+  <div class="grid3 mt18" style="align-items: stretch;">
+    <div class="card tile" style="text-align: center; padding: 40px 20px;">
+      <div class="v b">&lt; 1k CZK</div>
+      <div class="k">Hardware Cost / Mo</div>
+      <div class="s">All-in cost per store per month. Highly scalable.</div>
+    </div>
+    <div class="card tile" style="text-align: center; padding: 40px 20px;">
+      <div class="v c">€120</div>
+      <div class="k">Revenue / Device / Mo</div>
+      <div class="s">Base price for in-store personalization activation.</div>
+    </div>
+    <div class="card tile" style="text-align: center; padding: 40px 20px;">
+      <div class="v g">40–70%</div>
+      <div class="k">Retailer Rev Share</div>
+      <div class="s">Data/Measurement (40-50%); Retail Media (60-70%). Retailer-as-monetizer model.</div>
+    </div>
+  </div>
+  
+  <div class="flow">COVER → PROBLEM → SOLUTION → <b>BUSINESS</b></div><div class="pageno">13 / 16</div>
+</section>
+
+<!-- 13. Business Plan -->
+<section class="slide">
+  <div class="top"><span class="brand">Minds&Models</span><span class="meta">Business Plan</span></div>
+  <p class="label">13 · Market Expansion</p>
+  <h2>Capturing the <span class="accent">syndicated measurement</span> and retail media markets.</h2>
+  
+  <div class="two mt18" style="--l:1; --r:1; align-items: stretch;">
+    <div class="card" style="padding: 30px;">
+      <h3 class="big" style="font-size: 18px; font-weight: 800; margin-bottom: 15px;">Local Validation (CZ)</h3>
+      <div style="font-size: 28px; font-weight: 800; color: var(--ink); margin-bottom: 8px;">250–500M <span style="font-size: 16px; font-weight: 600; color: var(--muted);">CZK/yr</span></div>
+      <p style="font-size: 14px; color: var(--muted); margin-bottom: 15px;">Current CZ syndicated measurement market size. We target a <b>40-80M CZK capture path</b> on our active pipeline alone.</p>
+    </div>
+    
+    <div class="card" style="padding: 30px; border-color: var(--blue); background: var(--blue-soft);">
+      <h3 class="big" style="font-size: 18px; font-weight: 800; color: var(--blue); margin-bottom: 15px;">European Scale (~2030)</h3>
+      <div style="font-size: 28px; font-weight: 800; color: var(--blue); margin-bottom: 8px;">€28.8B <span style="font-size: 16px; font-weight: 600; color: var(--muted);">Market</span></div>
+      <p style="font-size: 14px; color: var(--ink-2); margin-bottom: 15px;">EU retail media market size by 2028. It is arriving without audience proof — we provide the missing measurement layer.</p>
+    </div>
+  </div>
+  
+  <div class="flow">COVER → PROBLEM → SOLUTION → <b>BUSINESS</b></div><div class="pageno">14 / 16</div>
+</section>
+
+<!-- 14. Traction -->
+<section class="slide">
+  <div class="top"><span class="brand">Minds&Models</span><span class="meta">Traction</span></div>
+  <p class="label">14 · Traction</p>
+  <h2>Velocity: From <span class="accent">zero</span> to <span class="accent">8 chains</span> in 3.5 months.</h2>
   
   <div class="grid4 mt18">
     <div class="card tile" style="text-align: center; padding: 30px 10px;">
       <div class="v b">4</div>
       <div class="k">Live Chain Pilots</div>
-      <div class="s">Across multiple retail segments.</div>
-    </div>
-    <div class="card tile" style="text-align: center; padding: 30px 10px;">
-      <div class="v b">92%</div>
-      <div class="k">Match Rate</div>
-      <div class="s">Proven POS matching in flagship case study.</div>
+      <div class="s">Rapid deployment.</div>
     </div>
     <div class="card tile" style="text-align: center; padding: 30px 10px;">
       <div class="v b">8</div>
       <div class="k">Chains in Pipeline</div>
-      <div class="s">Accelerated from 0 to 8 in just 3.5 months.</div>
+      <div class="s">Strong market pull.</div>
     </div>
     <div class="card tile" style="text-align: center; padding: 30px 10px;">
       <div class="v c">~4k</div>
       <div class="k">Store Footprint</div>
-      <div class="s">Potential reach of current pipeline.</div>
+      <div class="s">Total stores in active pipeline.</div>
+    </div>
+    <div class="card tile" style="text-align: center; padding: 30px 10px;">
+      <div class="v g">92%</div>
+      <div class="k">POS Match Rate</div>
+      <div class="s">Proven at GymBeam.</div>
     </div>
   </div>
   
-  <div class="flow">COVER → PROBLEM → SOLUTION → <b>TRACTION</b></div><div class="pageno">09 / 11</div>
+  <div class="tk mt18">
+    <div class="box i"><div class="l">Momentum</div>Our flagship pilots are converting into continuous deployments. We have the data and the use-cases to lock in the initial markets.</div>
+  </div>
+  
+  <div class="flow">COVER → PROBLEM → SOLUTION → <b>TRACTION</b></div><div class="pageno">15 / 16</div>
 </section>
 
-<!-- SLIDE 10 · MARKET -->
-<section class="slide">
-  <div class="top"><span class="brand">Minds&Models</span><span class="meta">Market Size</span></div>
-  <p class="label">10 · The Opportunity</p>
-  <h2>Creating the <span class="accent">measurement currency</span> for physical retail.</h2>
-  
-  <div class="grid3 mt18" style="align-items: stretch;">
-    <div class="card" style="padding: 24px;">
-      <div style="font-size: 11px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 12px;">Capture Path</div>
-      <div style="font-size: 28px; font-weight: 800; color: var(--ink); margin-bottom: 8px;">40–80M <span style="font-size: 16px; font-weight: 600; color: var(--muted);">CZK/yr</span></div>
-      <p style="font-size: 13px; color: var(--muted); line-height: 1.4;">Conditioned on current pipeline execution in the Czech market.</p>
-    </div>
-    <div class="card" style="padding: 24px;">
-      <div style="font-size: 11px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 12px;">Full CZ Market</div>
-      <div style="font-size: 28px; font-weight: 800; color: var(--ink); margin-bottom: 8px;">100–200M <span style="font-size: 16px; font-weight: 600; color: var(--muted);">CZK/yr</span></div>
-      <p style="font-size: 13px; color: var(--muted); line-height: 1.4;">Projected market capture within CZ syndicated measurement.</p>
-    </div>
-    <div class="card" style="padding: 24px; background: var(--blue-soft); border-color: var(--blue-100);">
-      <div style="font-size: 11px; font-weight: 700; color: var(--blue); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 12px;">European Expansion</div>
-      <div style="font-size: 28px; font-weight: 800; color: var(--blue); margin-bottom: 8px;">from ~2030</div>
-      <p style="font-size: 13px; color: var(--ink-2); line-height: 1.4;">Scaling the measurement layer across European retail media.</p>
-    </div>
-  </div>
-
-  <div class="tk" style="margin-top:auto">
-    <div class="box i"><div class="l">Context</div>The Czech syndicated measurement market is currently valued at 250-500M CZK/yr. We are introducing a fundamentally new layer of actionable, behavioral data.</div>
-  </div>
-  
-  <div class="flow">COVER → PROBLEM → SOLUTION → <b>TRACTION</b></div><div class="pageno">10 / 11</div>
-</section>
-
-<!-- SLIDE 11 · VISION -->
+<!-- 15. Investment -->
 <section class="slide center">
   <div class="top" style="position:absolute; top:34px; left:54px; right:54px; margin:0">
     <span class="brand">Minds&Models</span>
-    <span class="meta">Our Vision</span>
+    <span class="meta">Investment</span>
   </div>
-  <p class="label">11 · The Future</p>
-  <h1>The first recommender system<br><span class="accent-co">for physical stores.</span></h1>
-  <p class="lead mt14" style="max-width:70ch">Once stores know their customers, we power what they do with it.</p>
+  <p class="label">15 · The Ask</p>
+  <h1>Fueling the <span class="accent-co">measurement standard</span><br>for physical retail.</h1>
+  <p class="lead mt14" style="max-width:70ch">We are raising capital to accelerate our chain deployments and lock in the data layer across Central Europe.</p>
   
-  <div class="flow">COVER → PROBLEM → SOLUTION → <b>VISION</b></div><div class="pageno">11 / 11</div>
+  <div class="flow">COVER → PROBLEM → SOLUTION → <b>INVESTMENT</b></div><div class="pageno">16 / 16</div>
 </section>
 
 </div>
