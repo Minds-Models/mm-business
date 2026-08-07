@@ -30,7 +30,7 @@ html,body{background:#dfe3e8;
 .brand .amp{font-family:'Times New Roman',serif; font-style:italic; font-weight:400}
 .brand .co{display:inline-flex; align-items:center; gap:6px; font-weight:700; color:var(--co)}
 .brand .dot{width:16px; height:16px; border-radius:4px; background:var(--co)}
-.brand img{display:block; height:18px; width:auto} /* Added styling for actual logo */
+.brand img{display:block; height:28px; width:auto} /* Increased styling for actual logo */
 .meta{font-size:11px; color:var(--muted); text-align:right; line-height:1.4}
 .label{font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:var(--blue); margin-bottom:9px}
 h1{font-size:44px; font-weight:800; letter-spacing:-.03em; line-height:1.05}
@@ -96,27 +96,49 @@ svg.i{width:16px; height:16px; flex:none; stroke:currentColor; fill:none; stroke
   <p class="label">01 · The Ecosystem</p>
   <h2>Value created across the <span class="accent">entire retail chain.</span></h2>
   
-  <div class="grid3 mt18">
-    <div class="card" style="padding: 24px;">
-      <h3 class="big" style="color:var(--blue); font-size:18px; margin-bottom:12px;">1. Retailers</h3>
-      <p style="font-size:13px; color:var(--muted); line-height: 1.4;">
-        <b>Value:</b> Free insights & retail media monetization.<br><br>
-        We tell them what to change and prove it worked. They license the anonymized aggregates and keep full control of their audience.
-      </p>
+  <div style="display:flex; flex-direction:column; gap:12px; margin-top:14px; align-items:center; width:100%;">
+    
+    <!-- Top Row: Brands -->
+    <div class="card" style="width:100%; max-width:500px; padding:16px; text-align:center; border-color:var(--pos); box-shadow:0 4px 14px rgba(5,150,105,0.1);">
+      <h3 class="big" style="color:var(--pos); justify-content:center; font-size:16px; margin-bottom:6px;">Brands & Advertisers</h3>
+      <p style="font-size:13px; color:var(--muted);">Pay <b>CASH</b> for closed-loop measurement, studies, and targeted retail media.</p>
     </div>
-    <div class="card" style="padding: 24px;">
-      <h3 class="big" style="color:var(--pos); font-size:18px; margin-bottom:12px;">2. Brands</h3>
-      <p style="font-size:13px; color:var(--muted); line-height: 1.4;">
-        <b>Value:</b> Measurement & targeted advertising.<br><br>
-        Brands finally get closed-loop measurement for offline spending. They buy studies, category subscriptions, and ad placements.
-      </p>
+
+    <!-- Arrow down -->
+    <div style="display:flex; align-items:center; justify-content:center; gap:8px; color:var(--pos); font-weight:800; font-size:12px;">
+      <svg class="i" viewBox="0 0 24 24" style="width:20px; height:20px; stroke:currentColor; stroke-width:3;"><path d="M12 4v16m-6-6l6 6l6-6"/></svg>
+      <span>$$$ Revenue $$$</span>
     </div>
-    <div class="card" style="padding: 24px;">
-      <h3 class="big" style="color:var(--amber); font-size:18px; margin-bottom:12px;">3. Data Brokers</h3>
-      <p style="font-size:13px; color:var(--muted); line-height: 1.4;">
-        <b>Value:</b> The missing layer.<br><br>
-        Brokers own "what sold." We provide the missing "who buys" schema, distributing insights at scale.
-      </p>
+
+    <!-- Middle: Minds & Models -->
+    <div class="card" style="width:100%; max-width:700px; padding:20px; text-align:center; background:var(--blue-soft); border-color:var(--blue); box-shadow:0 8px 24px rgba(37,99,235,0.15);">
+      <h3 class="big" style="color:var(--blue); justify-content:center; font-size:18px; margin-bottom:8px;">Minds & Models (Intelligence Layer)</h3>
+      <p style="font-size:14px; color:var(--ink-2);">We collect data at the shelf (the moat), generate insights, and enable execution.</p>
+    </div>
+
+    <!-- Split Arrows down -->
+    <div style="display:flex; width:100%; max-width:700px; justify-content:space-between; padding:0 80px;">
+      <div style="display:flex; flex-direction:column; align-items:center; color:var(--blue); font-weight:800; font-size:12px; transform:translate(-20px, 0);">
+        <svg class="i" viewBox="0 0 24 24" style="width:20px; height:20px; stroke:currentColor; stroke-width:3; transform:rotate(-25deg);"><path d="M12 4v16m-6-6l6 6l6-6"/></svg>
+        <span style="margin-top:4px;">40–70% Rev Share</span>
+      </div>
+      <div style="display:flex; flex-direction:column; align-items:center; color:var(--amber); font-weight:800; font-size:12px; transform:translate(20px, 0);">
+        <svg class="i" viewBox="0 0 24 24" style="width:20px; height:20px; stroke:currentColor; stroke-width:3; transform:rotate(25deg);"><path d="M12 4v16m-6-6l6 6l6-6"/></svg>
+        <span style="margin-top:4px;">Data & Schema</span>
+      </div>
+    </div>
+
+    <!-- Bottom Row: Retailers & Brokers -->
+    <div style="display:flex; gap:24px; width:100%; max-width:800px;">
+      <div class="card" style="flex:1; padding:16px; text-align:center;">
+        <h3 class="big" style="color:var(--blue); justify-content:center; font-size:16px; margin-bottom:6px;">Retailers</h3>
+        <p style="font-size:12px; color:var(--muted);">Pay in <b>RIGHTS</b>. They license anonymized aggregates, keep full control, and receive a majority revenue share.</p>
+      </div>
+      
+      <div class="card" style="flex:1; padding:16px; text-align:center; border-color:var(--amber); background:var(--amber-soft);">
+        <h3 class="big" style="color:var(--amber); justify-content:center; font-size:16px; margin-bottom:6px;">Data Brokers</h3>
+        <p style="font-size:12px; color:var(--ink-2);">Provide distribution. They own "what sold", we add the missing "who buys" schema.</p>
+      </div>
     </div>
   </div>
   
