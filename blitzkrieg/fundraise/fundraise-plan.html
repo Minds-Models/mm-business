@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blitzkrieg Action Plan | Minds & Models</title>
+    <style>
+        :root {
+            /* Minds & Models brand tokens */
+            --paper: #fbfaf9;
+            --surface: #ffffff;
+            --surface-2: #f2efec;
+            --line: #e3e0dc;
+            --line-soft: #efece9;
+
+            --ink: #1a1a1a;
+            --ink-2: #4a4a48;
+            --muted: #8a8781;
+
+            --accent: #3d6bfb;
+            --accent-soft: #e8edfe;
+            --negative: #c0504d;
+            --negative-soft: #f7eae8;
+            --positive: #1f6f4a;
+            --positive-soft: #e8f4ee;
+            --warn: #A8621A;
+            --warn-soft: #F8EFE3;
+            --gold: #9A7B1F;
+            
+            --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --numeric: 'Inter', sans-serif;
+            
+            --shadow: 0 4px 12px rgba(26, 26, 26, 0.05);
+            --shadow-sm: 0 1px 3px rgba(26, 26, 26, 0.04);
+        }
+        
+        body {
+            font-family: var(--sans);
+            background-color: var(--paper);
+            color: var(--ink);
+            margin: 0;
+            padding: 40px 20px;
+            line-height: 1.55;
+            -webkit-font-smoothing: antialiased;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* --- HEADER & INTRO --- */
+        header {
+            margin-bottom: 40px;
+        }
+        .eyebrow {
+            font-size: 0.75rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--negative);
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+        h1 {
+            font-size: clamp(32px, 5vw, 48px);
+            margin: 0 0 16px 0;
+            color: var(--ink);
+            letter-spacing: -0.02em;
+            text-wrap: balance;
+            font-weight: 700;
+        }
+        .kicker {
+            color: var(--ink-2);
+            font-size: 18px;
+            max-width: 75ch;
+            margin-bottom: 32px;
+        }
+
+        .params-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+            margin-bottom: 40px;
+        }
+        .param-card {
+            background: var(--surface);
+            padding: 24px;
+            border-radius: 12px;
+            border: 1px solid var(--line);
+            box-shadow: var(--shadow-sm);
+        }
+        .param-card.highlight {
+            border-top: 4px solid var(--accent);
+        }
+        .param-card.alert {
+            border-top: 4px solid var(--negative);
+            background: var(--negative-soft);
+        }
+        .param-card h3 {
+            margin: 0 0 8px 0;
+            font-size: 12px;
+            color: var(--muted);
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+        }
+        .param-card .value {
+            font-size: 28px;
+            color: var(--ink);
+            font-weight: 700;
+            font-family: var(--numeric);
+            font-variant-numeric: tabular-nums;
+            margin: 0;
+        }
+        .param-card .sub {
+            font-size: 13px;
+            color: var(--ink-2);
+            margin: 8px 0 0 0;
+        }
+
+        /* --- THE VC CASE (EXPANDABLE) --- */
+        details.vc-case {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 16px 24px;
+            margin-bottom: 40px;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.2s ease;
+        }
+        details.vc-case[open] {
+            box-shadow: var(--shadow);
+            border-color: var(--accent);
+        }
+        details.vc-case summary {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--ink);
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            outline: none;
+        }
+        details.vc-case summary::-webkit-details-marker {
+            display: none;
+        }
+        details.vc-case summary::before {
+            content: '+';
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
+            background: var(--accent-soft);
+            color: var(--accent);
+            margin-right: 12px;
+            font-size: 20px;
+            transition: transform 0.2s;
+        }
+        details.vc-case[open] summary::before {
+            content: '−';
+            transform: rotate(180deg);
+        }
+        .vc-case-content {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px dashed var(--line);
+        }
+        .vc-case-content ul {
+            padding-left: 20px;
+            margin: 0;
+        }
+        .vc-case-content li {
+            margin-bottom: 12px;
+            font-size: 15px;
+            color: var(--ink-2);
+            line-height: 1.5;
+        }
+        .vc-case-content li strong {
+            color: var(--ink);
+        }
+
+        /* --- STRATEGIC PILLARS --- */
+        .pillars-section {
+            margin-bottom: 48px;
+        }
+        .pillars-section h2 {
+            font-size: 22px;
+            margin: 0 0 16px 0;
+            border-bottom: 2px solid var(--ink);
+            padding-bottom: 12px;
+        }
+        .pillars-section p {
+            color: var(--ink-2);
+            margin-bottom: 24px;
+            font-size: 15px;
+        }
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 16px;
+        }
+        .pillar-card {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: var(--shadow-sm);
+            position: relative;
+            overflow: hidden;
+        }
+        .pillar-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--accent);
+        }
+        .pillar-card.p-fund::before { background: var(--gold); }
+        .pillar-card.p-brand::before { background: var(--positive); }
+        .pillar-card.p-ret::before { background: var(--accent); }
+        .pillar-card.p-brok::before { background: var(--warn); }
+        .pillar-card.p-alt::before { background: var(--muted); }
+
+        .pillar-card h3 {
+            margin: 0 0 8px 0;
+            font-size: 16px;
+            color: var(--ink);
+        }
+        .pillar-card .pillar-goal {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--ink-2);
+            margin-bottom: 8px;
+            padding-bottom: 8px;
+            border-bottom: 1px dashed var(--line);
+        }
+        .pillar-card .pillar-outcome {
+            font-size: 12.5px;
+            color: var(--muted);
+            line-height: 1.4;
+            margin: 0;
+        }
+        .pillar-card .pillar-outcome strong {
+            color: var(--ink-2);
+        }
+
+        /* --- MAJOR MILESTONES --- */
+        .milestones-section {
+            background: var(--surface);
+            border-radius: 12px;
+            padding: 32px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--line);
+            margin-bottom: 48px;
+        }
+        .milestones-section h2 {
+            margin: 0 0 24px 0;
+            font-size: 22px;
+        }
+        .stepper {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            margin-top: 10px;
+        }
+        .stepper::before {
+            content: '';
+            position: absolute;
+            top: 16px;
+            left: 20px;
+            right: 20px;
+            height: 2px;
+            background: var(--line);
+            z-index: 0;
+        }
+        .step {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            width: 18%;
+        }
+        .step-circle {
+            width: 34px;
+            height: 34px;
+            background: var(--surface);
+            border: 2px solid var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 12px;
+        }
+        .step.done .step-circle {
+            background: var(--positive);
+            border-color: var(--positive);
+            color: white;
+        }
+        .step.final .step-circle {
+            background: var(--gold);
+            border-color: var(--gold);
+            color: white;
+        }
+        .step-date {
+            font-size: 12px;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        .step-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--ink);
+        }
+
+        /* --- WEEKLY TIMELINE --- */
+        h2.section-title {
+            font-size: 26px;
+            border-bottom: 2px solid var(--ink);
+            padding-bottom: 12px;
+            margin-bottom: 32px;
+        }
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        .week-card {
+            background: var(--surface);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--line);
+            overflow: hidden;
+            position: relative;
+        }
+        .week-card.ooo {
+            background: var(--surface-2);
+            opacity: 0.8;
+            border: 1px dashed var(--muted);
+        }
+        .week-header {
+            background: var(--surface-2);
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--line);
+        }
+        .week-card.ooo .week-header {
+            background: var(--negative-soft);
+            border-bottom: 1px dashed var(--negative);
+        }
+        .week-title {
+            font-weight: 700;
+            font-size: 18px;
+            color: var(--ink);
+        }
+        .week-date {
+            font-size: 13px;
+            color: var(--ink-2);
+            background: var(--surface);
+            padding: 4px 10px;
+            border-radius: 6px;
+            border: 1px solid var(--line);
+            font-weight: 600;
+        }
+        .task-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .task-item {
+            display: flex;
+            align-items: flex-start;
+            padding: 20px 24px;
+            border-bottom: 1px solid var(--line-soft);
+        }
+        .task-item:last-child {
+            border-bottom: none;
+        }
+        
+        /* Checkbox styling */
+        .checkbox-wrapper {
+            margin-right: 16px;
+            margin-top: 2px;
+        }
+        .checkbox {
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--muted);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .checkbox:checked {
+            background-color: var(--positive);
+            border-color: var(--positive);
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+            background-size: 14px;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .task-content {
+            flex: 1;
+        }
+        
+        .category-tag {
+            display: inline-block;
+            font-size: 10px;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .tag-traction { background: var(--positive-soft); color: var(--positive); }
+        .tag-collateral { background: var(--surface-2); color: var(--ink-2); }
+        .tag-investor { background: var(--accent-soft); color: var(--accent); }
+        .tag-closing { background: var(--warn-soft); color: var(--warn); }
+        
+        .task-desc {
+            font-size: 15px;
+            color: var(--ink);
+            margin: 0;
+            line-height: 1.5;
+        }
+        .task-desc strong {
+            font-weight: 600;
+            color: var(--accent);
+        }
+        .task-desc .metric {
+            display: inline-block;
+            background: var(--surface-2);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: var(--numeric);
+            font-weight: 600;
+            font-size: 13px;
+            border: 1px solid var(--line);
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="eyebrow">Operation Blitzkrieg</div>
+        <h1>13-Week Blitzkrieg to Nov 21</h1>
+        <p class="kicker">A massive, synchronized push across 5 interconnected company pillars. The objective: secure €500k at a €6M pre-money cap by November 21st, 2026. This timeline focuses strictly on the <strong>Fundraising execution</strong> and its direct dependencies.</p>
+        
+        <div class="params-grid">
+            <div class="param-card highlight">
+                <h3>Target Raise</h3>
+                <p class="value">€500k</p>
+                <p class="sub">Pre-Seed Round</p>
+            </div>
+            <div class="param-card">
+                <h3>Valuation Cap</h3>
+                <p class="value">€6.0M</p>
+                <p class="sub">Pre-Money</p>
+            </div>
+            <div class="param-card alert">
+                <h3 style="color: var(--negative);">Founder Availability</h3>
+                <p class="value" style="font-size: 22px;">Ondrej OOO</p>
+                <p class="sub">Sep 21st - Sep 28th</p>
+            </div>
+            <div class="param-card">
+                <h3>Deadline</h3>
+                <p class="value">Nov 21</p>
+                <p class="sub">Money in bank account</p>
+            </div>
+        </div>
+
+        <details class="vc-case">
+            <summary>The VC Case: Why We Are a €100M+ Exit</summary>
+            <div class="vc-case-content">
+                <ul>
+                    <li><strong>The Target:</strong> €100-150M strategic acquisition by 2031 (10-16x return for this €6M cap Seed round).</li>
+                    <li><strong>The Buyer:</strong> NielsenIQ, Circana, Kantar, or Retail Media networks who structurally lack the "who bought" layer in physical retail.</li>
+                    <li><strong>The Valuation Arbitrage:</strong> We are building a <em>measurement currency</em> (trades at 8-12x ARR), not a mixed SaaS tool (trades at 5x). We only need €8-12.5M ARR by 2031 to hit our €100-150M exit target.</li>
+                    <li><strong>The Defensible Moat:</strong> We secure <em>perpetual aggregate data rights</em> across multiple retailers. An acquirer cannot recreate this cross-retailer network overnight; they must buy us or face disruption.</li>
+                    <li><strong>The Win-Win Wedge:</strong> We don't buy data from retailers (which they refuse). We build them their own dunnhumby-style profit center. They monetize their audience, we take the infra margin and the aggregate rights.</li>
+                </ul>
+            </div>
+        </details>
+
+        <details class="vc-case">
+            <summary>The Pivot Narrative: Re-engaging Warm Leads</summary>
+            <div class="vc-case-content">
+                <p style="margin-top: 0; color: var(--ink-2); font-size: 15px;"><strong>How to frame the shift to investors who passed on the old model:</strong></p>
+                <ul>
+                    <li><strong>Acknowledge the Shift:</strong> "Since we last spoke, we've made a major strategic shift. We realized the personalization / SaaS model capped our ceiling. We've pivoted to become a <em>measurement currency</em>."</li>
+                    <li><strong>The Revenue Unlock:</strong> "We stopped trying to sell data back to retailers (which they hate because it costs them leverage) and started building their own Retail Media networks for them. The retailers keep the majority, but we keep the <em>aggregate data rights</em>."</li>
+                    <li><strong>The Valuation Multiplier:</strong> "This shifts our trajectory from a mixed SaaS (5x multiple) to an independent measurement currency (8-12x multiple). It’s the exact model that made NielsenIQ a $4B company."</li>
+                    <li><strong>The Catalyst:</strong> "We are raising this €500k to execute on our first 3 major retailer signatures that prove this cross-retailer moat and to kickstart our European and grocery expansion."</li>
+                </ul>
+            </div>
+        </details>
+
+        <details class="vc-case">
+            <summary>Pitch Deck Checklist: The Currency Narrative</summary>
+            <div class="vc-case-content">
+                <p style="margin-top: 0; color: var(--ink-2); font-size: 15px;"><strong>Core 10-12 slides needed to raise at the €6M cap:</strong></p>
+                <ul>
+                    <li><strong>1. The Vision:</strong> Building the missing "Who Bought" layer for physical retail.</li>
+                    <li><strong>2. The Problem:</strong> Brands have endless budget for measurement, but current POS data only shows "What Sold".</li>
+                    <li><strong>3. The Solution & Product:</strong> Visual data infrastructure providing in-store, closed-loop measurement (and personas for mid-tier brands).</li>
+                    <li><strong>4. The Win-Win Business Model:</strong> Retailers monetize their own audience (Retailer-as-Monetizer). We take an infrastructure margin. Trading data is strictly firewalled.</li>
+                    <li><strong>5. The Moat & Valuation Asset:</strong> We retain perpetual aggregate data rights across all retailers. This cross-retailer aggregate is what acquirers will pay a premium (8-12x) for.</li>
+                    <li><strong>6. Traction & Pipeline:</strong> SuperZoo DPA, EuroOil timeline, and the €250k-500k brand LOIs (JTI/PMI) proving willingness to pay.</li>
+                    <li><strong>7. The €100-150M Exit Path:</strong> Reverse-engineered math showing we only need €8-12.5M ARR to achieve a €100-150M exit by 2031, returning 10-16x on this round.</li>
+                    <li><strong>8. Competition / The Acquirer Matrix:</strong> Why NielsenIQ, Circana, or Nectar360 will buy us rather than compete with us.</li>
+                    <li><strong>9. Team:</strong> Why we are the only team that can pull off this complex B2B/Retailer/Brand triangle.</li>
+                    <li><strong>10. The Ask:</strong> €500k at a €6M pre-money cap to lock the first 3 retail mandates, launch the cross-retailer aggregate v1, and seed European/grocery expansion.</li>
+                </ul>
+            </div>
+        </details>
+    </header>
+
+    <section class="pillars-section">
+        <h2>The 5 Pillars of the Blitzkrieg</h2>
+        <p>To succeed in the Fundraising pillar, we must hit precise targets in the other four. They are fully interconnected.</p>
+        <div class="pillars-grid">
+            <div class="pillar-card p-fund">
+                <h3>Fundraising</h3>
+                <div class="pillar-goal">€500k @ €6M Pre</div>
+                <p class="pillar-outcome"><strong>Outcome:</strong> Close the round by leveraging the outcomes of the other 4 pillars to justify an 8-12x "currency" valuation.</p>
+            </div>
+            <div class="pillar-card p-brand">
+                <h3>Brands</h3>
+                <div class="pillar-goal">2 paying, 3 committed (Min ARR €70k)</div>
+                <p class="pillar-outcome"><strong>Outcome:</strong> Proves audience monetization model and willingness to pay (the revenue engine).</p>
+            </div>
+            <div class="pillar-card p-ret">
+                <h3>Retailers</h3>
+                <div class="pillar-goal">2x Mandates (>60% margin, stat-sig, seat depth)</div>
+                <p class="pillar-outcome"><strong>Outcome:</strong> Proves the exclusive data asset and cross-retailer moat that acquirers want.</p>
+            </div>
+            <div class="pillar-card p-brok">
+                <h3>Data Brokers</h3>
+                <div class="pillar-goal">Establish relationship (NielsenIQ, etc.)</div>
+                <p class="pillar-outcome"><strong>Outcome:</strong> Validates the strategic exit path and the high "currency" multiple to investors.</p>
+            </div>
+            <div class="pillar-card p-alt">
+                <h3>Alt Data Sources</h3>
+                <div class="pillar-goal">Validate non-visual data alternatives</div>
+                <p class="pillar-outcome"><strong>Outcome:</strong> De-risks hardware and privacy concerns during investor due diligence.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="milestones-section">
+        <h2>Major Fundraising Milestones</h2>
+        <div class="stepper">
+            <div class="step">
+                <div class="step-circle">1</div>
+                <div class="step-date">Sep 6</div>
+                <div class="step-title">Pitch & Narrative Ready</div>
+            </div>
+            <div class="step">
+                <div class="step-circle">2</div>
+                <div class="step-date">Sep 20</div>
+                <div class="step-title">Pipeline Pushed Aggressively</div>
+            </div>
+            <div class="step">
+                <div class="step-circle">3</div>
+                <div class="step-date">Oct 16</div>
+                <div class="step-title">Lead Term Sheet Signed</div>
+            </div>
+            <div class="step">
+                <div class="step-circle">4</div>
+                <div class="step-date">Nov 8</div>
+                <div class="step-title">Due Diligence Completed</div>
+            </div>
+            <div class="step final">
+                <div class="step-circle">5</div>
+                <div class="step-date">Nov 21</div>
+                <div class="step-title">Funds Wired & Confirmed</div>
+            </div>
+        </div>
+    </section>
+
+    <h2 class="section-title">Weekly SMART Goals</h2>
+    
+    <div class="timeline">
+        <!-- W1 -->
+        <div class="week-card">
+            <div class="week-header">
+                <span class="week-title">Week 1: Resources & Pilot Narrative</span>
+                <span class="week-date">Aug 24 - Aug 30</span>
+            </div>
+            <ul class="task-list">
+                <li class="task-item">
+                    <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
+                    <div class="task-content">
+                        <span class="category-tag tag-collateral">Collateral</span>
+                        <p class="task-desc"><strong>Finalize Data Room:</strong> Create the Notion/Drive data room. Upload Financial Model v1, Cap table scenario modeling for €6M cap, the DPA template, and Pitch Deck v1. <span class="metric">Goal: 100% Core Docs Uploaded</span></p>
+                    </div>
+                </li>
+                <li class="task-item">
+                    <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
+                    <div class="task-content">
+                        <span class="category-tag tag-collateral">Collateral</span>
+                        <p class="task-desc"><strong>Pitch Deck Rewrite:</strong> Finalize 10-12 slides shifting the narrative from "mixed SaaS" to "measurement currency" targeting a 10-16x seed return. Prepare the talking track for *why* the pitch shifted (firewalling trading data). <span class="metric">Goal: Deck Locked by Friday</span></p>
+                    </div>
+                </li>
+                <li class="task-item">
+                    <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
+                    <div class="task-content">
+                        <span class="category-tag tag-investor">Investor Outreach</span>
+                        <p class="task-desc"><strong>Build CRM:</strong> Identify and add 50 target Seed/Pre-Seed funds and Angel investors in CEE/EU who have a thesis in B2B data or retail media. Add contact info and personalized outreach angles for each. <span class="metric">Goal: 50 Qualified Targets</span></p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- W2 -->
+        <div class="week-card">
+            <div class="week-header">
+                <span class="week-title">Week 2: Aggressive Pipeline Push & Early Traction</span>
+                <span class="week-date">Aug 31 - Sep 6</span>
+            </div>
+            <ul class="task-list">
+                <li class="task-item">
+                    <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
+                    <div class="task-content">
+                        <span class="category-tag tag-investor">Investor Outreach</span>
+                        <p class="task-desc"><strong>Launch Cold/Warm Emails:</strong> Send personalized emails to the first 25 targets from the CRM using the new "currency" narrative. <span class="metric">Goal: Book 5 Initial Meetings</span></p>
+                    </div>
+                </li>
+                <li class="task-item">
+                    <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
+                    <div class="task-content">
+                        <span class="category-tag tag-investor">Investor Outreach</span>
+                        <p class="task-desc"><strong>Re-engage Warm Leads:</strong> Send messages to 5-10 previously warm leads attaching the updated Pitch Deck and hinting at upcoming Retailer DPA news. <span class="metric">Goal: Book 3 Follow-up Meetings</span></p>
+                    </div>
+                </li>
+                <li class="task-item">
+                    <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
+                    <div class="task-content">
+                        <span class="category-tag tag-traction">Traction Input</span>
+                        <p class="task-desc"><strong>SuperZoo Signature Check-in:</strong> Verify with the Retailer team that the SuperZoo DPA (with aggregate-rights clause) is on track for signature. Use this status in Friday investor updates. <span class="metric">Goal: 1 DPA Confirmed</span></p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- W3 -->
+        <div class="week-card">
+            <div class="week-header">
+                <span class="week-title">Week 3: High-Volume Pitching & Brand Pull</span>
+                <span class="week-date">Sep 7 - Sep 13</span>
+            </div>
+            <ul class="task-list">
+                <li class="task-item">
+                    <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
+                    <div class="task-content">
+                        <span class="category-tag tag-investor">Investor Outreach</span>
+                        <p class="task-desc"><strong>Execute First-Round Meetings:</strong> Complete 5-8 introductory pitches (30 mins). Gauge reaction to the new measurement narrative. <span class="metric">Goal: Convert 2-3 to Data Room Access</span></p>
+                    </div>
+                </li>
+                <li class="task-item">
+                    <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
+                    <div class="task-content">
+                        <span class="category-tag tag-investor">Investor Outreach</span>
+                        <p class="task-desc"><strong>Launch Outreach Batch 2:</strong> Send personalized emails to the remaining 25 targets in the CRM. <span class="metric">Goal: Book 5 Initial Meetings</span></p>
+                    </div>
+                </li>
+                <li class="task-item">
+                    <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
+                    <div class="task-content">
+                        <span class="category-tag tag-traction">Traction Input</span>
+                        <p class="task-desc"><strong>Obtain Brand LOIs:</strong> Collect the signed Brand LOIs (JTI/PMI) from the Brands team. Add them to the Data Room immediately to prove brand willingness to pay. <span class="metric">Goal: 2 Signed LOIs</span></p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- W4 -->
+        <div class="week-card">
+            <div class="week-header">
+                <span class="week-title">Week 4: Closing Initial Pitches & Productizing</span>
+                <span class="week-date">Sep 14 - Sep 20</span>
+            </div>
+            <ul class="task-list">
+                <li class="task-item">
+                    <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
+                    <div class="task-content">
+                        <span class="category-tag tag-investor">Investor Outreach</span>
+                        <p class="task-desc"><strong>Wrap Up Pre-OOO Pitches:</strong> Complete the final 5-8 introductory pitches before Ondrej departs. <span class="metric">Goal: All Batch 1 & 2 Pitches Done</span></p>
+                    </div>
+                </li>
+                <li class="task-item">
+                    <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
+                    <div class="task-content">
+                        <span class="category-tag tag-investor">Investor Outreach</span>
+                        <p class="task-desc"><strong>Grant Data Room Access:</strong> Ensure at least 5 highly interested investors are granted Data Room access with instructions on how to reach the team during OOO. <span class="metric">Goal: 5 Active Reviewers</span></p>
+                    </div>
+                </li>
+                <li class="task-item">
+                    <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
+                    <div class="task-content">
+                        <span class="category-tag tag-collateral">Collateral</span>
+                        <p class="task-desc"><strong>Add GymBeam Case Study:</strong> Obtain the newly productized GymBeam category read from the operations team and upload it to the Data Room to prove fast deployment and time-to-value.</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- W5 -->
+        <div class="week-card ooo">
+            <div class="week-header">
+                <span class="week-title" style="color: var(--negative);">Week 5: OOO Ondrej & Asynchronous DD</span>
+                <span class="week-date">Sep 21 - Sep 28</span>
+            </div>
+            <ul class="task-list">
+                <li class="task-item">
+                    <div class="checkbox-wrapper"><input type="checkbox" class="checkbox" disabled></div>
+                    <div class="task-content">
+                        <span class="category-tag" style="background: var(--negative); color: white;">Out of Office</span>
+                        <p class="task-desc"><strong>Ondrej OOO:</strong> No new founder-led pitches are scheduled this week.</p>
+                    </div>
+                </li>
+                <li class="task-item">
+                    <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
+                    <div class="task-content">
+                        <span class="category-tag tag-investor">Investor Outreach</span>
+                        <p class="task-desc"><strong>Asynchronous DD Support:</strong> The remaining co-founder/team must reply to any urgent technical or financial DD questions from the 5+ funds reviewing the Data Room. <span class="metric">Goal: 24hr Max Response Time</span></p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- W6 -->
+        <div class="week-card">
+            <div class="week-header">
+                <span class="week-title">Week 6: Post-OOO Sprint & Second Rounds</span>
+                <span class="week-date">Sep 29 - Oct 4</span>
+            </div>
+            <ul class="task-list">
+                <li class="task-item">
+                    <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
+                    <div class="task-content">
+                        <span class="category-tag tag-investor">Investor Outreach</span>
+                        <p class="task-desc"><strong>Advance to Second Rounds:</strong> Schedule and conduct deep-dive meetings (1 hr) with the funds that reviewed the Data Room. Be prepared for intense financial modeling questions. <span class="metric">Goal: 3-5 Deep-Dive Meetings</span></p>
+                    </div>
+                </li>
+                <li class="task-item">
+                    <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
+                    <div class="task-content">
+                        <span class="category-tag tag-investor">Investor Outreach</span>
+                        <p class="task-desc"><strong>Re-engage Stalled Leads:</strong> Send a post-OOO check-in email to any leads from Batch 1/2 that went quiet. <span class="metric">Goal: Revive 2 Leads</span></p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- W7 -->
+        <div class="week-card">
+            <div class="week-header">
+                <span class="week-title">Week 7: Moat Expansion & Momentum</span>
+                <span class="week-date">Oct 5 - Oct 11</span>
+            </div>
+            <ul class="task-list">
+                <li class="task-item">
+                    <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
+                    <div class="task-content">
+                        <span class="category-tag tag-traction">Traction Input</span>
+                        <p class="task-desc"><strong>Secure EuroOil DPA:</strong> Verify with the Retailer team that EuroOil is signed, securing the crucial 2nd perpetual aggregate-rights signature. <span class="metric">Goal: 2nd DPA Signed</span></p>
+                    </div>
+                </li>
+                <li class="task-item">
+                    <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
+                    <div class="task-content">
+                        <span class="category-tag tag-investor">Investor Outreach</span>
+                        <p class="task-desc"><strong>Momentum Update:</strong> Send a targeted email to all 10+ active funnel investors announcing the EuroOil signing and solid Brand LOIs. Call to action: Push for Partner meetings. <span class="metric">Goal: Create Intense FOMO</span></p>
+                    </div>
+                </li>
+                <li class="task-item">
+                    <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
+                    <div class="task-content">
+                        <span class="category-tag tag-investor">Investor Outreach</span>
+                        <p class="task-desc"><strong>Partner Meetings:</strong> Pitch to the full partnership of the top engaged funds. <span class="metric">Goal: 1-2 Partner Pitches</span></p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- W8 -->
+        <div class="week-card">
+            <div class="week-header">
+                <span class="week-title">Week 8: Pushing for Term Sheets</span>
+                <span class="week-date">Oct 12 - Oct 18</span>
+            </div>
+            <ul class="task-list">
+                <li class="task-item">
+                    <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
+                    <div class="task-content">
+                        <span class="category-tag tag-closing">Closing</span>
+                        <p class="task-desc"><strong>Secure Lead Term Sheet:</strong> Set a soft deadline for term sheets (e.g., Oct 16). Apply pressure on funds that had partner meetings. <span class="metric">Goal: 1 Signed TS for €200k-300k</span></p>
+                    </div>
+                </li>
+                <li class="task-item">
+                    <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
+                    <div class="task-content">
+                        <span class="category-tag tag-investor">Investor Outreach</span>
+                        <p class="task-desc"><strong>Inform Secondary Investors:</strong> Once a lead is looking imminent, inform secondary angels/funds of the incoming term sheet to secure their syndicate commitments. <span class="metric">Goal: €100k Soft-Committed</span></p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- W9 -->
+        <div class="week-card">
+            <div class="week-header">
+                <span class="week-title">Week 9: Due Diligence Kickoff</span>
+                <span class="week-date">Oct 19 - Oct 25</span>
+            </div>
+            <ul class="task-list">
+                <li class="task-item">
+                    <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
+                    <div class="task-content">
+                        <span class="category-tag tag-closing">Closing</span>
+                        <p class="task-desc"><strong>Open Due Diligence:</strong> Grant the lead investor's legal and financial teams full DD access. <span class="metric">Goal: DD Commenced</span></p>
+                    </div>
+                </li>
+                <li class="task-item">
+                    <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
+                    <div class="task-content">
+                        <span class="category-tag tag-closing">Closing</span>
+                        <p class="task-desc"><strong>Manage DD Calls:</strong> Schedule specialized DD calls (Tech, Legal, Financial) and ensure all ad-hoc queries are answered within 24 hours.</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- W10 -->
+        <div class="week-card">
+            <div class="week-header">
+                <span class="week-title">Week 10: The Aggregate Live & Syndication</span>
+                <span class="week-date">Oct 26 - Nov 1</span>
+            </div>
+            <ul class="task-list">
+                <li class="task-item">
+                    <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
+                    <div class="task-content">
+                        <span class="category-tag tag-traction">Traction Input</span>
+                        <p class="task-desc"><strong>Demo Aggregate v1:</strong> Demo the live Cross-Retailer Aggregate (SuperZoo + EuroOil) to the lead investor's tech team to fully validate the 8-12x multiple "currency" thesis. <span class="metric">Goal: Pass Tech DD</span></p>
+                    </div>
+                </li>
+                <li class="task-item">
+                    <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
+                    <div class="task-content">
+                        <span class="category-tag tag-closing">Closing</span>
+                        <p class="task-desc"><strong>Syndicate the Round:</strong> Convert soft commitments into hard allocations for the remaining €200k-300k from follower angels/funds based on the lead's terms. <span class="metric">Goal: Round Fully Subscribed</span></p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- W11 -->
+        <div class="week-card">
+            <div class="week-header">
+                <span class="week-title">Week 11: DD Completion & Legal Kickoff</span>
+                <span class="week-date">Nov 2 - Nov 8</span>
+            </div>
+            <ul class="task-list">
+                <li class="task-item">
+                    <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
+                    <div class="task-content">
+                        <span class="category-tag tag-closing">Closing</span>
+                        <p class="task-desc"><strong>Close Due Diligence:</strong> Provide all final answers and resolve all outstanding red flags with the lead investor. <span class="metric">Goal: DD Approved</span></p>
+                    </div>
+                </li>
+                <li class="task-item">
+                    <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
+                    <div class="task-content">
+                        <span class="category-tag tag-closing">Closing</span>
+                        <p class="task-desc"><strong>Legal Drafting:</strong> Instruct lawyers to draft the long-form Share Purchase Agreement (SPA) and Shareholders Agreement (SHA). <span class="metric">Goal: Initial Drafts Circulated</span></p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- W12 -->
+        <div class="week-card">
+            <div class="week-header">
+                <span class="week-title">Week 12: Legal Review & Signatures</span>
+                <span class="week-date">Nov 9 - Nov 15</span>
+            </div>
+            <ul class="task-list">
+                <li class="task-item">
+                    <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
+                    <div class="task-content">
+                        <span class="category-tag tag-closing">Closing</span>
+                        <p class="task-desc"><strong>Finalize Legal Docs:</strong> Complete the final review rounds of the SHA and SPA with the lead investor's counsel. <span class="metric">Goal: Docs Locked</span></p>
+                    </div>
+                </li>
+                <li class="task-item">
+                    <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
+                    <div class="task-content">
+                        <span class="category-tag tag-closing">Closing</span>
+                        <p class="task-desc"><strong>Collect Signatures:</strong> Send final execution copies via DocuSign to all syndicate members and the lead investor. <span class="metric">Goal: 100% Signatures by Friday</span></p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- W13 -->
+        <div class="week-card">
+            <div class="week-header">
+                <span class="week-title">Week 13: The Deadline</span>
+                <span class="week-date">Nov 16 - Nov 21</span>
+            </div>
+            <ul class="task-list">
+                <li class="task-item">
+                    <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
+                    <div class="task-content">
+                        <span class="category-tag tag-closing" style="background: var(--gold); color: white;">Closing</span>
+                        <p class="task-desc"><strong>Funds in Bank:</strong> Monitor wire transfers. Ensure the full €500k is deposited in the company bank account by November 21st. <span class="metric">Goal: €500k Secured</span></p>
+                    </div>
+                </li>
+                <li class="task-item">
+                    <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
+                    <div class="task-content">
+                        <span class="category-tag tag-investor">Investor Outreach</span>
+                        <p class="task-desc"><strong>Post-Raise Update:</strong> Send a stakeholder email announcing the closed round and outlining Q1 operational goals. <span class="metric">Goal: Update Sent</span></p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    // Toggle checkboxes and add a visual fade to completed tasks
+    document.querySelectorAll('.checkbox').forEach(box => {
+        box.addEventListener('change', function() {
+            const desc = this.closest('.task-item').querySelector('.task-desc');
+            if(this.checked) {
+                desc.style.opacity = '0.5';
+            } else {
+                desc.style.opacity = '1';
+            }
+        });
+    });
+</script>
+</body>
+</html>

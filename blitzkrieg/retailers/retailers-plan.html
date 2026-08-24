@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retailers Action Plan | Minds & Models</title>
+    <style>
+        :root {
+            /* Minds & Models brand tokens */
+            --paper: #fbfaf9;
+            --surface: #ffffff;
+            --surface-2: #f2efec;
+            --line: #e3e0dc;
+            --line-soft: #efece9;
+
+            --ink: #1a1a1a;
+            --ink-2: #4a4a48;
+            --muted: #8a8781;
+
+            --accent: #3d6bfb;
+            --accent-soft: #e8edfe;
+            --negative: #c0504d;
+            --negative-soft: #f7eae8;
+            --positive: #1f6f4a;
+            --positive-soft: #e8f4ee;
+            --warn: #A8621A;
+            --warn-soft: #F8EFE3;
+            --gold: #9A7B1F;
+            
+            --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --numeric: 'Inter', sans-serif;
+            
+            --shadow: 0 4px 12px rgba(26, 26, 26, 0.05);
+            --shadow-sm: 0 1px 3px rgba(26, 26, 26, 0.04);
+        }
+        
+        body {
+            font-family: var(--sans);
+            background-color: var(--paper);
+            color: var(--ink);
+            margin: 0;
+            padding: 40px 20px;
+            line-height: 1.55;
+            -webkit-font-smoothing: antialiased;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* --- HEADER & INTRO --- */
+        header {
+            margin-bottom: 40px;
+        }
+        .eyebrow {
+            font-size: 0.75rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+        h1 {
+            font-size: clamp(32px, 5vw, 48px);
+            margin: 0 0 16px 0;
+            color: var(--ink);
+            letter-spacing: -0.02em;
+            text-wrap: balance;
+            font-weight: 700;
+        }
+        .kicker {
+            color: var(--ink-2);
+            font-size: 18px;
+            max-width: 75ch;
+            margin-bottom: 32px;
+        }
+
+        .params-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+            margin-bottom: 40px;
+        }
+        .param-card {
+            background: var(--surface);
+            padding: 24px;
+            border-radius: 12px;
+            border: 1px solid var(--line);
+            box-shadow: var(--shadow-sm);
+        }
+        .param-card.highlight {
+            border-top: 4px solid var(--accent);
+        }
+        .param-card.alert {
+            border-top: 4px solid var(--negative);
+            background: var(--negative-soft);
+        }
+        .param-card h3 {
+            margin: 0 0 8px 0;
+            font-size: 12px;
+            color: var(--muted);
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+        }
+        .param-card .value {
+            font-size: 24px;
+            color: var(--ink);
+            font-weight: 700;
+            font-family: var(--numeric);
+            font-variant-numeric: tabular-nums;
+            margin: 0;
+        }
+        .param-card .sub {
+            font-size: 13px;
+            color: var(--ink-2);
+            margin: 8px 0 0 0;
+        }
+
+        /* --- THE PITCH (EXPANDABLE) --- */
+        details.vc-case {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 16px 24px;
+            margin-bottom: 40px;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.2s ease;
+        }
+        details.vc-case[open] {
+            box-shadow: var(--shadow);
+            border-color: var(--accent);
+        }
+        details.vc-case summary {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--ink);
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            outline: none;
+        }
+        details.vc-case summary::-webkit-details-marker {
+            display: none;
+        }
+        details.vc-case summary::before {
+            content: '+';
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
+            background: var(--accent-soft);
+            color: var(--accent);
+            margin-right: 12px;
+            font-size: 20px;
+            transition: transform 0.2s;
+        }
+        details.vc-case[open] summary::before {
+            content: '−';
+            transform: rotate(180deg);
+        }
+        .vc-case-content {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px dashed var(--line);
+        }
+        .vc-case-content ul {
+            padding-left: 20px;
+            margin: 0;
+        }
+        .vc-case-content li {
+            margin-bottom: 12px;
+            font-size: 15px;
+            color: var(--ink-2);
+            line-height: 1.5;
+        }
+        .vc-case-content li strong {
+            color: var(--ink);
+        }
+
+        /* --- STRATEGIC DEPENDENCIES --- */
+        .dependencies-section {
+            margin-bottom: 48px;
+            background: var(--surface-2);
+            padding: 24px;
+            border-radius: 12px;
+            border: 1px solid var(--line);
+        }
+        .dependencies-section h2 {
+            font-size: 20px;
+            margin: 0 0 12px 0;
+            color: var(--ink);
+        }
+        .dependencies-section p {
+            color: var(--ink-2);
+            margin-bottom: 24px;
+            font-size: 14px;
+            max-width: 800px;
+        }
+        .dependencies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+        }
+        .dep-card {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            padding: 16px;
+            box-shadow: var(--shadow-sm);
+            border-left: 4px solid var(--line);
+        }
+        .dep-card.d-fund { border-left-color: var(--gold); }
+        .dep-card.d-brand { border-left-color: var(--positive); }
+
+        .dep-card h3 {
+            margin: 0 0 4px 0;
+            font-size: 14px;
+            color: var(--ink);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .dep-card .dep-goal {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--ink-2);
+            margin-bottom: 8px;
+            padding-bottom: 8px;
+            border-bottom: 1px dashed var(--line);
+        }
+        .dep-card .dep-outcome {
+            font-size: 12px;
+            color: var(--muted);
+            line-height: 1.4;
+            margin: 0;
+        }
+        .dep-card .dep-outcome strong {
+            color: var(--ink-2);
+        }
+
+        /* --- MAJOR MILESTONES --- */
+        .milestones-section {
+            background: var(--surface);
+            border-radius: 12px;
+            padding: 32px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--line);
+            margin-bottom: 48px;
+        }
+        .milestones-section h2 {
+            margin: 0 0 24px 0;
+            font-size: 22px;
+        }
+        .stepper {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            margin-top: 10px;
+        }
+        .stepper::before {
+            content: '';
+            position: absolute;
+            top: 16px;
+            left: 20px;
+            right: 20px;
+            height: 2px;
+            background: var(--line);
+            z-index: 0;
+        }
+        .step {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            width: 18%;
+        }
+        .step-circle {
+            width: 34px;
+            height: 34px;
+            background: var(--surface);
+            border: 2px solid var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 12px;
+        }
+        .step.done .step-circle {
+            background: var(--positive);
+            border-color: var(--positive);
+            color: white;
+        }
+        .step.final .step-circle {
+            background: var(--gold);
+            border-color: var(--gold);
+            color: white;
+        }
+        .step-date {
+            font-size: 12px;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        .step-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--ink);
+        }
+
+        /* --- WEEKLY TIMELINE --- */
+        h2.section-title {
+            font-size: 26px;
+            border-bottom: 2px solid var(--ink);
+            padding-bottom: 12px;
+            margin-bottom: 32px;
+        }
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        .week-card {
+            background: var(--surface);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--line);
+            overflow: hidden;
+            position: relative;
+        }
+        .week-card.ooo {
+            background: var(--surface-2);
+            opacity: 0.8;
+            border: 1px dashed var(--muted);
+        }
+        .week-header {
+            background: var(--surface-2);
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--line);
+        }
+        .week-card.ooo .week-header {
+            background: var(--negative-soft);
+            border-bottom: 1px dashed var(--negative);
+        }
+        .week-title {
+            font-weight: 700;
+            font-size: 18px;
+            color: var(--ink);
+        }
+        .week-date {
+            font-size: 13px;
+            color: var(--ink-2);
+            background: var(--surface);
+            padding: 4px 10px;
+            border-radius: 6px;
+            border: 1px solid var(--line);
+            font-weight: 600;
+        }
+        .task-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .task-item {
+            display: flex;
+            align-items: flex-start;
+            padding: 20px 24px;
+            border-bottom: 1px solid var(--line-soft);
+        }
+        .task-item:last-child {
+            border-bottom: none;
+        }
+        
+        /* Checkbox styling */
+        .checkbox-wrapper {
+            margin-right: 16px;
+            margin-top: 2px;
+        }
+        .checkbox {
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--muted);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .checkbox:checked {
+            background-color: var(--positive);
+            border-color: var(--positive);
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+            background-size: 14px;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .task-content {
+            flex: 1;
+        }
+        
+        .category-tag {
+            display: inline-block;
+            font-size: 10px;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .tag-dpa { background: var(--positive-soft); color: var(--positive); }
+        .tag-ops { background: var(--surface-2); color: var(--ink-2); }
+        .tag-pitch { background: var(--accent-soft); color: var(--accent); }
+        .tag-brands { background: var(--warn-soft); color: var(--warn); }
+        
+        .task-desc {
+            font-size: 15px;
+            color: var(--ink);
+            margin: 0;
+            line-height: 1.5;
+        }
+        .task-desc strong {
+            font-weight: 600;
+            color: var(--accent);
+        }
+        .task-desc .metric {
+            display: inline-block;
+            background: var(--surface-2);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: var(--numeric);
+            font-weight: 600;
+            font-size: 13px;
+            border: 1px solid var(--line);
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="eyebrow">Operation Blitzkrieg</div>
+        <h1>13-Week Sprint: Retailers</h1>
+        <p class="kicker">The primary action plan to secure 2 full data mandates. Focuses on signing agreements that give us unrestricted data use for brands, securing at least a 60% margin, and achieving statistical significance and "seat depth" in specific retail categories.</p>
+        
+        <div class="params-grid">
+            <div class="param-card highlight">
+                <h3>Target Mandates</h3>
+                <p class="value">2</p>
+                <p class="sub">Full Data Mandates</p>
+            </div>
+            <div class="param-card">
+                <h3>Target Margin</h3>
+                <p class="value">&ge; 60%</p>
+                <p class="sub">Max 40% to Retailer</p>
+            </div>
+            <div class="param-card">
+                <h3>Data Quality</h3>
+                <p class="value" style="font-size: 20px;">Stat-Sig & Seat Depth</p>
+                <p class="sub">E.g. Gas Stations, Pet Stores</p>
+            </div>
+            <div class="param-card alert">
+                <h3 style="color: var(--negative);">Founder Availability</h3>
+                <p class="value" style="font-size: 22px;">Ondrej OOO</p>
+                <p class="sub">Sep 21st - Sep 28th</p>
+            </div>
+        </div>
+
+        <details class="vc-case">
+            <summary>The Retailer Win-Win Pitch</summary>
+            <div class="vc-case-content">
+                <p style="margin-top: 0; color: var(--ink-2); font-size: 15px;"><strong>How to frame the deal to Retailers to avoid the "data theft" objection:</strong></p>
+                <ul>
+                    <li><strong>The Reframe:</strong> "We don't want to buy your data. We want to build you your own <em>Retail Media Network (dunnhumby-style)</em>."</li>
+                    <li><strong>The Firewall:</strong> "Your trading data (margins, sell-through) never leaves the building. We only package anonymized, aggregated audience data for brands."</li>
+                    <li><strong>The Commercials:</strong> "You monetize your audience and keep a portion of the revenue, but we take the infrastructure margin (&ge; 60%) and retain unrestricted rights to the aggregate data."</li>
+                    <li><strong>The Benefit:</strong> "The same intelligence that earns you media revenue makes you a smarter buyer against those brands."</li>
+                </ul>
+            </div>
+        </details>
+        
+        <details class="vc-case">
+            <summary>Target Retailer Profiles</summary>
+            <div class="vc-case-content">
+                <p style="margin-top: 0; color: var(--ink-2); font-size: 15px;"><strong>Our primary pipeline targets to hit the 2 mandate goal:</strong></p>
+                <ul>
+                    <li><strong>SuperZoo (Pet Category):</strong> Best immediate target. Bundle the DPA with the 10-15 store expansion. Establishes "Seat Depth" in the pet sector.</li>
+                    <li><strong>EuroOil (Gas Station Category):</strong> 50 stores. Use brand pull (LOIs from JTI/PMI) to bypass the long sales cycle. Establishes "Stat-Sig" in the gas sector.</li>
+                    <li><strong>GymBeam / Teta:</strong> Secondary mid-tier targets to act as backups or further expansion.</li>
+                    <li><strong>Giants (Billa, COOP, Albert):</strong> 2-year CEO-level sales cycles. Start the conversation now, but do not rely on them for this round.</li>
+                </ul>
+            </div>
+        </details>
+    </header>
+
+    <section class="dependencies-section">
+        <h2>Cross-Pillar Dependencies</h2>
+        <p>This document tracks <strong>Retailer</strong> actions. Here is how it intersects with the other pillars:</p>
+        
+        <div class="dependencies-grid">
+            <div class="dep-card d-fund">
+                <h3>Fundraising</h3>
+                <div class="dep-goal">Provide the Moat</div>
+                <p class="dep-outcome"><strong>What we give:</strong> The signed DPAs with aggregate rights are the core asset the fundraising team needs to justify the €6M cap.</p>
+            </div>
+            <div class="dep-card d-brand">
+                <h3>Brands</h3>
+                <div class="dep-goal">Leverage Brand Pull</div>
+                <p class="dep-outcome"><strong>What we need:</strong> We need LOIs from Brands (e.g. tobacco) to convince retailers (e.g. EuroOil) that there is guaranteed money waiting for them.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="milestones-section">
+        <h2>Major Retailer Milestones</h2>
+        <div class="stepper">
+            <div class="step">
+                <div class="step-circle">1</div>
+                <div class="step-date">Sep 6</div>
+                <div class="step-title">DPA Template Locked</div>
+            </div>
+            <div class="step">
+                <div class="step-circle">2</div>
+                <div class="step-date">Sep 20</div>
+                <div class="step-title">Mandate #1 Signed (SuperZoo)</div>
+            </div>
+            <div class="step">
+                <div class="step-circle">3</div>
+                <div class="step-date">Oct 11</div>
+                <div class="step-title">Brand Pull Applied to EuroOil</div>
+            </div>
+            <div class="step">
+                <div class="step-circle">4</div>
+                <div class="step-date">Oct 25</div>
+                <div class="step-title">Mandate #2 Signed (EuroOil)</div>
+            </div>
+            <div class="step final">
+                <div class="step-circle">5</div>
+                <div class="step-date">Nov 21</div>
+                <div class="step-title">Stat-Sig Data Live</div>
+            </div>
+        </div>
+    </section>
+
+    <h2 class="section-title">Weekly SMART Goals</h2>
+    
+    <div class="timeline">
+        <!-- W1 -->
+        <div class="week-card">
+            <div class="week-header">
+                <span class="week-title">Week 1: Structuring the Deal</span>
+                <span class="week-date">Aug 24 - Aug 30</span>
+            </div>
+            <ul class="task-list">
+                <li class="task-item">
+                    <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
+                    <div class="task-content">
+                        <span class="category-tag tag-dpa">DPA / Legal</span>
+                        <p class="task-desc"><strong>Draft the Golden DPA:</strong> Create the standard Data Partner Agreement. Ensure it explicitly states unrestricted data use for brands and locks in at least a 60% margin for M&M. <span class="metric">Goal: DPA Template Ready</span></p>
+                    </div>
+                </li>
+                <li class="task-item">
+                    <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
+                    <div class="task-content">
+                        <span class="category-tag tag-pitch">Strategy</span>
+                        <p class="task-desc"><strong>Define "Seat Depth" Matrix:</strong> Map out the potential brand buyers for the Pet category (SuperZoo) and Gas category (EuroOil) to prove to retailers that demand exists. <span class="metric">Goal: 5+ Target Brands Mapped Per Category</span></p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- W2 -->
+        <div class="week-card">
+            <div class="week-header">
+                <span class="week-title">Week 2: Pushing SuperZoo</span>
+                <span class="week-date">Aug 31 - Sep 6</span>
+            </div>
+            <ul class="task-list">
+                <li class="task-item">
+                    <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
+                    <div class="task-content">
+                        <span class="category-tag tag-pitch">Retailer Pitch</span>
+                        <p class="task-desc"><strong>SuperZoo Expansion Pitch:</strong> Present the 10-15 store expansion plan to SuperZoo. Bundle the expansion with the new DPA, framing it as their entry into audience monetization. <span class="metric">Goal: Present DPA to SuperZoo</span></p>
+                    </div>
+                </li>
+                <li class="task-item">
+                    <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
+                    <div class="task-content">
+                        <span class="category-tag tag-ops">Operations</span>
+                        <p class="task-desc"><strong>Draft SuperZoo Implementation Plan:</strong> Define technical rollout requirements for the 10-15 store expansion to accelerate deployment post-signature. <span class="metric">Goal: Rollout Plan Ready</span></p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- W3 -->
+        <div class="week-card">
+            <div class="week-header">
+                <span class="week-title">Week 3: Initiating EuroOil</span>
+                <span class="week-date">Sep 7 - Sep 13</span>
+            </div>
+            <ul class="task-list">
+                <li class="task-item">
+                    <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
+                    <div class="task-content">
+                        <span class="category-tag tag-brands">Cross-Pillar: Brands</span>
+                        <p class="task-desc"><strong>Leverage Tobacco LOIs:</strong> Take the JTI/PMI LOIs generated by the Brands team and present them to EuroOil as guaranteed revenue waiting for them if they sign the DPA. <span class="metric">Goal: Open EuroOil DPA Talks</span></p>
+                    </div>
+                </li>
+                <li class="task-item">
+                    <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
+                    <div class="task-content">
+                        <span class="category-tag tag-dpa">DPA / Legal</span>
+                        <p class="task-desc"><strong>SuperZoo Negotiations:</strong> Navigate SuperZoo legal pushback. Defend the &gt;60% margin and unrestricted brand data usage. <span class="metric">Goal: Finalize SuperZoo Terms</span></p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- W4 -->
+        <div class="week-card">
+            <div class="week-header">
+                <span class="week-title">Week 4: Securing Mandate #1</span>
+                <span class="week-date">Sep 14 - Sep 20</span>
+            </div>
+            <ul class="task-list">
+                <li class="task-item">
+                    <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
+                    <div class="task-content">
+                        <span class="category-tag tag-dpa">DPA / Legal</span>
+                        <p class="task-desc"><strong>Sign SuperZoo:</strong> Execute the SuperZoo DPA prior to Ondrej's OOO. This secures our first statistically significant category (Pet). <span class="metric">Goal: Mandate #1 Signed</span></p>
+                    </div>
+                </li>
+                <li class="task-item">
+                    <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
+                    <div class="task-content">
+                        <span class="category-tag tag-ops">Operations</span>
+                        <p class="task-desc"><strong>GymBeam Productization:</strong> Work with ops to templatize the GymBeam category read so future deployments can ship data in days. <span class="metric">Goal: Template Completed</span></p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- W5 -->
+        <div class="week-card ooo">
+            <div class="week-header">
+                <span class="week-title" style="color: var(--negative);">Week 5: OOO Ondrej & Giant Seeding</span>
+                <span class="week-date">Sep 21 - Sep 28</span>
+            </div>
+            <ul class="task-list">
+                <li class="task-item">
+                    <div class="checkbox-wrapper"><input type="checkbox" class="checkbox" disabled></div>
+                    <div class="task-content">
+                        <span class="category-tag" style="background: var(--negative); color: white;">Out of Office</span>
+                        <p class="task-desc"><strong>Ondrej OOO:</strong> No major DPA signatures this week. Team handles implementation planning for SuperZoo.</p>
+                    </div>
+                </li>
+                <li class="task-item">
+                    <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
+                    <div class="task-content">
+                        <span class="category-tag tag-pitch">Retailer Pitch</span>
+                        <p class="task-desc"><strong>Start Giant Cycles:</strong> Rest of team initiates 2-year cycle conversations with Billa, COOP, and Albert. Pitch the "new €10M profit center." <span class="metric">Goal: 3 Intros Sent</span></p>
+                    </div>
+                </li>
+                <li class="task-item">
+                    <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
+                    <div class="task-content">
+                        <span class="category-tag tag-dpa">DPA / Legal</span>
+                        <p class="task-desc"><strong>Prepare EuroOil DPA Package:</strong> Legal/Ops team prep the standard DPA and tailored presentation for EuroOil post-OOO sprint. <span class="metric">Goal: EuroOil Docs Ready</span></p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- W6 -->
+        <div class="week-card">
+            <div class="week-header">
+                <span class="week-title">Week 6: Post-OOO EuroOil Push</span>
+                <span class="week-date">Sep 29 - Oct 4</span>
+            </div>
+            <ul class="task-list">
+                <li class="task-item">
+                    <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
+                    <div class="task-content">
+                        <span class="category-tag tag-pitch">Retailer Pitch</span>
+                        <p class="task-desc"><strong>Push EuroOil to Term Sheet:</strong> Resume intense negotiations with EuroOil. Ensure the trading-data firewall is clearly understood to mitigate risk. <span class="metric">Goal: DPA in EuroOil Legal Review</span></p>
+                    </div>
+                </li>
+                <li class="task-item">
+                    <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
+                    <div class="task-content">
+                        <span class="category-tag tag-ops">Operations</span>
+                        <p class="task-desc"><strong>SuperZoo Deployment Kickoff:</strong> Begin physical installation or software integration in the first batch of SuperZoo stores. <span class="metric">Goal: First 5 Stores Active</span></p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- W7 -->
+        <div class="week-card">
+            <div class="week-header">
+                <span class="week-title">Week 7: Defending the Margin</span>
+                <span class="week-date">Oct 5 - Oct 11</span>
+            </div>
+            <ul class="task-list">
+                <li class="task-item">
+                    <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
+                    <div class="task-content">
+                        <span class="category-tag tag-dpa">DPA / Legal</span>
+                        <p class="task-desc"><strong>Negotiate EuroOil Commercials:</strong> Hold the line on the &gt;60% margin for M&M and the perpetual aggregate rights. Use the Brand LOIs as the ultimate leverage. <span class="metric">Goal: Commercials Agreed</span></p>
+                    </div>
+                </li>
+                <li class="task-item">
+                    <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
+                    <div class="task-content">
+                        <span class="category-tag tag-ops">Operations</span>
+                        <p class="task-desc"><strong>SuperZoo Data Ingestion:</strong> Connect the first active SuperZoo stores to the M&M backend and begin validating initial data flows. <span class="metric">Goal: Live Data Streaming</span></p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- W8 -->
+        <div class="week-card">
+            <div class="week-header">
+                <span class="week-title">Week 8: Securing Mandate #2</span>
+                <span class="week-date">Oct 12 - Oct 18</span>
+            </div>
+            <ul class="task-list">
+                <li class="task-item">
+                    <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
+                    <div class="task-content">
+                        <span class="category-tag tag-dpa">DPA / Legal</span>
+                        <p class="task-desc"><strong>Sign EuroOil:</strong> Execute the EuroOil DPA. This secures our second statistically significant category (Gas Stations). <span class="metric">Goal: Mandate #2 Signed</span></p>
+                    </div>
+                </li>
+                <li class="task-item">
+                    <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
+                    <div class="task-content">
+                        <span class="category-tag tag-pitch">Retailer Pitch</span>
+                        <p class="task-desc"><strong>GymBeam Pipeline Activation:</strong> With SuperZoo secured, pivot sales resource to re-engage GymBeam for a full mandate discussion. <span class="metric">Goal: Meeting Scheduled</span></p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- W9 -->
+        <div class="week-card">
+            <div class="week-header">
+                <span class="week-title">Week 9: Deployment Sprint</span>
+                <span class="week-date">Oct 19 - Oct 25</span>
+            </div>
+            <ul class="task-list">
+                <li class="task-item">
+                    <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
+                    <div class="task-content">
+                        <span class="category-tag tag-ops">Operations</span>
+                        <p class="task-desc"><strong>Hardware & Integration:</strong> Kick off aggressive deployment sprint for EuroOil stores to start collecting data ASAP. <span class="metric">Goal: 50% of Stores Deployed</span></p>
+                    </div>
+                </li>
+                <li class="task-item">
+                    <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
+                    <div class="task-content">
+                        <span class="category-tag tag-pitch">Strategy</span>
+                        <p class="task-desc"><strong>Identify Retailer #3 Target:</strong> Evaluate Teta vs. GymBeam to finalize the next immediate target based on the fastest time-to-close for mandate #3. <span class="metric">Goal: Target Prioritized</span></p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- W10 -->
+        <div class="week-card">
+            <div class="week-header">
+                <span class="week-title">Week 10: Validating Stat-Sig</span>
+                <span class="week-date">Oct 26 - Nov 1</span>
+            </div>
+            <ul class="task-list">
+                <li class="task-item">
+                    <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
+                    <div class="task-content">
+                        <span class="category-tag tag-ops">Operations</span>
+                        <p class="task-desc"><strong>Data Quality Review:</strong> Analyze incoming data from SuperZoo and EuroOil. Confirm that we have reached statistical significance in both the Pet and Gas categories. <span class="metric">Goal: Stat-Sig Confirmed</span></p>
+                    </div>
+                </li>
+                <li class="task-item">
+                    <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
+                    <div class="task-content">
+                        <span class="category-tag tag-ops">Operations</span>
+                        <p class="task-desc"><strong>EuroOil Store Profiling:</strong> Work with EuroOil to select the optimal 50 locations that maximize audience reach and 'Seat Depth' relevance for brands. <span class="metric">Goal: 50 Locations Locked</span></p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- W11 -->
+        <div class="week-card">
+            <div class="week-header">
+                <span class="week-title">Week 11: Enabling Brands</span>
+                <span class="week-date">Nov 2 - Nov 8</span>
+            </div>
+            <ul class="task-list">
+                <li class="task-item">
+                    <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
+                    <div class="task-content">
+                        <span class="category-tag tag-brands">Cross-Pillar: Brands</span>
+                        <p class="task-desc"><strong>Activate "Seat Depth":</strong> Pass the live, stat-sig category data to the Brands team so they can begin executing on the LOIs and monetizing the seats. <span class="metric">Goal: Handover to Brands Team</span></p>
+                    </div>
+                </li>
+                <li class="task-item">
+                    <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
+                    <div class="task-content">
+                        <span class="category-tag tag-pitch">Strategy</span>
+                        <p class="task-desc"><strong>Draft Aggregate Data Proof:</strong> Package the early cross-retailer insights (SuperZoo + EuroOil) into a sanitized dashboard demo for investors. <span class="metric">Goal: Demo Ready</span></p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- W12 -->
+        <div class="week-card">
+            <div class="week-header">
+                <span class="week-title">Week 12: Expanding the Pipeline</span>
+                <span class="week-date">Nov 9 - Nov 15</span>
+            </div>
+            <ul class="task-list">
+                <li class="task-item">
+                    <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
+                    <div class="task-content">
+                        <span class="category-tag tag-pitch">Retailer Pitch</span>
+                        <p class="task-desc"><strong>Teta & GymBeam Negotiations:</strong> With 2 mandates secured, move aggressively on Teta and GymBeam to expand the pipeline for Q1 2027. <span class="metric">Goal: 1 New DPA in Draft</span></p>
+                    </div>
+                </li>
+                <li class="task-item">
+                    <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
+                    <div class="task-content">
+                        <span class="category-tag tag-pitch">Strategy</span>
+                        <p class="task-desc"><strong>Retailer Case Study Creation:</strong> Finalize the SuperZoo and EuroOil success stories to use in both fundraising DD and future retailer pitches. <span class="metric">Goal: 2 Case Studies Approved</span></p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- W13 -->
+        <div class="week-card">
+            <div class="week-header">
+                <span class="week-title">Week 13: Operational Review & Handoff</span>
+                <span class="week-date">Nov 16 - Nov 21</span>
+            </div>
+            <ul class="task-list">
+                <li class="task-item">
+                    <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
+                    <div class="task-content">
+                        <span class="category-tag tag-ops">Operations</span>
+                        <p class="task-desc"><strong>Full Review:</strong> Conduct a comprehensive review of the 2 live mandates. Package the aggregate data proof and deliver it to the Fundraising team to finalize the DD process. <span class="metric">Goal: Cross-Retailer Moat Proven</span></p>
+                    </div>
+                </li>
+                <li class="task-item">
+                    <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
+                    <div class="task-content">
+                        <span class="category-tag tag-pitch">Strategy</span>
+                        <p class="task-desc"><strong>Q1 2027 Pipeline Lock:</strong> Finalize the target list and pitch strategy for the next 5 retailers to approach in Q1, ensuring post-fundraise momentum. <span class="metric">Goal: Q1 Retailer Pipeline Set</span></p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    // Toggle checkboxes and add a visual fade to completed tasks
+    document.querySelectorAll('.checkbox').forEach(box => {
+        box.addEventListener('change', function() {
+            const desc = this.closest('.task-item').querySelector('.task-desc');
+            if(this.checked) {
+                desc.style.opacity = '0.5';
+            } else {
+                desc.style.opacity = '1';
+            }
+        });
+    });
+</script>
+</body>
+</html>
