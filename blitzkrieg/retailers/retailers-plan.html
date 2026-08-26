@@ -117,13 +117,13 @@
             margin: 8px 0 0 0;
         }
 
-        /* --- THE PITCH (EXPANDABLE) --- */
+        /* --- THE PITCH & RISKS (EXPANDABLE) --- */
         details.vc-case {
             background: var(--surface);
             border: 1px solid var(--line);
             border-radius: 12px;
             padding: 16px 24px;
-            margin-bottom: 40px;
+            margin-bottom: 16px;
             box-shadow: var(--shadow-sm);
             transition: all 0.2s ease;
         }
@@ -183,6 +183,7 @@
 
         /* --- STRATEGIC DEPENDENCIES --- */
         .dependencies-section {
+            margin-top: 32px;
             margin-bottom: 48px;
             background: var(--surface-2);
             padding: 24px;
@@ -441,6 +442,7 @@
             font-weight: 600;
             font-size: 13px;
             border: 1px solid var(--line);
+            margin-top: 8px;
         }
 
     </style>
@@ -485,6 +487,20 @@
                     <li><strong>The Firewall:</strong> "Your trading data (margins, sell-through) never leaves the building. We only package anonymized, aggregated audience data for brands."</li>
                     <li><strong>The Commercials:</strong> "You monetize your audience and keep a portion of the revenue, but we take the infrastructure margin (&ge; 60%) and retain unrestricted rights to the aggregate data."</li>
                     <li><strong>The Benefit:</strong> "The same intelligence that earns you media revenue makes you a smarter buyer against those brands."</li>
+                </ul>
+            </div>
+        </details>
+
+        <details class="vc-case">
+            <summary>Risk Analysis & Mitigations</summary>
+            <div class="vc-case-content">
+                <p style="margin-top: 0; color: var(--ink-2); font-size: 15px;"><strong>Major GTM risks and how we bypass them:</strong></p>
+                <ul>
+                    <li><strong>Risk: Data Sharing Reluctance.</strong> Retailers fear losing leverage. <br><em>Mitigation:</em> Strict "Retailer-as-Monetizer" framing. We don't buy data; we build their RMN. Trading data is firewalled.</li>
+                    <li><strong>Risk: Slow Sales Cycles (18-24 mos).</strong> <br><em>Mitigation:</em> Multi-threading (pitch CMO + Category Manager to bypass CEO) and "Zero-IT Proof of Value (PoV)" (start with 3-5 stores on a lightweight DPA).</li>
+                    <li><strong>Risk: Physical Ops Delays.</strong> <br><em>Mitigation:</em> Parallelize Ops & Legal. Do site surveys and IT sec reviews while DPA is in drafting.</li>
+                    <li><strong>Risk: Top-of-Funnel Conversion.</strong> <br><em>Mitigation:</em> Use "Backchanneling" (pay success fees to industry insiders for warm intros) instead of pure cold outreach.</li>
+                    <li><strong>Risk: Lack of Urgency.</strong> <br><em>Mitigation:</em> Exploding Brand LOIs. E.g., "JTI has a Q4 budget, sign by Oct 31 or we give the exclusive to your competitor."</li>
                 </ul>
             </div>
         </details>
@@ -566,21 +582,21 @@
                     <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
                     <div class="task-content">
                         <span class="category-tag tag-dpa">DPA / Legal</span>
-                        <p class="task-desc"><strong>Draft the Golden DPA:</strong> Create the standard Data Partner Agreement. Ensure it explicitly states unrestricted data use for brands and locks in at least a 60% margin for M&M. <span class="metric">Goal: DPA Template Ready</span></p>
+                        <p class="task-desc"><strong>Draft the Golden DPA & Zero-IT PoV:</strong> Create the standard Data Partner Agreement AND a lightweight "Proof of Value" contract for 3-5 stores to bypass heavy legal friction. <br><span class="metric">Goal: DPA & PoV Ready</span></p>
                     </div>
                 </li>
                 <li class="task-item">
                     <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
                     <div class="task-content">
                         <span class="category-tag tag-pitch">Strategy</span>
-                        <p class="task-desc"><strong>Create Multi-Threading Playbook:</strong> Draft internal pitch materials for Retailer CMOs (the "New Profit Center" pitch) and Category Managers (the "Destroy Your Suppliers" pitch) to bypass the CEO level and build internal champions. <span class="metric">Goal: 2 Playbooks Drafted</span></p>
+                        <p class="task-desc"><strong>Create Multi-Threading Playbook:</strong> Draft internal pitch materials for Retailer CMOs (the "New Profit Center" pitch) and Category Managers (the "Destroy Your Suppliers" pitch) to bypass the CEO level and build internal champions. <br><span class="metric">Goal: 2 Playbooks Drafted</span></p>
                     </div>
                 </li>
                 <li class="task-item">
                     <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
                     <div class="task-content">
                         <span class="category-tag tag-pitch">Strategy</span>
-                        <p class="task-desc"><strong>Define "Seat Depth" Matrix:</strong> Map out the potential brand buyers for the Pet category (SuperZoo) and Gas category (EuroOil) to prove to retailers that demand exists. <span class="metric">Goal: 5+ Target Brands Mapped Per Category</span></p>
+                        <p class="task-desc"><strong>Define "Seat Depth" Matrix:</strong> Map out the potential brand buyers for the Pet category (SuperZoo) and Gas category (EuroOil) to prove to retailers that demand exists. <br><span class="metric">Goal: 5+ Target Brands Mapped Per Category</span></p>
                     </div>
                 </li>
             </ul>
@@ -589,7 +605,7 @@
         <!-- W2 -->
         <div class="week-card">
             <div class="week-header">
-                <span class="week-title">Week 2: Broadening the Funnel</span>
+                <span class="week-title">Week 2: Broadening the Funnel & Backchanneling</span>
                 <span class="week-date">Aug 31 - Sep 6</span>
             </div>
             <ul class="task-list">
@@ -597,14 +613,14 @@
                     <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
                     <div class="task-content">
                         <span class="category-tag tag-pitch">Strategy</span>
-                        <p class="task-desc"><strong>Map the Overall Market Funnel:</strong> Identify and categorize 30+ mid-size and specialist retailers in CEE. Rank them by time-to-close (avoiding giants initially) and potential category dominance (e.g., pharmacy, electronics, DIY). <span class="metric">Goal: Top 30 Retailer Target List</span></p>
+                        <p class="task-desc"><strong>Activate Backchanneling for ToFU:</strong> Identify 30+ mid-size/specialist retailers in CEE. Identify and incentivize industry insiders (consultants, ex-directors) to secure warm intros instead of pure cold outreach. <br><span class="metric">Goal: Top 30 List + 5 Warm Intros</span></p>
                     </div>
                 </li>
                 <li class="task-item">
                     <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
                     <div class="task-content">
                         <span class="category-tag tag-pitch">Retailer Pitch</span>
-                        <p class="task-desc"><strong>SuperZoo Expansion Pitch:</strong> Present the 10-15 store expansion plan to SuperZoo. Bundle the expansion with the new DPA, framing it as their entry into audience monetization. <span class="metric">Goal: Present DPA to SuperZoo</span></p>
+                        <p class="task-desc"><strong>SuperZoo Expansion Pitch:</strong> Present the 10-15 store expansion plan to SuperZoo. Bundle the expansion with the new DPA, framing it as their entry into audience monetization. <br><span class="metric">Goal: Present DPA to SuperZoo</span></p>
                     </div>
                 </li>
             </ul>
@@ -613,7 +629,7 @@
         <!-- W3 -->
         <div class="week-card">
             <div class="week-header">
-                <span class="week-title">Week 3: Initiating EuroOil & Funnel Outreach</span>
+                <span class="week-title">Week 3: Initiating EuroOil & Ops Parallelization</span>
                 <span class="week-date">Sep 7 - Sep 13</span>
             </div>
             <ul class="task-list">
@@ -621,14 +637,21 @@
                     <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
                     <div class="task-content">
                         <span class="category-tag tag-brands">Cross-Pillar: Brands</span>
-                        <p class="task-desc"><strong>Leverage Tobacco LOIs:</strong> Take the JTI/PMI LOIs generated by the Brands team and present them to EuroOil as guaranteed revenue waiting for them if they sign the DPA. <span class="metric">Goal: Open EuroOil DPA Talks</span></p>
+                        <p class="task-desc"><strong>Leverage Exploding LOIs:</strong> Take the JTI/PMI LOIs generated by the Brands team and present them to EuroOil as <em>exploding</em> guaranteed revenue ("Sign by Oct 31 or the Q4 budget goes to your competitor"). <br><span class="metric">Goal: Open EuroOil DPA Talks with FOMO</span></p>
                     </div>
                 </li>
                 <li class="task-item">
                     <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
                     <div class="task-content">
                         <span class="category-tag tag-pitch">Retailer Pitch</span>
-                        <p class="task-desc"><strong>Launch Top-of-Funnel Campaign:</strong> Begin outreach to the top 15 mid-size retailers identified in week 2, testing the "Build your own dunnhumby" pitch. <span class="metric">Goal: Book 3 Discovery Calls</span></p>
+                        <p class="task-desc"><strong>Launch Top-of-Funnel Campaign:</strong> Begin outreach to the top 15 mid-size retailers via warm backchannel intros, testing the "Build your own dunnhumby" pitch. <br><span class="metric">Goal: Book 3 Discovery Calls</span></p>
+                    </div>
+                </li>
+                <li class="task-item">
+                    <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
+                    <div class="task-content">
+                        <span class="category-tag tag-ops">Operations</span>
+                        <p class="task-desc"><strong>Parallel Ops (SuperZoo):</strong> Don't wait for final DPA signature. Conduct site surveys and IT sec reviews now so installation starts day 1 after signing. <br><span class="metric">Goal: Site Surveys Completed</span></p>
                     </div>
                 </li>
             </ul>
@@ -645,14 +668,14 @@
                     <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
                     <div class="task-content">
                         <span class="category-tag tag-dpa">DPA / Legal</span>
-                        <p class="task-desc"><strong>Sign SuperZoo:</strong> Execute the SuperZoo DPA prior to Ondrej's OOO. This secures our first statistically significant category (Pet). <span class="metric">Goal: Mandate #1 Signed</span></p>
+                        <p class="task-desc"><strong>Sign SuperZoo:</strong> Execute the SuperZoo DPA prior to Ondrej's OOO. This secures our first statistically significant category (Pet). <br><span class="metric">Goal: Mandate #1 Signed</span></p>
                     </div>
                 </li>
                 <li class="task-item">
                     <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
                     <div class="task-content">
                         <span class="category-tag tag-ops">Operations</span>
-                        <p class="task-desc"><strong>Draft SuperZoo Implementation Plan:</strong> Define technical rollout requirements for the 10-15 store expansion to accelerate deployment post-signature. <span class="metric">Goal: Rollout Plan Ready</span></p>
+                        <p class="task-desc"><strong>Draft SuperZoo Implementation Plan:</strong> Define technical rollout requirements for the 10-15 store expansion to accelerate deployment post-signature. <br><span class="metric">Goal: Rollout Plan Ready</span></p>
                     </div>
                 </li>
             </ul>
@@ -676,14 +699,14 @@
                     <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
                     <div class="task-content">
                         <span class="category-tag tag-pitch">Retailer Pitch</span>
-                        <p class="task-desc"><strong>Start Giant Cycles:</strong> Rest of team initiates 2-year cycle conversations with Billa, COOP, and Albert. Pitch the "new €10M profit center." <span class="metric">Goal: 3 Intros Sent</span></p>
+                        <p class="task-desc"><strong>Start Giant Cycles:</strong> Rest of team initiates 2-year cycle conversations with Billa, COOP, and Albert. Pitch the "new €10M profit center." <br><span class="metric">Goal: 3 Intros Sent</span></p>
                     </div>
                 </li>
                 <li class="task-item">
                     <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
                     <div class="task-content">
                         <span class="category-tag tag-dpa">DPA / Legal</span>
-                        <p class="task-desc"><strong>Prepare EuroOil DPA Package:</strong> Legal/Ops team prep the standard DPA and tailored presentation for EuroOil post-OOO sprint. <span class="metric">Goal: EuroOil Docs Ready</span></p>
+                        <p class="task-desc"><strong>Prepare EuroOil DPA Package:</strong> Legal/Ops team prep the standard DPA and tailored presentation for EuroOil post-OOO sprint. <br><span class="metric">Goal: EuroOil Docs Ready</span></p>
                     </div>
                 </li>
             </ul>
@@ -700,21 +723,21 @@
                     <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
                     <div class="task-content">
                         <span class="category-tag tag-pitch">Retailer Pitch</span>
-                        <p class="task-desc"><strong>Push EuroOil to Term Sheet:</strong> Resume intense negotiations with EuroOil. Ensure the trading-data firewall is clearly understood to mitigate risk. <span class="metric">Goal: DPA in EuroOil Legal Review</span></p>
+                        <p class="task-desc"><strong>Push EuroOil to Term Sheet:</strong> Resume intense negotiations with EuroOil. Ensure the trading-data firewall is clearly understood to mitigate risk. <br><span class="metric">Goal: DPA in EuroOil Legal Review</span></p>
                     </div>
                 </li>
                 <li class="task-item">
                     <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
                     <div class="task-content">
                         <span class="category-tag tag-pitch">Retailer Pitch</span>
-                        <p class="task-desc"><strong>Funnel Outreach Follow-up:</strong> Follow up with the 15 top-of-funnel mid-size retailers contacted in week 3. Address initial objections and push for meetings. <span class="metric">Goal: Book 3 More Discovery Calls</span></p>
+                        <p class="task-desc"><strong>Funnel Outreach Follow-up:</strong> Follow up with the 15 top-of-funnel mid-size retailers contacted in week 3. Address initial objections and push for meetings. <br><span class="metric">Goal: Book 3 More Discovery Calls</span></p>
                     </div>
                 </li>
                 <li class="task-item">
                     <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
                     <div class="task-content">
                         <span class="category-tag tag-ops">Operations</span>
-                        <p class="task-desc"><strong>SuperZoo Deployment Kickoff:</strong> Begin physical installation or software integration in the first batch of SuperZoo stores. <span class="metric">Goal: First 5 Stores Active</span></p>
+                        <p class="task-desc"><strong>SuperZoo Deployment Kickoff:</strong> Begin physical installation or software integration in the first batch of SuperZoo stores. <br><span class="metric">Goal: First 5 Stores Active</span></p>
                     </div>
                 </li>
             </ul>
@@ -731,21 +754,21 @@
                     <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
                     <div class="task-content">
                         <span class="category-tag tag-dpa">DPA / Legal</span>
-                        <p class="task-desc"><strong>Negotiate EuroOil Commercials:</strong> Hold the line on the &gt;60% margin for M&M and the perpetual aggregate rights. Use the Brand LOIs as the ultimate leverage. <span class="metric">Goal: Commercials Agreed</span></p>
+                        <p class="task-desc"><strong>Negotiate EuroOil Commercials:</strong> Hold the line on the &gt;60% margin for M&M and the perpetual aggregate rights. Use the Brand LOIs as the ultimate leverage. <br><span class="metric">Goal: Commercials Agreed</span></p>
                     </div>
                 </li>
                 <li class="task-item">
                     <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
                     <div class="task-content">
                         <span class="category-tag tag-pitch">Retailer Pitch</span>
-                        <p class="task-desc"><strong>Mid-Size Funnel Pitches:</strong> Conduct discovery calls with the booked mid-size retailers. Focus entirely on the "monetize your audience" win-win proposition. <span class="metric">Goal: 3 Pitch Meetings Held</span></p>
+                        <p class="task-desc"><strong>Mid-Size Funnel Pitches:</strong> Conduct discovery calls with the booked mid-size retailers. Focus entirely on the "monetize your audience" win-win proposition. <br><span class="metric">Goal: 3 Pitch Meetings Held</span></p>
                     </div>
                 </li>
                 <li class="task-item">
                     <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
                     <div class="task-content">
                         <span class="category-tag tag-ops">Operations</span>
-                        <p class="task-desc"><strong>SuperZoo Data Ingestion:</strong> Connect the first active SuperZoo stores to the M&M backend and begin validating initial data flows. <span class="metric">Goal: Live Data Streaming</span></p>
+                        <p class="task-desc"><strong>SuperZoo Data Ingestion:</strong> Connect the first active SuperZoo stores to the M&M backend and begin validating initial data flows. <br><span class="metric">Goal: Live Data Streaming</span></p>
                     </div>
                 </li>
             </ul>
@@ -762,21 +785,21 @@
                     <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
                     <div class="task-content">
                         <span class="category-tag tag-dpa">DPA / Legal</span>
-                        <p class="task-desc"><strong>Sign EuroOil:</strong> Execute the EuroOil DPA. This secures our second statistically significant category (Gas Stations). <span class="metric">Goal: Mandate #2 Signed</span></p>
+                        <p class="task-desc"><strong>Sign EuroOil:</strong> Execute the EuroOil DPA. This secures our second statistically significant category (Gas Stations). <br><span class="metric">Goal: Mandate #2 Signed</span></p>
                     </div>
                 </li>
                 <li class="task-item">
                     <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
                     <div class="task-content">
                         <span class="category-tag tag-pitch">Strategy</span>
-                        <p class="task-desc"><strong>Funnel Qualification:</strong> Narrow down the top-of-funnel list based on discovery calls to 3 strong candidates for Mandate #3. <span class="metric">Goal: Top 3 Targets Shortlisted</span></p>
+                        <p class="task-desc"><strong>Funnel Qualification:</strong> Narrow down the top-of-funnel list based on discovery calls to 3 strong candidates for Mandate #3. <br><span class="metric">Goal: Top 3 Targets Shortlisted</span></p>
                     </div>
                 </li>
                 <li class="task-item">
                     <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
                     <div class="task-content">
                         <span class="category-tag tag-pitch">Retailer Pitch</span>
-                        <p class="task-desc"><strong>GymBeam Pipeline Activation:</strong> With SuperZoo secured, pivot sales resource to re-engage GymBeam for a full mandate discussion. <span class="metric">Goal: Meeting Scheduled</span></p>
+                        <p class="task-desc"><strong>GymBeam Pipeline Activation:</strong> With SuperZoo secured, pivot sales resource to re-engage GymBeam for a full mandate discussion. <br><span class="metric">Goal: Meeting Scheduled</span></p>
                     </div>
                 </li>
             </ul>
@@ -793,21 +816,21 @@
                     <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
                     <div class="task-content">
                         <span class="category-tag tag-ops">Operations</span>
-                        <p class="task-desc"><strong>Hardware & Integration:</strong> Kick off aggressive deployment sprint for EuroOil stores to start collecting data ASAP. <span class="metric">Goal: 50% of Stores Deployed</span></p>
+                        <p class="task-desc"><strong>Hardware & Integration:</strong> Kick off aggressive deployment sprint for EuroOil stores to start collecting data ASAP. <br><span class="metric">Goal: 50% of Stores Deployed</span></p>
                     </div>
                 </li>
                 <li class="task-item">
                     <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
                     <div class="task-content">
                         <span class="category-tag tag-pitch">Strategy</span>
-                        <p class="task-desc"><strong>Identify Retailer #3 Target:</strong> Evaluate Teta vs. GymBeam vs. the new Funnel candidates to finalize the next immediate target based on the fastest time-to-close. <span class="metric">Goal: Target #3 Prioritized</span></p>
+                        <p class="task-desc"><strong>Identify Retailer #3 Target:</strong> Evaluate Teta vs. GymBeam vs. the new Funnel candidates to finalize the next immediate target based on the fastest time-to-close. <br><span class="metric">Goal: Target #3 Prioritized</span></p>
                     </div>
                 </li>
                 <li class="task-item">
                     <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
                     <div class="task-content">
                         <span class="category-tag tag-pitch">Retailer Pitch</span>
-                        <p class="task-desc"><strong>Pitch Retailer #3:</strong> Present the DPA and expansion plan to the selected 3rd target. Push for a fast decision cycle using the momentum of Mandate 1 and 2. <span class="metric">Goal: Pitch Delivered</span></p>
+                        <p class="task-desc"><strong>Pitch Retailer #3:</strong> Present the DPA and expansion plan to the selected 3rd target. Push for a fast decision cycle using the momentum of Mandate 1 and 2. <br><span class="metric">Goal: Pitch Delivered</span></p>
                     </div>
                 </li>
             </ul>
@@ -824,14 +847,14 @@
                     <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
                     <div class="task-content">
                         <span class="category-tag tag-ops">Operations</span>
-                        <p class="task-desc"><strong>Data Quality Review:</strong> Analyze incoming data from SuperZoo and EuroOil. Confirm that we have reached statistical significance in both the Pet and Gas categories. <span class="metric">Goal: Stat-Sig Confirmed</span></p>
+                        <p class="task-desc"><strong>Data Quality Review:</strong> Analyze incoming data from SuperZoo and EuroOil. Confirm that we have reached statistical significance in both the Pet and Gas categories. <br><span class="metric">Goal: Stat-Sig Confirmed</span></p>
                     </div>
                 </li>
                 <li class="task-item">
                     <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
                     <div class="task-content">
                         <span class="category-tag tag-ops">Operations</span>
-                        <p class="task-desc"><strong>EuroOil Store Profiling:</strong> Work with EuroOil to select the optimal 50 locations that maximize audience reach and 'Seat Depth' relevance for brands. <span class="metric">Goal: 50 Locations Locked</span></p>
+                        <p class="task-desc"><strong>EuroOil Store Profiling:</strong> Work with EuroOil to select the optimal 50 locations that maximize audience reach and 'Seat Depth' relevance for brands. <br><span class="metric">Goal: 50 Locations Locked</span></p>
                     </div>
                 </li>
             </ul>
@@ -848,14 +871,14 @@
                     <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
                     <div class="task-content">
                         <span class="category-tag tag-brands">Cross-Pillar: Brands</span>
-                        <p class="task-desc"><strong>Activate "Seat Depth":</strong> Pass the live, stat-sig category data to the Brands team so they can begin executing on the LOIs and monetizing the seats. <span class="metric">Goal: Handover to Brands Team</span></p>
+                        <p class="task-desc"><strong>Activate "Seat Depth":</strong> Pass the live, stat-sig category data to the Brands team so they can begin executing on the LOIs and monetizing the seats. <br><span class="metric">Goal: Handover to Brands Team</span></p>
                     </div>
                 </li>
                 <li class="task-item">
                     <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
                     <div class="task-content">
                         <span class="category-tag tag-pitch">Strategy</span>
-                        <p class="task-desc"><strong>Draft Aggregate Data Proof:</strong> Package the early cross-retailer insights (SuperZoo + EuroOil) into a sanitized dashboard demo for investors. <span class="metric">Goal: Demo Ready</span></p>
+                        <p class="task-desc"><strong>Draft Aggregate Data Proof:</strong> Package the early cross-retailer insights (SuperZoo + EuroOil) into a sanitized dashboard demo for investors. <br><span class="metric">Goal: Demo Ready</span></p>
                     </div>
                 </li>
             </ul>
@@ -872,14 +895,14 @@
                     <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
                     <div class="task-content">
                         <span class="category-tag tag-pitch">Retailer Pitch</span>
-                        <p class="task-desc"><strong>Teta & GymBeam Negotiations:</strong> With 2 mandates secured, move aggressively on Teta and GymBeam to expand the pipeline for Q1 2027. <span class="metric">Goal: 1 New DPA in Draft</span></p>
+                        <p class="task-desc"><strong>Teta & GymBeam Negotiations:</strong> With 2 mandates secured, move aggressively on Teta and GymBeam to expand the pipeline for Q1 2027. <br><span class="metric">Goal: 1 New DPA in Draft</span></p>
                     </div>
                 </li>
                 <li class="task-item">
                     <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
                     <div class="task-content">
                         <span class="category-tag tag-pitch">Strategy</span>
-                        <p class="task-desc"><strong>Retailer Case Study Creation:</strong> Finalize the SuperZoo and EuroOil success stories to use in both fundraising DD and future retailer pitches. <span class="metric">Goal: 2 Case Studies Approved</span></p>
+                        <p class="task-desc"><strong>Retailer Case Study Creation:</strong> Finalize the SuperZoo and EuroOil success stories to use in both fundraising DD and future retailer pitches. <br><span class="metric">Goal: 2 Case Studies Approved</span></p>
                     </div>
                 </li>
             </ul>
@@ -896,14 +919,14 @@
                     <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
                     <div class="task-content">
                         <span class="category-tag tag-ops">Operations</span>
-                        <p class="task-desc"><strong>Full Review:</strong> Conduct a comprehensive review of the 2 live mandates. Package the aggregate data proof and deliver it to the Fundraising team to finalize the DD process. <span class="metric">Goal: Cross-Retailer Moat Proven</span></p>
+                        <p class="task-desc"><strong>Full Review:</strong> Conduct a comprehensive review of the 2 live mandates. Package the aggregate data proof and deliver it to the Fundraising team to finalize the DD process. <br><span class="metric">Goal: Cross-Retailer Moat Proven</span></p>
                     </div>
                 </li>
                 <li class="task-item">
                     <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
                     <div class="task-content">
                         <span class="category-tag tag-pitch">Strategy</span>
-                        <p class="task-desc"><strong>Q1 2027 Pipeline Lock:</strong> Finalize the target list and pitch strategy for the next 5 retailers to approach in Q1, ensuring post-fundraise momentum. <span class="metric">Goal: Q1 Retailer Pipeline Set</span></p>
+                        <p class="task-desc"><strong>Q1 2027 Pipeline Lock:</strong> Finalize the target list and pitch strategy for the next 5 retailers to approach in Q1, ensuring post-fundraise momentum. <br><span class="metric">Goal: Q1 Retailer Pipeline Set</span></p>
                     </div>
                 </li>
             </ul>
