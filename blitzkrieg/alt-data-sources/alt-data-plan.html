@@ -495,10 +495,10 @@
             <div class="vc-case-content">
                 <p style="margin-top: 0; color: var(--ink-2); font-size: 15px;"><strong>The 4 avenues we are exploring to bypass our own hardware:</strong></p>
                 <ul>
-                    <li><strong>DOOH (Digital Out of Home) Networks:</strong> Companies like POS Media, Lurity, etc., operate digital billboards inside retail stores. They often already have embedded cameras and negotiated privacy rights. Can we license their visual feed?</li>
-                    <li><strong>Existing Retailer CCTV:</strong> Can we deploy an edge-processing appliance to tap into the retailer's existing security camera feeds instead of installing our own sensors? (Requires retailer buy-in, but removes hardware installation).</li>
-                    <li><strong>Smart POS & Self-Checkouts:</strong> Vendors (like NCR, Dotykačka) whose hardware faces the consumer and already knows exactly what was purchased. Do they have camera capabilities or loyalty linkages we can tap?</li>
-                    <li><strong>Telco / Mobility Data Fallback:</strong> O2, T-Mobile, Vodafone. Can we fuse their macro footfall/demographic data with our POS data to approximate the "Who", abandoning visual data entirely if GDPR becomes too strict?</li>
+                    <li><strong>Existing Retailer CCTV (TOP PRIORITY):</strong> Can we deploy an edge-processing appliance to tap into the retailer's existing security camera feeds instead of installing our own sensors? (Requires retailer buy-in, but removes hardware installation). This is closest to our current use-case and must be pursued most aggressively.</li>
+                    <li><strong>DOOH (Digital Out of Home) Networks (Exploratory):</strong> Companies like POS Media, Lurity, etc., operate digital billboards inside retail stores. They often already have embedded cameras and negotiated privacy rights. Can we license their visual feed?</li>
+                    <li><strong>Smart POS & Self-Checkouts (Exploratory):</strong> Vendors (like NCR, Dotykačka) whose hardware faces the consumer and already knows exactly what was purchased. Do they have camera capabilities or loyalty linkages we can tap?</li>
+                    <li><strong>Telco / Mobility Data Fallback (Exploratory):</strong> O2, T-Mobile, Vodafone. Can we fuse their macro footfall/demographic data with our POS data to approximate the "Who", abandoning visual data entirely if GDPR becomes too strict?</li>
                 </ul>
             </div>
         </details>
@@ -533,7 +533,7 @@
             <div class="step">
                 <div class="step-circle">2</div>
                 <div class="step-date">Sep 20</div>
-                <div class="step-title">Tech & Legal Feasibility Confirmed</div>
+                <div class="step-title">Tech Feasibility (CCTV) Confirmed</div>
             </div>
             <div class="step">
                 <div class="step-circle">3</div>
@@ -559,21 +559,28 @@
         <!-- W1 -->
         <div class="week-card">
             <div class="week-header">
-                <span class="week-title">Week 1: Mapping the Landscape</span>
+                <span class="week-title">Week 1: Mapping the Landscape & Prioritizing CCTV</span>
                 <span class="week-date">Aug 24 - Aug 30</span>
             </div>
             <ul class="task-list">
                 <li class="task-item">
                     <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
                     <div class="task-content">
-                        <span class="category-tag tag-research">Research</span>
+                        <span class="category-tag tag-tech">Technical</span>
+                        <p class="task-desc"><strong>CCTV Edge Appliance Architecture:</strong> Task the engineering team to design the architecture for an edge appliance that can ingest standard IP CCTV feeds. Document hardware requirements and constraints. <span class="metric">Goal: Architecture Drafted</span></p>
+                    </div>
+                </li>
+                <li class="task-item">
+                    <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
+                    <div class="task-content">
+                        <span class="category-tag tag-research">Research (Exploratory)</span>
                         <p class="task-desc"><strong>DOOH & POS Network Mapping:</strong> Identify 5-10 In-Store Media networks (DOOH) and major Smart POS vendors operating in CEE/EU that might already collect visual or deep behavioral data. <span class="metric">Goal: Target List Created</span></p>
                     </div>
                 </li>
                 <li class="task-item">
                     <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
                     <div class="task-content">
-                        <span class="category-tag tag-research">Research</span>
+                        <span class="category-tag tag-research">Research (Exploratory)</span>
                         <p class="task-desc"><strong>Telco Data Assessment:</strong> Investigate existing Telco (O2, T-Mobile) retail analytics products to see if their spatial granularity is sufficient to replace in-store cameras. <span class="metric">Goal: Telco Capabilities Documented</span></p>
                     </div>
                 </li>
@@ -591,14 +598,14 @@
                     <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
                     <div class="task-content">
                         <span class="category-tag tag-tech">Technical</span>
-                        <p class="task-desc"><strong>CCTV Edge Appliance Feasibility:</strong> Consult with the tech team/advisors to determine if our CV models can run locally on an edge appliance hooked directly into a standard retailer IP CCTV network. <span class="metric">Goal: Tech Feasibility Memo</span></p>
+                        <p class="task-desc"><strong>CCTV Feasibility Memo:</strong> Finalize the technical memo confirming if our CV models can run locally on the edge appliance hooked to retailer CCTV without massive latency or resolution issues. <span class="metric">Goal: Tech Feasibility Memo Locked</span></p>
                     </div>
                 </li>
                 <li class="task-item">
                     <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
                     <div class="task-content">
                         <span class="category-tag tag-legal">Legal</span>
-                        <p class="task-desc"><strong>3rd-Party Visual Data GDPR Review:</strong> Consult privacy counsel on the legal implications of acquiring anonymized visual/audience data from a 3rd party (like a DOOH network) instead of directly from the retailer. <span class="metric">Goal: Legal Risk Matrix Completed</span></p>
+                        <p class="task-desc"><strong>CCTV Privacy & GDPR Review:</strong> Consult privacy counsel on the legal implications of processing existing retailer CCTV feeds (vs our own sensors). How does it change the DPA? <span class="metric">Goal: Legal Risk Matrix Completed</span></p>
                     </div>
                 </li>
             </ul>
@@ -615,7 +622,14 @@
                     <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
                     <div class="task-content">
                         <span class="category-tag tag-partner">Partner Outreach</span>
-                        <p class="task-desc"><strong>DOOH/POS Partner Pitch:</strong> Create a compelling pitch for DOOH/POS vendors. Why should they sell us their data feed? (e.g., New revenue stream for them, we enrich their media targeting). <span class="metric">Goal: Partner Pitch Deck Ready</span></p>
+                        <p class="task-desc"><strong>CCTV Vendor Pitch:</strong> Create a pitch for major CCTV installation/management companies (e.g., Axis, local integrators). Can we partner with them to pre-install our software on their NVRs? <span class="metric">Goal: CCTV Partner Pitch Ready</span></p>
+                    </div>
+                </li>
+                <li class="task-item">
+                    <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
+                    <div class="task-content">
+                        <span class="category-tag tag-partner">Partner Outreach (Exploratory)</span>
+                        <p class="task-desc"><strong>DOOH/POS Partner Pitch:</strong> Create a compelling pitch for DOOH/POS vendors. Why should they sell us their data feed? <span class="metric">Goal: Exploratory Pitch Ready</span></p>
                     </div>
                 </li>
             </ul>
@@ -632,7 +646,14 @@
                     <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
                     <div class="task-content">
                         <span class="category-tag tag-partner">Partner Outreach</span>
-                        <p class="task-desc"><strong>Launch Partner Outreach:</strong> Reach out to the top 5 DOOH/POS targets mapped in Week 1. Aim to schedule discovery calls to understand their technical capabilities and willingness to syndicate data. <span class="metric">Goal: 2 Discovery Calls Booked</span></p>
+                        <p class="task-desc"><strong>Launch CCTV Partner Outreach:</strong> Reach out to 3-5 major CCTV integrators/vendors to schedule discovery calls on technical partnerships. <span class="metric">Goal: 2 Discovery Calls Booked</span></p>
+                    </div>
+                </li>
+                <li class="task-item">
+                    <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
+                    <div class="task-content">
+                        <span class="category-tag tag-partner">Partner Outreach (Exploratory)</span>
+                        <p class="task-desc"><strong>Launch DOOH/POS Outreach:</strong> Reach out to the top 5 DOOH/POS targets mapped in Week 1. <span class="metric">Goal: 1 Discovery Call Booked</span></p>
                     </div>
                 </li>
             </ul>
@@ -656,7 +677,7 @@
                     <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
                     <div class="task-content">
                         <span class="category-tag tag-research">Research</span>
-                        <p class="task-desc"><strong>Consolidate Findings:</strong> The team synthesizes all technical, legal, and early outreach feedback into a preliminary "Alt Data Status Report" for immediate use in VC Due Diligence discussions. <span class="metric">Goal: V1 Report Generated</span></p>
+                        <p class="task-desc"><strong>Consolidate Findings:</strong> The team synthesizes all technical, legal, and early outreach feedback into a preliminary "Alt Data Status Report" (focusing heavily on CCTV viability) for immediate use in VC Due Diligence discussions. <span class="metric">Goal: V1 Report Generated</span></p>
                     </div>
                 </li>
             </ul>
@@ -673,7 +694,14 @@
                     <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
                     <div class="task-content">
                         <span class="category-tag tag-partner">Partner Outreach</span>
-                        <p class="task-desc"><strong>Conduct Discovery Calls:</strong> Execute the booked discovery calls with DOOH/POS vendors. Qualify them on: 1) Camera presence/quality, 2) Data export capabilities (API), 3) Legal rights to share. <span class="metric">Goal: 2-3 Qualification Calls</span></p>
+                        <p class="task-desc"><strong>Conduct CCTV Discovery Calls:</strong> Execute the booked discovery calls with CCTV integrators. Qualify them on willingness to allow 3rd party software on their hardware or intercept their streams. <span class="metric">Goal: 2 Qualification Calls</span></p>
+                    </div>
+                </li>
+                <li class="task-item">
+                    <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
+                    <div class="task-content">
+                        <span class="category-tag tag-partner">Partner Outreach (Exploratory)</span>
+                        <p class="task-desc"><strong>Conduct DOOH/POS Calls:</strong> Qualify DOOH/POS vendors on data export capabilities and legal rights. <span class="metric">Goal: 1 Qualification Call</span></p>
                     </div>
                 </li>
             </ul>
@@ -690,7 +718,7 @@
                     <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
                     <div class="task-content">
                         <span class="category-tag tag-partner">Partner Outreach</span>
-                        <p class="task-desc"><strong>Technical Deep Dives:</strong> Move the most promising 1-2 partners into technical deep dives with the M&M engineering team to discuss API structures and video/metadata formats. <span class="metric">Goal: 1 Technical Deep Dive</span></p>
+                        <p class="task-desc"><strong>Technical Deep Dives (CCTV):</strong> Move the most promising 1-2 CCTV partners into technical deep dives with the M&M engineering team to discuss integration specifics. <span class="metric">Goal: 1 Technical Deep Dive</span></p>
                     </div>
                 </li>
             </ul>
