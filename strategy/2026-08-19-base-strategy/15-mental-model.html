@@ -1,0 +1,299 @@
+<title>One Loop, Three Markets</title>
+<style>
+:root{
+  --paper:#EDEFF2; --surface:#FFFFFF; --surface-2:#F5F7F9; --surface-3:#E7EBEF;
+  --ink:#12171D; --ink-2:#3A434E; --muted:#69737F;
+  --rule:#D5DBE1; --rule-2:#BAC3CC;
+  --accent:#B4501A; --accent-2:#8E3D12; --accent-wash:#F6E9E1;
+  --cool:#33528C; --cool-bg:#E5EAF4;
+  --warn:#973048; --warn-bg:#F6E5E9;
+  --good:#1B6A50; --good-bg:#E4F0EB;
+  --shadow:0 1px 2px rgba(16,22,28,.05),0 10px 30px -20px rgba(16,22,28,.35);
+  --serif:Georgia,'Iowan Old Style','Times New Roman',serif;
+  --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,'Helvetica Neue',sans-serif;
+  --mono:ui-monospace,'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#0D1217; --surface:#141A21; --surface-2:#19212A; --surface-3:#212B35;
+  --ink:#E5EAEF; --ink-2:#B4BEC8; --muted:#818E9B;
+  --rule:#242E38; --rule-2:#34404C;
+  --accent:#E07E48; --accent-2:#F0A47A; --accent-wash:#2A1D14;
+  --cool:#8AACE6; --cool-bg:#141E31;
+  --warn:#E48AA0; --warn-bg:#2B1620;
+  --good:#61C0A0; --good-bg:#12261F;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 14px 34px -22px rgba(0,0,0,.9);
+}}
+:root[data-theme="dark"]{
+  --paper:#0D1217; --surface:#141A21; --surface-2:#19212A; --surface-3:#212B35;
+  --ink:#E5EAEF; --ink-2:#B4BEC8; --muted:#818E9B;
+  --rule:#242E38; --rule-2:#34404C;
+  --accent:#E07E48; --accent-2:#F0A47A; --accent-wash:#2A1D14;
+  --cool:#8AACE6; --cool-bg:#141E31;
+  --warn:#E48AA0; --warn-bg:#2B1620;
+  --good:#61C0A0; --good-bg:#12261F;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 14px 34px -22px rgba(0,0,0,.9);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);
+  font-size:16.5px;line-height:1.62;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1060px;margin:0 auto;padding:56px clamp(20px,4vw,52px) 90px}
+.eyebrow{font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:12px}
+h1{font-family:var(--serif);font-weight:600;font-size:clamp(2rem,4.6vw,3.1rem);line-height:1.08;
+  margin:0 0 16px;text-wrap:balance;letter-spacing:-.01em}
+.lede{font-size:clamp(1.02rem,1.6vw,1.22rem);color:var(--ink-2);max-width:62ch;margin:0 0 8px}
+.lede strong{color:var(--ink)}
+h2{font-family:var(--serif);font-weight:600;font-size:1.55rem;margin:54px 0 14px;text-wrap:balance}
+p{color:var(--ink-2);max-width:70ch;margin:0 0 14px}
+strong{color:var(--ink)}
+.mono{font-family:var(--mono)}
+
+figure{margin:38px 0 8px}
+.fig{background:var(--surface);border:1px solid var(--rule);border-radius:10px;
+  box-shadow:var(--shadow);padding:clamp(10px,2vw,22px);overflow-x:auto}
+.fig svg{display:block;min-width:760px;width:100%;height:auto;color:var(--ink-2)}
+figcaption{font-size:.85rem;color:var(--muted);margin-top:12px;max-width:80ch;line-height:1.55}
+figcaption b{color:var(--ink-2)}
+
+.physics{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;margin:26px 0 0}
+.phys{background:var(--surface);border:1px solid var(--rule);border-left:3px solid var(--accent);
+  border-radius:7px;padding:15px 18px;box-shadow:var(--shadow)}
+.phys .k{font-family:var(--mono);font-size:.62rem;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:7px}
+.phys p{font-size:.94rem;margin:0}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}
+.card{background:var(--surface);border:1px solid var(--rule);border-radius:8px;padding:18px 20px;box-shadow:var(--shadow)}
+.card h3{margin:0 0 12px;font-size:1rem;display:flex;gap:10px;align-items:baseline}
+.card h3 .n{font-family:var(--mono);font-size:.72rem;color:var(--accent)}
+.kv{display:grid;grid-template-columns:86px 1fr;gap:6px 12px;font-size:.88rem}
+.kv dt{font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--muted);padding-top:3px}
+.kv dd{margin:0;color:var(--ink-2)}
+.kv dd b{color:var(--ink)}
+.chip{display:inline-block;font-family:var(--mono);font-size:.66rem;letter-spacing:.06em;
+  padding:2px 8px;border-radius:3px;background:var(--surface-3);color:var(--muted)}
+.chip.hot{background:var(--warn-bg);color:var(--warn)}
+.chip.own{background:var(--accent-wash);color:var(--accent-2)}
+
+.evrow{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:16px}
+.ev{background:var(--cool-bg);border:1px solid var(--rule);border-radius:7px;padding:13px 16px}
+.ev .t{font-weight:650;font-size:.92rem;color:var(--ink)}
+.ev .d{font-family:var(--mono);font-size:.68rem;color:var(--cool);margin-top:4px}
+.ev .w{font-size:.82rem;color:var(--ink-2);margin-top:6px;line-height:1.5}
+
+.proto{counter-reset:q;background:var(--surface);border:1px solid var(--rule);border-radius:8px;
+  padding:6px 22px;box-shadow:var(--shadow);max-width:74ch}
+.proto div{padding:15px 0;border-bottom:1px solid var(--rule);display:grid;grid-template-columns:34px 1fr;gap:12px}
+.proto div:last-child{border-bottom:none}
+.proto div::before{counter-increment:q;content:counter(q);font-family:var(--serif);font-size:1.3rem;
+  color:var(--accent);line-height:1.1}
+.proto .q{font-weight:650;color:var(--ink);font-size:.98rem}
+.proto p{font-size:.9rem;margin:4px 0 0}
+
+.clocks{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.clock{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:10px 14px;
+  min-width:150px;box-shadow:var(--shadow)}
+.clock .d{font-family:var(--mono);font-size:.68rem;color:var(--accent);letter-spacing:.06em}
+.clock .t{font-size:.85rem;color:var(--ink-2);margin-top:3px;line-height:1.4}
+.clock.wall{border-color:color-mix(in srgb,var(--warn) 45%,transparent)}
+.clock.wall .d{color:var(--warn)}
+footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--rule);
+  font-family:var(--mono);font-size:.72rem;color:var(--muted);line-height:1.7}
+@media print{.fig{overflow:visible;box-shadow:none}body{background:var(--paper)}}
+</style>
+
+<div class="wrap">
+<div class="eyebrow">Minds &amp; Models · mental model · internal · 20 Aug 2026</div>
+<h1>One loop. Three markets. Three clocks.</h1>
+<p class="lede">The strategy switch in one thought: <strong>we stopped selling a product down a pipeline and started spinning a loop.</strong> Rights unlock data, data becomes proof, proof sells brand seats, paid brands pull the next retailer in — and every turn throws off evidence that retailers, brands and investors all trade against. Capital doesn't build the company; it buys turns of the loop before the clocks run out.</p>
+
+<figure>
+  <div class="fig">
+  <svg viewBox="0 0 980 596" role="img" aria-label="The value loop: rights, data, proof, revenue, pull, feeding back to rights. Retailers exchange rights for a free platform at the top left; brands exchange money for category reads at the top right; investors fund capital at the bottom, which buys turns of the loop; a dashed evidence stream flows from proof to investors. Rights is marked as today's bottleneck.">
+    <defs>
+      <marker id="ah" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse">
+        <path d="M0,0 L10,5 L0,10 z" fill="var(--accent)"/>
+      </marker>
+      <marker id="ahg" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M0,0 L10,5 L0,10 z" fill="currentColor"/>
+      </marker>
+      <marker id="ahb" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M0,0 L10,5 L0,10 z" fill="var(--cool)"/>
+      </marker>
+    </defs>
+
+    <!-- ===== market boxes (top) ===== -->
+    <rect x="95" y="26" width="200" height="60" rx="7" fill="var(--surface-2)" stroke="var(--rule-2)"/>
+    <text x="195" y="50" text-anchor="middle" font-family="var(--mono)" font-size="11" letter-spacing="2" fill="currentColor">RETAILERS</text>
+    <text x="195" y="70" text-anchor="middle" font-size="12" fill="var(--muted)">pay in RIGHTS, never cash</text>
+
+    <rect x="705" y="26" width="200" height="60" rx="7" fill="var(--surface-2)" stroke="var(--rule-2)"/>
+    <text x="805" y="50" text-anchor="middle" font-family="var(--mono)" font-size="11" letter-spacing="2" fill="currentColor">BRANDS</text>
+    <text x="805" y="70" text-anchor="middle" font-size="12" fill="var(--muted)">pay in CASH, annually</text>
+
+    <!-- retailer exchange -->
+    <line x1="163" y1="86" x2="163" y2="164" stroke="currentColor" stroke-width="1.4" marker-end="url(#ahg)"/>
+    <text x="152" y="128" text-anchor="end" font-size="11" fill="var(--muted)">grant rights</text>
+    <line x1="227" y1="164" x2="227" y2="86" stroke="currentColor" stroke-width="1.4" marker-end="url(#ahg)"/>
+    <text x="238" y="121" font-size="11" fill="var(--muted)">free platform,</text>
+    <text x="238" y="135" font-size="11" fill="var(--muted)">first look</text>
+
+    <!-- brand exchange -->
+    <line x1="775" y1="86" x2="775" y2="164" stroke="currentColor" stroke-width="1.4" marker-end="url(#ahg)"/>
+    <text x="764" y="128" text-anchor="end" font-size="11" fill="var(--muted)">€ seats</text>
+    <line x1="835" y1="164" x2="835" y2="86" stroke="currentColor" stroke-width="1.4" marker-end="url(#ahg)"/>
+    <text x="846" y="121" font-size="11" fill="var(--muted)">category reads,</text>
+    <text x="846" y="135" font-size="11" fill="var(--muted)">masked</text>
+
+    <!-- ===== loop: top row ===== -->
+    <!-- RIGHTS -->
+    <rect x="108" y="168" width="174" height="74" rx="8" fill="var(--surface)" stroke="var(--accent)" stroke-width="1.8"/>
+    <text x="195" y="192" text-anchor="middle" font-family="var(--mono)" font-size="12" font-weight="bold" letter-spacing="1.5" fill="var(--accent)">1 · RIGHTS</text>
+    <text x="195" y="211" text-anchor="middle" font-size="11.5" fill="currentColor">mandate → licence</text>
+    <text x="195" y="227" text-anchor="middle" font-size="11" fill="var(--muted)">signed today: 0</text>
+    <rect x="120" y="155" width="150" height="20" rx="10" fill="var(--warn-bg)" stroke="var(--warn)" stroke-width="1"/>
+    <text x="195" y="169" text-anchor="middle" font-family="var(--mono)" font-size="9.5" letter-spacing="1.2" fill="var(--warn)">TODAY'S BOTTLENECK</text>
+
+    <!-- DATA -->
+    <rect x="313" y="168" width="174" height="74" rx="8" fill="var(--surface)" stroke="var(--rule-2)" stroke-width="1.4"/>
+    <text x="400" y="192" text-anchor="middle" font-family="var(--mono)" font-size="12" font-weight="bold" letter-spacing="1.5" fill="currentColor">2 · DATA</text>
+    <text x="400" y="211" text-anchor="middle" font-size="11.5" fill="currentColor">their cameras, our software</text>
+    <text x="400" y="227" text-anchor="middle" font-size="11" fill="var(--muted)">~€0/store to add</text>
+
+    <!-- PROOF -->
+    <rect x="518" y="168" width="174" height="74" rx="8" fill="var(--surface)" stroke="var(--rule-2)" stroke-width="1.4"/>
+    <text x="605" y="192" text-anchor="middle" font-family="var(--mono)" font-size="12" font-weight="bold" letter-spacing="1.5" fill="currentColor">3 · PROOF</text>
+    <text x="605" y="211" text-anchor="middle" font-size="11.5" fill="currentColor">POS×visual parity + compliance</text>
+    <text x="605" y="227" text-anchor="middle" font-size="11" fill="var(--muted)">the moat · reusable</text>
+
+    <!-- REVENUE -->
+    <rect x="718" y="168" width="174" height="74" rx="8" fill="var(--surface)" stroke="var(--rule-2)" stroke-width="1.4"/>
+    <text x="805" y="192" text-anchor="middle" font-family="var(--mono)" font-size="12" font-weight="bold" letter-spacing="1.5" fill="currentColor">4 · REVENUE</text>
+    <text x="805" y="211" text-anchor="middle" font-size="11.5" fill="currentColor">category slots × brand seats</text>
+    <text x="805" y="227" text-anchor="middle" font-size="11" fill="var(--muted)">10 slots × €500k ≈ €5M</text>
+
+    <!-- forward arrows -->
+    <line x1="282" y1="205" x2="309" y2="205" stroke="var(--accent)" stroke-width="2.2" marker-end="url(#ah)"/>
+    <line x1="487" y1="205" x2="514" y2="205" stroke="var(--accent)" stroke-width="2.2" marker-end="url(#ah)"/>
+    <line x1="692" y1="205" x2="714" y2="205" stroke="var(--accent)" stroke-width="2.2" marker-end="url(#ah)"/>
+
+    <!-- ===== return path with PULL ===== -->
+    <path d="M805,242 L805,340 L629,340" fill="none" stroke="var(--accent)" stroke-width="2.2" marker-end="url(#ah)"/>
+    <rect x="345" y="312" width="250" height="56" rx="8" fill="var(--surface)" stroke="var(--rule-2)" stroke-width="1.4"/>
+    <text x="470" y="335" text-anchor="middle" font-family="var(--mono)" font-size="12" font-weight="bold" letter-spacing="1.5" fill="currentColor">5 · PULL</text>
+    <text x="470" y="353" text-anchor="middle" font-size="11.5" fill="currentColor">paid brands make retailer №+1 say yes</text>
+    <path d="M345,340 L195,340 L195,246" fill="none" stroke="var(--accent)" stroke-width="2.2" marker-end="url(#ah)"/>
+    <text x="262" y="331" text-anchor="middle" font-size="11" fill="var(--muted)">RFI = pull, already inbound</text>
+
+    <!-- ===== capital & investors (bottom) ===== -->
+    <rect x="100" y="452" width="190" height="66" rx="8" fill="var(--accent-wash)" stroke="var(--accent)" stroke-width="1.6"/>
+    <text x="195" y="478" text-anchor="middle" font-family="var(--mono)" font-size="12" font-weight="bold" letter-spacing="1.5" fill="var(--accent-2)">CAPITAL</text>
+    <text x="195" y="497" text-anchor="middle" font-size="11.5" fill="var(--accent-2)">starter motor, not the engine</text>
+
+    <rect x="705" y="452" width="200" height="66" rx="7" fill="var(--surface-2)" stroke="var(--rule-2)"/>
+    <text x="805" y="477" text-anchor="middle" font-family="var(--mono)" font-size="11" letter-spacing="2" fill="currentColor">INVESTORS</text>
+    <text x="805" y="497" text-anchor="middle" font-size="12" fill="var(--muted)">pay in TIME + MONEY</text>
+
+    <line x1="705" y1="485" x2="296" y2="485" stroke="currentColor" stroke-width="1.4" marker-end="url(#ahg)"/>
+    <text x="500" y="477" text-anchor="middle" font-size="11" fill="var(--muted)">bridge now → A or B at the 15 Oct fork</text>
+
+    <line x1="195" y1="452" x2="195" y2="376" stroke="var(--accent)" stroke-width="2" stroke-dasharray="1 0" marker-end="url(#ah)"/>
+    <text x="184" y="418" text-anchor="end" font-size="11" fill="var(--muted)">buys turns:</text>
+    <text x="184" y="432" text-anchor="end" font-size="11" fill="var(--muted)">deploys, counsel, hires</text>
+
+    <!-- ===== evidence stream ===== -->
+    <path d="M605,242 L605,430 L735,430 L735,448" fill="none" stroke="var(--cool)" stroke-width="1.8" stroke-dasharray="6 5" marker-end="url(#ahb)"/>
+    <text x="617" y="404" font-size="11" fill="var(--cool)">evidence objects, every ~3 weeks:</text>
+    <text x="617" y="420" font-size="11" fill="var(--cool)">mandate · parity · RFI outcome · first seat</text>
+  </svg>
+  </div>
+  <figcaption><b>The value loop and who trades against it.</b> Solid orange = the loop itself; every node feeds the next and PULL closes it back into RIGHTS. Vertical pairs are the two-sided trades (retailers swap rights for a free platform; brands swap cash for masked reads). The dashed blue stream is the same evidence, sent outward — one new object roughly every three weeks is what "fast-paced" looks like from the outside. Capital enters at the bottom: it buys turns, it is not a node of the loop.</figcaption>
+</figure>
+
+<div class="physics">
+  <div class="phys"><div class="k">Law 1 · one bottleneck</div>
+    <p>At any moment <strong>exactly one node is the constraint</strong> — pushing any other node is wasted founder-hours. Today it is RIGHTS: nothing downstream monetises until a signature exists.</p></div>
+  <div class="phys"><div class="k">Law 2 · turns compound</div>
+    <p>Each turn is cheaper than the last: proof is reusable across every chain, masking strengthens with each retailer, and PULL replaces outbound with inbound. The first turn is the expensive one — <strong>we are in it now</strong>.</p></div>
+  <div class="phys"><div class="k">Law 3 · evidence clears three markets</div>
+    <p>The same artifact advances a retailer deal, a brand deal and a fund conversation at once. <strong>Work that produces no evidence object this month is probably the wrong work.</strong></p></div>
+</div>
+
+<h2>The five nodes — state, action, owner</h2>
+<div class="cards">
+  <div class="card"><h3><span class="n">1</span>RIGHTS <span class="chip hot">bottleneck</span></h3>
+    <dl class="kv">
+      <dt>Today</dt><dd><b>0 signed.</b> 133k captured sessions legally unsellable</dd>
+      <dt>Turns it</dt><dd>60-day revocable mandate signed in the room; retrofit blitz on 6 pilots; trust ladder + no toxic cut</dd>
+      <dt>Owner</dt><dd><span class="chip own">Josef</span> <span class="chip">5 Sep</span></dd>
+      <dt>Stuck when</dt><dd>warmest retailer refuses even a revocable probe → fork to paid rights</dd>
+    </dl></div>
+  <div class="card"><h3><span class="n">2</span>DATA</h3>
+    <dl class="kv">
+      <dt>Today</dt><dd>11 devices · ~1,500 sessions/store/mo · S2 ships Sep</dd>
+      <dt>Turns it</dt><dd>software on existing estates (S1/S2); one chain signature ≈ 200+ stores; deploy for <b>category breadth</b>, not store count</dd>
+      <dt>Owner</dt><dd><span class="chip own">Petr / eng</span></dd>
+      <dt>Stuck when</dt><dd>i5 can't run extraction, or inference &gt;€30/store/mo</dd>
+    </dl></div>
+  <div class="card"><h3><span class="n">3</span>PROOF</h3>
+    <dl class="kv">
+      <dt>Today</dt><dd>coarse grid already passed; parity v1 due 19 Sep, decisive cross-category 10 Oct</dd>
+      <dt>Turns it</dt><dd>calibration artifact + compliance pack + one gold station at EuroOil</dd>
+      <dt>Owner</dt><dd><span class="chip own">Dima</span> <span class="chip">8–10 h/wk, locked</span></dd>
+      <dt>Stuck when</dt><dd>parity &lt;92% → camera-only estates sell footfall, not purchase analytics</dd>
+    </dl></div>
+  <div class="card"><h3><span class="n">4</span>REVENUE</h3>
+    <dl class="kv">
+      <dt>Today</dt><dd>€0 brand ARR; 5 slots planned ≈ €525k each</dd>
+      <dt>Turns it</dt><dd>founding-seat cohorts (3/category, density escrow), sold in the Oct–Nov budget window; unit of account = the <b>slot</b>, never the device</dd>
+      <dt>Owner</dt><dd><span class="chip own">Josef</span> <span class="chip">tobacco ≤30 Sep or cut</span></dd>
+      <dt>Stuck when</dt><dd>zero seats at any price → complementary-data cap is real, reprice to studies</dd>
+    </dl></div>
+  <div class="card"><h3><span class="n">5</span>PULL</h3>
+    <dl class="kv">
+      <dt>Today</dt><dd>already firing once: the SuperZoo RFI arrived inbound</dd>
+      <dt>Turns it</dt><dd>supplier money follows measurable audiences — a paying brand cohort makes retailer №+1's decision for them (dunnhumby logic)</dd>
+      <dt>Owner</dt><dd><span class="chip own">the loop itself</span></dd>
+      <dt>Stuck when</dt><dd>we chase logos instead of letting proof pull — the old 8 months</dd>
+    </dl></div>
+  <div class="card"><h3><span class="n">⚡</span>CAPITAL <span class="chip">not a node</span></h3>
+    <dl class="kv">
+      <dt>Today</dt><dd>€50k cash, €12k/mo burn, wall mid-Dec</dd>
+      <dt>Turns it</dt><dd>bridge papered ≤30 Sep regardless; then A (bridge &amp; convert) or B (re-rate &amp; raise) at the fork</dd>
+      <dt>Owner</dt><dd><span class="chip own">Ondřej</span> <span class="chip">fork 15 Oct</span></dd>
+      <dt>Stuck when</dt><dd>we let the cash clock pick the business model — the fork exists to prevent exactly that</dd>
+    </dl></div>
+</div>
+
+<h2>The evidence stream — what "fast" looks like from outside</h2>
+<p>Funds don't believe velocity claims; they believe dated objects. One object every ~3 weeks <strong>is</strong> the answer to "why won't the next 8 months look like the last 8":</p>
+<div class="evrow">
+  <div class="ev"><div class="t">Signed mandate</div><div class="d">≤ 5 Sep</div><div class="w">Rights are grantable — the loop's first turn has begun</div></div>
+  <div class="ev"><div class="t">Parity v1 → cross-category</div><div class="d">19 Sep · 10 Oct</div><div class="w">The moat is measurable; a data company, not a camera company</div></div>
+  <div class="ev"><div class="t">RFI outcome</div><div class="d">Oct</div><div class="w">A 206-store chain chose the model — PULL exists</div></div>
+  <div class="ev"><div class="t">First brand seat</div><div class="d">≤ 6 wks post-mandate</div><div class="w">Brands pay — the complementary-data cap is not binding</div></div>
+</div>
+
+<h2>The Monday protocol — three questions, every week</h2>
+<div class="proto">
+  <div><div><div class="q">Which node is the bottleneck this week?</div>
+    <p>Name exactly one. All selling hours go there. If two founders disagree on which, that is the meeting.</p></div></div>
+  <div><div><div class="q">What evidence object does this week's work produce, and who receives it?</div>
+    <p>Retailer, brand, or fund — ideally all three. No object in sight ≈ wrong work.</p></div></div>
+  <div><div><div class="q">Which clock is nearest, and does it change the answer to Q1?</div>
+    <p>The clocks overrule elegance. A weaker move before the budget window beats a perfect one after it.</p></div></div>
+</div>
+
+<h2>The clocks</h2>
+<div class="clocks">
+  <div class="clock"><div class="d">END AUG</div><div class="t">SuperZoo exec meeting — mandate in the room</div></div>
+  <div class="clock"><div class="d">30 SEP</div><div class="t">Tobacco meeting or the line is cut · bridge papered</div></div>
+  <div class="clock"><div class="d">15 OCT</div><div class="t">THE FORK — business model + raise strategy decided on evidence</div></div>
+  <div class="clock"><div class="d">OCT–NOV</div><div class="t">Brand budgets lock — miss it, wait a year</div></div>
+  <div class="clock wall"><div class="d">MID-DEC</div><div class="t">Cash wall — round closed ≤15 Nov or bridge drawn</div></div>
+  <div class="clock"><div class="d">18 FEB</div><div class="t">The tally — slots + asset scoreboard, line by line</div></div>
+</div>
+
+<footer>Companion text: strategy/2026-08-19-base-strategy/15-mental-model.md · full pack starts at 00-INDEX.md · numbers: 12-numbers-external.md (external) / 04-revenue-architecture.md (internal)</footer>
+</div>

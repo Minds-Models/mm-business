@@ -1,0 +1,260 @@
+<title>SuperZoo · POS × Personas</title>
+<style>
+:root{
+  --paper:#faf9f6; --card:#ffffff; --ink:#1c1d19; --ink-2:#565751; --ink-3:#8b8c84;
+  --line:#e4e3dc; --accent:#20604b; --accent-ink:#20604b;
+  --s1:#2a78d6; --s1-soft:#9ec5f4; --up:#2a78d6; --down:#e34948; --aqua:#1baf7a;
+  --good-bg:#e8f2ec; --warn-bg:#f7ecd9; --null-bg:#efeee9;
+}
+@media (prefers-color-scheme: dark){:root{
+  --paper:#191a18; --card:#20211f; --ink:#f2f1ec; --ink-2:#b9b8b0; --ink-3:#83847c;
+  --line:#34352f; --accent:#5cb896; --accent-ink:#5cb896;
+  --s1:#3987e5; --s1-soft:#1c5cab; --up:#3987e5; --down:#e66767; --aqua:#199e70;
+  --good-bg:#1f2b25; --warn-bg:#2d2619; --null-bg:#242521;
+}}
+:root[data-theme="dark"]{
+  --paper:#191a18; --card:#20211f; --ink:#f2f1ec; --ink-2:#b9b8b0; --ink-3:#83847c;
+  --line:#34352f; --accent:#5cb896; --accent-ink:#5cb896;
+  --s1:#3987e5; --s1-soft:#1c5cab; --up:#3987e5; --down:#e66767; --aqua:#199e70;
+  --good-bg:#1f2b25; --warn-bg:#2d2619; --null-bg:#242521;
+}
+:root[data-theme="light"]{
+  --paper:#faf9f6; --card:#ffffff; --ink:#1c1d19; --ink-2:#565751; --ink-3:#8b8c84;
+  --line:#e4e3dc; --accent:#20604b; --accent-ink:#20604b;
+  --s1:#2a78d6; --s1-soft:#9ec5f4; --up:#2a78d6; --down:#e34948; --aqua:#1baf7a;
+  --good-bg:#e8f2ec; --warn-bg:#f7ecd9; --null-bg:#efeee9;
+}
+*{box-sizing:border-box}
+body{background:var(--paper); color:var(--ink); margin:0;
+  font:16px/1.55 Seravek,'Gill Sans Nova','Segoe UI',Candara,Calibri,system-ui,sans-serif;}
+main{max-width:900px; margin:0 auto; padding:48px 24px 96px}
+h1{font-size:2rem; line-height:1.15; margin:.2em 0 .3em; text-wrap:balance; font-weight:650; letter-spacing:-.01em}
+h2{font-size:1.3rem; margin:0 0 .35em; font-weight:650; text-wrap:balance}
+p{max-width:68ch; color:var(--ink-2); margin:.4em 0 .9em}
+p strong, li strong{color:var(--ink)}
+.eyebrow{font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; color:var(--accent-ink); font-weight:700; margin:0 0 .4em}
+section{margin-top:56px}
+.scope{color:var(--ink-3); font-size:.9rem; margin-top:0}
+.tiles{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px; margin:28px 0 0}
+.tile{background:var(--card); border:1px solid var(--line); border-radius:6px; padding:14px 16px}
+.tile .v{font-size:1.5rem; font-weight:680; font-variant-numeric:tabular-nums; letter-spacing:-.01em}
+.tile .k{font-size:.75rem; color:var(--ink-3); letter-spacing:.06em; text-transform:uppercase; margin-top:2px}
+.tile .sub{font-size:.78rem; color:var(--ink-2); margin-top:4px}
+figure{margin:20px 0; background:var(--card); border:1px solid var(--line); border-radius:6px; padding:18px 18px 12px; overflow-x:auto}
+figcaption{font-size:.8rem; color:var(--ink-3); margin-top:10px; max-width:75ch}
+svg text{font:12px Seravek,'Segoe UI',system-ui,sans-serif; fill:var(--ink-2)}
+svg .lbl{fill:var(--ink); font-weight:600; font-variant-numeric:tabular-nums}
+svg .name{fill:var(--ink)}
+svg .mut{fill:var(--ink-3); font-size:11px}
+svg .grid{stroke:var(--line); stroke-width:1}
+table{border-collapse:collapse; width:100%; font-size:.88rem; font-variant-numeric:tabular-nums}
+th{font-size:.72rem; text-transform:uppercase; letter-spacing:.08em; color:var(--ink-3); text-align:left; font-weight:650; padding:6px 10px; border-bottom:1px solid var(--line)}
+td{padding:7px 10px; border-bottom:1px solid var(--line); color:var(--ink-2)}
+td:first-child{color:var(--ink)}
+th.num, td.num{text-align:right}
+.tablewrap{overflow-x:auto; background:var(--card); border:1px solid var(--line); border-radius:6px; padding:6px 10px; margin:20px 0}
+.call{border-left:3px solid var(--accent); background:var(--good-bg); border-radius:0 6px 6px 0; padding:12px 18px; margin:20px 0; max-width:74ch}
+.call p{margin:.3em 0}
+.null{border-left-color:var(--ink-3); background:var(--null-bg)}
+.warn{border-left-color:#b98a2f; background:var(--warn-bg)}
+.pill{display:inline-block; font-size:.72rem; font-weight:700; border-radius:99px; padding:1px 9px; letter-spacing:.03em; vertical-align:1px}
+.pill.sig{background:var(--good-bg); color:var(--accent-ink)}
+.pill.ns{background:var(--null-bg); color:var(--ink-3)}
+.grid2{display:grid; grid-template-columns:1fr 1fr; gap:16px}
+@media (max-width:720px){.grid2{grid-template-columns:1fr}}
+ul{color:var(--ink-2); max-width:72ch; padding-left:1.2em}
+li{margin:.35em 0}
+.foot{margin-top:64px; padding-top:16px; border-top:1px solid var(--line); color:var(--ink-3); font-size:.8rem; max-width:none}
+code{font:.85em ui-monospace,'Cascadia Code','SF Mono',Menlo,monospace; background:var(--null-bg); padding:.1em .35em; border-radius:4px; color:var(--ink)}
+.legend{display:flex; gap:16px; font-size:.78rem; color:var(--ink-2); margin:2px 0 0; flex-wrap:wrap}
+.legend span{display:inline-flex; align-items:center; gap:5px}
+.sw{width:11px; height:11px; border-radius:2px; display:inline-block}
+</style>
+<main>
+<p class="eyebrow">Pilot analysis · SuperZoo · store CS314</p>
+<h1>What fills the basket: purchasing behavior across eight weeks</h1>
+<p class="scope">Point-of-sale receipts (16 Jun – 9 Aug 2026) × checkout-camera visitors, visual features &amp; the 8 shopper personas · analysis window 23 Jun – 9 Aug (48 camera days) · one store, two registers under one checkout camera · CZK.</p>
+
+<div class="tiles">
+  <div class="tile"><div class="v">8,095</div><div class="k">receipts</div><div class="sub">3.51M CZK · 48 days</div></div>
+  <div class="tile"><div class="v">434 Kč</div><div class="k">avg basket</div><div class="sub">median 281 Kč</div></div>
+  <div class="tile"><div class="v">96%</div><div class="k">receipts linked</div><div class="sub">7,815 matched to a visitor</div></div>
+  <div class="tile"><div class="v">5,645</div><div class="k">with visual features</div><div class="sub">72% of linked</div></div>
+  <div class="tile"><div class="v">5,633</div><div class="k">persona-tagged</div><div class="sub">72% of linked</div></div>
+</div>
+
+<section>
+<p class="eyebrow">01 · Method</p>
+<h2>Receipts matched to checkout visits by time correlation</h2>
+<p>Each receipt is matched to the shopper at the tills when it closed — the camera and register clocks are in sync, so presence peaks exactly at the closing timestamp and falls away within seconds as people pay and leave. Recognized staff are excluded before analysis; every match carries a confidence score, and all headline findings were re-checked on the high-confidence subset. Over eight weeks the match rate holds at <strong>96%</strong>, and 72% of linked receipts carry a full visual profile of the buyer.</p>
+<figure>
+<svg viewBox="0 0 560 150" width="560" height="150" role="img" aria-label="Share of receipts with a visitor present, by clock offset">
+  <line class="grid" x1="50" y1="20" x2="50" y2="115"/>
+  <line class="grid" x1="50" y1="115" x2="540" y2="115"/>
+  <text class="mut" x="50" y="132" text-anchor="middle">−5 min</text>
+  <text class="mut" x="295" y="132" text-anchor="middle">0 (receipt closes)</text>
+  <text class="mut" x="540" y="132" text-anchor="middle">+5 min</text>
+  <text class="mut" x="44" y="24" text-anchor="end">100%</text>
+  <text class="mut" x="44" y="118" text-anchor="end">70%</text>
+  <polyline fill="none" stroke="var(--s1)" stroke-width="2"
+    points="50,106 99,99 148,90 197,68 246,44 295,21 344,75 393,96 442,106 491,108 540,109"/>
+  <circle cx="295" cy="21" r="4" fill="var(--s1)" stroke="var(--card)" stroke-width="2"/>
+  <text class="lbl" x="295" y="12" text-anchor="middle">99%</text>
+</svg>
+<figcaption>Share of receipts with a matching visitor present at the tills, scanning a simulated clock offset. The sharp peak at zero confirms the pairing across the full eight-week window.</figcaption>
+</figure>
+</section>
+
+<section>
+<p class="eyebrow">02 · What drives basket size</p>
+<h2>Basket value is set by what's in the cart, not who's holding it</h2>
+<p>The single clearest driver of how much a shopper spends is <strong>which brands they buy</strong>. Baskets built around branded premium food — the VAFO portfolio (Brit, Carnilove) — average <strong>571 Kč</strong>; SuperZoo's own private labels 498 Kč; third-party accessories and generics far less. The second driver is <strong>how they shop</strong>: a shopper who took a cart spends 651 Kč, more than 1.5× the 426 Kč of someone carrying nothing — and the cart is visible on camera before a single item is scanned.</p>
+<div class="grid2">
+<figure>
+<svg viewBox="0 0 400 210" width="400" height="210" role="img" aria-label="Average basket by dominant brand group">
+  <text class="mut" x="12" y="14">avg basket by dominant brand group</text>
+  <g font-size="12">
+  <g transform="translate(0,30)"><text class="name" x="150" y="11" text-anchor="end">VAFO (Brit, Carnilove)</text>
+    <rect x="158" y="2" width="200" height="13" rx="4" fill="var(--s1)"/><text class="lbl" x="363" y="13">571</text></g>
+  <g transform="translate(0,56)"><text class="name" x="150" y="11" text-anchor="end">SuperZoo private label</text>
+    <rect x="158" y="2" width="174" height="13" rx="4" fill="var(--aqua)"/><text class="lbl" x="337" y="13">498</text></g>
+  <g transform="translate(0,82)"><text class="name" x="150" y="11" text-anchor="end">third-party brands</text>
+    <rect x="158" y="2" width="136" height="13" rx="4" fill="var(--s1-soft)"/><text class="lbl" x="299" y="13">390</text></g>
+  <g transform="translate(0,108)"><text class="name" x="150" y="11" text-anchor="end">unclassified / generic</text>
+    <rect x="158" y="2" width="125" height="13" rx="4" fill="var(--s1-soft)"/><text class="lbl" x="288" y="13">356</text></g>
+  </g>
+  <line x1="310" y1="24" x2="310" y2="128" stroke="var(--ink-3)" stroke-dasharray="3 3"/>
+  <text class="mut" x="310" y="142" text-anchor="middle">store avg 434</text>
+  <text class="mut" x="12" y="170">Kč per receipt, grouped by the brand family that</text>
+  <text class="mut" x="12" y="185">dominates the basket. n = 872–2,612 per group.</text>
+</svg>
+</figure>
+<figure>
+<svg viewBox="0 0 400 210" width="400" height="210" role="img" aria-label="Average basket by shopping tool carried">
+  <text class="mut" x="12" y="14">avg basket by shopping tool carried</text>
+  <g font-size="12">
+  <g transform="translate(0,30)"><text class="name" x="150" y="11" text-anchor="end">cart</text>
+    <rect x="158" y="2" width="228" height="13" rx="4" fill="var(--s1)"/><text class="lbl" x="345" y="13" fill="#fff" style="fill:#fff">651</text></g>
+  <g transform="translate(0,56)"><text class="name" x="150" y="11" text-anchor="end">basket</text>
+    <rect x="158" y="2" width="192" height="13" rx="4" fill="var(--s1)"/><text class="lbl" x="355" y="13">550</text></g>
+  <g transform="translate(0,82)"><text class="name" x="150" y="11" text-anchor="end">nothing</text>
+    <rect x="158" y="2" width="149" height="13" rx="4" fill="var(--s1-soft)"/><text class="lbl" x="312" y="13">426</text></g>
+  <g transform="translate(0,108)"><text class="name" x="150" y="11" text-anchor="end">reusable bag</text>
+    <rect x="158" y="2" width="138" height="13" rx="4" fill="var(--s1-soft)"/><text class="lbl" x="301" y="13">395</text></g>
+  </g>
+  <line x1="310" y1="24" x2="310" y2="128" stroke="var(--ink-3)" stroke-dasharray="3 3"/>
+  <text class="mut" x="310" y="142" text-anchor="middle">store avg 434</text>
+  <text class="mut" x="12" y="170">Kč per receipt, by the shopping tool the camera</text>
+  <text class="mut" x="12" y="185">sees the buyer holding. p = 0.0001.</text>
+</svg>
+</figure>
+</div>
+<div class="call">
+<p><strong>Why it matters.</strong> Two things the camera can read at a glance — is the shopper carrying a cart, and are they reaching for branded food — predict basket size far better than who the shopper demographically <em>is</em>. That's a live signal for staffing the branded-food aisle and for what to surface on screens to a cart-pushing shopper mid-trip.</p>
+</div>
+</section>
+
+<section>
+<p class="eyebrow">03 · Personas × what they buy</p>
+<h2>Personas spend about the same — but buy strikingly different animals' worth of goods</h2>
+<p>The <em>amount</em> each persona spends is broadly similar — basket values sit within a narrow 399–457 Kč band, and the spread is not statistically robust. Where personas differ sharply is in <strong>which pet department they shop</strong>, and that difference is highly significant (composition test p &lt; 0.001):</p>
+<figure>
+<svg viewBox="0 0 620 232" width="620" height="232" role="img" aria-label="Category over-index by persona">
+  <line x1="330" y1="16" x2="330" y2="188" stroke="var(--ink-3)" stroke-dasharray="3 3"/>
+  <text class="mut" x="330" y="212" text-anchor="middle">1.0× = store average</text>
+  <text class="mut" x="220" y="212" text-anchor="middle">0.5×</text>
+  <text class="mut" x="470" y="212" text-anchor="middle">2.0×</text>
+  <line class="grid" x1="220" y1="16" x2="220" y2="188"/><line class="grid" x1="470" y1="16" x2="470" y2="188"/>
+  <g font-size="12">
+  <g transform="translate(0,26)"><text class="name" x="300" y="4" text-anchor="end">Student Teenagers → small pets / rodents</text>
+    <line x1="330" y1="0" x2="470" y2="0" stroke="var(--s1)" stroke-width="2"/><circle cx="470" cy="0" r="5" fill="var(--s1)" stroke="var(--card)" stroke-width="2"/><text class="lbl" x="480" y="4">2.0×</text></g>
+  <g transform="translate(0,52)"><text class="name" x="300" y="4" text-anchor="end">Suburban Men 40s → aquarium</text>
+    <line x1="330" y1="0" x2="420" y2="0" stroke="var(--s1)" stroke-width="2"/><circle cx="420" cy="0" r="5" fill="var(--s1)" stroke="var(--card)" stroke-width="2"/><text class="lbl" x="430" y="4">1.64×</text></g>
+  <g transform="translate(0,78)"><text class="name" x="300" y="4" text-anchor="end">Suburban Men 40s → terrarium / reptile</text>
+    <line x1="330" y1="0" x2="382" y2="0" stroke="var(--s1)" stroke-width="2"/><circle cx="382" cy="0" r="5" fill="var(--s1)" stroke="var(--card)" stroke-width="2"/><text class="lbl" x="392" y="4">1.37×</text></g>
+  <g transform="translate(0,104)"><text class="name" x="300" y="4" text-anchor="end">Established Adults 30s → terrarium / reptile</text>
+    <line x1="330" y1="0" x2="373" y2="0" stroke="var(--s1)" stroke-width="2"/><circle cx="373" cy="0" r="5" fill="var(--s1)" stroke="var(--card)" stroke-width="2"/><text class="lbl" x="383" y="4">1.31×</text></g>
+  <g transform="translate(0,130)"><text class="name" x="300" y="4" text-anchor="end">Budget Conscious Adults → live animals</text>
+    <line x1="330" y1="0" x2="365" y2="0" stroke="var(--s1)" stroke-width="2"/><circle cx="365" cy="0" r="5" fill="var(--s1)" stroke="var(--card)" stroke-width="2"/><text class="lbl" x="375" y="4">1.25×</text></g>
+  <g transform="translate(0,156)"><text class="name" x="300" y="4" text-anchor="end">Student Teenagers → dogs</text>
+    <line x1="268" y1="0" x2="330" y2="0" stroke="var(--down)" stroke-width="2"/><circle cx="268" cy="0" r="5" fill="var(--down)" stroke="var(--card)" stroke-width="2"/><text class="lbl" x="260" y="4" text-anchor="end">0.72×</text></g>
+  <g transform="translate(0,182)"><text class="name" x="300" y="4" text-anchor="end">Suburban Men 40s → cats</text>
+    <line x1="264" y1="0" x2="330" y2="0" stroke="var(--down)" stroke-width="2"/><circle cx="264" cy="0" r="5" fill="var(--down)" stroke="var(--card)" stroke-width="2"/><text class="lbl" x="256" y="4" text-anchor="end">0.70×</text></g>
+  </g>
+</svg>
+<figcaption>Category spend-share vs store average, by persona. Suburban Men in their 40s over-index hard on the high-value fishkeeping and reptile departments (and under-index on cats); students on small pets and rodents, not dogs. n = 38–160 receipts per cell.</figcaption>
+</figure>
+<div class="call">
+<p><strong>Read:</strong> the camera can't tell you a shopper will spend more — but it can tell you what they came for. A Suburban-Men-40s face at the door skews toward the aquarium and reptile aisles (high-margin, specialist gear); a student toward the rodent and small-pet wall. That's a merchandising and screen-targeting signal even though every persona's <em>ticket</em> lands near the store average.</p>
+</div>
+</section>
+
+<section>
+<p class="eyebrow">04 · Brand groups</p>
+<h2>SuperZoo's own labels are 36% of revenue — and 41% of food</h2>
+<p>Classifying every line against SuperZoo's <a href="https://www.superzoo.cz/vlastni-znacky-super-zoo/" style="color:var(--accent-ink)">private labels</a> and the <a href="https://www.vafo.com/brands/" style="color:var(--accent-ink)">VAFO portfolio</a>:</p>
+<figure>
+<svg viewBox="0 0 620 108" width="620" height="108" role="img" aria-label="Revenue split by brand group">
+  <rect x="30"  y="30" width="198" height="26" rx="4" fill="var(--aqua)"/>
+  <rect x="230" y="30" width="142" height="26" rx="4" fill="var(--s1-soft)"/>
+  <rect x="374" y="30" width="77"  height="26" rx="4" fill="var(--s1)"/>
+  <rect x="453" y="30" width="135" height="26" rx="4" fill="var(--line)"/>
+  <text class="lbl" x="34" y="21">SuperZoo private label · 35.8%</text>
+  <text x="230" y="72" class="name">third-party · 24.6%</text>
+  <text x="374" y="21" class="name">VAFO · 13.9%</text>
+  <text x="453" y="72" class="mut">unclassified · 25.7%</text>
+  <text class="mut" x="30" y="98">Share of 3.51M CZK. Food only: private label 41.4%, VAFO 22.2%. Unclassified = live animals, generic goods, small suppliers.</text>
+</svg>
+</figure>
+<div class="grid2">
+<div class="tablewrap"><table>
+<thead><tr><th>Top brand</th><th>group</th><th class="num">revenue Kč</th></tr></thead>
+<tbody>
+<tr><td>Ontario</td><td>private</td><td class="num">504,653</td></tr>
+<tr><td>Brit</td><td>VAFO</td><td class="num">394,775</td></tr>
+<tr><td>Trixie</td><td>third</td><td class="num">199,742</td></tr>
+<tr><td>Dog Fantasy</td><td>private</td><td class="num">183,180</td></tr>
+<tr><td>Rasco Premium</td><td>private</td><td class="num">176,450</td></tr>
+<tr><td>Kočkolit</td><td>third</td><td class="num">144,611</td></tr>
+<tr><td>Carnilove</td><td>VAFO</td><td class="num">86,493</td></tr>
+<tr><td>Prospera Plus</td><td>private</td><td class="num">83,059</td></tr>
+</tbody></table></div>
+<div class="tablewrap"><table>
+<thead><tr><th>Cross-sell pair (within receipt)</th><th class="num">receipts</th></tr></thead>
+<tbody>
+<tr><td>Wet food × treats</td><td class="num">535</td></tr>
+<tr><td>Treats × dry food</td><td class="num">505</td></tr>
+<tr><td>Toys × treats</td><td class="num">439</td></tr>
+<tr><td>Wet food × dry food</td><td class="num">350</td></tr>
+<tr><td>Treats × litter</td><td class="num">243</td></tr>
+</tbody></table></div>
+</div>
+<p>Treats are the store's universal attach — they ride along with wet food, dry food and toys in the largest cross-sell pairs. Private label leads revenue (Ontario alone tops half a million CZK), but the highest-value <em>baskets</em> centre on VAFO's premium food (§02).</p>
+<div class="call warn"><p><strong>Caveat:</strong> brand matching is a curated lexicon over Czech product names; ~26% of revenue (live animals, generic goods) stays unclassified. The client's item master would close that gap.</p></div>
+</section>
+
+<section>
+<p class="eyebrow">05 · What the camera reads about spend</p>
+<h2>Visual signals that track basket value</h2>
+<ul>
+<li><strong>Shopping tool (strongest, p = 0.0001):</strong> cart 651 Kč › basket 550 › empty-handed 426 › reusable bag 395. Intent is visible on entry.</li>
+<li><strong>Sex (p = 0.01):</strong> male-presenting shoppers average 450 Kč vs 416 for female — a modest but real gap, consistent across the window.</li>
+<li><strong>Apparent affluence runs backwards (p = 0.01):</strong> shoppers who read as <em>premium</em>-dressed spend <em>less</em> (308 Kč) than mainstream-dressed (445 Kč). In a pet store, spend tracks the pet's needs and the shopper's mission, not the owner's wardrobe — a useful correction to the intuition that "affluent-looking = bigger basket."</li>
+<li><strong>Build (p = 0.05):</strong> a weak signal — heavier-set shoppers average marginally larger baskets.</li>
+</ul>
+<div class="call null"><p><strong>Honest null:</strong> the model's direct guess at a shopper's <em>spending tier</em> barely moves basket value (p = 0.05, and premium-tier actually lands below mid-range). What people visibly own predicts their pet spend far less than what they're visibly doing — carrying a cart, reaching for branded food.</p></div>
+</section>
+
+<section>
+<p class="eyebrow">06 · Scope &amp; caveats</p>
+<h2>Read before quoting numbers</h2>
+<ul>
+<li><strong>One store, 48 camera days</strong> (23 Jun – 9 Aug; POS begins 16 Jun but the checkout camera came online 23 Jun). Two registers, one camera covering both.</li>
+<li><strong>Matching is probabilistic.</strong> 96% of receipts link, but the busy till means several shoppers are often in view; matches carry confidence weights and every headline was re-checked on the high-confidence subset. Category cells (40–180 receipts) are directional.</li>
+<li><strong>Buyers only.</strong> The checkout camera sees people who bought; conversion questions need the sales-floor camera.</li>
+<li><strong>Privacy:</strong> de-identified aggregates; every reported figure combines ≥ 10 receipts; sensitive attributes used only in aggregate.</li>
+</ul>
+</section>
+
+<p class="foot">Method: 55 daily POS exports (store CS314, 16 Jun – 9 Aug 2026) matched to anonymous checkout visits by time correlation — a shopper is credited with a receipt when their departure aligns with the receipt closing; recognized staff excluded; every match confidence-weighted and findings re-checked on the strict subset. No identities stored; all reported cells aggregate 10+ receipts. Brand group from a curated lexicon over product names. Tests: Mann–Whitney / Kruskal–Wallis / χ². All figures CZK. Analysis 10 Aug 2026.</p>
+</main>

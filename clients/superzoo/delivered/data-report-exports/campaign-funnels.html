@@ -1,0 +1,83 @@
+<title>Campaign eval — count cascade funnels</title>
+<style>
+:root{--paper:#f7f8f8;--card:#fff;--ink:#1a1c1e;--ink-2:#51555b;--ink-3:#868b91;--line:#e2e4e3;
+ --accent:#4b4a9e;--accent-ink:#43429a;--bar:#7c7bd8;--bar2:#4b4a9e;--up:#1f9d6b;--dn:#d1495b;--null-bg:#eeeef0;--warn-bg:#f7efe0;}
+@media(prefers-color-scheme:dark){:root{--paper:#151518;--card:#1e1e23;--ink:#f0f0f3;--ink-2:#b6b7c0;--ink-3:#83848d;--line:#31323a;
+ --accent:#9d9cec;--accent-ink:#9d9cec;--bar:#6e6dcf;--bar2:#9d9cec;--up:#3fbf8c;--dn:#e0697a;--null-bg:#232329;--warn-bg:#2a2418;}}
+:root[data-theme=dark]{--paper:#151518;--card:#1e1e23;--ink:#f0f0f3;--ink-2:#b6b7c0;--ink-3:#83848d;--line:#31323a;--accent:#9d9cec;--accent-ink:#9d9cec;--bar:#6e6dcf;--bar2:#9d9cec;--up:#3fbf8c;--dn:#e0697a;--null-bg:#232329;--warn-bg:#2a2418;}
+:root[data-theme=light]{--paper:#f7f8f8;--card:#fff;--ink:#1a1c1e;--ink-2:#51555b;--ink-3:#868b91;--line:#e2e4e3;--accent:#4b4a9e;--accent-ink:#43429a;--bar:#7c7bd8;--bar2:#4b4a9e;--up:#1f9d6b;--dn:#d1495b;--null-bg:#eeeef0;--warn-bg:#f7efe0;}
+*{box-sizing:border-box}body{background:var(--paper);color:var(--ink);margin:0;font:15.5px/1.5 Seravek,'Segoe UI',system-ui,sans-serif}
+main{max-width:900px;margin:0 auto;padding:44px 24px 90px}
+h1{font-size:1.75rem;margin:.2em 0 .3em;font-weight:650}
+p{max-width:74ch;color:var(--ink-2)}.eyebrow{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-ink);font-weight:700}
+.scope{color:var(--ink-3);font-size:.88rem}
+.seg{background:var(--card);border:1px solid var(--line);border-radius:7px;padding:14px 16px;margin:16px 0;overflow-x:auto}
+.segh{font-size:.95rem;margin-bottom:4px}.segh b{color:var(--ink)}
+.fin{float:right;font-weight:700;color:var(--accent-ink);background:var(--null-bg);border-radius:99px;padding:1px 10px;font-size:.82rem}
+svg text{font:12px Seravek,system-ui,sans-serif}.stg{fill:var(--ink-2);font-size:11.5px}.cnt{fill:var(--ink);font-weight:600;font-variant-numeric:tabular-nums}
+.up{fill:var(--up)}.dn{fill:var(--dn)}
+.call{border-left:3px solid var(--accent);background:var(--warn-bg);border-radius:0 6px 6px 0;padding:11px 16px;margin:20px 0;max-width:78ch;color:var(--ink-2)}
+.foot{margin-top:40px;padding-top:14px;border-top:1px solid var(--line);color:var(--ink-3);font-size:.78rem}
+</style>
+<main>
+<p class="eyebrow">Internal · campaign eval · count cascade</p>
+<h1>Why the effect can't be measured: the funnels</h1>
+<p class="scope">Each targeted segment, 2-week windows (pre 13–27 Jul → post 27 Jul–9 Aug). Every funnel starts at all store receipts and cascades down to how many receipts, from that segment's persona, actually bought the promoted product. Bars scaled to a shared axis; numbers are <b>pre → post</b> (<span class="up">green</span>=up, <span class="dn">red</span>=down).</p>
+<div class="seg">
+<div class="segh"><b>Ontario cat food</b> → Men 40+
+  <span class="fin">bought: 11 → 13</span></div>
+<svg viewBox="0 0 760 152" width="760" height="152" role="img" aria-label="funnel Ontario cat food">
+<g transform="translate(0,0)"><text class="stg" x="176" y="15" text-anchor="end">all receipts</text><rect x="184" y="4" width="520" height="17" rx="3" fill="var(--bar)" opacity="0.55"/><text class="cnt" x="712" y="16">2,431 → <tspan class="dn">2,265</tspan></text></g>
+<g transform="translate(0,30)"><text class="stg" x="176" y="15" text-anchor="end">linked to a visitor</text><rect x="184" y="4" width="505" height="17" rx="3" fill="var(--bar)" opacity="0.55"/><text class="cnt" x="697" y="16">2,361 → <tspan class="dn">2,161</tspan></text></g>
+<g transform="translate(0,60)"><text class="stg" x="176" y="15" text-anchor="end">persona-tagged</text><rect x="184" y="4" width="363" height="17" rx="3" fill="var(--bar)" opacity="0.55"/><text class="cnt" x="555" y="16">1,697 → <tspan class="dn">1,507</tspan></text></g>
+<g transform="translate(0,90)"><text class="stg" x="176" y="15" text-anchor="end">Men 40+</text><rect x="184" y="4" width="74" height="17" rx="3" fill="var(--bar2)" opacity="0.55"/><text class="cnt" x="266" y="16">346 → <tspan class="dn">290</tspan></text></g>
+<g transform="translate(0,120)"><text class="stg" x="176" y="15" text-anchor="end">bought promoted product</text><rect x="184" y="4" width="5" height="17" rx="3" fill="var(--accent)" opacity="0.9"/><text class="cnt" x="197" y="16">11 → <tspan class="up">13</tspan></text></g>
+</svg></div><div class="seg">
+<div class="segh"><b>Leashes</b> → Active Young
+  <span class="fin">bought: 2 → 4</span></div>
+<svg viewBox="0 0 760 152" width="760" height="152" role="img" aria-label="funnel Leashes">
+<g transform="translate(0,0)"><text class="stg" x="176" y="15" text-anchor="end">all receipts</text><rect x="184" y="4" width="520" height="17" rx="3" fill="var(--bar)" opacity="0.55"/><text class="cnt" x="712" y="16">2,431 → <tspan class="dn">2,265</tspan></text></g>
+<g transform="translate(0,30)"><text class="stg" x="176" y="15" text-anchor="end">linked to a visitor</text><rect x="184" y="4" width="505" height="17" rx="3" fill="var(--bar)" opacity="0.55"/><text class="cnt" x="697" y="16">2,361 → <tspan class="dn">2,161</tspan></text></g>
+<g transform="translate(0,60)"><text class="stg" x="176" y="15" text-anchor="end">persona-tagged</text><rect x="184" y="4" width="363" height="17" rx="3" fill="var(--bar)" opacity="0.55"/><text class="cnt" x="555" y="16">1,697 → <tspan class="dn">1,507</tspan></text></g>
+<g transform="translate(0,90)"><text class="stg" x="176" y="15" text-anchor="end">Active Young</text><rect x="184" y="4" width="22" height="17" rx="3" fill="var(--bar2)" opacity="0.55"/><text class="cnt" x="214" y="16">101 → <tspan class="dn">99</tspan></text></g>
+<g transform="translate(0,120)"><text class="stg" x="176" y="15" text-anchor="end">bought promoted product</text><rect x="184" y="4" width="5" height="17" rx="3" fill="var(--accent)" opacity="0.9"/><text class="cnt" x="197" y="16">2 → <tspan class="up">4</tspan></text></g>
+</svg></div><div class="seg">
+<div class="segh"><b>Dog-treat 3+1</b> → Women 20+
+  <span class="fin">bought: 30 → 16</span></div>
+<svg viewBox="0 0 760 152" width="760" height="152" role="img" aria-label="funnel Dog-treat 3+1">
+<g transform="translate(0,0)"><text class="stg" x="176" y="15" text-anchor="end">all receipts</text><rect x="184" y="4" width="520" height="17" rx="3" fill="var(--bar)" opacity="0.55"/><text class="cnt" x="712" y="16">2,431 → <tspan class="dn">2,265</tspan></text></g>
+<g transform="translate(0,30)"><text class="stg" x="176" y="15" text-anchor="end">linked to a visitor</text><rect x="184" y="4" width="505" height="17" rx="3" fill="var(--bar)" opacity="0.55"/><text class="cnt" x="697" y="16">2,361 → <tspan class="dn">2,161</tspan></text></g>
+<g transform="translate(0,60)"><text class="stg" x="176" y="15" text-anchor="end">persona-tagged</text><rect x="184" y="4" width="363" height="17" rx="3" fill="var(--bar)" opacity="0.55"/><text class="cnt" x="555" y="16">1,697 → <tspan class="dn">1,507</tspan></text></g>
+<g transform="translate(0,90)"><text class="stg" x="176" y="15" text-anchor="end">Women 20+</text><rect x="184" y="4" width="184" height="17" rx="3" fill="var(--bar2)" opacity="0.55"/><text class="cnt" x="376" y="16">861 → <tspan class="dn">788</tspan></text></g>
+<g transform="translate(0,120)"><text class="stg" x="176" y="15" text-anchor="end">bought promoted product</text><rect x="184" y="4" width="6" height="17" rx="3" fill="var(--accent)" opacity="0.9"/><text class="cnt" x="198" y="16">30 → <tspan class="dn">16</tspan></text></g>
+</svg></div><div class="seg">
+<div class="segh"><b>Bulk value</b> → Budget Conscious
+  <span class="fin">bought: 13 → 15</span></div>
+<svg viewBox="0 0 760 152" width="760" height="152" role="img" aria-label="funnel Bulk value">
+<g transform="translate(0,0)"><text class="stg" x="176" y="15" text-anchor="end">all receipts</text><rect x="184" y="4" width="520" height="17" rx="3" fill="var(--bar)" opacity="0.55"/><text class="cnt" x="712" y="16">2,431 → <tspan class="dn">2,265</tspan></text></g>
+<g transform="translate(0,30)"><text class="stg" x="176" y="15" text-anchor="end">linked to a visitor</text><rect x="184" y="4" width="505" height="17" rx="3" fill="var(--bar)" opacity="0.55"/><text class="cnt" x="697" y="16">2,361 → <tspan class="dn">2,161</tspan></text></g>
+<g transform="translate(0,60)"><text class="stg" x="176" y="15" text-anchor="end">persona-tagged</text><rect x="184" y="4" width="363" height="17" rx="3" fill="var(--bar)" opacity="0.55"/><text class="cnt" x="555" y="16">1,697 → <tspan class="dn">1,507</tspan></text></g>
+<g transform="translate(0,90)"><text class="stg" x="176" y="15" text-anchor="end">Budget Conscious</text><rect x="184" y="4" width="33" height="17" rx="3" fill="var(--bar2)" opacity="0.55"/><text class="cnt" x="225" y="16">152 → <tspan class="up">196</tspan></text></g>
+<g transform="translate(0,120)"><text class="stg" x="176" y="15" text-anchor="end">bought promoted product</text><rect x="184" y="4" width="5" height="17" rx="3" fill="var(--accent)" opacity="0.9"/><text class="cnt" x="197" y="16">13 → <tspan class="up">15</tspan></text></g>
+</svg></div><div class="seg">
+<div class="segh"><b>Ontario dog food</b> → Retirees 60+
+  <span class="fin">bought: 6 → 2</span></div>
+<svg viewBox="0 0 760 152" width="760" height="152" role="img" aria-label="funnel Ontario dog food">
+<g transform="translate(0,0)"><text class="stg" x="176" y="15" text-anchor="end">all receipts</text><rect x="184" y="4" width="520" height="17" rx="3" fill="var(--bar)" opacity="0.55"/><text class="cnt" x="712" y="16">2,431 → <tspan class="dn">2,265</tspan></text></g>
+<g transform="translate(0,30)"><text class="stg" x="176" y="15" text-anchor="end">linked to a visitor</text><rect x="184" y="4" width="505" height="17" rx="3" fill="var(--bar)" opacity="0.55"/><text class="cnt" x="697" y="16">2,361 → <tspan class="dn">2,161</tspan></text></g>
+<g transform="translate(0,60)"><text class="stg" x="176" y="15" text-anchor="end">persona-tagged</text><rect x="184" y="4" width="363" height="17" rx="3" fill="var(--bar)" opacity="0.55"/><text class="cnt" x="555" y="16">1,697 → <tspan class="dn">1,507</tspan></text></g>
+<g transform="translate(0,90)"><text class="stg" x="176" y="15" text-anchor="end">Retirees 60+</text><rect x="184" y="4" width="21" height="17" rx="3" fill="var(--bar2)" opacity="0.55"/><text class="cnt" x="213" y="16">96 → <tspan class="dn">72</tspan></text></g>
+<g transform="translate(0,120)"><text class="stg" x="176" y="15" text-anchor="end">bought promoted product</text><rect x="184" y="4" width="5" height="17" rx="3" fill="var(--accent)" opacity="0.9"/><text class="cnt" x="197" y="16">6 → <tspan class="dn">2</tspan></text></g>
+</svg></div><div class="seg">
+<div class="segh"><b>Cat-treat 3+1</b> → Students
+  <span class="fin">bought: 2 → 0</span></div>
+<svg viewBox="0 0 760 152" width="760" height="152" role="img" aria-label="funnel Cat-treat 3+1">
+<g transform="translate(0,0)"><text class="stg" x="176" y="15" text-anchor="end">all receipts</text><rect x="184" y="4" width="520" height="17" rx="3" fill="var(--bar)" opacity="0.55"/><text class="cnt" x="712" y="16">2,431 → <tspan class="dn">2,265</tspan></text></g>
+<g transform="translate(0,30)"><text class="stg" x="176" y="15" text-anchor="end">linked to a visitor</text><rect x="184" y="4" width="505" height="17" rx="3" fill="var(--bar)" opacity="0.55"/><text class="cnt" x="697" y="16">2,361 → <tspan class="dn">2,161</tspan></text></g>
+<g transform="translate(0,60)"><text class="stg" x="176" y="15" text-anchor="end">persona-tagged</text><rect x="184" y="4" width="363" height="17" rx="3" fill="var(--bar)" opacity="0.55"/><text class="cnt" x="555" y="16">1,697 → <tspan class="dn">1,507</tspan></text></g>
+<g transform="translate(0,90)"><text class="stg" x="176" y="15" text-anchor="end">Students</text><rect x="184" y="4" width="13" height="17" rx="3" fill="var(--bar2)" opacity="0.55"/><text class="cnt" x="205" y="16">59 → <tspan class="dn">30</tspan></text></g>
+<g transform="translate(0,120)"><text class="stg" x="176" y="15" text-anchor="end">bought promoted product</text><rect x="184" y="4" width="5" height="17" rx="3" fill="var(--accent)" opacity="0.9"/><text class="cnt" x="197" y="16">2 → <tspan class="dn">0</tspan></text></g>
+</svg></div>
+<div class="call"><b>Two cuts destroy the power.</b> (1) Narrowing from persona-tagged (~1,600) to a single targeted persona keeps only ~5–20% of receipts. (2) The promoted product's base rate is ~3–7% of baskets. Multiply them and you land at single-digit "bought" counts — where a ±2 change is pure noise. The campaign effect isn't absent so much as <b>below this instrument's resolution</b> at one store × two weeks.</div>
+<p class="foot">Internal diagnostic · 10 Aug 2026 · checkout receipts, store CS314 · persona = the run the campaign used.</p>
+</main>

@@ -1,0 +1,149 @@
+<title>SuperZoo · What shoppers look like vs what they buy</title>
+<style>
+:root{
+  --paper:#f9faf9; --card:#ffffff; --ink:#171a19; --ink-2:#505654; --ink-3:#83898700;
+  --ink-3:#838987; --line:#e3e6e4; --accent:#0f7b78; --accent-ink:#0c6b68;
+  --m:#2a78d6; --f:#e0699a; --up:#0f9d6b; --dn:#d1495b; --bar:#3aa6a2; --grid:#e3e6e4; --null-bg:#eef1f0; --warn-bg:#f7efe0;
+}
+@media(prefers-color-scheme:dark){:root{
+  --paper:#141716; --card:#1c201e; --ink:#eef2f0; --ink-2:#b2b9b6; --ink-3:#808784; --line:#2e3230;
+  --accent:#43c2bd; --accent-ink:#43c2bd; --m:#3987e5; --f:#d55187; --up:#3fbf8c; --dn:#e0697a; --bar:#3aa6a2; --grid:#2e3230; --null-bg:#20241f; --warn-bg:#2a2418;
+}}
+:root[data-theme=dark]{--paper:#141716;--card:#1c201e;--ink:#eef2f0;--ink-2:#b2b9b6;--ink-3:#808784;--line:#2e3230;--accent:#43c2bd;--accent-ink:#43c2bd;--m:#3987e5;--f:#d55187;--up:#3fbf8c;--dn:#e0697a;--bar:#3aa6a2;--grid:#2e3230;--null-bg:#20241f;--warn-bg:#2a2418;}
+:root[data-theme=light]{--paper:#f9faf9;--card:#fff;--ink:#171a19;--ink-2:#505654;--ink-3:#838987;--line:#e3e6e4;--accent:#0f7b78;--accent-ink:#0c6b68;--m:#2a78d6;--f:#e0699a;--up:#0f9d6b;--dn:#d1495b;--bar:#3aa6a2;--grid:#e3e6e4;--null-bg:#eef1f0;--warn-bg:#f7efe0;}
+*{box-sizing:border-box}
+body{background:var(--paper); color:var(--ink); margin:0; font:16px/1.55 Seravek,'Gill Sans Nova','Segoe UI',Candara,system-ui,sans-serif;}
+main{max-width:900px; margin:0 auto; padding:48px 24px 96px}
+h1{font-size:1.95rem; line-height:1.15; margin:.2em 0 .3em; text-wrap:balance; font-weight:650; letter-spacing:-.01em}
+h2{font-size:1.28rem; margin:0 0 .35em; font-weight:650; text-wrap:balance}
+p{max-width:70ch; color:var(--ink-2); margin:.4em 0 .9em}
+p strong,li strong{color:var(--ink)}
+.eyebrow{font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; color:var(--accent-ink); font-weight:700; margin:0 0 .4em}
+section{margin-top:52px}
+.scope{color:var(--ink-3); font-size:.9rem; margin-top:0}
+.tiles{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px; margin:28px 0 0}
+.tile{background:var(--card); border:1px solid var(--line); border-radius:6px; padding:14px 16px}
+.tile .v{font-size:1.45rem; font-weight:680; font-variant-numeric:tabular-nums; letter-spacing:-.01em}
+.tile .k{font-size:.75rem; color:var(--ink-3); letter-spacing:.05em; text-transform:uppercase; margin-top:2px}
+.tile .sub{font-size:.78rem; color:var(--ink-2); margin-top:4px}
+figure{margin:20px 0; background:var(--card); border:1px solid var(--line); border-radius:6px; padding:18px 18px 12px; overflow-x:auto}
+figcaption{font-size:.8rem; color:var(--ink-3); margin-top:10px; max-width:78ch}
+svg text{font:12px Seravek,'Segoe UI',system-ui,sans-serif; fill:var(--ink-2)}
+svg .lbl{fill:var(--ink); font-weight:600; font-variant-numeric:tabular-nums} svg .name{fill:var(--ink)} svg .mut{fill:var(--ink-3); font-size:11px} svg .grid{stroke:var(--grid)}
+table{border-collapse:collapse; width:100%; font-size:.86rem; font-variant-numeric:tabular-nums}
+th{font-size:.7rem; text-transform:uppercase; letter-spacing:.06em; color:var(--ink-3); text-align:left; font-weight:650; padding:7px 9px; border-bottom:1px solid var(--line)}
+td{padding:8px 9px; border-bottom:1px solid var(--line); color:var(--ink-2)} td:first-child{color:var(--ink)} th.num,td.num{text-align:right}
+.tablewrap{overflow-x:auto; background:var(--card); border:1px solid var(--line); border-radius:6px; padding:6px 10px; margin:20px 0}
+.call{border-left:3px solid var(--accent); background:var(--null-bg); border-radius:0 6px 6px 0; padding:12px 18px; margin:20px 0; max-width:76ch}
+.call p{margin:.3em 0}.call.warn{border-left-color:#c79a3a; background:var(--warn-bg)}
+.legend{display:flex; gap:16px; font-size:.78rem; color:var(--ink-2); flex-wrap:wrap; margin-top:4px}
+.legend span{display:inline-flex; align-items:center; gap:5px}.sw{width:11px;height:11px;border-radius:2px;display:inline-block}
+ul{color:var(--ink-2); max-width:74ch; padding-left:1.2em} li{margin:.35em 0}
+.foot{margin-top:64px; padding-top:16px; border-top:1px solid var(--line); color:var(--ink-3); font-size:.8rem; max-width:none}
+</style>
+<main>
+<p class="eyebrow">Exploratory · SuperZoo · store CS314</p>
+<h1>You are what you buy: what a shopper looks like vs which pet they shop for</h1>
+<p class="scope">5,616 checkout baskets matched to the buyer's visual profile — <strong>65 appearance &amp; behaviour attributes</strong> the cameras read — mined for directional patterns against which pet department the basket is really about. Exploratory: these are correlations and hypotheses, not proof.</p>
+
+<div class="tiles">
+  <div class="tile"><div class="v">5,616</div><div class="k">baskets × visual profile</div><div class="sub">linked at the till</div></div>
+  <div class="tile"><div class="v">65</div><div class="k">attributes mined</div><div class="sub">face, hair, dress, behaviour</div></div>
+  <div class="tile"><div class="v">Aquarium + reptile</div><div class="k">most gendered departments</div><div class="sub">strongly male-skewed</div></div>
+  <div class="tile"><div class="v">Behaviour &gt; looks</div><div class="k">for basket value</div><div class="sub">engagement beats appearance</div></div>
+</div>
+
+<section>
+<p class="eyebrow">01 · The standout pattern</p>
+<h2>Fish &amp; reptiles are a men's aisle — and facial hair makes it sharper</h2>
+<p>Dogs and cats — three-quarters of the store — are bought by everyone; no visual attribute meaningfully separates who buys them. The signal lives in the <strong>niche departments</strong>. There, one pattern is unmistakable and statistically solid: <strong>aquarium and reptile/terrarium baskets skew strongly male</strong> (sex association p &lt; 0.001), and the skew <em>intensifies</em> with facial hair and greying hair. The clean-shaven index below average; stubbled and grey-haired shoppers index well above.</p>
+<figure>
+<svg viewBox="0 0 620 250" width="620" height="250" role="img" aria-label="Aquarium and reptile purchase lift by appearance">
+  <text class="mut" x="150" y="14">index vs store average →  Aquarium (blue) · Reptile (teal)</text>
+  <line x1="200" y1="24" x2="200" y2="214" stroke="var(--ink-3)" stroke-dasharray="3 3"/>
+  <text class="mut" x="200" y="230" text-anchor="middle">1.0× = average shopper</text>
+  <line class="grid" x1="330" y1="24" x2="330" y2="214"/><text class="mut" x="330" y="230" text-anchor="middle">1.5×</text>
+  <line class="grid" x1="460" y1="24" x2="460" y2="214"/><text class="mut" x="460" y="230" text-anchor="middle">2.0×</text>
+  <g font-size="12">
+  <!-- x = 200 + (lift-1)*260 ; aqua & reptile paired per row -->
+  <g transform="translate(0,34)"><text class="name" x="150" y="9" text-anchor="end">Grey hair</text>
+    <rect x="200" y="1" width="211" height="8" rx="2" fill="var(--m)"/><text class="lbl" x="416" y="8">1.81×</text>
+    <rect x="200" y="11" width="122" height="8" rx="2" fill="var(--bar)"/><text class="lbl" x="327" y="18">1.47×</text></g>
+  <g transform="translate(0,66)"><text class="name" x="150" y="9" text-anchor="end">Stubble</text>
+    <rect x="200" y="1" width="112" height="8" rx="2" fill="var(--m)"/><text class="lbl" x="317" y="8">1.43×</text>
+    <rect x="200" y="11" width="122" height="8" rx="2" fill="var(--bar)"/><text class="lbl" x="327" y="18">1.47×</text></g>
+  <g transform="translate(0,98)"><text class="name" x="150" y="9" text-anchor="end">Beard</text>
+    <rect x="200" y="1" width="75" height="8" rx="2" fill="var(--m)"/><text class="lbl" x="280" y="8">1.29×</text>
+    <rect x="200" y="11" width="16" height="8" rx="2" fill="var(--bar)"/><text class="lbl" x="221" y="18">1.06×</text></g>
+  <g transform="translate(0,130)"><text class="name" x="150" y="9" text-anchor="end">Male (overall)</text>
+    <rect x="200" y="1" width="88" height="8" rx="2" fill="var(--m)"/><text class="lbl" x="293" y="8">1.34×</text>
+    <rect x="200" y="11" width="86" height="8" rx="2" fill="var(--bar)"/><text class="lbl" x="291" y="18">1.33×</text></g>
+  <g transform="translate(0,162)"><text class="name" x="150" y="9" text-anchor="end">Clean-shaven</text>
+    <rect x="174" y="1" width="26" height="8" rx="2" fill="var(--m)"/><text class="lbl" x="168" y="8" text-anchor="end">0.90×</text>
+    <rect x="164" y="11" width="36" height="8" rx="2" fill="var(--bar)"/><text class="lbl" x="158" y="18" text-anchor="end">0.86×</text></g>
+  <g transform="translate(0,194)"><text class="name" x="150" y="9" text-anchor="end">Female / blonde</text>
+    <rect x="44" y="1" width="156" height="8" rx="2" fill="var(--f)"/><text class="lbl" x="38" y="8" text-anchor="end">0.60–0.77×</text></g>
+  </g>
+</svg>
+<div class="legend"><span><span class="sw" style="background:var(--m)"></span>Aquarium/fish</span><span><span class="sw" style="background:var(--bar)"></span>Reptile/terrarium</span><span><span class="sw" style="background:var(--f)"></span>female / blonde (both low)</span></div>
+<figcaption>Over-/under-indexing on the aquarium and reptile departments by appearance. Grey hair on the fish aisle is the single strongest look→buy signal in the store (1.81×, on 474 shoppers / 35 fish buyers). Aquarium and reptile are small departments (4% and 3% of baskets), so these are directional on modest counts — but the male / facial-hair / grey-hair gradient is consistent and significant.</figcaption>
+</figure>
+<div class="call"><p><strong>The picture it paints:</strong> the serious fishkeeper and reptile-keeper reads, on camera, as an older, bearded-or-stubbled man — and the clean-shaven or blonde shopper reads the opposite. Dogs and cats are universal; the exotic aisles have a face. That's a targeting hypothesis for what to show on a screen when the camera sees that profile.</p></div>
+</section>
+
+<section>
+<p class="eyebrow">02 · Which features "know" what you buy at all</p>
+<h2>Sex and self-presentation carry the department signal; most attributes don't</h2>
+<p>Ranking every attribute by how strongly it associates with which pet department is bought (chi-squared), a short list carries real signal — and it's dominated by <strong>sex / gender expression</strong>, plus a few grooming and age cues. Most of the 65 attributes (shoe colour, belt, watch…) show no department signal at all — a useful negative: the camera predicts <em>pet type</em> mainly through sex-linked and life-stage cues, not wardrobe detail.</p>
+<div class="tablewrap"><table>
+<thead><tr><th>Attribute</th><th class="num">assoc. p</th><th>reads as →</th></tr></thead>
+<tbody>
+<tr><td>Sex / gender expression</td><td class="num">&lt;0.001</td><td>male → aquarium, reptile, live animals</td></tr>
+<tr><td>Hair colour</td><td class="num">5×10⁻⁵</td><td>grey → aquarium 1.8×; blonde → away from fish/reptile</td></tr>
+<tr><td>Age</td><td class="num">8×10⁻⁴</td><td>50s → birds 1.4×</td></tr>
+<tr><td>Facial hair</td><td class="num">0.001</td><td>stubble → reptile 1.5×, aquarium 1.4×</td></tr>
+<tr><td>Hair length / style</td><td class="num">0.001–0.002</td><td>tracks the sex signal</td></tr>
+<tr><td>Individual activity</td><td class="num">0.002</td><td>"waiting/inspecting" → live-animal aisle</td></tr>
+</tbody></table></div>
+</section>
+
+<section>
+<p class="eyebrow">03 · Basket value</p>
+<h2>For how much they spend, behaviour beats appearance</h2>
+<p>When the outcome is basket <em>value</em> rather than pet type, the appearance cues fade and <strong>behavioural</strong> ones lead — what the shopper is <em>doing</em> and <em>carrying</em>, not how they look:</p>
+<figure>
+<svg viewBox="0 0 620 210" width="620" height="210" role="img" aria-label="Basket value by signal">
+  <text class="mut" x="12" y="14">avg basket, higher vs lower level of each signal (Kč)</text>
+  <g font-size="12">
+  <g transform="translate(0,30)"><text class="name" x="188" y="11" text-anchor="end">Inspecting vs browsing</text>
+    <rect x="196" y="2" width="196" height="13" rx="3" fill="var(--bar)"/><text class="lbl" x="398" y="13">490 vs 404</text></g>
+  <g transform="translate(0,56)"><text class="name" x="188" y="11" text-anchor="end">No handbag vs handbag</text>
+    <rect x="196" y="2" width="178" height="13" rx="3" fill="var(--bar)"/><text class="lbl" x="380" y="13">444 vs 346</text></g>
+  <g transform="translate(0,82)"><text class="name" x="188" y="11" text-anchor="end">Grey vs black hair</text>
+    <rect x="196" y="2" width="130" height="13" rx="3" fill="var(--bar)"/><text class="lbl" x="332" y="13">462 vs 397</text></g>
+  <g transform="translate(0,108)"><text class="name" x="188" y="11" text-anchor="end">Male vs female</text>
+    <rect x="196" y="2" width="70" height="13" rx="3" fill="var(--bar)"/><text class="lbl" x="272" y="13">453 vs 418</text></g>
+  <g transform="translate(0,134)"><text class="name" x="188" y="11" text-anchor="end">Standard vs high grooming</text>
+    <rect x="196" y="2" width="154" height="13" rx="3" fill="var(--bar)"/><text class="lbl" x="356" y="13">434 vs 357</text></g>
+  </g>
+  <text class="mut" x="12" y="188">Bars show the gap between the higher- and lower-spending level of each attribute. Engagement (inspecting) and</text>
+  <text class="mut" x="12" y="202">hands-free shopping (no handbag) move the basket most; appearance cues (sex, grey hair) matter less.</text>
+</svg>
+</figure>
+<div class="call"><p><strong>Read:</strong> a shopper who is <em>inspecting</em> products (not just browsing) and isn't juggling a handbag ends up with a materially bigger basket — behaviour the camera can read live. The much-hyped "affluent look" barely registers; a highly-groomed shopper actually spends <em>less</em>.</p></div>
+</section>
+
+<section>
+<p class="eyebrow">04 · Read before using</p>
+<h2>What this is and isn't</h2>
+<ul>
+<li><strong>Exploratory, not confirmatory.</strong> Sixty-five attributes × seven departments × value is a lot of comparisons; some associations will be chance. The ones highlighted here clear significance and sample thresholds and form a coherent story — but treat them as <em>hypotheses to test</em>, not settled facts.</li>
+<li><strong>Correlational and tangled.</strong> Male, stubble, grey hair and older age all travel together — this can't say which one "causes" the fish-aisle visit; they're facets of one shopper type.</li>
+<li><strong>Niche departments are small.</strong> Aquarium (4%) and reptile (3%) baskets mean the exciting lifts sit on tens of buyers. Directionally consistent, but not high-precision.</li>
+<li><strong>Dogs &amp; cats are undifferentiated</strong> by design — the mass of the store is bought by everyone, so appearance can't target it. The value of visual signal is concentrated in the specialist aisles and in behaviour-for-basket-size.</li>
+<li><strong>One store, buyers only.</strong> Same scope limits as the rest of the pilot.</li>
+</ul>
+</section>
+
+<p class="foot">Method: checkout receipts (store CS314) matched to the buyer's visual profile; each basket assigned its dominant pet department by spend. Every usable attribute (≥400 tagged baskets, levels ≥150) tested against department (χ²) and against basket value (Kruskal–Wallis); level→department over-indexing reported where the department cell holds ≥25 buyers. Correlational, multiple-comparison-exposed, exploratory. All figures CZK. Analysis 10 Aug 2026.</p>
+</main>

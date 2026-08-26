@@ -1,0 +1,165 @@
+<title>SuperZoo · Basket Intelligence</title>
+<style>
+:root{
+  --paper:#faf9f6; --card:#ffffff; --ink:#1c1d19; --ink-2:#565751; --ink-3:#8b8c84;
+  --line:#e4e3dc; --accent:#20604b; --accent-ink:#1c5643;
+  --s1:#2a78d6; --s1-soft:#9ec5f4; --aqua:#1baf7a; --amber:#c98a2e; --grid:#e4e3dc; --null-bg:#efeee9; --good-bg:#e8f2ec; --warn-bg:#f7ecd9;
+}
+@media(prefers-color-scheme:dark){:root{
+  --paper:#191a18; --card:#20211f; --ink:#f2f1ec; --ink-2:#b9b8b0; --ink-3:#83847c; --line:#34352f;
+  --accent:#5cb896; --accent-ink:#5cb896; --s1:#3987e5; --s1-soft:#1c5cab; --aqua:#199e70; --amber:#d0a04a; --grid:#34352f; --null-bg:#242521; --good-bg:#1f2b25; --warn-bg:#2d2619;
+}}
+:root[data-theme=dark]{--paper:#191a18;--card:#20211f;--ink:#f2f1ec;--ink-2:#b9b8b0;--ink-3:#83847c;--line:#34352f;--accent:#5cb896;--accent-ink:#5cb896;--s1:#3987e5;--s1-soft:#1c5cab;--aqua:#199e70;--amber:#d0a04a;--grid:#34352f;--null-bg:#242521;--good-bg:#1f2b25;--warn-bg:#2d2619;}
+:root[data-theme=light]{--paper:#faf9f6;--card:#fff;--ink:#1c1d19;--ink-2:#565751;--ink-3:#8b8c84;--line:#e4e3dc;--accent:#20604b;--accent-ink:#1c5643;--s1:#2a78d6;--s1-soft:#9ec5f4;--aqua:#1baf7a;--amber:#c98a2e;--grid:#e4e3dc;--null-bg:#efeee9;--good-bg:#e8f2ec;--warn-bg:#f7ecd9;}
+*{box-sizing:border-box}
+body{background:var(--paper); color:var(--ink); margin:0; font:16px/1.55 Seravek,'Gill Sans Nova','Segoe UI',Candara,system-ui,sans-serif;}
+main{max-width:900px; margin:0 auto; padding:48px 24px 96px}
+h1{font-size:1.95rem; line-height:1.15; margin:.2em 0 .3em; text-wrap:balance; font-weight:650; letter-spacing:-.01em}
+h2{font-size:1.28rem; margin:0 0 .35em; font-weight:650; text-wrap:balance}
+p{max-width:70ch; color:var(--ink-2); margin:.4em 0 .9em} p strong,li strong{color:var(--ink)}
+.eyebrow{font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; color:var(--accent-ink); font-weight:700; margin:0 0 .4em}
+section{margin-top:52px}
+.scope{color:var(--ink-3); font-size:.9rem; margin-top:0}
+.tiles{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px; margin:28px 0 0}
+.tile{background:var(--card); border:1px solid var(--line); border-radius:6px; padding:14px 16px}
+.tile .v{font-size:1.45rem; font-weight:680; font-variant-numeric:tabular-nums; letter-spacing:-.01em}
+.tile .k{font-size:.75rem; color:var(--ink-3); letter-spacing:.05em; text-transform:uppercase; margin-top:2px}
+.tile .sub{font-size:.78rem; color:var(--ink-2); margin-top:4px}
+figure{margin:20px 0; background:var(--card); border:1px solid var(--line); border-radius:6px; padding:18px 18px 12px; overflow-x:auto}
+figcaption{font-size:.8rem; color:var(--ink-3); margin-top:10px; max-width:78ch}
+svg text{font:12px Seravek,'Segoe UI',system-ui,sans-serif; fill:var(--ink-2)}
+svg .lbl{fill:var(--ink); font-weight:600; font-variant-numeric:tabular-nums} svg .name{fill:var(--ink)} svg .mut{fill:var(--ink-3); font-size:11px} svg .grid{stroke:var(--grid)}
+table{border-collapse:collapse; width:100%; font-size:.86rem; font-variant-numeric:tabular-nums}
+th{font-size:.7rem; text-transform:uppercase; letter-spacing:.06em; color:var(--ink-3); text-align:left; font-weight:650; padding:7px 9px; border-bottom:1px solid var(--line)}
+td{padding:8px 9px; border-bottom:1px solid var(--line); color:var(--ink-2)} td:first-child{color:var(--ink)} th.num,td.num{text-align:right}
+.tablewrap{overflow-x:auto; background:var(--card); border:1px solid var(--line); border-radius:6px; padding:6px 10px; margin:20px 0}
+.call{border-left:3px solid var(--accent); background:var(--good-bg); border-radius:0 6px 6px 0; padding:12px 18px; margin:20px 0; max-width:76ch}
+.call p{margin:.3em 0}
+.kits{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px; margin:20px 0}
+.kit{background:var(--card); border:1px solid var(--line); border-radius:8px; padding:14px 16px}
+.kit .t{font-weight:680; color:var(--ink); font-size:1.02rem}
+.kit .x{font-variant-numeric:tabular-nums; color:var(--accent-ink); font-weight:700}
+.kit .d{font-size:.85rem; color:var(--ink-2); margin-top:4px}
+ul{color:var(--ink-2); max-width:74ch; padding-left:1.2em} li{margin:.35em 0}
+.foot{margin-top:64px; padding-top:16px; border-top:1px solid var(--line); color:var(--ink-3); font-size:.8rem; max-width:none}
+a{color:var(--accent-ink)}
+</style>
+<main>
+<p class="eyebrow">Basket intelligence · SuperZoo · store CS314</p>
+<h1>How the basket is built: anatomy, cross-sell, and who buys what</h1>
+<p class="scope">A structured read of <strong>9,064 checkout baskets</strong> (16 Jun – 9 Aug) — what a basket is made of, which products travel together, what makes it bigger, and the product signature of each shopper persona. Companion to the <a href="https://claude.ai/code/artifact/09e9e22e-0bb2-45ea-83ea-8f6cf571f3b4">look → buy</a> analysis.</p>
+
+<div class="tiles">
+  <div class="tile"><div class="v">9,064</div><div class="k">baskets</div><div class="sub">median 288 Kč · 2 items</div></div>
+  <div class="tile"><div class="v">78%</div><div class="k">single-department</div><div class="sub">one animal per trip</div></div>
+  <div class="tile"><div class="v">36%</div><div class="k">carry a treat</div><div class="sub">the universal add-on</div></div>
+  <div class="tile"><div class="v">35.8×</div><div class="k">top cross-sell lift</div><div class="sub">small pet + carrier</div></div>
+</div>
+
+<section>
+<p class="eyebrow">A · Basket anatomy</p>
+<h2>Small, focused trips — with a long high-value tail</h2>
+<p>The typical basket is <strong>two items, 288 Kč</strong>, and stays in <strong>one department</strong> (78%) — people come for one animal's needs and leave. But the value tail is long: the top 10% of baskets exceed 964 Kč and the top 5% pass 1,350. Multi-department trips are the minority (22%) but, as §C shows, they're where the money is.</p>
+<figure>
+<svg viewBox="0 0 620 150" width="620" height="150" role="img" aria-label="Basket value distribution">
+  <line class="grid" x1="40" y1="110" x2="595" y2="110" stroke="var(--grid)"/>
+  <g font-size="11">
+  <!-- percentiles p10..p95 as a value ladder; x scaled by value/1400*540+40 -->
+  <g><rect x="40" y="96" width="30" height="14" fill="var(--s1-soft)"/><text class="mut" x="55" y="128" text-anchor="middle">p10 · 79</text></g>
+  <g><rect x="40" y="76" width="56" height="14" fill="var(--s1-soft)"/><text class="mut" x="96" y="128" text-anchor="middle" style="fill:transparent">.</text></g>
+  <rect x="40" y="96" width="30" height="14" rx="2" fill="var(--s1-soft)"/>
+  <rect x="40" y="78" width="57" height="14" rx="2" fill="var(--s1-soft)"/>
+  <rect x="40" y="60" width="111" height="14" rx="2" fill="var(--s1)"/>
+  <rect x="40" y="42" width="208" height="14" rx="2" fill="var(--s1)"/>
+  <rect x="40" y="24" width="372" height="14" rx="2" fill="var(--accent)"/>
+  <rect x="40" y="6" width="520" height="14" rx="2" fill="var(--accent)"/>
+  <text class="lbl" x="74" y="107">79 <tspan class="mut">(p10)</tspan></text>
+  <text class="lbl" x="101" y="89">147 <tspan class="mut">(p25)</tspan></text>
+  <text class="lbl" x="155" y="71">288 <tspan class="mut">(median)</tspan></text>
+  <text class="lbl" x="252" y="53">539 <tspan class="mut">(p75)</tspan></text>
+  <text class="lbl" x="416" y="35">964 <tspan class="mut">(p90)</tspan></text>
+  <text class="lbl" x="524" y="17">1,349 <tspan class="mut">(p95)</tspan></text>
+  </g>
+</svg>
+<figcaption>Basket value distribution (CZK). Half of baskets are under 288 Kč; the top decile is 3–5× that. Median 2 items / 4.4 units mean — small trips with a heavy-basket tail.</figcaption>
+</figure>
+</section>
+
+<section>
+<p class="eyebrow">B · Cross-category affinity</p>
+<h2>Baskets come in "kits" — products that travel together</h2>
+<p>Market-basket analysis (which product types co-occur far more than chance) surfaces clear <strong>purchase kits</strong>. These are the store's real cross-sell backbone — pair the shelf, the receipt suggestion, or the screen prompt around them:</p>
+<div class="kits">
+  <div class="kit"><div class="t">🐹 Small-pet starter <span class="x">35.8×</span></div><div class="d">A live small pet + a <strong>carrier</strong> — and, close behind, hay, bedding, pellets and a bowl. The new-pet haul.</div></div>
+  <div class="kit"><div class="t">🐕 Dog-walking kit <span class="x">11.6×</span></div><div class="d"><strong>Collar + leash</strong> bought together. Harnesses ride along.</div></div>
+  <div class="kit"><div class="t">🐈 Cat-litter setup <span class="x">4.4×</span></div><div class="d"><strong>Litter + tray</strong>. The recurring cat-hygiene refill.</div></div>
+  <div class="kit"><div class="t">🧸 Play bundle <span class="x">4.3×</span></div><div class="d"><strong>Toys + interactive toys</strong> (2.4× with bowls) — enrichment shoppers stock up.</div></div>
+  <div class="kit"><div class="t">🌾 Small-pet pantry <span class="x">3.7×</span></div><div class="d"><strong>Pellets + hay</strong>, plus mixes and bedding — the rodent/rabbit staple refill.</div></div>
+  <div class="kit"><div class="t">🍖 Treats-on-everything <span class="x">—</span></div><div class="d">Treats attach to 36% of all baskets — the universal add-on, riding with wet food, dry food and toys.</div></div>
+</div>
+<div class="tablewrap"><table>
+<thead><tr><th>Product-type pair bought together</th><th class="num">baskets</th><th class="num">lift</th><th class="num">attach rate</th></tr></thead>
+<tbody>
+<tr><td>Small pet (live) + Carrier</td><td class="num">51</td><td class="num">35.8×</td><td class="num">54%</td></tr>
+<tr><td>Collar + Leash</td><td class="num">43</td><td class="num">11.6×</td><td class="num">26%</td></tr>
+<tr><td>Litter/bedding + Litter tray</td><td class="num">41</td><td class="num">4.4×</td><td class="num">57%</td></tr>
+<tr><td>Toys + Interactive toys</td><td class="num">78</td><td class="num">4.3×</td><td class="num">49%</td></tr>
+<tr><td>Pellets + Hay</td><td class="num">44</td><td class="num">3.7×</td><td class="num">14%</td></tr>
+<tr><td>Toys + Bowls</td><td class="num">89</td><td class="num">2.4×</td><td class="num">27%</td></tr>
+</tbody></table></div>
+</section>
+
+<section>
+<p class="eyebrow">C · What builds a bigger basket</p>
+<h2>Breadth and depth, not brand — cross-department trips are the prize</h2>
+<p>Basket value rises cleanly with two things the store can influence at the shelf and the screen: <strong>how many departments</strong> a shopper touches, and <strong>how many items</strong> they pick up. A treat in the basket adds ~100 Kč on average.</p>
+<figure>
+<svg viewBox="0 0 620 168" width="620" height="168" role="img" aria-label="Basket value by breadth and depth">
+  <text class="mut" x="12" y="14">avg basket by number of departments shopped</text>
+  <g font-size="12">
+  <g transform="translate(0,28)"><text class="name" x="120" y="11" text-anchor="end">1 department</text><rect x="128" y="2" width="128" height="13" rx="3" fill="var(--s1-soft)"/><text class="lbl" x="262" y="13">383</text></g>
+  <g transform="translate(0,50)"><text class="name" x="120" y="11" text-anchor="end">2 departments</text><rect x="128" y="2" width="202" height="13" rx="3" fill="var(--s1)"/><text class="lbl" x="336" y="13">606</text></g>
+  <g transform="translate(0,72)"><text class="name" x="120" y="11" text-anchor="end">3+ departments</text><rect x="128" y="2" width="264" height="13" rx="3" fill="var(--accent)"/><text class="lbl" x="398" y="13">790</text></g>
+  </g>
+  <text class="mut" x="12" y="104">avg basket by number of items</text>
+  <g font-size="12">
+  <g transform="translate(0,116)"><text class="name" x="120" y="11" text-anchor="end">1 item</text><rect x="128" y="2" width="99" height="13" rx="3" fill="var(--s1-soft)"/><text class="lbl" x="233" y="13">296</text></g>
+  <g transform="translate(0,138)"><text class="name" x="120" y="11" text-anchor="end">4–6 items</text><rect x="128" y="2" width="171" height="13" rx="3" fill="var(--s1)"/><text class="lbl" x="305" y="13">512</text></g>
+  <g transform="translate(0,160)"><text class="name" x="120" y="11" text-anchor="end">7+ items</text><rect x="128" y="2" width="252" height="13" rx="3" fill="var(--accent)"/><text class="lbl" x="386" y="13">756</text></g>
+  </g>
+</svg>
+</figure>
+<div class="call"><p><strong>Lever:</strong> a shopper who crosses from one department into a second nearly doubles their basket (383 → 606 Kč). Only 22% do. The cross-sell kits in §B are the bridge — the small-pet owner who adds bedding, the dog owner who adds a leash. Getting one more department into the trip is the single biggest basket lever in the data.</p></div>
+</section>
+
+<section>
+<p class="eyebrow">E · Persona basket signatures</p>
+<h2>Each shopper persona has a product it over-buys</h2>
+<p>Crossing the personas with product type (share of their spend vs the store) gives each a signature — a hook for what to surface when the camera recognises that shopper:</p>
+<div class="tablewrap"><table>
+<thead><tr><th>Persona</th><th>over-indexes on</th><th class="num">lift</th></tr></thead>
+<tbody>
+<tr><td>Suburban Women in their 30s</td><td>small live pets · supplementary food · harnesses</td><td class="num">1.5×</td></tr>
+<tr><td>Young Women in their 20s</td><td>interactive toys · toys</td><td class="num">1.6×</td></tr>
+<tr><td>Students in their Teens</td><td>toys · misc / novelty</td><td class="num">1.4×</td></tr>
+<tr><td>Budget Conscious Adults</td><td>pellets · food mixes (economy staples)</td><td class="num">1.6×</td></tr>
+<tr><td>Suburban Men in their 40s</td><td>hay (rabbits/rodents) · dry food · <em>+ aquarium &amp; reptile</em></td><td class="num">1.3×</td></tr>
+<tr><td>Retirees 60+</td><td>treats · dry food (the spoilers)</td><td class="num">1.1×</td></tr>
+<tr><td>Active Young Adults</td><td>toys · dry food</td><td class="num">1.2×</td></tr>
+</tbody></table></div>
+<p>The picture is coherent with the look → buy read: women's personas skew to small-pet care and enrichment (toys, interactive), the men's 40s persona to hay and the exotic aisles, budget shoppers to economy food staples, retirees to spoiling treats.</p>
+</section>
+
+<section>
+<p class="eyebrow">06 · Scope</p>
+<h2>Read before using</h2>
+<ul>
+<li><strong>Descriptive + associational.</strong> §A–C are direct store facts (all 9,064 baskets). §E and the affinity lifts are correlational hooks, strongest where counts are large.</li>
+<li><strong>Small-department affinities sit on modest counts</strong> (40–90 baskets) — directionally solid, precise enough to act on as merchandising hypotheses, not guarantees.</li>
+<li><strong>Personas cover ~70% of linked baskets;</strong> §E is on that subset.</li>
+<li><strong>One store, buyers only</strong> — same scope as the rest of the pilot.</li>
+</ul>
+</section>
+
+<p class="foot">Method: 9,064 checkout baskets (store CS314, 16 Jun – 9 Aug 2026). Anatomy and value distribution over all baskets; cross-category affinity via co-occurrence lift on product types (support ≥ 40); spend drivers by basket breadth/depth; persona signatures via spend-share lift vs the store (personas on linked baskets). All figures CZK. Analysis 10 Aug 2026.</p>
+</main>

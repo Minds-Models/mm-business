@@ -19,6 +19,12 @@ pilot_attributes:
   source: "datalayer sessions schema"
   status: verified
 
+pilot_attributes_detectable:
+  value: "450+ detectable visual attributes; ~88 captured per shopper on average"
+  source: "founder confirmation 2026-08-10 (total detectable vocabulary vs. avg. per-shopper fill)"
+  status: verified
+  note: "Use as '450+ detectable, 88+ per shopper' — do NOT state 450+ as per-shopper."
+
 anonymity_threshold:
   value: "k>=25 aggregates only; no facial recognition; no biometric templates"
   source: "internal privacy policy"

@@ -1,0 +1,147 @@
+<meta charset="utf-8">
+<title>SuperZoo — POS × Visual Features</title>
+<style>
+  :root{
+    --ink:#1a2230; --mut:#5c6b7f; --line:#e4e8ee; --bg:#ffffff; --soft:#f6f8fb;
+    --pos:#8a94a6; --vis:#0e7c66; --vis-bg:#e7f5f0; --accent:#0e7c66; --warn:#8a6d1f; --warn-bg:#fbf5e3;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--soft);color:var(--ink);
+    font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+  .wrap{max-width:900px;margin:0 auto;padding:48px 28px 80px}
+  header{border-bottom:3px solid var(--ink);padding-bottom:22px;margin-bottom:12px}
+  .kick{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--vis);font-weight:700;margin:0 0 8px}
+  h1{font-size:30px;line-height:1.2;margin:0 0 10px;letter-spacing:-.01em}
+  .sub{color:var(--mut);font-size:15.5px;margin:0;max-width:64ch}
+  h2{font-size:20px;margin:44px 0 4px;letter-spacing:-.01em}
+  h2 .tag{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+    vertical-align:middle;margin-left:10px;padding:3px 9px;border-radius:20px}
+  .t-vis{background:var(--vis-bg);color:var(--vis)}
+  .lead{color:var(--mut);margin:2px 0 18px;max-width:70ch}
+  section{background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:26px 30px;margin-top:16px}
+  .thesis{background:var(--ink);color:#fff;border:none}
+  .thesis h2{color:#fff;margin-top:0}
+  .gap{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:6px;border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,.14)}
+  .gap>div{padding:18px 20px}
+  .gap .p{background:rgba(255,255,255,.04)}
+  .gap .v{background:var(--vis);color:#fff}
+  .gap h4{margin:0 0 10px;font-size:12.5px;letter-spacing:.1em;text-transform:uppercase}
+  .gap ul{margin:0;padding-left:18px}.gap li{margin:5px 0;font-size:14.5px}
+  .gap .p li{color:#aeb7c6}
+  table{width:100%;border-collapse:collapse;margin:14px 0 4px;font-size:14.5px}
+  th,td{text-align:right;padding:9px 10px;border-bottom:1px solid var(--line)}
+  th:first-child,td:first-child{text-align:left}
+  thead th{font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--mut);border-bottom:2px solid var(--line)}
+  tbody tr:hover{background:var(--soft)}
+  .num{font-variant-numeric:tabular-nums}
+  .over{color:var(--vis);font-weight:700}
+  .under{color:var(--pos)}
+  .stat{display:flex;gap:26px;flex-wrap:wrap;margin:6px 0 4px}
+  .stat .s{flex:1;min-width:150px;background:var(--soft);border-radius:11px;padding:16px 18px}
+  .stat .n{font-size:27px;font-weight:800;letter-spacing:-.02em;color:var(--vis);font-variant-numeric:tabular-nums}
+  .stat .l{font-size:13px;color:var(--mut);margin-top:2px}
+  .lever{width:100%;border-collapse:collapse;font-size:14.5px}
+  .lever td,.lever th{text-align:left;padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  .lever .pl{color:var(--vis);font-weight:600;white-space:nowrap}
+  .note{background:var(--warn-bg);border:1px solid #ecdcae;border-radius:12px;padding:18px 22px;margin-top:22px}
+  .note h3{margin:0 0 8px;font-size:14px;color:var(--warn);letter-spacing:.02em}
+  .note ul{margin:6px 0 0;padding-left:20px}.note li{margin:5px 0;font-size:14px;color:#6a5a2c}
+  .foot{color:var(--mut);font-size:12.5px;margin-top:34px;text-align:center}
+  em{color:var(--ink);font-style:normal;font-weight:600}
+</style>
+<div class="wrap">
+<header>
+  <p class="kick">SuperZoo · POS × Visual Features · 8-week pilot</p>
+  <h1>What the camera adds that the till cannot</h1>
+  <p class="sub">POS records what sold. The visual layer identifies who bought it and how they shopped. Signals below exist only with the camera.</p>
+</header>
+
+<section class="thesis">
+  <h2>POS alone vs POS + visual features</h2>
+  <div class="gap">
+    <div class="p">
+      <h4>POS alone</h4>
+      <ul>
+        <li>What sold, when, at which till</li>
+        <li>Basket size, value, mix</li>
+        <li>Promotions redeemed</li>
+        <li>Buyers only</li>
+      </ul>
+    </div>
+    <div class="v">
+      <h4>+ Visual features</h4>
+      <ul>
+        <li>Shopper segment mix — no loyalty card</li>
+        <li>Behaviour — dwell, handling, engagement</li>
+        <li>Demographic signal by aisle</li>
+        <li>Non-buyers / footfall</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<h2>1 · Same spend, different categories <span class="tag t-vis">camera only</span></h2>
+<p class="lead">Personas spend 416–458 Kč — a band the till cannot separate. Category mix diverges.</p>
+<section>
+  <table>
+    <thead><tr><th>Persona (visual segment)</th><th>Receipts</th><th>Avg&nbsp;basket</th><th>Dog</th><th>Cat</th><th>Small&nbsp;pet</th><th>Fish&nbsp;/&nbsp;reptile</th></tr></thead>
+    <tbody>
+      <tr><td>All shoppers (baseline)</td><td class="num">9,022</td><td class="num">—</td><td class="num">46%</td><td class="num">20%</td><td class="num">14%</td><td class="num">7%</td></tr>
+      <tr><td>Suburban Men in their 40s</td><td class="num">1,100</td><td class="num">458</td><td class="num">46%</td><td class="num">17%</td><td class="num">13%</td><td class="num over">10%</td></tr>
+      <tr><td>Students in their Teens</td><td class="num">176</td><td class="num">416</td><td class="num under">38%</td><td class="num">19%</td><td class="num over">20%</td><td class="num over">9%</td></tr>
+      <tr><td>Budget Conscious Local Adults</td><td class="num">558</td><td class="num">415</td><td class="num">46%</td><td class="num">20%</td><td class="num over">16%</td><td class="num">5%</td></tr>
+      <tr><td>Young Women in their 20s</td><td class="num">1,115</td><td class="num">440</td><td class="num">46%</td><td class="num over">22%</td><td class="num">15%</td><td class="num">6%</td></tr>
+      <tr><td>Suburban Women in their 30s</td><td class="num">1,760</td><td class="num">416</td><td class="num over">48%</td><td class="num">20%</td><td class="num">14%</td><td class="num">6%</td></tr>
+      <tr><td>Retirees Aged 60+</td><td class="num">285</td><td class="num">439</td><td class="num over">50%</td><td class="num">21%</td><td class="num under">11%</td><td class="num">6%</td></tr>
+    </tbody>
+  </table>
+  <p style="color:var(--mut);font-size:13.5px;margin:10px 0 0">Suburban Men over-index on fish/reptile (10% vs 7%). Students &amp; Budget on small pets (16–20% vs 14%). Retirees skew dog, away from small pets.</p>
+</section>
+
+<h2>2 · Engagement predicts basket value <span class="tag t-vis">camera only</span></h2>
+<p class="lead">Shoppers read as inspecting product spend more than passive browsers.</p>
+<section>
+  <div class="stat">
+    <div class="s"><div class="n">487 Kč</div><div class="l"><strong>inspecting</strong> (n=713)</div></div>
+    <div class="s"><div class="n">401 Kč</div><div class="l"><strong>browsing</strong> (n=2,008)</div></div>
+    <div class="s"><div class="n">+21%</div><div class="l">basket-value lift · p&lt;0.0001</div></div>
+  </div>
+</section>
+
+<h2>3 · Demographic signal by aisle <span class="tag t-vis">camera only</span></h2>
+<p class="lead">Sex and self-presentation predict department; most attributes do not.</p>
+<section>
+  <div class="stat">
+    <div class="s"><div class="n">1.75×</div><div class="l">men vs women — <strong>fish/reptile</strong> aisle (9.3% vs 5.3%)</div></div>
+    <div class="s"><div class="n">1.47×</div><div class="l"><strong>facial hair</strong> → reptile · p&lt;0.01</div></div>
+    <div class="s"><div class="n">p≪0.001</div><div class="l">sex &amp; self-presentation → department</div></div>
+  </div>
+  <p style="color:var(--mut);font-size:13.5px;margin:12px 0 0">Sharpest demographic cells rest on tens of receipts — directional.</p>
+</section>
+
+<h2>4 · P&amp;L levers</h2>
+<section>
+  <table class="lever">
+    <thead><tr><th>Vision-only capability</th><th>Absent from POS</th><th>P&amp;L lever</th></tr></thead>
+    <tbody>
+      <tr><td>Segment mix of every shopper</td><td>Who is in the store (no loyalty card)</td><td class="pl">Range &amp; planogram fit → revenue, fewer markdowns</td></tr>
+      <tr><td>Engagement / handling at shelf</td><td>Pre-purchase intent</td><td class="pl">Staffing &amp; assisted-sell → conversion, labour ROI</td></tr>
+      <tr><td>Demographic aisle signal</td><td>Who a category serves</td><td class="pl">Placement &amp; local assortment → revenue</td></tr>
+      <tr><td>Persona-level targeting</td><td>Which offer fits which shopper</td><td class="pl">Right offer to right segment → basket &amp; frequency</td></tr>
+      <tr><td>Footfall vs purchase</td><td>Shopper who walked out empty</td><td class="pl">Conversion of existing traffic → revenue, no ad spend</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<div class="note">
+  <h3>Scope</h3>
+  <ul>
+    <li>8-week SuperZoo pilot. 9,022 receipts; 7,815 linked to a checkout visit; 5,616 with visual features.</li>
+    <li>Linkage by departure-aligned timing at the checkout camera.</li>
+    <li>Per-attribute demographic lifts rest on small cells — directional, not forecasts.</li>
+    <li>Persona = visual segment inferred at the till; not an identity, no personal data.</li>
+  </ul>
+</div>
+
+<p class="foot">SuperZoo · POS × Visual Features pilot · 9,022 receipts · 7,815 linked · 5,616 featured</p>
+</div>

@@ -4,6 +4,27 @@ This repo is the single source of truth for **business content**: data reports, 
 investor materials, outreach, and client facts. Code lives elsewhere (datalayer = ETL/analysis,
 dashboard-backend = product). This repo consumes their *outputs* and turns them into deliverables.
 
+## Strategy — load before any strategic, sales, pricing or fundraise task
+
+The operating strategy layer lives in **`strategy/2026-08-19-base-strategy/`**. Start at its
+`00-INDEX.md`, which carries the load-order table (which file to open for which task).
+
+- **`00-INDEX.md`** — state of play, the three clocks, load order. Read first, always.
+- **`01-session-protocol.md`** — tag discipline, guardrails, capacity limits, update triggers.
+- **`02-decisions.md`** — what is decided (cite IDs like `D1`), what is open. **Check before
+  proposing anything strategic**; never reverse a decision silently.
+- **`03-business-model-fork.md`** — the one live strategic question (revenue-first vs raise on the
+  data thesis). **Decision deadline 15 Oct 2026.** Treat as open until then.
+- **`04-revenue-architecture.md`** — pricing, gates and the numbers behind any forecast.
+- **`05`–`09-ws-*.md`** — one brief per workstream (sales, product/data, legal/rights, fundraise,
+  team/ops). Load only the one your task belongs to.
+- **`10-calendar-gates.md`** — every date and its gate register.
+- **`11-research-annex.md`** — external market facts with sources; consult before re-researching.
+
+This pack supersedes every earlier strategy document. Its numbers are **strategy-internal**: before
+any of them appears in a client-, brand- or investor-facing deliverable, add it to
+`messaging/stats.yaml` with its source and status.
+
 ## How to produce any deliverable
 
 1. **Never invent facts or numbers.** Client facts come ONLY from `clients/<x>/facts.yaml`.
@@ -53,6 +74,7 @@ dashboard-backend = product). This repo consumes their *outputs* and turns them 
 
 ## Quick reference
 
+- **Strategy pack (start here for strategy work): `strategy/2026-08-19-base-strategy/00-INDEX.md`**
 - Brand tokens: `brand/tokens.css` (report palette; per-client accent variables)
 - Stats with sources: `messaging/stats.yaml`
 - Objection answers (GDPR, footfall counters, NIQ…): `messaging/objections.md`

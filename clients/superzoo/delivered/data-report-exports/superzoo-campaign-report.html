@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SuperZoo · Eight weeks, and the first campaign measured</title>
+  <meta name="description" content="SuperZoo pilot: eight-week POS × shopper analysis, store movement after 27 July, and the first measured in-store campaign.">
+  <style>
+    /* minimal reset (matches the hosted artifact environment) */
+    *,*::before,*::after{box-sizing:border-box}
+    html{-webkit-text-size-adjust:100%}
+    body{margin:0}
+    img,svg{max-width:100%}
+    table{border-collapse:collapse}
+  </style>
+</head>
+<body>
+<style>
+:root{
+  --paper:#faf9f6; --card:#ffffff; --sunk:#f1f0ea;
+  --ink:#1c1d19; --ink-2:#565751; --ink-3:#8b8c84;
+  --line:#e4e3dc; --line-2:#eeede7;
+  --accent:#20604b; --accent-ink:#1c5643; --accent-soft:#e6efe9;
+  --up:#1b7a5a; --dn:#b04a33; --dn-soft:#f6e8e3;
+  --s1:#2a78d6; --s1-soft:#9ec5f4; --amber:#8d6410; --amber-soft:#f7ecd9;
+  --grid:#e4e3dc;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#191a18; --card:#20211f; --sunk:#262723;
+    --ink:#f2f1ec; --ink-2:#b9b8b0; --ink-3:#83847c;
+    --line:#34352f; --line-2:#2b2c27;
+    --accent:#5cb896; --accent-ink:#5cb896; --accent-soft:#1f2b25;
+    --up:#3fbf8c; --dn:#e08a72; --dn-soft:#2c1e1a;
+    --s1:#3987e5; --s1-soft:#1c5cab; --amber:#d3a44a; --amber-soft:#2d2619;
+    --grid:#34352f;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#191a18; --card:#20211f; --sunk:#262723;
+  --ink:#f2f1ec; --ink-2:#b9b8b0; --ink-3:#83847c;
+  --line:#34352f; --line-2:#2b2c27;
+  --accent:#5cb896; --accent-ink:#5cb896; --accent-soft:#1f2b25;
+  --up:#3fbf8c; --dn:#e08a72; --dn-soft:#2c1e1a;
+  --s1:#3987e5; --s1-soft:#1c5cab; --amber:#d3a44a; --amber-soft:#2d2619;
+  --grid:#34352f;
+}
+*{box-sizing:border-box}
+body{margin:0; background:var(--paper); color:var(--ink);
+  font:16px/1.55 Seravek,'Gill Sans Nova','Segoe UI',Candara,system-ui,sans-serif; -webkit-font-smoothing:antialiased}
+main{max-width:900px; margin:0 auto; padding:48px 24px 96px; display:flex; flex-direction:column; gap:0}
+h1{font-size:2rem; line-height:1.14; margin:.15em 0 .3em; font-weight:650; letter-spacing:-.012em; text-wrap:balance}
+h2{font-size:1.3rem; margin:0 0 .3em; font-weight:650; text-wrap:balance; letter-spacing:-.005em}
+h3{font-size:1rem; margin:0; font-weight:650}
+p{max-width:70ch; color:var(--ink-2); margin:.4em 0 .9em}
+p strong,li strong{color:var(--ink)}
+a{color:var(--accent-ink)}
+.eyebrow{font-size:.71rem; letter-spacing:.15em; text-transform:uppercase; color:var(--accent-ink); font-weight:700; margin:0 0 .4em}
+.scope{color:var(--ink-3); font-size:.9rem; margin-top:0}
+section{margin-top:56px}
+.mono,.num{font-family:ui-monospace,'SF Mono',Menlo,'Cascadia Code',monospace; font-variant-numeric:tabular-nums}
+
+.tiles{display:grid; grid-template-columns:repeat(auto-fit,minmax(148px,1fr)); gap:12px; margin:26px 0 0}
+.tile{background:var(--card); border:1px solid var(--line); border-radius:6px; padding:14px 16px}
+.tile .v{font-size:1.45rem; font-weight:680; letter-spacing:-.015em; font-family:ui-monospace,'SF Mono',Menlo,monospace; font-variant-numeric:tabular-nums}
+.tile .k{font-size:.74rem; color:var(--ink-3); letter-spacing:.05em; text-transform:uppercase; margin-top:3px}
+.tile .sub{font-size:.77rem; color:var(--ink-2); margin-top:4px}
+.tile.big .v{color:var(--dn)}
+
+figure{margin:22px 0; background:var(--card); border:1px solid var(--line); border-radius:6px; padding:18px 18px 12px; overflow-x:auto}
+figcaption{font-size:.79rem; color:var(--ink-3); margin-top:10px; max-width:78ch}
+svg{display:block}
+svg text{font:12px Seravek,'Segoe UI',system-ui,sans-serif; fill:var(--ink-2)}
+svg .lbl{fill:var(--ink); font-weight:600; font-family:ui-monospace,'SF Mono',Menlo,monospace; font-variant-numeric:tabular-nums; font-size:11.5px}
+svg .name{fill:var(--ink)}
+svg .mut{fill:var(--ink-3); font-size:10.5px}
+svg .axis{stroke:var(--grid)}
+
+.tablewrap{overflow-x:auto; background:var(--card); border:1px solid var(--line); border-radius:6px; margin:22px 0}
+table{border-collapse:collapse; width:100%; font-size:.87rem; min-width:560px}
+th{font-size:.67rem; text-transform:uppercase; letter-spacing:.08em; color:var(--ink-3); text-align:left;
+  font-weight:700; padding:11px 14px; border-bottom:1px solid var(--line); white-space:nowrap;
+  font-family:ui-monospace,'SF Mono',Menlo,monospace}
+td{padding:10px 14px; border-bottom:1px solid var(--line-2); color:var(--ink-2)}
+tr:last-child td{border-bottom:none}
+td:first-child{color:var(--ink); font-weight:600}
+th.n,td.n{text-align:right; font-family:ui-monospace,'SF Mono',Menlo,monospace; font-variant-numeric:tabular-nums}
+tr.tot td{border-top:2px solid var(--ink-3); font-weight:700; color:var(--ink); background:var(--sunk)}
+.pos{color:var(--up); font-weight:700}
+.neg{color:var(--dn); font-weight:700}
+
+.call{border-left:3px solid var(--accent); background:var(--accent-soft); border-radius:0 6px 6px 0;
+  padding:13px 18px; margin:22px 0; max-width:76ch}
+.call p{margin:.25em 0}
+.call.warn{border-left-color:var(--amber); background:var(--amber-soft)}
+.call.stop{border-left-color:var(--dn); background:var(--dn-soft)}
+.cam{display:inline-block; font-family:ui-monospace,'SF Mono',Menlo,monospace; font-size:.62rem; font-weight:700;
+  letter-spacing:.1em; text-transform:uppercase; color:var(--accent-ink); background:var(--accent-soft);
+  border-radius:3px; padding:3px 8px; vertical-align:3px; margin-left:9px; white-space:nowrap}
+.vs{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:24px 0}
+@media (max-width:640px){.vs{grid-template-columns:1fr}}
+.vs > div{background:var(--card); border:1px solid var(--line); border-radius:6px; padding:16px 18px;
+  display:flex; flex-direction:column; gap:9px}
+.vs .adds{border-color:var(--accent); background:var(--accent-soft)}
+.vs h4{margin:0; font-size:.94rem; font-weight:680; color:var(--ink)}
+.vs ul{margin:0; padding-left:1.05em; gap:5px}
+.vs li{font-size:.87rem}
+.vs .adds li{color:var(--ink)}
+.duo{display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:12px; margin:22px 0}
+.duo .b{background:var(--card); border:1px solid var(--line); border-radius:6px; padding:16px 18px;
+  display:flex; flex-direction:column; gap:2px}
+.duo .b .v{font-size:1.7rem; font-weight:680; letter-spacing:-.02em; font-family:ui-monospace,'SF Mono',Menlo,monospace; font-variant-numeric:tabular-nums}
+.duo .b .k{font-size:.8rem; color:var(--ink-2)}
+.duo .b .s{font-size:.73rem; color:var(--ink-3); font-family:ui-monospace,'SF Mono',Menlo,monospace; margin-top:3px}
+.duo .b.hi{background:var(--accent-soft); border-color:var(--accent)}
+.duo .b.hi .v{color:var(--accent-ink)}
+ul{color:var(--ink-2); max-width:74ch; padding-left:1.15em; display:flex; flex-direction:column; gap:7px}
+li{font-size:.94rem}
+li::marker{color:var(--ink-3)}
+.foot{margin-top:64px; padding-top:16px; border-top:1px solid var(--line); color:var(--ink-3); font-size:.78rem; max-width:none}
+:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+@media (max-width:620px){h1{font-size:1.6rem}}
+</style>
+<main>
+
+<p class="eyebrow">SuperZoo · store CS314 Kozomín · 11 August 2026</p>
+<h1>Eight weeks of data — and the first campaign we can actually measure</h1>
+<p class="scope">What the register has told us since the July update, what changed in the store after 27 July, who was walking in while it changed, and what the promoted products did. All figures CZK, one store.</p>
+
+<!-- ================= 1 ================= -->
+<section>
+<p class="eyebrow">01 · The data now</p>
+<h2>Five times the evidence base of the July report</h2>
+<div class="tiles">
+  <div class="tile"><div class="v">8,095</div><div class="k">receipts</div><div class="sub">was 1,526 · <b>5.3×</b></div></div>
+  <div class="tile"><div class="v">3.51M</div><div class="k">CZK matched</div><div class="sub">was 650k · <b>5.4×</b></div></div>
+  <div class="tile"><div class="v">48</div><div class="k">camera days</div><div class="sub">was 10 · 16 Jun – 9 Aug</div></div>
+  <div class="tile"><div class="v">7,815</div><div class="k">receipts linked to a shopper</div><div class="sub">96% of all receipts</div></div>
+  <div class="tile"><div class="v">5,633</div><div class="k">carry a persona</div><div class="sub">72% of linked</div></div>
+</div>
+<p>The July report ran on ten days. This one runs on forty-eight. That matters more than it sounds: several findings we reported in July were built on a few hundred receipts, and the larger pool has settled them — some confirmed, some not. Where a July number no longer holds, it is marked in this report rather than quietly dropped.</p>
+<p>For the detailed product analysis below we use the window where receipt-level POS detail is available, <strong>7 July – 4 August</strong>, joined receipt-by-receipt to the shopper at the till: <strong>4,581 receipts</strong> matched on a key that produced zero collisions and 100% agreement on register ID. The before/after comparisons use two matched eight-day windows either side of the campaign start: <strong>20–27 July</strong> against <strong>28 July – 4 August</strong>.</p>
+</section>
+
+<!-- ================= 1b ================= -->
+<section>
+<p class="eyebrow">02 · What the camera adds</p>
+<h2>The till records what sold. The camera records who bought it, and how they shopped.</h2>
+<p>Everything in this report comes from one of two places, and it is worth being explicit about which — because the sections that follow are only separable because of the second.</p>
+<div class="vs">
+  <div>
+    <h4>POS alone</h4>
+    <ul>
+      <li>What sold, when, at which till</li>
+      <li>Basket size, value and mix</li>
+      <li>Promotions redeemed</li>
+      <li><strong>Buyers only</strong></li>
+    </ul>
+  </div>
+  <div class="adds">
+    <h4>+ Visual layer</h4>
+    <ul>
+      <li>Shopper segment mix — with no loyalty card</li>
+      <li>Behaviour at the shelf: dwell, handling, engagement</li>
+      <li>Demographic signal by aisle</li>
+      <li><strong>Non-buyers, and footfall as a denominator</strong></li>
+    </ul>
+  </div>
+</div>
+<p>The practical consequence runs through the whole report. Section 03 — the store fell 9.2% — is available from the register. Section 04 — <em>who</em> was in the store while it fell, and whether the 10.7% depth rise landed on the shoppers the campaign was aimed at — is not available from the register at any price. That distinction is the product.</p>
+</section>
+
+<!-- ================= 2 ================= -->
+<section>
+<p class="eyebrow">03 · The store after 27 July</p>
+<h2>The same number of people came — and spent 10% less each</h2>
+<p>Start at the top line. Footfall did not move. Everything below it did.</p>
+<div class="tablewrap"><table>
+<thead><tr><th>Whole store</th><th class="n">20–27 Jul</th><th class="n">28 Jul – 4 Aug</th><th class="n">change</th></tr></thead>
+<tbody>
+<tr><td>Receipts</td><td class="n">1,278</td><td class="n">1,289</td><td class="n pos">+0.9%</td></tr>
+<tr><td>Revenue</td><td class="n">574,831</td><td class="n">521,919</td><td class="n neg">−9.2%</td></tr>
+<tr><td>Average basket</td><td class="n">450</td><td class="n">405</td><td class="n neg">−10.0%</td></tr>
+<tr><td>Units per receipt</td><td class="n">4.51</td><td class="n">4.16</td><td class="n neg">−7.8%</td></tr>
+<tr><td>Lines per receipt</td><td class="n">2.78</td><td class="n">2.56</td><td class="n neg">−7.9%</td></tr>
+</tbody></table></div>
+<div class="call"><p><strong>Read:</strong> this is not a traffic problem. The same crowd arrived and put fewer things in the basket. Any explanation has to work at the basket level, not the door.</p></div>
+
+<h3 style="margin-top:38px">And the basket swung out of dogs</h3>
+<p>One department accounts for almost the whole decline. Dogs lost 70,000 Kč; cats, rodents and the specialist aisles picked up about half of it.</p>
+<figure>
+<svg viewBox="0 0 640 250" width="640" height="250" role="img" aria-label="Category revenue change, pre versus post">
+  <text class="mut" x="14" y="14">revenue change, 8-day windows · bar length = % change · label = CZK before → after</text>
+  <line class="axis" x1="250" y1="26" x2="250" y2="212" stroke-dasharray="3 3"/>
+  <text class="mut" x="250" y="232" text-anchor="middle">0%</text>
+  <line class="axis" x1="150" y1="26" x2="150" y2="212"/><text class="mut" x="150" y="232" text-anchor="middle">−25%</text>
+  <line class="axis" x1="350" y1="26" x2="350" y2="212"/><text class="mut" x="350" y="232" text-anchor="middle">+25%</text>
+  <!-- x = 250 + pct*4 -->
+  <g transform="translate(0,32)"><text class="name" x="126" y="10" text-anchor="end">Dogs</text>
+    <rect x="166" y="1" width="84" height="12" rx="2" fill="var(--dn)"/><text class="lbl" x="160" y="11" text-anchor="end">−21%</text>
+    <text class="mut" x="360" y="11">328,942 → 258,878</text></g>
+  <g transform="translate(0,58)"><text class="name" x="126" y="10" text-anchor="end">Live animals</text>
+    <rect x="126" y="1" width="124" height="12" rx="2" fill="var(--dn)"/><text class="lbl" x="120" y="11" text-anchor="end">−31%</text>
+    <text class="mut" x="360" y="11">28,951 → 19,929</text></g>
+  <g transform="translate(0,84)"><text class="name" x="126" y="10" text-anchor="end">Birds</text>
+    <rect x="174" y="1" width="76" height="12" rx="2" fill="var(--dn)"/><text class="lbl" x="168" y="11" text-anchor="end">−19%</text>
+    <text class="mut" x="360" y="11">17,339 → 14,061</text></g>
+  <g transform="translate(0,110)"><text class="name" x="126" y="10" text-anchor="end">Aquarium</text>
+    <rect x="250" y="1" width="24" height="12" rx="2" fill="var(--up)"/><text class="lbl" x="280" y="11">+6%</text>
+    <text class="mut" x="360" y="11">22,186 → 23,586</text></g>
+  <g transform="translate(0,136)"><text class="name" x="126" y="10" text-anchor="end">Rodents</text>
+    <rect x="250" y="1" width="40" height="12" rx="2" fill="var(--up)"/><text class="lbl" x="296" y="11">+10%</text>
+    <text class="mut" x="360" y="11">53,359 → 58,530</text></g>
+  <g transform="translate(0,162)"><text class="name" x="126" y="10" text-anchor="end">Cats</text>
+    <rect x="250" y="1" width="88" height="12" rx="2" fill="var(--up)"/><text class="lbl" x="344" y="11">+22%</text>
+    <text class="mut" x="360" y="11">102,065 → 124,873</text></g>
+  <g transform="translate(0,188)"><text class="name" x="126" y="10" text-anchor="end">Terrarium</text>
+    <rect x="250" y="1" width="104" height="12" rx="2" fill="var(--up)"/><text class="lbl" x="360" y="11">+26%</text>
+    <text class="mut" x="410" y="11">15,765 → 19,912</text></g>
+</svg>
+<figcaption>Dogs fell from 57.2% to 49.6% of store revenue; cats rose from 17.8% to 23.9%. Two matched eight-day windows, whole store, no linkage or persona data involved — this is the most robust movement in the period.</figcaption>
+</figure>
+<div class="call"><p><strong>Why it matters for everything that follows:</strong> dog baskets are the big ones. A 7.6-point swing out of dogs is enough on its own to produce the fall in average basket, the fall in items per trip, and the sharp drop in dog-adjacent lines such as treats. Before crediting anything else with moving the numbers, this has to be subtracted first.</p></div>
+</section>
+
+<!-- ================= 3 ================= -->
+<section>
+<p class="eyebrow">04 · Who was in the store</p>
+<h2>The persona mix shifted — one segment nearly doubled <span class="cam">camera only</span></h2>
+<p>Across the same two windows, the composition of identified shoppers moved considerably. Budget Conscious Adults went from one receipt in thirteen to one in seven.</p>
+<figure>
+<svg viewBox="0 0 640 268" width="640" height="268" role="img" aria-label="Persona share change">
+  <text class="mut" x="14" y="14">share of persona-tagged receipts · bar = change in percentage points</text>
+  <line class="axis" x1="330" y1="26" x2="330" y2="230" stroke-dasharray="3 3"/>
+  <text class="mut" x="330" y="250" text-anchor="middle">no change</text>
+  <line class="axis" x1="230" y1="26" x2="230" y2="230"/><text class="mut" x="230" y="250" text-anchor="middle">−5pp</text>
+  <line class="axis" x1="430" y1="26" x2="430" y2="230"/><text class="mut" x="430" y="250" text-anchor="middle">+5pp</text>
+  <!-- x = 330 + pp*20 -->
+  <g transform="translate(0,32)"><text class="name" x="196" y="10" text-anchor="end">Budget Conscious</text>
+    <rect x="330" y="1" width="134" height="13" rx="2" fill="var(--up)"/><text class="lbl" x="470" y="11">+6.7pp</text>
+    <text class="mut" x="530" y="11">68 → 120  (+76%)</text></g>
+  <g transform="translate(0,58)"><text class="name" x="196" y="10" text-anchor="end">Suburban Women 30s</text>
+    <rect x="330" y="1" width="48" height="13" rx="2" fill="var(--up)"/><text class="lbl" x="384" y="11">+2.4pp</text>
+    <text class="mut" x="530" y="11">266 → 272  (+2%)</text></g>
+  <g transform="translate(0,84)"><text class="name" x="196" y="10" text-anchor="end">Young Women 20s</text>
+    <rect x="330" y="1" width="10" height="13" rx="2" fill="var(--up)"/><text class="lbl" x="346" y="11">+0.5pp</text>
+    <text class="mut" x="530" y="11">170 → 165  (−3%)</text></g>
+  <g transform="translate(0,110)"><text class="name" x="196" y="10" text-anchor="end">Active Young Adults</text>
+    <rect x="330" y="1" width="8" height="13" rx="2" fill="var(--up)"/><text class="lbl" x="344" y="11">+0.4pp</text>
+    <text class="mut" x="530" y="11">48 → 49  (+2%)</text></g>
+  <g transform="translate(0,136)"><text class="name" x="196" y="10" text-anchor="end">Students, teens</text>
+    <rect x="300" y="1" width="30" height="13" rx="2" fill="var(--dn)"/><text class="lbl" x="294" y="11" text-anchor="end">−1.5pp</text>
+    <text class="mut" x="530" y="11">30 → 16  (−47%)</text></g>
+  <g transform="translate(0,162)"><text class="name" x="196" y="10" text-anchor="end">Retirees 60+</text>
+    <rect x="294" y="1" width="36" height="13" rx="2" fill="var(--dn)"/><text class="lbl" x="288" y="11" text-anchor="end">−1.8pp</text>
+    <text class="mut" x="530" y="11">56 → 38  (−32%)</text></g>
+  <g transform="translate(0,188)"><text class="name" x="196" y="10" text-anchor="end">Suburban Men 40s</text>
+    <rect x="288" y="1" width="42" height="13" rx="2" fill="var(--dn)"/><text class="lbl" x="282" y="11" text-anchor="end">−2.1pp</text>
+    <text class="mut" x="530" y="11">188 → 161  (−14%)</text></g>
+</svg>
+<figcaption>881 tagged receipts before, 835 after. Budget Conscious rose on every single day of the campaign window relative to the prior week, reaching 20.8% by 4 August.</figcaption>
+</figure>
+
+<h3 style="margin-top:38px">Spend per persona moved more than the mix did</h3>
+<div class="tablewrap"><table>
+<thead><tr><th>Persona</th><th class="n">ABV before</th><th class="n">ABV after</th><th class="n">change</th></tr></thead>
+<tbody>
+<tr><td>Active Young Adults</td><td class="n">411</td><td class="n">471</td><td class="n pos">+15%</td></tr>
+<tr><td>Suburban Men in their 40s</td><td class="n">401</td><td class="n">443</td><td class="n pos">+10%</td></tr>
+<tr><td>Young Women in their 20s</td><td class="n">443</td><td class="n">425</td><td class="n neg">−4%</td></tr>
+<tr><td>Suburban Women in their 30s</td><td class="n">417</td><td class="n">365</td><td class="n neg">−12%</td></tr>
+<tr><td>Budget Conscious Local Adults</td><td class="n">509</td><td class="n">346</td><td class="n neg">−32%</td></tr>
+<tr><td>Students in their Teens</td><td class="n">423</td><td class="n">286</td><td class="n neg">−32%</td></tr>
+<tr><td>Retirees Aged 60 and Over</td><td class="n">487</td><td class="n">258</td><td class="n neg">−47%</td></tr>
+</tbody></table></div>
+<p>Decomposing the store's 10% basket decline into "different people came" versus "the same people spent less" gives a clear answer: <strong>the mix explains 2% of it. The other 98% is the same personas spending less.</strong> This is a behavioural period, not a compositional one.</p>
+
+<h3 style="margin-top:38px">What the shopper is <em>doing</em> beats what the shopper <em>is</em> <span class="cam">camera only</span></h3>
+<p>Across the full eight-week pool, the strongest single predictor of basket value in the visual layer is not a demographic at all — it is whether the shopper is reading and handling product rather than passing through.</p>
+<div class="duo">
+  <div class="b hi"><span class="v">487 Kč</span><span class="k">inspecting product</span><span class="s">n = 713</span></div>
+  <div class="b"><span class="v">401 Kč</span><span class="k">browsing</span><span class="s">n = 2,008</span></div>
+  <div class="b hi"><span class="v">+21%</span><span class="k">basket-value lift</span><span class="s">p &lt; 0.0001</span></div>
+</div>
+<p>On 2,721 shoppers with a decisive p-value, this is the best-powered finding in the pilot — and it is unavailable from the register by construction, because the till cannot see what happened before the scan. It also points at a lever that needs no media spend: engagement is something staffing and shelf design influence directly. Alongside it, the visual layer separates departments where spend alone cannot: men index <strong>1.75×</strong> on the fish and reptile aisles (9.3% of their baskets against 5.3% for women), and facial hair carries a <strong>1.47×</strong> lift into reptile specifically. Those demographic cells rest on tens of receipts and are directional; the engagement result is not.</p>
+
+<h3 style="margin-top:38px">Who actually walks in with an animal <span class="cam">camera only</span></h3>
+<p>The camera records whether a shopper brought their pet — something no loyalty scheme captures. Across the pilot it is a small but very consistent group, and it is almost entirely one thing:</p>
+<figure>
+<svg viewBox="0 0 640 176" width="640" height="176" role="img" aria-label="Companion pet type split">
+  <text class="mut" x="14" y="14">share of visits where a companion animal is present</text>
+  <g font-size="12">
+  <g transform="translate(0,30)"><text class="name" x="150" y="12" text-anchor="end">Small dog</text>
+    <rect x="160" y="2" width="257" height="15" rx="3" fill="var(--accent)"/><text class="lbl" x="425" y="14">58%</text></g>
+  <g transform="translate(0,56)"><text class="name" x="150" y="12" text-anchor="end">Medium dog</text>
+    <rect x="160" y="2" width="90" height="15" rx="3" fill="var(--accent)"/><text class="lbl" x="258" y="14">20%</text></g>
+  <g transform="translate(0,82)"><text class="name" x="150" y="12" text-anchor="end">Large dog</text>
+    <rect x="160" y="2" width="63" height="15" rx="3" fill="var(--accent)"/><text class="lbl" x="231" y="14">14%</text></g>
+  <g transform="translate(0,108)"><text class="name" x="150" y="12" text-anchor="end">Other animal</text>
+    <rect x="160" y="2" width="19" height="15" rx="3" fill="var(--s1-soft)"/><text class="lbl" x="187" y="14">4%</text></g>
+  <g transform="translate(0,134)"><text class="name" x="150" y="12" text-anchor="end">Cat / small mammal</text>
+    <rect x="160" y="2" width="12" height="15" rx="3" fill="var(--s1-soft)"/><text class="lbl" x="180" y="14">3%</text></g>
+  </g>
+</svg>
+<figcaption>Companion animals present at the store, full pilot window. <strong>93% are dogs, and small dogs alone are nearly six in ten.</strong> Roughly one shopper in sixty-five arrives with an animal. Cats and small mammals are almost never brought in, despite being a large share of what the store sells.</figcaption>
+</figure>
+<div class="call"><p><strong>The practical read:</strong> "pet in store" effectively means "small dog." Anything built for these shoppers — a greeting, a fitting area, a screen prompt, a treat station — should be sized and stocked for small dogs first. It also means the cat and small-pet customer is never accompanied, so their trip has to be served entirely on the shelf.</p></div>
+
+<h3 style="margin-top:38px">And they shop differently <span class="cam">camera only</span></h3>
+<p>Baskets belonging to shoppers who brought their animal, against everyone else:</p>
+<div class="tablewrap"><table>
+<thead><tr><th>Metric</th><th class="n">came with pet</th><th class="n">everyone else</th></tr></thead>
+<tbody>
+<tr><td>Buys walking gear</td><td class="n pos">27.3%</td><td class="n">4.8%</td></tr>
+<tr><td>Buys toys</td><td class="n pos">30.3%</td><td class="n">12.3%</td></tr>
+<tr><td>Buys treats</td><td class="n pos">48.5%</td><td class="n">36.0%</td></tr>
+<tr><td>Food share of basket</td><td class="n neg">43.0%</td><td class="n">60.5%</td></tr>
+<tr><td>Basket value</td><td class="n pos">553 Kč</td><td class="n">390 Kč</td></tr>
+<tr><td>Lines per receipt</td><td class="n pos">3.2</td><td class="n">2.6</td></tr>
+<tr><td>Private-label share of basket</td><td class="n">51.7%</td><td class="n">43.2%</td></tr>
+<tr><td>Average price per food unit</td><td class="n">110 Kč</td><td class="n">156 Kč</td></tr>
+</tbody></table></div>
+<div class="call"><p><strong>What to do with it:</strong> this is a non-food trip and it announces itself at the door. A shopper with their dog is more than five times as likely to buy walking gear and two and a half times as likely to buy a toy, their basket runs 553 Kč against 390, and food drops from three-fifths of the basket to under half. Accessories, fitting and treats are what the visit is for — the clearest case in the pilot for putting the right thing in front of the right shopper, because the cue is unmistakable and visible before they reach a shelf.</p></div>
+
+<div class="call"><p><strong>The pattern across the eight-week pool.</strong> Persona basket values sit in a narrow band — two independent cuts put it at 399–457 and 416–458 Kč — while the <em>department</em> each persona shops diverges sharply (p &lt; 0.001). <strong>Personas are strongly predictive of what a shopper came for. They are not predictive of how much that shopper spends.</strong> That is the split which decides how the segments are used: for range, placement and content, not for forecasting spend.</p></div>
+
+<h3 style="margin-top:38px">When they come has barely changed</h3>
+<figure>
+<svg viewBox="0 0 640 190" width="640" height="190" role="img" aria-label="Share of receipts by hour of day">
+  <line class="axis" x1="56" y1="146" x2="616" y2="146"/>
+  <line class="axis" x1="56" y1="26" x2="56" y2="146"/>
+  <text class="mut" x="50" y="30" text-anchor="end">12%</text>
+  <text class="mut" x="50" y="150" text-anchor="end">0%</text>
+  <!-- x = 56 + (h-9)*56 ; y = 146 - pct*10 -->
+  <polyline fill="none" stroke="var(--ink-3)" stroke-width="2" stroke-dasharray="4 3"
+    points="56,73 112,77 168,58 224,65 280,62 336,36 392,45 448,42 504,40 560,43 616,64"/>
+  <polyline fill="none" stroke="var(--accent)" stroke-width="2.5"
+    points="56,68 112,53 168,63 224,70 280,61 336,50 392,49 448,48 504,42 560,49 616,54"/>
+  <g class="mut">
+  <text x="56"  y="164" text-anchor="middle">9h</text><text x="168" y="164" text-anchor="middle">11h</text>
+  <text x="280" y="164" text-anchor="middle">13h</text><text x="336" y="164" text-anchor="middle">14h</text>
+  <text x="448" y="164" text-anchor="middle">16h</text><text x="560" y="164" text-anchor="middle">18h</text>
+  <text x="616" y="164" text-anchor="middle">19h</text></g>
+  <g font-size="11.5">
+    <line x1="330" y1="26" x2="362" y2="26" stroke="var(--ink-3)" stroke-width="2" stroke-dasharray="4 3"/>
+    <text x="368" y="30" fill="var(--ink-3)">20–27 Jul</text>
+    <line x1="450" y1="26" x2="482" y2="26" stroke="var(--accent)" stroke-width="2.5"/>
+    <text x="488" y="30" fill="var(--accent-ink)">28 Jul – 4 Aug</text>
+  </g>
+</svg>
+<figcaption>Share of receipts by hour. The afternoon peak flattened slightly — 14:00 fell from 11.0% to 9.6% while the morning (10:00) rose from 6.9% to 9.3% — but the shape of the trading day is essentially unchanged. Whatever moved the basket did not move the clock.</figcaption>
+</figure>
+</section>
+
+<!-- ================= 4 ================= -->
+<section>
+<p class="eyebrow">05 · The campaign</p>
+<h2>What we put on the screen, and what those products did at the till</h2>
+<p>From 27 July the in-store screen ran six targeted creatives, each pairing an offer with the shopper persona the camera identified. This is the first time content selection and register data can be joined on the same shoppers, so it is the first campaign in this pilot that is measurable at all.</p>
+<div class="tablewrap"><table>
+<thead><tr><th>Creative on screen</th><th>Shown to</th><th>Promoted products</th></tr></thead>
+<tbody>
+<tr><td>3+1 psí pamlsky</td><td>Ženy 20+</td><td>Dog treats</td></tr>
+<tr><td>3+1 kočičí pamlsky</td><td>Studenti</td><td>Cat treats</td></tr>
+<tr><td>Ontario kočka — kvalita</td><td>Muži 40+</td><td>Ontario cat food</td></tr>
+<tr><td>Ontario pes — kvalita (velký pes)</td><td>Senioři 60+</td><td>Ontario dog food</td></tr>
+<tr><td>Držíme ceny na vodítku</td><td>Active Young</td><td>Leashes, collars, harnesses</td></tr>
+<tr><td>Kup více, zaplať méně</td><td>Budget Conscious</td><td>store-wide multi-buy mechanic</td></tr>
+</tbody></table></div>
+
+<h3 style="margin-top:38px">The promoted products, before and after</h3>
+<p>Revenue and depth for each promoted group across the two eight-day windows.</p>
+<div class="tablewrap"><table>
+<thead><tr><th>Promoted group</th><th class="n">before</th><th class="n">after</th><th class="n">change</th><th class="n">units/line</th></tr></thead>
+<tbody>
+<tr><td>Ontario cat food</td><td class="n">21,390</td><td class="n">20,833</td><td class="n neg">−2.6%</td><td class="n pos">+14.2%</td></tr>
+<tr><td>Leashes &amp; collars</td><td class="n">25,334</td><td class="n">20,802</td><td class="n neg">−17.9%</td><td class="n neg">−2.5%</td></tr>
+<tr><td>Cat treats</td><td class="n">10,962</td><td class="n">8,888</td><td class="n neg">−18.9%</td><td class="n pos">+7.8%</td></tr>
+<tr><td>Ontario dog food</td><td class="n">62,711</td><td class="n">48,115</td><td class="n neg">−23.3%</td><td class="n pos">+9.0%</td></tr>
+<tr><td>Dog treats</td><td class="n">72,939</td><td class="n">50,661</td><td class="n neg">−30.5%</td><td class="n pos">+7.4%</td></tr>
+<tr class="tot"><td>All promoted combined</td><td class="n">171,531</td><td class="n">135,006</td><td class="n neg">−21.3%</td><td class="n pos">+10.7%</td></tr>
+</tbody></table></div>
+
+<div class="tiles">
+  <div class="tile big"><div class="v">−21.3%</div><div class="k">promoted product revenue</div><div class="sub">whole store −9.2% over the same days</div></div>
+  <div class="tile"><div class="v">+10.7%</div><div class="k">units per line</div><div class="sub">lines −26%, units −19%</div></div>
+  <div class="tile"><div class="v">29.8→25.9%</div><div class="k">share of store revenue</div><div class="sub">promoted groups</div></div>
+</div>
+
+<p>Two things shape how to read this. The period itself was falling — the dog department lost 21.3% while cats grew 22.3% — so the dog-side creatives were pushing against their own aisle and the cat-side ones were swimming with theirs. And the one metric that rose everywhere, units per line, is arithmetic rather than persuasion: lines fell 26% while units fell 19%, so the average line deepened because the shallow lines disappeared.</p>
+<p><strong>Half the campaign was aimed at products the store barely sells.</strong> Leashes move three to four units a week here, and cat treats to students covered one to two lines in each window. Whatever those creatives did to shoppers, the volumes are too small for a result to exist either way — which is the first thing to fix in the next brief.</p>
+</section>
+
+<!-- ================= 5 ================= -->
+<section>
+<p class="eyebrow">06 · What this buys</p>
+<h2>The levers this opens, and where each lands in the P&amp;L</h2>
+<div class="call">
+<p><strong>Sizing the next test.</strong> Day-to-day variation in treat depth is 0.337 units per line on a mean of 1.93. Detecting an 8% effect at conventional power needs roughly <strong>74 store-days per arm</strong> — ten stores for a week, or five stores for a fortnight. This campaign ran on eight store-days, so the next one should be scoped against that number rather than against a calendar.</p>
+</div>
+<h3 style="margin-top:38px">Five levers, ordered by how well each is evidenced today</h3>
+<p>Screen targeting is one of five, and on this evidence not the nearest one. The others do not depend on the campaign result at all:</p>
+<div class="tablewrap"><table>
+<thead><tr><th>Vision-only capability</th><th>Absent from POS because</th><th>P&amp;L lever</th></tr></thead>
+<tbody>
+<tr><td>Engagement at the shelf</td><td>the till sees no intent, only outcomes</td><td>Staffing &amp; assisted sell → conversion, labour ROI. <strong>+21% basket, p&lt;0.0001</strong> — the best-evidenced lever here.</td></tr>
+<tr><td>Footfall vs purchase</td><td>non-buyers leave no receipt</td><td>Converting traffic you already pay for → revenue with no media spend</td></tr>
+<tr><td>Segment mix of every shopper</td><td>no loyalty card at this store</td><td>Range &amp; planogram fit → revenue, fewer markdowns</td></tr>
+<tr><td>Demographic signal by aisle</td><td>the till cannot say who a category serves</td><td>Placement &amp; local assortment → revenue</td></tr>
+<tr><td>Persona-level screen targeting</td><td>no way to know who saw what</td><td>Right offer to right shopper → basket &amp; frequency. <em>Unproven at this sample size</em></td></tr>
+</tbody></table></div>
+<div class="call"><p><strong>Note the ordering.</strong> The lever with the strongest evidence behind it — engagement, on 2,721 shoppers at p&lt;0.0001 — costs nothing in media and is executed by store operations, not marketing. The lever this campaign tested sits last, because it is the one we cannot yet evidence. On present data that is the honest sequence to work through.</p></div>
+
+<p>Three design rules follow directly, and they are what we would apply to the next campaign:</p>
+<ul>
+<li><strong>Promote what the store sells in volume.</strong> Half of this campaign was aimed at products moving single-digit units a week. Penetration determines whether a result can exist at all, before creative quality matters at all.</li>
+<li><strong>Name the metric before switching on, and vary exposure deliberately.</strong> Constant exposure produces a before/after that seasonality can always explain — as it does here.</li>
+<li><strong>Measure against the store, not against last week.</strong> Every number in section 04 is quoted against the store's own movement. Without that baseline a −21% result reads as −21%; with it, the honest figure is −12 points of relative underperformance, and a +11% depth rise reads as what it is.</li>
+</ul>
+</section>
+
+<p class="foot">Method: 28 daily POS exports (store CS314, 7 Jul – 4 Aug 2026, 07 Jul missing) at receipt-line level, joined to anonymous checkout visits via receipt number — key validated with zero cross-day collisions and 100% register-ID agreement on 4,581 receipts — and thence to persona assignments for 5,633 shoppers. Before/after uses matched eight-day windows, 20–27 July against 28 July – 4 August. Product groups from the store's own category hierarchy; Ontario identified by product name. Companion-animal split from <code>companion_pet_type</code> on the visitor warehouse, non-staff visitors, 16 Jun – 9 Aug, excluding unassessed and unknown records; the attribute is assessed on roughly a quarter of visits, and shares are of assessed visits. The pet-basket comparison is drawn from the visual-features analysis of the same pilot and rests on a small number of accompanied shoppers — the walking-gear, toy and food-share differences held across every robustness cut applied there; basket value and line count did not reach significance and are shown as direction. Headline totals for the eight-week pool (8,095 receipts, 3.51M CZK, 16 Jun – 9 Aug) are carried from the POS × personas analysis of 10 Aug; the engagement, aisle-demographic and persona-band figures are carried from the POS × visual-features analysis of the same pool, which uses a slightly wider receipt base (9,022) and therefore reports marginally different persona counts — the two agree on every conclusion drawn here. All figures CZK, one store, buyers only. De-identified aggregates; every reported cell combines ten or more receipts except where counts are stated explicitly to demonstrate that they are too small to support a conclusion.</p>
+
+</main>
+
+</body>
+</html>

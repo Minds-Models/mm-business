@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>LEGO × LCD Media × Minds &amp; Models — Screens That Know Who's Watching</title>
+<style>
+  @page { size: A4; margin: 0; }
+  :root{
+    --paper:#fbfaf9; --surface:#ffffff; --surface-2:#f4f1ee;
+    --line:#e3e0dc; --ink:#141414; --ink-2:#45443f; --muted:#8a8781;
+    --accent:#d01012; --accent-soft:#fdecec;
+    --green:#1f8a54; --green-soft:#e6f4ec;
+    --sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html,body{background:#d9d6d2;}
+  body{font-family:var(--sans); color:var(--ink); -webkit-print-color-adjust:exact; print-color-adjust:exact;}
+  .page{width:210mm; min-height:297mm; margin:0 auto; background:var(--paper);
+    padding:13mm 14mm 11mm; display:flex; flex-direction:column;}
+
+  /* header — real logo lockup */
+  header{display:flex; justify-content:space-between; align-items:center; padding-bottom:12px; border-bottom:2px solid var(--ink);}
+  .lockup{display:flex; align-items:center; gap:14px; margin-left:-8px;}
+  .lockup .mm{height:51px;}
+  .lockup .lcd{height:11px;}
+  .lockup .x{color:var(--muted); font-weight:300; font-size:16px;}
+  .recipient{display:flex; align-items:center; gap:11px;}
+  .recipient .for{text-align:right; font-size:8px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); line-height:1.5;}
+  .recipient .for b{display:block; color:var(--ink-2); font-size:9px; letter-spacing:.04em;}
+  .recipient .lego{height:40px;}
+
+  /* hero */
+  .hero{padding:36px 0 10px;}
+  .hero h1{font-size:34px; line-height:1.06; letter-spacing:-.02em; font-weight:800; max-width:17cm;}
+  .hero h1 em{color:var(--accent); font-style:normal;}
+  .hero .sub{margin-top:15px; font-size:13.5px; line-height:1.5; color:var(--ink-2); max-width:16.5cm; font-weight:450;}
+  .hero .sub b{color:var(--ink);}
+
+  /* section label */
+  .seclabel{font-size:9.5px; letter-spacing:.16em; text-transform:uppercase; font-weight:700; color:var(--muted); margin:52px 0 16px;}
+  .seclabel b{color:var(--accent);}
+
+  /* KPI cards — number + header only */
+  .kpis{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:15px;}
+  .kpi{background:var(--surface); border:1px solid var(--line); border-radius:11px; padding:16px 18px; display:flex; align-items:center; gap:13px; min-height:86px;}
+  .kpi .stat{display:flex; flex-direction:column; align-items:flex-start; flex:none;}
+  .kpi .big{font-size:37px; font-weight:800; letter-spacing:-.03em; font-variant-numeric:tabular-nums; line-height:.9; color:var(--green);}
+  .kpi .big .u{font-size:18px;}
+  .kpi .cap{font-size:7px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); font-weight:700; margin-top:4px; white-space:nowrap;}
+  .kpi .chk{width:40px; height:40px; border-radius:50%; background:var(--green-soft); color:var(--green); display:flex; align-items:center; justify-content:center; font-size:21px; font-weight:900; flex:none;}
+  .kpi h3{font-size:13.5px; font-weight:800; letter-spacing:-.012em; line-height:1.16;}
+  .kpi.compliant h3{color:var(--green);}
+
+  /* KPI descriptions — centered under each card, roughly even length */
+  .kpi-desc{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:15px; margin-top:15px;}
+  .kpi-desc p{font-size:11px; line-height:1.5; color:var(--ink-2); text-align:center; padding:0 10px;}
+  .kpi-desc p b{color:var(--ink);}
+
+  /* scenario cards */
+  .scen{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:15px;}
+  .card{background:var(--surface); border:1px solid var(--line); border-radius:11px; overflow:hidden; display:flex; flex-direction:column;}
+  .card .top{display:flex; align-items:center; gap:13px; padding:18px 16px 13px;}
+  .card .av{width:72px; height:72px; border-radius:50%; object-fit:cover; object-position:center top; border:2px solid var(--accent-soft); background:var(--surface-2); flex:none;}
+  .card .who{font-size:15px; font-weight:800; letter-spacing:-.01em; line-height:1.1;}
+  .card .who span{display:block; font-size:9px; font-weight:500; color:var(--muted); letter-spacing:.02em; margin-top:4px; text-transform:uppercase;}
+  .card .arrow{padding:4px 16px 0; font-size:9px; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); font-weight:700;}
+  .card .shows{padding:6px 16px 17px; font-size:12px; line-height:1.5; color:var(--ink-2); flex:1;}
+  .card .shows b{color:var(--ink); font-weight:700;}
+  .card .tag{margin:0 16px 17px; align-self:flex-start; background:var(--accent-soft); color:var(--accent); font-size:9.5px; font-weight:700; padding:5px 11px; border-radius:20px; letter-spacing:.02em;}
+
+  /* CTA footer */
+  .cta{margin-top:auto; padding-top:14px; display:flex; justify-content:space-between; align-items:flex-end; border-top:2px solid var(--ink);}
+  .cta .big{font-size:15px; font-weight:800; letter-spacing:-.015em; max-width:13cm; line-height:1.22;}
+  .cta .big em{color:var(--accent); font-style:normal;}
+  .cta .meta{text-align:right; font-size:8.6px; color:var(--muted); line-height:1.7; white-space:nowrap;}
+  .cta .meta b{color:var(--ink);}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div class="lockup">
+      <img class="mm" src="mm-logo.png" alt="Minds &amp; Models">
+      <span class="x">×</span>
+      <img class="lcd" src="LCDMEDIA-Logo.png" alt="LCD Media">
+    </div>
+    <div class="recipient">
+      <div class="for"><b>Prepared for</b>Retail &amp; Experiential</div>
+      <img class="lego" src="LEGO_logo_RGB.png" alt="LEGO">
+    </div>
+  </header>
+
+  <div class="hero">
+    <h1>The same LEGO screen just showed a<br>collector and a 7-year-old <em>the exact same ad.</em></h1>
+    <p class="sub">Your displays play a beautiful loop, yet they don't know who's watching. We give every LCD Media screen the power to <b>recognize the shopper and show them the right LEGO</b>, in real time. The result: more of the right set in more of the right baskets.</p>
+  </div>
+
+  <div class="seclabel">What LEGO gets: <b>three reasons this pays for itself</b></div>
+
+  <div class="kpis">
+    <div class="kpi"><div class="stat"><div class="big">1.6<span class="u">s</span></div><div class="cap">reaction</div></div><h3>Real-time personalization</h3></div>
+    <div class="kpi"><div class="stat"><div class="big">450<span class="u">+</span></div><div class="cap">attributes</div></div><h3>Deep consumer intelligence</h3></div>
+    <div class="kpi compliant"><div class="chk">✓</div><h3>GDPR &amp; EU AI Act compliant</h3></div>
+  </div>
+  <div class="kpi-desc">
+    <p>Each shopper sees the LEGO set they're <b>most likely to buy</b>. Signage that sells, not just loops.</p>
+    <p>See exactly <b>who</b> engages your displays. E-commerce-grade analytics, at the physical shelf.</p>
+    <p>No faces, no identities stored. <b>Full personalization, zero privacy risk</b> for LEGO.</p>
+  </div>
+
+  <div class="seclabel">One screen. <b>Three shoppers. Three different stories.</b></div>
+
+  <div class="scen">
+    <div class="card">
+      <div class="top">
+        <img class="av" src="av-collector.png" alt="">
+        <div class="who">The Collector<span>Adult · alone · AFOL</span></div>
+      </div>
+      <div class="arrow">The screen shows →</div>
+      <div class="shows"><b>$300 UCS Star Wars &amp; Icons</b> collector sets. The high-ticket hero he'd never see on a generic loop.</div>
+      <div class="tag">Higher basket value</div>
+    </div>
+
+    <div class="card">
+      <div class="top">
+        <img class="av" src="av-parent.png" alt="">
+        <div class="who">The Parent<span>Family group · with child</span></div>
+      </div>
+      <div class="arrow">The screen shows →</div>
+      <div class="shows"><b>NINJAGO &amp; City play themes</b>, the sets that turn a child's pull into a "yes" at the shelf.</div>
+      <div class="tag">Higher conversion</div>
+    </div>
+
+    <div class="card">
+      <div class="top">
+        <img class="av" src="av-tourist.png" alt="">
+        <div class="who">The Tourist<span>On the move · shopping bags</span></div>
+      </div>
+      <div class="arrow">The screen shows →</div>
+      <div class="shows"><b>Exclusive, easy-to-carry gift sets</b>. Impulse-perfect and suitcase-friendly.</div>
+      <div class="tag">Incremental impulse sales</div>
+    </div>
+  </div>
+
+  <div class="cta">
+    <div class="big">Let's light up <em>one flagship store.</em><br>A localized pilot on existing screens, measured from day one.</div>
+    <div class="meta"><b>Next step:</b> scope a single-store pilot<br>LCD Media × Minds &amp; Models<br><b>mindsmodels.ai</b></div>
+  </div>
+
+</div>
+</body>
+</html>
