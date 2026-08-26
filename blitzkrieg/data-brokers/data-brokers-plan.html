@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Brokers Action Plan | Minds & Models</title>
+    <style>
+        :root {
+            /* Minds & Models brand tokens */
+            --paper: #fbfaf9;
+            --surface: #ffffff;
+            --surface-2: #f2efec;
+            --line: #e3e0dc;
+            --line-soft: #efece9;
+
+            --ink: #1a1a1a;
+            --ink-2: #4a4a48;
+            --muted: #8a8781;
+
+            --accent: #3d6bfb;
+            --accent-soft: #e8edfe;
+            --negative: #c0504d;
+            --negative-soft: #f7eae8;
+            --positive: #1f6f4a;
+            --positive-soft: #e8f4ee;
+            --warn: #A8621A;
+            --warn-soft: #F8EFE3;
+            --gold: #9A7B1F;
+            
+            --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --numeric: 'Inter', sans-serif;
+            
+            --shadow: 0 4px 12px rgba(26, 26, 26, 0.05);
+            --shadow-sm: 0 1px 3px rgba(26, 26, 26, 0.04);
+        }
+        
+        body {
+            font-family: var(--sans);
+            background-color: var(--paper);
+            color: var(--ink);
+            margin: 0;
+            padding: 40px 20px;
+            line-height: 1.55;
+            -webkit-font-smoothing: antialiased;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* --- HEADER & INTRO --- */
+        header {
+            margin-bottom: 40px;
+        }
+        .eyebrow {
+            font-size: 0.75rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--warn); /* Changed color to warn for Data Brokers */
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+        h1 {
+            font-size: clamp(32px, 5vw, 48px);
+            margin: 0 0 16px 0;
+            color: var(--ink);
+            letter-spacing: -0.02em;
+            text-wrap: balance;
+            font-weight: 700;
+        }
+        .kicker {
+            color: var(--ink-2);
+            font-size: 18px;
+            max-width: 75ch;
+            margin-bottom: 32px;
+        }
+
+        .params-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+            margin-bottom: 40px;
+        }
+        .param-card {
+            background: var(--surface);
+            padding: 24px;
+            border-radius: 12px;
+            border: 1px solid var(--line);
+            box-shadow: var(--shadow-sm);
+        }
+        .param-card.highlight {
+            border-top: 4px solid var(--warn);
+        }
+        .param-card.alert {
+            border-top: 4px solid var(--negative);
+            background: var(--negative-soft);
+        }
+        .param-card h3 {
+            margin: 0 0 8px 0;
+            font-size: 12px;
+            color: var(--muted);
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+        }
+        .param-card .value {
+            font-size: 24px;
+            color: var(--ink);
+            font-weight: 700;
+            font-family: var(--numeric);
+            font-variant-numeric: tabular-nums;
+            margin: 0;
+        }
+        .param-card .sub {
+            font-size: 13px;
+            color: var(--ink-2);
+            margin: 8px 0 0 0;
+        }
+
+        /* --- EXPANDABLE SECTIONS --- */
+        details.vc-case {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 16px 24px;
+            margin-bottom: 16px;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.2s ease;
+        }
+        details.vc-case[open] {
+            box-shadow: var(--shadow);
+            border-color: var(--warn);
+        }
+        details.vc-case summary {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--ink);
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            outline: none;
+        }
+        details.vc-case summary::-webkit-details-marker {
+            display: none;
+        }
+        details.vc-case summary::before {
+            content: '+';
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
+            background: var(--warn-soft);
+            color: var(--warn);
+            margin-right: 12px;
+            font-size: 20px;
+            transition: transform 0.2s;
+        }
+        details.vc-case[open] summary::before {
+            content: '−';
+            transform: rotate(180deg);
+        }
+        .vc-case-content {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px dashed var(--line);
+        }
+        .vc-case-content ul {
+            padding-left: 20px;
+            margin: 0;
+        }
+        .vc-case-content li {
+            margin-bottom: 12px;
+            font-size: 15px;
+            color: var(--ink-2);
+            line-height: 1.5;
+        }
+        .vc-case-content li strong {
+            color: var(--ink);
+        }
+
+        /* --- STRATEGIC DEPENDENCIES --- */
+        .dependencies-section {
+            margin-top: 32px;
+            margin-bottom: 48px;
+            background: var(--surface-2);
+            padding: 24px;
+            border-radius: 12px;
+            border: 1px solid var(--line);
+        }
+        .dependencies-section h2 {
+            font-size: 20px;
+            margin: 0 0 12px 0;
+            color: var(--ink);
+        }
+        .dependencies-section p {
+            color: var(--ink-2);
+            margin-bottom: 24px;
+            font-size: 14px;
+            max-width: 800px;
+        }
+        .dependencies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+        }
+        .dep-card {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            padding: 16px;
+            box-shadow: var(--shadow-sm);
+            border-left: 4px solid var(--line);
+        }
+        .dep-card.d-fund { border-left-color: var(--gold); }
+        .dep-card.d-ret { border-left-color: var(--accent); }
+
+        .dep-card h3 {
+            margin: 0 0 4px 0;
+            font-size: 14px;
+            color: var(--ink);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .dep-card .dep-goal {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--ink-2);
+            margin-bottom: 8px;
+            padding-bottom: 8px;
+            border-bottom: 1px dashed var(--line);
+        }
+        .dep-card .dep-outcome {
+            font-size: 12px;
+            color: var(--muted);
+            line-height: 1.4;
+            margin: 0;
+        }
+        .dep-card .dep-outcome strong {
+            color: var(--ink-2);
+        }
+
+        /* --- MAJOR MILESTONES --- */
+        .milestones-section {
+            background: var(--surface);
+            border-radius: 12px;
+            padding: 32px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--line);
+            margin-bottom: 48px;
+        }
+        .milestones-section h2 {
+            margin: 0 0 24px 0;
+            font-size: 22px;
+        }
+        .stepper {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            margin-top: 10px;
+        }
+        .stepper::before {
+            content: '';
+            position: absolute;
+            top: 16px;
+            left: 20px;
+            right: 20px;
+            height: 2px;
+            background: var(--line);
+            z-index: 0;
+        }
+        .step {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            width: 18%;
+        }
+        .step-circle {
+            width: 34px;
+            height: 34px;
+            background: var(--surface);
+            border: 2px solid var(--warn);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: var(--warn);
+            margin-bottom: 12px;
+        }
+        .step.done .step-circle {
+            background: var(--warn);
+            border-color: var(--warn);
+            color: white;
+        }
+        .step.final .step-circle {
+            background: var(--gold);
+            border-color: var(--gold);
+            color: white;
+        }
+        .step-date {
+            font-size: 12px;
+            color: var(--warn);
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        .step-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--ink);
+        }
+
+        /* --- WEEKLY TIMELINE --- */
+        h2.section-title {
+            font-size: 26px;
+            border-bottom: 2px solid var(--ink);
+            padding-bottom: 12px;
+            margin-bottom: 32px;
+        }
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        .week-card {
+            background: var(--surface);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--line);
+            overflow: hidden;
+            position: relative;
+        }
+        .week-card.ooo {
+            background: var(--surface-2);
+            opacity: 0.8;
+            border: 1px dashed var(--muted);
+        }
+        .week-header {
+            background: var(--surface-2);
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--line);
+        }
+        .week-card.ooo .week-header {
+            background: var(--negative-soft);
+            border-bottom: 1px dashed var(--negative);
+        }
+        .week-title {
+            font-weight: 700;
+            font-size: 18px;
+            color: var(--ink);
+        }
+        .week-date {
+            font-size: 13px;
+            color: var(--ink-2);
+            background: var(--surface);
+            padding: 4px 10px;
+            border-radius: 6px;
+            border: 1px solid var(--line);
+            font-weight: 600;
+        }
+        .task-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .task-item {
+            display: flex;
+            align-items: flex-start;
+            padding: 20px 24px;
+            border-bottom: 1px solid var(--line-soft);
+        }
+        .task-item:last-child {
+            border-bottom: none;
+        }
+        
+        /* Checkbox styling */
+        .checkbox-wrapper {
+            margin-right: 16px;
+            margin-top: 2px;
+        }
+        .checkbox {
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--muted);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .checkbox:checked {
+            background-color: var(--warn);
+            border-color: var(--warn);
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+            background-size: 14px;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .task-content {
+            flex: 1;
+        }
+        
+        .category-tag {
+            display: inline-block;
+            font-size: 10px;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .tag-research { background: var(--surface-2); color: var(--ink-2); }
+        .tag-pitch { background: var(--accent-soft); color: var(--accent); }
+        .tag-partner { background: var(--warn-soft); color: var(--warn); }
+        
+        .task-desc {
+            font-size: 15px;
+            color: var(--ink);
+            margin: 0;
+            line-height: 1.5;
+        }
+        .task-desc strong {
+            font-weight: 600;
+            color: var(--warn);
+        }
+        .task-desc .metric {
+            display: inline-block;
+            background: var(--surface-2);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: var(--numeric);
+            font-weight: 600;
+            font-size: 13px;
+            border: 1px solid var(--line);
+            margin-top: 8px;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="eyebrow">Operation Blitzkrieg</div>
+        <h1>13-Week Sprint: Data Brokers</h1>
+        <p class="kicker">An action plan to establish early, informational relationships with strategic acquirers like NielsenIQ, Circana, and Kantar. This proves to VCs that our €100-150M exit trajectory is viable and that we are seen as a "buy-not-build" target by 2030.</p>
+        
+        <div class="params-grid">
+            <div class="param-card highlight">
+                <h3>Target Relationships</h3>
+                <p class="value">1-2</p>
+                <p class="sub">Active dialogue with acquirers</p>
+            </div>
+            <div class="param-card">
+                <h3>Exit Valuation Target</h3>
+                <p class="value">€100-150M</p>
+                <p class="sub">Strategic Acquisition by 2031</p>
+            </div>
+            <div class="param-card">
+                <h3>The Missing Layer</h3>
+                <p class="value" style="font-size: 20px;">"Who Bought"</p>
+                <p class="sub">What they structurally lack</p>
+            </div>
+            <div class="param-card alert">
+                <h3 style="color: var(--negative);">Founder Availability</h3>
+                <p class="value" style="font-size: 22px;">Ondrej OOO</p>
+                <p class="sub">Sep 21st - Sep 28th</p>
+            </div>
+        </div>
+
+        <details class="vc-case" open>
+            <summary>The Strategic Acquirer Pitch</summary>
+            <div class="vc-case-content">
+                <p style="margin-top: 0; color: var(--ink-2); font-size: 15px;"><strong>How to frame the dialogue with Data Brokers (NIQ, Circana):</strong></p>
+                <ul>
+                    <li><strong>The Context:</strong> Data brokers measure <em>what</em> sold via POS data, but they lack the <em>who</em> (demographics, in-store behavior).</li>
+                    <li><strong>The Threat/Opportunity:</strong> We are building the "who" layer across multiple retailers with perpetual aggregate rights. If they don't buy us, someone else will, or we will disrupt their measurement monopoly.</li>
+                    <li><strong>The Approach:</strong> We are not selling the company now. We are initiating an "informational" relationship. Strategic premiums (8-12x multiples) go to companies the buyer has watched grow and become a threat over time.</li>
+                </ul>
+            </div>
+        </details>
+    </header>
+
+    <section class="dependencies-section">
+        <h2>Cross-Pillar Dependencies</h2>
+        <p>This document tracks <strong>Data Broker</strong> actions. Here is how it feeds into the Fundraising pillar:</p>
+        
+        <div class="dependencies-grid">
+            <div class="dep-card d-fund">
+                <h3>Fundraising</h3>
+                <div class="dep-goal">Validate the Exit Strategy</div>
+                <p class="dep-outcome"><strong>What we give:</strong> Evidence of active dialogue with strategic acquirers gives VCs confidence that the €100-150M exit at a high multiple is realistic.</p>
+            </div>
+            <div class="dep-card d-ret">
+                <h3>Retailers</h3>
+                <div class="dep-goal">The Cross-Retailer Aggregate</div>
+                <p class="dep-outcome"><strong>What we need:</strong> We need the signed DPAs (e.g. SuperZoo, EuroOil) with perpetual aggregate rights to prove to Data Brokers that we own an asset they cannot easily replicate.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="milestones-section">
+        <h2>Major Data Broker Milestones</h2>
+        <div class="stepper">
+            <div class="step">
+                <div class="step-circle">1</div>
+                <div class="step-date">Sep 6</div>
+                <div class="step-title">Target List & Mapping</div>
+            </div>
+            <div class="step">
+                <div class="step-circle">2</div>
+                <div class="step-date">Sep 20</div>
+                <div class="step-title">Informational Pitch Deck Ready</div>
+            </div>
+            <div class="step">
+                <div class="step-circle">3</div>
+                <div class="step-date">Oct 11</div>
+                <div class="step-title">Outreach Initiated</div>
+            </div>
+            <div class="step">
+                <div class="step-circle">4</div>
+                <div class="step-date">Nov 1</div>
+                <div class="step-title">First Informational Call</div>
+            </div>
+            <div class="step final">
+                <div class="step-circle">5</div>
+                <div class="step-date">Nov 21</div>
+                <div class="step-title">Validation Proved to VCs</div>
+            </div>
+        </div>
+    </section>
+
+    <h2 class="section-title">Weekly SMART Goals</h2>
+    
+    <div class="timeline">
+        <!-- W1 -->
+        <div class="week-card">
+            <div class="week-header">
+                <span class="week-title">Week 1: Mapping the Acquirer Landscape</span>
+                <span class="week-date">Aug 24 - Aug 30</span>
+            </div>
+            <ul class="task-list">
+                <li class="task-item">
+                    <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
+                    <div class="task-content">
+                        <span class="category-tag tag-research">Research</span>
+                        <p class="task-desc"><strong>Identify Strategic Targets:</strong> Map out the key strategic acquirers in the consumer insights and measurement space (NielsenIQ, Circana, Kantar, dunnhumby, Nectar360). Identify the key M&A or Innovation leads within these organizations. <span class="metric">Goal: Target List of 10-15 Contacts</span></p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- W2 -->
+        <div class="week-card">
+            <div class="week-header">
+                <span class="week-title">Week 2: Defining the Informational Pitch</span>
+                <span class="week-date">Aug 31 - Sep 6</span>
+            </div>
+            <ul class="task-list">
+                <li class="task-item">
+                    <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
+                    <div class="task-content">
+                        <span class="category-tag tag-pitch">Strategy</span>
+                        <p class="task-desc"><strong>Draft Informational Deck:</strong> Create a short, high-level presentation (3-5 slides) that outlines our vision of the "Who Bought" layer, our cross-retailer aggregate strategy, and the first retail mandates we are securing. This is strictly for "informational" sharing, not a sales pitch. <span class="metric">Goal: Informational Deck Ready</span></p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- W3 -->
+        <div class="week-card">
+            <div class="week-header">
+                <span class="week-title">Week 3: Waiting for Retailer Momentum</span>
+                <span class="week-date">Sep 7 - Sep 13</span>
+            </div>
+            <ul class="task-list">
+                <li class="task-item">
+                    <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
+                    <div class="task-content">
+                        <span class="category-tag tag-pitch">Strategy</span>
+                        <p class="task-desc"><strong>Prepare Outreach Strategy:</strong> Draft the email templates for the initial outreach. The angle: "We are building the missing visual layer for POS measurement in CEE. We are locking in early retailer mandates and wanted to put ourselves on your radar." <span class="metric">Goal: Outreach Templates Drafted</span></p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- W4 -->
+        <div class="week-card">
+            <div class="week-header">
+                <span class="week-title">Week 4: Leverage SuperZoo Signing</span>
+                <span class="week-date">Sep 14 - Sep 20</span>
+            </div>
+            <ul class="task-list">
+                <li class="task-item">
+                    <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
+                    <div class="task-content">
+                        <span class="category-tag tag-partner">Partner Outreach</span>
+                        <p class="task-desc"><strong>Incorporate SuperZoo into Pitch:</strong> Once SuperZoo is signed (per Retailer Plan), update the informational deck to include this specific traction. The conversation with Data Brokers is much stronger with a live, named retailer. <span class="metric">Goal: Deck Updated with Traction</span></p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- W5 -->
+        <div class="week-card ooo">
+            <div class="week-header">
+                <span class="week-title" style="color: var(--negative);">Week 5: OOO Ondrej</span>
+                <span class="week-date">Sep 21 - Sep 28</span>
+            </div>
+            <ul class="task-list">
+                <li class="task-item">
+                    <div class="checkbox-wrapper"><input type="checkbox" class="checkbox" disabled></div>
+                    <div class="task-content">
+                        <span class="category-tag" style="background: var(--negative); color: white;">Out of Office</span>
+                        <p class="task-desc"><strong>Ondrej OOO:</strong> Hold off on initiating outreach to these high-value strategic targets until founder is available for calls.</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- W6 -->
+        <div class="week-card">
+            <div class="week-header">
+                <span class="week-title">Week 6: Post-OOO Outreach Initiation</span>
+                <span class="week-date">Sep 29 - Oct 4</span>
+            </div>
+            <ul class="task-list">
+                <li class="task-item">
+                    <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
+                    <div class="task-content">
+                        <span class="category-tag tag-partner">Partner Outreach</span>
+                        <p class="task-desc"><strong>Launch Strategic Outreach:</strong> Send initial emails/LinkedIn messages to the mapped contacts at NielsenIQ, Circana, etc. Request a 15-minute introductory chat to share what we are building. <span class="metric">Goal: Outreach Sent to Top 5 Targets</span></p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- W7 -->
+        <div class="week-card">
+            <div class="week-header">
+                <span class="week-title">Week 7: Chasing Discovery Calls</span>
+                <span class="week-date">Oct 5 - Oct 11</span>
+            </div>
+            <ul class="task-list">
+                <li class="task-item">
+                    <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
+                    <div class="task-content">
+                        <span class="category-tag tag-partner">Partner Outreach</span>
+                        <p class="task-desc"><strong>Follow-Up and Schedule:</strong> Follow up with non-responders. Secure at least one informational discovery call with an Innovation/M&A lead at a major data broker. <span class="metric">Goal: 1 Informational Call Booked</span></p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- W8 -->
+        <div class="week-card">
+            <div class="week-header">
+                <span class="week-title">Week 8: Executing the Informational Pitch</span>
+                <span class="week-date">Oct 12 - Oct 18</span>
+            </div>
+            <ul class="task-list">
+                <li class="task-item">
+                    <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
+                    <div class="task-content">
+                        <span class="category-tag tag-partner">Partner Outreach</span>
+                        <p class="task-desc"><strong>Conduct Discovery Call:</strong> Execute the call. Present the vision of the cross-retailer aggregate and probe to see if they are exploring similar visual capabilities or facing client demand for "who bought" data. <span class="metric">Goal: Gather Strategic Intelligence</span></p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- W9 -->
+        <div class="week-card">
+            <div class="week-header">
+                <span class="week-title">Week 9: Leveraging Broker Dialogue for VCs</span>
+                <span class="week-date">Oct 19 - Oct 25</span>
+            </div>
+            <ul class="task-list">
+                <li class="task-item">
+                    <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
+                    <div class="task-content">
+                        <span class="category-tag tag-research">Research</span>
+                        <p class="task-desc"><strong>Summarize Broker Interest:</strong> Write a brief summary of the conversation with the data broker, noting their interest in the space and validating our strategic position as a future acquisition target. <span class="metric">Goal: Summary Added to Data Room</span></p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- W10 -->
+        <div class="week-card">
+            <div class="week-header">
+                <span class="week-title">Week 10: Momentum Update (EuroOil)</span>
+                <span class="week-date">Oct 26 - Nov 1</span>
+            </div>
+            <ul class="task-list">
+                <li class="task-item">
+                    <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
+                    <div class="task-content">
+                        <span class="category-tag tag-partner">Partner Outreach</span>
+                        <p class="task-desc"><strong>Update Brokers on EuroOil:</strong> Once the EuroOil mandate is signed (per Retailer Plan) and the aggregate v1 is live, send a short "staying in touch" update to the broker contacts highlighting this expansion of our cross-retailer footprint. <span class="metric">Goal: Keep Radar Active</span></p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- W11 - W13 -->
+        <div class="week-card">
+            <div class="week-header">
+                <span class="week-title">Weeks 11-13: Supporting Fundraise DD</span>
+                <span class="week-date">Nov 2 - Nov 21</span>
+            </div>
+            <ul class="task-list">
+                <li class="task-item">
+                    <div class="checkbox-wrapper"><input type="checkbox" class="checkbox"></div>
+                    <div class="task-content">
+                        <span class="category-tag tag-partner">Partner Outreach</span>
+                        <p class="task-desc"><strong>Fundraising Support:</strong> Use the established contacts and summaries of discussions with data brokers to confidently answer VC due diligence questions regarding our long-term exit path and the viability of the 8-12x multiple. <span class="metric">Goal: Validate Exit Path in DD</span></p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    // Toggle checkboxes and add a visual fade to completed tasks
+    document.querySelectorAll('.checkbox').forEach(box => {
+        box.addEventListener('change', function() {
+            const desc = this.closest('.task-item').querySelector('.task-desc');
+            if(this.checked) {
+                desc.style.opacity = '0.5';
+            } else {
+                desc.style.opacity = '1';
+            }
+        });
+    });
+</script>
+</body>
+</html>
