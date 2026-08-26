@@ -13,6 +13,10 @@ content parked in a code repo. Consolidate when convenient; this folder is canon
 
 ---
 
+> **⚡ ACTIVE OPERATION: Blitzkrieg (21 Aug → 21 Nov 2026).** All-in data-BM sprint, D16.
+> Plans + contradiction rulings: `../../blitzkrieg/` (start at `00-alignment.md`). This pack
+> remains the doctrine layer; blitzkrieg is the execution layer.
+
 ## Load order — read only what the task needs
 
 | Task | Load |

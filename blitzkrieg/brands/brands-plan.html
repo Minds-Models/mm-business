@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brands Action Plan | Minds & Models</title>
+<style>
+:root{--paper:#fbfaf9;--surface:#ffffff;--surface-2:#f2efec;--line:#e3e0dc;--line-soft:#efece9;
+--ink:#1a1a1a;--ink-2:#4a4a48;--muted:#8a8781;--accent:#3d6bfb;--accent-soft:#e8edfe;
+--negative:#c0504d;--negative-soft:#f7eae8;--positive:#1f6f4a;--positive-soft:#e8f4ee;
+--warn:#A8621A;--warn-soft:#F8EFE3;--gold:#9A7B1F;
+--sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+--shadow:0 4px 12px rgba(26,26,26,.05);--shadow-sm:0 1px 3px rgba(26,26,26,.04)}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);margin:0;padding:40px 20px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.container{max-width:1000px;margin:0 auto}
+header{margin-bottom:40px}
+.eyebrow{font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;font-weight:700}
+h1{font-size:clamp(32px,5vw,48px);margin:0 0 16px;color:var(--ink);line-height:1.1;letter-spacing:-.02em}
+.intro{font-size:1.05rem;color:var(--ink-2);max-width:70ch}
+h2{font-size:1.35rem;margin:48px 0 16px;letter-spacing:-.01em}
+h2 .em{color:var(--accent)}
+p{color:var(--ink-2);max-width:74ch}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px;margin:28px 0}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px;box-shadow:var(--shadow-sm)}
+.stat .v{font-size:1.35rem;font-weight:800;letter-spacing:-.02em}
+.stat .v.acc{color:var(--accent)}.stat .v.warn{color:var(--warn)}.stat .v.neg{color:var(--negative)}
+.stat .k{font-size:.78rem;color:var(--muted);margin-top:4px;line-height:1.4}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px 26px;box-shadow:var(--shadow-sm);margin:16px 0}
+.card h3{margin:0 0 10px;font-size:1.02rem}
+.card ul{margin:8px 0;padding-left:20px}
+.card li{margin:7px 0;color:var(--ink-2)}
+.card li b{color:var(--ink)}
+.callout{border-left:4px solid var(--warn);background:var(--warn-soft);border-radius:0 10px 10px 0;padding:16px 20px;margin:18px 0}
+.callout .l{font-size:.72rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--warn);margin-bottom:6px}
+.callout p{margin:4px 0;font-size:.95rem}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+table{border-collapse:collapse;width:100%;font-size:.9rem;background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+th{text-align:left;font-size:.72rem;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);padding:12px 14px;background:var(--surface-2);border-bottom:1px solid var(--line)}
+td{padding:12px 14px;border-bottom:1px solid var(--line-soft);color:var(--ink-2);vertical-align:top}
+tr:last-child td{border-bottom:none}
+td b{color:var(--ink)}
+.miles{display:flex;flex-wrap:wrap;gap:12px;margin:20px 0}
+.mile{flex:1;min-width:150px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow-sm)}
+.mile .n{width:26px;height:26px;border-radius:50%;background:var(--accent);color:#fff;font-weight:800;font-size:.8rem;display:flex;align-items:center;justify-content:center;margin-bottom:8px}
+.mile .d{font-size:.72rem;font-weight:800;letter-spacing:.06em;color:var(--accent)}
+.mile .t{font-size:.88rem;font-weight:600;margin-top:2px;line-height:1.35}
+.week{background:var(--surface);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow-sm);margin:18px 0;overflow:hidden}
+.week header{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;padding:16px 24px;background:var(--surface-2);border-bottom:1px solid var(--line);margin:0}
+.week h3{margin:0;font-size:1rem}
+.week .dates{font-size:.8rem;color:var(--muted);font-weight:600}
+.task{display:grid;grid-template-columns:130px 1fr;gap:14px;padding:16px 24px;border-bottom:1px solid var(--line-soft)}
+.task:last-child{border-bottom:none}
+.tag{font-size:.68rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:4px 8px;border-radius:6px;height:fit-content;text-align:center}
+.tag.res{background:var(--accent-soft);color:var(--accent)}
+.tag.out{background:var(--positive-soft);color:var(--positive)}
+.tag.col{background:var(--surface-2);color:var(--ink-2)}
+.tag.close{background:var(--warn-soft);color:var(--warn)}
+.tag.xp{background:#f3e8fe;color:#7c3aed}
+.tag.ooo{background:var(--negative-soft);color:var(--negative)}
+.task p{margin:0;font-size:.92rem}
+.task .goal{display:inline-block;margin-top:6px;font-size:.78rem;font-weight:700;color:var(--positive);background:var(--positive-soft);padding:3px 9px;border-radius:6px}
+.guard{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.guard span{font-size:.75rem;font-weight:600;background:var(--surface);border:1px solid var(--line);border-radius:99px;padding:5px 12px;color:var(--ink-2)}
+footer{margin-top:48px;padding-top:16px;border-top:1px solid var(--line);font-size:.78rem;color:var(--muted)}
+</style>
+</head>
+<body><div class="container">
+<header>
+<div class="eyebrow">Operation Blitzkrieg</div>
+<h1>13-Week Sprint: Brands</h1>
+<p class="intro">The ICP pillar — the one that carries the revenue goal. Objective: <b>2 paying brand seats + 3 hard-committed 2027 orders, combined contracted ARR ≥ €70k, by November 21st.</b> Brand cash is derivative of the retailer mandate date; the Oct–Nov budget lock is the entire calendar.</p>
+<div class="stats">
+<div class="stat"><div class="v acc">2 + 3</div><div class="k">Paying seats + hard-committed 2027 orders</div></div>
+<div class="stat"><div class="v acc">≥ €70k</div><div class="k">Combined contracted ARR (floor €25k/seat, target €35–45k)</div></div>
+<div class="stat"><div class="v">3 / cat</div><div class="k">Founding seats per category — the honest scarcity</div></div>
+<div class="stat"><div class="v warn">Oct–Nov</div><div class="k">Brand budget lock — the closing window</div></div>
+<div class="stat"><div class="v neg">Sep 21–28</div><div class="k">Ondřej OOO — no new negotiations</div></div>
+</div>
+</header>
+
+<h2>The Sequencing Truth <span class="em">(plan around it, don't fight it)</span></h2>
+<div class="callout"><div class="l">The dependency that rules this pillar</div>
+<p><b>No brand sees retailer data before that retailer's mandate is signed.</b> Pre-mandate = methodology talks + LOIs ("subject to retailer data agreement") only. The math: Mandate #1 ~mid/late Sep → cohort day ~2 weeks later → first invoices ≤ Oct 31.</p>
+<p><b>If the mandate slips past ~Oct 5, the 2 paying seats slip out of the budget window.</b> Fallback (pre-agreed, no December panic): land the €70k as signed 2027 orders + one 2026 study invoice — the pet study is sellable off data we already hold the day rights exist.</p></div>
+
+<h2>The Brand Pitch: <span class="em">who buys, and from which budget</span></h2>
+<table>
+<thead><tr><th>Use-case</th><th>What they do with "who buys"</th><th>Budget it attaches to</th><th>Buyer</th></tr></thead>
+<tbody>
+<tr><td><b>Sales / Trade</b></td><td>Negotiate with retailers; choose where to sell and at what conditions</td><td>Trade-marketing / sales ops — <b>the biggest wallet</b> (P&G-types are sales-led)</td><td>Sales director, key-account mgmt</td></tr>
+<tr><td><b>Marketing</b></td><td>Create &amp; test campaigns; find the market-mover segment</td><td>Brand marketing + media (agency-influenced)</td><td>Brand / marketing manager (Unilever-types lead here)</td></tr>
+<tr><td><b>Product / NPD</b></td><td>Find the customer gap in the line; packaging &amp; new-product decisions</td><td>Innovation / research</td><td>Insights + NPD</td></tr>
+</tbody>
+</table>
+<div class="card"><h3>The licensed one-liner (external)</h3>
+<p>“Syndicated data tells you <b>what sold</b>. We show you <b>who buys it</b> — in the aisle, receipt-verified.” Depth claim: “hundreds of attributes per shopper, zero identities.” Never say “100× better than NIQ” externally — unfalsifiable, and it wakes the incumbent. The <b>self-benchmark kit</b> (receipt-parity + observer tally + label-buy precision) backs every claim.</p></div>
+
+<h2>Risk Analysis &amp; Mitigations</h2>
+<div class="grid2">
+<div class="card"><h3>Risk: The rights trap on teasers</h3><p>The “how did you get this?” door-opener may NOT use SuperZoo/EuroOil pilot data pre-mandate. <b>Mitigation:</b> 3 teaser cards from legal sources only (GymBeam lab, anonymized sportstore, pooled brand-worn / fashion read). SuperZoo teasers get built the day the mandate signs.</p></div>
+<div class="card"><h3>Risk: The quiet internal loser</h3><p>The insights manager who owns the incumbent-data relationship, and the agency of record, can slow-walk us to death. <b>Mitigation:</b> sell THROUGH them — co-design credit, advisory micro-board seat; the read is presented internally as their find.</p></div>
+<div class="card"><h3>Risk: Tobacco never materializes</h3><p>A summer of stalled meetings. <b>Mitigation:</b> three channels at once (Moris letter · PM Slovakia direct · 2 cold letters w/ sportstore report). Kill-test: no meeting with a budget owner by <b>Sep 30</b> → line cut for 2026, hours reweighted to pet + drugstore.</p></div>
+<div class="card"><h3>Risk: The “complementary data” price cap</h3><p>Brands say “interesting” but won't pay measurement prices. <b>Mitigation:</b> attach to an EXISTING budget line at renewal, founding-seat discount + density escrow (refund printed in bold). Kill-test: zero seats after ≥6 qualified conversations → reprice to studies, land-expand.</p></div>
+</div>
+
+<h2>Target Brand Profiles</h2>
+<div class="card"><ul>
+<li><b>Tobacco (JTI, PMI, BAT, PM Slovakia):</b> biggest wallet, buys channel reads already. Gated on the Sep 30 verdict + EuroOil path. PM-SK seat = the cross-border logo.</li>
+<li><b>Pet (Purina, Mars/Royal Canin, Vafo/Brit + mid-tier):</b> approached only WITH SuperZoo, post-mandate. Vafo/Brit = first-study candidate (hungriest, personas land). ⚠ W1 task: verify SuperZoo's third-party brand share — if own-brand dominates, the own-brand team becomes the buyer.</li>
+<li><b>Drugstore / FMCG lighthouse (P&G-type):</b> free quarterly mini-read in incumbent-shaped Excel, €0 invoice → “add a line at renewal.” Revenue expected Q1-27, never counted earlier.</li>
+<li><b>Agencies (media / shopper):</b> R5 explores whether one agency master carries 3+ end-seats.</li>
+</ul></div>
+
+<h2>Cross-Pillar Dependencies</h2>
+<div class="grid2">
+<div class="card"><h3>← Retailers: the mandate date</h3><p>This pillar's calendar IS the mandate date. In return, signed LOIs flow back as EuroOil leverage (“guaranteed money waiting”).</p></div>
+<div class="card"><h3>→ Fundraise: traction, honestly labeled</h3><p>Seats and LOIs enter the deck the day they're SIGNED — never before. Labels: SIGNED / IN NEGOTIATION / TARGET. Retailer-logo FOMO works on brands too: every mandate press-safe mention is brands-pillar ammunition.</p></div>
+<div class="card"><h3>← Product: the artifacts</h3><p>Every meeting opens with an artifact: parity memo (Sep 19), D2 cross-category number (Oct 10), self-benchmark kit, teaser cards, Twin demo.</p></div>
+<div class="card"><h3>Research block (R1–R6)</h3><p>R1 budget bands per use-case (Sep 12) · R2 subsidiary spend autonomy (Sep 19) · R3 renewal calendars (rolling, logged in CRM) · R4 Q4-budget mechanics (Sep 19) · R5 agency masters (Sep 26) · R6 tobacco compliance sufficiency (Sep 26).</p></div>
+</div>
+
+<h2>Major Brand Milestones</h2>
+<div class="miles">
+<div class="mile"><div class="n">1</div><div class="d">SEP 6</div><div class="t">ICP + budget-owner map, paper set &amp; teasers ready</div></div>
+<div class="mile"><div class="n">2</div><div class="d">SEP 30</div><div class="t">Tobacco verdict · ≥8 methodology meetings held</div></div>
+<div class="mile"><div class="n">3</div><div class="d">OCT 18</div><div class="t">Cohort day #1 → ≥2 verbal commitments</div></div>
+<div class="mile"><div class="n">4</div><div class="d">OCT 31</div><div class="t">2 seats invoiced inside the budget window</div></div>
+<div class="mile"><div class="n">5</div><div class="d">NOV 21</div><div class="t">+3 hard 2027 orders · ≥€70k contracted</div></div>
+</div>
+
+<h2>Weekly SMART Goals</h2>
+
+<div class="week"><header><h3>Week 1: Maps, Paper &amp; the Tobacco Forcing</h3><span class="dates">Aug 24 – Aug 30</span></header>
+<div class="task"><span class="tag res">Research</span><p>Budget-owner map per target brand: insights vs trade vs media — a NAMED person per brand, per category (kickoff R1). Verify SuperZoo third-party brand share (C7) — decides if pet counts toward seat depth.<br><span class="goal">Goal: 15+ named budget owners · C7 answered</span></p></div>
+<div class="task"><span class="tag out">Outreach</span><p>Tobacco three-channel forcing goes live: Moris opportunity letter + PM Slovakia direct ping + 2 cold letters to JTI/BAT trade marketing carrying the anonymized sportstore report.<br><span class="goal">Goal: 3 channels active by Fri</span></p></div>
+<div class="task"><span class="tag col">Collateral</span><p>Paper batch to counsel: founding-seat 2-doc set (2026 invoice + 2027 order w/ density escrow), LOI template ("subject to retailer data agreement"), conditional 2027 order ("activates at N stores / 2 chains").<br><span class="goal">Goal: Paper set at counsel</span></p></div>
+</div>
+
+<div class="week"><header><h3>Week 2: Teasers &amp; Methodology Funnel</h3><span class="dates">Aug 31 – Sep 6</span></header>
+<div class="task"><span class="tag col">Collateral</span><p>Build 3 teaser cards from LEGAL sources only (GymBeam lab, sportstore report, pooled brand-worn/fashion read) — the “how did you get this?” opener without touching un-mandated data.<br><span class="goal">Goal: 3 teaser cards by Sep 8</span></p></div>
+<div class="task"><span class="tag out">Outreach</span><p>Book methodology-only meetings across pet / tobacco / drugstore — legal pre-mandate and it warms the future cohort. Free quarterly teaser-index list assembled (~20 brand contacts).<br><span class="goal">Goal: 8–10 meetings booked</span></p></div>
+<div class="task"><span class="tag res">Research</span><p>R2: which CZ/SK subsidiaries can sign €35k locally without regional approval — ex-NIQ advisor + org mapping. This may be the real ICP filter, above category.<br><span class="goal">Goal: Autonomy map v1</span></p></div>
+</div>
+
+<div class="week"><header><h3>Week 3: Discovery on Record</h3><span class="dates">Sep 7 – Sep 13</span></header>
+<div class="task"><span class="tag out">Outreach</span><p>Run first methodology meetings. Every meeting logs three answers: what do you buy for this channel today · at what coverage would this augment/replace it · who owns that budget and when does it renew (R3).<br><span class="goal">Goal: 4 meetings held, all 3 answers logged each</span></p></div>
+<div class="task"><span class="tag col">Collateral</span><p>P&G-style free mini-read built (Dima ≤10h, incumbent-shaped Excel). R4: how unspent 2026 trade/research budget can be invoiced by Dec.<br><span class="goal">Goal: Free read v1 ready</span></p></div>
+<div class="task"><span class="tag close">Closing</span><p>First LOIs drafted with the warmest brands — free for them, leverage for EuroOil and the fundraise data room.<br><span class="goal">Goal: 2 LOIs in circulation</span></p></div>
+</div>
+
+<div class="week"><header><h3>Week 4: LOIs Signed &amp; Pre-OOO Sprint</h3><span class="dates">Sep 14 – Sep 20</span></header>
+<div class="task"><span class="tag close">Closing</span><p>Push LOIs to signature using REAL urgency only: Q4 budgets and the 3-per-category founding cap. Never invented deadlines, never "the exclusive."<br><span class="goal">Goal: ≥2 LOIs signed → data room + EuroOil</span></p></div>
+<div class="task"><span class="tag col">Collateral</span><p>Seat-pricing memo v1 from parity v1 (Sep 19): what the receipt-verified claim licenses at which price. Cohort-day materials prepped before OOO.<br><span class="goal">Goal: Pricing memo + cohort kit ready</span></p></div>
+<div class="task"><span class="tag out">Outreach</span><p>Cumulative methodology meetings ≥8 target. Tobacco roundtable pushed to happen before Sep 30 — through any of the three channels.<br><span class="goal">Goal: ≥8 cumulative · roundtable date set</span></p></div>
+</div>
+
+<div class="week"><header><h3>Week 5: OOO — Artifact Production Only</h3><span class="dates">Sep 21 – Sep 28</span></header>
+<div class="task"><span class="tag ooo">OOO</span><p>Ondřej OOO. No new negotiations this week — brands remember a fumbled week longer than a quiet one.</p></div>
+<div class="task"><span class="tag col">Collateral</span><p>Self-benchmark kit v1 assembled (receipt-parity + observer-tally + label-buy precision) — the answer to "how do we know your data is right," for brands and for tech DD alike. R5 agency research runs.<br><span class="goal">Goal: Kit v1 + R5 done</span></p></div>
+</div>
+
+<div class="week"><header><h3>Week 6: The Tobacco Verdict &amp; Cohort Setup</h3><span class="dates">Sep 29 – Oct 4</span></header>
+<div class="task"><span class="tag close">Closing</span><p>Apply the Sep 30 verdict: tobacco lives (seats to contracting) or is CUT for 2026 and all hours reweight to pet + drugstore. A cut with a verdict is the system working.<br><span class="goal">Goal: Verdict recorded, hours reallocated</span></p></div>
+<div class="task"><span class="tag xp">Cross-Pillar</span><p>Mandate #1 expected from Retailers → schedule cohort day #1 (first mandated category): 4–6 brands, one room, three founding seats offered with the escrow visible.<br><span class="goal">Goal: Cohort day invited for ~Oct 14–18</span></p></div>
+</div>
+
+<div class="week"><header><h3>Week 7: Cohort Day &amp; the Decisive Number</h3><span class="dates">Oct 5 – Oct 11</span></header>
+<div class="task"><span class="tag close">Closing</span><p>Cohort day #1 held (if mandate slipped: LOI-roundtable variant — methodology + escrow + conditional orders, no retailer data shown). One afternoon replaces six sales cycles.<br><span class="goal">Goal: ≥2 verbal seat commitments</span></p></div>
+<div class="task"><span class="tag col">Collateral</span><p>D2 cross-category parity lands Oct 10 → inserted into EVERY open thread the same week. Store Twin price test starts (quote €1.5–4k/mo in 3 meetings, record reactions).<br><span class="goal">Goal: Parity in all threads · 3 Twin quotes out</span></p></div>
+</div>
+
+<div class="week"><header><h3>Week 8: First Invoices</h3><span class="dates">Oct 12 – Oct 18</span></header>
+<div class="task"><span class="tag close">Closing</span><p>Convert verbals → seat #1 invoiced on 2026 budget (two-doc close: 2026 study invoice + 2027 subscription order in one signature). Founding cap enforced: 3 per category, no exceptions.<br><span class="goal">Goal: Seat #1 invoiced</span></p></div>
+<div class="task"><span class="tag out">Outreach</span><p>PM Slovakia seat conversation (cross-border logo). Conditional 2027 orders offered to every "come back with 2 chains" — a pass becomes paper.<br><span class="goal">Goal: 1 PM-SK meeting · 2 conditional orders out</span></p></div>
+</div>
+
+<div class="week"><header><h3>Week 9: Seat #2 &amp; the Second Wallet</h3><span class="dates">Oct 19 – Oct 25</span></header>
+<div class="task"><span class="tag close">Closing</span><p>Seat #2 closed inside the window. 2027 orders drafted for all committed brands. Seat cost discipline: any negotiation past 50 founder-hours without a signature date is downgraded.<br><span class="goal">Goal: Seat #2 invoiced · 3 orders in draft</span></p></div>
+<div class="task"><span class="tag out">Outreach</span><p>Measurement-retainer conversations opened with brands running in-store campaigns on funded screens — MEDIA budget, the second wallet in the same company. Index sold via agency master if the Oct 1 fill gate passed.<br><span class="goal">Goal: 2 retainer convos · index status decided</span></p></div>
+</div>
+
+<div class="week"><header><h3>Week 10: Budget-Lock Endgame</h3><span class="dates">Oct 26 – Nov 1</span></header>
+<div class="task"><span class="tag close">Closing</span><p>Every open thread gets the two-doc close before planning cycles shut. First pet study delivery begins — delivered value is the renewal argument.<br><span class="goal">Goal: All threads closed or dated · study #1 in production</span></p></div>
+<div class="task"><span class="tag res">Research</span><p>Log every brand's renewal date captured in R3 — the 2027 account calendar is built from these, not from our wishes.<br><span class="goal">Goal: Renewal calendar complete for all engaged brands</span></p></div>
+</div>
+
+<div class="week"><header><h3>Week 11: Hard Commits on Paper</h3><span class="dates">Nov 2 – Nov 8</span></header>
+<div class="task"><span class="tag close">Closing</span><p>3 hard-committed 2027 orders signed (escrow terms final). Retainer #1 if the campaign math supports it.<br><span class="goal">Goal: 3 signed 2027 orders</span></p></div>
+<div class="task"><span class="tag col">Collateral</span><p>Brand case study #1 drafted with co-design credit (their choice of naming) — cohort #2's social proof.<br><span class="goal">Goal: Case study approved by the brand</span></p></div>
+</div>
+
+<div class="week"><header><h3>Week 12: Evidence Package</h3><span class="dates">Nov 9 – Nov 15</span></header>
+<div class="task"><span class="tag xp">Cross-Pillar</span><p>Seat-depth + willingness-to-pay evidence packaged per category (prices, conversion, budget owners) → fundraise DD and retailer pitches both consume it.<br><span class="goal">Goal: Evidence pack delivered</span></p></div>
+<div class="task"><span class="tag out">Outreach</span><p>Q1 cohort #2 list locked (next category + next 6 brands), anchored on renewal dates from R3.<br><span class="goal">Goal: Cohort #2 scheduled</span></p></div>
+</div>
+
+<div class="week"><header><h3>Week 13: The Tally</h3><span class="dates">Nov 16 – Nov 21</span></header>
+<div class="task"><span class="tag close">Closing</span><p>Score against the goal: 2 paying + 3 committed, ≥€70k combined. Every miss named with the gate it failed. Feeds the 21 Nov go/no-go scoreboard.<br><span class="goal">Goal: Pillar verdict recorded</span></p></div>
+</div>
+
+<h2>Guardrails <span class="em">(violating any of these fails the week)</span></h2>
+<div class="guard">
+<span>Methodology-only before the mandate</span><span>No exclusivity, ever — 3-month early access max</span><span>Honest nulls in every deliverable</span><span>“Age estimation with error bands”</span><span>Pooled brand-worn claims only</span><span>SIGNED / IN NEGOTIATION / TARGET labels</span><span>Internal price benchmarks never shown</span><span>Forwardability litmus on every artifact</span>
+</div>
+
+<footer>Source of truth: brands-plan.md (v0.2) in this folder · doctrine: ../../strategy/2026-08-19-base-strategy/ (05-sales, 13-revenue-model, 14-retailer-objection) · rulings: ../00-alignment.md · Minds &amp; Models internal</footer>
+</div></body></html>

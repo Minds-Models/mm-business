@@ -1,6 +1,6 @@
 # The live fork: A (revenue first) vs B (raise on the data thesis)
 
-**Status: OPEN. Decision deadline 15 Oct 2026.** Owner: both founders.
+**Status: CLOSED 21 Aug 2026 by D16 (Blitzkrieg) — all-in on B, the data business model.** The gates below survive as risk telemetry; the 21 Nov scoreboard replaces Gate 2 as the go/no-go. Kept for the record and for the 21 Nov post-mortem.
 Do not let a session, a deal or a deck quietly pick a side before the gates below have run.
 
 ## What the fork actually is

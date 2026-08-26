@@ -1,5 +1,11 @@
 # Signals scoreboard — is the strategy working? (checkpoint 21 Nov 2026)
 
+> **21 Aug update:** this scoreboard is now the official **Blitzkrieg go/no-go instrument** (D16).
+> Green thresholds superseded where Blitzkrieg goals are stricter: BRANDS green = **2 paying + 3
+> hard-committed 2027 orders, ≥€70k contracted ARR** · RIGHTS green = **2 DPA-level mandates with
+> seat-depth + stat-sig evidence** · INVESTORS green = **€400–600k wired at the €6M cap** ·
+> plus **2 Tier-B broker pilots live**.
+
 ## 0 · THE HELICOPTER VIEW — the rule of one
 
 The whole scoreboard generalizes to one sentence: **by 21 Nov, every currency must have converted

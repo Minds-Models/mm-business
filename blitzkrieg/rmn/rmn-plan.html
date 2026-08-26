@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RMN Action Plan | Minds & Models</title>
+<style>
+:root{--paper:#fbfaf9;--surface:#ffffff;--surface-2:#f2efec;--line:#e3e0dc;--line-soft:#efece9;
+--ink:#1a1a1a;--ink-2:#4a4a48;--muted:#8a8781;--accent:#3d6bfb;--accent-soft:#e8edfe;
+--negative:#c0504d;--negative-soft:#f7eae8;--positive:#1f6f4a;--positive-soft:#e8f4ee;
+--warn:#A8621A;--warn-soft:#F8EFE3;--gold:#9A7B1F;
+--sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+--shadow:0 4px 12px rgba(26,26,26,.05);--shadow-sm:0 1px 3px rgba(26,26,26,.04)}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);margin:0;padding:40px 20px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.container{max-width:1000px;margin:0 auto}
+header{margin-bottom:40px}
+.eyebrow{font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;font-weight:700}
+h1{font-size:clamp(32px,5vw,48px);margin:0 0 16px;color:var(--ink);line-height:1.1;letter-spacing:-.02em}
+.intro{font-size:1.05rem;color:var(--ink-2);max-width:70ch}
+h2{font-size:1.35rem;margin:48px 0 16px;letter-spacing:-.01em}
+h2 .em{color:var(--accent)}
+p{color:var(--ink-2);max-width:74ch}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px;margin:28px 0}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px;box-shadow:var(--shadow-sm)}
+.stat .v{font-size:1.35rem;font-weight:800;letter-spacing:-.02em}
+.stat .v.acc{color:var(--accent)}.stat .v.warn{color:var(--warn)}.stat .v.neg{color:var(--negative)}
+.stat .k{font-size:.78rem;color:var(--muted);margin-top:4px;line-height:1.4}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px 26px;box-shadow:var(--shadow-sm);margin:16px 0}
+.card h3{margin:0 0 10px;font-size:1.02rem}
+.card ul{margin:8px 0;padding-left:20px}
+.card li{margin:7px 0;color:var(--ink-2)}
+.card li b{color:var(--ink)}
+.callout{border-left:4px solid var(--warn);background:var(--warn-soft);border-radius:0 10px 10px 0;padding:16px 20px;margin:18px 0}
+.callout.blue{border-left-color:var(--accent);background:var(--accent-soft)}
+.callout.red{border-left-color:var(--negative);background:var(--negative-soft)}
+.callout .l{font-size:.72rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--warn);margin-bottom:6px}
+.callout.blue .l{color:var(--accent)}
+.callout.red .l{color:var(--negative)}
+.callout p{margin:4px 0;font-size:.95rem}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.ladder{counter-reset:step;list-style:none;margin:16px 0;padding:0}
+.ladder li{counter-increment:step;display:grid;grid-template-columns:34px 1fr;gap:14px;padding:14px 0;border-bottom:1px solid var(--line-soft);color:var(--ink-2)}
+.ladder li:last-child{border-bottom:none}
+.ladder li::before{content:counter(step);width:26px;height:26px;border-radius:50%;background:var(--accent);color:#fff;font-weight:800;font-size:.8rem;display:flex;align-items:center;justify-content:center}
+.ladder b{color:var(--ink)}
+.miles{display:flex;flex-wrap:wrap;gap:12px;margin:20px 0}
+.mile{flex:1;min-width:150px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow-sm)}
+.mile .n{width:26px;height:26px;border-radius:50%;background:var(--accent);color:#fff;font-weight:800;font-size:.8rem;display:flex;align-items:center;justify-content:center;margin-bottom:8px}
+.mile.kill .n{background:var(--negative)}
+.mile .d{font-size:.72rem;font-weight:800;letter-spacing:.06em;color:var(--accent)}
+.mile.kill .d{color:var(--negative)}
+.mile .t{font-size:.88rem;font-weight:600;margin-top:2px;line-height:1.35}
+.week{background:var(--surface);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow-sm);margin:18px 0;overflow:hidden}
+.week header{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;padding:16px 24px;background:var(--surface-2);border-bottom:1px solid var(--line);margin:0}
+.week h3{margin:0;font-size:1rem}
+.week .dates{font-size:.8rem;color:var(--muted);font-weight:600}
+.task{display:grid;grid-template-columns:130px 1fr;gap:14px;padding:16px 24px;border-bottom:1px solid var(--line-soft)}
+.task:last-child{border-bottom:none}
+.tag{font-size:.68rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:4px 8px;border-radius:6px;height:fit-content;text-align:center}
+.tag.res{background:var(--accent-soft);color:var(--accent)}
+.tag.out{background:var(--positive-soft);color:var(--positive)}
+.tag.col{background:var(--surface-2);color:var(--ink-2)}
+.tag.close{background:var(--warn-soft);color:var(--warn)}
+.tag.xp{background:#f3e8fe;color:#7c3aed}
+.task p{margin:0;font-size:.92rem}
+.task .goal{display:inline-block;margin-top:6px;font-size:.78rem;font-weight:700;color:var(--positive);background:var(--positive-soft);padding:3px 9px;border-radius:6px}
+.guard{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.guard span{font-size:.75rem;font-weight:600;background:var(--surface);border:1px solid var(--line);border-radius:99px;padding:5px 12px;color:var(--ink-2)}
+footer{margin-top:48px;padding-top:16px;border-top:1px solid var(--line);font-size:.78rem;color:var(--muted)}
+</style>
+</head>
+<body><div class="container">
+<header>
+<div class="eyebrow">Operation Blitzkrieg</div>
+<h1>Discovery Sprint: RMN</h1>
+<p class="intro">A discovery pillar with two live threads and a hard decision date. Objective: prove or kill the <b>dual-monetization thesis</b> — measurement priced below the level that killed every prior attempt, because the same visual data has a second life. Budget: <b>≤20 founder-hours</b>. Decision memo: <b>November 7</b>.</p>
+<div class="stats">
+<div class="stat"><div class="v acc">≤ 20h</div><div class="k">Total founder-hours — this pillar never competes with Brands</div></div>
+<div class="stat"><div class="v acc">2</div><div class="k">Live threads: NANOVO media (operator) · Vistar (SSP)</div></div>
+<div class="stat"><div class="v">1</div><div class="k">Real campaign measured at cost — the cheapest decisive test</div></div>
+<div class="stat"><div class="v warn">NOV 7</div><div class="k">Decision memo: 2027 line item or kill</div></div>
+<div class="stat"><div class="v neg">Sep 21–28</div><div class="k">Ondřej OOO — async only</div></div>
+</div>
+</header>
+
+<h2>The Thesis <span class="em">(validated demand, named blocker, structural unlock)</span></h2>
+<div class="callout blue"><div class="l">Why this pillar exists — founder market intel</div>
+<p><b>Bluetouch media and NANOVO were already asked by their customers for audience measurement — and the deal died on price-per-measurement, every time.</b> Validated demand, named blocker.</p>
+<p>Our unlock is structural, not incremental: <b>dual monetization.</b> One capture serves (a) the operator's measurement product AND (b) our second markets — Brand-Worn Index fill, audience norms, location-tied segments for programmatic, eval-sets. Because the data has a second life, we can price measurement at or below the wall that killed the predecessors. <b>RMN estates are simultaneously a customer channel and a visual-only data source.</b></p></div>
+
+<div class="grid2">
+<div class="card"><h3>Reframe #1 — the “holy grail” is our moat</h3><p>1:1 audience↔purchase is <b>legally impossible in the EU — for everyone</b>. We own the legal maximum: aggregated closed-loop lift at k≥25. Sales line: <b>“the highest measurement resolution EU law permits.”</b></p></div>
+<div class="card"><h3>Reframe #2 — the price is half-known</h3><p>Corridor from the research annex: audience-data fees <b>40–45% of CPM capped ~$3.50–4.00</b> · sales-lift measurement <b>$0.75 CPM</b> · ~$11/venue place-based onboarding · $9–49/sensor SaaS. The task in the live talks is <b>validating the CZ corridor</b>, not discovering prices from zero.</p></div>
+<div class="card"><h3>Reframe #3 — two threads, two deals</h3><p><b>NANOVO media = operator:</b> capture access + measurement, barter shape. <b>Vistar = SSP:</b> data distribution — location-tied segments buyers can act on. Never one conversation.</p></div>
+<div class="card"><h3>Hard requirement — the license or nothing</h3><p>The operator contract must carry the <b>k≥25 aggregate-resale license</b> (+ Data Act clarity). No license → no second market → no dual-monetization discount → we hit the same price wall that killed everyone else. <b>No measurement discount without the license signed.</b></p></div>
+</div>
+
+<h2>Product Ladder <span class="em">(lowest friction first)</span></h2>
+<ol class="ladder">
+<li><div><b>Measurement API</b> — counts / age / gender / dwell per screen; the operator reports however they like (white-label). The wedge.</div></li>
+<li><div><b>Per-creative attention</b> — sellable NOW on the tobacco-funded wave as the P3 proof, no RMN partnership needed.</div></li>
+<li><div><b>Audience norms &amp; location-tied segments</b> — the SSP-facing product; segments tied to the DOOH location so buyers can react.</div></li>
+<li><div><b>Index feed</b> — thousands of screens crush the index's 16-location requirement; RMN estates may be the index's best supply (fill gate Oct 1).</div></li>
+</ol>
+
+<h2>The Barter Shape</h2>
+<div class="card"><p>Mirror of the retailer trade: <b>we give the operator the measurement capability their customers already demanded and they couldn't price; they give capture access + the aggregate license.</b> Cash variants: paid API at ≥ marginal cost, or measurement-at-cost where second-market value justifies it — <b>only with the license signed</b>.</p></div>
+
+<h2>Major Milestones</h2>
+<div class="miles">
+<div class="mile"><div class="n">1</div><div class="d">SEP 6</div><div class="t">Price-corridor memo + operator one-pager ready</div></div>
+<div class="mile"><div class="n">2</div><div class="d">SEP 20</div><div class="t">NANOVO two-option offer made · Vistar appetite probed</div></div>
+<div class="mile"><div class="n">3</div><div class="d">OCT 10</div><div class="t">Tobacco-wave attention demo scoped for one brand</div></div>
+<div class="mile"><div class="n">4</div><div class="d">OCT 31</div><div class="t">One campaign measured at cost · price reaction logged</div></div>
+<div class="mile kill"><div class="n">5</div><div class="d">NOV 7</div><div class="t">Decision memo: 2027 line item or kill</div></div>
+</div>
+
+<h2>Weekly Backbone</h2>
+
+<div class="week"><header><h3>Weeks 1–2: The Corridor &amp; the One-Pager</h3><span class="dates">Aug 24 – Sep 6</span></header>
+<div class="task"><span class="tag res">Research</span><p>Price-corridor memo: annex anchors + our cost floor at 10× volume. Map both live threads (who, stage, what they asked for). Document the Bluetouch/NANOVO demand story as evidence.<br><span class="goal">Goal: Corridor memo done</span></p></div>
+<div class="task"><span class="tag col">Collateral</span><p>Operator one-pager: measurement API + barter option, the aggregate-license clause visible from page one — no surprises in legal later.<br><span class="goal">Goal: One-pager ready</span></p></div>
+</div>
+
+<div class="week"><header><h3>Weeks 3–4: Two Offers, Two Tables</h3><span class="dates">Sep 7 – Sep 20</span></header>
+<div class="task"><span class="tag out">Outreach</span><p>NANOVO media conversation: the two-option offer — paid API vs measurement-for-access barter incl. the aggregate license. Log which option they lean toward and why.<br><span class="goal">Goal: Offer on the table</span></p></div>
+<div class="task"><span class="tag out">Outreach</span><p>Vistar: data-appetite probe — what location-tied segment spec would they list, at what data-fee split?<br><span class="goal">Goal: Spec + split expectations logged</span></p></div>
+</div>
+
+<div class="week"><header><h3>Weeks 5–6: The Proof Wedge &amp; the Eng Answer</h3><span class="dates">Sep 21 – Oct 4</span></header>
+<div class="task"><span class="tag xp">Cross-Pillar</span><p>Tobacco-wave campaign measurement scoped as the P3 proof: per-creative attention demo for one brand — needs no RMN partnership at all.<br><span class="goal">Goal: Demo scoped, brand identified</span></p></div>
+<div class="task"><span class="tag res">Research</span><p>Segment-taxonomy alignment estimate from eng: their audiences ↔ our taxonomy — a week of mapping or a quarter of build? The answer determines 2027 feasibility.<br><span class="goal">Goal: Eng estimate on record</span></p></div>
+</div>
+
+<div class="week"><header><h3>Weeks 7–9: The Cheapest Decisive Test</h3><span class="dates">Oct 5 – Oct 25</span></header>
+<div class="task"><span class="tag close">Closing</span><p>ONE real campaign measured at cost for one brand on existing screens. Price reaction logged — this is the datapoint the decision memo turns on.<br><span class="goal">Goal: Campaign measured, reaction logged</span></p></div>
+</div>
+
+<div class="week"><header><h3>Week 10–11: The Decision</h3><span class="dates">Oct 26 – Nov 7</span></header>
+<div class="task"><span class="tag close">Closing</span><p>Decision memo drafted and ruled: 2027 line item or kill, per the pre-written criterion below. Acquirer-story watch item answered: does the partnership read as measurement currency or adtech?<br><span class="goal">Goal: Verdict recorded Nov 7</span></p></div>
+</div>
+
+<div class="week"><header><h3>Weeks 11–13 (only if alive): Term-Sheet Shape</h3><span class="dates">Nov 7 – Nov 21</span></header>
+<div class="task"><span class="tag close">Closing</span><p>One operator term-sheet shape drafted (access + license + pricing); index-feed assessment vs the fill-gate outcome.<br><span class="goal">Goal: 2027 pillar brief ready</span></p></div>
+</div>
+
+<h2>The Kill Criterion <span class="em">(written before the first call)</span></h2>
+<div class="callout red"><div class="l">Kill on Nov 7 only if BOTH legs fail</div>
+<p><b>(a)</b> No second-market monetization path for non-POS visual data validates — index buyer interest, SSP segment appetite, and eval-set demand all cold — <b>AND (b)</b> no operator accepts barter or a paid API at ≥ our marginal cost.</p>
+<p>Either leg alive → the pillar earns a 2027 line. A kill with a verdict is the system working; a pillar that limps past Nov 7 unruled is the failure mode.</p></div>
+
+<h2>Guardrails</h2>
+<div class="guard">
+<span>≤20 founder-hours, hard cap</span><span>Never competes with the Brands pillar</span><span>No measurement discount without the aggregate license</span><span>k≥25 · no identities · no 1:1 promises</span><span>NANOVO ≠ Vistar — separate threads</span><span>Measurement-currency framing, never adtech</span><span>Internal price benchmarks never shown</span>
+</div>
+
+<footer>Source of truth: rmn-plan.md (v0.2) in this folder · doctrine: ../../strategy/2026-08-19-base-strategy/ (13-revenue-model, 02-decisions D2/D16) · rulings: ../00-alignment.md · Minds &amp; Models internal</footer>
+</div></body></html>

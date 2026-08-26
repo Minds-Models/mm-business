@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data Brokers Action Plan | Minds & Models</title>
+<style>
+:root{--paper:#fbfaf9;--surface:#ffffff;--surface-2:#f2efec;--line:#e3e0dc;--line-soft:#efece9;
+--ink:#1a1a1a;--ink-2:#4a4a48;--muted:#8a8781;--accent:#3d6bfb;--accent-soft:#e8edfe;
+--negative:#c0504d;--negative-soft:#f7eae8;--positive:#1f6f4a;--positive-soft:#e8f4ee;
+--warn:#A8621A;--warn-soft:#F8EFE3;--gold:#9A7B1F;
+--sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+--shadow:0 4px 12px rgba(26,26,26,.05);--shadow-sm:0 1px 3px rgba(26,26,26,.04)}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);margin:0;padding:40px 20px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.container{max-width:1000px;margin:0 auto}
+header{margin-bottom:40px}
+.eyebrow{font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;font-weight:700}
+h1{font-size:clamp(32px,5vw,48px);margin:0 0 16px;color:var(--ink);line-height:1.1;letter-spacing:-.02em}
+.intro{font-size:1.05rem;color:var(--ink-2);max-width:70ch}
+h2{font-size:1.35rem;margin:48px 0 16px;letter-spacing:-.01em}
+h2 .em{color:var(--accent)}
+h2 .warnem{color:var(--negative)}
+p{color:var(--ink-2);max-width:74ch}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px;margin:28px 0}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px;box-shadow:var(--shadow-sm)}
+.stat .v{font-size:1.35rem;font-weight:800;letter-spacing:-.02em}
+.stat .v.acc{color:var(--accent)}.stat .v.warn{color:var(--warn)}.stat .v.neg{color:var(--negative)}
+.stat .k{font-size:.78rem;color:var(--muted);margin-top:4px;line-height:1.4}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px 26px;box-shadow:var(--shadow-sm);margin:16px 0}
+.card h3{margin:0 0 10px;font-size:1.02rem}
+.card ul{margin:8px 0;padding-left:20px}
+.card li{margin:7px 0;color:var(--ink-2)}
+.card li b{color:var(--ink)}
+.callout{border-left:4px solid var(--warn);background:var(--warn-soft);border-radius:0 10px 10px 0;padding:16px 20px;margin:18px 0}
+.callout.blue{border-left-color:var(--accent);background:var(--accent-soft)}
+.callout.red{border-left-color:var(--negative);background:var(--negative-soft)}
+.callout .l{font-size:.72rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--warn);margin-bottom:6px}
+.callout.blue .l{color:var(--accent)}.callout.red .l{color:var(--negative)}
+.callout p{margin:6px 0;font-size:.95rem}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+table{border-collapse:collapse;width:100%;font-size:.9rem;background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+th{text-align:left;font-size:.72rem;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);padding:12px 14px;background:var(--surface-2);border-bottom:1px solid var(--line)}
+td{padding:12px 14px;border-bottom:1px solid var(--line-soft);color:var(--ink-2);vertical-align:top}
+tr:last-child td{border-bottom:none}
+td b{color:var(--ink)}
+td.num{text-align:right;font-weight:700;color:var(--ink);white-space:nowrap}
+tr.bad td.num{color:var(--negative)}
+tr.good td.num{color:var(--positive)}
+.miles{display:flex;flex-wrap:wrap;gap:12px;margin:20px 0}
+.mile{flex:1;min-width:150px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow-sm)}
+.mile .n{width:26px;height:26px;border-radius:50%;background:var(--accent);color:#fff;font-weight:800;font-size:.8rem;display:flex;align-items:center;justify-content:center;margin-bottom:8px}
+.mile .d{font-size:.72rem;font-weight:800;letter-spacing:.06em;color:var(--accent)}
+.mile .t{font-size:.88rem;font-weight:600;margin-top:2px;line-height:1.35}
+.week{background:var(--surface);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow-sm);margin:18px 0;overflow:hidden}
+.week header{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;padding:16px 24px;background:var(--surface-2);border-bottom:1px solid var(--line);margin:0}
+.week h3{margin:0;font-size:1rem}
+.week .dates{font-size:.8rem;color:var(--muted);font-weight:600}
+.task{display:grid;grid-template-columns:130px 1fr;gap:14px;padding:16px 24px;border-bottom:1px solid var(--line-soft)}
+.task:last-child{border-bottom:none}
+.tag{font-size:.68rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:4px 8px;border-radius:6px;height:fit-content;text-align:center}
+.tag.res{background:var(--accent-soft);color:var(--accent)}
+.tag.out{background:var(--positive-soft);color:var(--positive)}
+.tag.col{background:var(--surface-2);color:var(--ink-2)}
+.tag.close{background:var(--warn-soft);color:var(--warn)}
+.tag.legal{background:#f3e8fe;color:#7c3aed}
+.task p{margin:0;font-size:.92rem}
+.task .goal{display:inline-block;margin-top:6px;font-size:.78rem;font-weight:700;color:var(--positive);background:var(--positive-soft);padding:3px 9px;border-radius:6px}
+.guard{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.guard span{font-size:.75rem;font-weight:600;background:var(--surface);border:1px solid var(--line);border-radius:99px;padding:5px 12px;color:var(--ink-2)}
+.script{background:var(--surface-2);border:1px solid var(--line);border-radius:10px;padding:14px 18px;font-style:italic;color:var(--ink-2);margin:10px 0}
+footer{margin-top:48px;padding-top:16px;border-top:1px solid var(--line);font-size:.78rem;color:var(--muted)}
+</style>
+</head>
+<body><div class="container">
+<header>
+<div class="eyebrow">Operation Blitzkrieg</div>
+<h1>13-Week Sprint: Data Brokers</h1>
+<p class="intro">The channel pillar. Objective: <b>2 Tier-B pilot clients signed by Oct 31, delivering by Nov 21</b>, plus the Tier-A access path opened to the incumbents who are also our most likely acquirers. What we are buying here is <b>distribution velocity</b> — they already hold the budgets and the relationships, so the B2B cycle collapses from months to weeks.</p>
+<div class="stats">
+<div class="stat"><div class="v acc">2</div><div class="k">Tier-B pilots signed by Oct 31</div></div>
+<div class="stat"><div class="v acc">10</div><div class="k">Named Tier-B targets mapped</div></div>
+<div class="stat"><div class="v">≤ 25h</div><div class="k">Founder-hour budget for the pillar</div></div>
+<div class="stat"><div class="v warn">Gated</div><div class="k">Tier-A: calendar open now, content only with ≥1 mandate + ≥1 paid seat</div></div>
+<div class="stat"><div class="v neg">≥ 50%</div><div class="k">Price floor: of direct-sale value, or it cannibalises</div></div>
+</div>
+</header>
+
+<h2>Why this pillar exists</h2>
+<div class="callout blue"><div class="l">Distribution velocity, not price</div>
+<p>Brokers already hold the budgets and the brand/retailer relationships. That is the <b>fast lane to cash</b> and the reason to accept lower unit economics: we are buying speed and reach, and paying for it <b>in margin</b>. Every rule below exists so that we pay in margin only — <b>never in position</b>.</p></div>
+
+<h2>⚠ The DM Trap — <span class="warnem">the one way this pillar can destroy the company</span></h2>
+<div class="callout red"><div class="l">The trap, stated plainly</div>
+<p>“Tier-1 would want the pure data to combine with other sources” is <b>exactly the DM position</b> — becoming the supply side of someone else's 20–60× spread. Our own doctrine forbids it: never sell raw feeds; own the derived product.</p></div>
+<table>
+<thead><tr><th>The same category, priced two ways</th><th class="num">Per year</th></tr></thead>
+<tbody>
+<tr class="bad"><td>Sold as <b>supply</b> at incumbent-style per-store rates (250 stores)</td><td class="num">€35k</td></tr>
+<tr class="good"><td>Sold <b>direct</b> as a category read — 3 founding seats</td><td class="num">€105–135k</td></tr>
+<tr class="good"><td>Sold direct at maturity — 3 seats at list</td><td class="num">€300–600k</td></tr>
+<tr class="bad"><td>What a buyer generates from the €35k they paid us (their own 16% data-cost ratio → 6.25×)</td><td class="num">~€220k</td></tr>
+</tbody>
+</table>
+<div class="card"><h3>The rule that prevents it — non-negotiable</h3>
+<p><b>Price per DERIVED PRODUCT (slot / read / API), never per store, per session or per datapoint.</b> Per-store pricing is supply economics (~€141/store/yr); per-slot pricing is product economics. If a broker proposes per-store or per-record pricing, they are pricing us as the supplier in their spread — decline and reprice, or walk. <i>(Our knowledge of incumbent supply pricing is INTERNAL-ONLY and is never revealed in the room.)</i></p></div>
+
+<h2>Two Tiers, Two Products</h2>
+<table>
+<thead><tr><th></th><th>Tier B — second-tier brokers &amp; insight agencies</th><th>Tier A — incumbents (NIQ, Circana, Kantar)</th></tr></thead>
+<tbody>
+<tr><td><b>Their gap</b></td><td>No field-based quantitative shopper-segment data — operationally too expensive and complex for them to collect</td><td>Have “what was bought”; structurally lack “who bought”</td></tr>
+<tr><td><b>What they buy</b></td><td><b>White-label the platform</b> — everything already connected: their brand, our engine</td><td><b>Derived category reads</b> to combine with their own sources — never raw</td></tr>
+<tr><td><b>Status in-window</b></td><td>Active target — the 2 pilots</td><td><b>Access path only:</b> map the person, secure the intro, meeting bookable late Oct</td></tr>
+<tr><td><b>Strategic read</b></td><td>Distribution channel</td><td>Potential buyer / strategic investor — the access path is also the acquirer path</td></tr>
+</tbody>
+</table>
+
+<h2>What They Get — and Never Get</h2>
+<div class="grid2">
+<div class="card"><h3>Get</h3><p>Derived outputs only: category reads, segment distributions, indices, API responses above the export gate — k≥25, coarsened time, no session or person identifiers, no record-level rows.</p></div>
+<div class="card"><h3>Never</h3><p>Raw feeds · record-level data · methodology internals · any granularity fine enough to back-engineer the taxonomy. <b>“Schema yes, kitchen no.”</b></p></div>
+</div>
+
+<h2>Rights — <span class="em">the correction that must reach Legal in Week 1</span></h2>
+<div class="callout"><div class="l">A broker knowing the retailer grants us nothing</div>
+<p>Attribution is governed <b>solely by our contract with that retailer</b> — not by the broker's existing relationship. <b>Action:</b> the DPA/mandate template needs a <b>channel/reseller clause</b> stating whether the retailer permits attributed data to reach third-party resellers, with per-channel written approval. Without it: <b>aggregate, chain-masked outputs only</b>, regardless of who the broker knows.</p></div>
+
+<h2>Contract Terms in Every Pilot</h2>
+<div class="card"><ul>
+<li><b>Non-circumvention</b> — they may not approach our retailers or brands with a competing read built on our outputs. (Not a non-compete: their focus differs; the risk is their <i>connections</i>.)</li>
+<li><b>No back-engineering / no re-identification</b> covenant, with audit right.</li>
+<li><b>12-month term</b> + renewal repricing. Never perpetual on our side.</li>
+<li><b>No exclusivity, ever</b> — the scripted answer to “we'd buy the whole feed exclusively”:</li>
+</ul>
+<div class="script">“We don't do exclusivity — it's what makes the read a currency rather than a private asset. What we can do: a category-limited, 12-month first-look window at a premium, against a volume commitment.”</div>
+<ul><li><b>Price floor:</b> a broker deal must net <b>≥50% of what we would realise selling that scope direct</b> — we save the selling cost, they take the rest. Below that the channel is cannibalising, not distributing.</li></ul>
+</div>
+
+<h2>The Two Pilots — Target Shapes</h2>
+<div class="grid2">
+<div class="card"><h3>Pilot 1 — White-label read</h3><p>CEE insight agency or shopper consultancy resells one category read under their brand into accounts we cannot reach. <b>Deliberately narrow:</b> one category, one geography, 12 months, non-exclusive, step-up pricing at renewal.</p></div>
+<div class="card"><h3>Pilot 2 — Eval-set / API to an AI-data buyer</h3><p>Synthetic-consumer or AI-data vendor: the surviving defensible shape of the AI-data line. Same motion, same <b>Oct 15 kill-test</b> — if it converts, it counts as pilot #2. <i>Reserve: retail-media data reseller or a syndicated distributor with no visual layer.</i></p></div>
+</div>
+<div class="callout"><div class="l">Pilot pricing discipline</div><p>€10–30k for a pilot is acceptable <b>only because the scope is narrow</b> — never a full category read at pilot price, which would cannibalise a €105–135k slot. Renewal steps up to the §price-floor rule.</p></div>
+
+<h2>Major Milestones</h2>
+<div class="miles">
+<div class="mile"><div class="n">1</div><div class="d">SEP 13</div><div class="t">Tier-B map (10 named) · offer one-pager · pricing-floor memo</div></div>
+<div class="mile"><div class="n">2</div><div class="d">SEP 30</div><div class="t">5 conversations held · Tier-A intro secured</div></div>
+<div class="mile"><div class="n">3</div><div class="d">OCT 15</div><div class="t">AI-data kill-test verdict → pilot #2 or line zeroed</div></div>
+<div class="mile"><div class="n">4</div><div class="d">OCT 31</div><div class="t">2 pilot agreements signed</div></div>
+<div class="mile"><div class="n">5</div><div class="d">NOV 21</div><div class="t">Pilots delivering · distribution-economics memo into DD</div></div>
+</div>
+
+<h2>Weekly Backbone</h2>
+
+<div class="week"><header><h3>Weeks 1–2: Map, Offer &amp; the Floor</h3><span class="dates">Aug 24 – Sep 6</span></header>
+<div class="task"><span class="tag res">Research</span><p>Tier-B map: 10 named organisations — who they sell to, what they lack, which of our reads fits. CEE insight agencies, shopper consultancies, retail-media data resellers, syndicated distributors with no visual layer.<br><span class="goal">Goal: 10 named targets</span></p></div>
+<div class="task"><span class="tag col">Collateral</span><p>Offer one-pager (white-label read + API, derived-only, per-slot pricing) and the <b>pricing-floor memo</b> — the DM-trap arithmetic, so nobody improvises a per-store price in a room.<br><span class="goal">Goal: One-pager + floor memo</span></p></div>
+<div class="task"><span class="tag legal">Legal</span><p>Channel/reseller clause drafted into the DPA + mandate templates before Mandate #1 is signed — retrofitting it later means reopening a signed contract.<br><span class="goal">Goal: Clause in the template</span></p></div>
+</div>
+
+<div class="week"><header><h3>Weeks 3–4: Conversations &amp; the Access Path</h3><span class="dates">Sep 7 – Sep 20</span></header>
+<div class="task"><span class="tag out">Outreach</span><p>5 Tier-B conversations booked and held. Test both shapes (white-label vs API) and log which they reach for — that answer designs the 2027 channel product.<br><span class="goal">Goal: 5 conversations, shape preference logged</span></p></div>
+<div class="task"><span class="tag out">Outreach</span><p>Tier-A access path: identify the right person (corp-dev / insights leadership — <b>not</b> sales), secure a warm intro, place the meeting in late Oct. Calendar ungated; content stays gated.<br><span class="goal">Goal: 1 warm intro secured</span></p></div>
+</div>
+
+<div class="week"><header><h3>Weeks 5–6: Pilot Scoping</h3><span class="dates">Sep 21 – Oct 4</span></header>
+<div class="task"><span class="tag close">Closing</span><p>Scope pilots with the two warmest Tier-B targets: category, geography, term, price, renewal step-up. AI-data outreach runs inside this same motion.<br><span class="goal">Goal: 2 pilot scopes drafted</span></p></div>
+</div>
+
+<div class="week"><header><h3>Week 7: The AI-Data Verdict</h3><span class="dates">Oct 5 – Oct 18</span></header>
+<div class="task"><span class="tag close">Closing</span><p>Oct 15: AI-data kill-test ruled — ≥2 paid responses ≥€20k converts it into pilot #2; otherwise the line zeroes in the plan and the reserve target takes its place. A zeroed line with a verdict is the system working.<br><span class="goal">Goal: Verdict recorded</span></p></div>
+</div>
+
+<div class="week"><header><h3>Weeks 8–9: Signatures</h3><span class="dates">Oct 19 – Nov 1</span></header>
+<div class="task"><span class="tag close">Closing</span><p><b>2 pilot agreements signed by Oct 31</b> — paid wholesale preferred; every term from the contract list present, no exceptions on non-circumvention or the no-back-engineering covenant.<br><span class="goal">Goal: 2 signed pilots</span></p></div>
+</div>
+
+<div class="week"><header><h3>Weeks 10–12: Delivery &amp; the Economics Memo</h3><span class="dates">Nov 2 – Nov 15</span></header>
+<div class="task"><span class="tag close">Closing</span><p>Pilots delivering. Tier-A meeting proceeds <b>only</b> if the strength conditions hold (≥1 mandate + ≥1 paid seat); otherwise it moves — never downgrade the artifacts to keep a date.<br><span class="goal">Goal: Pilots live · Tier-A meeting held or deferred</span></p></div>
+<div class="task"><span class="tag res">Research</span><p>Draft the distribution-economics memo: their margin, our realised floor, channel-conflict rules, and the honest test — did 2 pilots prove more than one more direct seat would have?<br><span class="goal">Goal: Memo drafted</span></p></div>
+</div>
+
+<div class="week"><header><h3>Week 13: Verdict &amp; 2027 Channel Decision</h3><span class="dates">Nov 16 – Nov 21</span></header>
+<div class="task"><span class="tag close">Closing</span><p>Memo into fundraise DD. Rule the 2027 channel question and reallocate hours accordingly. Watch items answered: does the pilot strengthen the acquirer story (founder view: yes, while we are early), and was the incumbent-awareness risk worth it?<br><span class="goal">Goal: 2027 channel decision recorded</span></p></div>
+</div>
+
+<h2>Guardrails</h2>
+<div class="guard">
+<span>Per-slot pricing — never per store or per record</span><span>Derived outputs only, never raw</span><span>≥50% of direct-sale value or it cannibalises</span><span>Non-circumvention in every contract</span><span>12-month terms, never perpetual</span><span>No exclusivity, ever</span><span>Attribution only where our DPA permits it</span><span>Incumbent benchmark figures never revealed</span>
+</div>
+
+<footer>Source of truth: brokers-plan.md (v0.2) in this folder · doctrine: ../../strategy/2026-08-19-base-strategy/ (13-revenue-model, 02-decisions D3/D12/D16, 11-research-annex) · rulings: ../00-alignment.md · Minds &amp; Models internal</footer>
+</div></body></html>

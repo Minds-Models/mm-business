@@ -29,6 +29,8 @@ this file and date the change.
 | **D14** | Adopted from the prior (now-deleted) red-team pack on their merits: index promotion, €3k label-buy, gold-station ask, 8-account rule, generic-ONVIF rule, €400/day rule, asset scoreboard. | Assumed live |
 | **D15** | Parked 90 days: O2, Vilgain, DOOH partners, new pilot logos. | Assumed live |
 
+| **D16** | **Blitzkrieg (21 Aug): all-in commitment to the data business model until 21 Nov 2026.** Three axioms not to be re-questioned in-window: data value supports the VC case; own-HW personalization is not VC-backable (RMN data sales excluded); ultimate ICP = brand. Closes the 15 Oct business-model fork (O7) as "data all-in"; 21 Nov scoreboard = the go/no-go. Goals: 2+3 brand seats ≥€70k · 2 retailer mandates · €400–600k @ €6M cap · 2 broker pilots · alt-sources explored. | Plans in `../../blitzkrieg/`; contradictions pending rulings C1–C10 in `blitzkrieg/00-alignment.md` |
+
 ## Open questions — and what closes each
 
 | ID | Question | Closes when |
@@ -39,7 +41,8 @@ this file and date the change.
 | **O4** | Index pricing: €60–90k band vs agency-master discount | First agency conversation (Nov) |
 | **O5** | Seller #2 / country lead for 2027 expansion | Post-raise; out of window |
 | **O6** | VSaaS / cloud-VMS marketplaces (Verkada, Eagle Eye, Milestone, Genetec) as 2027 distribution | Research brief — the one gap the research pass left open. First task to hand a research agent |
-| **O7** | **Business-model fork A vs B** | `03-business-model-fork.md` — decision deadline **15 Oct** |
+| **O7** | ~~Business-model fork~~ **CLOSED by D16** (all-in data) | 21 Nov scoreboard is the assessment |
+| **O8** | Blitzkrieg rulings C1 (retailer share), C2 (instrument), C6 (brokers), C7 (SuperZoo seat depth), €70k reading | `blitzkrieg/00-alignment.md` — needed in Week 1 |
 
 ## Corrections made after approval
 
