@@ -70,7 +70,7 @@ any of them appears in a client-, brand- or investor-facing deliverable, add it 
 - Value chain doctrine: **collect at 1, sell at 2–3, partner at 4**
   (1 collect data → 2 insights → 3 actionable steps → 4 execution/personalization).
 - Retailer positioning: **retailer-as-monetizer** — we never "sell their data";
-  we build THEIR audience revenue, they keep the majority and full veto.
+  we build THEIR audience revenue, they get a revenue share (max 40%) and full veto.
 
 ## Quick reference
 

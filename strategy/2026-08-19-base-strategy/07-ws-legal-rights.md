@@ -15,7 +15,7 @@ available, higher than any new camera.
 
 1. **Mandate letter** — 60 days, revocable at will, retailer approves every artifact, nothing is
    sold, only named brands may be approached, outputs are anonymous aggregates (min. 25 people per
-   segment), retailer's trading data never included, majority of any future economics presumed
+   segment), retailer's trading data never included, up to 40% of any future economics presumed
    theirs. A Czech draft exists in `../../templates/one-pager/`. Designed to be unrefusable —
    **ask for it in the room.**
 2. **Study rights** — one category, one chain. Enough to sell the first study.

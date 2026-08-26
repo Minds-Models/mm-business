@@ -15,7 +15,7 @@ a ~9× gap between two documents that would sit in the same data room.
 |---|---|
 | **Different metrics** | The exit model counted *recurring data ARR only*. The operating plan counts every signed annual line — seats, index, Twin, retainers, AI-data, landlord, legacy screens |
 | **Different dates** | The exit model's "2027" is a calendar-year figure and its monthly table ends mid-2027. The operating plan's €4.40M is a **run-rate on 18 Feb 2027** |
-| **Different economics** | The exit model still assumed the **old majority-to-retailer split** (retailer kept 40–50% of each data euro). Decision **D1** replaced that: retailers pay €0 and receive no revenue share; we keep the whole brand euro and carry platform opex instead |
+| **Different economics** | The exit model still assumed the **old up-to-40%-to-retailer split** (retailer kept 40–50% of each data euro). Decision **D1** replaced that: retailers pay €0 and receive no revenue share; we keep the whole brand euro and carry platform opex instead |
 
 The third cause matters most, and it moves the number **up**, not down.
 

@@ -34,7 +34,7 @@ remove every step they'd have to do themselves.*
 21. ⚡ Priced pay-for-rights offer tabled at ČEPRO but not exercised — "on close of our round, X CZK/station/mo" — appetite logged, no cash out.
 22. Data Act waiver clause standard in every site-host deal — the statutory rights position, never implicit.
 23. Channel-leadership FOMO (market-level only, never name other pipelines): "the pet read will exist; the founding retailer sets its terms."
-24. ⚡ Founding-retailer terms that expire — majority economics for the first N chains only. Scarcity on the supply side too.
+24. ⚡ Founding-retailer terms that expire — revenue share (max 40%) economics for the first N chains only. Scarcity on the supply side too.
 25. Category-scoped mandate as the smaller ask when full-data stalls (pet only, tobacco only).
 26. Monthly value memo to every live retailer: 3 things to change + what last month's advice earned. Revoking must feel like loss.
 27. GymBeam case deck as show-don't-tell — real match rates, p-values, honest nulls.

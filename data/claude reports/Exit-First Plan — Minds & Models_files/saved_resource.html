@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<!-- saved from url=(0133)https://6d5fd757-3613-40a6-95fb-458134397d76.frame.claudeusercontent.com/_f/1786135737-7f1a/?__frame_v=manifest.549c0ed89764d31f.json -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><!-- frame-runtime --><!--<base href="/_f/1786135737-7f1a/">--><base href="."><script>window.__FRAME_PREAMBLE={"capabilities":{"artifact":"artifact.oqIe8shs.js","assets":"assets.BkxVItX2.js","comments":"comments.GLuHR3zP.js","db":"db.CRhVHzSt.js","downloads":"downloads.C3GSvEDP.js","embed":"embed.CZsbekoQ.js","mcp":"mcp.D3B2EyQu.js","permissions":"permissions.BNySkLV5.js","room":"room.DE7EMui-.js","sample":"sample.C7z_6W62.js","self":"artifact.oqIe8shs.js","user":"user.BpKav-Rf.js"},"transforms":"_transforms.h3_8GSUa.js","comments":"_comments.BOgkE6qU.js","translate":"_translate.5HCW4BJh.js"}</script><script>(function(){"use strict";var Y=["light","dark","system"],X=/^[A-Za-z0-9_-]{1,64}$/,D=/^[a-zA-Z_:][a-zA-Z0-9_:.-]{0,127}$/,G=new Set(["class","hidden","value","checked"]);function V(e){const t=e.toLowerCase();return t.startsWith("data-")||t.startsWith("aria-")||G.has(t)}var be="http://www.w3.org/1999/xhtml",Z="http://www.w3.org/2000/svg",J=new Set(["script","style","iframe","noscript","noframes","noembed","xmp","plaintext","template","title","textarea","object","embed"]),Q=new Set(["script","style"]);function ee(e){const t=e.localName.toLowerCase();return e.namespaceURI==="http://www.w3.org/1999/xhtml"?!J.has(t):e.namespaceURI===Z?!Q.has(t):!1}var te=new Set(["html","head","body","frameset"]);function re(e){return e.namespaceURI==="http://www.w3.org/1999/xhtml"&&te.has(e.localName)}function ne(e){if(e===null||typeof e!="object")return!1;const t=e;if(typeof t.target!="string"||!X.test(t.target)||t.text!==void 0&&typeof t.text!="string")return!1;if(t.attrsSet!==void 0){if(t.attrsSet===null||typeof t.attrsSet!="object")return!1;for(const[n,s]of Object.entries(t.attrsSet))if(!D.test(n)||typeof s!="string")return!1}if(t.attrsRemoved!==void 0){if(!Array.isArray(t.attrsRemoved))return!1;for(const n of t.attrsRemoved)if(typeof n!="string"||!D.test(n))return!1}return!0}function se(e,t){if(e===null||typeof e!="object")return!1;const{seq:n,elements:s}=e;if(typeof n!="number"||!Number.isSafeInteger(n)||!Array.isArray(s)||s.length===0||s.length>64)return!1;for(let o=0;o<s.length;o++)if(!t(s[o]))return!1;return!0}function ae(e){return e===null||typeof e!="object"?!1:se(e.__frame_patch,ne)}function oe(e){if(e===null||typeof e!="object")return!1;const t=e.__frame_init;return t!==null&&typeof t=="object"}function ie(e){return e!==null&&typeof e=="object"&&e.__frame_size_poke===!0}function le(e){if(e===null||typeof e!="object")return!1;const t=e.__frame_theme;if(t===null||typeof t!="object")return!1;const n=t.theme;return typeof n=="string"&&Y.includes(n)}var O="__frame_scroll",ce=150,ue=310,fe=160,pe=3e4;function de(){let e=0,t=!1,n=!1,s=!1,o=0,l=null;const c=i=>{try{sessionStorage.setItem(O,JSON.stringify({y:i}))}catch{}},f=()=>{if(clearTimeout(e),l===null)return;const i=l;l=null,c(i)},S=()=>{if(t){t=!1;return}n=!0,l=scrollY,clearTimeout(e),e=setTimeout(f,ce)};try{addEventListener("scroll",S,{passive:!0}),addEventListener("pagehide",f)}catch{}const v=()=>{let i;try{i=sessionStorage.getItem(O)}catch{return null}if(i===null)return null;let d;try{d=JSON.parse(i)}catch{d=null}const u=d?.y;if(!(typeof u=="number"&&Number.isFinite(u)&&u>=0)){try{sessionStorage.removeItem(O)}catch{}return null}return u};let b=!1;const m=i=>{try{const d=scrollY;scrollTo({top:i,left:0,behavior:"instant"}),o=i,s=!0,clearTimeout(e),l=null,c(i);const u=scrollY;u!==d&&(t=!0),u!==i&&!b&&(b=!0,addEventListener("load",()=>{try{if(scrollY===u){const h=v();m(h!==null?h:o)}}catch{}},{once:!0}))}catch{}},y=()=>{try{return!!location.hash}catch{return!0}};let g=!1;const E=()=>{try{if(g||innerWidth>ue||innerHeight>fe)return;g=!0;const i=Date.now(),d=()=>{try{removeEventListener("resize",d)}catch{}if(Date.now()-i>pe||n||y())return;const u=v();m(u!==null?u:o)};addEventListener("resize",d)}catch{}};let r=!1,p=!1;return{restore(){if(r||(r=!0,y()))return;const i=v();i!==null&&(m(i),E())},promoted(){if(p||(p=!0,y()))return;const i=v();i!==null?(m(i),E()):s&&m(o)}}}var Ee="modulepreload",Ae=function(e){return"/"+e},Re={},me=function(t,n,s){let o=Promise.resolve();function l(c){const f=new Event("vite:preloadError",{cancelable:!0});if(f.payload=c,window.dispatchEvent(f),!f.defaultPrevented)throw c}return o.then(c=>{for(const f of c||[])f.status==="rejected"&&l(f.reason);return t().catch(l)})};(function(){const e=Object.defineProperty,t=globalThis,n=["RTCPeerConnection","webkitRTCPeerConnection","RTCDataChannel","RTCIceCandidate","RTCSessionDescription","RTCRtpSender","RTCRtpReceiver"];let s=0;for(let o=0;o<n.length;o++){const l=n[o];try{e(t,l,{value:void 0,writable:!1,configurable:!1})}catch{try{delete t[l]}catch{}try{e(t,l,{value:void 0,writable:!1,configurable:!0})}catch{}}typeof t[l]=="function"&&s++}if(s&&window!==top)try{parent.postMessage({__frame_rtc_lockdown_failed:s},"*")}catch{}})();var he=1e4,_e=Object.freeze([...window.__FRAME_PREAMBLE?.origins??["https://claude.ai","https://preview.claude.ai"]]);function F(e){for(const t of _e)if(t.endsWith(":*"))try{const n=new URL(e);if(`${n.protocol}//${n.hostname}:*`===t)return!0}catch{}else if(e===t)return!0;return!1}var M=Object.freeze({...window.__FRAME_PREAMBLE?.capabilities}),j=window.__FRAME_PREAMBLE?.transforms,N=window.__FRAME_PREAMBLE?.comments,I=window.__FRAME_PREAMBLE?.translate,L=/^[\w.-]+\.js$/;function T(e){return me(()=>import("/_runtime/"+e),void 0)}function z(e,t){return{contract:e.contract,changes:new Set(e.changes??[]),flags:new Set(e.flags??[]),capabilities:e.capabilities??{},capBudgets:e.capBudgets??{},transforms:new Map,shellOrigin:t,mount:W,pipe:()=>({wrap:(n,s)=>(...o)=>{try{return s(...o)}catch(l){return Promise.reject(l)}}})}}var P=null,w=null;function q(e,t,n){try{Object.defineProperty(e,t,{value:n,writable:!1,configurable:!1,enumerable:!0})}catch{try{Object.defineProperty(e,t,{value:n,writable:!1,configurable:!0,enumerable:!0})}catch{}}}var B=!1;function ve(e,t){const n=[];for(const s of e.elements){const o=document.querySelector(`[data-id="${s.target}"]`);if(!o){parent.postMessage({__frame_patch_miss:{seq:e.seq}},t);return}if([...Object.keys(s.attrsSet??{}),...s.attrsRemoved??[]].some(l=>!V(l))){parent.postMessage({__frame_patch_miss:{seq:e.seq}},t);return}if(s.text!==void 0&&(!ee(o)||re(o))){parent.postMessage({__frame_patch_miss:{seq:e.seq}},t);return}for(const[l,c]of Object.entries(s.attrsSet??{}))if(!$(o,l)){try{o.setAttribute(l,c)}catch{}H(o,l,c)}for(const l of s.attrsRemoved??[])$(o,l)||(o.removeAttribute(l),H(o,l,null));typeof s.text=="string"&&(o.textContent=s.text),n.push(s.target)}try{document.dispatchEvent(new CustomEvent("claude:edit",{detail:{seq:e.seq,targets:n}}))}catch{}}function H(e,t,n){if(!(e instanceof HTMLInputElement))return;const s=t.toLowerCase();s==="checked"?e.checked=n!==null:s==="value"&&e.type!=="file"&&(e.value=n??"")}function $(e,t){const n=t.toLowerCase(),s=e;return n==="data-id"||(n==="value"||n==="checked")&&(s.__artifactSecret===!0||/^(password|hidden|file)$/.test(s.type??"")||/(^|\s)(cc-|one-time-code|current-password|new-password)/i.test(`${e.getAttribute("autocomplete")??""} ${s.autocomplete??""}`))}function K(e){const t=document.documentElement;e==="light"||e==="dark"?(t.dataset.theme=e,t.style.colorScheme=e,B=!0):B&&(delete t.dataset.theme,t.style.colorScheme="",B=!1)}var R=new Map;function ye(){let e;const t={u:new Promise(n=>{e=n}),r:n=>{t.done=!0,e(n)},done:!1,nulled:!1};return t}var ge=Object.freeze(Object.assign(Object.create(null),{call:Function.prototype.call,apply:Function.prototype.apply,bind:Function.prototype.bind})),W=(e,t)=>{const n=R.get(e);if(!n||n.done){n?.nulled&&w&&parent.postMessage({__frame_cap_telemetry:{kind:"cap-load-error",cap:e}},w);return}const s=typeof t=="function"?Object.setPrototypeOf(t,ge):Object.assign(Object.create(null),t);typeof s.then=="function"&&delete s.then,n.r(Object.freeze(s))},U=Object.getOwnPropertyDescriptor(window,"claude");if(window!==top&&!(U&&U.writable===!1)){const e=j&&L.test(j)?T(j).catch(()=>{}):Promise.resolve(void 0),t=r=>{if(r.type==="auxclick"&&r.button!==1)return;const p=r.target,i=p&&p.closest?p.closest("a[href],area[href]"):null;if(!i)return;const d=i.getAttribute("href");if(!d)return;let u,h;try{u=new URL(d,document.baseURI),h=new URL(document.baseURI).origin}catch{return}if((u.protocol==="http:"||u.protocol==="https:")&&u.origin!==h){r.preventDefault();const _=(i.getAttribute("target")??"").toLowerCase(),C=r.type==="auxclick"||r.metaKey||r.ctrlKey||r.shiftKey||r.altKey||!["","_self","_top","_parent"].includes(_);parent.postMessage({__frame_nav:!0,url:u.href,newTab:C},"*")}};addEventListener("click",t,!0),addEventListener("auxclick",t,!0);const n={},s=r=>{r.isTrusted&&(n.pointer=!0)},o=r=>{r.isTrusted&&(n.click=!0)};addEventListener("pointermove",s,{capture:!0,passive:!0}),addEventListener("click",o,{capture:!0,passive:!0}),e.then(r=>{r?.wireNav&&(r.wireNav(),removeEventListener("click",t,!0),removeEventListener("auxclick",t,!0),removeEventListener("pointermove",s,!0),removeEventListener("click",o,!0),r.wireEngagement?.(n))});let l=null;try{l=de()}catch{}const c=U?.value??{};q(window,"claude",c);for(const r of Object.keys(M)){if(c[r]!==void 0){q(c,r,c[r]);continue}R.set(r,ye())}if(c.use===void 0){const r=p=>{if(typeof p!="string"||!Object.hasOwn(M,p))return Promise.resolve(null);const i=R.get(p);return i?i.u:Promise.resolve(c[p]??null)};try{Object.defineProperty(c,"use",{value:r,writable:!0,configurable:!0,enumerable:!1})}catch{}}let f=null,S=null,v=0;const b=r=>{r.source!==parent||!F(r.origin)||oe(r.data)&&(f=r.data.__frame_init,w=r.origin,removeEventListener("message",b),clearTimeout(v),S?.())};addEventListener("message",b),parent.postMessage({__frame_connect:!0},"*");const m=new Promise(r=>{S=r,v=setTimeout(()=>{removeEventListener("message",b),r()},he)}),y=document.readyState==="loading"?new Promise(r=>document.addEventListener("DOMContentLoaded",()=>r(),{once:!0})):Promise.resolve();y.then(()=>{try{l?.restore()}catch{}});const g={cb:null},E=r=>{if(!(r.source!==parent||!F(r.origin))&&ie(r.data)){try{l?.promoted()}catch{}g.cb?.()}};addEventListener("message",E),m.then(async()=>{if(!f||!w){for(const a of R.values())a.nulled=!0,a.r(null);return}K(f.theme);const r=w;let p=!1,i=!1;addEventListener("message",a=>{if(a.source!==parent||a.origin!==r)return;le(a.data)&&K(a.data.__frame_theme.theme),ae(a.data)&&ve(a.data.__frame_patch,r);const k=a.data?.__fc_mode;k&&typeof k=="object"&&!p&&N&&L.test(N)&&(p=!0,T(N).then(x=>x.install?.(r,k.on===!0)).catch(()=>{}));const A=a.data?.__ft_cmd;A&&typeof A=="object"&&!i&&I&&L.test(I)&&(i=!0,T(I).then(x=>x.install?.(r,A)).catch(()=>{}))});const d=Object.keys(f.capabilities??{}).filter(a=>Object.hasOwn(M,a)).map(a=>[a,M[a]]).filter(a=>typeof a[1]=="string"&&L.test(a[1])),u=await Promise.allSettled(d.map(([,a])=>T(a))),h=await e,_=w;if(h?.buildBoot||parent.postMessage({__frame_cap_telemetry:{kind:"cap-load-error",cap:"_transforms"}},_),h?.buildBoot)try{P=h.buildBoot(f,h.TRANSFORMS??{},{shellOrigin:_,mount:W},a=>parent.postMessage({__frame_cap_telemetry:a},_))}catch{parent.postMessage({__frame_cap_telemetry:{kind:"cap-load-error",cap:"_transforms"}},_),P=z(f,_)}else P=z(f,_);const C=a=>parent.postMessage({__frame_cap_telemetry:{kind:"cap-load-error",cap:a}},_),we=P;u.forEach((a,k)=>{const A=d[k][0];if(a.status!=="fulfilled"){C(A);return}try{a.value?.install?.(we)}catch{C(A)}});for(const a of R.values())a.done||(a.nulled=!0,a.r(null));await y,parent.postMessage({__frame_ready:!0},w),e.then(a=>a?.installSizeReporter?.(_,g))})}})();</script><!-- /frame-runtime --><meta name="viewport" content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}</style></head><body>
+<title>Exit-First Plan — Minds &amp; Models</title>
+<style>
+  :root{
+    --paper:#FAF9F6; --card:#FFFFFF; --ink:#1B1D21; --ink-2:#4A4F57; --muted:#7A8089;
+    --line:#E6E3DC; --accent:#1D5B94; --accent-2:#4E8FC4; --accent-soft:#EAF1F8; --accent-ink:#16466F;
+    --pos:#1E6E4C; --pos-soft:#E7F2EC; --warn:#A8621A; --warn-soft:#F8EFE3;
+    --neg:#A33B32; --neg-soft:#F7EAE8; --gold:#9A7B1F; --slate:#9AA2AC;
+    --shadow:0 1px 2px rgba(27,29,33,.05);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --paper:#121419; --card:#1A1D24; --ink:#E9EAEC; --ink-2:#B4B8BF; --muted:#858B94;
+      --line:#2A2E36; --accent:#7FB0DE; --accent-2:#4E8FC4; --accent-soft:#1C2B3A; --accent-ink:#A9CCEC;
+      --pos:#5CB98E; --pos-soft:#1B2A23; --warn:#D6975B; --warn-soft:#2E2418;
+      --neg:#D08078; --neg-soft:#2E1D1B; --gold:#D9B24B; --slate:#5C636D; --shadow:none;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#121419; --card:#1A1D24; --ink:#E9EAEC; --ink-2:#B4B8BF; --muted:#858B94;
+    --line:#2A2E36; --accent:#7FB0DE; --accent-2:#4E8FC4; --accent-soft:#1C2B3A; --accent-ink:#A9CCEC;
+    --pos:#5CB98E; --pos-soft:#1B2A23; --warn:#D6975B; --warn-soft:#2E2418;
+    --neg:#D08078; --neg-soft:#2E1D1B; --gold:#D9B24B; --slate:#5C636D; --shadow:none;
+  }
+  :root[data-theme="light"]{
+    --paper:#FAF9F6; --card:#FFFFFF; --ink:#1B1D21; --ink-2:#4A4F57; --muted:#7A8089;
+    --line:#E6E3DC; --accent:#1D5B94; --accent-2:#4E8FC4; --accent-soft:#EAF1F8; --accent-ink:#16466F;
+    --pos:#1E6E4C; --pos-soft:#E7F2EC; --warn:#A8621A; --warn-soft:#F8EFE3;
+    --neg:#A33B32; --neg-soft:#F7EAE8; --gold:#9A7B1F; --slate:#9AA2AC; --shadow:0 1px 2px rgba(27,29,33,.05);
+  }
+  *{box-sizing:border-box}
+  body{background:var(--paper); color:var(--ink); margin:0;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    line-height:1.55; font-size:15.5px; -webkit-font-smoothing:antialiased}
+  .wrap{max-width:900px; margin:0 auto; padding:56px 24px 96px}
+  h1{font-family:"Iowan Old Style","Palatino Nova",Palatino,Georgia,serif;
+    font-size:clamp(30px,5vw,42px); line-height:1.12; letter-spacing:-.01em; margin:10px 0 14px; text-wrap:balance; font-weight:600}
+  h2{font-family:"Iowan Old Style","Palatino Nova",Palatino,Georgia,serif;
+    font-size:25px; line-height:1.2; margin:0 0 6px; font-weight:600; letter-spacing:-.005em; text-wrap:balance}
+  h3{font-size:15px; margin:22px 0 8px; font-weight:700}
+  p{margin:10px 0; max-width:72ch}
+  section{margin-top:60px}
+  .eyebrow{font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); margin-bottom:8px}
+  .kicker{color:var(--ink-2); font-size:16.5px; max-width:72ch}
+  .meta{display:flex; gap:18px; flex-wrap:wrap; font-size:12.5px; color:var(--muted); margin-top:18px}
+  .meta b{color:var(--ink-2); font-weight:600}
+  .meta a{color:var(--accent)}
+  .rule{border:0; border-top:1px solid var(--line); margin:22px 0 0}
+
+  .verdict{background:var(--card); border:1px solid var(--line); border-left:3px solid var(--accent);
+    border-radius:10px; padding:20px 24px; margin-top:34px; box-shadow:var(--shadow)}
+  .verdict .l{font-size:11px; font-weight:700; letter-spacing:.13em; text-transform:uppercase; color:var(--accent); margin-bottom:8px}
+  .verdict p{margin:8px 0}
+  .verdict p:first-of-type{margin-top:0}
+
+  .tiles{display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:12px; margin:18px 0 6px}
+  .tile{background:var(--card); border:1px solid var(--line); border-radius:10px; padding:14px 16px; box-shadow:var(--shadow)}
+  .tile .v{font-size:23px; font-weight:750; letter-spacing:-.02em; font-variant-numeric:tabular-nums; line-height:1.15}
+  .tile .v.acc{color:var(--accent)} .tile .v.gold{color:var(--gold)}
+  .tile .k{font-size:12px; color:var(--muted); margin-top:5px; line-height:1.35}
+
+  .tblwrap{overflow-x:auto; border:1px solid var(--line); border-radius:10px; background:var(--card); box-shadow:var(--shadow); margin:16px 0}
+  table{border-collapse:collapse; width:100%; font-size:13.5px; min-width:560px}
+  th{font-size:11px; text-transform:uppercase; letter-spacing:.06em; color:var(--muted); text-align:right;
+    padding:11px 14px; border-bottom:1px solid var(--line); font-weight:700; white-space:nowrap}
+  th:first-child{text-align:left}
+  td{padding:10px 14px; border-bottom:1px solid var(--line); vertical-align:top; color:var(--ink-2); text-align:right; font-variant-numeric:tabular-nums; white-space:nowrap}
+  td:first-child{text-align:left; color:var(--ink); font-weight:600; white-space:normal}
+  tr:last-child td{border-bottom:0}
+  td b{color:var(--ink); font-weight:700}
+  tbody tr.hl{background:var(--accent-soft)}
+  .goodrow{color:var(--pos); font-weight:700} .badrow{color:var(--neg); font-weight:700}
+
+  .keyterm{background:var(--accent-soft); border:1px solid var(--line); border-left:3px solid var(--accent); border-radius:10px; padding:16px 20px; margin:16px 0}
+  .keyterm .l{font-size:11px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--accent); margin-bottom:8px}
+  .keyterm p{margin:6px 0}
+  .keyterm .big{font-family:"Iowan Old Style",Palatino,Georgia,serif; font-size:19px; line-height:1.4; color:var(--ink)}
+
+  ul.tight{margin:8px 0; padding-left:20px}
+  ul.tight li{margin:8px 0; max-width:74ch; color:var(--ink-2)}
+  ul.tight li b{color:var(--ink)}
+  .shift{display:grid; grid-template-columns:auto 1fr; gap:10px 14px; margin:14px 0}
+  .shift .n{font-family:"Iowan Old Style",Palatino,Georgia,serif; font-size:20px; font-weight:700; color:var(--accent); line-height:1.2; font-variant-numeric:tabular-nums}
+  .shift .b{border-bottom:1px solid var(--line); padding-bottom:12px}
+  .shift .b:last-child{border-bottom:0}
+  .shift .t{font-weight:700; font-size:14.5px}
+  .shift p{font-size:13.5px; color:var(--ink-2); margin:3px 0 0; max-width:none}
+
+  .barchart{margin:18px 0 4px}
+  .brow{display:grid; grid-template-columns:70px 1fr 96px; gap:12px; align-items:center; padding:6px 0; font-size:13px}
+  .brow .yr{color:var(--ink); font-weight:700; font-variant-numeric:tabular-nums}
+  .brow .track{position:relative; height:22px; background:var(--accent-soft); border-radius:5px; overflow:hidden; display:flex}
+  .brow .seg{height:100%}
+  .brow .seg.cz{background:var(--accent)} .brow .seg.eu{background:var(--accent-2)} .brow .seg.agg{background:var(--gold)}
+  .brow .val{text-align:right; font-weight:700; font-variant-numeric:tabular-nums; color:var(--ink); white-space:nowrap}
+  .legend{display:flex; gap:16px; flex-wrap:wrap; font-size:12px; color:var(--ink-2); margin-top:10px}
+  .legend span{display:inline-flex; align-items:center; gap:6px}
+  .sw{width:11px; height:11px; border-radius:3px}
+
+  .mine{background:var(--neg-soft); border-left:3px solid var(--neg); border-radius:8px; padding:12px 16px; margin:12px 0; font-size:13.5px; color:var(--ink-2)}
+  .mine b{color:var(--ink)}
+  .note{background:var(--warn-soft); border-left:3px solid var(--warn); border-radius:8px; padding:12px 16px; margin:12px 0; font-size:13.5px; color:var(--ink-2)}
+  .note b{color:var(--ink)}
+  .foot{margin-top:70px; padding-top:18px; border-top:1px solid var(--line); font-size:12px; color:var(--muted)}
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Minds &amp; Models · Exit-first plan · Confidential</div>
+    <h1>Reverse-engineered from the exit</h1>
+    <p class="kicker">If the plan is to sell in ~5 years to a data / consumer-insight / retail-media buyer, what exit makes today's raise work, what revenue and multiple that requires, and how the next 12 months have to change to be on that curve.</p>
+    <div class="meta">
+      <span><b>Raise</b> €500k @ €6–7M pre (+ €80k already in @ €3M)</span>
+      <span><b>Exit horizon</b> ~2031</span>
+      <span><b>Companions</b> <a href="https://claude.ai/code/artifact/a30697c8-d381-4411-8ee1-4f8f6851c29c">strategy</a> · <a href="https://claude.ai/code/artifact/1dc3f760-ddbb-4f39-bcc5-7c27cf152ce7">win-win</a> · <a href="https://claude.ai/code/artifact/b3e7af8c-04d8-4ee4-aad7-aee64290b1ff">revenue model</a></span>
+    </div>
+    <hr class="rule">
+  </header>
+
+  <div class="verdict">
+    <div class="l">The exit-first verdict</div>
+    <p>To turn the €7M-post round into a <b>strong</b> outcome — a €100–150M exit, ~10–16× for the seed — you need to reach <b>€8–12,5M ARR by 2031 and be valued as a measurement currency (8–12×), not a mixed SaaS (5×).</b> The multiple matters as much as the revenue: the same €10M ARR is a €50M exit as an enablement vendor and a €120M exit as a currency. That single fact reshapes the plan four ways: <b>optimize for the multiple</b> (pure-data / own-the-aggregate, not the higher-revenue personalization blend); <b>front-load the cross-retailer moat</b>; <b>make revenue recurring fast</b>; and — because the Czech pipeline alone tops out near €4–6M — <b>bake Europe/grocery expansion and a Series A into the next 12 months, not later.</b></p>
+  </div>
+
+  <!-- 01 THE EXIT -->
+  <section>
+    <div class="eyebrow">01 · The exit</div>
+    <h2>Who buys you, and at what multiple</h2>
+    <p>A 5-year exit for this company is a <b>strategic acquisition</b>, not an IPO. The buyers are the people whose blind spot you fill: they measure <i>what</i> sold; you have <i>who</i> bought.</p>
+    <div class="tblwrap"><table>
+      <thead><tr><th>Buyer type</th><th>Examples</th><th>Why they buy you</th></tr></thead>
+      <tbody>
+        <tr><td>Consumer-insight / measurement</td><td style="text-align:left">NielsenIQ, Circana, Kantar</td><td style="text-align:left">The "who" layer they structurally lack — buy vs be disrupted</td></tr>
+        <tr><td>Retailer data business</td><td style="text-align:left">dunnhumby, 84.51°, Nectar360</td><td style="text-align:left">In-store visual + measurement to extend their RMN</td></tr>
+        <tr><td>Retail-media platform / adtech</td><td style="text-align:left">Criteo, RMN enablers</td><td style="text-align:left">Audience + attribution for in-store retail media</td></tr>
+        <tr><td>Data broker / PE roll-up</td><td style="text-align:left">—</td><td style="text-align:left">Recurring data ARR + unique dataset</td></tr>
+      </tbody>
+    </table></div>
+    <div class="keyterm">
+      <div class="l">The one number that governs the exit</div>
+      <p class="big">The same revenue is worth <b>2,4× more</b> as a currency than as a mixed vendor.</p>
+      <p style="margin-bottom:0">€8M ARR × 5× (mixed SaaS) = <b>€40M</b>. €8M ARR × 12× (measurement currency) = <b>€96M</b>. You do not primarily grow your way to a big exit — you <i>re-rate</i> your way there. Everything below is in service of earning the 8–12× multiple, which means owning the cross-retailer aggregate and being recurring.</p>
+    </div>
+  </section>
+
+  <!-- 02 REVERSE MATH -->
+  <section>
+    <div class="eyebrow">02 · Reverse math</div>
+    <h2>From the raise to the required exit</h2>
+    <p>Rough cap table on the current terms, carried through a plausible Series A and a 10% option pool. Illustrative — the point is the shape, not the decimals.</p>
+    <div class="tblwrap"><table>
+      <thead><tr><th>Stage</th><th>Seed (€500k)</th><th>Angel (€80k)</th><th>Founders</th></tr></thead>
+      <tbody>
+        <tr><td>After this round (€7M post)</td><td>7,1%</td><td>2,5%</td><td>90,4%</td></tr>
+        <tr><td>After Series A (€3M @ €18M post) + ~10% ESOP</td><td>~5,4%</td><td>~1,9%</td><td>~68%</td></tr>
+      </tbody>
+    </table></div>
+    <h3>What each exit returns (at ~5,4% seed / ~1,9% angel / ~68% founders)</h3>
+    <div class="tblwrap"><table>
+      <thead><tr><th>Exit (2031)</th><th>Seed — € / multiple</th><th>Angel — € / multiple</th><th>Founders</th></tr></thead>
+      <tbody>
+        <tr><td>€50M</td><td class="badrow">€2,7M · 5,4×</td><td>€0,9M · 12×</td><td>€34M</td></tr>
+        <tr class="hl"><td>€100M</td><td class="goodrow">€5,4M · 11×</td><td>€1,9M · 23×</td><td>€68M</td></tr>
+        <tr class="hl"><td>€150M</td><td class="goodrow">€8,0M · 16×</td><td>€2,8M · 35×</td><td>€102M</td></tr>
+        <tr><td>€200M</td><td class="goodrow">€10,7M · 21×</td><td>€3,7M · 46×</td><td>€136M</td></tr>
+      </tbody>
+    </table></div>
+    <p><b>The €50M exit is the trap</b>: it's a fine business outcome but only ~5× for the seed — below what a seed investor underwrites. <b>€100–150M is the target band</b> (10–16× seed, €68–102M founders). Working backward through the multiple:</p>
+    <div class="tblwrap"><table>
+      <thead><tr><th>Target exit</th><th>Needs ARR @ 6× (mixed)</th><th>@ 10×</th><th>@ 12× (currency)</th></tr></thead>
+      <tbody>
+        <tr><td>€100M</td><td>€16,7M</td><td>€10,0M</td><td class="goodrow">€8,3M</td></tr>
+        <tr><td>€150M</td><td>€25,0M</td><td>€15,0M</td><td class="goodrow">€12,5M</td></tr>
+      </tbody>
+    </table></div>
+    <p>So the destination is clear: <b>~€8–12,5M ARR by 2031, valued as a currency.</b> At a mixed multiple you'd need €17–25M ARR for the same exit — roughly double the revenue for the same money. The multiple is the cheaper lever.</p>
+  </section>
+
+  <!-- 03 GROWTH -->
+  <section>
+    <div class="eyebrow">03 · The growth you'd have to hit</div>
+    <h2>€0 → ~€10M ARR in five years — and where it comes from</h2>
+    <p>Here's the honest tension. Our revenue model, on the corrected majority-to-retailer split, has the <b>Czech pipeline topping out around €4–6M ARR</b> by 2031. That's a €25–50M exit — the trap. To reach €8–12M you must add revenue the Czech plan doesn't contain: <b>Europe, grocery scale, and the cross-retailer aggregate as a premium product.</b> The exit target doesn't just demand speed — it demands a bigger surface.</p>
+    <div class="barchart" role="img" aria-label="Stacked bars of required ARR 2027 to 2031 split into Czech pipeline, Europe expansion, and aggregate currency, reaching about 10 million euro.">
+      <div class="brow"><span class="yr">2027</span><span class="track"><span class="seg cz" style="width:5%"></span></span><span class="val">€0,5M</span></div>
+      <div class="brow"><span class="yr">2028</span><span class="track"><span class="seg cz" style="width:18%"></span><span class="seg agg" style="width:2%"></span></span><span class="val">€2,0M</span></div>
+      <div class="brow"><span class="yr">2029</span><span class="track"><span class="seg cz" style="width:28%"></span><span class="seg eu" style="width:8%"></span><span class="seg agg" style="width:4%"></span></span><span class="val">€4,0M</span></div>
+      <div class="brow"><span class="yr">2030</span><span class="track"><span class="seg cz" style="width:38%"></span><span class="seg eu" style="width:18%"></span><span class="seg agg" style="width:9%"></span></span><span class="val">€6,5M</span></div>
+      <div class="brow"><span class="yr">2031</span><span class="track"><span class="seg cz" style="width:45%"></span><span class="seg eu" style="width:33%"></span><span class="seg agg" style="width:22%"></span></span><span class="val">€9–12M</span></div>
+      <div class="legend">
+        <span><i class="sw" style="background:var(--accent)"></i> Czech pipeline (organic)</span>
+        <span><i class="sw" style="background:var(--accent-2)"></i> Europe expansion</span>
+        <span><i class="sw" style="background:var(--gold)"></i> Cross-retailer aggregate / RMN</span>
+      </div>
+    </div>
+    <div class="tiles">
+      <div class="tile"><div class="v acc">~106%</div><div class="k">ARR CAGR needed 2027→2031 (€0,5M → €9M) — venture-scale, but from a small base</div></div>
+      <div class="tile"><div class="v">T2D3</div><div class="k">triple, triple, double, double from the 2027 base — the shape you must hit</div></div>
+      <div class="tile"><div class="v gold">≈ ⅓ + ¼</div><div class="k">of 2031 ARR must come from Europe + the aggregate — i.e. NOT the current CZ pipeline</div></div>
+    </div>
+    <p class="note" style="margin-top:14px"><b>This is the plan's biggest honest gap.</b> The organic Czech path is a €25–50M company. The exit target is a €100–150M company. The bridge is capital-funded expansion (Europe, grocery, the aggregate product) — which is why the Series A isn't optional and why it has to start soon (§05).</p>
+  </section>
+
+  <!-- 04 STRATEGY SHIFTS -->
+  <section>
+    <div class="eyebrow">04 · How the strategy changes</div>
+    <h2>Five shifts an exit-first plan forces</h2>
+    <div class="shift">
+      <div class="n">1</div><div class="b"><div class="t">Optimize for the multiple, not revenue</div><p>Choose the <b>pure-data / currency</b> path over the higher-revenue personalization+data blend. €8M as a currency (€96M) beats €10,6M as a mixed vendor (€53M). Personalization stays only as <i>deployment funding and a wedge</i> — never the story or the revenue mix at exit.</p></div>
+    </div>
+    <div class="shift">
+      <div class="n">2</div><div class="b"><div class="t">Front-load the cross-retailer aggregate moat</div><p>A currency needs breadth no single retailer can replicate. Get the <b>perpetual aggregate-rights clause into 3–4 retailer contracts fast</b>, and stand up a cross-retailer aggregate product early. This is the asset the acquirer actually buys — and the thing that can't be rebuilt.</p></div>
+    </div>
+    <div class="shift">
+      <div class="n">3</div><div class="b"><div class="t">Recurring over one-off, aggressively</div><p>The multiple rewards recurring ARR and punishes project revenue. Convert paid pilots to subscriptions on the fastest clock; measure the business in ARR, not in studies delivered. A "reports" company trades at 2–4×; a currency at 8–12×.</p></div>
+    </div>
+    <div class="shift">
+      <div class="n">4</div><div class="b"><div class="t">Go multi-country / grocery — funded by a Series A</div><p>The €8–12M target is unreachable from Czech specialty retail alone. Bake in 2–3 European markets and a grocery-scale chain, which needs a <b>€2–4M Series A in ~12–18 months</b>. The €500k is the bridge that proves rights + first recurring so the A is raisable.</p></div>
+    </div>
+    <div class="shift">
+      <div class="n">5</div><div class="b"><div class="t">Start the acquirer relationship at year 1, not year 5</div><p>Strategic premiums go to companies the buyer has watched become a threat. Open informational relationships with NIQ/Circana/an RMN player <b>now</b>, be visibly the "who" layer they lack, and make yourself a <i>buy-not-build</i> decision by 2030. Exits are cultivated, not auctioned cold.</p></div>
+    </div>
+  </section>
+
+  <!-- 05 NEXT 12 MONTHS -->
+  <section>
+    <div class="eyebrow">05 · Impact on the next 12 months</div>
+    <h2>Month by month — what an exit-first year looks like</h2>
+    <p>The next year exists to produce exactly the metrics a strong Series A (and eventually the acquirer) underwrites: <b>aggregate rights across multiple retailers, real recurring ARR, cross-channel proof, and a live cross-retailer aggregate v1.</b> This reorders the earlier revenue-first plan — breadth of rights and recurring come <i>forward</i>; one-off studies are means, not ends.</p>
+    <div class="tblwrap"><table>
+      <thead><tr><th>Month</th><th>Milestone</th><th>Why it's exit-critical</th></tr></thead>
+      <tbody>
+        <tr><td>Jul-26</td><td style="text-align:left">Close €500k round · tobacco meeting → brand LOIs · finalize the aggregate-rights clause in the standard DPA</td><td style="text-align:left">Cash + brand pull; the clause that defines the multiple is locked before any signature</td></tr>
+        <tr class="hl"><td>Aug-26</td><td style="text-align:left"><b>Sign SuperZoo DPA with aggregate rights</b> · first paid tobacco pilot (JTI)</td><td style="text-align:left">Retailer #1 under aggregate rights — the moat begins; breaks the €0</td></tr>
+        <tr><td>Sep-26</td><td style="text-align:left">SuperZoo pet study revenue · open EuroOil rights (brand-pull backed) · disclose data play</td><td style="text-align:left">Convert pilots to proof; start retailer #2</td></tr>
+        <tr class="hl"><td>Oct-26</td><td style="text-align:left"><b>Sign EuroOil DPA (aggregate rights)</b> · PMI + Purina studies</td><td style="text-align:left">2nd retailer → cross-retailer breadth, the currency prerequisite</td></tr>
+        <tr><td>Nov-26</td><td style="text-align:left">Open Teta rights (DM/NIQ pitch) · build cross-retailer aggregate v1 (SuperZoo + EuroOil)</td><td style="text-align:left">3rd channel in motion; the aggregate product takes shape</td></tr>
+        <tr class="hl"><td>Dec-26</td><td style="text-align:left"><b>First subscription converts (JTI)</b> · 3 retailers under aggregate rights (incl. Teta LOI / GymBeam)</td><td style="text-align:left">Recurring ARR &gt; €0; breadth story for the A deck</td></tr>
+        <tr><td>Jan-27</td><td style="text-align:left">PMI subscription · <b>start Series A prep</b> (deck, data room, metrics)</td><td style="text-align:left">Recurring compounding; A process needs a 3–4 month runway</td></tr>
+        <tr class="hl"><td>Feb-27</td><td style="text-align:left">Vafo/Brit pet subscription · <b>aggregate v1 demo</b> · first informational NIQ/Circana contact</td><td style="text-align:left">The currency proof exists; acquirer radar begins</td></tr>
+        <tr><td>Mar-27</td><td style="text-align:left">Teta rights signed → 3rd channel · cross-channel recurring (tobacco + pet) ~€150–200k ARR</td><td style="text-align:left">Multi-channel = "platform," not point solution</td></tr>
+        <tr class="hl"><td>Apr-27</td><td style="text-align:left"><b>Open Series A</b> (€2–4M @ €15–20M pre) on: N retailers under aggregate rights, €X recurring ARR, currency v1</td><td style="text-align:left">The fuel for Europe + grocery — the bridge to the €8–12M target</td></tr>
+        <tr><td>May-27</td><td style="text-align:left">Continue A · more brand subscriptions · SuperZoo RMN measurement pilot</td><td style="text-align:left">RMN = the bigger pool + the retail-media buyer's language</td></tr>
+        <tr class="hl"><td>Jun-27</td><td style="text-align:left"><b>Close Series A</b> · ~€400–500k recurring data ARR · 3–4 retailers on aggregate rights · aggregate live</td><td style="text-align:left">Positioned as the emerging currency, funded to expand — on the 5-year curve</td></tr>
+      </tbody>
+    </table></div>
+    <p>Exit rate at the 12-month mark: <b>~€0,4–0,5M recurring data ARR, 3–4 retailers under perpetual aggregate rights, a live cross-retailer aggregate, and a closed Series A.</b> That is precisely the profile that (a) justifies the A valuation and (b) starts the acquirer clock. Miss the aggregate-rights breadth or the recurring shift, and you're on the €50M-trap curve, not the €150M curve — same effort, half the outcome.</p>
+    <div class="mine"><b>What drops off the plate.</b> Exit-first means saying no to revenue that doesn't build the multiple: bespoke one-off studies beyond what's needed for proof, O2-type low-data-value deployments, and personalization features that don't fund deployment. Every month spent on non-recurring, non-aggregate, non-breadth work is a month off the curve.<p></p>
+  </div></section>
+
+  <p class="foot">Reverse-engineered from the exit. Cap table illustrative (€80k @ €3M; €500k @ €6,5M pre / €7M post; assumed Series A €3M @ €18M post + ~10% ESOP → seed ~5,4%, angel ~1,9%, founders ~68% at exit). Multiples from the strategy report's observed bands (measurement currency 8–15×, mixed SaaS 4–8×, reports 2–4×). ARR trajectory and the Czech-vs-expansion split are directional, built on the revenue model (majority-to-retailer split). All figures EUR. Confidential — Minds &amp; Models internal.</p>
+</div>
+
+</body></html>

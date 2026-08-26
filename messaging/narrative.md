@@ -62,7 +62,7 @@ Rule: deliverables reuse these lines verbatim. New strategic copy → founder si
   → 4 execution (HIGH, crowded). **Collect at 1, sell at 2–3, partner at 4.**
 - Retailers pay in RIGHTS (mandate → study-rights → chain subscription), brands pay CASH,
   brokers = distribution/optionality only.
-- Retailer-as-monetizer (dunnhumby model): their audience, their control, their majority;
+- Retailer-as-monetizer (dunnhumby model): their audience, their control, their revenue share (max 40%);
   we are the intelligence layer. Trading data (margins, sell-through, elasticity) is
   firewalled from brands, forever.
 - Rights sequencing rule: NEVER pre-sell a retailer's data without their knowledge —

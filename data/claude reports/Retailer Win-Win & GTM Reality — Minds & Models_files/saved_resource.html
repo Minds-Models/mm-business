@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<!-- saved from url=(0133)https://1dc3f760-ddbb-4f39-bcc5-7c27cf152ce7.frame.claudeusercontent.com/_f/1784794808-b7ce/?__frame_v=manifest.549c0ed89764d31f.json -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><!-- frame-runtime --><!--<base href="/_f/1784794808-b7ce/">--><base href="."><script>window.__FRAME_PREAMBLE={"capabilities":{"artifact":"artifact.oqIe8shs.js","assets":"assets.BkxVItX2.js","comments":"comments.GLuHR3zP.js","db":"db.CRhVHzSt.js","downloads":"downloads.C3GSvEDP.js","embed":"embed.CZsbekoQ.js","mcp":"mcp.D3B2EyQu.js","permissions":"permissions.BNySkLV5.js","room":"room.DE7EMui-.js","sample":"sample.C7z_6W62.js","self":"artifact.oqIe8shs.js","user":"user.BpKav-Rf.js"},"transforms":"_transforms.h3_8GSUa.js","comments":"_comments.BOgkE6qU.js","translate":"_translate.5HCW4BJh.js"}</script><script>(function(){"use strict";var Y=["light","dark","system"],X=/^[A-Za-z0-9_-]{1,64}$/,D=/^[a-zA-Z_:][a-zA-Z0-9_:.-]{0,127}$/,G=new Set(["class","hidden","value","checked"]);function V(e){const t=e.toLowerCase();return t.startsWith("data-")||t.startsWith("aria-")||G.has(t)}var be="http://www.w3.org/1999/xhtml",Z="http://www.w3.org/2000/svg",J=new Set(["script","style","iframe","noscript","noframes","noembed","xmp","plaintext","template","title","textarea","object","embed"]),Q=new Set(["script","style"]);function ee(e){const t=e.localName.toLowerCase();return e.namespaceURI==="http://www.w3.org/1999/xhtml"?!J.has(t):e.namespaceURI===Z?!Q.has(t):!1}var te=new Set(["html","head","body","frameset"]);function re(e){return e.namespaceURI==="http://www.w3.org/1999/xhtml"&&te.has(e.localName)}function ne(e){if(e===null||typeof e!="object")return!1;const t=e;if(typeof t.target!="string"||!X.test(t.target)||t.text!==void 0&&typeof t.text!="string")return!1;if(t.attrsSet!==void 0){if(t.attrsSet===null||typeof t.attrsSet!="object")return!1;for(const[n,s]of Object.entries(t.attrsSet))if(!D.test(n)||typeof s!="string")return!1}if(t.attrsRemoved!==void 0){if(!Array.isArray(t.attrsRemoved))return!1;for(const n of t.attrsRemoved)if(typeof n!="string"||!D.test(n))return!1}return!0}function se(e,t){if(e===null||typeof e!="object")return!1;const{seq:n,elements:s}=e;if(typeof n!="number"||!Number.isSafeInteger(n)||!Array.isArray(s)||s.length===0||s.length>64)return!1;for(let o=0;o<s.length;o++)if(!t(s[o]))return!1;return!0}function ae(e){return e===null||typeof e!="object"?!1:se(e.__frame_patch,ne)}function oe(e){if(e===null||typeof e!="object")return!1;const t=e.__frame_init;return t!==null&&typeof t=="object"}function ie(e){return e!==null&&typeof e=="object"&&e.__frame_size_poke===!0}function le(e){if(e===null||typeof e!="object")return!1;const t=e.__frame_theme;if(t===null||typeof t!="object")return!1;const n=t.theme;return typeof n=="string"&&Y.includes(n)}var O="__frame_scroll",ce=150,ue=310,fe=160,pe=3e4;function de(){let e=0,t=!1,n=!1,s=!1,o=0,l=null;const c=i=>{try{sessionStorage.setItem(O,JSON.stringify({y:i}))}catch{}},f=()=>{if(clearTimeout(e),l===null)return;const i=l;l=null,c(i)},S=()=>{if(t){t=!1;return}n=!0,l=scrollY,clearTimeout(e),e=setTimeout(f,ce)};try{addEventListener("scroll",S,{passive:!0}),addEventListener("pagehide",f)}catch{}const v=()=>{let i;try{i=sessionStorage.getItem(O)}catch{return null}if(i===null)return null;let d;try{d=JSON.parse(i)}catch{d=null}const u=d?.y;if(!(typeof u=="number"&&Number.isFinite(u)&&u>=0)){try{sessionStorage.removeItem(O)}catch{}return null}return u};let b=!1;const m=i=>{try{const d=scrollY;scrollTo({top:i,left:0,behavior:"instant"}),o=i,s=!0,clearTimeout(e),l=null,c(i);const u=scrollY;u!==d&&(t=!0),u!==i&&!b&&(b=!0,addEventListener("load",()=>{try{if(scrollY===u){const h=v();m(h!==null?h:o)}}catch{}},{once:!0}))}catch{}},y=()=>{try{return!!location.hash}catch{return!0}};let g=!1;const E=()=>{try{if(g||innerWidth>ue||innerHeight>fe)return;g=!0;const i=Date.now(),d=()=>{try{removeEventListener("resize",d)}catch{}if(Date.now()-i>pe||n||y())return;const u=v();m(u!==null?u:o)};addEventListener("resize",d)}catch{}};let r=!1,p=!1;return{restore(){if(r||(r=!0,y()))return;const i=v();i!==null&&(m(i),E())},promoted(){if(p||(p=!0,y()))return;const i=v();i!==null?(m(i),E()):s&&m(o)}}}var Ee="modulepreload",Ae=function(e){return"/"+e},Re={},me=function(t,n,s){let o=Promise.resolve();function l(c){const f=new Event("vite:preloadError",{cancelable:!0});if(f.payload=c,window.dispatchEvent(f),!f.defaultPrevented)throw c}return o.then(c=>{for(const f of c||[])f.status==="rejected"&&l(f.reason);return t().catch(l)})};(function(){const e=Object.defineProperty,t=globalThis,n=["RTCPeerConnection","webkitRTCPeerConnection","RTCDataChannel","RTCIceCandidate","RTCSessionDescription","RTCRtpSender","RTCRtpReceiver"];let s=0;for(let o=0;o<n.length;o++){const l=n[o];try{e(t,l,{value:void 0,writable:!1,configurable:!1})}catch{try{delete t[l]}catch{}try{e(t,l,{value:void 0,writable:!1,configurable:!0})}catch{}}typeof t[l]=="function"&&s++}if(s&&window!==top)try{parent.postMessage({__frame_rtc_lockdown_failed:s},"*")}catch{}})();var he=1e4,_e=Object.freeze([...window.__FRAME_PREAMBLE?.origins??["https://claude.ai","https://preview.claude.ai"]]);function F(e){for(const t of _e)if(t.endsWith(":*"))try{const n=new URL(e);if(`${n.protocol}//${n.hostname}:*`===t)return!0}catch{}else if(e===t)return!0;return!1}var M=Object.freeze({...window.__FRAME_PREAMBLE?.capabilities}),j=window.__FRAME_PREAMBLE?.transforms,N=window.__FRAME_PREAMBLE?.comments,I=window.__FRAME_PREAMBLE?.translate,L=/^[\w.-]+\.js$/;function T(e){return me(()=>import("/_runtime/"+e),void 0)}function z(e,t){return{contract:e.contract,changes:new Set(e.changes??[]),flags:new Set(e.flags??[]),capabilities:e.capabilities??{},capBudgets:e.capBudgets??{},transforms:new Map,shellOrigin:t,mount:W,pipe:()=>({wrap:(n,s)=>(...o)=>{try{return s(...o)}catch(l){return Promise.reject(l)}}})}}var P=null,w=null;function q(e,t,n){try{Object.defineProperty(e,t,{value:n,writable:!1,configurable:!1,enumerable:!0})}catch{try{Object.defineProperty(e,t,{value:n,writable:!1,configurable:!0,enumerable:!0})}catch{}}}var B=!1;function ve(e,t){const n=[];for(const s of e.elements){const o=document.querySelector(`[data-id="${s.target}"]`);if(!o){parent.postMessage({__frame_patch_miss:{seq:e.seq}},t);return}if([...Object.keys(s.attrsSet??{}),...s.attrsRemoved??[]].some(l=>!V(l))){parent.postMessage({__frame_patch_miss:{seq:e.seq}},t);return}if(s.text!==void 0&&(!ee(o)||re(o))){parent.postMessage({__frame_patch_miss:{seq:e.seq}},t);return}for(const[l,c]of Object.entries(s.attrsSet??{}))if(!$(o,l)){try{o.setAttribute(l,c)}catch{}H(o,l,c)}for(const l of s.attrsRemoved??[])$(o,l)||(o.removeAttribute(l),H(o,l,null));typeof s.text=="string"&&(o.textContent=s.text),n.push(s.target)}try{document.dispatchEvent(new CustomEvent("claude:edit",{detail:{seq:e.seq,targets:n}}))}catch{}}function H(e,t,n){if(!(e instanceof HTMLInputElement))return;const s=t.toLowerCase();s==="checked"?e.checked=n!==null:s==="value"&&e.type!=="file"&&(e.value=n??"")}function $(e,t){const n=t.toLowerCase(),s=e;return n==="data-id"||(n==="value"||n==="checked")&&(s.__artifactSecret===!0||/^(password|hidden|file)$/.test(s.type??"")||/(^|\s)(cc-|one-time-code|current-password|new-password)/i.test(`${e.getAttribute("autocomplete")??""} ${s.autocomplete??""}`))}function K(e){const t=document.documentElement;e==="light"||e==="dark"?(t.dataset.theme=e,t.style.colorScheme=e,B=!0):B&&(delete t.dataset.theme,t.style.colorScheme="",B=!1)}var R=new Map;function ye(){let e;const t={u:new Promise(n=>{e=n}),r:n=>{t.done=!0,e(n)},done:!1,nulled:!1};return t}var ge=Object.freeze(Object.assign(Object.create(null),{call:Function.prototype.call,apply:Function.prototype.apply,bind:Function.prototype.bind})),W=(e,t)=>{const n=R.get(e);if(!n||n.done){n?.nulled&&w&&parent.postMessage({__frame_cap_telemetry:{kind:"cap-load-error",cap:e}},w);return}const s=typeof t=="function"?Object.setPrototypeOf(t,ge):Object.assign(Object.create(null),t);typeof s.then=="function"&&delete s.then,n.r(Object.freeze(s))},U=Object.getOwnPropertyDescriptor(window,"claude");if(window!==top&&!(U&&U.writable===!1)){const e=j&&L.test(j)?T(j).catch(()=>{}):Promise.resolve(void 0),t=r=>{if(r.type==="auxclick"&&r.button!==1)return;const p=r.target,i=p&&p.closest?p.closest("a[href],area[href]"):null;if(!i)return;const d=i.getAttribute("href");if(!d)return;let u,h;try{u=new URL(d,document.baseURI),h=new URL(document.baseURI).origin}catch{return}if((u.protocol==="http:"||u.protocol==="https:")&&u.origin!==h){r.preventDefault();const _=(i.getAttribute("target")??"").toLowerCase(),C=r.type==="auxclick"||r.metaKey||r.ctrlKey||r.shiftKey||r.altKey||!["","_self","_top","_parent"].includes(_);parent.postMessage({__frame_nav:!0,url:u.href,newTab:C},"*")}};addEventListener("click",t,!0),addEventListener("auxclick",t,!0);const n={},s=r=>{r.isTrusted&&(n.pointer=!0)},o=r=>{r.isTrusted&&(n.click=!0)};addEventListener("pointermove",s,{capture:!0,passive:!0}),addEventListener("click",o,{capture:!0,passive:!0}),e.then(r=>{r?.wireNav&&(r.wireNav(),removeEventListener("click",t,!0),removeEventListener("auxclick",t,!0),removeEventListener("pointermove",s,!0),removeEventListener("click",o,!0),r.wireEngagement?.(n))});let l=null;try{l=de()}catch{}const c=U?.value??{};q(window,"claude",c);for(const r of Object.keys(M)){if(c[r]!==void 0){q(c,r,c[r]);continue}R.set(r,ye())}if(c.use===void 0){const r=p=>{if(typeof p!="string"||!Object.hasOwn(M,p))return Promise.resolve(null);const i=R.get(p);return i?i.u:Promise.resolve(c[p]??null)};try{Object.defineProperty(c,"use",{value:r,writable:!0,configurable:!0,enumerable:!1})}catch{}}let f=null,S=null,v=0;const b=r=>{r.source!==parent||!F(r.origin)||oe(r.data)&&(f=r.data.__frame_init,w=r.origin,removeEventListener("message",b),clearTimeout(v),S?.())};addEventListener("message",b),parent.postMessage({__frame_connect:!0},"*");const m=new Promise(r=>{S=r,v=setTimeout(()=>{removeEventListener("message",b),r()},he)}),y=document.readyState==="loading"?new Promise(r=>document.addEventListener("DOMContentLoaded",()=>r(),{once:!0})):Promise.resolve();y.then(()=>{try{l?.restore()}catch{}});const g={cb:null},E=r=>{if(!(r.source!==parent||!F(r.origin))&&ie(r.data)){try{l?.promoted()}catch{}g.cb?.()}};addEventListener("message",E),m.then(async()=>{if(!f||!w){for(const a of R.values())a.nulled=!0,a.r(null);return}K(f.theme);const r=w;let p=!1,i=!1;addEventListener("message",a=>{if(a.source!==parent||a.origin!==r)return;le(a.data)&&K(a.data.__frame_theme.theme),ae(a.data)&&ve(a.data.__frame_patch,r);const k=a.data?.__fc_mode;k&&typeof k=="object"&&!p&&N&&L.test(N)&&(p=!0,T(N).then(x=>x.install?.(r,k.on===!0)).catch(()=>{}));const A=a.data?.__ft_cmd;A&&typeof A=="object"&&!i&&I&&L.test(I)&&(i=!0,T(I).then(x=>x.install?.(r,A)).catch(()=>{}))});const d=Object.keys(f.capabilities??{}).filter(a=>Object.hasOwn(M,a)).map(a=>[a,M[a]]).filter(a=>typeof a[1]=="string"&&L.test(a[1])),u=await Promise.allSettled(d.map(([,a])=>T(a))),h=await e,_=w;if(h?.buildBoot||parent.postMessage({__frame_cap_telemetry:{kind:"cap-load-error",cap:"_transforms"}},_),h?.buildBoot)try{P=h.buildBoot(f,h.TRANSFORMS??{},{shellOrigin:_,mount:W},a=>parent.postMessage({__frame_cap_telemetry:a},_))}catch{parent.postMessage({__frame_cap_telemetry:{kind:"cap-load-error",cap:"_transforms"}},_),P=z(f,_)}else P=z(f,_);const C=a=>parent.postMessage({__frame_cap_telemetry:{kind:"cap-load-error",cap:a}},_),we=P;u.forEach((a,k)=>{const A=d[k][0];if(a.status!=="fulfilled"){C(A);return}try{a.value?.install?.(we)}catch{C(A)}});for(const a of R.values())a.done||(a.nulled=!0,a.r(null));await y,parent.postMessage({__frame_ready:!0},w),e.then(a=>a?.installSizeReporter?.(_,g))})}})();</script><!-- /frame-runtime --><meta name="viewport" content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}</style></head><body>
+<title>Retailer Win-Win &amp; GTM Reality — Minds &amp; Models</title>
+<style>
+  :root{
+    --paper:#FAF9F6; --card:#FFFFFF; --ink:#1B1D21; --ink-2:#4A4F57; --muted:#7A8089;
+    --line:#E6E3DC; --accent:#1D5B94; --accent-soft:#EAF1F8; --accent-ink:#16466F;
+    --pos:#1E6E4C; --pos-soft:#E7F2EC; --warn:#A8621A; --warn-soft:#F8EFE3;
+    --neg:#A33B32; --neg-soft:#F7EAE8;
+    --shadow:0 1px 2px rgba(27,29,33,.05);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --paper:#121419; --card:#1A1D24; --ink:#E9EAEC; --ink-2:#B4B8BF; --muted:#858B94;
+      --line:#2A2E36; --accent:#7FB0DE; --accent-soft:#1C2B3A; --accent-ink:#A9CCEC;
+      --pos:#5CB98E; --pos-soft:#1B2A23; --warn:#D6975B; --warn-soft:#2E2418;
+      --neg:#D08078; --neg-soft:#2E1D1B; --shadow:none;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#121419; --card:#1A1D24; --ink:#E9EAEC; --ink-2:#B4B8BF; --muted:#858B94;
+    --line:#2A2E36; --accent:#7FB0DE; --accent-soft:#1C2B3A; --accent-ink:#A9CCEC;
+    --pos:#5CB98E; --pos-soft:#1B2A23; --warn:#D6975B; --warn-soft:#2E2418;
+    --neg:#D08078; --neg-soft:#2E1D1B; --shadow:none;
+  }
+  :root[data-theme="light"]{
+    --paper:#FAF9F6; --card:#FFFFFF; --ink:#1B1D21; --ink-2:#4A4F57; --muted:#7A8089;
+    --line:#E6E3DC; --accent:#1D5B94; --accent-soft:#EAF1F8; --accent-ink:#16466F;
+    --pos:#1E6E4C; --pos-soft:#E7F2EC; --warn:#A8621A; --warn-soft:#F8EFE3;
+    --neg:#A33B32; --neg-soft:#F7EAE8; --shadow:0 1px 2px rgba(27,29,33,.05);
+  }
+  *{box-sizing:border-box}
+  body{background:var(--paper); color:var(--ink); margin:0;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    line-height:1.55; font-size:15.5px; -webkit-font-smoothing:antialiased}
+  .wrap{max-width:880px; margin:0 auto; padding:56px 24px 96px}
+  h1{font-family:"Iowan Old Style","Palatino Nova",Palatino,Georgia,serif;
+    font-size:clamp(30px,5vw,42px); line-height:1.12; letter-spacing:-.01em; margin:10px 0 14px; text-wrap:balance; font-weight:600}
+  h2{font-family:"Iowan Old Style","Palatino Nova",Palatino,Georgia,serif;
+    font-size:25px; line-height:1.2; margin:0 0 6px; font-weight:600; letter-spacing:-.005em; text-wrap:balance}
+  h3{font-size:15px; margin:22px 0 8px; font-weight:700}
+  p{margin:10px 0; max-width:72ch}
+  section{margin-top:60px}
+  .eyebrow{font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); margin-bottom:8px}
+  .kicker{color:var(--ink-2); font-size:16.5px; max-width:70ch}
+  .meta{display:flex; gap:18px; flex-wrap:wrap; font-size:12.5px; color:var(--muted); margin-top:18px}
+  .meta b{color:var(--ink-2); font-weight:600}
+  .meta a{color:var(--accent)}
+  .rule{border:0; border-top:1px solid var(--line); margin:22px 0 0}
+
+  .verdict{background:var(--card); border:1px solid var(--line); border-left:3px solid var(--accent);
+    border-radius:10px; padding:20px 24px; margin-top:34px; box-shadow:var(--shadow)}
+  .verdict .l{font-size:11px; font-weight:700; letter-spacing:.13em; text-transform:uppercase; color:var(--accent); margin-bottom:8px}
+  .verdict p{margin:8px 0}
+  .verdict p:first-of-type{margin-top:0}
+
+  .quote{border-left:3px solid var(--warn); background:var(--warn-soft); border-radius:8px; padding:14px 18px; margin:16px 0; font-size:14.5px; color:var(--ink-2)}
+  .quote b{color:var(--ink)}
+  .quote .src{display:block; font-size:12px; color:var(--muted); margin-top:6px; font-style:normal}
+
+  .duo{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:16px 0}
+  @media (max-width:680px){ .duo{grid-template-columns:1fr} }
+  .panel{background:var(--card); border:1px solid var(--line); border-radius:10px; padding:16px 18px; box-shadow:var(--shadow)}
+  .panel .l{font-size:11px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; margin-bottom:8px}
+  .panel.guard{border-top:3px solid var(--neg)} .panel.guard .l{color:var(--neg)}
+  .panel.share{border-top:3px solid var(--pos)} .panel.share .l{color:var(--pos)}
+  .panel ul{margin:0; padding-left:18px; font-size:13.5px}
+  .panel li{margin:6px 0; color:var(--ink-2)} .panel li b{color:var(--ink)}
+  .panel .tag{display:inline-block; font-size:11px; font-weight:700; padding:2px 9px; border-radius:99px; margin-bottom:8px}
+  .tag.no{background:var(--neg-soft); color:var(--neg)} .tag.yes{background:var(--pos-soft); color:var(--pos)}
+
+  .pillars{display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin:18px 0 6px}
+  @media (max-width:680px){ .pillars{grid-template-columns:1fr} }
+  .pill{background:var(--card); border:1px solid var(--line); border-radius:10px; padding:15px 16px; box-shadow:var(--shadow)}
+  .pill .n{font-size:11px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:var(--accent); margin-bottom:6px}
+  .pill .t{font-weight:700; font-size:14.5px; margin-bottom:5px; line-height:1.25}
+  .pill p{font-size:13px; color:var(--ink-2); margin:0}
+
+  .flow{display:flex; align-items:stretch; gap:0; flex-wrap:wrap; margin:18px 0 4px}
+  .fstep{background:var(--card); border:1px solid var(--line); border-radius:10px; padding:13px 15px; box-shadow:var(--shadow); flex:1; min-width:150px}
+  .fstep .fk{font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--muted)}
+  .fstep .fv{font-size:14px; font-weight:700; margin-top:3px; line-height:1.3}
+  .fstep .fv b{color:var(--accent)}
+  .farrow{display:flex; align-items:center; justify-content:center; color:var(--accent); font-weight:800; font-size:18px; padding:0 8px}
+  @media (max-width:640px){ .farrow{transform:rotate(90deg); padding:4px 0} .fstep{min-width:100%} }
+
+  .say{background:var(--accent-soft); border:1px solid var(--line); border-radius:10px; padding:18px 20px; margin:16px 0; font-family:"Iowan Old Style",Palatino,Georgia,serif; font-size:17px; line-height:1.5; color:var(--ink)}
+  .say .l{font-family:-apple-system,BlinkMacSystemFont,sans-serif; font-size:11px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--accent); margin-bottom:10px}
+
+  .tblwrap{overflow-x:auto; border:1px solid var(--line); border-radius:10px; background:var(--card); box-shadow:var(--shadow); margin:16px 0}
+  table{border-collapse:collapse; width:100%; font-size:13.5px; min-width:560px}
+  th{font-size:11px; text-transform:uppercase; letter-spacing:.06em; color:var(--muted); text-align:left;
+    padding:11px 14px; border-bottom:1px solid var(--line); font-weight:700; white-space:nowrap}
+  td{padding:10px 14px; border-bottom:1px solid var(--line); vertical-align:top; color:var(--ink-2)}
+  tr:last-child td{border-bottom:0}
+  td b{color:var(--ink); font-weight:650}
+  td:first-child{color:var(--ink); font-weight:600; white-space:nowrap}
+
+  ul.tight{margin:8px 0; padding-left:20px}
+  ul.tight li{margin:8px 0; max-width:74ch; color:var(--ink-2)}
+  ul.tight li b{color:var(--ink)}
+  ol.tight{margin:8px 0; padding-left:22px}
+  ol.tight li{margin:10px 0; max-width:74ch; color:var(--ink-2)}
+  ol.tight li b{color:var(--ink)}
+  .keyterm{background:var(--accent-soft); border:1px solid var(--line); border-left:3px solid var(--accent); border-radius:10px; padding:16px 20px; margin:16px 0}
+  .keyterm .l{font-size:11px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--accent); margin-bottom:8px}
+  .keyterm p{margin:6px 0}
+  .steps{display:grid; gap:10px; margin:18px 0}
+  .stp{display:grid; grid-template-columns:34px 1fr; gap:14px; background:var(--card); border:1px solid var(--line); border-radius:10px; padding:14px 16px; box-shadow:var(--shadow); align-items:start}
+  .stp .num{font-family:"Iowan Old Style",Palatino,Georgia,serif; font-size:22px; font-weight:700; color:var(--accent); line-height:1.1; font-variant-numeric:tabular-nums}
+  .stp .t{font-weight:700; font-size:14.5px; line-height:1.3}
+  .stp .t .when{display:inline-block; font-weight:700; color:var(--accent); font-size:10.5px; margin-left:8px; text-transform:uppercase; letter-spacing:.06em; vertical-align:middle}
+  .stp p{font-size:13px; color:var(--ink-2); margin:5px 0 0; max-width:none}
+  .stp .why{font-size:12.5px; color:var(--muted); margin-top:6px}
+  .stp .why b{color:var(--accent)}
+
+  .change{display:grid; grid-template-columns:1fr 1fr; gap:0; border:1px solid var(--line); border-radius:10px; overflow:hidden; margin:12px 0; box-shadow:var(--shadow)}
+  @media (max-width:680px){ .change{grid-template-columns:1fr} }
+  .change .was,.change .now{padding:13px 16px; font-size:13.5px}
+  .change .was{background:var(--card); color:var(--muted); border-right:1px solid var(--line)}
+  @media (max-width:680px){ .change .was{border-right:0; border-bottom:1px solid var(--line)} }
+  .change .now{background:var(--card); color:var(--ink-2)}
+  .change .k{font-size:10px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; margin-bottom:5px}
+  .change .was .k{color:var(--muted)} .change .now .k{color:var(--pos)}
+  .change .now b,.change .was b{color:var(--ink)}
+
+  .open{background:var(--warn-soft); border-left:3px solid var(--warn); border-radius:8px; padding:14px 18px; margin:16px 0; font-size:13.5px; color:var(--ink-2)}
+  .open b{color:var(--ink)}
+  .foot{margin-top:70px; padding-top:18px; border-top:1px solid var(--line); font-size:12px; color:var(--muted)}
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Minds &amp; Models · GTM strategy · Confidential</div>
+    <h1>The retailer win-win — and the GTM reality behind it</h1>
+    <p class="kicker">How to sell in-store shopper intelligence without it looking like we're arming the retailer's counterparty. Built on a 15-year brand insider's read of how retailers and brands actually behave — which forced a real correction to the earlier plan.</p>
+    <div class="meta">
+      <span><b>Companion to</b> <a href="https://claude.ai/code/artifact/a30697c8-d381-4411-8ee1-4f8f6851c29c">the strategy report</a></span>
+      <span><b>Source</b> insider · 15+ yrs at brands, 10 at P&amp;G</span>
+      <span><b>Date</b> 22 Jul 2026</span>
+    </div>
+    <hr class="rule">
+  </header>
+
+  <div class="verdict">
+    <div class="l">The turn in one paragraph</div>
+    <p>The retailer will never let us sell their shopper data to brands for a cut — because that data is their leverage in the negotiation they care about most: <b>buying from those same brands</b>. So the model can't be "we monetize your data." It has to be <b>"we build you your own dunnhumby"</b>: the retailer monetizes their <i>own</i> audience to brands, keeps control and the majority of the money, and we're the intelligence layer underneath. Two guardrails make it safe — a hard firewall between <b>trading data</b> (never leaves the retailer) and <b>audience/media data</b> (the only thing brands ever see), and a value proposition where our data <i>strengthens</i> the retailer's hand against brands instead of weakening it.</p>
+  </div>
+
+  <!-- 01 CONFLICT -->
+  <section>
+    <div class="eyebrow">01 · The objection, stated plainly</div>
+    <h2>Why the obvious model looks like theft</h2>
+    <p>The earlier plan — sell shopper insights to brands, give the retailer a rev-share — assumed the retailer is a willing data supplier. The insider says that assumption is exactly backwards:</p>
+    <div class="quote">
+      "Data is extremely valuable to retailers. They absolutely do not want to share any information with the brands under any circumstances — it would weaken their negotiating position during purchasing. Finding a win-win with retailers is the biggest challenge."
+      <span class="src">— brand insider, 15+ years</span>
+    </div>
+    <p>The logic is airtight from the retailer's chair: the retailer's profit is made buying well from brands. Shopper insight — who buys, how much, how price-sensitive — is the leverage in that negotiation. Hand it to the brand and you've sold the retailer's poker hand to the player across the table. <b>That's why our model "seems like stealing" — from the retailer's side, it is.</b> Any GTM that doesn't resolve this dies at the first serious retailer conversation, and those conversations happen <b>at CEO level over a ~2-year cycle</b>, so we don't get many shots.</p>
+  </section>
+
+  <!-- 02 FIREWALL -->
+  <section>
+    <div class="eyebrow">02 · The unlock</div>
+    <h2>There are two datasets, and retailers feel opposite things about them</h2>
+    <p>"Shopper data" is not one thing. Inside it are two datasets a retailer treats completely differently — and our visual data sits entirely in the safe one.</p>
+    <div class="duo">
+      <div class="panel guard">
+        <span class="tag no">Never leaves the retailer</span>
+        <div class="l">Trading data — their leverage</div>
+        <ul>
+          <li><b>Sell-through</b> by SKU, velocity, share</li>
+          <li><b>Margins &amp; cost</b>, price elasticity</li>
+          <li><b>Promo response</b>, listing performance</li>
+          <li>Anything that reveals what the retailer will pay or accept from a brand</li>
+        </ul>
+      </div>
+      <div class="panel share">
+        <span class="tag yes">Monetizable to brands</span>
+        <div class="l">Audience / media data — our layer</div>
+        <ul>
+          <li><b>Who's in the store</b> — demographics, personas, life stage</li>
+          <li><b>Engagement &amp; dwell</b>, who saw an ad and responded</li>
+          <li><b>Aggregated, anonymized</b> audience segments for targeting &amp; measurement</li>
+          <li>The "who" a retail media network sells — and cameras see it, POS panels don't</li>
+        </ul>
+      </div>
+    </div>
+    <p>This is the whole unlock. Selling <b>audience data for media</b> does not weaken a retailer's purchasing position — it's a separate value pool, which is exactly why every major grocer already sells it (below). Selling <b>trading data</b> would be suicide, and we simply never do it. <b>Say this out loud, first, in every retailer conversation:</b> "your margins, your sell-through, your negotiating data never leave this building — we deal only in aggregated shopper audiences, and you decide what's exposed."</p>
+  </section>
+
+  <!-- 03 WIN-WIN MODEL -->
+  <section>
+    <div class="eyebrow">03 · The model</div>
+    <h2>Retailer as monetizer — not source</h2>
+    <p>The role change that resolves everything: the retailer doesn't hand us data to sell. <b>The retailer monetizes their own audience to brands</b>, on their terms, and we're the infrastructure that makes their audience uniquely valuable and measurable. This is the pattern retailers already understand and respect — because the biggest ones built it:</p>
+    <div class="tblwrap"><table>
+      <thead><tr><th>Retailer</th><th>Their data business</th><th>What it proves</th></tr></thead>
+      <tbody>
+        <tr><td>Tesco</td><td>dunnhumby</td><td>Shopper data as a business worth more than the grocery margin</td></tr>
+        <tr><td>Kroger</td><td>84.51°</td><td>Retailer-owned, retailer-controlled, sells to brands at huge margin</td></tr>
+        <tr><td>Sainsbury's</td><td>Nectar360</td><td>Audience monetization without giving up trading leverage</td></tr>
+        <tr><td>Carrefour / Ahold</td><td>in-house RMN + data</td><td>Now standard practice across European grocery</td></tr>
+      </tbody>
+    </table></div>
+    <div class="flow">
+      <div class="fstep"><div class="fk">Retailer</div><div class="fv">Owns the audience &amp; the <b>control</b></div></div>
+      <div class="farrow">+</div>
+      <div class="fstep"><div class="fk">M&amp;M</div><div class="fv"><b>Intelligence layer</b> — the "who" + measurement</div></div>
+      <div class="farrow">→</div>
+      <div class="fstep"><div class="fk">Brands</div><div class="fv">Pay for <b>audience &amp; measurement</b> (RMN)</div></div>
+      <div class="farrow">→</div>
+      <div class="fstep"><div class="fk">Split</div><div class="fv">Retailer keeps the <b>majority</b>; M&amp;M takes infra margin</div></div>
+    </div>
+    <p>The difference between "you're stealing our leverage" and "you built us our own dunnhumby" is entirely this framing. Same cameras, same data — opposite reception.</p>
+  </section>
+
+  <!-- 04 VALUE PROP -->
+  <section>
+    <div class="eyebrow">04 · The value proposition to the retailer</div>
+    <h2>Three things they get — and none of it costs them leverage</h2>
+    <div class="pillars">
+      <div class="pill"><div class="n">Pillar 1</div><div class="t">A new profit center</div><p>A retail-media / audience-licensing revenue stream monetizing their own shoppers — high margin, built on our infra, no capex, no data-science team to hire. They keep the majority.</p></div>
+      <div class="pill"><div class="n">Pillar 2</div><div class="t">Total control &amp; a firewall</div><p>They decide what's packaged and exposed. Trading data never leaves. Aggregated, anonymized, k-anonymous audiences only. Their leverage is contractually and technically protected.</p></div>
+      <div class="pill"><div class="n">Pillar 3</div><div class="t">A sharper hand vs brands</div><p>The same who + conversion data makes <i>them</i> a smarter category manager and tougher negotiator. Our data <b>strengthens</b> their buying position — the opposite of the fear.</p></div>
+    </div>
+    <div class="say">
+      <div class="l">What you actually say to the retailer CEO</div>
+      "We turn your stores into a measurable, monetizable audience — the way Tesco and Kroger did — but you keep total control and the majority of the new revenue. Your margins, costs and sell-through never leave the building. Brands only ever see aggregated shopper audiences, for media. And the same intelligence that earns you that new revenue also makes you a smarter buyer against those brands. We're not asking you to pay us or share your leverage — we're building you a new profit center and taking a cut of what the brands pay."
+    </div>
+    <p>Note what this pitch is <b>not</b>: it is not "personalization" (the insider is blunt that retailers don't care what sells, so they won't buy it), and it is not "give us your data." It's "we build and run your audience-monetization business."</p>
+  </section>
+
+  <!-- 05 GTM REALITY -->
+  <section>
+    <div class="eyebrow">05 · GTM reality</div>
+    <h2>Long cycles at the top, fast wins in the middle</h2>
+    <div class="quote">
+      "A large retailer like Billa won't even talk unless there's at least 10M CZK of upside for them. Decisions are made at CEO level. Our sales cycle with large retailers averaged two years — even with contacts."
+      <span class="src">— brand insider</span>
+    </div>
+    <ul class="tight">
+      <li><b>Reframe the 10M ask: never ask a giant to pay 10M — offer to create 10M+.</b> A retail-media network on their audience is a new profit center, not a cost line. The conversation becomes "here's a new revenue stream," not "here's an invoice."</li>
+      <li><b>Don't lead GTM with grocery giants.</b> Billa/COOP/Albert are 2-year, CEO-gated, ~2028–29 outcomes. Start those cycles <i>now, in parallel</i>, but don't stake near-term revenue on them.</li>
+      <li><b>Lead with mid-size &amp; specialist — which is exactly your live pipeline.</b> EuroOil, SuperZoo, Teta, GymBeam sit below Billa-tier: shorter cycles, less bureaucracy, decisions in months. Prove the model and generate the case studies there.</li>
+      <li><b>Use brand pull to compress the giant cycle.</b> Brands "pay for almost anything" (below). If a tobacco major or a P&amp;G-type tells a retailer "we want in-store measurement on your stores," you arrive invited, not cold — the single fastest way to shorten a 2-year cycle. The tobacco meeting can plant exactly this.</li>
+    </ul>
+  </section>
+
+  <!-- 06 BRAND PITCH -->
+  <section>
+    <div class="eyebrow">06 · The brand side — a correction</div>
+    <h2>Sell measurement, not personas</h2>
+    <div class="quote">
+      "At P&amp;G we already had very well-developed buyer personas — I wouldn't see that much value in visual shopper data. On the other hand, P&amp;G has enormous money and was willing to pay for almost anything — hundreds of millions of CZK on market research."
+      <span class="src">— brand insider, 10 yrs at P&amp;G</span>
+    </div>
+    <p>This is a useful corrective that changes the brand pitch. To a sophisticated brand, <b>"here are demographic personas" is commoditized</b> — they have better ones. The value we sell them is not profiling; it's what even P&amp;G can't buy:</p>
+    <ul class="tight">
+      <li><b>Observed, in-store, closed-loop measurement</b> — who actually engaged at the shelf and bought, attributable to a campaign, in real time. Personas are profiling (they have it); this is measurement (they don't).</li>
+      <li><b>The budget is bottomless — you just have to be in the right line item.</b> "Pays for almost anything" is the real signal: sell into the <i>measurement / currency</i> budget, not the <i>research / panel</i> budget.</li>
+    </ul>
+    <p>Two things keep the persona value alive, so we don't over-correct: <b>(1)</b> most brands aren't P&amp;G — your actual pipeline (tobacco, pet, beer, mid-tier) has nothing like P&amp;G's persona depth and will value the raw insight; <b>(2)</b> even for the giants, persona <i>discovery</i> being commoditized doesn't make in-store <i>measurement</i> commoditized — that gap is real, and it's what their bottomless research budget exists to fill. Segment the brand pitch: <b>giants buy currency &amp; measurement; mid-tier buys insight &amp; personas.</b></p>
+  </section>
+
+  <!-- 07 WHAT CHANGED -->
+  <section>
+    <div class="eyebrow">07 · What this changes vs the earlier plan</div>
+    <h2>Three corrections, honestly logged</h2>
+
+    <div class="change">
+      <div class="was"><div class="k">Was</div>M&amp;M sells shopper data to brands; retailer takes a <b>~28% rev-share</b> as supplier.</div>
+      <div class="now"><div class="k">Now</div>Retailer monetizes their <b>own</b> audience via our infra and keeps the <b>majority</b>; M&amp;M takes an infra/measurement margin. The 28% split was likely backwards — this lowers our per-euro take but makes the deal closeable.</div>
+    </div>
+    <div class="change">
+      <div class="was"><div class="k">Was (a brief detour)</div>Charge the retailer for the insight dashboard — "they pay millions for data anyway."</div>
+      <div class="now"><div class="k">Now — reverted</div>That rested on a misread (the "500k–1M CZK/month" figure was the insider's <i>own</i> product, not retailer data spend). Dashboard goes back to <b>cheap/free barter in exchange for data rights</b> — as the original report proposed.</div>
+    </div>
+    <div class="change">
+      <div class="was"><div class="k">Was</div>Lead brand pitch with <b>persona / demographic depth</b>.</div>
+      <div class="now"><div class="k">Now</div>Lead with <b>in-store closed-loop measurement</b>; keep personas for mid-tier brands only. Segment the pitch by brand sophistication.</div>
+    </div>
+
+    <p>The net effect is a cleaner, more honest model. It removes a tempting shortcut ("retailers are big data buyers, just sell to them") we had no evidence for, and it replaces "monetize their data" (theft) and "sell them dashboards" (unproven wallet) with a single defensible motion: <b>the retailer is a partner you win with control, rights and operational upside — not a customer you invoice — and the money comes from brands through a channel the retailer owns.</b></p>
+
+    <div class="open"><b>Open question to validate — don't build on it yet.</b> We now have no reliable read on whether retailers will pay <i>directly</i> for operational intelligence. If they will, "ops intelligence sold to the retailer" is a real second revenue line; if they won't, it's purely the barter that earns the rights. Get the insider — or a retailer contact — to say what a Czech retailer's actual annual external data/analytics spend looks like before we model any retailer-direct revenue.<p></p></div>
+  </section>
+
+  <!-- 08 VALUATION LENS -->
+  <section>
+    <div class="eyebrow">08 · Valuation lens</div>
+    <h2>Closeable is not the same as valuable</h2>
+    <p>Retailer-as-monetizer maximizes <b>closeability</b> — it gets you in the door and defuses the conflict. It does not, on its own, maximize <b>valuation</b>. Those are different objectives, and confusing them is where companies in this space leave most of their value behind. Valuation is set by one question: <b>what do you own that no one can take back or rebuild?</b> That sorts the three possible structures.</p>
+    <div class="tblwrap"><table>
+      <thead><tr><th>Structure</th><th>What you own</th><th>Who owns the asset</th><th>Multiple &amp; ceiling</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><b>Pure enablement</b><br>retailer-as-monetizer, nothing more</td>
+          <td>The tooling</td>
+          <td>Retailer owns data, audience &amp; brand relationship</td>
+          <td><b>~4–8×</b> · capped; disintermediable the day they build in-house (Cooler Screens fate). You built dunnhumby — but it's <i>Tesco's</i>.</td>
+        </tr>
+        <tr>
+          <td><b>Independent currency</b><br>own the cross-retailer aggregate</td>
+          <td>The dataset, the rights, the brand relationships</td>
+          <td>You</td>
+          <td><b>~8–15×</b> · a cross-retailer moat no single retailer can replicate. This is why NIQ is a $4B company.</td>
+        </tr>
+        <tr>
+          <td><b>Hybrid</b> — enablement surface, owned aggregate core</td>
+          <td>Perpetual aggregate license + infra</td>
+          <td>Retailer owns their slice; <b>you own the blend</b></td>
+          <td>Highest risk-adjusted path to the high multiple. The wedge funds deployment; the aggregate is the value.</td>
+        </tr>
+      </tbody>
+    </table></div>
+    <p><b>The valuation lives in the second row; retailer-as-monetizer alone is the first.</b> So on its own it caps your ceiling. The resolution is the hybrid: concede the per-retailer economics (they keep the majority, control their taps) <i>precisely because</i> the per-retailer cut isn't where your value is — the value is the aggregate, which exposes no single retailer's data and is a genuinely different product. Being generous per-retailer and owning the aggregate are fully compatible.</p>
+    <div class="keyterm">
+      <div class="l">The one term that decides your valuation</div>
+      <p>Not the rev-share percentage. It's whether you retain a <b>perpetual, irrevocable license to the de-identified, aggregated, cross-retailer layer</b> (held in a separate entity). That single clause is the difference between a ~5× enablement vendor and a ~12× measurement currency.</p>
+      <p style="margin-bottom:0"><b>Give ground on almost everything a retailer can see and touch</b> — the RMN split, their control, the free dashboard. <b>Hold the line on that one clause.</b> Fight for it explicitly, disclose it (hiding it is the landmine), and trade away nearly anything else to keep it.</p>
+    </div>
+    <h3>The acquirer test — the cleanest way to see it</h3>
+    <p>The premium exit is NIQ or Circana buying the "who" layer they structurally lack. For them to pay a <i>strategic</i> premium, you must own something they can't just go get from the retailers directly. If the retailer owns the data and the relationship, NIQ bypasses you and goes to them — you're a modest tech tuck-in. If <b>you</b> own the cross-retailer visual aggregate and the rights, NIQ has to buy <b>you</b> to avoid being disrupted. Same cameras — the ownership structure is the entire difference between a tuck-in and a strategic premium.</p>
+    <ul class="tight">
+      <li><b>GDPR / no cross-visit ID doesn't block this.</b> The aggregate currency is cohort-level (k-anonymous category reads) — it needs no cross-visit ID and stays within GDPR when sensitive attributes are coarsened. The crown jewel is legally buildable in the EU.</li>
+      <li><b>Enablement isn't worthless</b> — it funds you, de-risks you, and builds the network you aggregate. Just don't mistake the wedge for the prize.</li>
+    </ul>
+    <p style="font-weight:600;color:var(--ink)">Retailer-as-monetizer is the front door. The owned cross-retailer currency is the house. If the goal is valuation, build both — and never trade the aggregate-rights clause.</p>
+  </section>
+
+  <!-- 09 NEXT STEPS -->
+  <section>
+    <div class="eyebrow">09 · Next steps — to accelerate</div>
+    <h2>How to compress the timeline from where you stand</h2>
+    <p>Position today: <b>8 chains engaged, 4 pilots live, 2 expansions committed (EuroOil 50, SuperZoo 10–15), 0 data rights signed, €0 brand revenue.</b> Everything downstream is gated by the two stages sitting at zero. The strategy report's 30/90/180 plan still holds; these are the <b>accelerators</b> that break the zero fastest and plant the valuation asset early — in leverage order.</p>
+    <div class="steps">
+      <div class="stp"><div class="num">1</div><div>
+        <div class="t">Sign SuperZoo data rights this month, riding the committed expansion <span class="when">this week → 30d</span></div>
+        <p>Warmest relationship, real POS, marketing advocate. Bundle the Data Partner Agreement into the 10–15 store expansion they already want (push 30) — <b>with the aggregate-rights clause and the trading-data firewall in it</b>. Frame it as win-win: they monetize their own audience, keep the majority, control the taps.</p>
+        <div class="why"><b>Accelerator:</b> breaks the 0/8 rights zero, sets the reusable template, and plants the single valuation-critical clause in contract #1 — all in one move.</div>
+      </div></div>
+      <div class="stp"><div class="num">2</div><div>
+        <div class="t">Turn the tobacco meeting into brand pull, then walk it into EuroOil <span class="when">next 2–3 weeks</span></div>
+        <p>Collect per-brand LOIs (250–500k CZK category pilots, "subject to retailer data agreement"). Then take "JTI/PMI are ready to pay X for a linked read on your stores" to EuroOil as the reason to sign POS + rights. Disclose the data probe to EuroOil <i>before</i> the meeting.</p>
+        <div class="why"><b>Accelerator:</b> brand demand told to a retailer is the only thing that compresses a multi-year retailer cycle — it flips you from cold vendor to invited partner.</div>
+      </div></div>
+      <div class="stp"><div class="num">3</div><div>
+        <div class="t">Productize the GymBeam category read so a brand study ships in days, not weeks <span class="when">30–60d</span></div>
+        <p>The one-off insight study (150–500k, sellable the moment rights land) is your fastest revenue and your reference-logo engine. Templatize the GymBeam-style deck + pipeline so each new brand study is assembly, not a rebuild. Lead the pitch with <b>measurement</b>, not personas.</p>
+        <div class="why"><b>Accelerator:</b> turns each rights signature into revenue in weeks, and every study into a case study that shortens the next retailer and brand conversation.</div>
+      </div></div>
+      <div class="stp"><div class="num">4</div><div>
+        <div class="t">Ship one standard Data Partner Agreement template — firewall + aggregate license <span class="when">30d</span></div>
+        <p>Every pipeline conversation should start from a signed-elsewhere template, not a blank page. Bake in the trading-data-vs-media-data firewall (defuses the objection on contact) and the perpetual aggregate license (the valuation asset). Reuse across SuperZoo → EuroOil → Teta → GymBeam.</p>
+        <div class="why"><b>Accelerator:</b> a proven paper removes the slowest, most bespoke part of each deal — legal — and standardizes the one clause that matters for valuation.</div>
+      </div></div>
+      <div class="stp"><div class="num">5</div><div>
+        <div class="t">Start the grocery-giant cycles now, in parallel — Billa, COOP, Albert <span class="when">start now, land 2028</span></div>
+        <p>They're CEO-level, ~2-year, 2028–29 outcomes — which is exactly why they start today. Open with "we'll build you a new 10M+ CZK profit center" (create revenue, don't invoice), backed by brand pull and the first case studies. COOP is already in your pipeline; treat it as a long-cycle seed, not a near-term line.</p>
+        <div class="why"><b>Accelerator:</b> the only lever on a 2-year cycle is the start date. Every month you wait is a month later at the far end where the 100–200M cap lives.</div>
+      </div></div>
+      <div class="stp"><div class="num">6</div><div>
+        <div class="t">Get the one missing number: retailer external-data spend <span class="when">this week</span></div>
+        <p>Ask the insider (or a retailer contact) what a Czech retailer actually spends per year on external data/analytics. Cheap, fast, and it resolves whether "operational intelligence sold to the retailer" is a real second revenue line or purely the barter for rights.</p>
+        <div class="why"><b>Accelerator:</b> removes the biggest remaining unknown in the model before it costs a mispriced deal or a wrong slide in the raise.</div>
+      </div></div>
+    </div>
+    <div class="keyterm">
+      <div class="l">The thread through all six</div>
+      <p style="margin-bottom:0">Steps 1, 4 and 5 all carry the <b>aggregate-rights clause</b>. That's deliberate: the fastest revenue comes from per-retailer deals, but the <i>valuation</i> comes from getting that one clause into the first two or three contracts — establishing the cross-retailer asset early, while retailers are still saying yes to expansion. Speed of revenue and size of valuation are two different races, run with the same signatures.</p>
+    </div>
+    <p>How this sharpens the report's sequencing (§7–§8): same order — <b>SuperZoo → EuroOil (via the meeting) → Teta → giants</b> — but every retailer approach now leads with the win-win framing, every brand pitch leads with measurement over personas, and every contract carries the aggregate-rights clause. The plan didn't change; the way you walk into each room did.</p>
+  </section>
+
+  <p class="foot">Companion to the data-infrastructure strategy report. Primary input: a brand-side insider (15+ years at brands, 10 at P&amp;G), July 2026, whose read on retailer data-guarding, CEO-level ~2-year sales cycles, and brand research budgets forced the corrections logged in §07. Retailer-owned data-business precedents (dunnhumby, 84.51°, Nectar360) are public and illustrative. Confidential — Minds &amp; Models internal.</p>
+</div>
+
+</body></html>

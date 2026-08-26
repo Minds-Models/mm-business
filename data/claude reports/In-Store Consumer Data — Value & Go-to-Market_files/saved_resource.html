@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<!-- saved from url=(0133)https://a30697c8-d381-4411-8ee1-4f8f6851c29c.frame.claudeusercontent.com/_f/1784797385-6726/?__frame_v=manifest.549c0ed89764d31f.json -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><!-- frame-runtime --><!--<base href="/_f/1784797385-6726/">--><base href="."><script>window.__FRAME_PREAMBLE={"capabilities":{"artifact":"artifact.oqIe8shs.js","assets":"assets.BkxVItX2.js","comments":"comments.GLuHR3zP.js","db":"db.CRhVHzSt.js","downloads":"downloads.C3GSvEDP.js","embed":"embed.CZsbekoQ.js","mcp":"mcp.D3B2EyQu.js","permissions":"permissions.BNySkLV5.js","room":"room.DE7EMui-.js","sample":"sample.C7z_6W62.js","self":"artifact.oqIe8shs.js","user":"user.BpKav-Rf.js"},"transforms":"_transforms.h3_8GSUa.js","comments":"_comments.BOgkE6qU.js","translate":"_translate.5HCW4BJh.js"}</script><script>(function(){"use strict";var Y=["light","dark","system"],X=/^[A-Za-z0-9_-]{1,64}$/,D=/^[a-zA-Z_:][a-zA-Z0-9_:.-]{0,127}$/,G=new Set(["class","hidden","value","checked"]);function V(e){const t=e.toLowerCase();return t.startsWith("data-")||t.startsWith("aria-")||G.has(t)}var be="http://www.w3.org/1999/xhtml",Z="http://www.w3.org/2000/svg",J=new Set(["script","style","iframe","noscript","noframes","noembed","xmp","plaintext","template","title","textarea","object","embed"]),Q=new Set(["script","style"]);function ee(e){const t=e.localName.toLowerCase();return e.namespaceURI==="http://www.w3.org/1999/xhtml"?!J.has(t):e.namespaceURI===Z?!Q.has(t):!1}var te=new Set(["html","head","body","frameset"]);function re(e){return e.namespaceURI==="http://www.w3.org/1999/xhtml"&&te.has(e.localName)}function ne(e){if(e===null||typeof e!="object")return!1;const t=e;if(typeof t.target!="string"||!X.test(t.target)||t.text!==void 0&&typeof t.text!="string")return!1;if(t.attrsSet!==void 0){if(t.attrsSet===null||typeof t.attrsSet!="object")return!1;for(const[n,s]of Object.entries(t.attrsSet))if(!D.test(n)||typeof s!="string")return!1}if(t.attrsRemoved!==void 0){if(!Array.isArray(t.attrsRemoved))return!1;for(const n of t.attrsRemoved)if(typeof n!="string"||!D.test(n))return!1}return!0}function se(e,t){if(e===null||typeof e!="object")return!1;const{seq:n,elements:s}=e;if(typeof n!="number"||!Number.isSafeInteger(n)||!Array.isArray(s)||s.length===0||s.length>64)return!1;for(let o=0;o<s.length;o++)if(!t(s[o]))return!1;return!0}function ae(e){return e===null||typeof e!="object"?!1:se(e.__frame_patch,ne)}function oe(e){if(e===null||typeof e!="object")return!1;const t=e.__frame_init;return t!==null&&typeof t=="object"}function ie(e){return e!==null&&typeof e=="object"&&e.__frame_size_poke===!0}function le(e){if(e===null||typeof e!="object")return!1;const t=e.__frame_theme;if(t===null||typeof t!="object")return!1;const n=t.theme;return typeof n=="string"&&Y.includes(n)}var O="__frame_scroll",ce=150,ue=310,fe=160,pe=3e4;function de(){let e=0,t=!1,n=!1,s=!1,o=0,l=null;const c=i=>{try{sessionStorage.setItem(O,JSON.stringify({y:i}))}catch{}},f=()=>{if(clearTimeout(e),l===null)return;const i=l;l=null,c(i)},S=()=>{if(t){t=!1;return}n=!0,l=scrollY,clearTimeout(e),e=setTimeout(f,ce)};try{addEventListener("scroll",S,{passive:!0}),addEventListener("pagehide",f)}catch{}const v=()=>{let i;try{i=sessionStorage.getItem(O)}catch{return null}if(i===null)return null;let d;try{d=JSON.parse(i)}catch{d=null}const u=d?.y;if(!(typeof u=="number"&&Number.isFinite(u)&&u>=0)){try{sessionStorage.removeItem(O)}catch{}return null}return u};let b=!1;const m=i=>{try{const d=scrollY;scrollTo({top:i,left:0,behavior:"instant"}),o=i,s=!0,clearTimeout(e),l=null,c(i);const u=scrollY;u!==d&&(t=!0),u!==i&&!b&&(b=!0,addEventListener("load",()=>{try{if(scrollY===u){const h=v();m(h!==null?h:o)}}catch{}},{once:!0}))}catch{}},y=()=>{try{return!!location.hash}catch{return!0}};let g=!1;const E=()=>{try{if(g||innerWidth>ue||innerHeight>fe)return;g=!0;const i=Date.now(),d=()=>{try{removeEventListener("resize",d)}catch{}if(Date.now()-i>pe||n||y())return;const u=v();m(u!==null?u:o)};addEventListener("resize",d)}catch{}};let r=!1,p=!1;return{restore(){if(r||(r=!0,y()))return;const i=v();i!==null&&(m(i),E())},promoted(){if(p||(p=!0,y()))return;const i=v();i!==null?(m(i),E()):s&&m(o)}}}var Ee="modulepreload",Ae=function(e){return"/"+e},Re={},me=function(t,n,s){let o=Promise.resolve();function l(c){const f=new Event("vite:preloadError",{cancelable:!0});if(f.payload=c,window.dispatchEvent(f),!f.defaultPrevented)throw c}return o.then(c=>{for(const f of c||[])f.status==="rejected"&&l(f.reason);return t().catch(l)})};(function(){const e=Object.defineProperty,t=globalThis,n=["RTCPeerConnection","webkitRTCPeerConnection","RTCDataChannel","RTCIceCandidate","RTCSessionDescription","RTCRtpSender","RTCRtpReceiver"];let s=0;for(let o=0;o<n.length;o++){const l=n[o];try{e(t,l,{value:void 0,writable:!1,configurable:!1})}catch{try{delete t[l]}catch{}try{e(t,l,{value:void 0,writable:!1,configurable:!0})}catch{}}typeof t[l]=="function"&&s++}if(s&&window!==top)try{parent.postMessage({__frame_rtc_lockdown_failed:s},"*")}catch{}})();var he=1e4,_e=Object.freeze([...window.__FRAME_PREAMBLE?.origins??["https://claude.ai","https://preview.claude.ai"]]);function F(e){for(const t of _e)if(t.endsWith(":*"))try{const n=new URL(e);if(`${n.protocol}//${n.hostname}:*`===t)return!0}catch{}else if(e===t)return!0;return!1}var M=Object.freeze({...window.__FRAME_PREAMBLE?.capabilities}),j=window.__FRAME_PREAMBLE?.transforms,N=window.__FRAME_PREAMBLE?.comments,I=window.__FRAME_PREAMBLE?.translate,L=/^[\w.-]+\.js$/;function T(e){return me(()=>import("/_runtime/"+e),void 0)}function z(e,t){return{contract:e.contract,changes:new Set(e.changes??[]),flags:new Set(e.flags??[]),capabilities:e.capabilities??{},capBudgets:e.capBudgets??{},transforms:new Map,shellOrigin:t,mount:W,pipe:()=>({wrap:(n,s)=>(...o)=>{try{return s(...o)}catch(l){return Promise.reject(l)}}})}}var P=null,w=null;function q(e,t,n){try{Object.defineProperty(e,t,{value:n,writable:!1,configurable:!1,enumerable:!0})}catch{try{Object.defineProperty(e,t,{value:n,writable:!1,configurable:!0,enumerable:!0})}catch{}}}var B=!1;function ve(e,t){const n=[];for(const s of e.elements){const o=document.querySelector(`[data-id="${s.target}"]`);if(!o){parent.postMessage({__frame_patch_miss:{seq:e.seq}},t);return}if([...Object.keys(s.attrsSet??{}),...s.attrsRemoved??[]].some(l=>!V(l))){parent.postMessage({__frame_patch_miss:{seq:e.seq}},t);return}if(s.text!==void 0&&(!ee(o)||re(o))){parent.postMessage({__frame_patch_miss:{seq:e.seq}},t);return}for(const[l,c]of Object.entries(s.attrsSet??{}))if(!$(o,l)){try{o.setAttribute(l,c)}catch{}H(o,l,c)}for(const l of s.attrsRemoved??[])$(o,l)||(o.removeAttribute(l),H(o,l,null));typeof s.text=="string"&&(o.textContent=s.text),n.push(s.target)}try{document.dispatchEvent(new CustomEvent("claude:edit",{detail:{seq:e.seq,targets:n}}))}catch{}}function H(e,t,n){if(!(e instanceof HTMLInputElement))return;const s=t.toLowerCase();s==="checked"?e.checked=n!==null:s==="value"&&e.type!=="file"&&(e.value=n??"")}function $(e,t){const n=t.toLowerCase(),s=e;return n==="data-id"||(n==="value"||n==="checked")&&(s.__artifactSecret===!0||/^(password|hidden|file)$/.test(s.type??"")||/(^|\s)(cc-|one-time-code|current-password|new-password)/i.test(`${e.getAttribute("autocomplete")??""} ${s.autocomplete??""}`))}function K(e){const t=document.documentElement;e==="light"||e==="dark"?(t.dataset.theme=e,t.style.colorScheme=e,B=!0):B&&(delete t.dataset.theme,t.style.colorScheme="",B=!1)}var R=new Map;function ye(){let e;const t={u:new Promise(n=>{e=n}),r:n=>{t.done=!0,e(n)},done:!1,nulled:!1};return t}var ge=Object.freeze(Object.assign(Object.create(null),{call:Function.prototype.call,apply:Function.prototype.apply,bind:Function.prototype.bind})),W=(e,t)=>{const n=R.get(e);if(!n||n.done){n?.nulled&&w&&parent.postMessage({__frame_cap_telemetry:{kind:"cap-load-error",cap:e}},w);return}const s=typeof t=="function"?Object.setPrototypeOf(t,ge):Object.assign(Object.create(null),t);typeof s.then=="function"&&delete s.then,n.r(Object.freeze(s))},U=Object.getOwnPropertyDescriptor(window,"claude");if(window!==top&&!(U&&U.writable===!1)){const e=j&&L.test(j)?T(j).catch(()=>{}):Promise.resolve(void 0),t=r=>{if(r.type==="auxclick"&&r.button!==1)return;const p=r.target,i=p&&p.closest?p.closest("a[href],area[href]"):null;if(!i)return;const d=i.getAttribute("href");if(!d)return;let u,h;try{u=new URL(d,document.baseURI),h=new URL(document.baseURI).origin}catch{return}if((u.protocol==="http:"||u.protocol==="https:")&&u.origin!==h){r.preventDefault();const _=(i.getAttribute("target")??"").toLowerCase(),C=r.type==="auxclick"||r.metaKey||r.ctrlKey||r.shiftKey||r.altKey||!["","_self","_top","_parent"].includes(_);parent.postMessage({__frame_nav:!0,url:u.href,newTab:C},"*")}};addEventListener("click",t,!0),addEventListener("auxclick",t,!0);const n={},s=r=>{r.isTrusted&&(n.pointer=!0)},o=r=>{r.isTrusted&&(n.click=!0)};addEventListener("pointermove",s,{capture:!0,passive:!0}),addEventListener("click",o,{capture:!0,passive:!0}),e.then(r=>{r?.wireNav&&(r.wireNav(),removeEventListener("click",t,!0),removeEventListener("auxclick",t,!0),removeEventListener("pointermove",s,!0),removeEventListener("click",o,!0),r.wireEngagement?.(n))});let l=null;try{l=de()}catch{}const c=U?.value??{};q(window,"claude",c);for(const r of Object.keys(M)){if(c[r]!==void 0){q(c,r,c[r]);continue}R.set(r,ye())}if(c.use===void 0){const r=p=>{if(typeof p!="string"||!Object.hasOwn(M,p))return Promise.resolve(null);const i=R.get(p);return i?i.u:Promise.resolve(c[p]??null)};try{Object.defineProperty(c,"use",{value:r,writable:!0,configurable:!0,enumerable:!1})}catch{}}let f=null,S=null,v=0;const b=r=>{r.source!==parent||!F(r.origin)||oe(r.data)&&(f=r.data.__frame_init,w=r.origin,removeEventListener("message",b),clearTimeout(v),S?.())};addEventListener("message",b),parent.postMessage({__frame_connect:!0},"*");const m=new Promise(r=>{S=r,v=setTimeout(()=>{removeEventListener("message",b),r()},he)}),y=document.readyState==="loading"?new Promise(r=>document.addEventListener("DOMContentLoaded",()=>r(),{once:!0})):Promise.resolve();y.then(()=>{try{l?.restore()}catch{}});const g={cb:null},E=r=>{if(!(r.source!==parent||!F(r.origin))&&ie(r.data)){try{l?.promoted()}catch{}g.cb?.()}};addEventListener("message",E),m.then(async()=>{if(!f||!w){for(const a of R.values())a.nulled=!0,a.r(null);return}K(f.theme);const r=w;let p=!1,i=!1;addEventListener("message",a=>{if(a.source!==parent||a.origin!==r)return;le(a.data)&&K(a.data.__frame_theme.theme),ae(a.data)&&ve(a.data.__frame_patch,r);const k=a.data?.__fc_mode;k&&typeof k=="object"&&!p&&N&&L.test(N)&&(p=!0,T(N).then(x=>x.install?.(r,k.on===!0)).catch(()=>{}));const A=a.data?.__ft_cmd;A&&typeof A=="object"&&!i&&I&&L.test(I)&&(i=!0,T(I).then(x=>x.install?.(r,A)).catch(()=>{}))});const d=Object.keys(f.capabilities??{}).filter(a=>Object.hasOwn(M,a)).map(a=>[a,M[a]]).filter(a=>typeof a[1]=="string"&&L.test(a[1])),u=await Promise.allSettled(d.map(([,a])=>T(a))),h=await e,_=w;if(h?.buildBoot||parent.postMessage({__frame_cap_telemetry:{kind:"cap-load-error",cap:"_transforms"}},_),h?.buildBoot)try{P=h.buildBoot(f,h.TRANSFORMS??{},{shellOrigin:_,mount:W},a=>parent.postMessage({__frame_cap_telemetry:a},_))}catch{parent.postMessage({__frame_cap_telemetry:{kind:"cap-load-error",cap:"_transforms"}},_),P=z(f,_)}else P=z(f,_);const C=a=>parent.postMessage({__frame_cap_telemetry:{kind:"cap-load-error",cap:a}},_),we=P;u.forEach((a,k)=>{const A=d[k][0];if(a.status!=="fulfilled"){C(A);return}try{a.value?.install?.(we)}catch{C(A)}});for(const a of R.values())a.done||(a.nulled=!0,a.r(null));await y,parent.postMessage({__frame_ready:!0},w),e.then(a=>a?.installSizeReporter?.(_,g))})}})();</script><!-- /frame-runtime --><meta name="viewport" content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}</style></head><body>
+<title>In-Store Consumer Data — Value &amp; Go-to-Market</title>
+<style>
+  :root{
+    --paper:#FAF9F6; --card:#FFFFFF; --ink:#1B1D21; --ink-2:#4A4F57; --muted:#7A8089;
+    --line:#E6E3DC; --accent:#1D5B94; --accent-soft:#EAF1F8; --accent-ink:#16466F;
+    --pos:#1E6E4C; --pos-soft:#E7F2EC; --warn:#A8621A; --warn-soft:#F8EFE3;
+    --neg:#A33B32; --neg-soft:#F7EAE8; --neutral-bar:#A9AEB6;
+    --shadow:0 1px 2px rgba(27,29,33,.05);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --paper:#121419; --card:#1A1D24; --ink:#E9EAEC; --ink-2:#B4B8BF; --muted:#858B94;
+      --line:#2A2E36; --accent:#7FB0DE; --accent-soft:#1C2B3A; --accent-ink:#A9CCEC;
+      --pos:#5CB98E; --pos-soft:#1B2A23; --warn:#D6975B; --warn-soft:#2E2418;
+      --neg:#D08078; --neg-soft:#2E1D1B; --neutral-bar:#5A6068; --shadow:none;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#121419; --card:#1A1D24; --ink:#E9EAEC; --ink-2:#B4B8BF; --muted:#858B94;
+    --line:#2A2E36; --accent:#7FB0DE; --accent-soft:#1C2B3A; --accent-ink:#A9CCEC;
+    --pos:#5CB98E; --pos-soft:#1B2A23; --warn:#D6975B; --warn-soft:#2E2418;
+    --neg:#D08078; --neg-soft:#2E1D1B; --neutral-bar:#5A6068; --shadow:none;
+  }
+  :root[data-theme="light"]{
+    --paper:#FAF9F6; --card:#FFFFFF; --ink:#1B1D21; --ink-2:#4A4F57; --muted:#7A8089;
+    --line:#E6E3DC; --accent:#1D5B94; --accent-soft:#EAF1F8; --accent-ink:#16466F;
+    --pos:#1E6E4C; --pos-soft:#E7F2EC; --warn:#A8621A; --warn-soft:#F8EFE3;
+    --neg:#A33B32; --neg-soft:#F7EAE8; --neutral-bar:#A9AEB6;
+    --shadow:0 1px 2px rgba(27,29,33,.05);
+  }
+  *{box-sizing:border-box}
+  body{background:var(--paper); color:var(--ink); margin:0;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    line-height:1.55; font-size:15.5px; -webkit-font-smoothing:antialiased}
+  .wrap{max-width:880px; margin:0 auto; padding:56px 24px 96px}
+  .serif{font-family:"Iowan Old Style","Palatino Nova",Palatino,"Book Antiqua",Georgia,serif}
+  h1{font-family:"Iowan Old Style","Palatino Nova",Palatino,Georgia,serif;
+    font-size:clamp(30px,5vw,42px); line-height:1.12; letter-spacing:-.01em; margin:10px 0 14px; text-wrap:balance; font-weight:600}
+  h2{font-family:"Iowan Old Style","Palatino Nova",Palatino,Georgia,serif;
+    font-size:25px; line-height:1.2; margin:0 0 6px; font-weight:600; letter-spacing:-.005em; text-wrap:balance}
+  h3{font-size:15px; margin:22px 0 8px; font-weight:700}
+  p{margin:10px 0; max-width:72ch}
+  section{margin-top:64px}
+  .eyebrow{font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); margin-bottom:8px}
+  .kicker{color:var(--ink-2); font-size:16.5px; max-width:70ch}
+  .meta{display:flex; gap:18px; flex-wrap:wrap; font-size:12.5px; color:var(--muted); margin-top:18px}
+  .meta b{color:var(--ink-2); font-weight:600}
+  .rule{border:0; border-top:1px solid var(--line); margin:22px 0 0}
+
+  .verdict{background:var(--card); border:1px solid var(--line); border-left:3px solid var(--accent);
+    border-radius:10px; padding:20px 24px; margin-top:34px; box-shadow:var(--shadow)}
+  .verdict .l{font-size:11px; font-weight:700; letter-spacing:.13em; text-transform:uppercase; color:var(--accent); margin-bottom:8px}
+  .verdict p{margin:8px 0}
+  .verdict p:first-of-type{margin-top:0}
+
+  .tiles{display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:12px; margin:18px 0 6px}
+  .tile{background:var(--card); border:1px solid var(--line); border-radius:10px; padding:14px 16px; box-shadow:var(--shadow)}
+  .tile .v{font-size:24px; font-weight:750; letter-spacing:-.02em; font-variant-numeric:tabular-nums; line-height:1.15}
+  .tile .v.acc{color:var(--accent)}
+  .tile .k{font-size:12px; color:var(--muted); margin-top:5px; line-height:1.35}
+
+  .tblwrap{overflow-x:auto; border:1px solid var(--line); border-radius:10px; background:var(--card); box-shadow:var(--shadow); margin:16px 0}
+  table{border-collapse:collapse; width:100%; font-size:13.5px; min-width:640px}
+  th{font-size:11px; text-transform:uppercase; letter-spacing:.07em; color:var(--muted); text-align:left;
+    padding:11px 14px; border-bottom:1px solid var(--line); font-weight:700; white-space:nowrap}
+  td{padding:11px 14px; border-bottom:1px solid var(--line); vertical-align:top; color:var(--ink-2)}
+  tr:last-child td{border-bottom:0}
+  td b{color:var(--ink); font-weight:650}
+  td.num{font-variant-numeric:tabular-nums; white-space:nowrap; color:var(--ink); font-weight:600}
+  .pill{display:inline-block; font-size:11px; font-weight:700; padding:2px 9px; border-radius:99px; white-space:nowrap}
+  .pill.real{background:var(--pos-soft); color:var(--pos)}
+  .pill.model{background:var(--warn-soft); color:var(--warn)}
+  .pill.none{background:var(--neg-soft); color:var(--neg)}
+  .pill.info{background:var(--accent-soft); color:var(--accent-ink)}
+
+  .barchart{margin:18px 0 4px}
+  .brow{display:grid; grid-template-columns:220px 1fr; gap:12px; align-items:center; padding:7px 0}
+  .brow .nm{font-size:13px; color:var(--ink-2); line-height:1.3}
+  .brow .nm b{color:var(--ink)}
+  .brow .trackzone{display:flex; align-items:center; gap:10px}
+  .brow .bar{height:14px; border-radius:0 4px 4px 0; background:var(--accent); min-width:3px}
+  .brow .bar.neutral{background:var(--neutral-bar)}
+  .brow .val{font-size:13px; font-weight:700; font-variant-numeric:tabular-nums; white-space:nowrap; color:var(--ink)}
+  .chartnote{font-size:12px; color:var(--muted); margin-top:10px; max-width:76ch}
+  @media (max-width:620px){ .brow{grid-template-columns:1fr} .brow .nm{margin-bottom:-2px} }
+
+  .ladder{counter-reset:tier; display:grid; gap:12px; margin:18px 0}
+  .step{background:var(--card); border:1px solid var(--line); border-radius:10px; padding:16px 18px 14px;
+    box-shadow:var(--shadow); position:relative; display:grid; grid-template-columns:1fr; gap:4px}
+  .step .tl{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap}
+  .step .tn{font-size:11px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:var(--accent)}
+  .step .tt{font-weight:700; font-size:15.5px}
+  .step .when{margin-left:auto; font-size:12px; color:var(--muted); white-space:nowrap}
+  .step p{font-size:13.5px; color:var(--ink-2); margin:4px 0 0; max-width:none}
+  .step .rev{font-size:13.5px; margin-top:6px; padding-top:8px; border-top:1px dashed var(--line)}
+  .step .rev b{font-variant-numeric:tabular-nums}
+
+  ul.tight{margin:8px 0; padding-left:20px}
+  ul.tight li{margin:7px 0; max-width:74ch; color:var(--ink-2)}
+  ul.tight li b{color:var(--ink)}
+  ol.tight{margin:8px 0; padding-left:22px}
+  ol.tight li{margin:9px 0; max-width:74ch; color:var(--ink-2)}
+  ol.tight li b{color:var(--ink)}
+
+  .duo{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:16px 0}
+  @media (max-width:680px){ .duo{grid-template-columns:1fr} }
+  .panel{background:var(--card); border:1px solid var(--line); border-radius:10px; padding:16px 18px; box-shadow:var(--shadow)}
+  .panel .l{font-size:11px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; margin-bottom:8px}
+  .panel.give .l{color:var(--pos)} .panel.get .l{color:var(--accent)}
+  .panel ul{margin:0; padding-left:18px; font-size:13.5px}
+  .panel li{margin:6px 0; color:var(--ink-2)} .panel li b{color:var(--ink)}
+
+  .mine{background:var(--neg-soft); border:1px solid transparent; border-left:3px solid var(--neg); border-radius:8px;
+    padding:12px 16px; margin:10px 0; font-size:13.5px; color:var(--ink-2); max-width:none}
+  .mine b{color:var(--ink)}
+  .foot{margin-top:70px; padding-top:18px; border-top:1px solid var(--line); font-size:12px; color:var(--muted); max-width:none}
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Minds &amp; Models · Internal strategy · Confidential</div>
+    <h1>Becoming the in-store consumer data infrastructure</h1>
+    <p class="kicker">What the visual-attributes × POS data is worth, to whom, at what store density — and the fastest sequence of moves to get paid for it. Benchmarked against real NielsenIQ economics in the Czech market.</p>
+    <div class="meta">
+      <span><b>Rev 3</b> · 23 Jul 2026 — retailer win-win economics + 10 M-threshold math (§8), rev-share revised</span>
+      <span><b>Prepared for</b> Josef &amp; Ondřej</span>
+      <span><b>Trigger</b> JTI · PMI · BAT · Asahi meeting in 1–2 weeks</span>
+    </div>
+    <hr class="rule">
+  </header>
+
+  <div class="verdict">
+    <div class="l">Verdict</div>
+    <p><b>The pivot is economically sound and the margin is enormous — but the business is gated by contracts, not technology.</b> At under 1 000 CZK/store/month of cost, a single mid-size brand subscription pays for a 100-store network. NielsenIQ's own Czech economics prove where the value sits: the retailer supplying raw data gets ~287 CZK/store/month, while brands pay 8–18.5 M CZK/year for the derived product. You currently hold <b>zero contractual rights</b> to sell any of it.</p>
+    <p>Sequence accordingly: <b>(1)</b> sign data rights with SuperZoo while they're warm — pet is your fastest path to a real syndicated product because SuperZoo alone ≈ the pet-specialist channel; <b>(2)</b> use the tobacco meeting for price discovery and brand-funded rollout, not for selling data you don't yet own; <b>(3)</b> make brand demand the forcing function that unlocks EuroOil POS + rights.</p>
+  </div>
+
+  <!-- ============ 1 · WHAT YOU ARE SELLING ============ -->
+  <section>
+    <div class="eyebrow">01 · The asset</div>
+    <h2>What you can actually sell today — and what you can't</h2>
+    <p>The product is a <b>visit-level census of physical shoppers</b>: ~88 visual attributes per person (demographics, apparel brands worn, spending tier, life stage, <i>smoking type</i>…) matched to receipts at 92–93 % via time correlation. No cross-visit ID (and none possible in the EU) — so you sell <b>who buys what, where, when</b>, not shopper frequency or household penetration. That makes you a complement to NielsenIQ's "what sold" data, not a replacement — and a GDPR-native one, which in Europe is a moat, not a handicap.</p>
+    <div class="tblwrap"><table>
+      <thead><tr><th>Retailer</th><th>Chain size</th><th>Instrumented</th><th>Next wave</th><th>POS link</th><th>Brand-sellable?</th></tr></thead>
+      <tbody>
+        <tr><td><b>GymBeam</b></td><td class="num">3</td><td class="num">1</td><td>unknown</td><td><span class="pill real">Real · 92 %</span></td><td>No — monobrand. Your <b>methodology proof</b> and reference deck.</td></tr>
+        <tr><td><b>SuperZoo</b></td><td class="num">200</td><td class="num">1</td><td class="num">10–15 stores</td><td><span class="pill real">Real</span></td><td><b>Yes — best near-term.</b> Chain ≈ the pet-specialist channel; marketing already sold on the data; thinking retail media.</td></tr>
+        <tr><td><b>EuroOil</b></td><td class="num">511</td><td class="num">1</td><td class="num">50 stores</td><td><span class="pill model">Illustrative model</span></td><td><b>Biggest wallet</b> (tobacco channel) but no POS feed and no rights. The JTI deck's POS layer is modeled — never present it as real.</td></tr>
+        <tr><td><b>O2</b></td><td class="num">177</td><td class="num">1</td><td>unknown</td><td><span class="pill none">None</span></td><td>Service retail; low data-resale value. Keep for footfall SaaS, deprioritize for the data play.</td></tr>
+        <tr><td>Pipeline</td><td colspan="5">Teta Drogerie (511) · COOP (2 400) · Planeo (100) · Sportisimo (108) — Teta and COOP are the density kingmakers (see §4).</td></tr>
+      </tbody>
+    </table></div>
+    <p><b>Rights status: none.</b> Every pilot contract is personalization-scoped. Until a retailer signs a data-monetization clause, every CZK of the value below is theoretical.</p>
+  </section>
+
+  <!-- ============ 2 · THE NIQ SPREAD ============ -->
+  <section>
+    <div class="eyebrow">02 · The benchmark</div>
+    <h2>The NielsenIQ spread is the whole business model</h2>
+    <p>Your three internal data points, side by side, show where the margin lives in retail data — annual CZK flows around NielsenIQ in the Czech market:</p>
+
+    <div class="barchart" role="img" aria-label="Bar chart: DM receives 0.9 million CZK per year for raw data; PMI pays 8 million; Nestlé pays 18.5 million.">
+      <div class="brow">
+        <span class="nm"><b>DM receives</b> · raw POS, 261 drugstores</span>
+        <span class="trackzone"><span class="bar neutral" style="width:4.9%"></span><span class="val">0,9 M CZK/yr <span style="color:var(--muted);font-weight:500">(≈ 287 CZK/store/mo)</span></span></span>
+      </div>
+      <div class="brow">
+        <span class="nm"><b>PMI pays</b> · tobacco category read, petrol + convenience (2021)</span>
+        <span class="trackzone"><span class="bar" style="width:43.2%"></span><span class="val">8,0 M CZK/yr</span></span>
+      </div>
+      <div class="brow">
+        <span class="nm"><b>Nestlé pays</b> · broad food-retail coverage (2023)</span>
+        <span class="trackzone"><span class="bar" style="width:100%"></span><span class="val">18,5 M CZK/yr</span></span>
+      </div>
+      <div class="chartnote">Gray = supply side (what a retailer is paid for raw data). Blue = demand side (what one brand pays for the derived, syndicated product). Same underlying asset — roughly a <b>20–60× markup</b>, multiplied again because the identical category read is sold to every brand in the category. Note DM's raw-feed price may be barter-adjusted (data-for-benchmarks), so the true supply-side cash price is even lower.</div>
+    </div>
+
+    <p>Three conclusions fall straight out of this:</p>
+    <ul class="tight">
+      <li><b>Never be the DM of this equation.</b> Selling raw or lightly-processed feeds to an aggregator prices you at ~300 CZK/store/month. Your entire cost base (&lt;1 000 CZK/store/mo) only works if you sell the <i>derived, syndicated product</i> yourself.</li>
+      <li><b>Syndication is the multiplier.</b> NIQ sells the same tobacco read to PMI <i>and</i> JTI <i>and</i> BAT. One dataset, N invoices. This is why you must never grant a brand category exclusivity — it would cap the model at 1× instead of 3–4×.</li>
+      <li><b>The barter mechanic is your rights weapon.</b> Retailers already accept "data in exchange for analytics and benchmarks" from NIQ. Offer the same trade — free insight dashboard + revenue share in exchange for a monetization license — and you're asking for something the market has already normalized, while paying better than NIQ does.</li>
+    </ul>
+  </section>
+
+  <!-- ============ 3 · WTP BY BUYER ============ -->
+  <section>
+    <div class="eyebrow">03 · Willingness to pay</div>
+    <h2>Who pays what, at which density</h2>
+    <p>The critical distinction: below ~30 stores you sell <b>insight</b> (bought on interestingness, from innovation/insight budgets — density is irrelevant, credibility is the gate). Above it you sell <b>measurement</b> (bought on representativeness, from recurring data budgets — this is where NIQ-benchmarked money appears). Nobody needs a full census; NIQ itself extrapolates from samples. The gate is buyer <i>perception</i> of coverage, and NIQ has already trained the market on what "enough" looks like.</p>
+    <div class="tblwrap"><table>
+      <thead><tr><th>Buyer · product</th><th>Density gate</th><th>Price (CZK)</th><th>Anchor / logic</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><b>Brand — one-off insight study</b><br>"Who buys your category here" · 4–8 weeks, GymBeam-style deck</td>
+          <td class="num">1 store</td>
+          <td class="num">150–500 k one-off</td>
+          <td>Ad-hoc shopper research runs 300 k–1 M with worse data (surveys, panels). Sellable <b>today</b> — only gated by rights.</td>
+        </tr>
+        <tr>
+          <td><b>Brand — chain-category subscription</b><br>Quarterly syndicated read: persona × category × brand, one chain</td>
+          <td class="num">30–60 stores / chain, stratified</td>
+          <td class="num">1–3 M /yr /brand</td>
+          <td>15–35 % of PMI's 8 M NIQ line — priced as the "who" complement to their "what". First recurring revenue.</td>
+        </tr>
+        <tr>
+          <td><b>Brand — channel currency</b><br>Monthly delivery + API, cross-chain channel read</td>
+          <td class="num">150–300 stores, ≥ 2 chains</td>
+          <td class="num">3–8 M /yr /brand</td>
+          <td>Peer line-item to NIQ (PMI's 8 M = the ceiling anchor). Requires COOP/Teta-scale second chains.</td>
+        </tr>
+        <tr>
+          <td><b>Retailer — insight dashboard</b><br>Personas, traffic, conversion, own-brand visibility</td>
+          <td class="num">their stores</td>
+          <td class="num">0–1 k /store/mo</td>
+          <td>Deliberately cheap or free — it's the <b>barter consideration for data rights</b>, not a profit center. NIQ's own playbook, inverted.</td>
+        </tr>
+        <tr>
+          <td><b>Retail media / agencies</b><br>Audience proof + campaign measurement for in-store RMN</td>
+          <td class="num">100+ stores</td>
+          <td class="num">200–500 k /campaign, or share of CPM uplift</td>
+          <td>RMN measurement typically prices at 5–10 % of media spend. SuperZoo is already asking for this unprompted.</td>
+        </tr>
+        <tr>
+          <td><b>Aggregator (NIQ etc.) — feed license</b></td>
+          <td class="num">any</td>
+          <td class="num">~300 /store/mo</td>
+          <td><b>The floor. Avoid as a primary channel</b> — it's the DM position. Keep only as BATNA and as a signal of your independent value.</td>
+        </tr>
+      </tbody>
+    </table></div>
+    <p><b>External validation (19 Jul research pass):</b> a real Czech buyer — the state agricultural institute ÚZEI — pays ACNielsen Czech Republic <b>3,7 M CZK/yr</b> for a broad monthly retail sell-out feed (public contract registry, Nov 2022) and paid only ~230–240 k CZK for narrow single-category reports — a 10–15× spread that independently mirrors this ladder's study-vs-subscription pricing. US comparables bracket the same band: ongoing syndicated subscriptions run <b>$100 k–999 k/yr (≈ 2–20 M CZK)</b>, Circana MULO contracts $60–150 k+, SPINS $30–100 k. Most importantly, US household-panel evidence shows <b>"who-buys" data prices at or above "what-sold" POS data despite weaker samples</b> — so the 1–8 M band is defensible today and, for the who-layer at maturity, likely conservative.</p>
+    <p><b>Use the tobacco meeting to calibrate this table, not to guess.</b> The single most valuable question you can ask three tobacco majors in one room is: <i>"At what coverage would this augment or replace your NIQ line — chain-level, or full channel?"</i> Their answer <b>is</b> the density requirement. Let the buyers price the density gate for you.</p>
+  </section>
+
+  <!-- ============ 4 · DENSITY LADDER ============ -->
+  <section>
+    <div class="eyebrow">04 · The density ladder</div>
+    <h2>Four tiers, mapped to your actual rollout plans</h2>
+    <div class="ladder">
+      <div class="step">
+        <div class="tl"><span class="tn">Tier 0 · Now</span><span class="tt">4 × 1 store — sell insight, not measurement</span><span class="when">Q3 2026</span></div>
+        <p>GymBeam + SuperZoo POS-matched decks are the credibility assets. Product: paid category deep-dives for brands (150–500 k each) and paid pilot extensions. Statistical volume is already fine — GymBeam produced 2 622 matched orders in 21 days from one store; a petrol station's tobacco volume is higher still. The binding constraint is rights, then geography.</p>
+        <div class="rev">Realistic revenue: <b>0,5–2 M CZK</b> from 3–6 brand studies · COGS ≈ 50 k/yr</div>
+      </div>
+      <div class="step">
+        <div class="tl"><span class="tn">Tier 1 · Chain reads</span><span class="tt">EuroOil 50 + SuperZoo 10–15 → first subscriptions</span><span class="when">H2 2026 – H1 2027</span></div>
+        <p>50 stratified EuroOil stations = a legitimate chain-level tobacco read → 2–3 tobacco brands at 1–2 M each. SuperZoo at 10–15 stores is thin for measurement — push for <b>30</b>, because SuperZoo is the special case where one chain ≈ the whole pet-specialist channel, which makes pet your <b>fastest path to currency status</b>. Pet buyers: Vafo/Brit (Czech, global, hungry), Nestlé Purina (already pays NIQ 18,5 M — the budget exists), Mars/Royal Canin.</p>
+        <div class="rev">Realistic ARR at tier: <b>4–8 M CZK</b> · COGS ≈ 0,8 M/yr · gross margin &gt; 85 %</div>
+      </div>
+      <div class="step">
+        <div class="tl"><span class="tn">Tier 2 · Channel currency</span><span class="tt">150–300 stores across ≥ 2 chains per channel</span><span class="when">2027</span></div>
+        <p>This is where PMI-scale money (3–8 M/brand) becomes payable. Petrol/convenience: EuroOil deeper + COOP slice. Drugstore: <b>Teta (511) is the direct counter to NIQ's DM deal</b> — the pitch writes itself: "NIQ monetizes your competitor's data for ~300 CZK/store/month; own yours with us and keep the majority." COOP (2 400 stores) is the channel kingmaker for all FMCG — and the Asahi story.</p>
+        <div class="rev">Realistic ARR at tier: <b>25–50 M CZK</b> across 12–15 brand contracts · COGS ≈ 3–4 M/yr</div>
+      </div>
+      <div class="step">
+        <div class="tl"><span class="tn">Tier 3 · Multi-channel standard</span><span class="tt">500+ stores, agencies plan on your numbers</span><span class="when">2028+</span></div>
+        <p>Currency status: media agencies and RMN platforms build plans and post-campaign proofs on your data; brands treat you as a standing line item next to NIQ. Add retail-media measurement revenue (10–30 M) on top of syndication.</p>
+        <div class="rev">Pipeline-conditioned ceiling: <b>40–80 M CZK ARR</b> (≈ €1,6–3,2 M) · full-CZ cap with grocery: <b>100–200 M</b> (see §5) · Europe = the same motion per country</div>
+      </div>
+    </div>
+    <p>The tier structure also answers "bigger pilot vs full rollout": <b>you don't need full rollouts — you need Tier-1 densities in the right channels.</b> 50 EuroOil + 30 SuperZoo beats 511 EuroOil for the next 12 months, at a tenth of the deployment effort. Take the bigger-pilot option everywhere, but negotiate the data-rights clause into the bigger-pilot contract — that's the moment of maximum leverage, because the retailer wants the expansion.</p>
+  </section>
+
+  <!-- ============ 5 · MARKET SIZE ============ -->
+  <section>
+    <div class="eyebrow">05 · Market size — verified</div>
+    <h2>How big this is: pipeline cap vs. market cap</h2>
+    <p>Two different numbers were previously blurred, so here they are separated. The <b>tier revenues in §4 are bottom-up pipeline arithmetic</b> (named chains, counted brand contracts). The figures below are the <b>market-based caps</b>, now cross-checked by a verified research pass (sources in footer).</p>
+    <div class="tiles">
+      <div class="tile"><div class="v acc">550–600 B</div><div class="k">CZK/yr — Czech FMCG retail sales <b>(verified:</b> NIQ Retail Spend Barometer, 144 B CZK in Q3 2024, +3,3 % y/y)</div></div>
+      <div class="tile"><div class="v acc">250–500 M</div><div class="k">CZK/yr — CZ syndicated retail-measurement spend, triangulated (below). Slight tightening of the earlier 300–600 M guess</div></div>
+      <div class="tile"><div class="v acc">€13,7 → 28,8 B</div><div class="k">European retail media ad spend 2024 → 2028F, ~20 %/yr <b>(verified:</b> IAB Europe); in-store's lead format is digital screens — 70 % of retailers offer, 54 % of buyers invest</div></div>
+      <div class="tile"><div class="v acc">40–80 M vs 100–200 M</div><div class="k">CZK ARR — pipeline-conditioned capture vs. full-CZ cap if big-box grocery is instrumented</div></div>
+    </div>
+    <h3>How the 250–500 M is triangulated</h3>
+    <ul class="tight">
+      <li><b>Top-down:</b> NIQ's verified $4,0 B global revenue is ≈ 0,03–0,04 % of the retail sales it measures. Applied to CZ's 550–600 B CZK FMCG market → ~200 M CZK for the NIQ-equivalent alone; adding GfK (now merged with NIQ), Kantar, Circana and specialists lands at 250–500 M.</li>
+      <li><b>Bottom-up:</b> verified per-buyer prices — ÚZEI pays ACNielsen 3,7 M/yr (broad monthly feed); your PMI 8 M and Nestlé 18,5 M internal points; US ongoing subscriptions $100 k–999 k (≈ 2–20 M CZK). A few dozen brand-country contracts at 1–8 M plus a long tail of narrow reads at 0,2–0,5 M reproduces the same range.</li>
+    </ul>
+    <h3>Why the cap is 100–200 M, not 40–80 M</h3>
+    <p>The 40–80 M capture assumes your current pipeline's channels (petrol/convenience, drug, pet, sport, electro). The majority of the 250–500 M measurement spend is earned in <b>big-box grocery</b> (Lidl, Kaufland, Albert, Penny, Billa, Tesco) — where Nestlé's 18,5 M actually sits and where you have no pipeline yet. Instrument that channel and the who-layer addressable roughly doubles to triples. Separately, the verified US finding that <b>who-data prices at parity or above what-data</b> means the "10–20 % of what-spend" capture assumption is a floor, not a midpoint. Deliberately excluded from the cap: <i>operating</i> retail media (selling CPMs, not measuring them) — a several-times-larger pool that is a different business and a separate decision.</p>
+    <p>Investor framing stands, now with verified anchors: European syndicated retail measurement (NIQ $4 B global; European retail media €13,7 B and compounding ~20 %) is entirely blind to <i>who</i> is standing in the store. You are the missing persona layer — GDPR-native, no loyalty card, no panel recruitment.</p>
+  </section>
+
+  <!-- ============ 6 · FUNNEL VELOCITY ============ -->
+  <section>
+    <div class="eyebrow">06 · Funnel velocity</div>
+    <h2>Your funnel says the pipeline cap converges to the market cap</h2>
+    <p>From a standing start in April 2026 to mid-July — ~3,5 months — the retailer funnel looks like this:</p>
+    <div class="tblwrap"><table>
+      <thead><tr><th>Stage</th><th>Chains</th><th>Store footprint</th><th>Observed conversion</th></tr></thead>
+      <tbody>
+        <tr><td><b>Engaged</b> (pilot live or committed to pilot)</td><td class="num">8</td><td class="num">~4 010</td><td>~2,3 chains and ~1 150 stores of footprint <b>per month</b></td></tr>
+        <tr><td><b>Pilot live</b> — EuroOil, SuperZoo, GymBeam, O2</td><td class="num">4</td><td class="num">891 (4 instrumented)</td><td>every started pilot deployed</td></tr>
+        <tr><td><b>Expansion committed</b> — EuroOil 50, SuperZoo 10–15</td><td class="num">2</td><td class="num">~60–65 committed</td><td><b>50 % of pilots, within one quarter</b></td></tr>
+        <tr><td><b>Data rights signed</b></td><td class="num">0</td><td class="num">—</td><td>the empty stage — see §7</td></tr>
+        <tr><td><b>Brand data revenue</b></td><td class="num">0</td><td class="num">—</td><td>gated entirely by the stage above</td></tr>
+      </tbody>
+    </table></div>
+    <ul class="tight">
+      <li><b>Chain acquisition is a proven, repeatable motion, not the bottleneck.</b> Czech organized retail in your relevant channels is roughly 25–30 chains. At even <i>half</i> the observed velocity, most of them are engaged within 18–24 months — which means the pipeline-conditioned cap (40–80 M) converges toward the full-market cap (100–200 M) by ~2028 <b>if</b> the later funnel stages keep up. The market-size question and the funnel question collapse into one: the cap you reach is set by conversion, not by demand.</li>
+      <li><b>The binding stages are the two at zero.</b> Rights conversion (0 of 8) is strategic — §7 exists to fix it. Deployment throughput is operational: committed waves imply ~10 stores/month in H2 2026, while Tier 2 by end-2027 needs a sustained 15–25/month. That's a 2× ops scale-up — very achievable at &lt;1 000 CZK/store/month cost, but it should be planned now (installer capacity, hardware logistics), not discovered as a constraint in 2027.</li>
+      <li><b>Velocity is itself a sales and fundraising asset.</b> "8 chains and 4 000 stores of footprint engaged in 14 weeks, 50 % pilot-to-expansion in one quarter" is the strongest single line in your investor narrative — it converts the market-size slide from theory into a slope.</li>
+    </ul>
+  </section>
+
+  <!-- ============ 6 · RIGHTS & RETAILER DEALS ============ -->
+  <section>
+    <div class="eyebrow">07 · Rights architecture</div>
+    <h2>The retailer deal: pay better than NIQ, take the license</h2>
+    <p>One standard <b>Data Partner Agreement</b>, offered to every retailer, structured as a trade the market already understands:</p>
+    <div class="duo">
+      <div class="panel give">
+        <div class="l">Retailer gets</div>
+        <ul>
+          <li><b>Free insight dashboard</b> — personas, traffic, conversion, category reads for their own stores (your marginal cost ≈ 0).</li>
+          <li><b>A majority revenue share, tiered by product</b> — ~40–50 % of data-product revenue and ~60–70 % of retail-media revenue on their audience, vs NIQ's ~300 CZK/store/mo flat. Why the majority, not the old 25–30 %: it's the arithmetic that clears a giant retailer's 10 M threshold (§8), not generosity.</li>
+          <li><b>A hard data firewall</b> — brands only ever see aggregated shopper <i>audience</i> data; the retailer's margins, sell-through and price data (their buying leverage) never leave the building.</li>
+          <li><b>Attribution protection</b> — chain identity masked in channel aggregates by default; named only if they opt in; their data never shown chain-attributed to a named competitor.</li>
+          <li><b>Category retail-media priority</b> — first right to the RMN products built on their stores (SuperZoo's stated interest).</li>
+        </ul>
+      </div>
+      <div class="panel get">
+        <div class="l">M&amp;M gets — non-negotiable</div>
+        <ul>
+          <li><b>Perpetual, irrevocable license</b> to sell derived, aggregated, k-anonymized (k ≥ 25) insights to third parties.</li>
+          <li><b>POS feed</b> for all instrumented stores, receipt-level.</li>
+          <li><b>Direct contract</b> — at EuroOil, data rights sit M&amp;M ↔ EuroOil; Moris stays on media/fit-out only.</li>
+          <li><b>No brand-side category exclusivity, ever</b> — syndication is the business. Concede at most a 3-month early-access window on custom cuts.</li>
+          <li>M&amp;M is <b>exclusive analytics provider</b> on instrumented stores for the term.</li>
+        </ul>
+      </div>
+    </div>
+    <h3>Sequencing across the four retailers</h3>
+    <ol class="tight">
+      <li><b>SuperZoo first, this month.</b> Warmest relationship, real POS, marketing advocate, retail-media pull. Bundle the rights clause into the 10–15 (push 30) store expansion contract. This becomes your template and your proof that a retailer will sign it.</li>
+      <li><b>EuroOil second, via brand demand.</b> Don't ask for rights in the abstract — walk in after the tobacco meeting with "brands are ready to pay X for the linked read; it requires your POS feed and a data agreement; your share is Y." Disclose the data play <b>before</b> the meeting (see §9). <b>New intel from the public contract registry:</b> ČEPRO — EuroOil's state-owned parent — expanded its ACNielsen contract in June 2025 to include TSR data. NIQ is already selling into your retailer's parent: the data budget and data literacy exist on their side, and the clock on NIQ deepening that relationship is running. Move first. <i>(Single-source, hlidacstatu.cz — verify the scope before citing it in negotiation.)</i></li>
+      <li><b>GymBeam: keep as lab.</b> No brand-resale value, but it's your methodology showcase and where you harden match-rate + suppression standards. Ask for rights anyway (cheap to grant, keeps the template consistent).</li>
+      <li><b>Teta &gt; O2 in the pipeline.</b> Teta is a drugstore chain of 511 with a competitor (DM) already monetized by NIQ — the sharpest pitch you have. O2 adds little to the data business; serve it with the SaaS, don't spend rights-negotiation energy there.</li>
+    </ol>
+  </section>
+
+  <!-- ============ 8 · RETAILER ECONOMICS / 10M THRESHOLD ============ -->
+  <section>
+    <div class="eyebrow">08 · Retailer economics</div>
+    <h2>The 10 M threshold — why the split is arithmetic, not generosity</h2>
+    <p>A 15-year brand insider's rule of thumb: a tier-1 grocer (Billa-scale) won't seriously engage unless there's <b>≥ 10 M CZK/yr of upside for them</b>, and those calls happen at CEO level over a ~2-year cycle. That single number, combined with the rev-share split, quietly decides whether the biggest retailers are reachable at all — because it dictates how many brands must buy on a retailer's stores to clear the bar.</p>
+
+    <h3>How many brands per retailer to clear 10 M CZK for the retailer</h3>
+    <div class="tblwrap"><table>
+      <thead><tr><th>Price per brand / yr</th><th>Old grab — retailer 28 %</th><th>Balanced — 50 %</th><th>Win-win — 65 %</th></tr></thead>
+      <tbody>
+        <tr><td><b>Chain-category sub</b> · ~2 M</td><td class="num">~18 brands</td><td class="num">~10 brands</td><td class="num">~8 brands</td></tr>
+        <tr><td><b>Channel currency</b> · ~5 M</td><td class="num">~7 brands</td><td class="num">~4 brands</td><td class="num">~3 brands</td></tr>
+        <tr><td><b>Channel + RMN media</b> · ~8 M</td><td class="num">~4–5 brands</td><td class="num">~2–3 brands</td><td class="num">~2 brands</td></tr>
+      </tbody>
+    </table></div>
+    <p><b>This is the punchline the earlier draft missed:</b> at the old 25–30 % grab, a giant needs <b>11–18 brands</b> buying on its stores to care — commercially near-impossible to assemble. Give the retailer the <b>majority</b>, and the bar drops to <b>3–8 brands</b> — reachable, especially in grocery where dozens of FMCG brands exist. <b>The win-win split isn't a concession; it's the arithmetic that makes the biggest retailers — where the 100–200 M cap lives (§5) — addressable at all.</b></p>
+
+    <h3>So does it change the value of the model? Yes — two-sidedly</h3>
+    <div class="tiles">
+      <div class="tile"><div class="v">×0,5–0,76</div><div class="k">M&amp;M's take per brand-euro vs the old model — retailer share rises from 28 % to ~45–65 %, so M&amp;M keeps ~35–55 % (was 72 %)</div></div>
+      <div class="tile"><div class="v">€2,2–6,0 M</div><div class="k">re-scaled 2031 M&amp;M net data revenue (was €4,0–7,9 M in the two-option model) — lower per deal</div></div>
+      <div class="tile"><div class="v acc">unlocks 100–200 M</div><div class="k">but grocery giants are only addressable with the majority split — the bigger pool opens, and conflict-blocked deals close at all</div></div>
+    </div>
+    <p>Net: <b>lower revenue per deal, higher expected value.</b> You trade share-of-each-euro for (1) a much larger, actually-closeable market — grocery giants plus the conflict-blocked deals the old grab would have killed — and (2) the multiple: securing the perpetual <b>aggregate-rights</b> license (§7) turns you from a ~4–8× enablement vendor into a ~8–15× measurement currency. The revenue line goes down; the enterprise value goes up, because closeability × addressable market × multiple beats the per-deal haircut. Full logic in the <a href="https://claude.ai/code/artifact/1dc3f760-ddbb-4f39-bcc5-7c27cf152ce7" style="color:var(--accent)">win-win &amp; valuation companion</a>.</p>
+
+    <h3>Two pools, two splits</h3>
+    <ul class="tight">
+      <li><b>Data / measurement product</b> (the syndicated reads priced in §3): retailer ~40–50 %, M&amp;M keeps the majority. Still a large step up from NIQ's ~300 CZK/store/mo, and enough to move a mid-size retailer.</li>
+      <li><b>Retail-media revenue</b> (brands paying to reach the retailer's audience on-screen): retailer keeps ~60–70 %, the RMN norm; M&amp;M takes an infra/measurement cut. This is the bigger pool and the one that clears the 10 M giant bar.</li>
+      <li><b>The one non-negotiable across both:</b> the perpetual, irrevocable <b>aggregate license</b> (§7). Concede share; never concede the cross-retailer aggregate — that clause is the difference between the enablement multiple and the currency multiple.</li>
+    </ul>
+    <div class="mine"><b>Implication for the pipeline.</b> The 10 M bar is a <i>giant-retailer</i> gate (Billa/COOP/Albert), not a near-term one — SuperZoo, EuroOil and Teta are smaller, with a lower threshold to engage. And the real constraint on landing a giant isn't finding brands (grocers have dozens) — it's assembling enough <b>brand demand first</b>, which is exactly what the tobacco meeting and brand LOIs (§9) are for. You cannot walk into Billa until you can credibly promise them their 10 M.</div>
+  </section>
+
+  <!-- ============ 9 · THE TOBACCO MEETING ============ -->
+  <section>
+    <div class="eyebrow">09 · The meeting · JTI + PMI + BAT + Asahi</div>
+    <h2>Playbook: fund the network, price the data, sell nothing yet</h2>
+    <p>The meeting's stated agenda is personalization and who pays the €120/store. Play that agenda — and use the room for the data business's price discovery. You cannot sell data (no rights); you <i>can</i> collect commitments contingent on rights.</p>
+    <h3>Walk out with (in priority order)</h3>
+    <ol class="tight">
+      <li><b>Brand co-funding of the 50-store EuroOil wave.</b> 50 stores × €120 × 12 = <b>€72 k/yr total</b>; split 3–4 ways it's €18–24 k per brand — a rounding error next to PMI's ≈ €326 k NIQ line. Frame it as share-of-screen plus <i>data readiness</i>: the brands are financing the sensor network that will produce the category read.</li>
+      <li><b>Per-brand LOI for a paid category pilot</b> — 250–500 k CZK, on the 50-store wave, explicitly "subject to retailer data agreement." Non-binding is fine; the LOIs are your leverage instrument with EuroOil.</li>
+      <li><b>The density answer</b> — "at what coverage does this augment or replace your NIQ line?" Get each brand's number on record.</li>
+      <li><b>The budget owner</b> — named contact in insights/trade marketing per brand, and how they buy (annual syndication vs projects).</li>
+    </ol>
+    <h3>Discovery questions that price the product for you</h3>
+    <ul class="tight">
+      <li>What do you buy today for this channel (NIQ, agencies), and what does it not tell you?</li>
+      <li>What would monthly <i>switching-to-smokeless by shopper persona and daypart, at the shelf</i> be worth — and which budget buys it?</li>
+      <li>For Asahi separately: same structure for beer/NAB in convenience — and gauge appetite for a COOP-scale channel read later. Asahi is your seed for the FMCG vertical, not a tobacco afterthought.</li>
+    </ul>
+    <h3>Landmines</h3>
+    <div class="mine"><b>The illustrative deck.</b> The EuroOil×JTI POS layer is modeled. Label every such slide "modeled illustration" and say it out loud once. Tobacco majors are compliance-heavy; one probing question that exposes fabricated-looking numbers ends the relationship. Show GymBeam (real, p-values, honest nulls) as the methodology proof instead.</div>
+    <div class="mine"><b>EuroOil hears about it secondhand.</b> You're meeting their category's brands while holding no data rights from them. Call EuroOil <b>before</b> the meeting: "we'll also probe brands' willingness to pay for linked insights — if it lands, you get POS-gated revenue share." Turns a betrayal narrative into an alignment one, and it's consistent with the disclosed-anchor-tenant strategy you already chose.</div>
+    <div class="mine"><b>Exclusivity trap.</b> If a brand offers to fund more in exchange for exclusive data access — decline. Category exclusivity kills the syndication multiplier (§2). Offer the early-access window instead. Explicitly normalize it: "this works like NIQ — every brand in the category buys the same currency."</div>
+    <div class="mine"><b>Age language.</b> Never "age verification" — always "age estimation with error bands." An over-claim in a tobacco context becomes discoverable evidence against the brand, and their lawyers know it.</div>
+    <div class="mine"><b>Price anchoring.</b> Keep the €120 personalization fee and data pricing on separate paper, always. The device fee is infrastructure; data products price against NIQ lines, not against hardware.</div>
+  </section>
+
+  <!-- ============ 8 · RISKS ============ -->
+  <section>
+    <div class="eyebrow">10 · Risks</div>
+    <h2>What kills this, and the mitigation</h2>
+    <div class="tblwrap"><table>
+      <thead><tr><th>Risk</th><th>Severity</th><th>Mitigation</th></tr></thead>
+      <tbody>
+        <tr><td><b>Rights never granted</b> — retailers balk at monetization clauses</td><td><span class="pill none">Existential</span></td><td>SuperZoo-first template; barter mechanic (free analytics) that NIQ normalized; rev share that visibly beats NIQ's 300 CZK/store/mo; rights clause bundled into expansion contracts at the moment retailers want growth.</td></tr>
+        <tr><td><b>Disintermediation</b> — retailer or Moris white-labels the idea with another vendor</td><td><span class="pill model">High</span></td><td>Speed + multi-chain aggregate no single retailer can replicate; 88-attribute taxonomy and matching pipeline as trade-secret moat; Moris kept generously paid on media, contractually out of data.</td></tr>
+        <tr><td><b>NIQ response</b> — bundles a "visual layer" or leans on EuroOil/Teta relationships</td><td><span class="pill model">Medium</span></td><td>Move before they notice; lock multi-year licenses. NIQ is also the exit: measurement-currency assets trade at 8–15× revenue, and your layer is cheaper for them to buy than to build. <b>Note:</b> NIQ↔ČEPRO (EuroOil's parent) contract is already active per the public registry — assume NIQ incumbency in the petrol channel and treat EuroOil rights as time-sensitive.</td></tr>
+        <tr><td><b>GDPR / Art. 9-adjacent attributes</b> (smoking_type, ethnicity-correlated features)</td><td><span class="pill model">Medium</span></td><td>Visit-level, no biometric ID, k ≥ 25 aggregates as contractual term; DPIA per deployment; sensitive attributes coarsened or dropped from anything leaving the pipeline; specialist DPO opinion before first syndicated sale.</td></tr>
+        <tr><td><b>Channel density stalls</b> — COOP/Teta pilots slip, Tier 2 never arrives</td><td><span class="pill info">Managed</span></td><td>Pet (SuperZoo) reaches currency status within one chain; tobacco chain-read at EuroOil 50 is sellable without channel status. Tier 1 revenue doesn't depend on Tier 2 timing.</td></tr>
+        <tr><td><b>Credibility of small samples</b> — a brand's analyst tears apart a thin cut</td><td><span class="pill info">Managed</span></td><td>Keep the GymBeam discipline everywhere: suppress cells &lt; 10, publish match methodology, show p-values and honest nulls. It's your differentiation vs. every "AI camera" vendor.</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <!-- ============ 9 · ACTIONS ============ -->
+  <section>
+    <div class="eyebrow">11 · Next moves</div>
+    <h2>30 / 90 / 180 days</h2>
+    <h3>Next 30 days — before and around the meeting</h3>
+    <ul class="tight">
+      <li>Pre-meeting <b>disclosure call with EuroOil</b> + one-page rev-share concept (their upside, POS-gated).</li>
+      <li>Relabel every modeled slide in the tobacco decks as "modeled illustration"; lead with GymBeam methodology.</li>
+      <li>Run the meeting per §7; capture density answers, budget owners, LOIs.</li>
+      <li>Draft the standard <b>Data Partner Agreement</b> (license + rev share + protections) — one template for all retailers.</li>
+      <li><b>SuperZoo:</b> propose the expansion contract with the data-rights clause and a 30-store target; scope "CZ Pet Shopper Census" v1 with their marketing.</li>
+    </ul>
+    <h3>Next 90 days</h3>
+    <ul class="tight">
+      <li>Close the <b>first paid brand study</b> (pet: Vafo/Brit or Purina; or convert a tobacco LOI) — first data revenue, however small, changes every subsequent negotiation.</li>
+      <li>EuroOil: convert brand LOIs into the POS + rights agreement; 50-store wave deployment starts brand-funded.</li>
+      <li>Open Teta with the DM/NIQ pitch; open COOP as the 2027 channel play.</li>
+    </ul>
+    <h3>Next 180 days</h3>
+    <ul class="tight">
+      <li>EuroOil 50 live with POS linked → tobacco chain-read subscriptions on sale (1–2 M/brand).</li>
+      <li>SuperZoo ~30 stores → pet syndicated report as your first <b>currency-grade</b> product.</li>
+      <li>Decide the NIQ posture (ignore / partner / position for acquisition) from a position of signed rights and paying brands; start the European narrative for the raise.</li>
+    </ul>
+  </section>
+
+  <p class="foot">Internal sources: GymBeam pilot deck (23 Jun – 16 Jul 2026, real POS matching), EuroOil×JTI deck (persona layer real; POS layer modeled), founder-provided NielsenIQ benchmarks (DM ~0,9 M CZK/yr; PMI ~8 M CZK/yr, 2021; Nestlé ~18,5 M CZK/yr, 2023 — treat as directional, possibly barter-adjusted). External sources (verified research pass, 19 Jul 2026, 3-vote adversarial verification): NIQ Retail Spend Barometer CZ (144 B CZK Q3 2024); NIQ Global Intelligence IPO filing ($4,0 B revenue, FY to Mar 2025); IAB Europe Retail Media 2025 (€13,7 B 2024 → €28,8 B 2028F; in-store screens 70 %/54 %); hlidacstatu.cz public contract registry (ÚZEI→ACNielsen 3,7 M CZK/yr, 2022; narrow reads ~230–240 k; ČEPRO amendment Jun 2025 — last two single-source); cpgdatainsights.com (US subscriptions $100 k–999 k/yr; who-data ≥ what-data pricing); Circana/SPINS comparables ($30–150 k/yr, unverified). Remaining directional estimates: CZ measurement-spend triangulation (250–500 M) and all capture/cap figures. Confidential — Minds &amp; Models internal.</p>
+</div>
+</body></html>

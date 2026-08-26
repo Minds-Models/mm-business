@@ -10,7 +10,7 @@
 1. Hook: "[Přední český řetězec] s námi měří prodejnu jako e-shop — 92 % nákupů spárováno."
 2. What they get OPERATIONALLY (stage 3): monthly action briefs — 3 changes + expected CZK
    + we measure the impact ourselves ("neděláme doporučení, děláme měřené experimenty")
-3. What they get FINANCIALLY: their audience revenue — brands pay, retailer keeps majority,
+3. What they get FINANCIALLY: their audience revenue — brands pay, retailer gets a revenue share (max 40%),
    full veto, trading-data firewall stated explicitly
 4. Proof: case study + (if available) brand LOIs = demand already exists
 5. Control & privacy page: veto on every output, k>=25, can cancel anytime

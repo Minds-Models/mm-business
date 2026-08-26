@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tchibo × Minds&Models</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+:root{
+  --ink:#0f172a; --ink-2:#334155; --muted:#64748b; --muted-2:#94a3b8; --line:#e2e8f0;
+  --card:#ffffff; --page:linear-gradient(158deg,#ffffff 0%,#f8fafc 40%,#eef2f7 100%);
+  --blue:#2563EB; --blue-d:#1e40af; --blue-soft:#eff5ff; --blue-100:#dbeafe;
+  --amber:#d97706; --amber-soft:#fef6e7; --pos:#059669; --neg:#dc2626;
+  --slate:#94a3b8;
+}
+*{box-sizing:border-box; margin:0; padding:0}
+html,body{background:#dfe3e8;
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  color:var(--ink); -webkit-font-smoothing:antialiased; font-feature-settings:'cv11','ss01';}
+.deck{display:flex; flex-direction:column; align-items:center; gap:48px; padding:48px 16px 80px}
+
+.slide{position:relative; width:1280px; max-width:100%; aspect-ratio:16/9; background:var(--page);
+  border-radius:16px; overflow:hidden; box-shadow:0 16px 40px rgba(15,23,42,.16);
+  padding:54px 64px 50px; display:flex; flex-direction:column}
+.slide.center{justify-content:center}
+.slide::after{content:''; position:absolute; width:340px; height:340px; border-radius:9999px;
+  background:radial-gradient(circle,#dbeafe,transparent 70%); opacity:.5; top:-150px; right:-90px; filter:blur(70px); pointer-events:none}
+.slide>*{position:relative; z-index:1}
+
+.top{display:flex; justify-content:space-between; align-items:center; margin-bottom:80px}
+.brand{display:flex; align-items:center; gap:12px}
+.brand img{height: 24px; object-fit: contain; border-radius: 4px;}
+.brand .amp{font-family:'Times New Roman',serif; font-style:italic; font-weight:400; font-size:18px; color:var(--muted-2); line-height:1}
+.meta{font-size:11px; color:var(--muted); text-align:right; line-height:1.4}
+
+.label{font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:var(--blue); margin-bottom:9px}
+h1{font-size:46px; font-weight:800; letter-spacing:-.03em; line-height:1.04}
+h2{font-size:29px; font-weight:750; letter-spacing:-.02em; line-height:1.12; margin-bottom:2px}
+.accent{color:var(--blue)}
+.sub{font-size:15px; color:var(--muted); line-height:1.5; max-width:80ch}
+.lead{font-size:16px; color:var(--ink-2); line-height:1.4}
+.mt6{margin-top:8px}.mt10{margin-top:16px}.mt14{margin-top:24px}.mt18{margin-top:32px}.mt24{margin-top:40px}
+
+.pageno{position:absolute; bottom:15px; right:54px; font-size:11px; color:var(--muted-2); font-variant-numeric:tabular-nums}
+.flow{position:absolute; bottom:15px; left:54px; font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--muted-2); font-weight:700}
+.flow b{color:var(--blue)}
+
+svg.i{width:16px; height:16px; flex:none; stroke:currentColor; fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round}
+.itile{width:30px; height:30px; border-radius:8px; background:var(--blue-soft); color:var(--blue);
+  display:flex; align-items:center; justify-content:center; flex:none}
+.itile .i{width:17px; height:17px}
+
+.card{background:var(--card); border:1px solid var(--line); border-radius:16px; padding:24px; box-shadow:0 1px 2px rgba(15,23,42,.04)}
+.card h3{font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.05em; color:var(--muted); margin-bottom:11px; display:flex; align-items:center; gap:8px}
+.card h3 .i{width:15px; height:15px; color:var(--muted-2); stroke-width:2}
+.card h3.big{font-size:13px; text-transform:none; letter-spacing:0; color:var(--ink)}
+
+.grid2{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px}
+.grid3{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px}
+.grid4{display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:24px}
+.two{display:flex; gap:32px; flex:1; align-items:flex-start; --l:1; --r:1}
+.two>*{min-width:0}
+.two>*:first-child{flex:var(--l) 1 0}
+.two>*:last-child{flex:var(--r) 1 0}
+
+.tile .v{font-size:29px; font-weight:800; letter-spacing:-.03em; line-height:1; font-variant-numeric:tabular-nums}
+.tile .v.b{color:var(--blue)}
+.tile .k{font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.03em; color:var(--muted); margin-top:8px}
+.tile .s{font-size:11px; color:var(--muted-2); margin-top:3px}
+
+.tk{display:grid; gap:24px; margin-top:auto; padding-top:32px;}
+.box{border-radius:12px; padding:13px 16px; font-size:13px; line-height:1.42; min-width:0}
+.box .l{font-size:9.5px; font-weight:800; text-transform:uppercase; letter-spacing:.11em; margin-bottom:5px}
+.box.i{background:#fff; border:1px solid var(--line)} .box.i .l{color:var(--muted-2)}
+.box.m{background:var(--ink); color:#e2e8f0} .box.m .l{color:#7f9cc4} .box.m b{color:#fff}
+.box.full{grid-column:1/-1}
+
+.scn{background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; display:flex; gap:13px; align-items:flex-start; box-shadow:0 1px 2px rgba(15,23,42,.04)}
+.scn .itile{width:38px; height:38px; flex-shrink: 0;}
+.scn .h{font-weight:750; font-size:14px}
+.scn p{font-size:12.5px; color:var(--muted); margin-top:3px; line-height:1.42}
+
+.hbars{display:flex; flex-direction:column; gap:7px}
+.hbar{display:grid; grid-template-columns:120px 1fr 60px; gap:9px; align-items:center; font-size:12px}
+.hbar .nm{color:var(--ink-2); font-weight:500; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.hbar .track{position:relative; height:11px; background:#eef2f6; border-radius:99px; overflow:hidden}
+.hbar .fill{position:absolute; left:0; top:0; height:100%; border-radius:99px; background:var(--blue)}
+.hbar .vl{font-variant-numeric:tabular-nums; font-weight:700; color:var(--ink); text-align:right}
+
+@media print{
+  @page{size:1280px 720px; margin:0}
+  html,body{background:#fff}
+  .deck{gap:0; padding:0}
+  .slide{box-shadow:none; border-radius:0; page-break-after:always; break-after:page; width:1280px; max-width:1280px}
+  .slide::after{display:none}
+}
+</style>
+</head>
+<body>
+<div class="deck">
+
+<!-- ========= 1 · TITLE ========= -->
+<section class="slide center">
+  <div class="top" style="position:absolute; top:34px; left:54px; right:54px; margin:0">
+    <span class="brand">
+        <img src="tchibo-logo.svg" alt="Tchibo" style="height: 32px;">
+        <span class="amp" style="margin: 0 16px; font-size: 20px;">×</span>
+        <img src="../brand/logo/logo_mindsmodels-normal-black.png" alt="Minds & Models">
+    </span>
+    <span class="meta">Důvěrné<br>Pro vedení Tchibo</span>
+  </div>
+  <p class="label" style="margin-top: 100px;">In-store analytika & monetizace</p>
+  <h1 style="font-size: 64px !important; line-height: 1.05; margin-bottom: 20px !important; letter-spacing: -0.04em;">Učíme fyzické prodejny,<br>kdo jsou jejich zákazníci.</h1>
+  <p class="lead" style="max-width:64ch; font-size: 22px; font-weight: 500; color: var(--ink-2); line-height: 1.4;">Měříme chování zákazníků na prodejnách jako na e-shopu — a spojujeme ho s nákupy na pokladně.</p>
+  <div style="margin-top: 24px; display: inline-flex; align-items: center; gap: 8px; background: #dcfce7; color: #15803d; padding: 6px 14px; border-radius: 99px; font-size: 14px; font-weight: 700;">
+    <svg class="i" style="width:16px; height:16px; stroke: currentColor;" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Privacy First & GDPR Certified
+  </div>
+  
+  <div class="flow"><b>PROBLÉM</b> → RELEVANCE → TECHNOLOGIE → OPERATIVA → BYZNYS MODEL → DŮKAZ → DALŠÍ KROK</div><div class="pageno">01 / 08</div>
+</section>
+
+<!-- ========= 2 · WEDGE ========= -->
+<section class="slide">
+  <div class="top">
+    <span class="brand">
+        <img src="tchibo-logo.svg" alt="Tchibo" style="height: 32px;">
+        <span class="amp" style="margin: 0 16px; font-size: 20px;">×</span>
+        <img src="../brand/logo/logo_mindsmodels-normal-black.png" alt="Minds & Models">
+    </span>
+    <span class="meta">Problém</span>
+  </div>
+  <p class="label">01 · Kde jsme dnes</p>
+  <h2>E-commerce staví na chování.<br>Fyzický retail zůstal pozadu — <span class="accent">jen s účtenkami.</span></h2>
+  
+  <div class="grid3 mt14" style="margin-top: 40px;">
+    <!-- Problem 1 -->
+    <div class="card" style="padding: 32px;">
+      <div class="itile" style="width:48px; height:48px; margin-bottom:16px; background:#fef2f2; color:#dc2626;">
+          <svg class="i" style="width:24px; height:24px;" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+      </div>
+      <h3 class="big" style="font-size: 18px; font-weight: 800; margin-bottom: 12px;">1. Žádná data o chování</h3>
+      <p class="lead" style="font-size: 15px;">Dnes víte přesně, jaké SKU se prodalo a s jakou marží. Ale <b>87 %</b> in-store analytiky se sbírá až po platbě. Zákazník je před zaplacením neviditelný.</p>
+    </div>
+    
+    <!-- Problem 2 -->
+    <div class="card" style="padding: 32px;">
+      <div class="itile" style="width:48px; height:48px; margin-bottom:16px; background:#fff7ed; color:#ea580c;">
+          <svg class="i" style="width:24px; height:24px;" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+      </div>
+      <h3 class="big" style="font-size: 18px; font-weight: 800; margin-bottom: 12px;">2. Nemožnost měřit dopad</h3>
+      <p class="lead" style="font-size: 15px;">Až <b>70 %</b> marketérů nedokáže přesně cílit a měřit offline reklamní kampaně. Přes 90 % nákupů se ale děje offline.</p>
+    </div>
+
+    <!-- Problem 3 -->
+    <div class="card" style="padding: 32px; border-color:var(--blue); box-shadow:0 0 0 1px var(--blue);">
+      <div class="itile" style="width:48px; height:48px; margin-bottom:16px; background:var(--blue); color:#fff;">
+          <svg class="i" style="width:24px; height:24px;" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+      </div>
+      <h3 class="big" style="font-size: 18px; font-weight: 800; margin-bottom: 12px; color:var(--blue-d);">3. Chybí personalizace</h3>
+      <p class="lead" style="font-size: 15px;">Fyzický retail ví <b class="accent">co</b> se prodalo, ale neví <b class="accent">kdo</b> to koupil. Zákazníci očekávají personalizaci, kterou prodejny neumí dodat.</p>
+    </div>
+  </div>
+  
+  <div class="flow">PROBLÉM → <b>RELEVANCE</b> → TECHNOLOGIE → OPERATIVA → BYZNYS MODEL → DŮKAZ → DALŠÍ KROK</div><div class="pageno">02 / 08</div>
+</section>
+
+<!-- ========= 3 · TCHIBO SPECIFIC ========= -->
+<section class="slide">
+  <div class="top">
+    <span class="brand">
+        <img src="tchibo-logo.svg" alt="Tchibo" style="height: 32px;">
+        <span class="amp" style="margin: 0 16px; font-size: 20px;">×</span>
+        <img src="../brand/logo/logo_mindsmodels-normal-black.png" alt="Minds & Models">
+    </span>
+    <span class="meta">Příležitost</span>
+  </div>
+  <p class="label">02 · Příležitost pro Tchibo</p>
+  <h2>Unikátní koncept: stálá kavárna a <span class="accent">měnící se kolekce zboží</span></h2>
+  
+  <div class="two mt14" style="--l:1; --r:1; margin-top: 32px;">
+    <div class="card" style="display:flex; flex-direction:column; justify-content:center; padding: 48px; border: 2px solid var(--line);">
+      <h3 class="big" style="font-size:24px; margin-bottom:16px; font-weight: 800;">Současný stav: Rozpojené světy</h3>
+      <p class="lead" style="font-size:18px; margin-bottom: 16px; font-weight: 600;">Víte, že se prodalo 100 svetrů. Víte, kolik káv se vypilo.</p>
+      <p class="sub" style="font-size:16px;">Ale nevíte, zda zákazník z kavárny pokračoval k regálu se spotřebním zbožím. Nevíte, jaká věková skupina a demografie na novou týdenní kolekci reaguje nejlépe předtím, než vůbec dojde k nákupu u kasy.</p>
+    </div>
+    
+    <div class="card" style="border-color:var(--blue); background: var(--blue-soft); display:flex; flex-direction:column; justify-content:center; padding: 48px; border: 2px solid var(--blue);">
+      <h3 class="big" style="color:var(--blue-d); font-size:24px; margin-bottom:16px; font-weight: 800;">Nová dimenze s Minds&Models</h3>
+      <p class="lead" style="font-size:18px; margin-bottom: 16px; font-weight: 600; color: var(--blue-d);">Měříme <b class="accent" style="color: var(--blue-d);">chování v reálném čase</b> v celé prodejně.</p>
+      <p class="sub" style="font-size:16px; color: var(--blue-d);">Dokážeme exaktně změřit konverzní funnel mezi kavárnou a nákupní zónou se spotřebním zbožím. Zjistíme přesně, koho přitahuje aktuální týdenní nabídka, a propojíme data o tom, "kdo se díval", s tím, "co se koupilo".</p>
+    </div>
+  </div>
+  
+  <div class="tk">
+    <div class="box m full" style="display:flex; align-items:center; gap:16px;">
+        <div style="padding-right:16px; border-right:1px solid #334155; display:flex; align-items:center;"><span style="width:48px; height:48px; border-radius:12px; background:rgba(5,150,105,.18); color:var(--pos); display:flex; align-items:center; justify-content:center; flex:none;"><svg style="width:26px; height:26px; stroke:currentColor; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round;" viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg></span></div>
+        <div><div class="l">Dopad na Operations</div>Týdenní obměna sortimentu znamená nutnost rychle vyhodnocovat, na jaké segmenty aktuální kampaň funguje. Umožníme <b>okamžitou optimalizaci layoutu</b> a nasazení personálu.</div>
+    </div>
+  </div>
+  
+  <div class="flow">PROBLÉM → RELEVANCE → <b>TECHNOLOGIE</b> → OPERATIVA → BYZNYS MODEL → DŮKAZ → DALŠÍ KROK</div><div class="pageno">03 / 08</div>
+</section>
+
+<!-- ========= 4 · TECHNOLOGIE ========= -->
+<section class="slide">
+  <div class="top">
+    <span class="brand">
+        <img src="tchibo-logo.svg" alt="Tchibo" style="height: 32px;">
+        <span class="amp" style="margin: 0 16px; font-size: 20px;">×</span>
+        <img src="../brand/logo/logo_mindsmodels-normal-black.png" alt="Minds & Models">
+    </span>
+    <span class="meta">Jak to funguje</span>
+  </div>
+  <p class="label">03 · Technologie</p>
+  <h2>Uzavíráme smyčku, která <span class="accent">fyzickému retailu chyběla</span></h2>
+  
+  <div class="grid3 mt14" style="margin-top: 40px;">
+    <div class="card" style="padding: 32px;">
+      <div class="itile" style="width:48px; height:48px; margin-bottom:16px; background:#eef2ff; color:#4f46e5;">
+          <svg class="i" style="width:24px; height:24px;" viewBox="0 0 24 24"><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+      </div>
+      <h3 class="big" style="font-size: 18px; font-weight: 800; margin-bottom: 12px; color:#4f46e5;">88+ atributů na osobu</h3>
+      <p class="lead" style="font-size: 15px;">Kategorizujeme pohyb, věk, pohlaví a interakce s regálem. <b>Rozumíme každému zákazníkovi</b> – bez ohledu na věrnostní kartu.</p>
+    </div>
+    
+    <div class="card" style="padding: 32px;">
+      <div class="itile" style="width:48px; height:48px; margin-bottom:16px; background:#fff7ed; color:#ea580c;">
+          <svg class="i" style="width:24px; height:24px;" viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+      </div>
+      <h3 class="big" style="font-size: 18px; font-weight: 800; margin-bottom: 12px; color:#ea580c;">Spárování s účtenkou (POS)</h3>
+      <p class="lead" style="font-size: 15px;">Propojujeme vizuální chování u regálu s přesným obsahem košíku na kase. Přesně víme, jaké chování vedlo k jakému nákupu.</p>
+    </div>
+    
+    <div class="card" style="padding: 32px; border-color:#dcfce7; box-shadow:0 0 0 1px #dcfce7;">
+      <div class="itile" style="width:48px; height:48px; margin-bottom:16px; background:#dcfce7; color:#15803d;">
+          <svg class="i" style="width:24px; height:24px;" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+      </div>
+      <h3 class="big" style="font-size: 18px; font-weight: 800; margin-bottom: 12px; color:#15803d;">Absolutní soukromí</h3>
+      <p class="lead" style="font-size: 15px;">Pracujeme v souladu s GDPR. <b>Žádné obličeje. Žádné identity.</b> Pracujeme pouze s odhady a agregovanými vzorci (k≥25).</p>
+    </div>
+  </div>
+  
+  <div class="flow">PROBLÉM → RELEVANCE → TECHNOLOGIE → <b>OPERATIVA</b> → BYZNYS MODEL → DŮKAZ → DALŠÍ KROK</div><div class="pageno">04 / 08</div>
+</section>
+
+<!-- ========= 5 · OPERATIVA ========= -->
+<section class="slide">
+  <div class="top">
+    <span class="brand">
+        <img src="tchibo-logo.svg" alt="Tchibo" style="height: 32px;">
+        <span class="amp" style="margin: 0 16px; font-size: 20px;">×</span>
+        <img src="../brand/logo/logo_mindsmodels-normal-black.png" alt="Minds & Models">
+    </span>
+    <span class="meta">Hodnota pro retailera</span>
+  </div>
+  <p class="label">04 · Co získáte operativně</p>
+  <h2>Každý měsíc vám řekneme <span class="accent">tři věci, které na prodejně změnit</span> — a dokážeme, kolik vydělaly</h2>
+  
+  <div class="two mt18" style="--l:1; --r:1; margin-top: 32px;">
+    <div style="display:flex; flex-direction:column; gap:16px;">
+        <div class="scn" style="padding: 24px;"><span class="itile" style="width:48px; height:48px;"><svg class="i" style="width:24px; height:24px;" viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg></span><div><div class="h" style="font-size: 16px;">Optimalizace layoutu</div><p style="font-size: 14px;">Porozumění skutečným mapám pohybu. Propojení kavárny a prodejny textilu/spotřebního zboží.</p></div></div>
+        <div class="scn" style="padding: 24px;"><span class="itile" style="width:48px; height:48px;"><svg class="i" style="width:24px; height:24px;" viewBox="0 0 24 24"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path><path d="M22 12A10 10 0 0 0 12 2v10z"></path></svg></span><div><div class="h" style="font-size: 16px;">Měření konverze výloh a kampaní</div><p style="font-size: 14px;">Týdenní kolekce můžete konečně A/B testovat. Funguje výloha lépe na ženy 30+, nebo oslovuje spíše seniory?</p></div></div>
+        <div class="scn" style="padding: 24px;"><span class="itile" style="width:48px; height:48px;"><svg class="i" style="width:24px; height:24px;" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></span><div><div class="h" style="font-size: 16px;">Provozní úpravy a směny</div><p style="font-size: 14px;">Predikce špiček nejen dle počtu lidí, ale i dle <i>typu</i> publika. Nasazení správného personálu ve správný čas.</p></div></div>
+    </div>
+    
+    <div class="card" style="display:flex; flex-direction:column; justify-content:center; padding: 48px;">
+        <h3 class="big" style="font-size: 24px; font-weight: 800; margin-bottom: 16px;">Neděláme doporučení, děláme měřené experimenty</h3>
+        <p class="sub mt10" style="font-size: 16px; margin-bottom: 24px;">Nejsme další dashboard. Poskytujeme akční briefy s konkrétními dopady v Kč. Naším cílem je okamžitě aplikovatelný <b>insight</b>, ne hromada raw dat.</p>
+        <div class="tk c2 mt14" style="padding-top: 0;">
+            <div class="box i" style="width: 100%; border: 1px solid var(--line);"><div class="l">Insight</div>Změřeno u vchodu vs. koupeno na pokladně.</div>
+            <div class="box m" style="width: 100%;"><div class="l">Dopad</div>Rozhodování podložená skutečnými daty.</div>
+        </div>
+    </div>
+  </div>
+  
+  <div class="flow">PROBLÉM → RELEVANCE → TECHNOLOGIE → OPERATIVA → <b>BYZNYS MODEL</b> → DŮKAZ → DALŠÍ KROK</div><div class="pageno">05 / 08</div>
+</section>
+
+<!-- ========= 6 · BYZNYS ========= -->
+<section class="slide">
+  <div class="top">
+    <span class="brand">
+        <img src="tchibo-logo.svg" alt="Tchibo" style="height: 32px;">
+        <span class="amp" style="margin: 0 16px; font-size: 20px;">×</span>
+        <img src="../brand/logo/logo_mindsmodels-normal-black.png" alt="Minds & Models">
+    </span>
+    <span class="meta">Retailer jako monetizér</span>
+  </div>
+  <p class="label">05 · Finanční model</p>
+  <h2>Retailer-as-monetizer: <span class="accent">Vaše publikum, Vaše nová revenue linka</span></h2>
+  
+  <div class="two mt18" style="--l:1.1; --r:0.9; margin-top: 40px;">
+    <div class="card" style="padding: 48px; display: flex; flex-direction: column; gap: 16px;">
+        <h3 class="big" style="font-size: 24px; font-weight: 800; margin-bottom: 8px;">Budujeme vaši novou revenue linku.</h3>
+        <p class="sub" style="font-size: 16px; margin-bottom: 24px;">Neprodáváme vaše data. My dodáváme <b>inteligenční vrstvu</b> a učíme fyzické obchody, kdo jsou jejich zákazníci. Značky a inzerenti platí za to, že rozumí, <b>KDO</b> kupuje jejich zboží offline. Vy si necháváte většinu výnosů.</p>
+        
+        <div class="hbars" style="margin-top: auto;">
+          <div class="hbar" style="grid-template-columns: 140px 1fr 60px; font-size: 14px;"><span class="nm">Retailer (Tchibo)</span><span class="track" style="height: 14px;"><span class="fill" style="width:100%"></span></span><span class="vl">Většina %</span></div>
+          <div class="hbar" style="grid-template-columns: 140px 1fr 60px; font-size: 14px;"><span class="nm">Minds&Models</span><span class="track" style="height: 14px;"><span class="fill" style="width:40%; background:var(--muted-2)"></span></span><span class="vl">Menšina %</span></div>
+        </div>
+    </div>
+    
+    <div style="display: flex; flex-direction: column; gap: 24px;">
+        <div class="card" style="border-left: 6px solid var(--pos); padding: 32px;">
+            <h3 class="big" style="color:var(--pos); font-size: 18px; font-weight: 800; margin-bottom: 8px;">Plná kontrola & Veto</h3>
+            <p class="sub mt6" style="font-size: 15px;">Tchibo má absolutní kontrolu nad agregovanými daty a <b>plné právo veta</b> na to, komu budou analýzy nabídnuty k prodeji. Sdílíme pouze demografii a vizuální chování publika.</p>
+        </div>
+        <div class="card" style="border-left: 6px solid var(--neg); padding: 32px;">
+            <h3 class="big" style="color:var(--neg); font-size: 18px; font-weight: 800; margin-bottom: 8px;">Trading Data Firewall</h3>
+            <p class="sub mt6" style="font-size: 15px;">Ochrana vašeho klíčového byznysu. Vaše marže, velkoobchodní ceny, sell-through data a přesné prodejní objemy <b>nikdy nejsou součástí</b> reportů pro 3. strany.</p>
+        </div>
+    </div>
+  </div>
+
+  <div class="flow">PROBLÉM → RELEVANCE → TECHNOLOGIE → OPERATIVA → BYZNYS MODEL → <b>DŮKAZ</b> → DALŠÍ KROK</div><div class="pageno">06 / 08</div>
+</section>
+
+<!-- ========= 7 · DŮKAZ ========= -->
+<section class="slide">
+  <div class="top">
+    <span class="brand">
+        <img src="tchibo-logo.svg" alt="Tchibo" style="height: 32px;">
+        <span class="amp" style="margin: 0 16px; font-size: 20px;">×</span>
+        <img src="../brand/logo/logo_mindsmodels-normal-black.png" alt="Minds & Models">
+    </span>
+    <span class="meta">Flagship pilot proof</span>
+  </div>
+  <p class="label">06 · Přesnost & Trakce</p>
+  <h2>Párování s přesností <span class="accent">92 %</span> (Pilot GymBeam)</h2>
+  
+  <div class="grid4 mt18" style="margin-top: 40px;">
+    <div class="card tile" style="padding: 32px;"><div class="v b" style="font-size: 36px; margin-bottom: 12px;">7 475</div><div class="k" style="font-size: 12px;">zákazníků zanalyzováno</div><div class="s" style="font-size: 12px; margin-top: 8px;">Pražská prodejna</div></div>
+    <div class="card tile" style="padding: 32px;"><div class="v b" style="font-size: 36px; margin-bottom: 12px;">2 622</div><div class="k" style="font-size: 12px;">spárované nákupy</div><div class="s" style="font-size: 12px; margin-top: 8px;">Na úrovni účtenek</div></div>
+    <div class="card tile" style="padding: 32px;"><div class="v" style="color:var(--pos); font-size: 36px; margin-bottom: 12px;">92 %</div><div class="k" style="font-size: 12px;">Match Rate</div><div class="s" style="font-size: 12px; margin-top: 8px;">Úspěšnost přiřazení k personě</div></div>
+    <div class="card tile" style="padding: 32px;"><div class="v" style="font-size: 36px; margin-bottom: 12px;">21 dní</div><div class="k" style="font-size: 12px;">Délka studie</div><div class="s" style="font-size: 12px; margin-top: 8px;">Exaktní měření trafficu</div></div>
+  </div>
+  
+  <div class="tk">
+    <div class="box m full" style="display:flex; align-items:center; gap:16px;">
+        <div style="padding-right:16px; border-right:1px solid #334155; display:flex; align-items:center;"><span style="width:48px; height:48px; border-radius:12px; background:rgba(5,150,105,.18); color:var(--pos); display:flex; align-items:center; justify-content:center; flex:none;"><svg style="width:26px; height:26px; stroke:currentColor; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round;" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></span></div>
+        <div><div class="l">Skutečné POS Matching</div>Toto není jen heat-mapa. Toto je reálné spárování účtenek s demografií konkrétního návštěvníka bez použití opt-in/věrnostního programu. Přesná znalost konverze jednotlivých person odkrývá reálné úzké hrdlo – zjistíte, <b>kdo sice do prodejny vejde, ale odchází s prázdnou.</b></div>
+    </div>
+  </div>
+  
+  <div class="flow">PROBLÉM → RELEVANCE → TECHNOLOGIE → OPERATIVA → BYZNYS MODEL → DŮKAZ → <b>DALŠÍ KROK</b></div><div class="pageno">07 / 08</div>
+</section>
+
+<!-- ========= 8 · DALŠÍ KROK ========= -->
+<section class="slide">
+  <div class="top">
+    <span class="brand">
+        <img src="tchibo-logo.svg" alt="Tchibo" style="height: 32px;">
+        <span class="amp" style="margin: 0 16px; font-size: 20px;">×</span>
+        <img src="../brand/logo/logo_mindsmodels-normal-black.png" alt="Minds & Models">
+    </span>
+    <span class="meta">Krok 1</span>
+  </div>
+  <p class="label">07 · Další kroky</p>
+  <h2>Začínáme <span class="accent">bez rizika a s nulovými závazky</span></h2>
+  
+  <div class="two mt18" style="--l:1; --r:1; margin-top: 40px;">
+    <div class="card" style="border-color:var(--blue); box-shadow:0 0 0 1px var(--blue); padding: 48px; display: flex; flex-direction: column;">
+      <h3 class="big" style="font-size: 24px; color: var(--blue); font-weight: 800; margin-bottom: 16px;">1. Mandátní dopis (Nyní)</h3>
+      <p class="sub" style="font-size: 16px; margin-bottom: 24px;">Podpis jednoduchého mandátu k provedení <b>60denní pilotní studie</b> na 1 vybrané prodejně. Nežádáme o plná práva na data hned první den.</p>
+      
+      <div class="scn mt14" style="border:none; box-shadow:none; padding:16px 0 0 0; border-top: 1px solid var(--line); border-radius: 0; background: transparent;">
+        <span class="itile" style="width:48px; height:48px;"><svg class="i" style="width:24px; height:24px;" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></span>
+        <div><div class="h" style="font-size: 16px;">Záruka nulových nákladů</div><p style="font-size: 14px;">Veškeré náklady a setup HW zajišťuje Minds&Models.</p></div>
+      </div>
+    </div>
+    
+    <div class="card" style="background:var(--blue-soft); border-color:var(--blue-100); padding: 48px;">
+      <h3 class="big" style="color:var(--blue-d); font-size: 24px; font-weight: 800; margin-bottom: 24px;">Co získáte na konci studie</h3>
+      <ul style="display: flex; flex-direction: column; gap: 24px; list-style: none; color: var(--blue-d);">
+          <li style="display:flex; gap: 16px; align-items:flex-start; font-size: 16px;">
+              <svg class="i" style="flex:none; margin-top:2px; width:24px; height:24px;" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+              <span>Kompletní mapu person a jejich nákupního chování.</span>
+          </li>
+          <li style="display:flex; gap: 16px; align-items:flex-start; font-size: 16px;">
+              <svg class="i" style="flex:none; margin-top:2px; width:24px; height:24px;" viewBox="0 0 24 24"><path d="M23 6l-9.5 9.5-5-5L1 18"></path><polyline points="17 6 23 6 23 12"></polyline></svg>
+              <span>Exaktní insight na to, jak funguje konverze od kávy ke zboží.</span>
+          </li>
+          <li style="display:flex; gap: 16px; align-items:flex-start; font-size: 16px;">
+              <svg class="i" style="flex:none; margin-top:2px; width:24px; height:24px;" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+              <span>První krok k monetizaci agregovaných klientských panelů.</span>
+          </li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="flow">PROBLÉM → RELEVANCE → TECHNOLOGIE → OPERATIVA → BYZNYS MODEL → DŮKAZ → <b>DALŠÍ KROK</b></div><div class="pageno">08 / 08</div>
+</section>
+
+</div>
+</body>
+</html>
