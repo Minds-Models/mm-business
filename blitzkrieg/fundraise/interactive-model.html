@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M&M Fundraise Model</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #f3f4f6; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+        .card { background: white; border-radius: 12px; padding: 24px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); margin-bottom: 24px; }
+        .input-group { margin-bottom: 16px; }
+        .input-group label { display: block; font-size: 0.875rem; font-weight: 500; color: #374151; margin-bottom: 4px; }
+        .input-group input, .input-group select { width: 100%; padding: 8px 12px; border: 1px solid #d1d5db; border-radius: 6px; }
+        .metric-value { font-size: 1.875rem; font-weight: 700; color: #111827; }
+        .metric-label { font-size: 0.875rem; font-weight: 500; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em; }
+    </style>
+</head>
+<body>
+    <div class="max-w-6xl mx-auto p-6">
+        <div class="flex justify-between items-end mb-8">
+            <div>
+                <h1 class="text-3xl font-bold text-gray-900 tracking-tight">M&M Business Model Playground</h1>
+                <p class="text-gray-500 mt-2">Dynamic fundraise and exit math • Data up to Aug 2026</p>
+            </div>
+            <div class="bg-white rounded-lg p-1 shadow-sm border border-gray-200 flex">
+                <button id="btn-modelA" class="px-4 py-2 rounded-md text-sm font-medium bg-blue-600 text-white" onclick="setStrategy('modelA')">
+                    Model A (Revenue First)
+                </button>
+                <button id="btn-modelB" class="px-4 py-2 rounded-md text-sm font-medium text-gray-600 hover:bg-gray-100" onclick="setStrategy('modelB')">
+                    Model B (Data Thesis)
+                </button>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Sidebar Inputs -->
+            <div class="col-span-1 space-y-6">
+                <div class="card border-t-4 border-blue-500">
+                    <h2 class="text-lg font-semibold mb-4">Capital & Burn</h2>
+                    <div class="input-group">
+                        <label>Fundraise Amount (€)</label>
+                        <input type="number" id="fundraiseAmount" value="500000" oninput="calculate()">
+                    </div>
+                    <div class="input-group">
+                        <label>Base OPEX (excl. stores) (€/mo)</label>
+                        <input type="number" id="baseBurn" value="12000" oninput="calculate()">
+                    </div>
+                    <div class="input-group">
+                        <label>Cash in Bank (€)</label>
+                        <input type="number" id="cashInBank" value="50000" oninput="calculate()">
+                    </div>
+                </div>
+
+                <div class="card border-t-4 border-green-500">
+                    <h2 class="text-lg font-semibold mb-4">Revenue Mechanics (E2)</h2>
+                    <div class="input-group">
+                        <label>Live Category × Channel Slots</label>
+                        <input type="number" id="liveSlots" value="10" oninput="calculate()">
+                    </div>
+                    <div class="input-group">
+                        <label>Avg Seats (Brands) per Slot</label>
+                        <input type="number" step="0.1" id="seatsPerSlot" value="3" oninput="calculate()">
+                    </div>
+                    <div class="input-group">
+                        <label>Avg Price per Seat (€/yr)</label>
+                        <input type="number" id="avgPricePerSeat" value="150000" oninput="calculate()">
+                    </div>
+                    <div class="input-group">
+                        <label>Attach ARR (Twin, Index, etc.)</label>
+                        <input type="number" id="attachRevenue" value="500000" oninput="calculate()">
+                    </div>
+                </div>
+
+                <div class="card border-t-4 border-purple-500">
+                    <h2 class="text-lg font-semibold mb-4">Supply & Exit</h2>
+                    <div class="input-group">
+                        <label>Instrumented Stores</label>
+                        <input type="number" id="stores" value="500" oninput="calculate()">
+                    </div>
+                    <div class="input-group">
+                        <label>Exit Multiple (ARR)</label>
+                        <input type="number" step="0.5" id="exitMultiple" value="8" oninput="calculate()">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Dashboard Outputs -->
+            <div class="col-span-1 md:col-span-2 space-y-6">
+                
+                <div class="grid grid-cols-2 gap-6">
+                    <div class="card bg-gray-900 text-white">
+                        <div class="metric-label text-gray-400">Total Run-Rate (ARR)</div>
+                        <div id="out-totalARR" class="text-4xl font-bold mt-2">€0</div>
+                        <div class="text-sm mt-2 text-gray-400">Target: €5M by Feb 2027</div>
+                    </div>
+                    
+                    <div class="card bg-gray-900 text-white border-b-4 border-green-500">
+                        <div class="metric-label text-gray-400">Exit Valuation (Un-diluted)</div>
+                        <div id="out-exitValuation" class="text-4xl font-bold mt-2">€0</div>
+                        <div class="text-sm mt-2 text-gray-400">Based on <span id="out-exitMultipleText">8</span>x multiple</div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-6">
+                    <div class="card">
+                        <div class="metric-label">Runway</div>
+                        <div id="out-runwayMonths" class="text-3xl font-bold mt-2">0 months</div>
+                        <div id="out-monthlyCashflow" class="text-sm mt-2 text-gray-500">Net Cashflow: €0 / mo</div>
+                    </div>
+
+                    <div class="card">
+                        <div class="metric-label">Unit Economics (NIQ check)</div>
+                        <div class="text-3xl font-bold mt-2 text-gray-900">
+                            <span id="out-yieldPerStore">€0</span> <span class="text-lg font-normal text-gray-500">yield/store</span>
+                        </div>
+                        <div id="out-niqRatio" class="text-sm mt-2 text-gray-500">
+                            0x vs NIQ benchmark (€3,060)
+                        </div>
+                        <div id="out-niqWarning" class="text-xs text-red-500 font-bold mt-1 hidden">Warning: Yield assumes >3x industry average.</div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2 class="text-lg font-semibold mb-4 border-b pb-2">Math Breakdown</h2>
+                    <table class="w-full text-sm text-left">
+                        <tbody>
+                            <tr class="border-b">
+                                <td class="py-3 text-gray-600">Total Cash Available</td>
+                                <td id="tbl-totalCash" class="py-3 font-semibold text-right">€0</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td id="tbl-storeCostLabel" class="py-3 text-gray-600">Annual Store Operations Cost (500 stores @ €40.8/mo)</td>
+                                <td id="tbl-storeCost" class="py-3 font-semibold text-right text-red-600">-€0</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td id="tbl-burnLabel" class="py-3 text-gray-600">Annual Base OPEX (€12,000/mo)</td>
+                                <td id="tbl-burn" class="py-3 font-semibold text-right text-red-600">-€0</td>
+                            </tr>
+                            <tr class="border-b bg-gray-50">
+                                <td class="py-3 px-2 text-gray-900 font-bold">Total Annual Cost Base</td>
+                                <td id="tbl-totalOpex" class="py-3 px-2 font-bold text-right">-€0</td>
+                            </tr>
+                            <tr>
+                                <td id="tbl-e2CalcLabel" class="py-4 text-gray-600 italic border-t border-gray-300">
+                                    * E2 Slots calculation: 10 slots × 3 seats × €150,000
+                                </td>
+                                <td class="py-4 border-t border-gray-300"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const formatMoney = (val) => new Intl.NumberFormat('en-IE', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(val);
+
+        function setStrategy(strategy) {
+            const btnA = document.getElementById('btn-modelA');
+            const btnB = document.getElementById('btn-modelB');
+
+            if (strategy === 'modelA') {
+                btnA.className = "px-4 py-2 rounded-md text-sm font-medium bg-blue-600 text-white";
+                btnB.className = "px-4 py-2 rounded-md text-sm font-medium text-gray-600 hover:bg-gray-100";
+                
+                document.getElementById('stores').value = 250;
+                document.getElementById('liveSlots').value = 6;
+                document.getElementById('seatsPerSlot').value = 3;
+                document.getElementById('baseBurn').value = 15000;
+                document.getElementById('fundraiseAmount').value = 500000;
+            } else {
+                btnA.className = "px-4 py-2 rounded-md text-sm font-medium text-gray-600 hover:bg-gray-100";
+                btnB.className = "px-4 py-2 rounded-md text-sm font-medium bg-blue-600 text-white";
+
+                document.getElementById('stores').value = 2000;
+                document.getElementById('liveSlots').value = 12;
+                document.getElementById('seatsPerSlot').value = 1.5;
+                document.getElementById('baseBurn').value = 35000;
+                document.getElementById('fundraiseAmount').value = 1500000;
+            }
+            calculate();
+        }
+
+        function calculate() {
+            const fundraiseAmount = Number(document.getElementById('fundraiseAmount').value);
+            const baseBurn = Number(document.getElementById('baseBurn').value);
+            const cashInBank = Number(document.getElementById('cashInBank').value);
+            
+            const liveSlots = Number(document.getElementById('liveSlots').value);
+            const seatsPerSlot = Number(document.getElementById('seatsPerSlot').value);
+            const avgPricePerSeat = Number(document.getElementById('avgPricePerSeat').value);
+            const attachRevenue = Number(document.getElementById('attachRevenue').value);
+            
+            const stores = Number(document.getElementById('stores').value);
+            const exitMultiple = Number(document.getElementById('exitMultiple').value);
+            
+            const costPerStoreMonth = 40.8;
+
+            const e2Revenue = liveSlots * seatsPerSlot * avgPricePerSeat;
+            const totalARR = e2Revenue + attachRevenue;
+            
+            const storeCostAnnual = stores * costPerStoreMonth * 12;
+            const burnAnnual = baseBurn * 12;
+            const totalOpex = storeCostAnnual + burnAnnual;
+            
+            const monthlyCashflow = (totalARR / 12) - (totalOpex / 12);
+            
+            const totalCash = cashInBank + fundraiseAmount;
+            let runwayMonths = 'Infinite (Profitable)';
+            if (monthlyCashflow < 0) {
+                runwayMonths = Math.floor(totalCash / Math.abs(monthlyCashflow)) + ' months';
+            }
+            
+            const exitValuation = totalARR * exitMultiple;
+            const yieldPerStore = stores > 0 ? (totalARR / stores) : 0;
+            const niqRatio = yieldPerStore / 3060;
+
+            // Update UI
+            document.getElementById('out-totalARR').innerText = formatMoney(totalARR);
+            document.getElementById('out-exitValuation').innerText = formatMoney(exitValuation);
+            document.getElementById('out-exitMultipleText').innerText = exitMultiple;
+            
+            const runwayEl = document.getElementById('out-runwayMonths');
+            runwayEl.innerText = runwayMonths;
+            if (monthlyCashflow >= 0) {
+                runwayEl.className = "text-3xl font-bold mt-2 text-green-600";
+            } else if (Math.floor(totalCash / Math.abs(monthlyCashflow)) < 6) {
+                runwayEl.className = "text-3xl font-bold mt-2 text-red-600";
+            } else {
+                runwayEl.className = "text-3xl font-bold mt-2 text-gray-900";
+            }
+
+            document.getElementById('out-monthlyCashflow').innerText = "Net Cashflow: " + formatMoney(monthlyCashflow) + " / mo";
+            document.getElementById('out-yieldPerStore').innerText = formatMoney(yieldPerStore);
+            document.getElementById('out-niqRatio').innerText = niqRatio.toFixed(1) + "x vs NIQ benchmark (€3,060)";
+            
+            const warningEl = document.getElementById('out-niqWarning');
+            if (niqRatio > 3) {
+                warningEl.classList.remove('hidden');
+            } else {
+                warningEl.classList.add('hidden');
+            }
+
+            document.getElementById('tbl-totalCash').innerText = formatMoney(totalCash);
+            
+            document.getElementById('tbl-storeCostLabel').innerText = `Annual Store Operations Cost (${stores} stores @ €40.8/mo)`;
+            document.getElementById('tbl-storeCost').innerText = "-" + formatMoney(storeCostAnnual);
+            
+            document.getElementById('tbl-burnLabel').innerText = `Annual Base OPEX (${formatMoney(baseBurn)}/mo)`;
+            document.getElementById('tbl-burn').innerText = "-" + formatMoney(burnAnnual);
+            
+            document.getElementById('tbl-totalOpex').innerText = "-" + formatMoney(totalOpex);
+            document.getElementById('tbl-e2CalcLabel').innerText = `* E2 Slots calculation: ${liveSlots} slots × ${seatsPerSlot} seats × ${formatMoney(avgPricePerSeat)}`;
+        }
+
+        // Run once on load
+        calculate();
+    </script>
+</body>
+</html>
