@@ -1,8 +1,12 @@
 # Fundraise pillar — deep execution guide (v1.0, 26 Aug 2026)
 
 Companion to `fundraise-plan.html`. **This is the working document.**
-**Goal:** €400–600k wired at a €6M cap by **21 Nov** (milestone ladder: deck+pipeline 6 Sep ·
-max velocity 20 Sep · anchor commitment 16 Oct · DD done 8 Nov · money 21 Nov).
+**Goal:** €400–600k wired at a €6M cap by **21 Nov**.
+**Measurable targets for FOMO:** 50 investors contacted by end of W2 · 15 deep-dives by W4 · "Closing bridge on 15 Oct" communicated clearly to VCs.
+**Dual-track Timeline:**
+- **Angels:** Fast close (first-come, first-served), standard CLA, aiming to close by end of October.
+- **VCs:** Milestone-driven (Mandate, Parity drops), strict term-sheet deadline on **16 Oct**. If DD lags, defer to Series A.
+
 **Ruling C2 applied throughout:** convertible/CLA at cap for the whole round — no SPA/SHA, no
 priced negotiation, and therefore a **rolling close**: first wires can land mid-October, five
 weeks before the cash wall.
@@ -47,13 +51,11 @@ only figures anyone may quote) circulated internally.
 **Steps**
 1. Build the 10–12 slides from **`templates/investor-deck/SPEC.md`** — the spine already encodes
    the currency narrative, the exit maths and the velocity slide. Do not reinvent it.
-2. The two slides that answer the two objections we actually get:
-   **Slide 8 (exit maths)** answers *"can't see the VC case"* — the re-rating argument: same ARR is
-   worth ~2.4× more as a measurement currency than as mixed SaaS; €8–12.5M ARR by 2031 → €100–150M
-   strategic exit → 10–16× for this round. **Slide 5 (velocity/mechanism)** answers *"why won't the
-   next 8 months look like the last 8"* — the was/is table: retailer paid → pays nothing · our
-   hardware → their cameras · commercial contract first → 60-day revocable mandate first ·
-   no-budget buyer → brands on measurement budgets that lock in October · outbound → inbound RFI.
+2. The core narrative slides that answer objections and define our position:
+   - **Slide 5 (velocity/mechanism):** answers *"why won't the next 8 months look like the last 8"* — the was/is table (retailer paid → pays nothing, our hardware → their cameras, etc.).
+   - **Slide 6 (The Moat):** explicit argument that we are the first and only to connect visual human behavior with POS ground truth (receipts). We are building the most accurate behavioral model backed by real transactions, not just hardware.
+   - **Slide 7 (The Capital Flywheel):** tells the exact story of the investors' money. **Step 1:** Invest €500k to cover "Store Ops" (€40/store) and build the network to acquire data. **Step 2:** Form a unified "Category Read" from this data. **Step 3 (20x return):** Sell this one dataset to 6 different brands at €30k each. Margins skyrocket because supply cost is fixed.
+   - **Slide 8 (exit maths):** answers *"can't see the VC case"* — €8–12.5M ARR by 2031 → €100–150M strategic exit → 10–16× for this round.
 3. Traction slide: three labels only — **SIGNED / IN NEGOTIATION / TARGET** — merciless.
 4. One appendix slide: the **survival variant** ("if you all say no, here is the company that still
    exists"). It removes the desperation discount.
@@ -125,8 +127,7 @@ so week 13 is confirmation, not discovery.
 1. **Tier 1 — warm Czech re-entry (~30):** the ~80% approached Dec-2025 + current follow-ups.
    Their job: convert or **clear**. They get the milestone contract (2.1), never a re-pitch.
 2. **Tier 2 — operator angels & strategics (15–25):** ex-NIQ/GfK/Kantar CZ execs, retail-media
-   operators, FMCG data leaders, Marek's circle, Šepek's network. Their job: **manufacture the
-   anchor** and validate the thesis.
+   operators, FMCG data leaders, Marek's circle, Tomáš Šepek (uLékaře), and Czech angel syndicates like Depo Ventures and Garage Angels. Their job: **manufacture the anchor** and validate the thesis.
 3. **Tier 3 — CEE regional funds (40–60):** PL/DACH/Baltics/Nordics with commerce/data theses.
    No old anchor — for them this is a first impression, not a pivot.
 4. **Tier 4 — Western EU/UK data & retail-tech specialists (30–50):** the ones who price
@@ -134,6 +135,7 @@ so week 13 is confirmation, not discovery.
    money.
 5. Every row: fund · named partner (the person, not info@) · thesis fit · check size · stage ·
    warm path · tier · CRM stage.
+6. **Data-driven Outreach Rule:** Every email to a VC must include a specific parallel to a data-infra/B2B SaaS company from their own portfolio (e.g., *"We saw how you scaled [Portfolio Company] via data aggregation; our model works identically in retail."*).
 
 💡 **Qualify on four axes before anyone gets an email:** stage fit (writes €100–300k pre-seed) ·
 thesis fit (data/B2B/infra — not consumer) · geography (invests in CZ/CEE) · speed (has closed a
@@ -173,6 +175,19 @@ distinction, the GDPR remediation history) converts DD from interrogation into c
 the euro**. DD runs the cross-check even when partners don't.
 
 ✅ **Done when:** indexed data room live · Moris memo in it · model reconciles to the numbers card.
+
+## 1.7 Financial Model Mechanics — Labelled vs. Aggregated · O ⏱4h
+
+⛔ **Prereq:** 1.1 numbers card and data room structure.
+
+**Steps**
+1. Refine the financial model (linked from Google Sheets) to explicitly define unit economics and cost of supply.
+2. Emphasize the distinction between **Labelled Dataset** (e.g., named retailer, applying a Revenue Share, e.g., 20%) and **Aggregated Dataset** (anonymized/cross-market where Data Supply is Free and we keep 100% margin).
+3. Connect the model back to the Capital Flywheel: the initial €500k buys the "Store Ops" required to build the network; the datasets produced become the 20x return multiplier.
+
+💡 Investors need to see you understand acquisition costs for different data products. The variable revenue share on labelled data proves you know the market dynamics, while the 100% margin on aggregated data shows the VC return profile.
+
+✅ **Done when:** Financial model is updated with Labelled vs. Aggregated distinction · Model is added to the data room.
 
 ---
 
