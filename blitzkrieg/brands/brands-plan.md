@@ -91,4 +91,8 @@ identities." The self-benchmark kit (C8) backs it.
 6 Sep map+decks+paper · 30 Sep tobacco verdict + ≥8 methodology meetings · 18 Oct cohort day ≥2
 verbal · 31 Oct 2 seats invoiced (fallback per §0) · 21 Nov +3 orders, ≥€70k.
 **W1–2 adds:** C7 SuperZoo third-party-share check · teaser cards ×3 · R1–R2 kickoff · paper batch
-to counsel · LOI motion starts immediately (pre-mandate legal).
+to counsel · LOI motion starts immediately (pre-mandate legal). · **chat demo w/ mocked brand data · website → brand ICP story · ICP research (R7)**.
+**W3 adds:** consumption-format discovery (R8) · LOI volume ≥6 by 30 Sep — scarce (founding-seat
+reservation + early-access), **never exclusive** (C11).
+**W7 add:** Store Twin as the generalised CZ shopper-behaviour model, for agencies (benchmark-
+integrity caveat on screen one).

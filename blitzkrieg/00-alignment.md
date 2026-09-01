@@ -77,3 +77,22 @@ retailer share language frozen until C1 is ruled.
   observer-tally check (±10pp on coarse cells), label-buy precision stats. Package as the
   **self-benchmark kit** — one page, "how we know our data is right" — for tech DD and brand meetings.
 - **C9, C10 — owned by founders directly** (bridge; team shift). Out of agent scope.
+
+## Amendments (26 Aug, second round — founder notes)
+
+- **C6-b — Tier A active from Week 1.** Founder decision: incumbents (NIQ/Circana/Kantar) are
+  worked from the start as the *alternative-outcome track* (strategic investment / partnership /
+  acqui-hire if the Blitzkrieg verdict is 🔴 on 21 Nov) because reaching the right person takes
+  months. The two broker pilots may be any Tier A/B mix. The hard content gate becomes a **content
+  ladder** (Stage 1 any time: method/schema/legal samples; Stage 2 post-mandate: attributed reads
+  under the reseller clause + retailer approval; never: pipeline, benchmarks, rights ambitions, the
+  kitchen). Brokers cap raised 25 → 30 founder-hours; Josef's share ≤5h. **Lead investor is told**
+  about Tier-A conversations, framed as customer/partner talks with a 2031 exit.
+- **C11 — "Exclusive LOI" (brands, W3 note) conflicts with canon and C3.** Exclusivity is never
+  granted. The compliant scarcity is stronger: the LOI **reserves one of three founding seats** per
+  category and grants the 3-month early-access window. Volume target ≥6 LOIs by 30 Sep via
+  cohort effect, peer intros and the teaser index. Adopted in brands guide 3.5.
+- **Brands additions adopted:** W2 chat demo with mocked brand-specific data (labelled illustrative,
+  never in decks) · website update to the brand ICP story (lint: no benchmarks, D2 respected) ·
+  ICP research primary + secondary (R7) · W3 consumption-format discovery (R8) · W7 Store Twin as
+  the generalised shopper-behaviour model for agencies (benchmark-integrity caveat mandatory).

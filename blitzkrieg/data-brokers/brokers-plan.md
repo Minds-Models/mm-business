@@ -1,7 +1,7 @@
 # Blitzkrieg — Data brokers / alternative customers v0.2 (founder answers, 26 Aug)
 
-**Goal:** 2 Tier-B pilot clients signed by 31 Oct, delivering by 21 Nov. Tier-A access path
-opened (calendar ungated, content gated). Budget ≤25 founder-hours.
+**Goal:** 2 pilot clients (Tier B and/or Tier A) signed by 31 Oct, delivering by 21 Nov. Tier A active
+from Week 1 as the alternative-outcome track (C6-b). Budget ≤30 founder-hours (Josef ≤5h).
 
 ## 0. What this pillar is actually for (founder answer #3, #14)
 
@@ -38,7 +38,7 @@ they are pricing us as DM — decline and reprice, or walk.
 | Their gap | No field-based quantitative shopper-segment data — operationally too expensive and complex for them to collect | Have "what was bought", structurally lack "who bought" |
 | What they buy | **White-label the platform** — everything already connected (their brand, our engine) | **Derived category reads** to combine with their own sources — never raw |
 | Deal shape | Wholesale licence per read/slot + white-label fee | Licensed derived product, per slot, term-limited |
-| Status | Active in-window target | **Access path only** (C6): map the person, secure the intro, meeting bookable late Oct; content shown only with ≥1 mandate + ≥1 paid seat in hand |
+| Status in-window | Active target — the 2 pilots (may be A/B mix) | **ACTIVE FROM WEEK 1 as the alternative-outcome track (C6-b, 26 Aug):** strategic investment / partnership / acqui-hire if the Blitzkrieg fails on 21 Nov. Content ladder replaces the hard gate: Stage 1 (method, schema, legal-source samples) any time; Stage 2 (attributed reads) only post-mandate + retailer approval; never pipeline, benchmarks, rights ambitions, the kitchen |
 | Strategic read | Distribution channel | Potential buyer / strategic investor (founder answer #8) — the access path is also the acquirer path |
 
 ## 3. What they get, and never get (founder answer #7)

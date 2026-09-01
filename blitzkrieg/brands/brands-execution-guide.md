@@ -197,6 +197,69 @@ close faster than a giant with a regional approval chain, regardless of category
 
 ✅ **Done when:** autonomy flag (local / regional / unknown) on every CRM company record.
 
+## 2.4 Chat demo with mocked, brand-specific data — the interface P&G asked for · D + J ⏱6h
+
+⛔ **Prereq:** legal-source rule (2.1) — mock data must be **synthetic and labelled illustrative
+on every screen**; real numbers only from GymBeam/sportstore/pooled sources, labelled real.
+
+**Steps**
+1. Take the three questions logged in methodology meetings (3.1) and script the chat to answer
+   *those* — a demo that answers a brand's actual question beats a generic tour.
+2. Mock a personalised dataset per target category (pet / tobacco / drugstore): segment ×
+   conversion × dwell, plausible, watermarked "ILLUSTRATIVE".
+3. Ten-minute recorded walkthrough + a live version for meetings; one screen shows real
+   GymBeam/sportstore numbers (labelled) so the demo has a floor of truth.
+
+💡 The chat is the interface P&G explicitly wanted — it is the "make them ask how you know this"
+moment in interactive form. But **mock numbers must never migrate into a deck or a data room**;
+keep the mock dataset in a folder named MOCK and nowhere else.
+💡 Prompt the chat with the brand's *vocabulary* (their category names, their segment labels) —
+insights people notice when a tool speaks their language.
+
+✅ **Done when:** demo works live and recorded; every screen labelled real vs illustrative.
+
+## 2.5 Website update — value proposition + ICP, nothing else · J (+ contractor) ⏱4h
+
+⛔ **Prereq:** licensed one-liner and privacy disarm line (narrative canon) · D2 (personalization
+is no longer a product on the site) · client-naming rules (`can_name_publicly`).
+
+**Steps**
+1. Homepage = the brand ICP's sentence: *"Syndicated data tells you what sold. We show you who
+   buys it — in the aisle, receipt-verified."* Depth claim + disarm line beneath it.
+2. One page per use-case (sales/trade · marketing · NPD) mirroring the value map — each ends with
+   the methodology-call CTA, not "book a demo".
+3. Remove personalization-as-product framing; keep it only as a footnote capability.
+4. Never-say lint: no benchmarks, no unnamed-client naming, no "100× NIQ".
+
+💡 **The site is what an insights manager reads 30 seconds after your cold email.** If it tells a
+different story than the email (cameras! screens!), the email dies. Match them word for word.
+💡 Forwardability litmus applies to a website more than to anything else — assume a retailer's
+DPO, a competitor, and a journalist all read it tonight.
+
+✅ **Done when:** live, lint-passed, story identical to the outreach.
+
+## 2.6 ICP research — primary + secondary sources · J ⏱4h (+ ongoing)
+
+**Steps**
+1. **Secondary:** what CZ/CEE brand insights and trade-marketing people actually read and listen
+   to — industry podcasts, trade blogs, the incumbents' thought-leadership pages, **job postings**
+   (what insights teams hire for reveals the tools and budgets they run), LinkedIn posts by named
+   CZ trade marketers. Log recurring pains verbatim.
+2. **Primary:** every methodology meeting (3.1) and every broker conversation (brokers pillar 3.1)
+   gets a "how they buy" field — trigger, budget, approval chain, objection, format.
+3. Output: **ICP one-pager v1** by 13 Sep (who, budget line, trigger event, first objection,
+   buying process, consumption format) — updated weekly from primary data.
+
+💡 Secondary research tells you the language; primary tells you the truth. Weight primary 3:1.
+💡 The best ICP signal is a *trigger event* — a lost listing, a failed launch, a new category
+manager. Ask in every meeting: "what changed recently?"
+
+🔍 **Research — R7, ICP synthesis (J, ⏱4h + rolling).** *What:* the ICP one-pager v1 from both
+sources. *Where:* as above. *Do what with it:* rewrites the outreach email, the site (2.5), the
+cohort-day invite, and the qualification filter for the 8-account cap.
+
+✅ **Done when:** ICP one-pager v1 exists; "how they buy" field live in the CRM.
+
 ---
 
 # WEEK 3 · Sep 7–13 — Discovery on record
@@ -264,6 +327,48 @@ demand on its own. Its value is leverage: it is what makes EuroOil move, and it 
 3-month early access on custom cuts.
 
 ✅ **Done when:** 2 LOIs in circulation with dated follow-ups.
+
+## 3.4 Consumption-format discovery — how would they actually use it? · J ⏱2h (in meetings)
+
+**Steps** In every methodology meeting, one block of questions: Excel vs dashboard vs API vs chat
+vs quarterly deck? Who else in the org would see it? Where would it sit next to the incumbent
+deliverable? Log per brand as a "format" field.
+
+💡 P&G already answered: **quarterly Excel is enough; real-time is not needed; chat is wanted for
+insight.** Do not over-build — deliver in the shape they already consume and put the chat on top.
+💡 Ask for their **current report** and mirror it exactly (same discipline as the P&G free read).
+Adoption is about not having to learn a new format.
+
+🔍 **Research — R8, format map (J, rolling).** *What:* consumption format per engaged brand.
+*Do what with it:* the report factory's templates and the Twin's default views are built from
+this, not from our preferences.
+
+✅ **Done when:** format logged for every engaged brand; report-factory template list updated.
+
+## 3.5 LOI volume — scarce, never exclusive · J + O ⏱3h
+
+⛔ **Prereq — doctrine check:** the note asked for an "exclusive LOI." **Category or brand
+exclusivity is banned** (canon; ruling C3 reconfirmed). The compliant scarcity is real and
+stronger: the LOI **reserves one of three founding seats** in the category and grants the
+**3-month early-access window** on custom cuts. "Exclusive" only ever means *the founding
+allocation is limited* — never that a brand locks out its competitors.
+
+**Steps — collect as many as possible**
+1. The LOI is the **default next step of every methodology meeting**: *"it costs you nothing,
+   it's subject to the retailer agreement, and it reserves your founding seat."* Signable on a
+   phone (DocuSign, one page).
+2. **Cohort effect:** brand #2 in a category hears that seat #1 is reserved — the true sentence
+   that produces the second signature.
+3. Every LOI signer is asked for **one intro to a peer brand in another category**.
+4. The free teaser-index recipients (~20) get the LOI link with the index.
+5. Target: **≥6 signed LOIs by 30 Sep**, ≥2 per active category.
+
+💡 LOIs are free for brands, so the constraint on volume is *our meeting capacity*, not their
+willingness — which is exactly why cohort day and the teaser index exist as scaling instruments.
+💡 Never let an LOI drift toward implied exclusivity in its wording; if a brand asks for it, the
+scripted answer is the founding-seat cap plus the early-access window, and nothing more.
+
+✅ **Done when:** ≥6 LOIs signed; scarcity language in every LOI matches the founding-seat rule.
 
 ---
 
@@ -385,6 +490,28 @@ same week, including the ones that went quiet.
 💡 This is an **evidence object**: it re-opens dead conversations without a re-pitch. Subject line
 is the number itself, not "following up".
 ✅ **Done when:** all open threads touched; ≥2 dormant threads revived.
+
+## 7.3 Store Twin as the generalised retail-behaviour model — for agencies · J + D ⏱3h
+
+⛔ **Prereq:** rights — a "generalised" model is still built on captured data: pre-mandate, only
+legal sources (GymBeam w/ permission, sportstore, pooled brand-worn); post-mandate, pooled
+chain-masked aggregates within the licence. **Benchmark-integrity rule:** one or two chains is a
+*channel read*, never "the market" — the model's coverage caveat must be on its first screen.
+
+**Steps**
+1. Position P4 as **"the CZ shopper-behaviour model"** — generalised, pooled, chain-masked, k≥25 —
+   answering planning questions (who shops this category, when, converting on what).
+2. Buyer: **media / shopper / research agencies** (a distinct buyer from brand seats; ties to
+   R5 agency masters and to the brokers pillar's alternative customers).
+3. Demo it at cohort day as the add-on; run the price test with agencies too (per-project pricing
+   may suit agencies better than the €1.5–4k/mo seat).
+
+💡 Agencies buy for pitches. A Twin demo that answers *a pitch question they have this week* wins;
+a generic tour does not. Ask which pitches are live.
+💡 A generalised model is the product least exposed to the retailer-data objection (nothing
+attributed) — but the most exposed to the over-claim risk. Density caveat, always.
+
+✅ **Done when:** agency positioning one-pager; ≥2 agency conversations booked; price reaction logged.
 
 ---
 
@@ -534,3 +661,5 @@ it failed and the evidence for why. Feed the 21 Nov go/no-go scoreboard
 | R5 | Agency masters — one master = 3 seats? | J | 26 Sep | Could be the cheapest path to €70k |
 | R6 | Tobacco compliance-artifact sufficiency | O + A | 26 Sep | Legal is the tobacco gatekeeper |
 | — | Per-attendee dossiers before cohort day | J | Oct 12 | Turns a generic room into a personal one |
+| R7 | ICP synthesis — primary (meetings) + secondary (podcasts, blogs, job posts) | J | 13 Sep | Rewrites outreach, site, invite and the 8-account filter |
+| R8 | Consumption-format map per brand | J | rolling | Report-factory templates and Twin views are built from it |

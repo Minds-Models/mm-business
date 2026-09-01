@@ -1,0 +1,2162 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Minds & Models//Blitzkrieg planner//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Blitzkrieg — Josef
+X-WR-TIMEZONE:Europe/Prague
+BEGIN:VTIMEZONE
+TZID:Europe/Prague
+X-LIC-LOCATION:Europe/Prague
+BEGIN:DAYLIGHT
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0200
+TZNAME:CEST
+DTSTART:19700329T020000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0100
+TZNAME:CET
+DTSTART:19701025T030000
+RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:c38af9a5e5ca185b@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20260824T090000
+DTEND;TZID=Europe/Prague:20260824T123000
+SUMMARY:🎯 BRANDS 1.1 Budget-owner map — 15+ named humans (1/2)
+DESCRIPTION:BRANDS · task 1.1 · owner J · est 6h founder time\nWeek 1 
+ — Maps\, paper\, and the tobacco forcing\n⛔ Prereq: Prereq: none. Star
+ t here\; everything else prices off it.\n✅ Done when: 15+ named people i
+ n CRM\, each with role\, use-case and a warm path (or an explicit "cold" f
+ lag).\nGuide: file:///Users/josefnemecek/Desktop/Minds%26Models/mm-busines
+ s/blitzkrieg/brands/brands-execution-guide.html
+CATEGORIES:Blitzkrieg,BRANDS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:442a1954a47be02e@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20260824T133000
+DTEND;TZID=Europe/Prague:20260824T160000
+SUMMARY:🎯 BRANDS 1.1 Budget-owner map — 15+ named humans (2/2)
+DESCRIPTION:BRANDS · task 1.1 · owner J · est 6h founder time\nWeek 1 
+ — Maps\, paper\, and the tobacco forcing\n⛔ Prereq: Prereq: none. Star
+ t here\; everything else prices off it.\n✅ Done when: 15+ named people i
+ n CRM\, each with role\, use-case and a warm path (or an explicit "cold" f
+ lag).\nGuide: file:///Users/josefnemecek/Desktop/Minds%26Models/mm-busines
+ s/blitzkrieg/brands/brands-execution-guide.html
+CATEGORIES:Blitzkrieg,BRANDS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:d54bea1375aac7d1@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20260824T160000
+DTEND;TZID=Europe/Prague:20260824T180000
+SUMMARY:🎯 BRANDS 1.2 SuperZoo third-party brand share (ruling C7) (1/2)
+DESCRIPTION:BRANDS · task 1.2 · owner J or D · est 3h founder time\nWeek
+  1 — Maps\, paper\, and the tobacco forcing\n⛔ Prereq: Prereq: none.\n
+ ✅ Done when: one-page verdict with a number\, filed to clients/superzoo/
+ facts.yaml and the pet-seat plan adjusted.\nGuide: file:///Users/josefneme
+ cek/Desktop/Minds%26Models/mm-business/blitzkrieg/brands/brands-execution-
+ guide.html
+CATEGORIES:Blitzkrieg,BRANDS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:94c982e2b66b1e79@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20260825T090000
+DTEND;TZID=Europe/Prague:20260825T100000
+SUMMARY:🎯 BRANDS 1.2 SuperZoo third-party brand share (ruling C7) (2/2)
+DESCRIPTION:BRANDS · task 1.2 · owner J or D · est 3h founder time\nWeek
+  1 — Maps\, paper\, and the tobacco forcing\n⛔ Prereq: Prereq: none.\n
+ ✅ Done when: one-page verdict with a number\, filed to clients/superzoo/
+ facts.yaml and the pet-seat plan adjusted.\nGuide: file:///Users/josefneme
+ cek/Desktop/Minds%26Models/mm-business/blitzkrieg/brands/brands-execution-
+ guide.html
+CATEGORIES:Blitzkrieg,BRANDS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:214a28338a8bfa60@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20260825T100000
+DTEND;TZID=Europe/Prague:20260825T123000
+SUMMARY:🎯 BRANDS 1.3 Tobacco access — see the dedicated playbook (1/2)
+DESCRIPTION:BRANDS · task 1.3 · owner J + O · est 4h founder time\nWeek 
+ 1 — Maps\, paper\, and the tobacco forcing\n⛔ Prereq: Prereq — do no
+ t skip: EuroOil/ČEPRO must be disclosed to before we probe tobacco brands
+  about their channel. Canon rule: the retailer hears it from us first\, ne
+ ver secondhand. Route via Moris or direct call\, same week\, before any le
+ tter lea\n✅ Done when: all three channels active with dated follow-ups\;
+  EuroOil disclosure logged.\nGuide: file:///Users/josefnemecek/Desktop/Min
+ ds%26Models/mm-business/blitzkrieg/brands/brands-execution-guide.html
+CATEGORIES:Blitzkrieg,BRANDS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:c085be8451499e6e@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20260825T133000
+DTEND;TZID=Europe/Prague:20260825T150000
+SUMMARY:🎯 BRANDS 1.3 Tobacco access — see the dedicated playbook (2/2)
+DESCRIPTION:BRANDS · task 1.3 · owner J + O · est 4h founder time\nWeek 
+ 1 — Maps\, paper\, and the tobacco forcing\n⛔ Prereq: Prereq — do no
+ t skip: EuroOil/ČEPRO must be disclosed to before we probe tobacco brands
+  about their channel. Canon rule: the retailer hears it from us first\, ne
+ ver secondhand. Route via Moris or direct call\, same week\, before any le
+ tter lea\n✅ Done when: all three channels active with dated follow-ups\;
+  EuroOil disclosure logged.\nGuide: file:///Users/josefnemecek/Desktop/Min
+ ds%26Models/mm-business/blitzkrieg/brands/brands-execution-guide.html
+CATEGORIES:Blitzkrieg,BRANDS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:0cdaa7de15f97245@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20260825T150000
+DTEND;TZID=Europe/Prague:20260825T180000
+SUMMARY:🎯 BRANDS 1.4 Paper batch to counsel (1/2) [was: O]
+DESCRIPTION:BRANDS · task 1.4 · owner O · est 4h founder time\nWeek 1 
+ — Maps\, paper\, and the tobacco forcing\n⛔ Prereq: Prereq: commercial
+  terms decided by the founders before counsel touches it (price band\, esc
+ row trigger\, term\, cap on founding seats).\n✅ Done when: four document
+ s at counsel with a delivery date ≤5 Sep.\nGuide: file:///Users/josefnem
+ ecek/Desktop/Minds%26Models/mm-business/blitzkrieg/brands/brands-execution
+ -guide.html
+CATEGORIES:Blitzkrieg,BRANDS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:9ba40f7be7736180@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20260826T090000
+DTEND;TZID=Europe/Prague:20260826T100000
+SUMMARY:🎯 BRANDS 1.4 Paper batch to counsel (2/2) [was: O]
+DESCRIPTION:BRANDS · task 1.4 · owner O · est 4h founder time\nWeek 1 
+ — Maps\, paper\, and the tobacco forcing\n⛔ Prereq: Prereq: commercial
+  terms decided by the founders before counsel touches it (price band\, esc
+ row trigger\, term\, cap on founding seats).\n✅ Done when: four document
+ s at counsel with a delivery date ≤5 Sep.\nGuide: file:///Users/josefnem
+ ecek/Desktop/Minds%26Models/mm-business/blitzkrieg/brands/brands-execution
+ -guide.html
+CATEGORIES:Blitzkrieg,BRANDS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:19eebe2fed323623@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20260826T100000
+DTEND;TZID=Europe/Prague:20260826T110000
+SUMMARY:🎯 BRANDS 1.5 GymBeam case-study permission
+DESCRIPTION:BRANDS · task 1.5 · owner J · est 1h founder time\nWeek 1 
+ — Maps\, paper\, and the tobacco forcing\n⛔ Prereq: Prereq: none — b
+ ut this blocks 2.1 if it fails.\n✅ Done when: written yes (named or anon
+ ymized) on file.\nGuide: file:///Users/josefnemecek/Desktop/Minds%26Models
+ /mm-business/blitzkrieg/brands/brands-execution-guide.html
+CATEGORIES:Blitzkrieg,BRANDS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:110fc9eea1fae029@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20260826T110000
+DTEND;TZID=Europe/Prague:20260826T123000
+SUMMARY:🤝 BROKERS 1.1 The Tier-B map — 10 named organisations\, tiered
+  by speed (1/2) [was: O]
+DESCRIPTION:BROKERS · task 1.1 · owner O · est 3h founder time\nWeek 1 
+ — Map the tier\, price the floor\, close the trap\n⛔ Prereq: Prereq: n
+ one.\n✅ Done when: 10 named orgs\, scored\, with overlap flags\; top 5 w
+ ith a named person and a path.\nGuide: file:///Users/josefnemecek/Desktop/
+ Minds%26Models/mm-business/blitzkrieg/data-brokers/brokers-execution-guide
+ .html
+CATEGORIES:Blitzkrieg,BROKERS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:2137f90ddd281ed1@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20260826T133000
+DTEND;TZID=Europe/Prague:20260826T150000
+SUMMARY:🤝 BROKERS 1.1 The Tier-B map — 10 named organisations\, tiered
+  by speed (2/2) [was: O]
+DESCRIPTION:BROKERS · task 1.1 · owner O · est 3h founder time\nWeek 1 
+ — Map the tier\, price the floor\, close the trap\n⛔ Prereq: Prereq: n
+ one.\n✅ Done when: 10 named orgs\, scored\, with overlap flags\; top 5 w
+ ith a named person and a path.\nGuide: file:///Users/josefnemecek/Desktop/
+ Minds%26Models/mm-business/blitzkrieg/data-brokers/brokers-execution-guide
+ .html
+CATEGORIES:Blitzkrieg,BROKERS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:8f2a7b4300b838f5@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20260826T150000
+DTEND;TZID=Europe/Prague:20260826T170000
+SUMMARY:🤝 BROKERS 1.2 The offer one-pager + the pricing-floor memo [was:
+  O]
+DESCRIPTION:BROKERS · task 1.2 · owner O · est 2h founder time\nWeek 1 
+ — Map the tier\, price the floor\, close the trap\n⛔ Prereq: Prereq: 1
+ .1 (which shape they reach for) · direct-sale pricing from the brands pil
+ lar's seat-pricing memo (their 4.2) — the floor is defined *relative to 
+ it*.\n✅ Done when: one-pager (CZ+EN) and the internal floor memo exist\;
+  floor per scope stated.\nGuide: file:///Users/josefnemecek/Desktop/Minds%
+ 26Models/mm-business/blitzkrieg/data-brokers/brokers-execution-guide.html
+CATEGORIES:Blitzkrieg,BROKERS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:ed62ff6f57fc5033@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20260826T170000
+DTEND;TZID=Europe/Prague:20260826T173000
+SUMMARY:🤝 BROKERS 1.3 The channel/reseller clause — into the DPA templ
+ ate BEFORE Mandate #1 [was: O + C]
+DESCRIPTION:BROKERS · task 1.3 · owner O + C · est 0.5h founder time\nWe
+ ek 1 — Map the tier\, price the floor\, close the trap\n⛔ Prereq: Prer
+ eq: retailers guide 1.1 (Golden DPA assembly) — this clause must be in *
+ that* draft.\n✅ Done when: clause in the template\; counsel's anonymity 
+ view on file.\nGuide: file:///Users/josefnemecek/Desktop/Minds%26Models/mm
+ -business/blitzkrieg/data-brokers/brokers-execution-guide.html
+CATEGORIES:Blitzkrieg,BROKERS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:99f9df1b4a382c77@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20260826T173000
+DTEND;TZID=Europe/Prague:20260826T180000
+SUMMARY:🤝 BROKERS 1.4 Eval-as-a-service — the pilot-#2 shape that neve
+ r hands over rows [was: D + O]
+DESCRIPTION:BROKERS · task 1.4 · owner D + O · est 0.5h founder time\nWe
+ ek 1 — Map the tier\, price the floor\, close the trap\n⛔ Prereq: Prer
+ eq: the calibration pre-registration doc (Module 5 / brands-adjacent) — 
+ it *is* the spec.\n✅ Done when: spec + sample scorecard + price on one p
+ age.\nGuide: file:///Users/josefnemecek/Desktop/Minds%26Models/mm-business
+ /blitzkrieg/data-brokers/brokers-execution-guide.html
+CATEGORIES:Blitzkrieg,BROKERS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:129aab7625e472c6@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20260827T090000
+DTEND;TZID=Europe/Prague:20260827T110000
+SUMMARY:🤝 BROKERS 1.5 AI-data outreach — the 10 emails that double as 
+ pilot-#2 prospecting [was: O]
+DESCRIPTION:BROKERS · task 1.5 · owner O · est 2h founder time\nWeek 1 
+ — Map the tier\, price the floor\, close the trap\n⛔ Prereq: Prereq: 1
+ .4 spec (the email offers the eval product\, not "data").\n✅ Done when: 
+ 10 sent\, dated follow-ups\, replies logged against the kill-test.\nGuide:
+  file:///Users/josefnemecek/Desktop/Minds%26Models/mm-business/blitzkrieg/
+ data-brokers/brokers-execution-guide.html
+CATEGORIES:Blitzkrieg,BROKERS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:3885931a304e3150@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20260827T110000
+DTEND;TZID=Europe/Prague:20260827T123000
+SUMMARY:🤝 BROKERS 1.6 Tier A — start now\, as the alternative-outcome 
+ track [was: O]
+DESCRIPTION:BROKERS · task 1.6 · owner O · est 1.5h founder time\nWeek 1
+  — Map the tier\, price the floor\, close the trap\n⛔ Prereq: Prereq: 
+ never-say list re-read · the content ladder below agreed by both founders
+  (it replaces the old hard gate).\n✅ Done when: person named\, intro req
+ uested\, first-meeting slot pencilled W3–5\, content ladder on file.\nGu
+ ide: file:///Users/josefnemecek/Desktop/Minds%26Models/mm-business/blitzkr
+ ieg/data-brokers/brokers-execution-guide.html
+CATEGORIES:Blitzkrieg,BROKERS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:40616b5cce5e755f@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20260827T133000
+DTEND;TZID=Europe/Prague:20260827T153000
+SUMMARY:📺 RMN 1.1 Price-corridor memo — know the number before anyone 
+ asks [was: O + D]
+DESCRIPTION:RMN · task 1.1 · owner O + D · est 2h founder time\nWeek 1 
+ — The corridor\, the map\, the one-pager\n⛔ Prereq: Prereq: none. Ever
+ ything in this pillar prices off this memo.\n✅ Done when: one page — a
+ nchors\, cost floor\, three price points\, the discount rule.\nGuide: file
+ :///Users/josefnemecek/Desktop/Minds%26Models/mm-business/blitzkrieg/rmn/r
+ mn-execution-guide.html
+CATEGORIES:Blitzkrieg,RMN
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:0e97a1ee590889f6@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20260827T153000
+DTEND;TZID=Europe/Prague:20260827T163000
+SUMMARY:📺 RMN 1.2 Map the two threads — and the third that's evidence
+DESCRIPTION:RMN · task 1.2 · owner J · est 1h founder time\nWeek 1 — T
+ he corridor\, the map\, the one-pager\n✅ Done when: three thread cards i
+ n the CRM with stage\, contact\, ask\, and known facts.\nGuide: file:///Us
+ ers/josefnemecek/Desktop/Minds%26Models/mm-business/blitzkrieg/rmn/rmn-exe
+ cution-guide.html
+CATEGORIES:Blitzkrieg,RMN
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:ff970005939b2c02@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20260827T163000
+DTEND;TZID=Europe/Prague:20260827T180000
+SUMMARY:📺 RMN 1.3 The operator one-pager — API + barter\, licence clau
+ se visible [was: O]
+DESCRIPTION:RMN · task 1.3 · owner O · est 1.5h founder time\nWeek 1 —
+  The corridor\, the map\, the one-pager\n⛔ Prereq: Prereq: 1.1 corridor 
+ · rights clause from the retailers DPA template (1.4).\n✅ Done when: on
+ e-pager exists in CZ + EN\, licence clause visible\, definitions footnoted
+ .\nGuide: file:///Users/josefnemecek/Desktop/Minds%26Models/mm-business/bl
+ itzkrieg/rmn/rmn-execution-guide.html
+CATEGORIES:Blitzkrieg,RMN
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:ee623c221cb0d5c5@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20260828T090000
+DTEND;TZID=Europe/Prague:20260828T093000
+SUMMARY:📺 RMN 1.4 Reuse the rights clause — operators are controllers 
+ too [was: O]
+DESCRIPTION:RMN · task 1.4 · owner O · est 0.5h founder time\nWeek 1 —
+  The corridor\, the map\, the one-pager\n⛔ Prereq: Prereq: retailers gui
+ de 1.1 (Golden DPA) — the aggregate-licence and reseller clauses already
+  exist there.\n✅ Done when: operator addendum drafted\, ready to attach 
+ to any Option-B conversation.\nGuide: file:///Users/josefnemecek/Desktop/M
+ inds%26Models/mm-business/blitzkrieg/rmn/rmn-execution-guide.html
+CATEGORIES:Blitzkrieg,RMN
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:6dad7bc39f05fd5f@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20260831T090000
+DTEND;TZID=Europe/Prague:20260831T123000
+SUMMARY:🎯 BRANDS 2.1 Three teaser cards — the "how did you get this?" 
+ opener (1/2)
+DESCRIPTION:BRANDS · task 2.1 · owner D + J · est 6h founder time\nWeek 
+ 2 — Teasers and the methodology funnel\n⛔ Prereq: Prereq: 1.5 permissi
+ on · legal-source discipline: GymBeam\, sportstore\, pooled brand-worn on
+ ly. SuperZoo/EuroOil pilot data is off-limits until that retailer's mandat
+ e is signed.\n✅ Done when: 3 cards exist\, each with its n and method do
+ cumented on the back.\nGuide: file:///Users/josefnemecek/Desktop/Minds%26M
+ odels/mm-business/blitzkrieg/brands/brands-execution-guide.html
+CATEGORIES:Blitzkrieg,BRANDS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:2fff164a00f68d37@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20260831T133000
+DTEND;TZID=Europe/Prague:20260831T160000
+SUMMARY:🎯 BRANDS 2.1 Three teaser cards — the "how did you get this?" 
+ opener (2/2)
+DESCRIPTION:BRANDS · task 2.1 · owner D + J · est 6h founder time\nWeek 
+ 2 — Teasers and the methodology funnel\n⛔ Prereq: Prereq: 1.5 permissi
+ on · legal-source discipline: GymBeam\, sportstore\, pooled brand-worn on
+ ly. SuperZoo/EuroOil pilot data is off-limits until that retailer's mandat
+ e is signed.\n✅ Done when: 3 cards exist\, each with its n and method do
+ cumented on the back.\nGuide: file:///Users/josefnemecek/Desktop/Minds%26M
+ odels/mm-business/blitzkrieg/brands/brands-execution-guide.html
+CATEGORIES:Blitzkrieg,BRANDS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:91a3f62b26b2bec8@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20260831T160000
+DTEND;TZID=Europe/Prague:20260831T180000
+SUMMARY:🎯 BRANDS 2.2 Book 8–10 methodology meetings (1/3)
+DESCRIPTION:BRANDS · task 2.2 · owner J · est 8h founder time\nWeek 2 
+ — Teasers and the methodology funnel\n⛔ Prereq: Prereq: 1.1 map · 2.1
+  cards.\n✅ Done when: 8–10 meetings booked in the calendar (not "inter
+ ested" — booked).\nGuide: file:///Users/josefnemecek/Desktop/Minds%26Mod
+ els/mm-business/blitzkrieg/brands/brands-execution-guide.html
+CATEGORIES:Blitzkrieg,BRANDS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:9ab17d865ec617aa@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20260901T090000
+DTEND;TZID=Europe/Prague:20260901T123000
+SUMMARY:🎯 BRANDS 2.2 Book 8–10 methodology meetings (2/3)
+DESCRIPTION:BRANDS · task 2.2 · owner J · est 8h founder time\nWeek 2 
+ — Teasers and the methodology funnel\n⛔ Prereq: Prereq: 1.1 map · 2.1
+  cards.\n✅ Done when: 8–10 meetings booked in the calendar (not "inter
+ ested" — booked).\nGuide: file:///Users/josefnemecek/Desktop/Minds%26Mod
+ els/mm-business/blitzkrieg/brands/brands-execution-guide.html
+CATEGORIES:Blitzkrieg,BRANDS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:598ce002c125ff2f@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20260901T133000
+DTEND;TZID=Europe/Prague:20260901T160000
+SUMMARY:🎯 BRANDS 2.2 Book 8–10 methodology meetings (3/3)
+DESCRIPTION:BRANDS · task 2.2 · owner J · est 8h founder time\nWeek 2 
+ — Teasers and the methodology funnel\n⛔ Prereq: Prereq: 1.1 map · 2.1
+  cards.\n✅ Done when: 8–10 meetings booked in the calendar (not "inter
+ ested" — booked).\nGuide: file:///Users/josefnemecek/Desktop/Minds%26Mod
+ els/mm-business/blitzkrieg/brands/brands-execution-guide.html
+CATEGORIES:Blitzkrieg,BRANDS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:8517b9e94538e5a6@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20260901T160000
+DTEND;TZID=Europe/Prague:20260901T180000
+SUMMARY:🎯 BRANDS 2.3 R2 — subsidiary spend autonomy (1/2)
+DESCRIPTION:BRANDS · task 2.3 · owner J + A · est 3h founder time\nWeek 
+ 2 — Teasers and the methodology funnel\n✅ Done when: autonomy flag (lo
+ cal / regional / unknown) on every CRM company record.\nGuide: file:///Use
+ rs/josefnemecek/Desktop/Minds%26Models/mm-business/blitzkrieg/brands/brand
+ s-execution-guide.html
+CATEGORIES:Blitzkrieg,BRANDS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:b8273634f499d894@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20260902T090000
+DTEND;TZID=Europe/Prague:20260902T100000
+SUMMARY:🎯 BRANDS 2.3 R2 — subsidiary spend autonomy (2/2)
+DESCRIPTION:BRANDS · task 2.3 · owner J + A · est 3h founder time\nWeek 
+ 2 — Teasers and the methodology funnel\n✅ Done when: autonomy flag (lo
+ cal / regional / unknown) on every CRM company record.\nGuide: file:///Use
+ rs/josefnemecek/Desktop/Minds%26Models/mm-business/blitzkrieg/brands/brand
+ s-execution-guide.html
+CATEGORIES:Blitzkrieg,BRANDS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:f63b69e1f2d51fea@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20260902T100000
+DTEND;TZID=Europe/Prague:20260902T123000
+SUMMARY:🎯 BRANDS 2.4 Chat demo with mocked\, brand-specific data — the
+  interface P&G asked for (1/2)
+DESCRIPTION:BRANDS · task 2.4 · owner D + J · est 6h founder time\nWeek 
+ 2 — Teasers and the methodology funnel\n⛔ Prereq: Prereq: legal-source
+  rule (2.1) — mock data must be synthetic and labelled illustrative on e
+ very screen\; real numbers only from GymBeam/sportstore/pooled sources\, l
+ abelled real.\n✅ Done when: demo works live and recorded\; every screen 
+ labelled real vs illustrative.\nGuide: file:///Users/josefnemecek/Desktop/
+ Minds%26Models/mm-business/blitzkrieg/brands/brands-execution-guide.html
+CATEGORIES:Blitzkrieg,BRANDS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:fe5a9834849b4ebf@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20260902T133000
+DTEND;TZID=Europe/Prague:20260902T170000
+SUMMARY:🎯 BRANDS 2.4 Chat demo with mocked\, brand-specific data — the
+  interface P&G asked for (2/2)
+DESCRIPTION:BRANDS · task 2.4 · owner D + J · est 6h founder time\nWeek 
+ 2 — Teasers and the methodology funnel\n⛔ Prereq: Prereq: legal-source
+  rule (2.1) — mock data must be synthetic and labelled illustrative on e
+ very screen\; real numbers only from GymBeam/sportstore/pooled sources\, l
+ abelled real.\n✅ Done when: demo works live and recorded\; every screen 
+ labelled real vs illustrative.\nGuide: file:///Users/josefnemecek/Desktop/
+ Minds%26Models/mm-business/blitzkrieg/brands/brands-execution-guide.html
+CATEGORIES:Blitzkrieg,BRANDS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:9b287a22908d737c@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20260902T170000
+DTEND;TZID=Europe/Prague:20260902T180000
+SUMMARY:🎯 BRANDS 2.5 Website update — value proposition + ICP\, nothin
+ g else (1/2)
+DESCRIPTION:BRANDS · task 2.5 · owner J (+ contractor) · est 4h founder 
+ time\nWeek 2 — Teasers and the methodology funnel\n⛔ Prereq: Prereq: l
+ icensed one-liner and privacy disarm line (narrative canon) · D2 (persona
+ lization is no longer a product on the site) · client-naming rules (can_n
+ ame_publicly).\n✅ Done when: live\, lint-passed\, story identical to the
+  outreach.\nGuide: file:///Users/josefnemecek/Desktop/Minds%26Models/mm-bu
+ siness/blitzkrieg/brands/brands-execution-guide.html
+CATEGORIES:Blitzkrieg,BRANDS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:1a9f70dd3e898d79@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20260903T090000
+DTEND;TZID=Europe/Prague:20260903T120000
+SUMMARY:🎯 BRANDS 2.5 Website update — value proposition + ICP\, nothin
+ g else (2/2)
+DESCRIPTION:BRANDS · task 2.5 · owner J (+ contractor) · est 4h founder 
+ time\nWeek 2 — Teasers and the methodology funnel\n⛔ Prereq: Prereq: l
+ icensed one-liner and privacy disarm line (narrative canon) · D2 (persona
+ lization is no longer a product on the site) · client-naming rules (can_n
+ ame_publicly).\n✅ Done when: live\, lint-passed\, story identical to the
+  outreach.\nGuide: file:///Users/josefnemecek/Desktop/Minds%26Models/mm-bu
+ siness/blitzkrieg/brands/brands-execution-guide.html
+CATEGORIES:Blitzkrieg,BRANDS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:be434b7b511e2193@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20260903T120000
+DTEND;TZID=Europe/Prague:20260903T123000
+SUMMARY:🎯 BRANDS 2.6 ICP research — primary + secondary sources (1/2)
+DESCRIPTION:BRANDS · task 2.6 · owner J · est 4h founder time\nWeek 2 
+ — Teasers and the methodology funnel\n✅ Done when: ICP one-pager v1 ex
+ ists\; "how they buy" field live in the CRM.\nGuide: file:///Users/josefne
+ mecek/Desktop/Minds%26Models/mm-business/blitzkrieg/brands/brands-executio
+ n-guide.html
+CATEGORIES:Blitzkrieg,BRANDS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:e4a62a25fb9eb868@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20260903T133000
+DTEND;TZID=Europe/Prague:20260903T170000
+SUMMARY:🎯 BRANDS 2.6 ICP research — primary + secondary sources (2/2)
+DESCRIPTION:BRANDS · task 2.6 · owner J · est 4h founder time\nWeek 2 
+ — Teasers and the methodology funnel\n✅ Done when: ICP one-pager v1 ex
+ ists\; "how they buy" field live in the CRM.\nGuide: file:///Users/josefne
+ mecek/Desktop/Minds%26Models/mm-business/blitzkrieg/brands/brands-executio
+ n-guide.html
+CATEGORIES:Blitzkrieg,BRANDS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:805f146e9d23ba23@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20260907T090000
+DTEND;TZID=Europe/Prague:20260907T123000
+SUMMARY:🎯 BRANDS 3.1 Run the first methodology meetings (1/3)
+DESCRIPTION:BRANDS · task 3.1 · owner J · est 10h founder time\nWeek 3 
+ — Discovery on record\n⛔ Prereq: Prereq: 2.2 bookings.\n✅ Done when:
+  4+ meetings held\, all three answers logged for each.\nGuide: file:///Use
+ rs/josefnemecek/Desktop/Minds%26Models/mm-business/blitzkrieg/brands/brand
+ s-execution-guide.html
+CATEGORIES:Blitzkrieg,BRANDS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:d72380e9efaf1839@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20260907T133000
+DTEND;TZID=Europe/Prague:20260907T170000
+SUMMARY:🎯 BRANDS 3.1 Run the first methodology meetings (2/3)
+DESCRIPTION:BRANDS · task 3.1 · owner J · est 10h founder time\nWeek 3 
+ — Discovery on record\n⛔ Prereq: Prereq: 2.2 bookings.\n✅ Done when:
+  4+ meetings held\, all three answers logged for each.\nGuide: file:///Use
+ rs/josefnemecek/Desktop/Minds%26Models/mm-business/blitzkrieg/brands/brand
+ s-execution-guide.html
+CATEGORIES:Blitzkrieg,BRANDS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:8608c888aafb1cb6@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20260908T090000
+DTEND;TZID=Europe/Prague:20260908T120000
+SUMMARY:🎯 BRANDS 3.1 Run the first methodology meetings (3/3)
+DESCRIPTION:BRANDS · task 3.1 · owner J · est 10h founder time\nWeek 3 
+ — Discovery on record\n⛔ Prereq: Prereq: 2.2 bookings.\n✅ Done when:
+  4+ meetings held\, all three answers logged for each.\nGuide: file:///Use
+ rs/josefnemecek/Desktop/Minds%26Models/mm-business/blitzkrieg/brands/brand
+ s-execution-guide.html
+CATEGORIES:Blitzkrieg,BRANDS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:d6ee3910d152f015@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20260907T170000
+DTEND;TZID=Europe/Prague:20260907T173000
+SUMMARY:🎯 BRANDS 3.2 P&G-style free mini-read [review — D]
+DESCRIPTION:BRANDS · task 3.2 · owner D · est 0.5h founder time\nWeek 3 
+ — Discovery on record\n⛔ Prereq: Prereq: D2 calibration work must not 
+ slip — this is the one thing allowed to share Dima's week\, nothing else
+ .\n✅ Done when: read delivered + €0 invoice raised + vendor record con
+ firmed.\nGuide: file:///Users/josefnemecek/Desktop/Minds%26Models/mm-busin
+ ess/blitzkrieg/brands/brands-execution-guide.html
+CATEGORIES:Blitzkrieg,BRANDS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:72f3d898488dd99d@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20260907T173000
+DTEND;TZID=Europe/Prague:20260907T180000
+SUMMARY:🎯 BRANDS 3.3 First LOIs into circulation (1/3)
+DESCRIPTION:BRANDS · task 3.3 · owner J + O · est 3h founder time\nWeek 
+ 3 — Discovery on record\n⛔ Prereq: Prereq: 1.4 LOI template back from 
+ counsel.\n✅ Done when: 2 LOIs in circulation with dated follow-ups.\nGui
+ de: file:///Users/josefnemecek/Desktop/Minds%26Models/mm-business/blitzkri
+ eg/brands/brands-execution-guide.html
+CATEGORIES:Blitzkrieg,BRANDS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:eaca4c4aeb94bc8b@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20260908T120000
+DTEND;TZID=Europe/Prague:20260908T123000
+SUMMARY:🎯 BRANDS 3.3 First LOIs into circulation (2/3)
+DESCRIPTION:BRANDS · task 3.3 · owner J + O · est 3h founder time\nWeek 
+ 3 — Discovery on record\n⛔ Prereq: Prereq: 1.4 LOI template back from 
+ counsel.\n✅ Done when: 2 LOIs in circulation with dated follow-ups.\nGui
+ de: file:///Users/josefnemecek/Desktop/Minds%26Models/mm-business/blitzkri
+ eg/brands/brands-execution-guide.html
+CATEGORIES:Blitzkrieg,BRANDS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:097e3fa87f076586@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20260908T133000
+DTEND;TZID=Europe/Prague:20260908T153000
+SUMMARY:🎯 BRANDS 3.3 First LOIs into circulation (3/3)
+DESCRIPTION:BRANDS · task 3.3 · owner J + O · est 3h founder time\nWeek 
+ 3 — Discovery on record\n⛔ Prereq: Prereq: 1.4 LOI template back from 
+ counsel.\n✅ Done when: 2 LOIs in circulation with dated follow-ups.\nGui
+ de: file:///Users/josefnemecek/Desktop/Minds%26Models/mm-business/blitzkri
+ eg/brands/brands-execution-guide.html
+CATEGORIES:Blitzkrieg,BRANDS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:518006bc7f038ca4@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20260908T153000
+DTEND;TZID=Europe/Prague:20260908T173000
+SUMMARY:🎯 BRANDS 3.4 Consumption-format discovery — how would they act
+ ually use it?
+DESCRIPTION:BRANDS · task 3.4 · owner J · est 2h founder time\nWeek 3 
+ — Discovery on record\n✅ Done when: format logged for every engaged br
+ and\; report-factory template list updated.\nGuide: file:///Users/josefnem
+ ecek/Desktop/Minds%26Models/mm-business/blitzkrieg/brands/brands-execution
+ -guide.html
+CATEGORIES:Blitzkrieg,BRANDS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:fca14ed9e8a0dbad@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20260908T173000
+DTEND;TZID=Europe/Prague:20260908T180000
+SUMMARY:🎯 BRANDS 3.5 LOI volume — scarce\, never exclusive (1/2)
+DESCRIPTION:BRANDS · task 3.5 · owner J + O · est 3h founder time\nWeek 
+ 3 — Discovery on record\n⛔ Prereq: Prereq — doctrine check: the note
+  asked for an "exclusive LOI." Category or brand exclusivity is banned (ca
+ non\; ruling C3 reconfirmed). The compliant scarcity is real and stronger:
+  the LOI reserves one of three founding seats in the categor\n✅ Done whe
+ n: ≥6 LOIs signed\; scarcity language in every LOI matches the founding-
+ seat rule.\nGuide: file:///Users/josefnemecek/Desktop/Minds%26Models/mm-bu
+ siness/blitzkrieg/brands/brands-execution-guide.html
+CATEGORIES:Blitzkrieg,BRANDS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:63f125dc9d87cf99@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20260909T090000
+DTEND;TZID=Europe/Prague:20260909T113000
+SUMMARY:🎯 BRANDS 3.5 LOI volume — scarce\, never exclusive (2/2)
+DESCRIPTION:BRANDS · task 3.5 · owner J + O · est 3h founder time\nWeek 
+ 3 — Discovery on record\n⛔ Prereq: Prereq — doctrine check: the note
+  asked for an "exclusive LOI." Category or brand exclusivity is banned (ca
+ non\; ruling C3 reconfirmed). The compliant scarcity is real and stronger:
+  the LOI reserves one of three founding seats in the categor\n✅ Done whe
+ n: ≥6 LOIs signed\; scarcity language in every LOI matches the founding-
+ seat rule.\nGuide: file:///Users/josefnemecek/Desktop/Minds%26Models/mm-bu
+ siness/blitzkrieg/brands/brands-execution-guide.html
+CATEGORIES:Blitzkrieg,BRANDS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:7962681da9fd87ab@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20260909T113000
+DTEND;TZID=Europe/Prague:20260909T123000
+SUMMARY:🤝 BROKERS 3.1 Five Tier-B conversations (1/2)
+DESCRIPTION:BROKERS · task 3.1 · owner O + J · est 4h founder time\nWeek
+  3 — Five conversations\, one access path\n⛔ Prereq: Prereq: 1.1 top-5
+  · 1.2 one-pager · overlap flags in hand.\n✅ Done when: 5 held · shap
+ e preference and DM-tell result logged each · ≥2 warm enough to scope.\
+ nGuide: file:///Users/josefnemecek/Desktop/Minds%26Models/mm-business/blit
+ zkrieg/data-brokers/brokers-execution-guide.html
+CATEGORIES:Blitzkrieg,BROKERS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:d7e9224ceabf8f60@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20260909T133000
+DTEND;TZID=Europe/Prague:20260909T163000
+SUMMARY:🤝 BROKERS 3.1 Five Tier-B conversations (2/2)
+DESCRIPTION:BROKERS · task 3.1 · owner O + J · est 4h founder time\nWeek
+  3 — Five conversations\, one access path\n⛔ Prereq: Prereq: 1.1 top-5
+  · 1.2 one-pager · overlap flags in hand.\n✅ Done when: 5 held · shap
+ e preference and DM-tell result logged each · ≥2 warm enough to scope.\
+ nGuide: file:///Users/josefnemecek/Desktop/Minds%26Models/mm-business/blit
+ zkrieg/data-brokers/brokers-execution-guide.html
+CATEGORIES:Blitzkrieg,BROKERS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:1ddfe22fea74fd00@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20260909T163000
+DTEND;TZID=Europe/Prague:20260909T180000
+SUMMARY:🤝 BROKERS 3.2 Tier-A first meeting — Stage-1 content only (1/2
+ )
+DESCRIPTION:BROKERS · task 3.2 · owner O (+ J if a pilot is on the table)
+  · est 3h founder time\nWeek 3 — Five conversations\, one access path\n
+ ⛔ Prereq: Prereq: 1.6 intro landed · Stage-1 pack ready (methodology\, 
+ schema\, legal-source sample\, self-benchmark kit) · nothing from the "ne
+ ver" list in the bag.\n✅ Done when: meeting held\; gap statements and al
+ ternative-outcome requirements logged.\nGuide: file:///Users/josefnemecek/
+ Desktop/Minds%26Models/mm-business/blitzkrieg/data-brokers/brokers-executi
+ on-guide.html
+CATEGORIES:Blitzkrieg,BROKERS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:d8ee08b7ac29bf2d@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20260910T090000
+DTEND;TZID=Europe/Prague:20260910T103000
+SUMMARY:🤝 BROKERS 3.2 Tier-A first meeting — Stage-1 content only (2/2
+ )
+DESCRIPTION:BROKERS · task 3.2 · owner O (+ J if a pilot is on the table)
+  · est 3h founder time\nWeek 3 — Five conversations\, one access path\n
+ ⛔ Prereq: Prereq: 1.6 intro landed · Stage-1 pack ready (methodology\, 
+ schema\, legal-source sample\, self-benchmark kit) · nothing from the "ne
+ ver" list in the bag.\n✅ Done when: meeting held\; gap statements and al
+ ternative-outcome requirements logged.\nGuide: file:///Users/josefnemecek/
+ Desktop/Minds%26Models/mm-business/blitzkrieg/data-brokers/brokers-executi
+ on-guide.html
+CATEGORIES:Blitzkrieg,BROKERS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:10c65d3b770a3ca5@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20260910T103000
+DTEND;TZID=Europe/Prague:20260910T123000
+SUMMARY:📺 RMN 3.1 The NANOVO conversation — the two-option offer
+DESCRIPTION:RMN · task 3.1 · owner J · est 2h founder time\nWeek 3 — T
+ wo offers\, two tables\, one calibration call\n⛔ Prereq: Prereq: 1.3 one
+ -pager · 1.4 addendum · 1.1 corridor memorised.\n✅ Done when: offer ma
+ de\; five facts logged\; test-site appetite known\; option preference reco
+ rded.\nGuide: file:///Users/josefnemecek/Desktop/Minds%26Models/mm-busines
+ s/blitzkrieg/rmn/rmn-execution-guide.html
+CATEGORIES:Blitzkrieg,RMN
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:c356a5cef76a6a79@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20260910T133000
+DTEND;TZID=Europe/Prague:20260910T150000
+SUMMARY:📺 RMN 3.2 The Vistar probe — what would they list\, at what sp
+ lit
+DESCRIPTION:RMN · task 3.2 · owner J · est 1.5h founder time\nWeek 3 —
+  Two offers\, two tables\, one calibration call\n⛔ Prereq: Prereq: RMN-2
+  (their data-partner spec).\n✅ Done when: segment spec + fee split + pil
+ ot appetite logged.\nGuide: file:///Users/josefnemecek/Desktop/Minds%26Mod
+ els/mm-business/blitzkrieg/rmn/rmn-execution-guide.html
+CATEGORIES:Blitzkrieg,RMN
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:5d94cca0549c5e33@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20260910T150000
+DTEND;TZID=Europe/Prague:20260910T160000
+SUMMARY:📺 RMN 3.3 Bluetouch — the evidence call
+DESCRIPTION:RMN · task 3.3 · owner J · est 1h founder time\nWeek 3 — T
+ wo offers\, two tables\, one calibration call\n✅ Done when: history logg
+ ed\; refused price known (or known unknown).\nGuide: file:///Users/josefne
+ mecek/Desktop/Minds%26Models/mm-business/blitzkrieg/rmn/rmn-execution-guid
+ e.html
+CATEGORIES:Blitzkrieg,RMN
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:3c52e1996c594ea9@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20260914T090000
+DTEND;TZID=Europe/Prague:20260914T123000
+SUMMARY:🎯 BRANDS 4.1 Push LOIs to signature (1/2)
+DESCRIPTION:BRANDS · task 4.1 · owner J · est 4h founder time\nWeek 4 
+ — Signatures before OOO\n⛔ Prereq: Prereq: 3.3.\n✅ Done when: ≥2 s
+ igned LOIs → data room + EuroOil leverage pack.\nGuide: file:///Users/jo
+ sefnemecek/Desktop/Minds%26Models/mm-business/blitzkrieg/brands/brands-exe
+ cution-guide.html
+CATEGORIES:Blitzkrieg,BRANDS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:37e5f478df99a1bf@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20260914T133000
+DTEND;TZID=Europe/Prague:20260914T140000
+SUMMARY:🎯 BRANDS 4.1 Push LOIs to signature (2/2)
+DESCRIPTION:BRANDS · task 4.1 · owner J · est 4h founder time\nWeek 4 
+ — Signatures before OOO\n⛔ Prereq: Prereq: 3.3.\n✅ Done when: ≥2 s
+ igned LOIs → data room + EuroOil leverage pack.\nGuide: file:///Users/jo
+ sefnemecek/Desktop/Minds%26Models/mm-business/blitzkrieg/brands/brands-exe
+ cution-guide.html
+CATEGORIES:Blitzkrieg,BRANDS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:2d93c394cc33845a@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20260914T140000
+DTEND;TZID=Europe/Prague:20260914T170000
+SUMMARY:🎯 BRANDS 4.2 Seat-pricing memo from parity v1
+DESCRIPTION:BRANDS · task 4.2 · owner J + D · est 3h founder time\nWeek 
+ 4 — Signatures before OOO\n⛔ Prereq: Prereq: parity v1 (19 Sep\, calib
+ ration track).\n✅ Done when: one page\, three scenarios\, a number in ea
+ ch.\nGuide: file:///Users/josefnemecek/Desktop/Minds%26Models/mm-business/
+ blitzkrieg/brands/brands-execution-guide.html
+CATEGORIES:Blitzkrieg,BRANDS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:8dc5be8dc54e23b2@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20260914T170000
+DTEND;TZID=Europe/Prague:20260914T180000
+SUMMARY:🎯 BRANDS 4.3 Cohort-day kit + roundtable date (1/2)
+DESCRIPTION:BRANDS · task 4.3 · owner J + O · est 4h founder time\nWeek 
+ 4 — Signatures before OOO\n✅ Done when: kit complete\; ≥8 cumulative
+  methodology meetings held\; roundtable date set or the 30 Sep kill-test e
+ xplicitly armed.\nGuide: file:///Users/josefnemecek/Desktop/Minds%26Models
+ /mm-business/blitzkrieg/brands/brands-execution-guide.html
+CATEGORIES:Blitzkrieg,BRANDS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:08eed92f22582d97@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20260915T090000
+DTEND;TZID=Europe/Prague:20260915T120000
+SUMMARY:🎯 BRANDS 4.3 Cohort-day kit + roundtable date (2/2)
+DESCRIPTION:BRANDS · task 4.3 · owner J + O · est 4h founder time\nWeek 
+ 4 — Signatures before OOO\n✅ Done when: kit complete\; ≥8 cumulative
+  methodology meetings held\; roundtable date set or the 30 Sep kill-test e
+ xplicitly armed.\nGuide: file:///Users/josefnemecek/Desktop/Minds%26Models
+ /mm-business/blitzkrieg/brands/brands-execution-guide.html
+CATEGORIES:Blitzkrieg,BRANDS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:492ce54ac731c24d@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20260921T090000
+DTEND;TZID=Europe/Prague:20260921T093000
+SUMMARY:🎯 BRANDS 5.1 Self-benchmark kit v1 [review — D + H]
+DESCRIPTION:BRANDS · task 5.1 · owner D + H · est 0.5h founder time\nWee
+ k 5 — OOO: artifacts only\n⛔ Prereq: Prereq: ruling C8 (we benchmark a
+ gainst reality\, not competitors — no external benchmark exists for this
+  level of visual analysis).\n✅ Done when: kit v1 circulating internally\
+ , reviewed by D.\nGuide: file:///Users/josefnemecek/Desktop/Minds%26Models
+ /mm-business/blitzkrieg/brands/brands-execution-guide.html
+CATEGORIES:Blitzkrieg,BRANDS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:bd1d181fe447d4c2@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20260921T093000
+DTEND;TZID=Europe/Prague:20260921T123000
+SUMMARY:🎯 BRANDS 5.2 R5 — agency masters
+DESCRIPTION:BRANDS · task 5.2 · owner J · est 3h founder time\nWeek 5 
+ — OOO: artifacts only\n✅ Done when: 2-page memo with a go/no-go on the
+  agency route.\nGuide: file:///Users/josefnemecek/Desktop/Minds%26Models/m
+ m-business/blitzkrieg/brands/brands-execution-guide.html
+CATEGORIES:Blitzkrieg,BRANDS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:79223058264dde10@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20260921T133000
+DTEND;TZID=Europe/Prague:20260921T153000
+SUMMARY:🤝 BROKERS 5.1 Scope two pilots with the two warmest
+DESCRIPTION:BROKERS · task 5.1 · owner J · est 2h founder time\nWeek 5 
+ — Scoping (J-led / async — Ondřej OOO)\n⛔ Prereq: Prereq: 3.1 · ri
+ ghts check: what can we legally white-label *now*? Pre-mandate content = G
+ ymBeam (with written permission)\, sportstore\, pooled brand-worn / index 
+ — the pet coarse-grid read requires the SuperZoo mandate (retailers ~Sep
+  20 / \n✅ Done when: two pilot scopes drafted (any A/B mix) with deliver
+ y dates the rights calendar can honour.\nGuide: file:///Users/josefnemecek
+ /Desktop/Minds%26Models/mm-business/blitzkrieg/data-brokers/brokers-execut
+ ion-guide.html
+CATEGORIES:Blitzkrieg,BROKERS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:1927593aa578cc70@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20260921T153000
+DTEND;TZID=Europe/Prague:20260921T163000
+SUMMARY:🤝 BROKERS 5.2 AI-data follow-ups (async) [was: O]
+DESCRIPTION:BROKERS · task 5.2 · owner O · est 1h founder time\nWeek 5 
+ — Scoping (J-led / async — Ondřej OOO)\n✅ Done when: all 10 touched
+  twice\; replies logged for the 15 Oct verdict.\nGuide: file:///Users/jose
+ fnemecek/Desktop/Minds%26Models/mm-business/blitzkrieg/data-brokers/broker
+ s-execution-guide.html
+CATEGORIES:Blitzkrieg,BROKERS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:107b9d9cff338055@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20260921T163000
+DTEND;TZID=Europe/Prague:20260921T173000
+SUMMARY:📺 RMN 5.1 Scope the tobacco-wave campaign measurement — P3\, n
+ o RMN partner needed
+DESCRIPTION:RMN · task 5.1 · owner J + D · est 1h founder time\nWeek 5 
+ — The proof wedge and the engineering answer\n⛔ Prereq: Prereq: the fu
+ nded screens exist (EuroOil wave — Moris's media estate) and our capture
+  device is at the screen location · Moris in the loop (they sell that med
+ ia\; measurement makes their media more sellable — this is an upsell for
+  them\, fra\n✅ Done when: scope doc with definitions\, campaign chosen\,
+  consent path confirmed\, report template in hand.\nGuide: file:///Users/j
+ osefnemecek/Desktop/Minds%26Models/mm-business/blitzkrieg/rmn/rmn-executio
+ n-guide.html
+CATEGORIES:Blitzkrieg,RMN
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:02cf27d04c829899@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20260921T173000
+DTEND;TZID=Europe/Prague:20260921T180000
+SUMMARY:📺 RMN 5.2 Segment-taxonomy alignment — a week or a quarter? [r
+ eview — P + D]
+DESCRIPTION:RMN · task 5.2 · owner P + D · est 0.5h founder time\nWeek 5
+  — The proof wedge and the engineering answer\n⛔ Prereq: Prereq: RMN-2
+  (Vistar's ingestion spec) — without a target schema the estimate is fic
+ tion.\n✅ Done when: estimate in one of three buckets\, with the deciding
+  factor named.\nGuide: file:///Users/josefnemecek/Desktop/Minds%26Models/m
+ m-business/blitzkrieg/rmn/rmn-execution-guide.html
+CATEGORIES:Blitzkrieg,RMN
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:cdd362acb53c95e3@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20260929T090000
+DTEND;TZID=Europe/Prague:20260929T110000
+SUMMARY:🎯 BRANDS 6.1 Apply the tobacco verdict (30 Sep)
+DESCRIPTION:BRANDS · task 6.1 · owner J · est 2h founder time\nWeek 6 
+ — The verdict and the cohort\n✅ Done when: verdict written into 10-cal
+ endar-gates.md and hours visibly reallocated.\nGuide: file:///Users/josefn
+ emecek/Desktop/Minds%26Models/mm-business/blitzkrieg/brands/brands-executi
+ on-guide.html
+CATEGORIES:Blitzkrieg,BRANDS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:2c122b11c3909b72@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20260929T110000
+DTEND;TZID=Europe/Prague:20260929T123000
+SUMMARY:🎯 BRANDS 6.2 Schedule cohort day #1 (1/2)
+DESCRIPTION:BRANDS · task 6.2 · owner J + O · est 4h founder time\nWeek 
+ 6 — The verdict and the cohort\n⛔ Prereq: Prereq: Mandate #1 signed (r
+ etailers pillar). If it slipped: run the LOI-roundtable variant — method
+ ology + escrow + conditional orders\, zero retailer data shown. Do not can
+ cel.\n✅ Done when: date fixed\, 4–6 confirmed attendees\, kit printed.
+ \nGuide: file:///Users/josefnemecek/Desktop/Minds%26Models/mm-business/bli
+ tzkrieg/brands/brands-execution-guide.html
+CATEGORIES:Blitzkrieg,BRANDS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:59c98a80d1a58a58@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20260929T133000
+DTEND;TZID=Europe/Prague:20260929T160000
+SUMMARY:🎯 BRANDS 6.2 Schedule cohort day #1 (2/2)
+DESCRIPTION:BRANDS · task 6.2 · owner J + O · est 4h founder time\nWeek 
+ 6 — The verdict and the cohort\n⛔ Prereq: Prereq: Mandate #1 signed (r
+ etailers pillar). If it slipped: run the LOI-roundtable variant — method
+ ology + escrow + conditional orders\, zero retailer data shown. Do not can
+ cel.\n✅ Done when: date fixed\, 4–6 confirmed attendees\, kit printed.
+ \nGuide: file:///Users/josefnemecek/Desktop/Minds%26Models/mm-business/bli
+ tzkrieg/brands/brands-execution-guide.html
+CATEGORIES:Blitzkrieg,BRANDS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:56df33955ccbb0fc@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20261005T090000
+DTEND;TZID=Europe/Prague:20261005T123000
+SUMMARY:🎯 BRANDS 7.1 Run cohort day #1 (1/3)
+DESCRIPTION:BRANDS · task 7.1 · owner J + O · est 8h founder time\nWeek 
+ 7 — Cohort day: the highest-leverage event in the pillar\n⛔ Prereq: Pr
+ ereqs: 6.2 confirmed attendees · signed paper physically in the room · s
+ eat-pricing memo (4.2) decided · escrow one-pager already sent.\n✅ Done
+  when: ≥2 verbal seat commitments + every attendee has a dated next step
+ .\nGuide: file:///Users/josefnemecek/Desktop/Minds%26Models/mm-business/bl
+ itzkrieg/brands/brands-execution-guide.html
+CATEGORIES:Blitzkrieg,BRANDS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:eba4d25b503b9199@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20261005T133000
+DTEND;TZID=Europe/Prague:20261005T170000
+SUMMARY:🎯 BRANDS 7.1 Run cohort day #1 (2/3)
+DESCRIPTION:BRANDS · task 7.1 · owner J + O · est 8h founder time\nWeek 
+ 7 — Cohort day: the highest-leverage event in the pillar\n⛔ Prereq: Pr
+ ereqs: 6.2 confirmed attendees · signed paper physically in the room · s
+ eat-pricing memo (4.2) decided · escrow one-pager already sent.\n✅ Done
+  when: ≥2 verbal seat commitments + every attendee has a dated next step
+ .\nGuide: file:///Users/josefnemecek/Desktop/Minds%26Models/mm-business/bl
+ itzkrieg/brands/brands-execution-guide.html
+CATEGORIES:Blitzkrieg,BRANDS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:b02845c02999187b@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20261006T090000
+DTEND;TZID=Europe/Prague:20261006T100000
+SUMMARY:🎯 BRANDS 7.1 Run cohort day #1 (3/3)
+DESCRIPTION:BRANDS · task 7.1 · owner J + O · est 8h founder time\nWeek 
+ 7 — Cohort day: the highest-leverage event in the pillar\n⛔ Prereq: Pr
+ ereqs: 6.2 confirmed attendees · signed paper physically in the room · s
+ eat-pricing memo (4.2) decided · escrow one-pager already sent.\n✅ Done
+  when: ≥2 verbal seat commitments + every attendee has a dated next step
+ .\nGuide: file:///Users/josefnemecek/Desktop/Minds%26Models/mm-business/bl
+ itzkrieg/brands/brands-execution-guide.html
+CATEGORIES:Blitzkrieg,BRANDS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:884b5657f80d40b7@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20261005T170000
+DTEND;TZID=Europe/Prague:20261005T180000
+SUMMARY:🎯 BRANDS 7.2 Distribute the D2 parity number (10 Oct) (1/2)
+DESCRIPTION:BRANDS · task 7.2 · owner J · est 2h founder time\nWeek 7 
+ — Cohort day: the highest-leverage event in the pillar\n✅ Done when: a
+ ll open threads touched\; ≥2 dormant threads revived.\nGuide: file:///Us
+ ers/josefnemecek/Desktop/Minds%26Models/mm-business/blitzkrieg/brands/bran
+ ds-execution-guide.html
+CATEGORIES:Blitzkrieg,BRANDS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:5408ad3bac4c1460@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20261006T100000
+DTEND;TZID=Europe/Prague:20261006T110000
+SUMMARY:🎯 BRANDS 7.2 Distribute the D2 parity number (10 Oct) (2/2)
+DESCRIPTION:BRANDS · task 7.2 · owner J · est 2h founder time\nWeek 7 
+ — Cohort day: the highest-leverage event in the pillar\n✅ Done when: a
+ ll open threads touched\; ≥2 dormant threads revived.\nGuide: file:///Us
+ ers/josefnemecek/Desktop/Minds%26Models/mm-business/blitzkrieg/brands/bran
+ ds-execution-guide.html
+CATEGORIES:Blitzkrieg,BRANDS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:f78a0dfcd6048832@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20261006T110000
+DTEND;TZID=Europe/Prague:20261006T123000
+SUMMARY:🎯 BRANDS 7.3 Store Twin as the generalised retail-behaviour mode
+ l — for agencies (1/2)
+DESCRIPTION:BRANDS · task 7.3 · owner J + D · est 3h founder time\nWeek 
+ 7 — Cohort day: the highest-leverage event in the pillar\n⛔ Prereq: Pr
+ ereq: rights — a "generalised" model is still built on captured data: pr
+ e-mandate\, only legal sources (GymBeam w/ permission\, sportstore\, poole
+ d brand-worn)\; post-mandate\, pooled chain-masked aggregates within the l
+ icence. Benchmark-integ\n✅ Done when: agency positioning one-pager\; ≥
+ 2 agency conversations booked\; price reaction logged.\nGuide: file:///Use
+ rs/josefnemecek/Desktop/Minds%26Models/mm-business/blitzkrieg/brands/brand
+ s-execution-guide.html
+CATEGORIES:Blitzkrieg,BRANDS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:f5326db55804a5ad@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20261006T133000
+DTEND;TZID=Europe/Prague:20261006T150000
+SUMMARY:🎯 BRANDS 7.3 Store Twin as the generalised retail-behaviour mode
+ l — for agencies (2/2)
+DESCRIPTION:BRANDS · task 7.3 · owner J + D · est 3h founder time\nWeek 
+ 7 — Cohort day: the highest-leverage event in the pillar\n⛔ Prereq: Pr
+ ereq: rights — a "generalised" model is still built on captured data: pr
+ e-mandate\, only legal sources (GymBeam w/ permission\, sportstore\, poole
+ d brand-worn)\; post-mandate\, pooled chain-masked aggregates within the l
+ icence. Benchmark-integ\n✅ Done when: agency positioning one-pager\; ≥
+ 2 agency conversations booked\; price reaction logged.\nGuide: file:///Use
+ rs/josefnemecek/Desktop/Minds%26Models/mm-business/blitzkrieg/brands/brand
+ s-execution-guide.html
+CATEGORIES:Blitzkrieg,BRANDS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:476b42108c3e4fba@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20261006T150000
+DTEND;TZID=Europe/Prague:20261006T153000
+SUMMARY:🤝 BROKERS 7.1 Rule the AI-data kill-test (15 Oct) [was: O]
+DESCRIPTION:BROKERS · task 7.1 · owner O · est 0.5h founder time\nWeek 7
+  — The verdict\n⛔ Prereq: Prereq: 1.5 + 5.2 logs.\n✅ Done when: verd
+ ict written\; pilot #2 identity fixed.\nGuide: file:///Users/josefnemecek/
+ Desktop/Minds%26Models/mm-business/blitzkrieg/data-brokers/brokers-executi
+ on-guide.html
+CATEGORIES:Blitzkrieg,BROKERS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:509d748ffde620c1@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20261006T153000
+DTEND;TZID=Europe/Prague:20261006T173000
+SUMMARY:📺 RMN 7.1 Measure one real campaign at cost
+DESCRIPTION:RMN · task 7.1 · owner J + D + P · est 2h founder time\nWeek
+  7 — The one decisive test\n⛔ Prereq: Prereq: 5.1 scope · campaign li
+ ve · capture validated at the screen location · brand agreed to receive 
+ the report (free / at cost) and to give a price reaction.\n✅ Done when: 
+ report delivered\; measurement cost logged.\nGuide: file:///Users/josefnem
+ ecek/Desktop/Minds%26Models/mm-business/blitzkrieg/rmn/rmn-execution-guide
+ .html
+CATEGORIES:Blitzkrieg,RMN
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:a57ef3ca47a3c52b@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20261006T173000
+DTEND;TZID=Europe/Prague:20261006T180000
+SUMMARY:📺 RMN 7.2 Log the price reaction — the memo's decisive datapoi
+ nt
+DESCRIPTION:RMN · task 7.2 · owner J · est 0.5h founder time\nWeek 7 —
+  The one decisive test\n✅ Done when: three answers logged against the co
+ rridor\; delta vs cost computed.\nGuide: file:///Users/josefnemecek/Deskto
+ p/Minds%26Models/mm-business/blitzkrieg/rmn/rmn-execution-guide.html
+CATEGORIES:Blitzkrieg,RMN
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:0222136b03cdfa7d@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20261012T090000
+DTEND;TZID=Europe/Prague:20261012T123000
+SUMMARY:🎯 BRANDS 8.1 Close seat #1 (1/3)
+DESCRIPTION:BRANDS · task 8.1 · owner J + O · est 8h founder time\nWeek 
+ 8 — First invoice\n⛔ Prereq: Prereq: 7.1 verbals · R4 answer (does 20
+ 26 money still work?) · counsel paper final.\n✅ Done when: seat #1 invo
+ iced\, ARR line recorded as SIGNED.\nGuide: file:///Users/josefnemecek/Des
+ ktop/Minds%26Models/mm-business/blitzkrieg/brands/brands-execution-guide.h
+ tml
+CATEGORIES:Blitzkrieg,BRANDS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:efe71a6c2613d460@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20261012T133000
+DTEND;TZID=Europe/Prague:20261012T170000
+SUMMARY:🎯 BRANDS 8.1 Close seat #1 (2/3)
+DESCRIPTION:BRANDS · task 8.1 · owner J + O · est 8h founder time\nWeek 
+ 8 — First invoice\n⛔ Prereq: Prereq: 7.1 verbals · R4 answer (does 20
+ 26 money still work?) · counsel paper final.\n✅ Done when: seat #1 invo
+ iced\, ARR line recorded as SIGNED.\nGuide: file:///Users/josefnemecek/Des
+ ktop/Minds%26Models/mm-business/blitzkrieg/brands/brands-execution-guide.h
+ tml
+CATEGORIES:Blitzkrieg,BRANDS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:5054e2fff7f323b9@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20261013T090000
+DTEND;TZID=Europe/Prague:20261013T100000
+SUMMARY:🎯 BRANDS 8.1 Close seat #1 (3/3)
+DESCRIPTION:BRANDS · task 8.1 · owner J + O · est 8h founder time\nWeek 
+ 8 — First invoice\n⛔ Prereq: Prereq: 7.1 verbals · R4 answer (does 20
+ 26 money still work?) · counsel paper final.\n✅ Done when: seat #1 invo
+ iced\, ARR line recorded as SIGNED.\nGuide: file:///Users/josefnemecek/Des
+ ktop/Minds%26Models/mm-business/blitzkrieg/brands/brands-execution-guide.h
+ tml
+CATEGORIES:Blitzkrieg,BRANDS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:28455a981f76d830@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20261012T170000
+DTEND;TZID=Europe/Prague:20261012T180000
+SUMMARY:🎯 BRANDS 8.2 PM Slovakia + conditional orders (1/3)
+DESCRIPTION:BRANDS · task 8.2 · owner J · est 4h founder time\nWeek 8 
+ — First invoice\n✅ Done when: ≥2 conditional orders issued.\nGuide: 
+ file:///Users/josefnemecek/Desktop/Minds%26Models/mm-business/blitzkrieg/b
+ rands/brands-execution-guide.html
+CATEGORIES:Blitzkrieg,BRANDS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:d12bafeb0b75e6c2@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20261013T100000
+DTEND;TZID=Europe/Prague:20261013T123000
+SUMMARY:🎯 BRANDS 8.2 PM Slovakia + conditional orders (2/3)
+DESCRIPTION:BRANDS · task 8.2 · owner J · est 4h founder time\nWeek 8 
+ — First invoice\n✅ Done when: ≥2 conditional orders issued.\nGuide: 
+ file:///Users/josefnemecek/Desktop/Minds%26Models/mm-business/blitzkrieg/b
+ rands/brands-execution-guide.html
+CATEGORIES:Blitzkrieg,BRANDS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:fa02d049b2c87f5e@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20261013T133000
+DTEND;TZID=Europe/Prague:20261013T140000
+SUMMARY:🎯 BRANDS 8.2 PM Slovakia + conditional orders (3/3)
+DESCRIPTION:BRANDS · task 8.2 · owner J · est 4h founder time\nWeek 8 
+ — First invoice\n✅ Done when: ≥2 conditional orders issued.\nGuide: 
+ file:///Users/josefnemecek/Desktop/Minds%26Models/mm-business/blitzkrieg/b
+ rands/brands-execution-guide.html
+CATEGORIES:Blitzkrieg,BRANDS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:b032ca67251261c1@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20261019T090000
+DTEND;TZID=Europe/Prague:20261019T123000
+SUMMARY:🎯 BRANDS 9.1 Close seat #2 (1/3)
+DESCRIPTION:BRANDS · task 9.1 · owner J + O · est 8h founder time\nWeek 
+ 9 — Seat #2 and the second wallet\n✅ Done when: seat #2 invoiced\; ≥
+ €70k combined visible or the gap explicitly named.\nGuide: file:///Users
+ /josefnemecek/Desktop/Minds%26Models/mm-business/blitzkrieg/brands/brands-
+ execution-guide.html
+CATEGORIES:Blitzkrieg,BRANDS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:e204fd38ae3c2758@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20261019T133000
+DTEND;TZID=Europe/Prague:20261019T170000
+SUMMARY:🎯 BRANDS 9.1 Close seat #2 (2/3)
+DESCRIPTION:BRANDS · task 9.1 · owner J + O · est 8h founder time\nWeek 
+ 9 — Seat #2 and the second wallet\n✅ Done when: seat #2 invoiced\; ≥
+ €70k combined visible or the gap explicitly named.\nGuide: file:///Users
+ /josefnemecek/Desktop/Minds%26Models/mm-business/blitzkrieg/brands/brands-
+ execution-guide.html
+CATEGORIES:Blitzkrieg,BRANDS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:e7102a8ef7fd6369@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20261020T090000
+DTEND;TZID=Europe/Prague:20261020T100000
+SUMMARY:🎯 BRANDS 9.1 Close seat #2 (3/3)
+DESCRIPTION:BRANDS · task 9.1 · owner J + O · est 8h founder time\nWeek 
+ 9 — Seat #2 and the second wallet\n✅ Done when: seat #2 invoiced\; ≥
+ €70k combined visible or the gap explicitly named.\nGuide: file:///Users
+ /josefnemecek/Desktop/Minds%26Models/mm-business/blitzkrieg/brands/brands-
+ execution-guide.html
+CATEGORIES:Blitzkrieg,BRANDS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:afe135b1d75712e7@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20261019T170000
+DTEND;TZID=Europe/Prague:20261019T180000
+SUMMARY:🎯 BRANDS 9.2 Open the media wallet (1/2)
+DESCRIPTION:BRANDS · task 9.2 · owner J · est 3h founder time\nWeek 9 
+ — Seat #2 and the second wallet\n✅ Done when: 2 retainer conversations
+  live.\nGuide: file:///Users/josefnemecek/Desktop/Minds%26Models/mm-busine
+ ss/blitzkrieg/brands/brands-execution-guide.html
+CATEGORIES:Blitzkrieg,BRANDS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:ba494428420076bf@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20261020T100000
+DTEND;TZID=Europe/Prague:20261020T120000
+SUMMARY:🎯 BRANDS 9.2 Open the media wallet (2/2)
+DESCRIPTION:BRANDS · task 9.2 · owner J · est 3h founder time\nWeek 9 
+ — Seat #2 and the second wallet\n✅ Done when: 2 retainer conversations
+  live.\nGuide: file:///Users/josefnemecek/Desktop/Minds%26Models/mm-busine
+ ss/blitzkrieg/brands/brands-execution-guide.html
+CATEGORIES:Blitzkrieg,BRANDS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:ef8946128b91a9e1@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20261020T120000
+DTEND;TZID=Europe/Prague:20261020T123000
+SUMMARY:🎯 BRANDS 9.3 Index go/no-go follow-through (1/2)
+DESCRIPTION:BRANDS · task 9.3 · owner J · est 2h founder time\nWeek 9 
+ — Seat #2 and the second wallet\n⛔ Prereq: Prereq: fill-rate gate resu
+ lt (1 Oct).\n✅ Done when: decision recorded either way.\nGuide: file:///
+ Users/josefnemecek/Desktop/Minds%26Models/mm-business/blitzkrieg/brands/br
+ ands-execution-guide.html
+CATEGORIES:Blitzkrieg,BRANDS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:3a70a4bcb1b1bfa0@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20261020T133000
+DTEND;TZID=Europe/Prague:20261020T150000
+SUMMARY:🎯 BRANDS 9.3 Index go/no-go follow-through (2/2)
+DESCRIPTION:BRANDS · task 9.3 · owner J · est 2h founder time\nWeek 9 
+ — Seat #2 and the second wallet\n⛔ Prereq: Prereq: fill-rate gate resu
+ lt (1 Oct).\n✅ Done when: decision recorded either way.\nGuide: file:///
+ Users/josefnemecek/Desktop/Minds%26Models/mm-business/blitzkrieg/brands/br
+ ands-execution-guide.html
+CATEGORIES:Blitzkrieg,BRANDS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:a12a086a7c34e5a1@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20261020T150000
+DTEND;TZID=Europe/Prague:20261020T180000
+SUMMARY:🤝 BROKERS 8.1 Sign the two pilots
+DESCRIPTION:BROKERS · task 8.1 · owner O + J + C · est 3h founder time\n
+ Week 8 — Two signatures\n⛔ Prereq: Prereq: 5.1 scopes · 1.3 anonymity
+  view · 1.2 floor · counsel's contract set.\n✅ Done when: 2 pilot agre
+ ements signed with all eight terms present.\nGuide: file:///Users/josefnem
+ ecek/Desktop/Minds%26Models/mm-business/blitzkrieg/data-brokers/brokers-ex
+ ecution-guide.html
+CATEGORIES:Blitzkrieg,BROKERS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:5b5ae74cf9d5e327@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20261021T090000
+DTEND;TZID=Europe/Prague:20261021T093000
+SUMMARY:🤝 BROKERS 8.2 Delivery setup — their brand on our factory [was
+ : D + O]
+DESCRIPTION:BROKERS · task 8.2 · owner D + O · est 0.5h founder time\nWe
+ ek 8 — Two signatures\n✅ Done when: delivery pipeline tested end-to-en
+ d with a dummy deliverable.\nGuide: file:///Users/josefnemecek/Desktop/Min
+ ds%26Models/mm-business/blitzkrieg/data-brokers/brokers-execution-guide.ht
+ ml
+CATEGORIES:Blitzkrieg,BROKERS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:51c14531e39be2f8@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20261026T090000
+DTEND;TZID=Europe/Prague:20261026T123000
+SUMMARY:🎯 BRANDS 10.1 Close or date every open thread (1/3)
+DESCRIPTION:BRANDS · task 10.1 · owner J · est 8h founder time\nWeek 10 
+ — Budget-lock endgame\n✅ Done when: zero undated threads.\nGuide: file
+ :///Users/josefnemecek/Desktop/Minds%26Models/mm-business/blitzkrieg/brand
+ s/brands-execution-guide.html
+CATEGORIES:Blitzkrieg,BRANDS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:b29d0be937e3119d@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20261026T133000
+DTEND;TZID=Europe/Prague:20261026T170000
+SUMMARY:🎯 BRANDS 10.1 Close or date every open thread (2/3)
+DESCRIPTION:BRANDS · task 10.1 · owner J · est 8h founder time\nWeek 10 
+ — Budget-lock endgame\n✅ Done when: zero undated threads.\nGuide: file
+ :///Users/josefnemecek/Desktop/Minds%26Models/mm-business/blitzkrieg/brand
+ s/brands-execution-guide.html
+CATEGORIES:Blitzkrieg,BRANDS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:0a93d7ebb868be0b@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20261027T090000
+DTEND;TZID=Europe/Prague:20261027T100000
+SUMMARY:🎯 BRANDS 10.1 Close or date every open thread (3/3)
+DESCRIPTION:BRANDS · task 10.1 · owner J · est 8h founder time\nWeek 10 
+ — Budget-lock endgame\n✅ Done when: zero undated threads.\nGuide: file
+ :///Users/josefnemecek/Desktop/Minds%26Models/mm-business/blitzkrieg/brand
+ s/brands-execution-guide.html
+CATEGORIES:Blitzkrieg,BRANDS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:39660ea4112aaef5@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20261026T170000
+DTEND;TZID=Europe/Prague:20261026T173000
+SUMMARY:🎯 BRANDS 10.2 First study into production [review — D]
+DESCRIPTION:BRANDS · task 10.2 · owner D · est 0.5h founder time\nWeek 1
+ 0 — Budget-lock endgame\n✅ Done when: study #1 in production with a de
+ livery date the brand has confirmed.\nGuide: file:///Users/josefnemecek/De
+ sktop/Minds%26Models/mm-business/blitzkrieg/brands/brands-execution-guide.
+ html
+CATEGORIES:Blitzkrieg,BRANDS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:db90db5f9fa27308@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20261026T173000
+DTEND;TZID=Europe/Prague:20261026T180000
+SUMMARY:🎯 BRANDS 10.3 Complete the renewal calendar (R3) (1/2)
+DESCRIPTION:BRANDS · task 10.3 · owner J · est 2h founder time\nWeek 10 
+ — Budget-lock endgame\n✅ Done when: renewal month recorded for every e
+ ngaged brand.\nGuide: file:///Users/josefnemecek/Desktop/Minds%26Models/mm
+ -business/blitzkrieg/brands/brands-execution-guide.html
+CATEGORIES:Blitzkrieg,BRANDS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:a3aaed3ee29f77ea@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20261027T100000
+DTEND;TZID=Europe/Prague:20261027T113000
+SUMMARY:🎯 BRANDS 10.3 Complete the renewal calendar (R3) (2/2)
+DESCRIPTION:BRANDS · task 10.3 · owner J · est 2h founder time\nWeek 10 
+ — Budget-lock endgame\n✅ Done when: renewal month recorded for every e
+ ngaged brand.\nGuide: file:///Users/josefnemecek/Desktop/Minds%26Models/mm
+ -business/blitzkrieg/brands/brands-execution-guide.html
+CATEGORIES:Blitzkrieg,BRANDS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:9a91284f6c912e57@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20261027T113000
+DTEND;TZID=Europe/Prague:20261027T123000
+SUMMARY:📺 RMN 10.1 Write the decision memo — rule it by the pre-writte
+ n criterion (1/2)
+DESCRIPTION:RMN · task 10.1 · owner J + O · est 3h founder time\nWeek 10
+  — The decision\n⛔ Prereq: Prereq: 7.2 price reaction · 3.1 / 3.2 opt
+ ion preferences · 5.2 engineering bucket · second-market signals from th
+ e index fill gate (1 Oct)\, the AI-data kill-test (15 Oct)\, and the Vista
+ r appetite.\n✅ Done when: memo ruled on 7 Nov\, verdict recorded in ../.
+ ./strategy/…/10-calendar-gates.md.\nGuide: file:///Users/josefnemecek/De
+ sktop/Minds%26Models/mm-business/blitzkrieg/rmn/rmn-execution-guide.html
+CATEGORIES:Blitzkrieg,RMN
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:2d383509a1c11941@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20261027T133000
+DTEND;TZID=Europe/Prague:20261027T153000
+SUMMARY:📺 RMN 10.1 Write the decision memo — rule it by the pre-writte
+ n criterion (2/2)
+DESCRIPTION:RMN · task 10.1 · owner J + O · est 3h founder time\nWeek 10
+  — The decision\n⛔ Prereq: Prereq: 7.2 price reaction · 3.1 / 3.2 opt
+ ion preferences · 5.2 engineering bucket · second-market signals from th
+ e index fill gate (1 Oct)\, the AI-data kill-test (15 Oct)\, and the Vista
+ r appetite.\n✅ Done when: memo ruled on 7 Nov\, verdict recorded in ../.
+ ./strategy/…/10-calendar-gates.md.\nGuide: file:///Users/josefnemecek/De
+ sktop/Minds%26Models/mm-business/blitzkrieg/rmn/rmn-execution-guide.html
+CATEGORIES:Blitzkrieg,RMN
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:1e68bc1f12c36a53@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20261102T090000
+DTEND;TZID=Europe/Prague:20261102T123000
+SUMMARY:🎯 BRANDS 11.1 Three signed 2027 orders (1/3)
+DESCRIPTION:BRANDS · task 11.1 · owner J + O · est 8h founder time\nWeek
+  11 — Hard commitments on paper\n⛔ Prereq: Prereq: escrow terms final\
+ ; density milestones defensible against the actual deployment curve.\n✅ 
+ Done when: 3 signed 2027 orders with escrow\, combined with the paying sea
+ ts ≥€70k.\nGuide: file:///Users/josefnemecek/Desktop/Minds%26Models/mm
+ -business/blitzkrieg/brands/brands-execution-guide.html
+CATEGORIES:Blitzkrieg,BRANDS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:7074fae4b055480c@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20261102T133000
+DTEND;TZID=Europe/Prague:20261102T170000
+SUMMARY:🎯 BRANDS 11.1 Three signed 2027 orders (2/3)
+DESCRIPTION:BRANDS · task 11.1 · owner J + O · est 8h founder time\nWeek
+  11 — Hard commitments on paper\n⛔ Prereq: Prereq: escrow terms final\
+ ; density milestones defensible against the actual deployment curve.\n✅ 
+ Done when: 3 signed 2027 orders with escrow\, combined with the paying sea
+ ts ≥€70k.\nGuide: file:///Users/josefnemecek/Desktop/Minds%26Models/mm
+ -business/blitzkrieg/brands/brands-execution-guide.html
+CATEGORIES:Blitzkrieg,BRANDS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:7b1b4024b04a0f44@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20261103T090000
+DTEND;TZID=Europe/Prague:20261103T100000
+SUMMARY:🎯 BRANDS 11.1 Three signed 2027 orders (3/3)
+DESCRIPTION:BRANDS · task 11.1 · owner J + O · est 8h founder time\nWeek
+  11 — Hard commitments on paper\n⛔ Prereq: Prereq: escrow terms final\
+ ; density milestones defensible against the actual deployment curve.\n✅ 
+ Done when: 3 signed 2027 orders with escrow\, combined with the paying sea
+ ts ≥€70k.\nGuide: file:///Users/josefnemecek/Desktop/Minds%26Models/mm
+ -business/blitzkrieg/brands/brands-execution-guide.html
+CATEGORIES:Blitzkrieg,BRANDS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:2e9a4d10e517afbe@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20261102T170000
+DTEND;TZID=Europe/Prague:20261102T180000
+SUMMARY:🎯 BRANDS 11.2 Brand case study #1 (1/3)
+DESCRIPTION:BRANDS · task 11.2 · owner J + D · est 4h founder time\nWeek
+  11 — Hard commitments on paper\n✅ Done when: case study approved in w
+ riting by the brand.\nGuide: file:///Users/josefnemecek/Desktop/Minds%26Mo
+ dels/mm-business/blitzkrieg/brands/brands-execution-guide.html
+CATEGORIES:Blitzkrieg,BRANDS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:0b21a610310227dd@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20261103T100000
+DTEND;TZID=Europe/Prague:20261103T123000
+SUMMARY:🎯 BRANDS 11.2 Brand case study #1 (2/3)
+DESCRIPTION:BRANDS · task 11.2 · owner J + D · est 4h founder time\nWeek
+  11 — Hard commitments on paper\n✅ Done when: case study approved in w
+ riting by the brand.\nGuide: file:///Users/josefnemecek/Desktop/Minds%26Mo
+ dels/mm-business/blitzkrieg/brands/brands-execution-guide.html
+CATEGORIES:Blitzkrieg,BRANDS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:9eeff961e4b919a5@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20261103T133000
+DTEND;TZID=Europe/Prague:20261103T140000
+SUMMARY:🎯 BRANDS 11.2 Brand case study #1 (3/3)
+DESCRIPTION:BRANDS · task 11.2 · owner J + D · est 4h founder time\nWeek
+  11 — Hard commitments on paper\n✅ Done when: case study approved in w
+ riting by the brand.\nGuide: file:///Users/josefnemecek/Desktop/Minds%26Mo
+ dels/mm-business/blitzkrieg/brands/brands-execution-guide.html
+CATEGORIES:Blitzkrieg,BRANDS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:3919a0e39989754f@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20261103T140000
+DTEND;TZID=Europe/Prague:20261103T143000
+SUMMARY:🤝 BROKERS 10.1 Pilots delivering [was: D + O]
+DESCRIPTION:BROKERS · task 10.1 · owner D + O · est 0.5h founder time\nW
+ eek 10 — Deliver\, meet from strength\, write the economics\n✅ Done wh
+ en: both pilots have delivered at least one deliverable\; feedback logged.
+ \nGuide: file:///Users/josefnemecek/Desktop/Minds%26Models/mm-business/bli
+ tzkrieg/data-brokers/brokers-execution-guide.html
+CATEGORIES:Blitzkrieg,BROKERS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:93f3f15d38c0dc12@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20261103T143000
+DTEND;TZID=Europe/Prague:20261103T170000
+SUMMARY:🤝 BROKERS 10.2 Tier-A second meeting — the alternative outcome
+  takes shape
+DESCRIPTION:BROKERS · task 10.2 · owner J + O · est 2.5h founder time\nW
+ eek 10 — Deliver\, meet from strength\, write the economics\n⛔ Prereq:
+  Prereq: 3.2 held · Stage-2 content only if ≥1 signed mandate and the r
+ etailer approved this channel\; otherwise Stage 1 again with the new evide
+ nce objects (parity\, RFI outcome\, seats). The meeting is held either way
+  — it is the alternative-\n✅ Done when: meeting held\; alternative-out
+ come memo drafted with their stated requirements and timeline.\nGuide: fil
+ e:///Users/josefnemecek/Desktop/Minds%26Models/mm-business/blitzkrieg/data
+ -brokers/brokers-execution-guide.html
+CATEGORIES:Blitzkrieg,BROKERS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:72961f2316789f9d@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20261103T170000
+DTEND;TZID=Europe/Prague:20261103T180000
+SUMMARY:🤝 BROKERS 10.3 The distribution-economics memo (1/2) [was: O]
+DESCRIPTION:BROKERS · task 10.3 · owner O · est 2h founder time\nWeek 10
+  — Deliver\, meet from strength\, write the economics\n⛔ Prereq: Prere
+ q: 10.1 first deliveries · 8.1 prices.\n✅ Done when: memo in the data r
+ oom\; honest test answered numerically.\nGuide: file:///Users/josefnemecek
+ /Desktop/Minds%26Models/mm-business/blitzkrieg/data-brokers/brokers-execut
+ ion-guide.html
+CATEGORIES:Blitzkrieg,BROKERS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:2ab8cab334221c3d@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20261104T090000
+DTEND;TZID=Europe/Prague:20261104T100000
+SUMMARY:🤝 BROKERS 10.3 The distribution-economics memo (2/2) [was: O]
+DESCRIPTION:BROKERS · task 10.3 · owner O · est 2h founder time\nWeek 10
+  — Deliver\, meet from strength\, write the economics\n⛔ Prereq: Prere
+ q: 10.1 first deliveries · 8.1 prices.\n✅ Done when: memo in the data r
+ oom\; honest test answered numerically.\nGuide: file:///Users/josefnemecek
+ /Desktop/Minds%26Models/mm-business/blitzkrieg/data-brokers/brokers-execut
+ ion-guide.html
+CATEGORIES:Blitzkrieg,BROKERS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:9252f223a558a480@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20261109T090000
+DTEND;TZID=Europe/Prague:20261109T103000
+SUMMARY:📺 RMN 11.1 Operator term-sheet shape [was: O]
+DESCRIPTION:RMN · task 11.1 · owner O · est 1.5h founder time\nWeek 11 
+ — Only if alive\n⛔ Prereq: Prereq: 10.1 verdict = alive.\n✅ Done whe
+ n: term shape drafted for Q1 use.\nGuide: file:///Users/josefnemecek/Deskt
+ op/Minds%26Models/mm-business/blitzkrieg/rmn/rmn-execution-guide.html
+CATEGORIES:Blitzkrieg,RMN
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:96d75bd8b9e824e3@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20261109T103000
+DTEND;TZID=Europe/Prague:20261109T110000
+SUMMARY:📺 RMN 11.2 Index-feed assessment — is RMN the index's best sup
+ ply?
+DESCRIPTION:RMN · task 11.2 · owner D + J · est 0.5h founder time\nWeek 
+ 11 — Only if alive\n⛔ Prereq: Prereq: index fill gate passed (1 Oct)\;
+  operator capture access exists or is dated.\n✅ Done when: one-paragraph
+  assessment feeds the Q1 plan.\nGuide: file:///Users/josefnemecek/Desktop/
+ Minds%26Models/mm-business/blitzkrieg/rmn/rmn-execution-guide.html
+CATEGORIES:Blitzkrieg,RMN
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:51c02b3c1b4e7261@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20261109T110000
+DTEND;TZID=Europe/Prague:20261109T123000
+SUMMARY:🎯 BRANDS 12.1 Seat-depth + willingness-to-pay pack (1/3)
+DESCRIPTION:BRANDS · task 12.1 · owner J + D · est 6h founder time\nWeek
+  12 — Evidence package\n✅ Done when: pack delivered to fundraise + ret
+ ailers pillars.\nGuide: file:///Users/josefnemecek/Desktop/Minds%26Models/
+ mm-business/blitzkrieg/brands/brands-execution-guide.html
+CATEGORIES:Blitzkrieg,BRANDS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:e76c57dfbfa58714@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20261109T133000
+DTEND;TZID=Europe/Prague:20261109T170000
+SUMMARY:🎯 BRANDS 12.1 Seat-depth + willingness-to-pay pack (2/3)
+DESCRIPTION:BRANDS · task 12.1 · owner J + D · est 6h founder time\nWeek
+  12 — Evidence package\n✅ Done when: pack delivered to fundraise + ret
+ ailers pillars.\nGuide: file:///Users/josefnemecek/Desktop/Minds%26Models/
+ mm-business/blitzkrieg/brands/brands-execution-guide.html
+CATEGORIES:Blitzkrieg,BRANDS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:b787d186fdf8750d@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20261110T090000
+DTEND;TZID=Europe/Prague:20261110T100000
+SUMMARY:🎯 BRANDS 12.1 Seat-depth + willingness-to-pay pack (3/3)
+DESCRIPTION:BRANDS · task 12.1 · owner J + D · est 6h founder time\nWeek
+  12 — Evidence package\n✅ Done when: pack delivered to fundraise + ret
+ ailers pillars.\nGuide: file:///Users/josefnemecek/Desktop/Minds%26Models/
+ mm-business/blitzkrieg/brands/brands-execution-guide.html
+CATEGORIES:Blitzkrieg,BRANDS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:b7a309e0584eca15@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20261109T170000
+DTEND;TZID=Europe/Prague:20261109T180000
+SUMMARY:🎯 BRANDS 12.2 Lock cohort #2 (1/2)
+DESCRIPTION:BRANDS · task 12.2 · owner J · est 3h founder time\nWeek 12 
+ — Evidence package\n✅ Done when: cohort #2 scheduled with named invite
+ es.\nGuide: file:///Users/josefnemecek/Desktop/Minds%26Models/mm-business/
+ blitzkrieg/brands/brands-execution-guide.html
+CATEGORIES:Blitzkrieg,BRANDS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:cfc4d11cd1fc7f9b@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20261110T100000
+DTEND;TZID=Europe/Prague:20261110T120000
+SUMMARY:🎯 BRANDS 12.2 Lock cohort #2 (2/2)
+DESCRIPTION:BRANDS · task 12.2 · owner J · est 3h founder time\nWeek 12 
+ — Evidence package\n✅ Done when: cohort #2 scheduled with named invite
+ es.\nGuide: file:///Users/josefnemecek/Desktop/Minds%26Models/mm-business/
+ blitzkrieg/brands/brands-execution-guide.html
+CATEGORIES:Blitzkrieg,BRANDS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:080024de964edf8c@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20261116T090000
+DTEND;TZID=Europe/Prague:20261116T123000
+SUMMARY:🎯 BRANDS 13.1 Score the pillar (1/2)
+DESCRIPTION:BRANDS · task 13.1 · owner J + O · est 4h founder time\nWeek
+  13 — The tally\n✅ Done when: pillar verdict recorded with the floor-v
+ s-trajectory read.\nGuide: file:///Users/josefnemecek/Desktop/Minds%26Mode
+ ls/mm-business/blitzkrieg/brands/brands-execution-guide.html
+CATEGORIES:Blitzkrieg,BRANDS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:45fc728187892829@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20261116T133000
+DTEND;TZID=Europe/Prague:20261116T140000
+SUMMARY:🎯 BRANDS 13.1 Score the pillar (2/2)
+DESCRIPTION:BRANDS · task 13.1 · owner J + O · est 4h founder time\nWeek
+  13 — The tally\n✅ Done when: pillar verdict recorded with the floor-v
+ s-trajectory read.\nGuide: file:///Users/josefnemecek/Desktop/Minds%26Mode
+ ls/mm-business/blitzkrieg/brands/brands-execution-guide.html
+CATEGORIES:Blitzkrieg,BRANDS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:d31f19722c00d3e9@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20261116T140000
+DTEND;TZID=Europe/Prague:20261116T150000
+SUMMARY:🤝 BROKERS 13.1 Score the pillar and decide the channel
+DESCRIPTION:BROKERS · task 13.1 · owner O + J · est 1h founder time\nWee
+ k 13 — Verdict and the 2027 channel decision\n✅ Done when: pillar verd
+ ict recorded\; 2027 hours allocated by the honest test.\nGuide: file:///Us
+ ers/josefnemecek/Desktop/Minds%26Models/mm-business/blitzkrieg/data-broker
+ s/brokers-execution-guide.html
+CATEGORIES:Blitzkrieg,BROKERS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:01e6cf1c53dc686c@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;VALUE=DATE:20260905
+DTEND;VALUE=DATE:20260906
+SUMMARY:🚩 GATE 0 — Mandate #1 signed? (brands calendar hangs on this) 
+ · real MRR known
+DESCRIPTION:Milestone / gate from the Blitzkrieg plans. Verdict must be rec
+ orded in strategy/…/10-calendar-gates.md the same day.
+CATEGORIES:Blitzkrieg,cross
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:47f7ecc381026a30@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;VALUE=DATE:20260906
+DTEND;VALUE=DATE:20260907
+SUMMARY:🎯 BRANDS M1 — ICP + budget-owner map\, paper set\, teasers rea
+ dy
+DESCRIPTION:Milestone / gate from the Blitzkrieg plans. Verdict must be rec
+ orded in strategy/…/10-calendar-gates.md the same day.
+CATEGORIES:Blitzkrieg,BRANDS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:9a0ee4e54ea74991@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;VALUE=DATE:20260906
+DTEND;VALUE=DATE:20260907
+SUMMARY:📺 RMN M1 — price-corridor memo + operator one-pager
+DESCRIPTION:Milestone / gate from the Blitzkrieg plans. Verdict must be rec
+ orded in strategy/…/10-calendar-gates.md the same day.
+CATEGORIES:Blitzkrieg,RMN
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:4bc7df2c304b8bee@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;VALUE=DATE:20260913
+DTEND;VALUE=DATE:20260914
+SUMMARY:🤝 BROKERS M1 — Tier-B map (10) + offer + floor memo
+DESCRIPTION:Milestone / gate from the Blitzkrieg plans. Verdict must be rec
+ orded in strategy/…/10-calendar-gates.md the same day.
+CATEGORIES:Blitzkrieg,BROKERS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:1e8d75ea5f414577@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;VALUE=DATE:20260919
+DTEND;VALUE=DATE:20260920
+SUMMARY:🔬 Parity v1 (evidence drop #2)
+DESCRIPTION:Milestone / gate from the Blitzkrieg plans. Verdict must be rec
+ orded in strategy/…/10-calendar-gates.md the same day.
+CATEGORIES:Blitzkrieg,cross
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:bdf822928abec24d@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;VALUE=DATE:20260920
+DTEND;VALUE=DATE:20260921
+SUMMARY:📺 RMN M2 — NANOVO offer made · Vistar appetite probed
+DESCRIPTION:Milestone / gate from the Blitzkrieg plans. Verdict must be rec
+ orded in strategy/…/10-calendar-gates.md the same day.
+CATEGORIES:Blitzkrieg,RMN
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:46a94e12bbc73b81@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;VALUE=DATE:20260921
+DTEND;VALUE=DATE:20260922
+SUMMARY:🏝 Ondřej OOO until Sep 28 — no new negotiations\, artifacts o
+ nly
+DESCRIPTION:Milestone / gate from the Blitzkrieg plans. Verdict must be rec
+ orded in strategy/…/10-calendar-gates.md the same day.
+CATEGORIES:Blitzkrieg,cross
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:5f151825293af373@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;VALUE=DATE:20260930
+DTEND;VALUE=DATE:20261001
+SUMMARY:🚩 GATE 1 — Tobacco verdict (meeting w/ budget owner or line CU
+ T) · bridge papered · brokers 5 convos + Tier-A intro
+DESCRIPTION:Milestone / gate from the Blitzkrieg plans. Verdict must be rec
+ orded in strategy/…/10-calendar-gates.md the same day.
+CATEGORIES:Blitzkrieg,cross
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:44aff0dfefd4f05f@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;VALUE=DATE:20261001
+DTEND;VALUE=DATE:20261002
+SUMMARY:🔬 Index fill gate — upper_brand ≥25% or index killed
+DESCRIPTION:Milestone / gate from the Blitzkrieg plans. Verdict must be rec
+ orded in strategy/…/10-calendar-gates.md the same day.
+CATEGORIES:Blitzkrieg,cross
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:3b980f25bc20fead@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;VALUE=DATE:20261010
+DTEND;VALUE=DATE:20261011
+SUMMARY:🔬 D2 cross-category parity — the decisive number (evidence dro
+ p #3)
+DESCRIPTION:Milestone / gate from the Blitzkrieg plans. Verdict must be rec
+ orded in strategy/…/10-calendar-gates.md the same day.
+CATEGORIES:Blitzkrieg,cross
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:f11971e25499bc09@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;VALUE=DATE:20261015
+DTEND;VALUE=DATE:20261016
+SUMMARY:🚩 GATE 2 — AI-data kill-test verdict · SuperZoo platform+righ
+ ts target · bridge trigger check
+DESCRIPTION:Milestone / gate from the Blitzkrieg plans. Verdict must be rec
+ orded in strategy/…/10-calendar-gates.md the same day.
+CATEGORIES:Blitzkrieg,cross
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:5a9e7f1a91b235f9@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;VALUE=DATE:20261018
+DTEND;VALUE=DATE:20261019
+SUMMARY:🎯 BRANDS M3 — Cohort day #1 → ≥2 verbal commitments
+DESCRIPTION:Milestone / gate from the Blitzkrieg plans. Verdict must be rec
+ orded in strategy/…/10-calendar-gates.md the same day.
+CATEGORIES:Blitzkrieg,BRANDS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:ee4502312364eaaf@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;VALUE=DATE:20261031
+DTEND;VALUE=DATE:20261101
+SUMMARY:🎯 BRANDS M4 — 2 seats invoiced (inside the budget window)
+DESCRIPTION:Milestone / gate from the Blitzkrieg plans. Verdict must be rec
+ orded in strategy/…/10-calendar-gates.md the same day.
+CATEGORIES:Blitzkrieg,BRANDS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:ce05f0daab167fc2@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;VALUE=DATE:20261031
+DTEND;VALUE=DATE:20261101
+SUMMARY:🤝 BROKERS M4 — 2 pilot agreements signed
+DESCRIPTION:Milestone / gate from the Blitzkrieg plans. Verdict must be rec
+ orded in strategy/…/10-calendar-gates.md the same day.
+CATEGORIES:Blitzkrieg,BROKERS
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:ab158c6d6a98af50@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;VALUE=DATE:20261031
+DTEND;VALUE=DATE:20261101
+SUMMARY:📺 RMN M4 — one campaign measured at cost · price reaction log
+ ged
+DESCRIPTION:Milestone / gate from the Blitzkrieg plans. Verdict must be rec
+ orded in strategy/…/10-calendar-gates.md the same day.
+CATEGORIES:Blitzkrieg,RMN
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:c3478d241ede7cba@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;VALUE=DATE:20261107
+DTEND;VALUE=DATE:20261108
+SUMMARY:📺 RMN M5 — DECISION MEMO: 2027 line item or KILL
+DESCRIPTION:Milestone / gate from the Blitzkrieg plans. Verdict must be rec
+ orded in strategy/…/10-calendar-gates.md the same day.
+CATEGORIES:Blitzkrieg,RMN
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:88dbc1203c3a69fb@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;VALUE=DATE:20261115
+DTEND;VALUE=DATE:20261116
+SUMMARY:🚩 GATE 3 — round closed or bridge drawn · no new enterprise l
+ ogo after today
+DESCRIPTION:Milestone / gate from the Blitzkrieg plans. Verdict must be rec
+ orded in strategy/…/10-calendar-gates.md the same day.
+CATEGORIES:Blitzkrieg,cross
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:ff0f140673126168@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;VALUE=DATE:20261121
+DTEND;VALUE=DATE:20261122
+SUMMARY:🏁 BLITZKRIEG VERDICT — 2+3 seats ≥€70k · 2 mandates · 
+ €400–600k · 2 pilots · rule of one
+DESCRIPTION:Milestone / gate from the Blitzkrieg plans. Verdict must be rec
+ orded in strategy/…/10-calendar-gates.md the same day.
+CATEGORIES:Blitzkrieg,cross
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:ritual-monday@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20260824T090000
+DTEND;TZID=Europe/Prague:20260824T093000
+RRULE:FREQ=WEEKLY;BYDAY=MO;UNTIL=20261121T000000Z
+SUMMARY:🧭 Monday protocol — 1 bottleneck · this week's evidence objec
+ t · nearest clock
+DESCRIPTION:Name exactly ONE bottleneck node (rights / data / proof / reven
+ ue / pull). All selling hours go there. Then: what evidence object does th
+ is week produce\, for whom? Which clock is nearest? The calendar placehold
+ ers below are a MENU for the week — delete what the bottleneck doesn't n
+ eed.
+CATEGORIES:Blitzkrieg,ritual
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:ritual-friday@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20260828T160000
+DTEND;TZID=Europe/Prague:20260828T164500
+RRULE:FREQ=WEEKLY;BYDAY=FR;UNTIL=20261121T000000Z
+SUMMARY:📋 Friday — funnel counts · CRM hygiene · next evidence drop 
+ · hours-per-account check
+DESCRIPTION:Stage counts + conversion (tripwire: first→deep-dive <20% = f
+ ix the story\, not the volume). Every open deal has a dated next action. L
+ og hours per account: any seat past 50h without a signature date is downgr
+ aded. Draft next week's evidence drop.
+CATEGORIES:Blitzkrieg,ritual
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+UID:ritual-discovery@mm-blitzkrieg
+DTSTAMP:20260901T074312Z
+DTSTART;TZID=Europe/Prague:20260826T140000
+DTEND;TZID=Europe/Prague:20260826T170000
+RRULE:FREQ=WEEKLY;BYDAY=WE;UNTIL=20261121T000000Z
+SUMMARY:🔬 Discovery afternoon — RMN + BROKERS only (cap: this slot\, n
+ othing else)
+DESCRIPTION:The only hours RMN and Brokers may consume each week. If their 
+ tasks don't fit here\, they wait or die — Brands is the revenue pillar a
+ nd this slot is what protects it.
+CATEGORIES:Blitzkrieg,ritual
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+END:VCALENDAR
