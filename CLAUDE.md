@@ -37,7 +37,13 @@ any of them appears in a client-, brand- or investor-facing deliverable, add it 
    writing new copy. New strategic copy needs founder sign-off before entering the library.
 4. **Language:** retailer- and brand-facing deliverables in **Czech**; investor and
    international-partner materials in **English**. Formal "Vy" in Czech business writing.
-5. **Output location:** `clients/<x>/delivered/YYYY-MM-DD-<type>/` — dated, never overwrite.
+5. **Extend, do not multiply.** New analysis, answer packs and argument material go INTO the
+   existing file that already owns that topic (the relevant pillar plan, execution guide, or
+   strategy note). Create a new file only when no existing file plausibly owns the subject,
+   and say why in the commit message. A repo of many small overlapping files is unusable.
+6. **No em dashes** in anything produced for the founder: documents, commits, chat. Use
+   commas, colons or parentheses. En dashes in numeric ranges are fine.
+7. **Output location:** `clients/<x>/delivered/YYYY-MM-DD-<type>/` — dated, never overwrite.
    Company-level decks go to `decks/`. Render PDFs with `scripts/render-pdf.sh`.
 
 ## Hard rules (non-negotiable, encode in every deliverable)
