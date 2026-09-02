@@ -107,3 +107,40 @@ rev_share_model:
   source: "internal strategy (2026-07)"
   status: internal-estimate
   internal_only: true
+
+# --- Added 2026-09-02 for blitzkrieg/fundraise/why-not-nielseniq.md ---
+
+niq_instore_vision:
+  value: "NIQ In-Store Vision measures on-shelf availability, planogram compliance and retail execution via image recognition over field-auditor photographs, manual audits and surveys"
+  source: "nielseniq.com product page, NIQ In-Store Vision (accessed 2026-09-02)"
+  status: verified
+  note: "Shelf-facing and campaign-based. Use to show the incumbent camera layer is not shopper-facing."
+
+niq_vusion_alliance:
+  value: "NielsenIQ x VusionGroup strategic alliance announced 6 May 2025, first available US / France / Italy; joins NIQ POS and consumer data with Vusion electronic shelf labels, retail IoT and computer vision"
+  source: "nielseniq.com news centre, 2025-05-06"
+  status: verified
+
+captana_belive_acquisition:
+  value: "Captana (SES-imagotag / VusionGroup) acquired a majority stake in Belive.ai, agreement finalised 6 Feb 2023; Belive.ai does real-time computer vision for on-shelf availability, checkout queue length and planogram compliance"
+  source: "vusion.com newsroom"
+  status: verified
+  note: "Precedent that incumbents buy vision capability rather than build it. Also evidence that in-store CV is shelf/operations-facing, not shopper measurement."
+
+niq_ownership_history:
+  value: "Nielsen Global Connect acquired by Advent International in 2021 (renamed NielsenIQ), merged with KKR-backed GfK in 2023, listed on NYSE in 2025"
+  source: "NIQ IPO coverage; Advent and KKR transaction announcements"
+  status: verified
+  note: "Used only to argue balance-sheet incentives, never to characterise the company."
+
+exit_multiple_band_measurement:
+  value: "Syndicated measurement / data assets transact in an ~8-12x revenue band; the model uses 10x"
+  source: "comparable transaction band, founder + advisor view 2026-08"
+  status: internal-estimate
+  note: "Label as an estimate in any external use. Do not present as a published benchmark."
+
+exit_multiple_band_rented:
+  value: "A terminable / rented data licence prices as a service at ~3-4x revenue"
+  source: "same comparable band as exit_multiple_band_measurement"
+  status: internal-estimate
+  note: "The contrast pair. This is the argument for the perpetual aggregate licence."

@@ -14,6 +14,65 @@ P = Petr (backend/ingest) · M = Martin (cloud).
 
 ---
 
+# Data ownership, the one-page answer
+
+⛔ **Read this before any retailer conversation.** "So you want to own our data?" is asked in
+almost every first meeting, usually late, usually by the person who was quiet until then. The
+answer below is the whole position. Do not improvise around it.
+
+## The ownership stack, layer by layer
+
+| Layer | Who owns it | What actually happens |
+|---|---|---|
+| Raw video from their cameras | **Theirs, always** | Processed in the store, never leaves it, deleted after extraction, 72h hard cap. We never take title to it and never receive a copy |
+| POS / receipt feed | **Theirs, always** | Licensed to us for matching only. Never redistributed row-level. Carries prices paid, never cost, margin, sell-through or elasticity |
+| Record-level derived rows (session attributes) | **Their data, processed by us** | 30-day retention, stays in our environment, never sold, never leaves as rows |
+| The de-identified k>=25 aggregate | **Ours to commercialise, under a perpetual irrevocable licence they grant** | Chain-masked by default. This is the only layer that is ever sold |
+| Models, code, calibration sets, the pipeline | **Ours outright** | Built with our capital. They get the output, not the machine |
+| Retailer-attributed cuts (their name on it) | **They control it** | Written, per-cut opt-in, revocable. Never the default |
+
+## The three sentences to say in the room
+
+1. *"You own your footage and you own your till data. We never take title to either, and the
+   footage never leaves your store."*
+2. *"What we own is the anonymous aggregate that comes out of the far end, and only because you
+   licence it to us. Nothing in it identifies a person, and by default nothing in it identifies
+   you either."*
+3. *"The licence is perpetual because a benchmark that can be switched off next quarter is not a
+   benchmark. It is not exclusive: you can grant the same right to anyone else tomorrow."*
+
+## What "perpetual" does and does not mean (have this ready, it is the sticking point)
+
+- It applies **only** to the de-identified k>=25 aggregate. Nothing else.
+- It **survives termination** for aggregates already built. New data stops flowing on the day they
+  terminate; published benchmarks do not retroactively unwind. Say this plainly, because it is what
+  their counsel will actually be testing.
+- It is **not exclusive** and it is **not a transfer of ownership** of any underlying data.
+- It comes with an **audit right** on our aggregates, a veto on every published output, category
+  and brand embargo, and 90-day insight priority. Offer these in the same breath as the perpetuity,
+  never after it.
+- If counsel proposes a term-limited licence: counter with perpetual but chain-masked and k>=25
+  plus the audit right. Retailers accept perpetuity far more readily when it is visibly caged.
+
+💡 The word "perpetual" alarms people far less when it arrives attached to something that visibly
+cannot hurt them. Lead with the controls, then the word, never the reverse.
+
+💡 If they ask "why can't we just own it too?", the answer is that they already do own everything
+that is theirs; what they cannot own is a **cross-chain** aggregate, because it is not theirs to
+own. That is the honest reason the aggregate sits with us and not with them, and it is also why
+their competitor cannot use it against them.
+
+## Why this clause is the valuation, not the paperwork
+
+An asset we hold on a terminable licence is **rented**, and a rented asset prices as a service at
+roughly 3 to 4x revenue. An asset we hold perpetually and cross-chain is **owned**, and owned
+measurement rights price at roughly 8 to 12x. The clause is the difference between an enablement
+vendor and a measurement currency, and it is the single line in the model that moves the exit
+number most. That is why it is the only non-negotiable in this pillar, and why "park and escalate"
+is always the right move over "drop it to close the week".
+
+---
+
 # WEEK 1 · Aug 24–30 — The paper that everything else needs
 
 ## 1.1 Assemble the Golden DPA & Legal Foundations — every clause, once · O + counsel ⏱8h
@@ -645,6 +704,7 @@ numbers — not devices deployed. The 21 Nov go/no-go reads those two lines firs
 | Rule | Why it exists |
 |---|---|
 | The perpetual k≥25 aggregate licence is the only non-negotiable | It is the difference between an enablement vendor (~4–8×) and a measurement currency (8–12×) |
+| Answer "do you own our data?" from the ownership stack, never off the cuff | The layer-by-layer answer is the whole position: their footage and till data stay theirs, only the k≥25 aggregate is ours, and only by licence (see §Data ownership) |
 | Trading data never ingested — cost, margin, sell-through, elasticity | We cannot leak what we never receive; it is a technical fact, not a promise |
 | The toxic cut is named and prohibited in writing | Named retailer × named brand vs named competitor is the only output that can be carried into a trade negotiation |
 | Chain-masking by default; attribution only by written per-cut opt-in | Masking is thin at two chains — say so rather than overselling it |
