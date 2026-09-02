@@ -1,20 +1,22 @@
-# Retailers pillar — deep execution guide (v1.0, 26 Aug 2026)
+# Retailers pillar — deep execution guide (v1.1, 26 Aug 2026)
 
 Companion to `retailers-plan.html`. **This is the working document.**
 **Goal:** 2 DPA-level data mandates · stat-sig + seat depth in each category · by 21 Nov.
+**Core Reframing:** In-Store Data Intelligence Platform (never "Retail Media" or "screens" — pure edge-AI data & analytics platform running on existing CCTV).
+**Pipeline Streams:** (1) EuroOil (ČEPRO), (2) SuperZoo (de-risked, non-exclusive focus), (3) Teta (via Moris warm intro), (4) Planeo (via Moris warm intro), (5) Systematic Cold Outreach via scored retailer matrix.
 **Why it outranks its own goal:** the brands pillar's calendar hangs on **Mandate #1 by ~5 Oct**.
 Slip that date and the two paying seats fall out of the Oct–Nov budget window.
 
 **Legend:** ⛔ prerequisite that blocks the task · 💡 operator tip · 🔍 research gap (what to find,
 where, what to do with it) · ✅ definition of done · ⏱ estimated hours.
-**Owners:** J = Josef · O = Ondřej (paper/legal/ops) · D = Dima · H = Honza (CV/privacy) ·
+**Owners:** J = Josef · O = Ondřej (paper/legal/ops) · D = Dima · N = Natka (data pipeline) · H = Honza (CV/privacy) ·
 P = Petr (backend/ingest) · M = Martin (cloud).
 
 ---
 
 # WEEK 1 · Aug 24–30 — The paper that everything else needs
 
-## 1.1 Assemble the Golden DPA — every clause, once · O + counsel ⏱8h
+## 1.1 Assemble the Golden DPA & Legal Foundations — every clause, once · O + counsel ⏱8h
 
 ⛔ **Prereq:** C1 ruling understood (the share ladder, §1.2) — legal cannot draft a commercial
 position that hasn't been decided.
@@ -22,20 +24,25 @@ position that hasn't been decided.
 Retrofitting it after Mandate #1 signs means reopening a signed contract.
 
 **Steps**
-1. Assemble the clause list in one document before counsel touches it:
+1. **Pre-drafting business requirements & precedent review:**
+   - Review existing **Nielsen ↔ ČEPRO data supply agreements** to extract standard data-exchange clauses,
+     category definitions, and confidential treatment terms already established in CEE retail and state procurement.
+   - Formalize M&M's non-negotiable business requirements (perpetual k≥25 aggregate licence, trading-data firewall)
+     before briefing external counsel.
+2. Assemble the clause list in one document before counsel touches it:
    **Processing:** Art. 28 processor terms · Art. 26 joint-controller arrangement · purpose-change
    (Art. 6(4)) assessment · signage obligations · retention (72h images / 30d records) · k≥25 export gate.
    **Rights:** perpetual irrevocable licence to the de-identified k≥25 **aggregate** ·
    POS-feed rider · brand-outreach blessing · **channel/reseller clause** (may attributed data
    reach third-party resellers? per-channel written approval).
-   **Protections for them:** trading-data firewall · the toxic-cut prohibition (named retailer ×
+   **Protections for them:** trading-data firewall (no margins, wholesale prices, or COGS) · the toxic-cut prohibition (named retailer ×
    named brand vs named competitor) · chain-masking by default · publication lag · 90-day insight
    priority · category/brand embargo (incl. private label) · veto on every published output.
-2. Mark each clause **NEGOTIABLE / NON-NEGOTIABLE**. Exactly one is non-negotiable: the perpetual
+3. Mark each clause **NEGOTIABLE / NON-NEGOTIABLE**. Exactly one is non-negotiable: the perpetual
    aggregate licence. Everything else can be traded.
-3. Build the **Zero-IT PoV** as a separate, much shorter paper: 3–5 stores, read-only access,
+4. Build the **Zero-IT PoV** as a separate, much shorter paper: 3–5 stores, read-only access,
    60–90 days, no rights transferred, cancel-any-time. This is what gets signed when the DPA stalls.
-4. CZ and EN versions of both.
+5. CZ and EN versions of both.
 
 💡 **Never send a DPA to their legal before the commercial terms are agreed with the business.**
 Legal will negotiate terms the business never agreed to, and you will spend three weeks unwinding it.
@@ -45,14 +52,14 @@ mandate → PoV → DPA. Always ask for the smallest one that unlocks the next s
 nothing of yours is identifiable" — the word "perpetual" alarms people far less when it's attached
 to something that visibly cannot hurt them.
 
-✅ **Done when:** DPA + PoV drafted, clause list marked, both languages, counsel review booked ≤5 Sep.
+✅ **Done when:** Nielsen/ČEPRO benchmark clauses reviewed, DPA + PoV drafted, clause list marked, both languages, counsel review booked ≤5 Sep.
 
 ## 1.2 Internalise the C1 share ladder — rehearse it out loud · J + O ⏱2h
 
 ⛔ **Prereq:** none, but do this **before** any retailer conversation this week.
 
 **Steps** — four rungs, in order, never skipped ahead:
-1. **Open:** 0% share + free platform. The value is **their own store insights** — deliverable day
+1. **Open:** 0% share + free platform. The value is **their own store insights & AI chatbot tool** — deliverable day
    one, needs no other retailer's data, so the "you can't benchmark me yet" objection never blocks
    the door.
 2. **Rung 2:** ≤40% share on **retailer-attributed products only**. Aggregate and syndicated reads
@@ -62,7 +69,7 @@ to something that visibly cannot hurt them.
 4. **Never at any rung:** a share of the cross-retailer aggregate.
 
 💡 Rehearse the exact sentence for rung 1: *"You pay nothing, ever. What we ask for is the right to
-use anonymous aggregates — and you see every insight from your own stores first, free, before any
+use anonymous aggregates — and you see every insight and visual attribute model from your own stores first, free, via your custom dashboard and AI chatbot, before any
 brand sees a masked version."*
 💡 **Do not volunteer rung 2.** Most retailers accept rung 1 if the own-store value lands. Opening
 with revenue-share invites a negotiation about percentages you never needed to have.
@@ -72,19 +79,19 @@ first thing you get is knowing more about your shoppers than your suppliers do."
 ✅ **Done when:** both founders can deliver rungs 1–3 without notes, and agree the trigger for
 dropping a rung.
 
-## 1.3 Multi-threading playbook — two audiences, two pitches · J ⏱4h
+## 1.3 Multi-threading playbook & Outreach Collaterals — three audiences, three pitches · J ⏱4h
 
 ⛔ **Prereq:** C4 ruling — the category-manager pitch is **never** titled or framed as anything
 adversarial to suppliers. Our ICP *is* those suppliers, and one forwarded deck ends the seats.
 
 **Steps**
-1. **CMO / commercial director pitch — "the new profit centre":** audience monetisation, retail
-   media, supplier-funded revenue. One page.
-2. **Category manager pitch — "a sharper hand":** *"our data strengthens your buying position —
-   you'll know which shopper segments actually convert on each supplier's SKUs, in your own stores,
-   before they do."* One page. Canon language only.
-3. **IT/security pitch — "nothing changes on your side":** existing cameras, read-only sub-streams,
-   no image egress, edge processing, our compliance pack. One page.
+1. **CMO / commercial director one-pager — "The In-Store Data Intelligence Platform":**
+   Audience monetization, supplier-funded data intelligence revenue (rev-share), access to an AI chatbot over their own store traffic data. No screens, no hardware capex. One page.
+2. **Category manager one-pager — "A sharper hand":**
+   *"Our data strengthens your buying position — you'll know which shopper segments actually convert on each supplier's SKUs, in your own stores, before they do."*
+   Focus on **hundreds of real-time visual attributes** (demographics, age bands, gender, clothing/style/presentation attributes, group/family dynamics, and derived shopper behavior patterns — *strictly NO shelf-interaction/biomechanics claims*). One page.
+3. **IT/security one-pager — "Zero IT footprint & pure edge privacy":**
+   Existing CCTV streams, read-only sub-streams, **no raw video or image egress**, edge processing, k≥25 aggregation export gate, ready-to-sign DPIA/compliance pack. One page.
 4. Map which of the three exists at each target chain, by name.
 
 💡 **Never single-thread a chain.** The person who loves it is rarely the person who signs, and the
@@ -92,7 +99,7 @@ person who signs will ask someone you haven't met. Three threads is the minimum 
 💡 The category manager is usually the fastest internal champion — they feel the supplier asymmetry
 daily — but they cannot sign alone. Use them to reach the CMO, not as the closer.
 
-✅ **Done when:** three one-pagers exist; named humans mapped for SuperZoo and EuroOil.
+✅ **Done when:** three professional 1-page outreach collaterals exist; named roles mapped across EuroOil, SuperZoo, Teta, Planeo.
 
 ## 1.4 Moris letters — the two contractual prerequisites · O ⏱2h
 
@@ -125,53 +132,85 @@ here's a two-pager, and here's a free report for the trouble."
 
 ✅ **Done when:** amendment offered to all 6; ≥2 signed by 12 Sep.
 
-## 1.6 Seat-depth matrix — prove demand exists before asking for rights · J ⏱4h
+## 1.6 Seat-depth demand proof — map brand buyers per category · J ⏱4h
 
 ⛔ **Prereq:** brands pillar 1.1 (budget-owner map) — same research, shared output.
 
-**Steps** For pet and fuel/convenience: list ≥5 named brand buyers per category, with the budget
+**Steps** For pet, fuel/convenience, drugstore, and consumer electronics: list ≥5 named brand buyers per category, with the budget
 they'd buy from and any signal of interest. This is the artifact that answers the retailer's real
 question — *"would anyone actually pay for this?"*
+- **Pet (SuperZoo):** Purina, Mars (Royal Canin), Vafo (Brit), Hill's, Farmina.
+- **Fuel / Convenience (EuroOil):** JTI, PMI, BAT, Red Bull, Mattoni/KMV.
+- **Drugstore (Teta):** P&G, Henkel, Unilever, L'Oréal, Beiersdorf.
+- **Consumer Electronics (Planeo):** Samsung, Philips, LG, DeLonghi, Bosch.
 
 💡 A retailer does not want a data partner; they want proof of a market. **Bring the demand map to
 the rights conversation** and the conversation changes from "why should we?" to "how much?"
 💡 Post-greenlight, the EuroOil version of this matrix can name real tobacco conversations. That is
 far stronger than a hypothetical list.
 
-✅ **Done when:** two one-page matrices, ≥5 named buyers each.
+✅ **Done when:** 4 category matrices created, ≥5 named brand buyers each.
 
----
-
-# WEEK 2 · Aug 31–Sep 6 — Funnel, and the fastest clean win
-
-## 2.1 Score the top-30 funnel — slots, not stores · J ⏱5h
+## 1.7 Retailer Suitability Matrix & FOMO Framing · J ⏱3h
 
 ⛔ **Prereq:** none.
 
 **Steps**
-1. Build the CEE mid-size candidate list (30+): drugstore, sport, electro, convenience, fuel,
-   specialist multibrand.
-2. **Score each** — do not rank by store count:
-   `category slots unlocked × multibrand depth × locations in the 60–100 range × decision speed`.
-   Rough slot-unlock counts: pet specialty 1–2 · petrol/convenience 2–4 · drugstore/HPC 5–8 ·
-   grocery 15–25 · electro/sport 1–3.
-3. Flag ownership model: **company-operated with central IT** (targetable) vs franchise/co-op
-   (multiplies the sales cycle by the number of independent owners).
-4. Top 10 get a named backchannel path; the rest wait.
+1. **Design a flexible, non-disqualifying scoring matrix** to rank candidates across CEE without prematurely choking top-of-funnel:
+   - **Sales Cycle Speed Score (1–5):** Company-operated central IT (5) vs. hybrid franchise (3) vs. fragmented co-op (1).
+   - **Multibrand Depth (1–5):** High third-party SKU share (5) vs. heavy private label (2) vs. 100% own-brand (1).
+   - **Footprint Sweet Spot (1–5):** 60–150 stores (5, quick decision + stat-sig) vs. 30–60 (4) vs. 200–500 (3) vs. 500+ giants (1, slow).
+   - **Access Path (1–5):** Existing warm intro / Moris contact (5) vs. second-degree network (3) vs. cold outreach (2).
+2. **Formulate the FOMO Scarcity Narrative:**
+   *"Minds & Models is launching its Data Intelligence Platform across CEE. To ensure statistical integrity and category focus, we have exactly 2 founding data partner seats per retail category. Once a category's seats are committed, onboarding closes for 12 months."*
 
-💡 A 90-store multibrand drugstore chain outranks a 300-store own-brand chain on this maths — and
-the deployment dashboard will never tell you that. **This scoring is the difference between two
-mandates and two years of pitching.**
-💡 The 60–100-location band is deliberate: enough for stat-sig in a category, small enough for a
-single decision-maker.
+💡 Keep the scoring criteria open so unusual high-velocity prospects stay in the funnel, while letting the score determine whether they get a founder-led warm push or automated cold outbound.
+
+✅ **Done when:** scoring matrix template live in Notion/Sheets; FOMO script agreed.
+
+## 1.8 Moris Client Portfolio Sweep & Warm Routing · O + J ⏱2h
+
+⛔ **Prereq:** none.
+
+**Steps**
+1. Audit Moris's current and historical retail fit-out client roster (specifically looking at Teta, Planeo, and adjacent retail chains).
+2. Map existing operational contacts and relationship leads at each chain.
+3. Prepare warm intro request scripts to route intro pings through Moris leadership.
+
+💡 Moris already holds commercial trust with retail operations directors; leveraging this avoids cold gatekeepers entirely.
+
+✅ **Done when:** Moris client list audited; warm intro targets identified for Teta and Planeo.
+
+---
+
+# WEEK 2 · Aug 31–Sep 6 — Funnel Activation: Dual-Stream Outreach & SuperZoo
+
+## 2.1 Score the top-30 funnel & launch dual-stream outreach · J ⏱5h
+
+⛔ **Prereq:** 1.7 scoring matrix · 1.3 outreach collaterals · 1.8 Moris client sweep.
+
+**Steps**
+1. Build and score the CEE candidate list (30+ chains across drugstore, sport, electro, convenience, fuel, specialist pet/multibrand).
+2. **Score & Rank (open scoring, not hard disqualification):**
+   `Sales Cycle Speed × Multibrand Depth × Location Sweet Spot (60–150) × Access Path`.
+3. **Split into 2 Operational Outreach Streams:**
+   - **Stream A — Warm / Moris Introductions:**
+     - **SuperZoo:** Ongoing pilot/RFI conversion.
+     - **EuroOil (ČEPRO):** Tobacco brand pull route.
+     - **Teta:** Drogerie multibrand (P&G, Unilever) — route warm ping through Moris contact to company-operated store leadership.
+     - **Planeo (FAST ČR):** Consumer electronics (Samsung, LG, Philips) — route warm ping through Moris contact to commercial/IT leadership.
+   - **Stream B — Systematic Cold Outreach:**
+     - Top 10 highest-scoring chains from the matrix receive personalized cold multi-threading outreach using the 1-page collaterals (CMO, Category Manager, IT) and the FOMO "2 seats per category" framing.
+
+💡 Do not over-filter the funnel at this stage. Keep the top-of-funnel broad so high-interest candidates can emerge, but prioritize founder calendar hours on Stream A while running structured outreach on Stream B.
+💡 A 90-store multibrand drugstore/electro chain outranks a 300-store own-brand chain on this maths — and the deployment dashboard will never tell you that.
 
 🔍 **Research — the scored list (⏱3h, inside the 5h).** *What:* store counts, ownership model,
 multibrand share, and the named commercial decision-maker for 30 CEE chains. *Where:* company
 registries, chain websites, retail trade press, the advisor network, LinkedIn for the role map.
-*Do what with it:* the top 10 becomes the ToFU campaign in W3; everything below the line is
-explicitly parked so it stops consuming attention.
+*Do what with it:* Stream A is actively worked via warm intros; Stream B gets cold outbound in W3; the remainder is logged for Q1 pipeline.
 
-✅ **Done when:** 30 scored, 10 prioritised with a named path each.
+✅ **Done when:** 30 chains scored; Stream A warm intros requested via Moris; Stream B top-10 outreach queue prepared.
 
 ## 2.2 CPI portfolio rider — the fastest clean win in the pipeline · J ⏱2h
 
@@ -188,7 +227,7 @@ partner extended across their portfolio"* is a proof point for every retailer co
 
 ✅ **Done when:** rider requested with a date; signed by 15 Oct.
 
-## 2.3 SuperZoo exec meeting — the room where the mandate is signed · J ⏱6h
+## 2.3 SuperZoo exec meeting — de-risked ask ladder · J ⏱6h
 
 ⛔ **Prereq:** 1.1 mandate + PoV printed and in the bag · 1.6 seat-depth matrix · compliance pack
 · C7 private-label answer (offer the carve-out proactively).
@@ -202,6 +241,7 @@ partner extended across their portfolio"* is a proof point for every retailer co
 4. **RFI response preview** — show you understood their three benefit areas.
 5. **DPA discussion opened** with a date, not a decision.
 
+💡 **De-risk SuperZoo reliance:** SuperZoo is our fastest immediate pet data asset, but Blitzkrieg does NOT depend solely on them. Treat this as one of several parallel tracks (EuroOil, Teta, Planeo).
 💡 **Lead with the private-label carve-out before they raise it.** For an own-brand-heavy chain it
 is the most sensitive output we could produce, and volunteering the exclusion is the single most
 trust-building move available. It costs us little: brands aren't buying private-label reads.
@@ -210,8 +250,6 @@ GDPR/AI-Act and explicitly worries about high-risk classification. Handing their
 pack converts the most likely blocker into an internal advocate.
 💡 If the mandate stalls, fall to the PoV. **Do not leave the room without one of the three rungs
 signed or dated.**
-💡 Ask them to **co-host the pet cohort day** once rights exist — retailer-hosted rooms convert
-brands far better (brands pillar 7.1).
 
 ✅ **Done when:** mandate signed, or PoV signed, or a dated DPA session in the calendar — plus
 RTSP access to 2–3 stores agreed.
@@ -236,7 +274,7 @@ RFI will not have it.
 
 ---
 
-# WEEK 3 · Sep 7–13 — EuroOil, and parallelising the silent killers
+# WEEK 3 · Sep 7–13 — EuroOil, Data Business Model & Pipeline Architecture
 
 ## 3.1 Apply brand pull to EuroOil — the greenlight loop closes here · J + O ⏱5h
 
@@ -289,7 +327,7 @@ fails on someone else's backlog.
 **Steps**
 1. Ask for their vendor security questionnaire **now**, while legal is still drafting.
 2. Answer it once, properly, and reuse: architecture diagram · data-flow map · subprocessor list ·
-   pen-test or SOC posture · retention · access control · incident process.
+    pen-test or SOC posture · retention · access control · incident process.
 3. Book the IT call before the DPA is signed, not after.
 
 💡 **IT security review adds 4–8 weeks when it starts after signature, and near-zero when it runs
@@ -316,6 +354,40 @@ the RFI. Name that in the response: it is a real cost saving that competitors wi
 the IT rack and camera positions rather than travelling.
 
 ✅ **Done when:** readiness sheet complete for the pilot stores; blockers listed with owners.
+
+## 3.5 Data Business Model: Aggregation vs. Non-Aggregation & Pipeline Architecture (Natka) · J + N + D ⏱5h
+
+⛔ **Prereq:** 1.1 DPA clause structure · 1.2 share ladder.
+
+**Steps**
+1. **Formalize the Commercial Data Architecture:**
+   - **Cross-Retailer Syndicated Aggregate (≥2 chains in category):** 100% M&M revenue. This is the core currency sold to brand insights teams (T1/T2 subscriptions). Retailer receives free access to the market benchmark view.
+   - **Retailer-Attributed Data Intelligence (Single chain specific):** Monetized via supplier brand access or retail media targeting. Subject to C1 share ladder (≤40% share to retailer, ≥60% infra margin to M&M).
+2. **Specify Natka's Ingest & Delivery Pipeline:**
+   - Define data ingestion from edge camera processing and POS matching into the warehouse.
+   - Apply strict k≥25 aggregation and firewall filters: **exclude all retail trading data (margins, wholesale pricing, COGS)**.
+   - Structure output formats: automated weekly aggregate feeds + real-time API.
+3. **AI-Native Delivery Moat (vs. Legacy Nielsen):**
+   - Package data delivery around a **Conversational AI Chatbot** querying real-time store behavior data and **interactive custom intelligence dashboards** (drastically superior to static quarterly Nielsen spreadsheets).
+
+💡 Emphasize the AI delivery layer in every retailer conversation: Nielsen takes 6 weeks to send a static Excel; M&M gives category managers an AI chatbot they can ask natural-language questions about yesterday's shopper demographics.
+
+✅ **Done when:** aggregation vs non-aggregation data policy documented; Natka pipeline ingest-to-delivery workflow specified; AI chatbot & dashboard interface wireframe ready.
+
+## 3.6 Retailer Value Proposition Packaging — "Their Data, Our Platform, Rev-Share" · J ⏱3h
+
+⛔ **Prereq:** 3.5 data business model.
+
+**Steps**
+1. Package the standardized retailer value proposition deck & talk-track:
+   - **Their Data, Free Forever:** Retailer gets full visibility into their own physical stores' traffic, demographic mix, dwell times, and conversion patterns via our platform and AI chatbot at zero subscription cost.
+   - **Hundreds of Visual Attributes:** Granular shopper demographic profiling (age bands, gender, presentation style, group dynamics, shopping mission patterns — strictly no shelf-interaction tracking).
+   - **New Bottom-Line Revenue:** We commercialize audience insights to FMCG/brand suppliers and share up to 40% of attributed revenues with the retailer.
+   - **Zero IT Friction & Risk:** Runs on existing CCTV cameras, edge processing, no image egress, complete trading data firewall, full veto rights over published cuts.
+
+💡 The strongest positioning is: *"We build your internal shopper intelligence capability for free, and create a brand-funded revenue stream where you keep the upside."*
+
+✅ **Done when:** Retailer Value Proposition one-pager and presentation deck finalized.
 
 ---
 

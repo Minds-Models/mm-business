@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investor Update: 2026 Q3/Q4 Action Plan</title>
+    <style>
+        :root {
+            /* Minds & Models brand tokens */
+            --paper: #fbfaf9;
+            --surface: #ffffff;
+            --surface-2: #f2efec;
+            --line: #e3e0dc;
+            --line-soft: #efece9;
+
+            --ink: #1a1a1a;
+            --ink-2: #4a4a48;
+            --muted: #8a8781;
+
+            --accent: #3d6bfb;
+            --accent-soft: #e8edfe;
+            --negative: #c0504d;
+            --negative-soft: #f7eae8;
+            --positive: #1f6f4a;
+            --positive-soft: #e8f4ee;
+            --warn: #A8621A;
+            --warn-soft: #F8EFE3;
+            --gold: #9A7B1F;
+            
+            --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --numeric: 'Inter', sans-serif;
+            
+            --shadow: 0 4px 12px rgba(26, 26, 26, 0.05);
+            --shadow-sm: 0 1px 3px rgba(26, 26, 26, 0.04);
+        }
+        
+        body {
+            font-family: var(--sans);
+            background-color: var(--paper);
+            color: var(--ink);
+            margin: 0;
+            padding: 40px 20px;
+            line-height: 1.55;
+            -webkit-font-smoothing: antialiased;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* --- HEADER & INTRO --- */
+        header {
+            margin-bottom: 40px;
+        }
+        .eyebrow {
+            font-size: 0.75rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--negative);
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+        h1 {
+            font-size: clamp(32px, 5vw, 48px);
+            margin: 0 0 16px 0;
+            color: var(--ink);
+            letter-spacing: -0.02em;
+            text-wrap: balance;
+            font-weight: 700;
+        }
+        .kicker {
+            color: var(--ink-2);
+            font-size: 18px;
+            max-width: 75ch;
+            margin-bottom: 32px;
+        }
+
+        .params-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+            margin-bottom: 40px;
+        }
+        .param-card {
+            background: var(--surface);
+            padding: 24px;
+            border-radius: 12px;
+            border: 1px solid var(--line);
+            box-shadow: var(--shadow-sm);
+        }
+        .param-card.highlight {
+            border-top: 4px solid var(--accent);
+        }
+        .param-card.alert {
+            border-top: 4px solid var(--negative);
+            background: var(--negative-soft);
+        }
+        .param-card h3 {
+            margin: 0 0 8px 0;
+            font-size: 12px;
+            color: var(--muted);
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+        }
+        .param-card .value {
+            font-size: 28px;
+            color: var(--ink);
+            font-weight: 700;
+            font-family: var(--numeric);
+            font-variant-numeric: tabular-nums;
+            margin: 0;
+        }
+        .param-card .sub {
+            font-size: 13px;
+            color: var(--ink-2);
+            margin: 8px 0 0 0;
+        }
+
+        /* --- THE VC CASE (EXPANDABLE) --- */
+        details.vc-case {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 16px 24px;
+            margin-bottom: 40px;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.2s ease;
+        }
+        details.vc-case[open] {
+            box-shadow: var(--shadow);
+            border-color: var(--accent);
+        }
+        details.vc-case summary {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--ink);
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            outline: none;
+        }
+        details.vc-case summary::-webkit-details-marker {
+            display: none;
+        }
+        details.vc-case summary::before {
+            content: '+';
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
+            background: var(--accent-soft);
+            color: var(--accent);
+            margin-right: 12px;
+            font-size: 20px;
+            transition: transform 0.2s;
+        }
+        details.vc-case[open] summary::before {
+            content: '−';
+            transform: rotate(180deg);
+        }
+        .vc-case-content {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px dashed var(--line);
+        }
+        .vc-case-content ul {
+            padding-left: 20px;
+            margin: 0;
+        }
+        .vc-case-content li {
+            margin-bottom: 12px;
+            font-size: 15px;
+            color: var(--ink-2);
+            line-height: 1.5;
+        }
+        .vc-case-content li strong {
+            color: var(--ink);
+        }
+
+        /* --- STRATEGIC PILLARS --- */
+        .pillars-section {
+            margin-bottom: 48px;
+        }
+        .pillars-section h2 {
+            font-size: 22px;
+            margin: 0 0 16px 0;
+            border-bottom: 2px solid var(--ink);
+            padding-bottom: 12px;
+        }
+        .pillars-section p {
+            color: var(--ink-2);
+            margin-bottom: 24px;
+            font-size: 15px;
+        }
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 16px;
+        }
+        .pillar-card {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: var(--shadow-sm);
+            position: relative;
+            overflow: hidden;
+        }
+        .pillar-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--accent);
+        }
+        .pillar-card.p-fund::before { background: var(--gold); }
+        .pillar-card.p-brand::before { background: var(--positive); }
+        .pillar-card.p-ret::before { background: var(--accent); }
+        .pillar-card.p-brok::before { background: var(--warn); }
+        .pillar-card.p-alt::before { background: var(--muted); }
+
+        .pillar-card h3 {
+            margin: 0 0 8px 0;
+            font-size: 16px;
+            color: var(--ink);
+        }
+        .pillar-card .pillar-goal {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--ink-2);
+            margin-bottom: 8px;
+            padding-bottom: 8px;
+            border-bottom: 1px dashed var(--line);
+        }
+        .pillar-card .pillar-outcome {
+            font-size: 12.5px;
+            color: var(--muted);
+            line-height: 1.4;
+            margin: 0;
+        }
+        .pillar-card .pillar-outcome strong {
+            color: var(--ink-2);
+        }
+
+        /* --- TABLE DESIGN --- */
+        h2.section-title {
+            font-size: 26px;
+            border-bottom: 2px solid var(--ink);
+            padding-bottom: 12px;
+            margin-bottom: 32px;
+            margin-top: 48px;
+        }
+        
+        .table-container {
+            background: var(--surface);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--line);
+            overflow: hidden;
+            margin-bottom: 48px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th {
+            text-align: left;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+            color: var(--muted);
+            padding: 16px 24px;
+            background: var(--surface-2);
+            border-bottom: 1px solid var(--line);
+        }
+        td {
+            padding: 16px 24px;
+            border-bottom: 1px solid var(--line-soft);
+            color: var(--ink-2);
+            vertical-align: top;
+            font-size: 15px;
+        }
+        tr:last-child td {
+            border-bottom: none;
+        }
+        .client-name {
+            font-weight: 700;
+            color: var(--ink);
+            font-size: 16px;
+        }
+        
+        /* Status Tags */
+        .status-tag {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .status-live {
+            background: var(--positive-soft);
+            color: var(--positive);
+        }
+        .status-pipeline {
+            background: var(--warn-soft);
+            color: var(--warn);
+        }
+        
+        .metric-val {
+            font-family: var(--numeric);
+            font-variant-numeric: tabular-nums;
+            font-weight: 600;
+            color: var(--ink);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="eyebrow">Investor Update</div>
+        <h1>Sep 2026 - investor update after pilots</h1>
+        <p class="kicker">An all-in sprint executing our data-first business model strategy. We are executing our 2026 Q3/Q4 Action Plan to maximize our VC-backable case by focusing exclusively on data value, pivoting away from in-store personalization (which will be maintained as a legacy product only where it makes sense for existing clients). Timeline: 21 Aug &rarr; 21 Nov 2026.</p>
+        
+        <div class="params-grid">
+            <div class="param-card highlight">
+                <h3>Core Moat</h3>
+                <p class="value">Data Value</p>
+                <p class="sub">100% Margin on Aggregate</p>
+            </div>
+            <div class="param-card">
+                <h3>Exit Path</h3>
+                <p class="value" style="font-size: 24px;">8-12x Multiple</p>
+                <p class="sub">Syndicated Channel Reads</p>
+            </div>
+            <div class="param-card alert" style="border-top: 4px solid var(--accent); background: var(--accent-soft);">
+                <h3 style="color: var(--accent);">Ultimate ICP</h3>
+                <p class="value" style="font-size: 22px;">The Brand</p>
+                <p class="sub">Retailer is our Data Partner</p>
+            </div>
+        </div>
+
+        <details class="vc-case" open>
+            <summary>Core Axioms of the Strategy</summary>
+            <div class="vc-case-content">
+                <ul>
+                    <li><strong>Data Value is VC-Backable:</strong> Our core value proposition and exit multiple (8-12x) are driven by the cross-retailer aggregate and syndicated channel reads.</li>
+                    <li><strong>Moving Away from Hardware:</strong> Own-hardware personalization is not VC-backable. We are pivoting purely into a data business model.</li>
+                    <li><strong>Revenue Share Clarity:</strong> We keep 100% of the cross-retailer aggregate and syndicated channel reads. Retailer revenue sharing (max 40%) applies only to retailer-attributed audience/Retail Media Network (RMN) products.</li>
+                </ul>
+            </div>
+        </details>
+    </header>
+
+    <section class="pillars-section">
+        <h2>The 5 Pillars of our Action Plan</h2>
+        <p>To succeed in the Q3/Q4 Action Plan, we execute across 5 interconnected strategic pillars. The outcomes of each pillar compound into our 8-12x "currency" valuation.</p>
+        <div class="pillars-grid">
+            <div class="pillar-card p-fund">
+                <h3>Fundraising</h3>
+                <div class="pillar-goal">€500k @ €6M Pre</div>
+                <p class="pillar-outcome"><strong>Outcome:</strong> Close the round leveraging the other 4 pillars.</p>
+            </div>
+            <div class="pillar-card p-brand">
+                <h3>Brands</h3>
+                <div class="pillar-goal">2 paying, 3 committed (Min ARR €70k)</div>
+                <p class="pillar-outcome"><strong>Outcome:</strong> Proves audience monetization model.</p>
+            </div>
+            <div class="pillar-card p-ret">
+                <h3>Retailers</h3>
+                <div class="pillar-goal">2x Mandates (>60% margin, stat-sig)</div>
+                <p class="pillar-outcome"><strong>Outcome:</strong> Proves the exclusive data asset.</p>
+            </div>
+            <div class="pillar-card p-brok">
+                <h3>Data Brokers</h3>
+                <div class="pillar-goal">Establish relationship (NielsenIQ, etc.)</div>
+                <p class="pillar-outcome"><strong>Outcome:</strong> Validates strategic exit path.</p>
+            </div>
+            <div class="pillar-card p-alt">
+                <h3>Alt Data Sources</h3>
+                <div class="pillar-goal">Validate non-visual alternatives</div>
+                <p class="pillar-outcome"><strong>Outcome:</strong> De-risks hardware/privacy concerns.</p>
+            </div>
+        </div>
+    </section>
+
+    <h2 class="section-title">Financial Runway & Burn Rate (Q3 2026)</h2>
+    <p class="kicker" style="font-size: 15px; margin-bottom: 24px;">Based on our latest 3-month rolling average, our operational burn is highly optimized. &gt;95% of capital is deployed directly into the core tech team and founders, maintaining a lean SaaS footprint.</p>
+    
+    <div class="params-grid" style="margin-bottom: 24px;">
+        <div class="param-card highlight" style="border-top-color: var(--negative);">
+            <h3 style="color: var(--negative);">Average Monthly Burn</h3>
+            <p class="value">~310k CZK</p>
+            <p class="sub">~€12,800 / month</p>
+        </div>
+        <div class="param-card">
+            <h3>Wages & Team</h3>
+            <p class="value" style="font-size: 24px;">297.8k CZK</p>
+            <p class="sub">Historical Q3 average</p>
+        </div>
+        <div class="param-card">
+            <h3>HW, Tech & SaaS</h3>
+            <p class="value" style="font-size: 24px;">~16.5k CZK</p>
+            <p class="sub">~€680 / month</p>
+        </div>
+    </div>
+
+    <details class="vc-case" style="margin-bottom: 16px;">
+        <summary>Team Roster & Monthly Run-rate</summary>
+        <div class="vc-case-content">
+            <div class="table-container" style="margin-bottom: 0; box-shadow: none; border-radius: 8px;">
+                <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
+                    <thead>
+                        <tr>
+                            <th style="padding: 12px 16px; border-bottom: 1px solid var(--line); background: var(--surface-2); text-align: left; font-size: 0.7rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em;">Team Member</th>
+                            <th style="padding: 12px 16px; border-bottom: 1px solid var(--line); background: var(--surface-2); text-align: left; font-size: 0.7rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em;">Role</th>
+                            <th style="padding: 12px 16px; border-bottom: 1px solid var(--line); background: var(--surface-2); text-align: right; font-size: 0.7rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em;">Avg Monthly Cost</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="3" style="padding: 8px 16px; background: var(--surface-2); font-weight: 700; font-size: 12px; color: var(--ink-2); text-transform: uppercase;">Engineering, Data & Strategy</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); font-weight: 600; color: var(--ink);">Petr Morávek</td>
+                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); color: var(--ink-2);">Full Stack, CTO potential</td>
+                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); text-align: right; font-family: var(--numeric); font-weight: 600;">~56,000 CZK</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); font-weight: 600; color: var(--ink);">Jan Mazoch</td>
+                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); color: var(--ink-2);">Computer Vision</td>
+                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); text-align: right; font-family: var(--numeric); font-weight: 600;">~45,700 CZK</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); font-weight: 600; color: var(--ink);">Martin Bartoš</td>
+                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); color: var(--ink-2);">Backend / Full Stack</td>
+                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); text-align: right; font-family: var(--numeric); font-weight: 600;">~38,000 CZK</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); font-weight: 600; color: var(--ink);">Dima Bohatyrov</td>
+                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); color: var(--ink-2);">Data Wizard, Business / Tech combination</td>
+                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); text-align: right; font-family: var(--numeric); font-weight: 600;">~15,300 CZK</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); font-weight: 600; color: var(--ink);">Matěj Hodek</td>
+                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); color: var(--ink-2);">Full Stack / AI / Agentic</td>
+                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); text-align: right; font-family: var(--numeric); font-weight: 600;">~14,300 CZK</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); font-weight: 600; color: var(--ink);">Jan Trojak</td>
+                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); color: var(--ink-2);"><span style="display: block;">Cyber Security Expert</span><span style="display: block; font-size: 12px; color: var(--muted); margin-top: 4px;">Currently paid from CzechInvest grant. Future: ad-hoc consultations up to 10k/mo.</span></td>
+                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); text-align: right; font-family: var(--numeric); font-weight: 600;">0 CZK <span style="font-size: 11px; font-weight: normal; color: var(--muted); display: block;">(Covered by Grant)</span></td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); font-weight: 600; color: var(--ink);">Naty Netušilová</td>
+                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); color: var(--ink-2);">NielsenIQ Insider</td>
+                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); text-align: right; font-style: italic; color: var(--muted); font-size: 13px;">Ad-hoc consultation</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" style="padding: 8px 16px; background: var(--surface-2); font-weight: 700; font-size: 12px; color: var(--ink-2); text-transform: uppercase;">Founders (Management & GTM)</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); font-weight: 600; color: var(--ink);">Josef Němeček</td>
+                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); color: var(--ink-2);"><span style="display: block;">Co-Founder / Management</span><span style="display: block; font-size: 12px; color: var(--muted); margin-top: 4px;">Structure: Minimum wage + DPP to minimize taxes.</span></td>
+                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); text-align: right; font-family: var(--numeric); font-weight: 600;">~30,000 CZK</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px 16px; border-bottom: none; font-weight: 600; color: var(--ink);">Ondřej Šantora</td>
+                            <td style="padding: 12px 16px; border-bottom: none; color: var(--ink-2);"><span style="display: block;">Co-Founder / Management</span><span style="display: block; font-size: 12px; color: var(--muted); margin-top: 4px;">Structure: Minimum wage + DPP to minimize taxes.</span></td>
+                            <td style="padding: 12px 16px; border-bottom: none; text-align: right; font-family: var(--numeric); font-weight: 600;">~30,000 CZK</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </details>
+
+    <details class="vc-case" style="margin-bottom: 48px;">
+        <summary>Detailed SaaS & Ops Breakdown</summary>
+        <div class="vc-case-content">
+            <div class="table-container" style="margin-bottom: 0; box-shadow: none; border-radius: 8px;">
+                <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
+                    <thead>
+                        <tr>
+                            <th style="padding: 12px 16px; border-bottom: 1px solid var(--line); background: var(--surface-2); text-align: left; font-size: 0.7rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em;">Vendor / Service</th>
+                            <th style="padding: 12px 16px; border-bottom: 1px solid var(--line); background: var(--surface-2); text-align: left; font-size: 0.7rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em;">Description</th>
+                            <th style="padding: 12px 16px; border-bottom: 1px solid var(--line); background: var(--surface-2); text-align: right; font-size: 0.7rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em;">Avg Monthly Cost</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="2" style="padding: 8px 16px; background: var(--surface-2); font-weight: 700; font-size: 12px; color: var(--ink-2); text-transform: uppercase;">Tech Stack & Infrastructure</td>
+                            <td style="padding: 8px 16px; background: var(--surface-2); text-align: right; font-weight: 700; font-size: 12px; color: var(--ink-2);">SUM: ~3,560 CZK</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); font-weight: 600; color: var(--ink);">Anthropic (Claude AI)</td>
+                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); color: var(--ink-2);">Core LLM engine</td>
+                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); text-align: right; font-family: var(--numeric); font-weight: 600;">~2,254 CZK <span style="font-size: 11px; font-weight: normal; color: var(--muted); display: block;">(90 EUR)</span></td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); font-weight: 600; color: var(--ink);">Clerk.com</td>
+                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); color: var(--ink-2);">Auth infrastructure</td>
+                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); text-align: right; font-family: var(--numeric); font-weight: 600;">~537 CZK <span style="font-size: 11px; font-weight: normal; color: var(--muted); display: block;">(25 USD)</span></td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); font-weight: 600; color: var(--ink);">Cursor IDE</td>
+                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); color: var(--ink-2);">AI dev tooling</td>
+                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); text-align: right; font-family: var(--numeric); font-weight: 600;">520 CZK</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); font-weight: 600; color: var(--ink);">Netcup</td>
+                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); color: var(--ink-2);">Hosting / Server</td>
+                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); text-align: right; font-family: var(--numeric); font-weight: 600;">~249 CZK <span style="font-size: 11px; font-weight: normal; color: var(--muted); display: block;">(9.89 EUR)</span></td>
+                        </tr>
+                        
+                        <tr>
+                            <td colspan="2" style="padding: 8px 16px; background: var(--surface-2); font-weight: 700; font-size: 12px; color: var(--ink-2); text-transform: uppercase;">Hardware</td>
+                            <td style="padding: 8px 16px; background: var(--surface-2); text-align: right; font-weight: 700; font-size: 12px; color: var(--ink-2);">SUM: ~5,830 CZK</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); font-weight: 600; color: var(--ink);">RPISHOP</td>
+                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); color: var(--ink-2);">Raspberry Pi & sensors</td>
+                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); text-align: right; font-family: var(--numeric); font-weight: 600;">~4,270 CZK</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); font-weight: 600; color: var(--ink);">Alza.cz</td>
+                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); color: var(--ink-2);">Peripherals & electronics</td>
+                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); text-align: right; font-family: var(--numeric); font-weight: 600;">~1,560 CZK</td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="2" style="padding: 8px 16px; background: var(--surface-2); font-weight: 700; font-size: 12px; color: var(--ink-2); text-transform: uppercase;">Comms & Productivity</td>
+                            <td style="padding: 8px 16px; background: var(--surface-2); text-align: right; font-weight: 700; font-size: 12px; color: var(--ink-2);">SUM: ~4,918 CZK</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); font-weight: 600; color: var(--ink);">Google Workspace</td>
+                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); color: var(--ink-2);">Company email & storage</td>
+                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); text-align: right; font-family: var(--numeric); font-weight: 600;">~3,259 CZK <span style="font-size: 11px; font-weight: normal; color: var(--muted); display: block;">(129.60 EUR)</span></td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); font-weight: 600; color: var(--ink);">Slack</td>
+                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); color: var(--ink-2);">Team communication</td>
+                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); text-align: right; font-family: var(--numeric); font-weight: 600;">~1,659 CZK <span style="font-size: 11px; font-weight: normal; color: var(--muted); display: block;">(66.00 EUR)</span></td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="2" style="padding: 8px 16px; background: var(--surface-2); font-weight: 700; font-size: 12px; color: var(--ink-2); text-transform: uppercase;">Sales & Growth</td>
+                            <td style="padding: 8px 16px; background: var(--surface-2); text-align: right; font-weight: 700; font-size: 12px; color: var(--ink-2);">SUM: 2,198 CZK</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); font-weight: 600; color: var(--ink);">LinkedIn</td>
+                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); color: var(--ink-2);">Premium / Sales Navigator</td>
+                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); text-align: right; font-family: var(--numeric); font-weight: 600;">2,198 CZK</td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="2" style="padding: 8px 16px; background: var(--surface-2); font-weight: 700; font-size: 12px; color: var(--ink-2); text-transform: uppercase;">Travel, Meetings & Ad-hoc Operations</td>
+                            <td style="padding: 8px 16px; background: var(--surface-2); text-align: right; font-weight: 700; font-size: 12px; color: var(--ink-2);">SUM: ~3,000 CZK</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px 16px; border-bottom: none; font-weight: 600; color: var(--ink);">Various</td>
+                            <td style="padding: 12px 16px; border-bottom: none; color: var(--ink-2);">T&E, Client meetings, Bank fees</td>
+                            <td style="padding: 12px 16px; border-bottom: none; text-align: right; font-family: var(--numeric); font-weight: 600;">~3,000 CZK</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </details>
+
+    <div class="params-grid" style="margin-bottom: 48px;">
+        <div class="param-card highlight">
+            <h3>Total Recurring Revenue</h3>
+            <p class="value">17,700 CZK</p>
+            <p class="sub">Monthly Recurring Revenue (MRR) from running pilots</p>
+        </div>
+        <div class="param-card highlight" style="border-top-color: var(--gold);">
+            <h3 style="color: var(--gold);">Total One-off Revenue</h3>
+            <p class="value" style="font-size: 24px;">15,000+ CZK</p>
+            <p class="sub">From pilots and trials</p>
+        </div>
+    </div>
+
+    <h2 class="section-title">Pilot Portfolio & Revenue Progress</h2>
+    <p class="kicker" style="font-size: 15px; margin-bottom: 24px;">Our progress towards the goals of our Q3/Q4 Action Plan across all current pilots and pipeline opportunities.</p>
+    
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Client / Pilot</th>
+                    <th>Status</th>
+                    <th>Revenue</th>
+                    <th>Goal Alignment & Update</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><div class="client-name">EuroOil</div></td>
+                    <td><span class="status-tag status-live">Live</span></td>
+                    <td class="metric-val">11,800 CZK MRR</td>
+                    <td>4 devices deployed. We are in active talks with major tobacco brands to deploy a "data model" where the brands pay for the insights. Working closely with Moris Design & Čepro.</td>
+                </tr>
+                <tr>
+                    <td><div class="client-name">Super zoo</div></td>
+                    <td><span class="status-tag status-live">Live</span></td>
+                    <td class="metric-val">5,900 CZK MRR</td>
+                    <td>2 devices deployed. Exploring further integration for both SuperZoo's internal use and external brand data monetization. They are highly engaged, though some of their requested features fall outside our core focus.</td>
+                </tr>
+                <tr>
+                    <td><div class="client-name">CPI Property Group</div></td>
+                    <td><span class="status-tag status-live">Live</span></td>
+                    <td class="metric-val">15,000 CZK <span style="font-size: 11px; font-weight: normal; color: var(--muted); display: block;">(One-off / 14 days)</span></td>
+                    <td>Paid pilot currently running. Strong potential for rollout across the entire CPI shopping mall network.</td>
+                </tr>
+                <tr>
+                    <td><div class="client-name">Spiroq</div></td>
+                    <td><span class="status-tag status-live">Live</span></td>
+                    <td class="metric-val">[Negotiating]</td>
+                    <td>Vending machine network. Pilot deployed for Vilgain. Currently negotiating expansion to 20 machines and eventually the full network. Our primary goal is retaining data rights for cross-retailer monetization.</td>
+                </tr>
+                <tr>
+                    <td><div class="client-name">GymBeam</div></td>
+                    <td><span class="status-tag" style="background: var(--surface-2); color: var(--ink-2);">Completed</span></td>
+                    <td class="metric-val">2,950 CZK / mo</td>
+                    <td>Paid pilot completed. The core value wasn't definitively proven for the retailer's direct use, but we are utilizing it to refine the data/external monetization model. Another confirmation that Monobrand is a challenging ICP.</td>
+                </tr>
+                <tr>
+                    <td><div class="client-name">Manufaktura</div></td>
+                    <td><span class="status-tag" style="background: var(--surface-2); color: var(--ink-2);">Completed</span></td>
+                    <td class="metric-val">Paid Pilot</td>
+                    <td>Delivered a 4% sales uplift (12x ROI). However, due to their broad pricing strategy, deep visual segmentation did not yield direct recurring value for them. Analyzed alternative use cases while we use the data to validate our monetization model. Monobrand setup proved challenging.</td>
+                </tr>
+                <tr>
+                    <td><div class="client-name">O2</div></td>
+                    <td><span class="status-tag" style="background: var(--surface-2); color: var(--ink-2);">Completed</span></td>
+                    <td class="metric-val">Paid Pilot</td>
+                    <td>Pilot ran for several months with cross-departmental meetings (incl. PPF group). We could not pinpoint an immediate post-pilot use-case, but the topic remains alive internally. Deployment is complicated by our shift in focus toward data and FMCG brands.</td>
+                </tr>
+                <tr>
+                    <td><div class="client-name">ČSOB</div></td>
+                    <td><span class="status-tag status-pipeline">Pipeline</span></td>
+                    <td class="metric-val">15,000 CZK <span style="font-size: 11px; font-weight: normal; color: var(--muted); display: block;">(One-off offer)</span></td>
+                    <td>In preparation with the retail network team. A one-off paid pilot offer is currently awaiting final approval.</td>
+                </tr>
+                <tr>
+                    <td><div class="client-name">COOP</div></td>
+                    <td><span class="status-tag status-pipeline">Pipeline</span></td>
+                    <td class="metric-val">[Awaiting]</td>
+                    <td>We have backing from the central HQ and are currently identifying a specific regional cooperative (družstvo) to launch the paid pilot.</td>
+                </tr>
+                <tr>
+                    <td><div class="client-name">Planeo</div></td>
+                    <td><span class="status-tag status-pipeline">Pipeline</span></td>
+                    <td class="metric-val">[Awaiting]</td>
+                    <td>Pilot officially approved by management, with deployment scheduled for Q3 2026.</td>
+                </tr>
+                <tr>
+                    <td><div class="client-name">Teta drogerie</div></td>
+                    <td><span class="status-tag status-pipeline">Pipeline</span></td>
+                    <td class="metric-val">[Awaiting]</td>
+                    <td>Pilot officially approved by management, with deployment scheduled for Q3 2026.</td>
+                </tr>
+                <tr>
+                    <td><div class="client-name">LCD Denmark</div></td>
+                    <td><span class="status-tag status-pipeline">Pipeline</span></td>
+                    <td class="metric-val">[Awaiting]</td>
+                    <td>Technology supplier for retail in Denmark. Currently in internal testing; discussing specific client deployments.</td>
+                </tr>
+                <tr>
+                    <td><div class="client-name">Eventique</div></td>
+                    <td><span class="status-tag status-pipeline">Pipeline</span></td>
+                    <td class="metric-val">[Awaiting]</td>
+                    <td>US event agency met in NYC. Potential deployment at their events. Awaiting a specific concrete opportunity.</td>
+                </tr>
+                <tr>
+                    <td><div class="client-name">LUXX</div></td>
+                    <td><span class="status-tag" style="background: var(--negative-soft); color: var(--negative);">Cancelled</span></td>
+                    <td class="metric-val">-</td>
+                    <td>US/GER/CHN manufacturer of e-shelves. After months of integration testing and discussions, we could not find common ground. Devices are being shipped back from China.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+</body>
+</html>
