@@ -70,9 +70,9 @@ for a data business, and deliberately **less heroic than the 106% CAGR** in the 
 credibility is worth more than steepness with funds who have already passed twice.
 
 **Where this lands the exit:** €10–14M ARR at a measurement-currency multiple of 8–12× →
-**€80–168M**, centred on the **€100–150M target band**. At the illustrative post-Series-A cap
-table (~5.4% seed), a €115M outcome returns roughly **12× on money invested at today's terms** —
-inside the 10–16× band a seed investor underwrites.
+**€80–168M**, centred on the **€100–150M target band**. Returns per round are no longer estimated
+here: the financial model carries the live cap table and the MOIC per round, and reconciles to 100%
+of the company. Use it, not a figure restated in prose (see `18-model-reconciliation.md`).
 
 **The Feb-2027 slide writes itself:** the base case (€0.8–1.4M) sits **ahead of** the re-cast curve
 for that point in time. We are pitching a number we expect to beat, and saying so.
@@ -88,7 +88,7 @@ Previous documents carried three drifting versions of the same facts. These are 
 | Angel money already in | **€80k convertible at a €3.5M cap** (not €3M) |
 | Current round | **€500k at €6–7M post-money** (state post, never pre — the old doc mixed both) |
 | Series A assumption for modelling | **€2–4M**, milestone-gated; model illustratively at €3M @ €18M post + ~10% ESOP |
-| Illustrative ownership at exit | seed ~5.4% · angel ~1.9% · founders ~68% |
+| Ownership at exit | Not restated here. The financial model holds the live cap table, and it reconciles to 100% |
 
 Dilution under the two fundraise strategies (`08-ws-fundraise.md` §6), for comparison only:
 

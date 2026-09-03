@@ -1,6 +1,11 @@
 # Model reconciliation — the financial model vs this strategy set
 
-**Status:** open register, 2 Sep 2026. Nothing in the model or in these documents has been changed yet.
+**Status:** 2 Sep 2026, second pass. Founder decisions recorded against every finding, and the ones
+marked DONE are already applied to the model. The remaining open items are the ones that require the
+strategy pack to be edited, which is deliberately deferred until the model is final.
+
+**Standing decision:** the financial model is the source of truth. Where this pack disagrees with it,
+the pack gets updated, not the model.
 **Scope:** the VC financial model (MODEL / MARKETS / HEADCOUNT tabs) line by line, cross-checked against
 `12-numbers-external.md`, `13-revenue-model.md`, `17-signals-21nov.md`, `07-ws-legal-rights.md`,
 `../../blitzkrieg/00-alignment.md`, `../../blitzkrieg/fundraise/fundraise-execution-guide.md`
@@ -248,3 +253,68 @@ Do not spend effort re-checking these.
 3. **A4 and A5** are decisions to make, not edits.
 4. **B1 and B2** are an afternoon.
 5. Everything in **C** is additive and can wait until the model is internally settled.
+
+---
+
+# Decision log and status, 2 Sep 2026
+
+| # | Decision | Status |
+|---|---|---|
+| A1 | Metric mismatch stands for now. The model reports live run-rate ARR; the pack's curve will be re-cut from the model once it is final | open, deferred |
+| A2 | Same. The growth-shape paragraph in `12-numbers-external.md` gets rewritten from the finished model | open, deferred |
+| A3 | Founding seat set to **€40,000**. Nov-2026 now produces €80k, matching the 21 Nov gate | **DONE** |
+| A4 | Revenue share stays at 30% in the model; `stats.yaml` will be aligned to it later | open, deferred |
+| A5 | The model no longer names instruments. Rounds are "Pre-seed", "Seed", "Series A" and the angel line is "Angel round". Instrument choice is a term-sheet question, not a model input | **DONE** |
+| B1 | T2 is now gated per market on **slot age AND chains >= 2**. Six new per-market rows on MARKETS (51-58) carry the gate; MODEL reads the total | **DONE** |
+| B2 | Resolved by B1 plus the sample-size derivation already in the model. The ladder in `stats.yaml` will be amended to 30-60 stores per chain when the pack is updated | open, deferred |
+| B3 | Two KPIs added: **ARR per instrumented category** and **categories at T2 density**. The old KPI is renamed "ARR per sellable product" so the denominator is explicit | **DONE** |
+| B4 | Deferred with the rest of the pack | open, deferred |
+| B5 | The IČO / HPP overhead coefficient is **removed**. All role costs are now stated as fully loaded annual cost, so there is one number per role instead of two | **DONE** |
+| B6 | **Labour cost multiplier added**: 1.00 in the home market rising to 1.35 at the full six-market footprint, scaling with active markets. Applies to scaling roles only | **DONE** |
+| C1 | **Standby bridge row added** to the funding block, zero unless drawn, wired into the funding inflow | **DONE** |
+| C2 | **Sensitivity block added** at the foot of MODEL, computed by re-running the model one variable at a time | **DONE** |
+| C3 | Net revenue retention: not now | closed, not doing |
+| C4 | Revenue concentration: not now | closed, not doing |
+| C5 | The model is the source of truth once final. Deck and pack get re-cut from it | accepted |
+| C6 | Swept. No Romania or Balkans rollout reference survives anywhere in the repo (the only hits are unrelated brand-target org structures) | **DONE** |
+| D1 | Exit above the €100-150M band: does not matter | closed |
+| D2 | The illustrative "~5.4% seed" figure is **removed** from `12-numbers-external.md` and replaced with a pointer to the model's live cap table | **DONE** |
+| D3 | Legacy revenue relabelled **"Existing business revenue"** | **DONE** |
+| D4 | `needs-source` stats: ignore for now | closed |
+| D5 | Per-store cost figures: ignore for now | closed |
+
+## What the applied changes did to the base case
+
+| | before this pass | after |
+|---|---|---|
+| 2031 ARR | €16.09M | **€15.44M** |
+| Exit at 10x | €160.9M | **€154.4M** |
+| 2031 EBITDA margin | 17.5% | **4.4%** |
+| ARR per instrumented category, 2031 | €673k (above the €300-600k band) | **€572k (inside it)** |
+| Minimum cash | €22,770 | €22,770 (unchanged) |
+| Integrity checks | 11 passing | 11 passing, 0 errors |
+
+Two corrections drove it. The per-market T2 gate removed roughly 4% of exit ARR by delaying the
+reprice until a second chain is actually live. The labour multiplier added cost from month 25 onward,
+as the team moves into DACH and then Western Europe.
+
+**The open question this leaves** is whether 1.35 is the right multiplier. It assumes roles localise
+in every market. If the real plan is to hire engineering and analysis in CEE and localise only
+commercial and legal, the right number is closer to 1.20, and the 2031 EBITDA margin returns to
+roughly 10%.
+
+## Sensitivity, as recorded in the model
+
+| Case | 2031 ARR | Exit at 10x | Minimum cash |
+|---|---|---|---|
+| Base | €15.44M | €154.4M | €22,770 |
+| Realised price 20% below plan | €12.35M | €123.5M | **(€578,532)** |
+| Realised price 20% above plan | €18.52M | €185.2M | €22,770 |
+| Seats per slot 0.5 lower | €13.14M | €131.4M | €22,770 |
+| Seats per slot 0.5 higher | €17.74M | €177.4M | €22,770 |
+| Annual churn 15% | €13.85M | €138.5M | €22,770 |
+| Annual churn 25% | €11.82M | €118.2M | **(€529,094)** |
+
+The plan survives a 0.5 seat miss and a near-doubling of churn without more money. The two cases that
+break cash are a 20% price miss and 25% churn, and both are answered by drawing the standby bridge or
+sizing the seed higher, not by changing the business.
