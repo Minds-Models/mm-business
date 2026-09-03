@@ -157,7 +157,7 @@ MS = [
  ("2026-10-31","📺 RMN M4 — one campaign measured at cost · price reaction logged","RMN"),
  ("2026-11-07","📺 RMN M5 — DECISION MEMO: 2027 line item or KILL","RMN"),
  ("2026-11-15","🚩 GATE 3 — round closed or bridge drawn · no new enterprise logo after today","cross"),
- ("2026-11-21","🏁 BLITZKRIEG VERDICT — 2+3 seats ≥€70k · 2 mandates · €400–600k · 2 pilots · rule of one","cross"),
+ ("2026-11-21","🏁 BLITZKRIEG VERDICT — 2+3 seats ≥€80k · 2 mandates · €400–600k · 2 pilots · rule of one","cross"),
 ]
 for i, (d, s, c) in enumerate(MS):
     vevent(hashlib.md5(f"ms-{d}-{i}".encode()).hexdigest()[:16], s,

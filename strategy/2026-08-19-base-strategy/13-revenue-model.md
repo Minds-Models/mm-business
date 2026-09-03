@@ -29,7 +29,7 @@ deployment choices and investor material all use the same arithmetic. Companion 
 ARR  =  Σ over live slots [ payable_brands × penetration × price(tier) ]  +  attach products
 
 where   tier      = f(stores instrumented in that channel, number of chains covered)
-        price(T1) = €41–122k per brand-seat/yr     [30–60 stores, 1 chain]
+        price(T1) = €75–122k per brand-seat/yr     [30–60 stores, 1 chain]
         price(T2) = €122–327k per brand-seat/yr    [150–300 stores, ≥2 chains]
 ```
 
@@ -47,7 +47,7 @@ subscriptions (a separate per-asset unit).
 
 **Yield per store is front-loaded within a category and resets with each new category.**
 
-- The first ~30–60 stores in a channel unlock a €41–122k/brand product. Those stores carry the
+- The first ~30–60 stores in a channel unlock a €75–122k/brand product. Those stores carry the
   entire category read.
 - Store #400 in that same category adds precision and almost no revenue.
 - But store #1 in a **new** category-channel unlocks a whole new slot.
@@ -77,7 +77,9 @@ directly into a revenue expectation.*
 
 **(c) Price calibration per seat.** NIQ's average client pays ~$173k (**~€160k**) and its own
 "mid-size client" floor is **$50k**. So:
-- **T1 (€41–122k)** sits between NIQ's floor and its average client — *comfortably defensible*.
+- **T1 (€75–122k)** sits at the incumbent enterprise-subscription cluster ($75k) and below
+  NIQ's average client — *comfortably defensible*. Founding year-1 is 50% off this band,
+  floored at €40k (D17).
 - **T2 (€122–327k)** means being worth as much as, or more than, a brand's entire NIQ relationship
   — *aggressive by construction*. It is only honest with the parity proof and ≥2-chain density,
   which is precisely why both are gates. The top of the band is not invented: PMI paid **8M CZK

@@ -185,10 +185,10 @@ bring the agency in later as an ally (see 3.1 💡).
 
 ## 2.3 R2 — subsidiary spend autonomy · J + A ⏱3h
 
-**Steps** Build the autonomy map: which CZ/SK subsidiaries can sign ~€35k locally vs which escalate
+**Steps** Build the autonomy map: which CZ/SK subsidiaries can sign ~€40k locally vs which escalate
 to a regional cluster. Sources: the retained advisor, LinkedIn org shape, and one direct question
 asked casually at the end of every methodology call:
-> *"If you wanted to buy a €35k data study just for the Czech market, would that be your signature
+> *"If you wanted to buy a €40k annual data subscription just for the Czech market, would that be your signature
 > or would it go to the region?"*
 
 💡 This may be **the real ICP filter — above category.** A mid-tier brand with local autonomy will
@@ -387,8 +387,9 @@ returning calls.
 **Steps** Write what each parity outcome licenses commercially: ≥92% → "receipt-verified" claim and
 T1-top pricing · 75–92% → directional claim, POS-rider becomes mandatory in every rights deal ·
 <75% → audience/footfall products only, seats reprice to studies.
-💡 Decide the price **before** the cohort day, in writing. Pricing invented in a room is pricing
-you will regret in the renewal.
+💡 Decide the price **before** the cohort day, in writing, **from the D17 stack** (founding
+floor €40k / ask €40–60k / list T1 from €75k). Pricing invented in a room is pricing
+you will regret in the renewal. A number below €40k is a study, not a scenario on this memo.
 ✅ **Done when:** one page, three scenarios, a number in each.
 
 ## 4.3 Cohort-day kit + roundtable date · J + O ⏱4h
@@ -419,7 +420,7 @@ manager **and** every investor tech-DD. Build once, use in both pillars.
 🔍 *What:* which media/shopper agencies buy data on behalf of CZ brands, and whether one agency
 master could carry 3+ end-seats. *Where:* advisor, brand contacts ("who buys your shopper data —
 you or the agency?"), agency websites' client lists. *Do what with it:* if one master carries 3
-seats, that is the cheapest path to the €70k and it changes W9 priorities entirely.
+seats, that is the cheapest path to the €80k and it changes W9 priorities entirely.
 ✅ **Done when:** 2-page memo with a go/no-go on the agency route.
 
 ---
@@ -547,7 +548,7 @@ committed brands.
 💡 Reference the first seat by category, never by name unless they've agreed to be named
 (`can_name_publicly`). *"The first founding seat in this category is taken"* is true, useful, and
 breaches nothing.
-✅ **Done when:** seat #2 invoiced; ≥€70k combined visible or the gap explicitly named.
+✅ **Done when:** seat #2 invoiced; ≥€80k combined visible or the gap explicitly named.
 
 ## 9.2 Open the media wallet · J ⏱3h
 **Steps** Start measurement-retainer conversations with brands running in-store campaigns on the
@@ -597,7 +598,7 @@ brands can only ever be won in a specific month. Build it now while the answers 
 💡 **Do not promise density you cannot hit.** The escrow is a refund obligation — an over-promised
 milestone converts to a clawback in Q2 and destroys the account. Check the number against the
 retailers pillar's real store curve before signing.
-✅ **Done when:** 3 signed 2027 orders with escrow, combined with the paying seats ≥€70k.
+✅ **Done when:** 3 signed 2027 orders with escrow, combined with the paying seats ≥€80k.
 
 ## 11.2 Brand case study #1 · J + D ⏱4h
 **Steps** Draft with **co-design credit** — the buyer's choice of how they're named or anonymized.
@@ -626,7 +627,7 @@ honest loss column reads as a company that knows its market — and it is far mo
 # WEEK 13 · Nov 16–21 — The tally
 
 ## 13.1 Score the pillar · J + O ⏱4h
-**Steps** Against the goal: 2 paying + 3 committed, ≥€70k combined. Every miss named with the gate
+**Steps** Against the goal: 2 paying + 3 committed, ≥€80k combined. Every miss named with the gate
 it failed and the evidence for why. Feed the 21 Nov go/no-go scoreboard
 (`../../strategy/2026-08-19-base-strategy/17-signals-21nov.md`).
 💡 Report the **order book** separately from invoiced ARR — at this date the forward-looking number
@@ -646,6 +647,7 @@ it failed and the evidence for why. Feed the 21 Nov go/no-go scoreboard
 | Pooled brand-worn claims only | Fill is 4–10%; per-brand claims are indefensible until volume grows ~10× |
 | SIGNED / IN NEGOTIATION / TARGET labels | The reality-vs-plan discipline that started this whole strategy |
 | Internal benchmark figures never leave | Incumbent supply/demand prices are INTERNAL-ONLY |
+| Founding floor €40k — below that it's a study, don't count the seat | D17; €25k sat in study territory and trained the complementary cap |
 | Forwardability litmus | Every artifact must survive being forwarded to the retailer, a competitor, or a journalist |
 
 # The research backlog in one place
@@ -655,10 +657,10 @@ it failed and the evidence for why. Feed the 21 Nov go/no-go scoreboard
 | R1 | Budget bands per use-case (trade / marketing / NPD) | J + A | 12 Sep | You are quoting prices into a void without it |
 | C7 | SuperZoo third-party brand share | J/D | 30 Aug | Decides whether the pet slot is real |
 | — | Mid-tier pet brand list | J | 30 Aug | The pet fallback if Purina/Mars are thin |
-| R2 | Subsidiary spend autonomy (€35k local signature?) | J + A | 19 Sep | Possibly the real ICP filter, above category |
+| R2 | Subsidiary spend autonomy (€40k local signature?) | J + A | 19 Sep | Possibly the real ICP filter, above category |
 | R3 | Renewal calendars per brand | J | rolling | Becomes the 2027 account calendar |
 | R4 | Q4-2026 budget mechanics | J + A | 19 Sep | Decides if seats close on 2026 money at all |
-| R5 | Agency masters — one master = 3 seats? | J | 26 Sep | Could be the cheapest path to €70k |
+| R5 | Agency masters — one master = 3 seats? | J | 26 Sep | Could be the cheapest path to €80k |
 | R6 | Tobacco compliance-artifact sufficiency | O + A | 26 Sep | Legal is the tobacco gatekeeper |
 | — | Per-attendee dossiers before cohort day | J | Oct 12 | Turns a generic room into a personal one |
 | R7 | ICP synthesis — primary (meetings) + secondary (podcasts, blogs, job posts) | J | 13 Sep | Rewrites outreach, site, invite and the 8-account filter |

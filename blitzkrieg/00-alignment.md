@@ -8,12 +8,13 @@ The 21 Nov assessment instrument is the existing scoreboard (`../strategy/…/17
 thresholds updated to Blitzkrieg goals. The 15 Oct business-model fork is CLOSED by these axioms
 (all-in data); 21 Nov replaces it as the go/no-go.
 
-## Goal glossary (proposed precise readings — confirm)
+## Goal glossary (precise readings)
 
-- **"2 paying + 3 hard-committed brand seats, min ARR €70k"** → read as: ≥2 seats invoiced 2026
-  + ≥3 signed 2027 subscription orders with density escrow; **combined contracted ARR ≥€70k**
-  (≈ €35k+/seat at founding discount). Alternative reading (€70k *per* seat) would mean list-T1
-  undiscounted — say which.
+- **"2 paying + 3 hard-committed brand seats, min ARR €80k"** `[DECIDED — D17, 1 Sep]` → ≥2 seats
+  invoiced 2026 + ≥3 signed 2027 subscription orders with density escrow; **combined contracted
+  ARR ≥€80k** (2 × €40k founding floor). A contract below €40k is a study — take the money, do
+  not count the seat. List T1 is €75–122k; €75k is **not** the founding ask. The old ≥€70k /
+  €25k-floor reading was a mix-up (2×€35k reverse-engineered from the combined goal).
 - **"2 data mandates"** → 2 signed rights instruments at DPA level (not just 60-day mandates),
   each in a category where we can demonstrate seat depth (≥5 mapped brand buyers) and
   statistical significance (coarse grid passed).
@@ -96,3 +97,12 @@ retailer share language frozen until C1 is ruled.
   never in decks) · website update to the brand ICP story (lint: no benchmarks, D2 respected) ·
   ICP research primary + secondary (R7) · W3 consumption-format discovery (R8) · W7 Store Twin as
   the generalised shopper-behaviour model for agencies (benchmark-integrity caveat mandatory).
+
+## Ruling (1 Sep 2026)
+
+- **O8 €70k reading — DECIDED as D17.** Combined contracted ARR is **≥€80k** (2 paying × €40k
+  founding floor), not €70k per seat and not a €25k counting floor. Stack: study 150–500k CZK ·
+  founding floor/ask **€40k / €40–60k** · list T1 **€75–122k** (~1.8–3M CZK). A contract below
+  €40k is a study — take the money, don't score it as a seat, don't use it as the year-2 or
+  broker-wholesale reference. NIQ $75k enterprise cluster is list-T1, not founding. C1 remains
+  the open alignment item.

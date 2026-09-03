@@ -1,18 +1,99 @@
 name: EuroOil
 legal_entity: ČEPRO, a.s. (state-owned)
 segment: fuel-convenience
-stores_total: 200           # VERIFY (EuroOil network ~190-200 stations)
+stores_total: 285           # 211 EuroOil + 73-75 RoBiN OIL, merging to one EuroOil brand
+                            # from spring 2026. Source: ceproas.cz EuroOil pages + promo feed
+                            # (2026-09-01); robinoil.cz now 301-redirects to srdcovka.eurooil.cz.
+                            # SUPERSEDES the earlier "~190-200" figure, which was understated.
 stores_live: 1
 
 pilot:
   pos_matching: modeled     # !! tobacco decks use ILLUSTRATIVE POS — always label as such
   key_metrics: {}
 
+# ---------------------------------------------------------------------------
+# ESTATE / ASSORTMENT — researched 2026-09-01. Confidence: MEDIUM.
+# Forecourt assortment is not published, so this triangulates five independent lines:
+# ČEPRO first-party pages, PUBLIC PROCUREMENT (available because ČEPRO is state-owned),
+# station-level Petrol Awards write-ups, CZ forecourt trade press, and channel norms.
+# Station counts are first-party (high confidence); category mix is CHANNEL NORM, not a
+# EuroOil measurement — label it as such in any material.
+# ---------------------------------------------------------------------------
+estate:
+  own_brand_fmcg_share: "0%"   # ČEPRO runs NO forecourt private-label FMCG programme.
+                               # ČEPRO-owned brands are fuel-side only (EuroOil, RoBiN OIL,
+                               # Optimal 95/Diesel, BA98, HVO) + EcoTank screenwash.
+                               # Prima Arena / Senza Arena are SHOP FASCIAS, not products.
+                               # => ~100% third-party FMCG: highest of any estate we hold.
+  channel_category_mix:        # Nielsen / CZ forecourt norm — NOT measured at EuroOil
+    tobacco_share_of_shop_turnover: "~74-75%"
+    within_non_tobacco:
+      energy_drinks: "17%"
+      beer: "15%"
+      soft_drinks: "12%"
+      mineral_water: "11%"
+      chocolate: "7%"
+      spirits: "6%"
+      ice_cream: "5%"
+      other_non_food: "26%"    # drugstore, batteries, wipes, air fresheners
+  modernisation: >
+    ~CZK 1bn programme; headline item is hot gastro at roughly fifty stations. This is the
+    SAME 50-station wave already in our note — pilot expansion and assortment build-out are
+    one programme, not two. Non-fuel is described by ČEPRO management as a negligible share
+    of revenue today; an Oct-2024 trade comparison found EuroOil's coffee offer "limited"
+    with no dedicated refreshment zone, well behind Orlen Stop Cafe, MOL Fresh Corner and
+    OMV Viva. The transition is the commercial window.
+  # ⚠ TWO CONSTRAINTS THAT CHANGE THE DEAL — verify before any escrow language is signed:
+  operating_model: >
+    Stations are TENANT-OPERATED. Tenants sell "their own dry goods", rent is computed on
+    turnover, and ČEPRO maintains a recommended-supplier list rather than dictating
+    assortment. So assortment varies by site, and camera installation may need per-tenant
+    consent rather than one central signature. This is the EuroOil analogue of the Teta
+    franchise problem and it is not yet reflected anywhere in the plan.
+  tobacco_supply_note: >
+    ČEPRO tender 205/25/OCN (published 10 Nov 2025, tender ID 120348134) procures a single
+    distributor of food and non-food goods across EuroOil + RoBiN OIL — and EXPLICITLY
+    EXCLUDES TOBACCO. Tobacco is therefore supplied through a different route; find out
+    which before the tobacco convening, because it determines who actually controls the
+    tobacco planogram at these sites.
+
 deal:
   status: pilot-live
-  next_step: "Tobacco roundtable (JTI/PMI/BAT/Asahi ~Aug 2026): co-funding + contingent LOIs;
-    then aggregate-data license; real POS feed integration scoped"
+  next_step: "JTI meeting, week of 7 Sep 2026 (CEPRO-brokered) — first of the tobacco majors;
+    then PMI/BAT/Imperial via the same route; contingent LOIs; then aggregate-data license;
+    real POS feed integration scoped"
   personalization_live: true   # EUR 120/device model — EuroOil wants brands to pay it
+
+# ---------------------------------------------------------------------------
+# BRAND-APPROACH GREENLIGHT — the instrument that unlocks the tobacco track.
+# Source: verbal greenlight from CEPRO, 26 Aug 2026. See
+# blitzkrieg/brands/tobacco-access-playbook.md for the full mechanics.
+# ---------------------------------------------------------------------------
+brand_approach_greenlight:
+  granted: "verbal, 26 Aug 2026"
+  written_confirmation: pending   # ⚠ ACTION: send the short confirmation email (playbook §1).
+                                  # A state-owned counterparty rotates people; a verbal greenlight
+                                  # that later becomes "we never agreed to that" would breach the
+                                  # canon rule (retailer hears it from us first) we rely on.
+  scope: >
+    Permission to APPROACH tobacco companies about their presence in this channel, with CEPRO's
+    knowledge and support, and to name EuroOil INSIDE a CEPRO-convened conversation. It is NOT a
+    data mandate: no EuroOil data may be shown, no delivery date promised, no subscription sold
+    that depends on rights we do not hold. Tobacco-scoped only — a non-tobacco brand approach
+    (e.g. Kofola) needs its own disclosure step.
+  collectable: "non-binding LOIs, explicitly subject to a future data agreement with CEPRO"
+  first_meeting:
+    counterparty: "JTI (JT International spol. s r.o., ICO 17047587)"
+    when: "week of 7 Sep 2026"
+    route: "brokered by CEPRO"
+    to_confirm: "exact date · attendees on both sides · whether CEPRO chairs or only introduces ·
+      which JTI role attends (target: the KAM who runs the CEPRO/EuroOil account)"
+    objective: >
+      Per playbook §9, walk out with four things in this order: (1) their density requirement on
+      record — at what station coverage does this become decision-grade; (2) the named budget owner
+      and their 2027 planning date — for JTI that means the CzHuSk cluster General Manager, unnamed
+      in our file; (3) agreement to receive a conditional LOI; (4) a second meeting with insights or
+      category present. Do NOT try to close money in meeting one.
 
 rights:
   mandate_signed: false
@@ -31,3 +112,16 @@ sensitivities: >
   1) Modeled POS must never be presented as real. 2) State-owned parent => procurement
   sensitivities. 3) NEVER mention EuroOil pipeline/rights ambitions to NIQ or other brokers.
   4) Tobacco brand materials: "age estimation with error bands" language mandatory.
+  5) ADDED 2026-09-01: the ~285-station figure is the NETWORK count. Any density-escrow
+  commitment must be written against instrumentable sites — company-controllable, carrying
+  a shop, and not mid-rebrand — NOT against the headline number. Given the tenant-operated
+  model above, that instrumentable subset is currently UNKNOWN and must be established
+  before a refund obligation is signed.
+  6) The forecourt category mix recorded above is a CHANNEL NORM (Nielsen / trade press),
+  not a EuroOil measurement. Never present it as our own data.
+  7) ADDED 2026-09-02: no EuroOil shelf audit exists for any tobacco major. Every brand-level
+  presence claim we make in these meetings — the CZK 0.85-1.3bn tobacco-through-EuroOil figure,
+  the 4-6% network share and every slice of it — is an ESTIMATE BUILT ON VERIFIED INPUTS and must
+  be labelled as such in the room. The single-major meeting does not raise the hub-and-spoke
+  competition-law flag; a room containing several majors at once does, and that opinion is still
+  uncommissioned.

@@ -2,7 +2,7 @@
 
 > **21 Aug update:** this scoreboard is now the official **Blitzkrieg go/no-go instrument** (D16).
 > Green thresholds superseded where Blitzkrieg goals are stricter: BRANDS green = **2 paying + 3
-> hard-committed 2027 orders, ≥€70k contracted ARR** · RIGHTS green = **2 DPA-level mandates with
+> hard-committed 2027 orders, ≥€80k contracted ARR** (D17: €40k founding floor) · RIGHTS green = **2 DPA-level mandates with
 > seat-depth + stat-sig evidence** · INVESTORS green = **€400–600k wired at the €6M cap** ·
 > plus **2 Tier-B broker pilots live**.
 
@@ -59,7 +59,7 @@ date **without a verdict**, or the premise itself was disproven. Review dates: 5
 |---|---|---|---|---|
 | Tobacco meeting w/ budget owner or number | 30 Sep | yes → seats in contracting by 21 Nov | meeting held, LOI only | **no verdict recorded** (a cut line per the kill-test = 🟡, not 🔴) |
 | First paid study (150–500k CZK) | 31 Oct | invoiced | verbally agreed | zero after a cohort day was held |
-| Founding seats signed | 21 Nov | ≥2 (any category) | 1 | 0 at any price after ≥6 qualified conversations → **complementary-cap is real; E2 reprices to studies** |
+| Founding seats signed | 21 Nov | ≥2 (any category) at ≥€40k | 1 at ≥€40k | 0 at ≥€40k after ≥6 qualified conversations → **complementary-cap is real; E2 reprices to studies** |
 | Seats per live slot | 21 Nov | ≥2 avg | 1 | slot sold once = a study, not a currency |
 | P&G free read | 15 Oct | booked + renewal conversation | shipped, unbooked | procurement can't book even €0 → giants only via channel |
 | Index fill gate (`upper_brand` ≥25%) | 1 Oct | passed → agency master in talks by Nov | passed, unsold | failed → index killed (verdict = fine); **unrun = 🔴** |

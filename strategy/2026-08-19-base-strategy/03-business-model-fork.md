@@ -52,7 +52,7 @@ A good test is one that A and B would **not** both pass.
 | **T3** | **Two-option RFI bid**: €0 + full rights rider, or priced + narrow rider | Josef | €0 · reaction 2–4 wks | Revealed preference from the same counterparty at the same moment on the exact trade. The cleanest signal in the plan |
 | **T4** | **Tobacco meeting held with a number or a budget owner named** — not merely a meeting | Josef | €0 · by 30 Sep | Tests B's demand side. No meeting by 30 Sep → the largest revenue block is gone for 2026 |
 | **T5** | **Two-cohort investor temperature test** — pitch the data-currency story to one set, "revenue floor + data upside" to another; compare second-meeting conversion. Never split-test the same investor | Ondřej | €0 · Sep | Tests whether B is financeable now or only after October's artifacts |
-| **T6** | **One founding seat sold at any discount** | Josef | ~€1k · ~6 wks post-mandate | Hard confirmation that brands are buyers and the "complementary data" price cap is not binding |
+| **T6** | **One founding seat sold at ≥€40k** | Josef | ~€1k · ~6 wks post-mandate | Hard confirmation that brands are buyers and the "complementary data" price cap is not binding. A study below €40k does not pass this test (D17). |
 | **T7** | Cost-to-serve at 10× load; calibration parity v1 → D2 | Dima + eng | scheduled · 5 Sep / 19 Sep / 10 Oct | Sets whether cost-recovery is €20 or €60/store/mo, and whether the read sells at currency prices at all |
 
 T1 and T2 are the pair that matters: parallel, near-free, and between them they resolve both

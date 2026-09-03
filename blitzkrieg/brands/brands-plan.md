@@ -1,6 +1,6 @@
 # Blitzkrieg — Brands pillar v0.2 (founder answers incorporated, 26 Aug)
 
-**Goal:** 2 paying seats + 3 hard-committed 2027 orders · combined ≥€70k · by 21 Nov.
+**Goal:** 2 paying seats + 3 hard-committed 2027 orders · combined ≥€80k · by 21 Nov.
 **Axiom:** brand = ultimate ICP. **Physics:** attach to existing budgets; cohorts not queues;
 artifact opens every meeting; Oct–Nov budget lock is the calendar.
 
@@ -9,7 +9,7 @@ artifact opens every meeting; Oct–Nov budget lock is the calendar.
 **Brand CASH is derivative of the mandate date.** Pre-mandate, only methodology talks and LOIs
 ("subject to retailer data agreement") are allowed — that is doctrine, not caution. The math:
 mandate #1 ~mid/late Sep → cohort day ~2 wks later → first invoices ≤31 Oct. **If the mandate
-slips past ~5 Oct, the 2 paying seats slip out of the budget window** → fallback: land the €70k
+slips past ~5 Oct, the 2 paying seats slip out of the budget window** → fallback: land the €80k
 as signed 2027 orders + one 2026 study invoice (150–500k CZK studies are sellable off held data
 the day rights exist — the coarse grid is already passed). LOIs collected before the mandate are
 the bridge asset: they cost brands nothing, cost us nothing, and are leverage in BOTH other pillars.
@@ -44,12 +44,20 @@ record** if measurement insources. Mitigation is structural, not hopeful: **sell
 around them** — co-design credit (Q5: confirmed attractive), advisory micro-board seat, they
 present the read internally as THEIR find. The champion IS the gatekeeper, flipped.
 
-## 4. Pricing floor & the €70k arithmetic (answers Q16)
+## 4. Pricing floor & the €80k arithmetic (answers Q16; restated D17, 1 Sep)
 
-Working floor: **€25k/yr contracted = the minimum that counts as a seat** (below that it's a study
-— take the money, don't count the seat). Target €35–45k founding / list T1 €41–122k. 2 paying ×
-€35k = €70k ✅. Seat cost budget: ≤50 founder-hours incl. procurement; kill or downgrade any seat
-negotiation past 50h without a signature date.
+Three layers — do not collapse them:
+
+| Layer | Number | What it is |
+|---|---|---|
+| T0 study | 150–500k CZK (~€6–20k) | One-off. Take the money. **Not a seat.** |
+| Founding seat | **floor €40k / ask €40–60k** | Year-1 only, max 3/category, 50% off list, density escrow |
+| List T1 | **€75–122k** (~1.8–3M CZK) | Undiscounted; NIQ $75k cluster lives here, not at founding |
+
+Working floor: **€40k/yr contracted = the minimum that counts as a seat.** Below that it's a study
+— take the money, don't count the seat, don't use it as the year-2 or broker-wholesale reference.
+2 paying × €40k = €80k ✅. Seat cost budget: ≤50 founder-hours incl. procurement; kill or downgrade
+any seat negotiation past 50h without a signature date.
 
 ## 5. Paper set (answers Q17 — draft ALL by 5 Sep, counsel batch)
 
@@ -76,7 +84,7 @@ identities." The self-benchmark kit (C8) backs it.
 ## 8. Research TO-DO block (the unknowns founders flagged: Q4, Q6, Q7, Q12, Q14)
 
 - **R1** budgets per use-case (see §1) — 12 Sep
-- **R2** subsidiary spend autonomy: which CZ/SK brand subsidiaries can sign €35k locally (ex-NIQ
+- **R2** subsidiary spend autonomy: which CZ/SK brand subsidiaries can sign €40k locally (ex-NIQ
   advisor + org mapping + one discovery question: "who signs data purchases at this size?") — 19 Sep
 - **R3** renewal calendars: discovery phrasing "when do you plan next year's data & measurement
   budgets?" — logged per brand in CRM; the renewal date IS the account's calendar — rolling
@@ -89,7 +97,7 @@ identities." The self-benchmark kit (C8) backs it.
 
 ## Milestones (unchanged) + W1–2 adds
 6 Sep map+decks+paper · 30 Sep tobacco verdict + ≥8 methodology meetings · 18 Oct cohort day ≥2
-verbal · 31 Oct 2 seats invoiced (fallback per §0) · 21 Nov +3 orders, ≥€70k.
+verbal · 31 Oct 2 seats invoiced (fallback per §0) · 21 Nov +3 orders, ≥€80k.
 **W1–2 adds:** C7 SuperZoo third-party-share check · teaser cards ×3 · R1–R2 kickoff · paper batch
 to counsel · LOI motion starts immediately (pre-mandate legal). · **chat demo w/ mocked brand data · website → brand ICP story · ICP research (R7)**.
 **W3 adds:** consumption-format discovery (R8) · LOI volume ≥6 by 30 Sep — scarce (founding-seat

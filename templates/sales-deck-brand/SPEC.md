@@ -12,8 +12,7 @@ Language: CZ (EN for global HQ). **Story:** MEASUREMENT first, personas second.
 2. The gap they live with: syndicated data = what sold, weeks later, no who
 3. Category-specific value: [category] segments, daypart, basket — with the category's
    unique attribute if any (tobacco: smoking_type = cigarette/pouch/vape/cigar)
-4. Offer ladder: study (fixed price, 4 weeks) → founding seat (3 per category) →
-   channel subscription at density
+4. Offer ladder: study (150–500k CZK, 4 weeks, not a seat) → founding seat (€40–60k, floor €40k, 3 per category) → list T1 from €75k → channel subscription at density
 5. Proof & privacy: pilot metrics + GDPR-native page
 6. The ask: study pre-order / contingent LOI (form ready) + budget-owner question
 

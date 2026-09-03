@@ -21,7 +21,7 @@ Quantified on our own numbers `[EST]`:
 | | Per year |
 |---|---|
 | NIQ-style supply pricing (~287 CZK/store/mo `[INTERNAL-ONLY]`) at 250 stores | **€35k to us** |
-| What that same category earns sold direct (3 founding seats) | **€105–135k** |
+| What that same category earns sold direct (3 founding seats) | **€120–180k** |
 | What that same category earns at maturity | €300–600k |
 | What a buyer would generate from our €35k (NIQ's own 16% data-cost ratio → 6.25×) | **~€220k** |
 

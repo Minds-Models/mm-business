@@ -55,7 +55,7 @@ real, sell to cohorts not queues, let artifacts open every door.*
 2. The anonymised sportstore report as the cold-outreach artifact — proof before pitch.
 3. Start methodology-only conversations NOW — legal before any mandate, and it warms the cohort.
 4. ⚡ P&G bucket hack: one quarterly mini-read FREE, in incumbent-shaped Excel, invoiced at €0 — the ask becomes "add a line at renewal," never "create a budget."
-5. Founding seats: 3 per category, 50% off year 1 — scarcity that is written down, not implied.
+5. Founding seats: 3 per category, 50% off year 1, **floor €40k / list T1 from €75k** — scarcity that is written down, not implied.
 6. ⚡ Density escrow printed in bold: fees refunded if store density misses by Q2-27. The risk objection becomes the trust proof.
 7. ⚡ Category cohort day: one roundtable, 4–6 brands, three seats offered on the spot. One afternoon replaces six sales cycles.
 8. ⚡ Two-document budget surfing: a 2026 study invoice (this year's money) + a 2027 subscription order (locked in Oct–Nov planning). One decision, two budget years.

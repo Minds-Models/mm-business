@@ -1,5 +1,5 @@
 name: Super zoo
-legal_entity: Plaček Pet Products (VERIFY exact entity)
+legal_entity: Plaček Pet Products s.r.o.   # VAT CZ699003610, Poděbrady (from superzoo.cz JSON-LD, 2026-09-01)
 segment: pet-specialist
 stores_total: 200           # ~ CZ chain; ≈ the CZ pet-specialist channel
 stores_live: 1
@@ -7,6 +7,180 @@ stores_live: 1
 pilot:
   pos_matching: real
   key_metrics: {}           # TODO: fill from superzoo-pos-pilot report
+
+# ---------------------------------------------------------------------------
+# ASSORTMENT / THIRD-PARTY BRAND SHARE — ruling C7, resolved 2026-09-01
+# Source: superzoo.cz server-rendered brand filter (snippet-parameterFilter-brands),
+# complete walk of 61 leaf categories = 11,882 SKUs (live-animal lines excluded).
+# Denominator validated against pagination (dry dog food: 21 brand counts sum to 793;
+# category paginates to 53 pages x 15 = ~795). Ownership classified from four sources:
+# superzoo.cz /znacky/ "Naše značky" (22 brands), /vlastni-znacky-super-zoo/,
+# brand.placek.cz wholesale catalogue, plus per-brand research. Confidence: high.
+# CAVEAT: e-shop SKU counts, not shelf facings or revenue share.
+# ---------------------------------------------------------------------------
+# ⚠️ SKU shares below are SUPERSEDED for the C7 decision by the REVENUE shares in
+# `assortment_revenue:` further down — measured from 28 days of actual receipts, not the e-shop.
+# SKU share overstates third-party by ~18pp because own brands sell far deeper per SKU.
+# Keep the SKU block: it is still the best evidence of assortment BREADTH per brand.
+assortment:
+  third_party_share_skus: "66.1%"      # 7,849 of 11,882
+  own_brand_share_skus: "28.5%"        # 3,389 — Plaček house brands
+  quasi_house_share_skus: "2.3%"       # 278 Beaphar (reclassified third-party, see below)
+  unresolved_share_skus: "3.1%"        # 366
+  dog_cat_food_and_treats:             # the Purina/Mars-relevant shelf, 2,599 SKUs
+    third_party: "69.2%"
+    own_brand: "27.0%"
+  own_brand_by_category:
+    cat_litter: "56.1%"                # highest — Magic Litter/Magic Pearls own the category
+    dog_treats: "42.2%"
+    dry_cat_food: "29.9%"
+    dry_dog_food: "25.2%"
+    wet_dog_food: "21.9%"
+    cat_treats: "20.1%"
+    wet_cat_food: "19.2%"              # lowest of the food categories
+    cat_vet_diets: "0%"                # pure third-party, Hill's-led
+  verdict: >
+    C7 RESOLVED — but NOT in the direction the plan assumed. Private label is NOT the
+    blocker: third-party is 66.1% estate-wide and 69.2% on the dog+cat food shelf, so
+    Super zoo IS sellable as a category read. The real blocker is CHANNEL. Nestlé Purina
+    is 55 food SKUs (2.1% of the food shelf: Pro Plan 27, Gourmet 16, Felix 14) and Mars
+    is 100 (3.8%: Royal Canin 40 + Acana 40 / Orijen 20 via Champion Petfoods). Royal
+    Canin is 40 SKUs in an 11,882-SKU estate. Wet dog food contains ZERO Purina and ZERO
+    Royal Canin. Whiskas, Pedigree, Sheba, Dreamies, Perfect Fit, Cesar, Kitekat,
+    Purina ONE, Friskies and Cat Chow are ABSENT FROM THE ESTATE ENTIRELY — the CZ
+    pet-specialist channel carries premium/super-premium and the volume brands live in
+    grocery. A Super zoo read is therefore low-value to Purina and Mars for a channel
+    reason, and NO PRICE FIXES IT.
+  real_seat_depth:                     # who the shelf actually belongs to
+    - "TRIXIE — 1,464 SKUs, 12.3% of estate, largest single brand"
+    - "VAFO Praha (Brit / Brit Care / Brit Premium / Carnilove) — 620 food SKUs = 23.9%
+       of the food shelf. Czech-owned, Czech HQ, local decision line. STANDOUT ICP:
+       biggest food wallet on the shelf after Plaček itself."
+    - "Spectrum Brands EU — Tetra 458 + Eukanuba/IAMS 175"
+    - "Hagen 291 · Heristo 194 · Farmina N&D 153 · Colgate/Hill's 106"
+  conflicts:
+    - "Beaphar (278 SKUs) — see beaphar_ruling below. Reclassified THIRD-PARTY on evidence."
+
+# ---------------------------------------------------------------------------
+# REVENUE SHARE — the C7 answer of record (task 1.2, resolved 2026-09-02)
+# Source: 28 consecutive days of receipt line items, 7 Jul – 4 Aug 2026, store CS314.
+# 13,153 lines · 4,738 receipts · 2,058,957 CZK gross · avg basket 435 CZK.
+# Brands attributed by matching the Czech product name against a controlled vocabulary
+# (founder's private-brand roster + site brand index + Plaček wholesale catalogue).
+# Two independent adversarial reviews re-audited the roster and the unattributed residual;
+# both moved the number the SAME direction, toward parity. Confidence: MEDIUM-HIGH on this
+# store and month; NOT generalisable to the chain (see limits).
+# ---------------------------------------------------------------------------
+assortment_revenue:
+  window: "2026-07-07 to 2026-08-04 (28 days), store CS314, single store"
+  gross_revenue_czk: 2058957
+  brandable_revenue_czk: 1972249   # gross less 86,708 CZK (4.2%) of live animals, feed
+                                   # insects, plants, carrier bags, rounding and charity —
+                                   # no brand can be sold against these
+  own_brand_share: "45.2%"         # 891,162 CZK
+  third_party_share: "47.2%"       # 931,589 CZK
+  unattributed_share: "7.6%"       # 149,498 CZK — unbranded bulk (dried pig ears, lungs,
+                                   # rabbit ears, loose treats by weight, generic crates)
+  headline: "≈50/50 — own 48.9% / third-party 51.1% with the residual allocated pro-rata"
+  verdict: >
+    C7 RESOLVED ON MONEY. Super zoo is roughly a HALF-own-brand retailer by revenue — not the
+    two-thirds-third-party estate the SKU count implied. Third-party presence is NOT thin, so
+    the estate is sellable in principle. But the earlier "66.1% third-party" framing was too
+    generous and must not be used: own brands sell far deeper per SKU (Ontario alone is 14.1%
+    of all revenue). The binding constraint is CONCENTRATION, not share — see below.
+  concentration:
+    vafo: "29.7% of ALL third-party revenue (276,237 CZK; Brit, Brit Care, Brit Premium,
+      Brit Care Mini, Carnilove). One supplier is nearly a third of the third-party shelf."
+    trixie: "10.8% of third-party"
+    then_it_collapses: "Heristo 6.4% · Versele-Laga 4.6% · Spectrum 4.5% · Avicentra 4.1%"
+    implication: >
+      Below the top two, a €40k seat would be priced against ~3% of one store's revenue and is
+      not defensible. Pet realistically supports ONE or TWO brand seats, not the three-per-
+      category founding cap.
+  giants_absent_but_still_targets:      # REFRAMED 2026-09-02 on founder ruling
+    nestle_purina: "13,520 CZK = 0.69% of brandable revenue (Pro Plan, Gourmet, Felix)"
+    mars: "ZERO. Royal Canin, Whiskas, Pedigree, Sheba, Dreamies, Cesar, Kitekat, Friskies and
+      Perfect Fit produced not one receipt line in 28 days."
+    measurement_note: >
+      Receipt-level proof, stronger than the earlier SKU inference (2.1% / 3.8%). Their volume is
+      in grocery; the CZ pet-specialist channel carries premium and super-premium.
+    the_principle_is_sound: >
+      LOW PRESENCE IS NOT AUTOMATICALLY A DISQUALIFIER. A category read is largely competitive
+      intelligence — who shops the channel, what they buy instead, at what price tier, which
+      competitor is winning them — and that is a real, transacted FMCG product: NielsenIQ and
+      Circana both sell channel-development / white-space / distribution-gap analysis to brands
+      that are under-represented in a channel, bought by category management, channel development
+      and trade marketing. Keep the principle. It applies to brands ACTUALLY PRESENT at scale
+      (VAFO, Trixie, Hill's) and to Plaček's own private-label team.
+    ⚠_but_it_fails_for_purina_and_mars_here: >
+      TESTED 2026-09-02 AND IT DOES NOT SURVIVE — for four reasons, the first of which neither
+      side of the debate had spotted:
+      (1) THE PREMISE IS FACTUALLY WRONG AT GROUP LEVEL. Mars and Nestlé are NOT absent from the
+          premium specialist channel — they dominate it. Royal Canin holds ~30% of high-end pet
+          food in Europe and distributes SPECIFICALLY through pet specialists and vets, avoiding
+          supermarkets; Purina Pro Plan is sold "exclusively at pet specialty retailers". Saying
+          "you are absent from this channel" to their category team would be wrong in the first
+          minute of the meeting. What is actually zero is SUPER ZOO'S RECEIPTS, because Plaček is
+          a vertically-integrated private-label house that predominantly pushes its own brands —
+          a retailer listing/facing decision, not a demand signal they need our data to discover.
+          Telling: Mars's ONLY trace in 28 days is one Acana line (1,754 CZK) — Champion Petfoods,
+          the specialist brand Mars ACQUIRED in 2023 to enter exactly this channel. They solved
+          this problem with M&A, not with shopper data.
+      (2) AT ONE CHAIN IT IS THE TOXIC CUT. Canon bans "named retailer × named brand vs named
+          competitor" — a three-part conjunction, not a ban on brand-level shares as such
+          (cross-chain channel benchmarking IS the syndication product). But masking is admitted
+          "thin" at two chains and in pet we have ONE, so "the channel" is a synonym for Super zoo,
+          not an aggregate. Worse: the competitor beating them here is PLAČEK'S OWN PRIVATE LABEL,
+          the single most sensitive cut in the entire framework.
+      (3) "ABSENT = SAFER" IS BACKWARDS. Mars would use this to negotiate LISTING entry against
+          Super zoo — the same class of harm the clause exists to prevent, and arguably higher
+          stakes for the retailer because it touches who gets on the shelf at all rather than
+          margin on existing SKUs.
+      (4) €40k IS NOT DEFENSIBLE for one store × 28 days. Our own model gates a seat at 30–60
+          stores in a chain; this is study tier (150–500k CZK).
+    when_it_becomes_sellable: >
+      Two or more genuinely independent instrumented chains in pet, so "channel" stops being code
+      for one retailer · a Super zoo mandate amended to extend veto, embargo, 90-day priority and
+      toxic-cut language to PROSPECTIVE / non-stocked buyers and to listing-negotiation use, not
+      just margin use on existing SKUs · every output k≥25, quarterly-lagged, no retailer ranking,
+      framed as pooled opportunity-sizing rather than a scorecard against named competitors.
+      Until then: KEEP Purina and Mars on the target list as a 2027 conversation, approach them
+      about METHODOLOGY ONLY, and promise no competitor-level cuts to anyone.
+  beaphar_ruling: >
+    RESOLVED 2026-09-02 (founder decision): Beaphar is NOT a private label. Counted THIRD-PARTY
+    (33,545 CZK, 1.70% of brandable revenue).
+    Evidence: Beaphar BV is an independent family-owned Dutch manufacturer (Raalte, est. 1942)
+    with its own European sales offices. Plaček's link is a 2003 distribution JV, "Beaphar
+    Eastern Europe s.r.o." (IČO 25678248) — distribution, not ownership. Beaphar is stocked by
+    numerous unaffiliated Czech pet retailers, unlike the genuine house brands.
+    ⚠️ WHY THIS WAS EASY TO GET WRONG, and the lesson for every future assortment read:
+    superzoo.cz's CONSUMER-FACING "Naše značky" page DOES list Beaphar among Super zoo's brands —
+    which is what put it on the founder's private-label list in the first place. But Plaček's OWN
+    B2B catalogue (brand.placek.cz) lists house brands under "NAŠE VLASTNÍ ZNAČKY A PORTFOLIO"
+    and Beaphar is NOT among them; it appears as an external brand page linking to beaphar.cz.
+    The consumer page reflects exclusive-distribution marketing, not ownership.
+    RULE: for ownership questions, the B2B/wholesale catalogue outranks the consumer brand index.
+    Never classify a brand as private label from the retail site alone.
+    Separately: Beaphar remains CONFLICTED as a seat target — a JV partner is not an arm's-length
+    third-party buyer, whoever owns the brand.
+  roster_corrections:
+    founder_typos: "'Aqua Exellent' = Aqua Excellent · 'Repri Planet' = Repti Planet (confirmed
+      as a Plaček house brand by COO Luboš Rejchrt in a euro.cz interview) · 'God Active' =
+      Active Dog (Active Cat is also a house brand, but every POS occurrence is inside
+      'Carnilove Active Cat', i.e. VAFO's product, and is counted to VAFO)"
+    missing_from_founder_list: "Mr. Dental, Let's Play, BeFUN — all three confirmed house brands
+      on the site index and Plaček's wholesale catalogue. Now counted as own."
+  limits:
+    - "ONE store, 28 days. The chain is ~200 stores. Do NOT present a chain-wide percentage."
+    - "July–August is peak tick and cottage season; the data visibly overweights antiparasitics
+       (Frontline, Arpalit, Bolfo, Foresto) and travel/cooling items. Seasonal bias is real and
+       its direction on the own/third mix is unsigned without a second month."
+    - "CS314's store format (flagship vs satellite, urban vs rural) is unknown, and own-brand
+       penetration varies systematically with format."
+    - "7.6% of brandable revenue remains unattributed; an adversarial audit of the largest items
+       found it roughly 44% genuinely unbranded commodity and 53% missed third-party brands, so
+       the third-party figure here is a FLOOR, not a ceiling."
+    - "Fixing this needs multi-store, multi-season POS. Worth asking for as part of the mandate."
 
 deal:
   status: pilot-live
@@ -30,3 +204,15 @@ sensitivities: >
   NEVER approach pet brands with SuperZoo aggregates before the mandate is signed
   (methodology-only talk allowed). Competitor chain = Pet Center — do not mention
   cross-chain benchmarking ambitions yet.
+  UPDATED 2026-09-02 (supersedes the 09-01 line, which said flatly "do not pitch Purina or
+  Mars"): they STAY on the target list, but as a 2027 conversation and on METHODOLOGY ONLY
+  until the conditions in assortment_revenue.when_it_becomes_sellable are met. Two things are
+  forbidden in the meantime, and both would be unrecoverable:
+  (a) Never tell Mars or Nestlé they are "absent from the premium specialist channel" — it is
+      false. Royal Canin distributes specifically through specialists and vets and holds ~30%
+      of European high-end; Pro Plan is specialist-exclusive. Their category team knows their
+      own numbers. What is zero is Super zoo's receipts, which is Plaček's listing decision.
+  (b) Never promise competitor-level cuts from a single chain — at n=1 that is the prohibited
+      named-retailer cut, and here the competitor is Plaček's own private label.
+  The pet slot's working targets remain VAFO/Brit, Trixie, Spectrum Brands and Hill's, plus
+  Plaček's own-brand team as a brand-like buyer (the D1 exception).

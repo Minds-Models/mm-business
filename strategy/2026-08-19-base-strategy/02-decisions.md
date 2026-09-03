@@ -29,7 +29,8 @@ this file and date the change.
 | **D14** | Adopted from the prior (now-deleted) red-team pack on their merits: index promotion, €3k label-buy, gold-station ask, 8-account rule, generic-ONVIF rule, €400/day rule, asset scoreboard. | Assumed live |
 | **D15** | Parked 90 days: O2, Vilgain, DOOH partners, new pilot logos. | Assumed live |
 
-| **D16** | **Blitzkrieg (21 Aug): all-in commitment to the data business model until 21 Nov 2026.** Three axioms not to be re-questioned in-window: data value supports the VC case; own-HW personalization is not VC-backable (RMN data sales excluded); ultimate ICP = brand. Closes the 15 Oct business-model fork (O7) as "data all-in"; 21 Nov scoreboard = the go/no-go. Goals: 2+3 brand seats ≥€70k · 2 retailer mandates · €400–600k @ €6M cap · 2 broker pilots · alt-sources explored. | Plans in `../../blitzkrieg/`; contradictions pending rulings C1–C10 in `blitzkrieg/00-alignment.md` |
+| **D16** | **Blitzkrieg (21 Aug): all-in commitment to the data business model until 21 Nov 2026.** Three axioms not to be re-questioned in-window: data value supports the VC case; own-HW personalization is not VC-backable (RMN data sales excluded); ultimate ICP = brand. Closes the 15 Oct business-model fork (O7) as "data all-in"; 21 Nov scoreboard = the go/no-go. Goals: 2+3 brand seats ≥€80k · 2 retailer mandates · €400–600k @ €6M cap · 2 broker pilots · alt-sources explored. Combined ARR restated 1 Sep by D17 (was ≥€70k). | Plans in `../../blitzkrieg/`; C1 still open in `blitzkrieg/00-alignment.md` |
+| **D17** | **Seat pricing unmixed (1 Sep 2026).** Three layers, do not collapse: (1) T0 study 150–500k CZK, not a seat; (2) founding seat **floor €40k / ask €40–60k** (50% off year 1, max 3/category, density escrow) — below €40k take the money, do not count the seat, do not use it as the year-2 reference; (3) **list T1 €75–122k** (~1.8–3M CZK). Blitzkrieg combined goal = **≥€80k** (2 × €40k). NIQ $75k enterprise cluster is list-T1, not the founding floor. | Closes the €70k reading in O8. €25k was reverse-engineered from 2×€35k=€70k and sat inside study territory. |
 
 ## Open questions — and what closes each
 
@@ -42,7 +43,7 @@ this file and date the change.
 | **O5** | Seller #2 / country lead for 2027 expansion | Post-raise; out of window |
 | **O6** | VSaaS / cloud-VMS marketplaces (Verkada, Eagle Eye, Milestone, Genetec) as 2027 distribution | Research brief — the one gap the research pass left open. First task to hand a research agent |
 | **O7** | ~~Business-model fork~~ **CLOSED by D16** (all-in data) | 21 Nov scoreboard is the assessment |
-| **O8** | Blitzkrieg rulings C1 (retailer share), C2 (instrument), C6 (brokers), C7 (SuperZoo seat depth), €70k reading | `blitzkrieg/00-alignment.md` — needed in Week 1 |
+| **O8** | ~~€70k reading~~ **CLOSED by D17.** Remaining: C1 (retailer share). C2/C6/C7 decided 26 Aug. | `blitzkrieg/00-alignment.md` |
 
 ## Corrections made after approval
 
@@ -52,3 +53,7 @@ this file and date the change.
   (`04-revenue-architecture.md`). D4 is flagged for re-confirmation. The correction *strengthens*
   the convergence finding: two independently-built architectures both land ~10–12% short of €5M
   at band-top with zero losses.
+- **1 Sep — seat floor mix-up.** Blitzkrieg had been counting seats from €25k (just above a
+  T0 study) so that 2×€35k = the D16 ≥€70k combined goal. That was not the commercial floor.
+  List T1 restored to €75–122k; founding counting floor €40k; combined goal restated ≥€80k.
+  See D17.

@@ -68,12 +68,12 @@ seat-pricing memo (their 4.2) — the floor is defined *relative to it*.
    one category × one geography × 12 months) · **API** (derived outputs above the export gate).
    Both: **derived outputs only, per-slot pricing, non-exclusive, 12-month term, step-up at renewal.**
 2. **Pricing-floor memo** (internal, never shown): the DM-trap arithmetic — incumbent-style supply
-   pricing ≈ €141/store/yr ⇒ 250 stores = **€35k**, vs the same category sold direct **€105–135k**
+   pricing ≈ €141/store/yr ⇒ 250 stores = **€35k**, vs the same category sold direct **€120–180k**
    (founding) / **€300–600k** (mature); a buyer would generate ~€220k from our €35k (their own 6.25×
    ratio). **Rule:** price per derived product — slot / read / API — never per store, session or
    datapoint. Floor for any annual scope = **≥50% of what we'd realise direct** for that scope.
 3. **Pilot pricing rule:** €10–15k is acceptable only for a *single deliverable* (one report, one
-   quarter). An annual white-label read is wholesale at the floor (≈ €18–22k+ on founding seat
+   quarter). An annual white-label read is wholesale at the floor (≈ €20–30k+ on founding seat
    economics, more at list). Never a full annual read at pilot price.
 
 💡 **If a broker proposes per-store, per-record or per-datapoint pricing, that is the DM tell** —

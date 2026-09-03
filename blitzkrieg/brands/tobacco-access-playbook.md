@@ -4,6 +4,16 @@
 Data rights are **not** yet agreed. **Gate this playbook serves:** tobacco meeting with a named
 budget owner by **30 Sep** (`10-calendar-gates.md`), which gates ~€900k–1.3M of the plan.
 
+> **⚡ STATUS 2 Sep 2026 — the reframe worked. The first meeting is JTI, week of 7 September,
+> brokered by ČEPRO.** Three weeks ahead of the §8 schedule and ahead of the 30 Sep gate. What
+> changes: §§2–4 (access) are **done** for JTI — stop working routes and work the room. §§5, 6
+> and 9 (hook, rights boundary, what to walk out with) are now the live sections. Two items are
+> still open and both are prerequisites for *this* meeting, not for a later one: the written
+> confirmation to ČEPRO (§1) and the compliance-first one-pager. The competition-law flag applies
+> to a room with several majors in it; a single-major meeting does not raise it. Still to confirm:
+> exact date, attendees, whether ČEPRO chairs or only introduces, and which JTI role attends —
+> **the ask remains the KAM who runs the ČEPRO/EuroOil account** (§3).
+
 ---
 
 ## 1. What the greenlight is — and is not
@@ -153,7 +163,7 @@ understand they're being handed demand cooperate faster than retailers who feel 
 | **By 30 Aug** | Compliance-first one-pager built (paragraph one = no facial recognition, no identities, age estimation with error bands, k≥25, edge processing) | O |
 | **By 5 Sep** | Reduced-risk hook deck: 5 slides, method + what a channel read contains + the sportstore artifact | J + D |
 | **By 8 Sep** | Route 1 or 2 confirmed with a date, or escalate to the advisor hire | J |
-| **By 15 Sep** | First KAM meeting held | J |
+| ~~**By 15 Sep**~~ **week of 7 Sep** | First meeting held — **JTI, ČEPRO-brokered** (booked 2 Sep, 3 weeks early) | J |
 | **By 30 Sep** | **GATE:** meeting with a named budget owner, or the tobacco line is cut for 2026 and hours reallocate to pet + drugstore | J |
 
 ---
