@@ -23,11 +23,15 @@ depth × transaction-link."
 
 ## "We don't want brands to have our data" (retailers — THE core fear)
 
-CZ: "Souhlasíme — a proto to stavíme obráceně. Vaše obchodní data (marže, prodejnost,
-elasticita) značky nikdy neuvidí, to je smluvní firewall. To, co se monetizuje, jsou
-anonymní agregovaná publika — a monetizujete je VY, pod svou kontrolou, s většinovým
-podílem a právem veta na každý výstup. My jsme infrastruktura. Neprodáváme vaše data —
-budujeme váš nový příjem."
+CZ: "Souhlasíme, a proto to stavíme obráceně. Vaše obchodní data (marže, prodejnost,
+elasticita) značky nikdy neuvidí, to je smluvní firewall. Kontrolu máte Vy: každý výstup,
+ve kterém jste jmenováni, schvalujete a náleží Vám z něj podíl na výnosech. Anonymní
+agregát, ve kterém identifikovatelní nejste, slouží jako měření celého kanálu. My jsme
+infrastruktura. Neprodáváme Vaše data, budujeme Vám nový příjem."
+
+> Interní pozn.: nikdy neslibovat "většinový podíl" ani "právo veta na každý výstup".
+> Veto se váže výhradně na výstupy, ve kterých je Řetězec jmenován (Labelled Output).
+> Viz `blitzkrieg/retailers/DPA preparation/00-clause-architecture-memo.md`.
 
 ## "P&G/big brands already have deep personas" (sophisticated brands)
 

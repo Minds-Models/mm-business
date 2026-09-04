@@ -346,3 +346,77 @@ minimum cash figure is month 2 in every run, which is today, before the pre-seed
 Note for the next pass: the sensitivity is computed by re-running the model one variable at a time.
 It was re-run after the headcount change. If the cost base moves again, re-run it again, because a
 stale sensitivity table is worse than none.
+
+
+---
+
+# Fourth pass, 2 Sep 2026 — cost-overlap audit
+
+The go-to-market double count was found by the founder, not by the audit. Worth recording why, because
+it changes how this model should be reviewed from now on.
+
+**Why it was missed.** Every audit so far tested whether the arithmetic ties: an independent rebuild in
+Python reproduced all 64 months of every P&L line to the cent. But an independent rebuild of the *same
+wrong specification* reproduces the same wrong answer. Nobody had asked the different question:
+**what real-world money is this row, and is that money also sitting in another row?** That is a
+semantic check, not a numerical one, and it is now a standing item.
+
+**Running that check found three more of the same family.**
+
+| # | Overlap | Size | Action |
+|---|---|---|---|
+| 1 | Go-to-market inputs were built as "six months of a salesperson's loaded time plus expenses". Those salespeople are in payroll via the HEADCOUNT ratios | 5.80M over the plan, of which roughly 4.4M was duplicated salary | Fixed. Inputs now hold only the direct non-payroll cost: 10k to open a slot, 5k per seat |
+| 2 | Market entry cost explicitly included "the ramp of the first local commercial hire before that person carries quota". That person is also in payroll | 515k over the plan | Fixed. Entry costs cut to cover only local counsel, entity, DPO retainer, translation and signage: SK 15k, PL 60k, DACH 110k, FR+BNL 110k, Nordics 90k |
+| 3 | Chain integration lists DPIA work; professional fees carry 2% of MRR; the Legal/DPO role is in payroll | 280k and 611k, overlap partial and small | Not changed. Wording tightened to external-only. Flagged as generous rather than duplicated |
+
+**And one wrong driver, which is what made the unit economics look like they were deteriorating.**
+
+Brand seat sales headcount was driven by **live slots**, the installed base. That means the sales team
+keeps growing even when no new slots open, so cost per new seat rose 2.7x across the plan and LTV/CAC
+fell from 20.9x to 10.7x. Read as a business fact that says unit economics get worse with scale, which
+is the opposite of the thesis and would have been a serious question in a room.
+
+Account executives are quota carriers and are sized to **new business**, not to the base. Renewals and
+expansion are customer success, which is correctly driven by slots. Sales is now driven by new seats
+won on a trailing twelve month basis, at 10 seats per AE per year, floored at one AE while any slot is
+live. CAC is now flat and LTV/CAC is stable.
+
+| | 2027 | 2028 | 2029 | 2030 | 2031 |
+|---|---|---|---|---|---|
+| CAC before | 16.2k | 30.8k | 33.8k | 37.4k | 43.8k |
+| **CAC after** | **24.3k** | **27.6k** | **28.5k** | **30.6k** | **35.4k** |
+| LTV/CAC before | 20.9x | 12.9x | 11.1x | 11.4x | 10.7x |
+| **LTV/CAC after** | **13.9x** | **14.4x** | **13.2x** | **13.9x** | **13.3x** |
+| Payback months after | 4.3 | 4.2 | 4.5 | 4.3 | 4.5 |
+
+## Base case after the fourth pass
+
+| Year | 2026 | 2027 | 2028 | 2029 | 2030 | 2031 |
+|---|---|---|---|---|---|---|
+| ARR | 93k | 662k | 2.00M | 4.28M | 8.95M | **15.44M** |
+| Revenue | 17k | 290k | 1.24M | 3.23M | 6.97M | **12.40M** |
+| EBITDA | (83k) | (415k) | (632k) | (232k) | 1.09M | **3.98M** |
+| Margin | | | | (7.2%) | 15.6% | **32.1%** |
+| Headcount | 8 | 10 | 20 | 29 | 45 | **47** |
+
+Exit 154.4M at 10x. Minimum cash 14,895, which is month 2. Eleven integrity checks passing.
+
+## The open problem this creates
+
+**A 32.1% EBITDA margin in the exit year, on 72% ARR growth, is too clean.** Three cost overlaps and
+one wrong driver have been removed and nothing has replaced them. The remaining cost base is missing
+categories that a real company at 12.4M of revenue and 47 people across six countries would carry:
+
+- **Software, cloud and tooling** beyond model inference: warehouse, BI, CRM, security, observability.
+  A data business this size runs 200 to 400 EUR per head per month. Roughly 150 to 250k a year by 2031.
+- **Engineering depth.** Ten engineers (4 ML, 3 backend, 3 deployment) for a real-time vision platform
+  across 15 chains, 900 stores and six jurisdictions is thin. Two to four more would be normal.
+- **Finance and administration for a six-country group** with local entities: two people is thin once
+  there are entities to consolidate and audit.
+- **Recruiting cost**, which for a plan that hires roughly 40 people is not zero.
+- **Product and category R&D**: the model funds delivery of existing categories, not the work of
+  opening new ones.
+
+The margin is not high because the team ratios are aggressive. It is high because those lines do not
+exist. Adding them honestly lands the exit-year margin somewhere near 15 to 20%, which is the shape a
+company still growing 72% should have. **Founder decision needed on which to add.**

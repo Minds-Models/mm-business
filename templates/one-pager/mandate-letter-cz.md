@@ -24,8 +24,10 @@ z pilotního provozu v prodejnách Řetězce, a to za těchto podmínek:
    Řetězec rozhoduje, zda bude v podkladech jmenován, nebo označen neutrálně
    („{{approved_fallback}}").
 5. **Ekonomika (nezávazný rámec):** případná budoucí spolupráce předpokládá, že
-   většina výnosů z datových produktů náleží Řetězci; konkrétní podíly určí
-   definitivní dohoda.
+   Řetězci náleží podíl na výnosech z datových produktů, ve kterých je Řetězec
+   jmenován nebo identifikovatelný. Anonymní agregované a syndikované výstupy,
+   ve kterých Řetězec identifikovatelný není, podílu nepodléhají. Konkrétní
+   podmínky určí definitivní dohoda.
 6. **Výstup:** do konce mandátu M&M předloží Řetězci přehled zájmu (značky, rozsah,
    podmíněné objednávky). Řetězec poté rozhodne o dalším postupu. Žádný závazek
    Řetězce nevzniká.
@@ -35,6 +37,6 @@ Datum, podpisy.
 ---
 
 **Verbální rámec k předání (nečte se nahlas ze stránky):**
-„Nechceme prodávat vaše data. Chceme na 60 dní otestovat, jestli za agregovaná data
-značky zaplatí — VÁM. Vy schvalujete každý podklad, můžete kdykoli přestat, nic se
-neprodává. Když přineseme poptávku, rozhodnete se. Když ne, nestálo vás to nic."
+„Nechceme prodávat Vaše data. Chceme na 60 dní otestovat, jestli za agregovaná data
+značky vůbec zaplatí. Vy schvalujete každý podklad, můžete kdykoli přestat, nic se
+neprodává. Když přineseme poptávku, rozhodnete se. Když ne, nestálo Vás to nic."

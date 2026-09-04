@@ -1,9 +1,10 @@
 # Data Partnership Agreement: clause architecture memo
 
-**Status:** v1.0, 4 Sep 2026. Internal. This is the brief the Czech draft is written from, and the
+**Status:** v1.1, 4 Sep 2026. Supersedes v1.0 on the GDPR role mapping (now processor-only, see §3). Internal. This is the brief the Czech draft is written from, and the
 brief external counsel works from.
 **Scope decided with founder, 4 Sep:** counterparty-neutral golden template · rights instrument is
-the priority layer · labelled/aggregated share split · memo first, then Czech clean draft.
+the priority layer · labelled 30% (open) / aggregated 0% split · lean four-document stack · no audit
+or registr smluv clauses volunteered · memo first, then Czech clean draft.
 **Governing canon:** D1, D16, D17, C1 ruling (26 Aug), `07-ws-legal-rights.md`,
 `14-retailer-data-objection.md`, retailers execution guide §1.1 and the ownership stack.
 
@@ -35,11 +36,11 @@ negotiation: every extra document is another reviewer with another veto.
 |---|---|---|---|
 | **Smlouva o datovém partnerství** (Data Partnership Agreement, "DPA") | 8–10 pp | Commercial lead + their counsel | Everything commercial and every right |
 | **Příloha 1: Specifikace** | 2–3 pp | Their IT + ops | Sites, camera access, data specification, POS feed, delivery |
-| **Příloha 2: Zpracování osobních údajů** | 3–4 pp | Their DPO | Art. 28 processor terms and Art. 26 joint-controller arrangement in one annex |
+| **Příloha 2: Zpracování osobních údajů** | 2–3 pp | Their DPO | Art. 28 processor terms, the instructed purposes (incl. anonymisation), retention, security, subprocessors |
 | **Příloha 3: Komerční podmínky** | 1 p | Commercial lead | Share %, Labelled Output list, embargoed categories, veto scope |
 
-**Four documents, not six.** Art. 28 and Art. 26 go into a single annex because splitting them
-doubles the DPO's reading without adding protection. The share sits alone in Příloha 3 so the
+**Four documents, not six.** Príloha 2 is Art. 28 only: on the processor-only structure in §3 there
+is no Art. 26 arrangement to write, which removes a whole annex and a whole negotiation. The share sits alone in Příloha 3 so the
 number can be changed per counterparty without reopening the body of the contract, which is exactly
 the headroom the founder asked for.
 
@@ -81,28 +82,75 @@ other. Draft every protection clause to attach to Labelled Output only, and chec
 
 ---
 
-## 3. Roles under GDPR: the mapping, and why it is this way
+## 3. Roles under GDPR: processor-only, with a trapdoor
 
-Three operations, three roles. Recorded expressly in Příloha 2 so that nobody has to infer it later.
+**Founder fact, 4 Sep: no personal data leaves the store.** Extraction is transient and at the
+edge; what leaves is already de-identified. That fact, if it holds, lets us use the simplest and
+most favourable structure available, and lets us drop the Art. 26 joint-controller arrangement
+entirely. This supersedes the joint-controller mapping in v1.0 of this memo.
 
-| # | Operation | Role | Why |
+### 3.1 The structure
+
+| # | Operation | Role | Basis |
 |---|---|---|---|
-| 1 | Capture and edge extraction (Camera Data → Session Records) | **Joint controllers**, Art. 26 | Purpose change on existing CCTV is jointly determined: they consent to the new purpose, we design the means. **Never pure processor here.** Art. 28(10): a processor using output for its own purposes becomes controller by operation of law and is in breach. That single subsection would end the business model |
-| 2 | Own-store platform, dashboard, chatbot, counting, ops reports | **Processor**, Art. 28 | We act on their documented instructions, for their purposes, over their data |
-| 3 | Anonymisation and the Aggregated Output | **M&M independent controller** for the anonymisation step; the resulting Aggregated Output is outside GDPR entirely | The step is processing for our own purpose and must be authorised as such. What comes out, if genuinely anonymous, is not personal data, so the licence rests on contract, database right and confidentiality, not on data-protection law |
+| 1 | Camera Data processed transiently at the edge; extraction; anonymisation; deletion of frames | **M&M is processor**, Customer is controller | Art. 28. All of it runs on the Customer's documented instruction, which is set out in Příloha 2 |
+| 2 | Own-store platform, dashboard, chatbot, counting, ops reports | **M&M is processor** | Same instruction, same annex |
+| 3 | Aggregated Output | **No GDPR role at all.** It is not personal data | Anonymisation is one of the instructed processing operations. What comes out is outside GDPR, and M&M's use of it is a commercial matter governed by the licence, the database right and confidentiality |
 
-**The load-bearing consequence.** The perpetual licence is enforceable only if the Aggregated
-Output is genuinely anonymous. If it is not, the licence is void, we are a processor
-commercialising a controller's data, and the exposure is regulatory rather than contractual. This
-is why the anonymity architecture (k>=25 in code, no cross-visit identification, coarsened
-timestamps, TTLs that demonstrably run, no record-level egress) is not an annex to the rights
-clause. It **is** the foundation of the rights clause. Verification checklist for engineering sits
-in §9.
+**Why this is better than joint controllership.** Art. 26 would cost us three things we do not need:
+an arrangement whose essence must be published to data subjects, a negotiation about who answers
+data-subject requests, and, worst, **joint and several liability under Art. 82(4)**, under which a
+data subject could recover from us in full for the Customer's failure (for example, missing
+signage) leaving us to chase recourse under Art. 82(5). Processor-only avoids all three, halves
+Příloha 2, and matches the technical reality.
 
-**Drafting note.** Never warrant end-to-end anonymity (`07-ws-legal-rights.md`). Warrant the
-mechanism, not the outcome: transient processing, no facial recognition, no biometric templates,
-no cross-visit identification, no retention of raw frames beyond 72 hours, k>=25 on every published
-cell. Those are checkable and true. "Anonymous" as a bare adjective is neither.
+**Why Art. 28(10) does not bite.** The concern with a processor is that using the output for its
+own purposes makes it a controller by operation of law and puts it in breach. That applies to
+processing **personal data** for one's own purposes. We do not. We process personal data solely on
+the Customer's instruction, one of those instructions being to produce anonymous statistics and
+destroy the personal data, and we then use **anonymous data**, which is not processing of personal
+data at all. This is the standard and accepted shape (anonymisation instructed by the controller,
+anonymous output licensed onward), and it is the single reason the whole architecture holds
+together.
+
+**The condition, stated plainly.** The structure is correct if, and only if, the anonymisation is
+real. If a regulator later found the Aggregated Output to be pseudonymised rather than anonymous,
+we would have been processing personal data for our own purpose as a processor, which is a breach.
+That is why §9.3 (irreversibility) is not an engineering nicety. It is the load-bearing wall.
+
+### 3.2 The trapdoor, two lines that cost nothing
+
+Into Příloha 2:
+
+> If any output is determined by a competent authority or court to constitute personal data, the
+> Parties shall, in respect of that output, be deemed independent controllers from the outset, each
+> responsible for its own compliance, and neither shall be treated as having acted as processor for
+> the other in respect of it.
+
+This converts the worst case from "M&M acted as a rogue processor" into "two controllers with a
+disagreement about classification". It is the cheapest insurance in the document.
+
+### 3.3 What the Customer must instruct, in writing
+
+Príloha 2 lists the instructed purposes explicitly, because a processor may only act on
+instructions and the anonymisation must be one of them:
+
+1. Transient processing of Camera Data at the edge for the purpose of deriving anonymous
+   statistical insight.
+2. Provision of the Platform and reporting to the Customer.
+3. **Production of anonymous aggregated statistics (k>=25, coarsened to day-part, no cross-visit
+   identification), and deletion of the underlying personal data upon their production.**
+4. Nothing else.
+
+Item 3 is the clause that makes the licence in §4 valid. Do not let it be edited into a general
+"analytics" instruction.
+
+### 3.4 Drafting note on language
+
+Never warrant end-to-end anonymity (`07-ws-legal-rights.md`). Warrant the mechanism, not the
+outcome: transient processing, no facial recognition, no biometric templates, no biometric
+categorisation, no cross-visit identification, no retention of raw frames beyond 72 hours, k>=25 on
+every published cell. Those are checkable and true. "Anonymous" as a bare adjective is neither.
 
 ---
 
@@ -243,17 +291,40 @@ costs us little, because brands are not buying private-label reads.
 lag. The Customer gets 90 days of exclusive access to any read from its own stores before it is
 syndicated. Both cost us nothing and change the felt power balance more than the money does.
 
-**6.8 The two audits, kept apart.**
+**6.8 Audit, drafted narrow, not omitted.** Founder preference is to leave audit out entirely. I
+have taken it as far in that direction as is safe: **no audit clause of our own is offered**, and
+the aggregate audit right is **not** volunteered in the default draft (it moves to the negotiation
+ladder in §10 as the trade for perpetuity, to be produced only if perpetuity is resisted).
 
-- *Compliance audit.* (Art. 28(3)(h), statutorily mandatory, cannot be drafted out): once per
-  12 months, 30 days' written notice, business hours, at the Customer's cost, by an independent
-  auditor under NDA who is not a competitor of M&M, expressly excluding source code, model weights,
-  training data and any other customer's data, and **satisfied in the first instance by M&M's
-  written compliance report or third-party certification**. That last limb is what turns an audit
-  right into a document exchange in practice.
-- *Aggregate audit.* a right to verify that k>=25 suppression and masking are applied to outputs
-  featuring their data. **Offer this proactively.** It is the cage that buys perpetuity, and it
-  exposes nothing: it inspects the gate, not the kitchen.
+What cannot be omitted is the statutory one. Art. 28(3)(h) obliges a processor to make information
+available and allow audits by the controller, and the obligation exists whether or not the contract
+mentions it. Two consequences: a DPO who finds no audit clause will insert a broad one, and an
+annex silent on it is incomplete on its face. So Príloha 2 carries **one short paragraph, drafted
+by us**: once per 12 months, 30 days' written notice, business hours, at the Customer's cost, by an
+independent auditor under NDA who is not a competitor, expressly excluding source code, model
+weights, training data and any other customer's data, and **satisfied in the first instance by
+M&M's written compliance report and the AURA assessment (§6.10)**. That last limb is what turns an
+audit right into a document exchange in practice, which is the outcome you actually want.
+
+**6.10 The AURA data protection assessment, used correctly.** M&M holds a *Data Protection
+Compliance* certificate for **AURA v1.0.0** issued by **Komora pověřenců pro ochranu osobních
+údajů, z.s.**, No. AP2026001, dated 23 March 2026, valid to 23 March 2027, pinning the build by
+wheel checksum.
+
+- **What it is:** a dated, third-party, product-specific conformity assessment by a Czech DPO
+  professional body. Genuinely useful, and more than most competitors bidding a retailer RFI will
+  bring. It belongs in the compliance pack as an exhibit and in any RFI GDPR section.
+- **What it is not:** a certification under Art. 42/43 GDPR. Those must come from a body accredited
+  by the supervisory authority or the national accreditation body, against criteria approved by the
+  authority or the EDPB. A retailer DPO knows this distinction and will test it.
+- **Never write** "GDPR certified", "certified under Art. 42", or any continuing warranty of
+  compliance. **Do write**, as a statement of fact: *"M&M holds a data protection compliance
+  assessment in respect of the AURA product, version 1.0.0, issued by Komora pověřenců pro ochranu
+  osobních údajů, z.s. under No. AP2026001 on 23 March 2026."*
+- **The version trap.** The certificate is bound to v1.0.0 by checksum and expires 23 March 2027.
+  Do not put a continuing "certified product" warranty into a three-year agreement: the day we ship
+  v1.1.0 it becomes false. Reference it as a delivered document, with an undertaking to notify
+  material changes, nothing more.
 
 **6.9 Data-subject rights and signage.** Handled in Příloha 2. M&M provides two-layer signage
 artwork and drafts the DPIA. Because sessions are not re-identifiable, most data-subject requests
@@ -325,40 +396,76 @@ everyone else.
 
 ---
 
-## 8. Defects in existing material that must be fixed before anything is sent
+## 8. Repo fixes: done and outstanding
 
-1. **`templates/one-pager/mandate-letter-cz.md`, clause 5** promises that "většina výnosů z
-   datových produktů náleží Řetězci". This contradicts D1 and the 4 Sep ruling. Rewrite to the
-   labelled/aggregated split. If any retailer has already seen this letter, we have an anchoring
-   problem to manage, not just a drafting one.
-2. **`messaging/objections.md`, the retailer fear answer** contains the same "s většinovým podílem"
-   promise. Same fix.
-3. **"Veto on every published output"** in `retailers-execution-guide.md` and
-   `14-retailer-data-objection.md`: correct as a talking point, fatal as contract language. Limit
-   to Labelled Output (§6.5).
-4. **P0 purge confirmation** must be in hand in writing before the warranties in §7.7 can be
-   signed truthfully.
-5. **"GDPR certification"**: establish what we actually hold before referencing anything of the
-   sort in a contract. There is no general GDPR certification.
+**Done, 4 Sep (founder authorised):**
+
+1. `templates/one-pager/mandate-letter-cz.md` clause 5 rewritten. The promise that "většina výnosů
+   z datových produktů náleží Řetězci" is gone, replaced by the labelled / aggregated split. The
+   verbal frame below the letter also implied the retailer receives the brand money; corrected.
+2. `messaging/objections.md` retailer-fear answer rewritten. "S většinovým podílem a právem veta na
+   každý výstup" is gone, replaced by the split plus a veto limited to Labelled Output, with an
+   internal note pointing here.
+
+**Outstanding, needs someone other than me:**
+
+3. **Veto language** in `retailers-execution-guide.md` and `14-retailer-data-objection.md` still
+   reads "veto on every published output". Correct as a talking point, fatal as contract language
+   (§6.5). Not edited, because these are strategy files carrying founder decisions and CLAUDE.md
+   says not to reverse one silently. Flag for the next strategy pass.
+4. **P0 purge confirmation** from Honza, in writing, with a date. The warranties in §7.7 are false
+   until it is done. If it is not done before signature, those warranties get redrafted as
+   forward-looking undertakings, which is weaker but honest.
+5. **Certificate handled** (§6.10). It is a third-party product assessment, not an Art. 42
+   certification, and it is version-pinned to AURA v1.0.0 with a March 2027 expiry. Drafting rules
+   are in §6.10 and they matter: overclaiming this is the kind of thing a DPO catches in one
+   minute and never forgets.
+6. **Registr smluv and public procurement** deliberately absent from the template, per founder
+   instruction. Standing caveat for whoever runs the ČEPRO negotiation: under zákon č. 340/2015 Sb.
+   a contract with a state enterprise that is not published within three months is **void by
+   operation of law**, so with ČEPRO this is not a clause we can decline, it is a fact somebody has
+   to own. It stays out of the generic template and goes into a short state-owned rider when and if
+   ČEPRO is the counterparty.
 
 ---
 
-## 9. Engineering verification checklist (prerequisite to the warranties)
+## 9. Engineering prerequisites (in priority order)
 
-Run before signature, confirm in writing, keep the confirmation on file.
+Founder answers of 4 Sep are folded in. Only the first three are load-bearing; the rest are
+hygiene.
 
-1. No re-identification path exists across visits, in code, and none is planned.
-2. k>=25 suppression is enforced **in code at the export gate**, not by policy or review.
-3. Timestamps are coarsened to day-part at export. Precise timestamps are the linkage key.
-4. Raw frames delete on a hard TTL of 72 hours, and the TTL is evidenced by logs, not by intent.
-5. Session Records delete at 30 days. High-frequency body-position samples at 7 days or aggregated
-   at write.
-6. Special-category and AI-Act-prohibited fields are deleted and the columns purged (P0).
-7. Minors: no personalisation, row not persisted.
-8. **No record-level row reaches any third-party API.** Test the claim that what does reach one is
-   anonymous, against singling out, linkability and inference (WP29 05/2014), not against the
-   absence of a name field. This is the highest-risk assumption in the architecture.
-9. A data map exists assigning every table to one of the three operations in §3.
+**9.1 M&M determines the analysis.** Confirmed. Good: it supports our authorship of the Aggregated
+Output and the database-right claim in §4.1. Keep it that way, and keep it out of email that a
+Customer might later cite as an instruction about the aggregate.
+
+**9.2 A single, identifiable anonymisation gate.** Confirmed in principle. It needs to be one place
+in the code that we can point at, because Príloha 2 instruction #3 describes it and a DPO will ask
+where it lives.
+
+**9.3 Irreversibility. This is the one that matters.** The founder offered to make anonymisation
+irreversible "if that helps". It does not merely help, it is the wall the entire structure stands
+on. Irreversible means: after the gate, no key, no mapping table, no session identifier, no join
+column and no stored intermediate exists anywhere that could reconstruct rows from the aggregate,
+in our environment or any backup. If that is true, the processor-only structure in §3 is safe, the
+perpetual licence in §4 is valid, and the Art. 28(10) risk disappears. If it is not true, all three
+weaken at once. **Make it irreversible by design and write down that it is.**
+
+**9.4 Raw frames and retention.** Hard TTL of 72 hours on raw frames, evidenced by logs rather than
+by intent. Session Records deleted on production of the aggregate, or at 30 days, whichever is
+earlier. This is what "no personal data leaves the store" has to mean in practice, and it is what
+we warrant.
+
+**9.5 Special-category and prohibited fields (P0).** Deleted and columns purged. Minors: no
+personalisation, row not persisted. Prerequisite to the §7.7 warranties.
+
+**9.6 Differencing, low cost, do it when convenient.** Overlapping published cuts can isolate small
+groups even where each cut passes k>=25. A minimum-cell rule applied across successive publications
+of the same population closes it. Not a blocker for signature; worth an hour before the first
+syndicated read goes out.
+
+**9.7 Third-party APIs.** Only anonymous data leaves to any third-party API. Since this is now a
+warranty, test the claim once against singling out, linkability and inference rather than against
+the absence of a name field, and keep the result on file.
 
 ---
 
@@ -373,7 +480,7 @@ Run before signature, confirm in writing, keep the confirmation on file.
 | Publication lag | Concede 1st | Extend the lag |
 | Embargo scope | Concede 2nd | Widen the categories they may exclude |
 | Attribution opt-in | Concede 3rd | Tighten to per-cut written approval |
-| Aggregate audit right | Offer proactively | It is what buys perpetuity |
+| Aggregate audit right | **Held back**, produce only if perpetuity is resisted | It is what buys perpetuity, so do not spend it early |
 | Labelled share % | Concede 4th | Open below 30, move to 30, stop |
 | Term-limited licence | **Refuse** | Park and escalate instead |
 
