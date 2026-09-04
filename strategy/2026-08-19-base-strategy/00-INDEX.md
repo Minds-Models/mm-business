@@ -37,6 +37,7 @@ content parked in a code repo. Consolidate when convenient; this folder is canon
 | Capacity, hiring, cadence, scoreboard | `09-ws-team-ops.md` |
 | "What's due when?" | `10-calendar-gates.md` |
 | **"Is it working?" — the 21 Nov signals scoreboard** | **`17-signals-21nov.md`** |
+| **The financial plan explained, and where it departs from this pack** | **`19-model-walkthrough.md`** |
 | **"Does the financial model agree with this pack?" — open reconciliation register** | **`18-model-reconciliation.md`** |
 | Market facts, competitors, benchmarks | `11-research-annex.md` |
 

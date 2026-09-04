@@ -1,0 +1,138 @@
+# Financial plan walkthrough — for co-founder review
+
+**Purpose:** what the model contains, how it works, and every place it deliberately departs from this
+pack. Read this before approving the plan. Sixty-four months, Sep 2026 to Dec 2031, all figures EUR.
+Full finding register and decision log: `18-model-reconciliation.md`.
+
+---
+
+## 1. The plan in one table
+
+Base case. Eleven integrity checks pass, zero formula errors, every P&L line reconciles to an
+independent rebuild.
+
+| Year end | ARR | Revenue | Gross margin | EBITDA | Cash | Team |
+|---|---|---|---|---|---|---|
+| 2026 | 93k | 17k | 76.9% | (68k) | 491k | 7 |
+| 2027 | 662k | 290k | 71.2% | (608k) | 2.38M | 10 |
+| 2028 | 2.00M | 1.24M | 72.5% | (1.18M) | 1.20M | 22 |
+| 2029 | 4.28M | 3.23M | 72.8% | (1.33M) | 4.87M | 31 |
+| 2030 | 8.95M | 6.97M | 75.0% | (705k) | 4.16M | 50 |
+| **2031** | **15.44M** | **12.40M** | **76.7%** | **1.88M** | **6.04M** | **52** |
+
+Exit at a 10x revenue multiple: **154.4M**. Rule of 40 in the exit year: **88%**. Revenue per head:
+**238k**. Minimum cash across all 64 months: **22,770**, which is month 2, today, before the pre-seed.
+
+## 2. How the engine works
+
+Three tabs. MARKETS decides how fast products appear, HEADCOUNT decides what the team costs, MODEL
+holds the assumptions, the monthly P&L and the exit math.
+
+- **Slot = the product.** One category in one retail channel that we have instrumented. Built once.
+  27 of them by 2031, plus 13 aggregated reads derived from them.
+- **Seat = the contract.** One brand's annual subscription to one slot. Six brands per category are
+  large enough to buy; we model selling 55% of that, so 3.2 seats per slot at maturity.
+- **Price rises with density.** 40k founding, 80k once one chain is at depth, 170k once the category
+  runs in two or more chains. 63% of categories reach the top tier by 2031.
+- **Cost scales with slots, not seats.** The second seat in a slot costs almost nothing to serve.
+  That gap is the thesis, and it is why gross margin climbs from 71% to 77%.
+- **Supply is cheap and capped.** Sixty capture stores per chain at 45 a month. No hardware capex;
+  the cameras are the retailer's. More stores add statistical precision, not revenue.
+- **Team scales with products.** Every role is driven by slots, chains or markets, never by a
+  calendar. Fifty-two people carry 39 sellable products and about 125 brand seats.
+
+## 3. The raise
+
+| Round | When | Amount | Post-money | Entry | At exit | MOIC |
+|---|---|---|---|---|---|---|
+| Angel | Q2 2026, done | 80k | 3.5M | 2.3% | 1.4% | 27.7x |
+| CzechInvest grant | 2026, part received | 45k | n/a | n/a | n/a | n/a |
+| Pre-seed | Nov 2026 | 500k | 6.5M | 7.7% | 5.2% | 16.2x |
+| Seed | Oct 2027 | 2.5M | 13M | 19.2% | 16.2% | 10.0x |
+| Series A | Mar 2029 | 5.0M | 32M | 15.6% | 15.6% | 4.8x |
+
+Total raised across all sources including pre-model money: **8.12M**. Founders hold **55.3%** at exit,
+the pool **6.1%**. A standby bridge row sits in the funding block at zero, so "what if the round slips"
+is answered inside the model rather than in conversation.
+
+---
+
+# 4. Where we departed from the pack, and why
+
+## Corrections back to canon
+
+**Founding seat at 40k, not 35k.** Decision D17 set the founding floor at 40k and the 21 Nov goal at
+>=80k of contracted ARR, and explicitly called the 35k reading a mix-up. The model had the mix-up. It
+now produces exactly 80k in Nov 2026.
+
+**Czech corporate tax at 21%.** The model carried 19%, the rate until 2023. Corrected, with loss
+carryforward.
+
+## Deliberate changes
+
+**Slovakia is home market, not expansion. Romania is out, two Western markets are in.**
+The old sequence was CZ, SK, PL, DACH, Romania. Slovakia reads badly to an investor as "our first
+expansion is a smaller country", but it is the same chains under the same buying organisations, so it
+is the cheapest density in Europe at 15k of entry cost rather than 80k+. Now: Czechia and Slovakia as
+one home market, Poland at month 13 funded by the seed, DACH at month 25 funded by the Series A,
+France and Benelux at 37, Nordics and Iberia at 49.
+
+**The T2 price gate now requires two chains in that market.** T2 means the category runs in two or
+more chains, but the model was gating on time alone, so Slovakia, Poland, DACH and France were all
+repricing to 170k while they had one chain. Now gated per market on age AND chains >= 2. Costs about
+4% of exit ARR. In exchange, ARR per instrumented category lands at 572k, inside the canonical
+300-600k band, instead of 673k above it.
+
+**Store density is 60 per chain, not the 150-300 the ladder asks for.** `stats.yaml` says T2 needs
+150-300 stores. The sample-size derivation now written into the model supports 30-60 per chain and
+explains why: precision improves with the square root of the count while cost rises in line with it,
+so store 400 adds no revenue. We are choosing the derivation over the older figure; the ladder gets
+amended when the pack is updated.
+
+**Yield per capture store is retired as a metric.** `13-revenue-model.md` calls 3,060 of revenue per
+instrumented store "the single most useful benchmark we have". The model reaches 17,152, which is 5.6x
+that. The reason is the same as above: we cap stores deliberately, so revenue per store is an output
+of that choice rather than a constraint on it. The metric is marked internal-only and is not reported.
+
+**Payroll is one fully loaded number per role, plus a market multiplier.** The IČO / HPP overhead
+coefficient is gone. A labour multiplier rises from 1.00 in the home market to 1.35 at the full
+six-market footprint, because Germany and France are not Prague. Team ratios were then loosened on the
+six slot-driven and overhead roles and left untouched on the three chain-driven ones and on legal,
+because integrating a chain is the hard part and understating it would be the wrong place to be
+optimistic.
+
+**The model does not name financing instruments.** Rounds are Pre-seed, Seed and Series A. Whether
+each is a convertible or a priced round is a term-sheet question. Note that the fundraise plan states
+the pre-seed cap as 6.0M **pre-money** while the model shows 6.5M **post**. Same arithmetic, and the
+convention still needs stating once in the paper.
+
+---
+
+# 5. What we need to decide
+
+1. **Retailer revenue share: 30% or 40%.** `stats.yaml` says 40-50% for data products and the mandate
+   letter presumes "up to 40%". The model uses 30% on labelled reads and 0% on aggregated. Gross
+   margin and therefore the exit valuation ride on this; moving to 40% costs roughly 3 points of
+   blended margin. **This one moves the valuation.**
+
+2. **Which curve goes in the deck.** The external curve promises 0.4-0.7M by Dec 2026 and 10-14M by
+   Dec 2031; the model produces 93k and 15.4M. Most of the near-term gap is a definition: the curve
+   counts contracted ARR including banked orders and LOIs, the model counts live run-rate ARR. Nobody
+   wrote that down. We either write it down, or we show both lines.
+
+3. **The growth shape.** From 2027 the model compounds at **120% a year**. `12-numbers-external.md`
+   sets a ~48% shape and says it is "deliberately less heroic than the 106% CAGR in the previous
+   model, credibility is worth more than steepness with funds who have already passed twice". The
+   model is now steeper than the number that paragraph was written to disown. It is defensible,
+   because the aggregated read and the six-market rollout did not exist when the 48% shape was set.
+   But we cannot leave a document in the repo arguing against our own model.
+
+4. **Series A at 5M @ 32M post**, against 2-4M @ 18M in the pack. The bigger round funds DACH and then
+   France and Benelux. Without it the plan still reaches break-even but ends 2031 around 12.5M of ARR
+   instead of 15.4M. It prices at 11.9x current and 5.4x forward ARR.
+
+5. **The team ratios.** Read them as an operator: 14 seats per salesperson, 25 accounts per customer
+   success manager, 6 categories per analyst. If any of those is fantasy, say so now.
+
+6. **The labour multiplier at 1.35.** It assumes roles localise in every market. If we plan to hire in
+   CEE and travel, it is closer to 1.20 and the exit margin moves accordingly.
