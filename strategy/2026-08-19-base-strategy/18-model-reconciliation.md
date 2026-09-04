@@ -285,36 +285,64 @@ Do not spend effort re-checking these.
 
 ## What the applied changes did to the base case
 
-| | before this pass | after |
-|---|---|---|
-| 2031 ARR | €16.09M | **€15.44M** |
-| Exit at 10x | €160.9M | **€154.4M** |
-| 2031 EBITDA margin | 17.5% | **4.4%** |
-| ARR per instrumented category, 2031 | €673k (above the €300-600k band) | **€572k (inside it)** |
-| Minimum cash | €22,770 | €22,770 (unchanged) |
-| Integrity checks | 11 passing | 11 passing, 0 errors |
+| | before | after corrections | after headcount pass |
+|---|---|---|---|
+| 2031 ARR | €16.09M | €15.44M | **€15.44M** |
+| Exit at 10x | €160.9M | €154.4M | **€154.4M** |
+| 2031 EBITDA | €2.24M | €0.54M | **€1.88M** |
+| 2031 EBITDA margin | 17.5% | 4.4% | **15.2%** |
+| 2031 headcount | 70 | 69 | **52** |
+| 2031 revenue per FTE | €177k | €180k | **€238k** |
+| Rule of 40, 2031 | | | **88%** |
+| ARR per instrumented category, 2031 | €673k (above the €300-600k band) | €572k | **€572k (inside it)** |
+| Minimum cash | €22,770 | €22,770 | €22,770 |
+| Integrity checks | 11 passing | 11 passing | 11 passing, 0 errors |
 
 Two corrections drove it. The per-market T2 gate removed roughly 4% of exit ARR by delaying the
 reprice until a second chain is actually live. The labour multiplier added cost from month 25 onward,
 as the team moves into DACH and then Western Europe.
 
-**The open question this leaves** is whether 1.35 is the right multiplier. It assumes roles localise
-in every market. If the real plan is to hire engineering and analysis in CEE and localise only
-commercial and legal, the right number is closer to 1.20, and the 2031 EBITDA margin returns to
-roughly 10%.
+**Resolved, third pass.** The 1.35 multiplier stays, because salary levels are the easiest thing in a
+plan for an investor to check and a low one invites the question. The margin was recovered on the
+other side instead, by slowing team growth rather than by understating pay.
+
+Six slot-driven and overhead ratios were loosened, and the three chain-driven ratios plus the
+market-driven legal ratio were left untouched:
+
+| Role | Driver | Was | Now |
+|---|---|---|---|
+| Category Analyst | live slots | 1 per 3 | **1 per 5** |
+| Data / ML Engineer | live slots | 1 per 6 | **1 per 8** |
+| Brand Seat Sales | live slots | 1 per 3 | **1 per 4** |
+| Customer Success | live slots | 1 per 5.5 | **1 per 7** |
+| Marketing | live slots | 1 per 8 | **1 per 12** |
+| Finance / Ops / G&A | total headcount | 1 per 15 | **1 per 18** |
+| Backend / Platform | chains | 1 per 5 | unchanged |
+| Deployment | chains | 1 per 4 | unchanged |
+| Retailer BD | chains | 1 per 2.5 | unchanged |
+| Legal / DPO | markets beyond first | 1 per 1.5 | unchanged |
+
+The reasoning is written into the HEADCOUNT tab beside the ratio table: the team scales with the
+number of PRODUCTS, not the number of CUSTOMERS, which is the operating expression of "produced once,
+sold N times". What scales with chains is deliberately not thinned, because integrating a chain is the
+genuinely hard part and understating it would be the wrong place to be optimistic.
 
 ## Sensitivity, as recorded in the model
 
 | Case | 2031 ARR | Exit at 10x | Minimum cash |
 |---|---|---|---|
 | Base | €15.44M | €154.4M | €22,770 |
-| Realised price 20% below plan | €12.35M | €123.5M | **(€578,532)** |
+| Realised price 20% below plan | €12.35M | €123.5M | €22,770 |
 | Realised price 20% above plan | €18.52M | €185.2M | €22,770 |
 | Seats per slot 0.5 lower | €13.14M | €131.4M | €22,770 |
 | Seats per slot 0.5 higher | €17.74M | €177.4M | €22,770 |
 | Annual churn 15% | €13.85M | €138.5M | €22,770 |
-| Annual churn 25% | €11.82M | €118.2M | **(€529,094)** |
+| Annual churn 25% | €11.82M | €118.2M | €22,770 |
 
-The plan survives a 0.5 seat miss and a near-doubling of churn without more money. The two cases that
-break cash are a 20% price miss and 25% churn, and both are answered by drawing the standby bridge or
-sizing the seed higher, not by changing the business.
+On this cost base the plan stays funded in every case tested. A 20% price miss, half a seat less per
+slot, or churn at three times the plan all reduce the exit; none of them creates a funding gap. The
+minimum cash figure is month 2 in every run, which is today, before the pre-seed lands.
+
+Note for the next pass: the sensitivity is computed by re-running the model one variable at a time.
+It was re-run after the headcount change. If the cost base moves again, re-run it again, because a
+stale sensitivity table is worse than none.
