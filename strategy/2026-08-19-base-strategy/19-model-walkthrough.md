@@ -13,15 +13,16 @@ independent rebuild.
 
 | Year end | ARR | Revenue | Gross margin | EBITDA | Cash | Team |
 |---|---|---|---|---|---|---|
-| 2026 | 93k | 17k | 76.9% | (68k) | 491k | 7 |
-| 2027 | 662k | 290k | 71.2% | (608k) | 2.38M | 10 |
-| 2028 | 2.00M | 1.24M | 72.5% | (1.18M) | 1.20M | 22 |
-| 2029 | 4.28M | 3.23M | 72.8% | (1.33M) | 4.87M | 31 |
-| 2030 | 8.95M | 6.97M | 75.0% | (705k) | 4.16M | 50 |
-| **2031** | **15.44M** | **12.40M** | **76.7%** | **1.88M** | **6.04M** | **52** |
+| 2026 | 93k | 17k | 76.9% | (66k) | 493k | 7 |
+| 2027 | 662k | 290k | 71.2% | (395k) | 2.60M | 10 |
+| 2028 | 2.00M | 1.24M | 72.5% | (718k) | 2.19M | 22 |
+| 2029 | 4.28M | 3.23M | 72.8% | (394k) | 6.71M | 31 |
+| 2030 | 8.95M | 6.97M | 75.0% | 773k | 7.09M | 50 |
+| **2031** | **15.44M** | **12.40M** | **76.7%** | **3.59M** | **10.26M** | **52** |
 
-Exit at a 10x revenue multiple: **154.4M**. Rule of 40 in the exit year: **88%**. Revenue per head:
-**238k**. Minimum cash across all 64 months: **22,770**, which is month 2, today, before the pre-seed.
+Exit at a 10x revenue multiple: **154.4M**. Exit-year EBITDA margin **28.9%**, first profitable year **2030**.
+Revenue per head **238k**. Minimum cash across all 64 months: **22,770**, which is month 2, today, before
+the pre-seed lands.
 
 ## 2. How the engine works
 
@@ -105,6 +106,39 @@ optimistic.
 each is a convertible or a priced round is a term-sheet question. Note that the fundraise plan states
 the pre-seed cap as 6.0M **pre-money** while the model shows 6.5M **post**. Same arithmetic, and the
 convention still needs stating once in the paper.
+
+---
+
+# 4b. Go-to-market, CAC and LTV
+
+**How the money is counted, and why there is no double count.** The sales, retailer BD and marketing
+team sits in **payroll**, driven by slots and chains like every other role. The go-to-market line in
+the P&L carries **only the direct, non-payroll cost** of opening a slot and winning a seat: travel,
+sample reads, pilot support, proof-of-value work. Nothing else.
+
+This was wrong until 2 Sep. The go-to-market inputs were built as "six months of a salesperson's
+loaded time plus expenses", which charged the same salary twice, once in payroll and once per slot
+opened. Corrected: the two inputs now hold only the non-payroll cost. The line fell from 5.80M to
+about 0.5M across the plan, and the exit-year EBITDA margin rose from 15.2% to **28.9%**.
+
+**CAC and LTV are now in the model**, in the KPI block:
+
+| | 2027 | 2029 | 2031 |
+|---|---|---|---|
+| Sales & marketing cost (payroll + programs) | 80k | 781k | 2.05M |
+| New brand seats won | 4.9 | 23.1 | 46.7 |
+| **CAC per new seat** | 16.2k | 33.8k | **43.8k** |
+| ARPU per seat | 94.9k | 103.4k | **122.8k** |
+| LTV per seat (gross margin, life capped at 5 years) | 338k | 376k | **471k** |
+| **LTV / CAC** | 20.9x | 11.1x | **10.7x** |
+| Months to recover CAC | 2.9 | 5.4 | **5.6** |
+
+CAC counts the whole sales, retailer BD and marketing payroll plus the programs line, over seats won
+in the year, so it is a fully loaded figure rather than a marketing-spend ratio. The LTV side uses a
+five-year life cap; at the modelled 8% churn the uncapped life would be 12.5 years, so the cap is the
+conservative choice. **The ratio is high because churn is low, not because CAC is understated.** A
+reader who doubts it should test the churn assumption, and the sensitivity block does exactly that at
+15% and 25%.
 
 ---
 
