@@ -545,3 +545,48 @@ The point of the exercise was that no number changes, so asserting it was not go
 The rewriter did get one thing wrong on the first pass and it is worth recording, because it is the same failure mode as the rest of this register. The regex remapped the left end of a qualified range and left the right end alone, turning `MODEL!J95:BO95` into `MODEL!J8:BO95`. That produced 143 error cells and four broken checks. It was caught within a minute because the CHECKS sheet went red, which is exactly what the checks are for, and repaired from the snapshot rather than by hand.
 
 Acceptance tests after the rebuild: all twelve checks OK, zero formula errors, the scenario switch still moves 2031 ARR from 15.44M EUR to 11.15M EUR, and editing a price on ASSUMPTIONS moves the exit, so the new sheet genuinely drives the model rather than merely documenting it.
+
+---
+
+## Self-standing pass: the model stops citing anything outside itself
+
+The workbook referenced internal strategy documents by filename in two places and named a competitor as a pricing anchor in two more. Both are wrong in an artifact that goes to investors: the first makes the model unreadable without a repo the reader does not have, and the second hands a reader a name to argue with instead of a mechanism to assess. All four are gone. A scan across all seven sheets now returns zero references to internal documents, zero named competitors and zero em dashes.
+
+The pricing anchors are now stated as what they are: T1 sits just above the price at which a mid-size brand already buys syndicated measurement, and T2 on the average client value of the established providers. The claim survives without the name attached, and the name can go in the deck where it belongs.
+
+Two wording fixes worth recording. The product description said the output was "who stops at a category, what they pick up, what they put back", which describes the mechanism and undersells the result. It now says what the thing actually delivers: who buys what. And the capture-store note explained precision improving with the square root of store count, which is true and belongs in a technical annex, not in a financial model. It now says the thing a financial reader needs: past a few dozen stores per chain the cost of instrumenting another store rises in a straight line while the value it adds does not, so the model holds the count where the marginal store still pays for itself.
+
+### Narrative figures are now live, not typed
+
+The fundraising story and the exit-multiple argument sat on READ ME with roughly fifteen figures typed into the prose: round sizes, caps, ARR at each round, entry multiples, MOIC. Every one of them would have gone stale the first time anyone touched an assumption, and several already had.
+
+Both sections moved to SUMMARY, directly under the cap table where a reader is already looking at those numbers, and every figure is now a formula. The Series A paragraph reads its ARR by matching the round's month against the monthly ARR row, computes the entry multiple from the post-money on ASSUMPTIONS and the forward multiple from ARR twelve months later. The returns line divides modelled exit proceeds by the amount invested. The sensitivity narrative reads its exit range and its cash range from the sensitivity table above it. Nothing in the prose can now contradict the numbers beside it.
+
+Claims that genuinely cannot be made live, such as what happens under the no-Series-A scenario, are stated qualitatively ("the exit shrinks by roughly a quarter") rather than with a figure that would rot.
+
+### Scenario presets are explained on the sheet
+
+MARKETS carried three scenario presets and a tempo multiplier with no explanation of what any of them assumed, including entry month 99, which means "never inside the horizon" and reads like a typo. Each preset now carries its own description beside it, and the scenario cell has a line above the table saying it drives every entry month and the tempo at once.
+
+### Salaries: are they realistic
+
+The column was labelled "fully loaded cost", which overclaims. Fully loaded normally means salary plus employer taxes plus benefits, equipment and workspace. This number is salary plus the 33.8% Czech employer social and health contributions, and nothing else, because workspace, software, tooling, travel and recruiting are separate lines in the P&L and folding them in here would have double counted them. The column is now "Employer cost" and the note under the table says exactly what is and is not in it.
+
+To make the number checkable rather than assertable, the table now shows each role's implied gross monthly salary in EUR and in CZK, computed from the employer cost. Against a 2026 Czech benchmark of roughly CZK 90,000 a month gross for a mid-level software engineer:
+
+| Role | Implied CZK / month | Read |
+|---|---|---|
+| Data / ML and Backend Engineer | 114,500 | Above mid-level, right for senior. Sound. |
+| Account Executive | 98,100 | This is OTE, base plus commission. Sound. |
+| Deployment, Retailer BD, Marketing | 89,900 | At the mid-level engineering benchmark. Sound for manager-level commercial roles. |
+| Legal / DPO | 81,800 | Reasonable for a DPO carrying six markets. |
+| Category Analyst, Finance / Ops | 73,600 | Fair for an analyst; light for a group finance lead, but this is a blended rate over six people. |
+| Customer Success | 68,700 | Well above a support benchmark, which is correct: CS on 123k EUR accounts is not support. |
+| SDR | 57,200 | Sound. |
+| People / Talent | 65,400 | **Light.** An HR manager benchmarks near CZK 95,000. Founder decision. |
+
+On top of these, in-market roles carry the labour multiplier to 1.35x at the full European footprint and everything carries 5% salary inflation, so a senior engineer costs about 94k EUR by 2031 and an account executive about 109k EUR. The overall answer is that the salaries are realistic and slightly conservative, with People / Talent the one line worth raising.
+
+### One input moved and it was not me
+
+`Months_To_First_Sale` reads 1. It was 2 when the ASSUMPTIONS sheet was built, and 2 is the value the whole Sep-2026 revenue correction depended on. Nothing in this session wrote to it. It is flagged rather than reverted, because it is an input cell and the founder owns it. At 1 the plan ends 2031 at 15.69M EUR of ARR rather than 15.44M EUR. Every number in the workbook, the sensitivity table included, has been recomputed at the current setting so the sheet is internally consistent either way.
