@@ -46,7 +46,29 @@ lands at **11.15M instead of 15.44M**, and the company still never dips below 22
 2031 with 6.58M. **The Series A does not buy survival. It buys four years of European coverage.** That
 is the single most useful thing in the plan to be able to say in a room.
 
-## 2. How the engine works
+## 2. How the workbook is organised
+
+Seven tabs, in reading order.
+
+| Tab | What it holds |
+|---|---|
+| **READ ME** | What the company does, the vocabulary, how we raise and why, and what the model deliberately simplifies |
+| **SUMMARY** | The plan on one page: six years, the ARR bridge, operating metrics, cap table, exit math, sensitivity |
+| **ASSUMPTIONS** | Every input that drives the P&L, in one vertical list, each one carrying a name |
+| **MODEL** | The monthly engine: rollout, P&L, cashflow, 64 columns |
+| **MARKETS** | How fast products appear: entry months, slot inventory, chains, tempo, the scenario switch |
+| **HEADCOUNT** | What the team costs, with the benchmark source printed beside every staffing ratio |
+| **CHECKS** | Twelve live integrity tests. If any says CHECK rather than OK, do not trust SUMMARY |
+
+Inputs on ASSUMPTIONS are named, so formulas read in words rather than coordinates. `Price_Founding`,
+`Seat_Depth`, `Churn_Annual`, `Months_To_T2` and thirty-two others. Seats sold per slot, for instance,
+now reads `IF(age < Months_To_First_Sale, 0, ...)` instead of `IF(D99 < $J$58, 0, ...)`. Anyone auditing
+the model can follow it without jumping between cells.
+
+MARKETS and HEADCOUNT keep their own inputs, because those are rollout and staffing rather than
+economics.
+
+## 4. How the engine works
 
 Three tabs. MARKETS decides how fast products appear, HEADCOUNT decides what the team costs, MODEL
 holds the assumptions, the monthly P&L and the exit math.

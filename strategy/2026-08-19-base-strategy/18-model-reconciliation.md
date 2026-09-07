@@ -527,3 +527,21 @@ Two items from the recommendation list were deferred by founder decision:
 
 - **Sales ramp.** The AE count uses the Bridge Group quota but not the Bridge Group ramp, which is 10 to 12 months to full productivity at 30 to 70% during ramp. Using half of a source is the same class of problem this audit keeps finding, and a partner who knows the benchmark will notice.
 - **Inference cost.** 45 EUR per capture store per month is 0.06 EUR per hour of continuous visual inference. It is the COGS input most likely to be challenged, and it has not been checked against real Gemini pricing at our frame rate.
+
+---
+
+## Layout rebuild: one sheet became seven
+
+The workbook was one 227-row MODEL sheet holding the README, the assumptions, the monthly engine, the annual summary, the KPIs, the cap table, the checks and the sensitivity table, plus MARKETS and HEADCOUNT. Anyone opening it landed in the middle of a wall of text with the numbers that matter sixty columns to the right and a hundred rows down.
+
+It is now seven tabs in reading order: READ ME, SUMMARY, ASSUMPTIONS, MODEL, MARKETS, HEADCOUNT, CHECKS. MODEL is only the monthly engine. SUMMARY is the landing page and carries the annual view, the ARR bridge, the operating metrics, the cap table, the exit math and the sensitivity table. MARKETS and HEADCOUNT keep their own inputs, by founder decision, because those are rollout and staffing rather than economics.
+
+Thirty-six named ranges replace the old cell coordinates. `Price_Founding` rather than `$J$46`, `Months_To_T2` rather than `$J$63`. Formulas now read as sentences, and the ASSUMPTIONS sheet prints each input's name beside it so an auditor can follow the maths without chasing references.
+
+### How it was verified
+
+The point of the exercise was that no number changes, so asserting it was not good enough. Before touching anything, every value on every sheet was snapshotted unformatted. The old MODEL was renamed ARCHIVE rather than deleted, the new sheets were built from its formulas through a mechanical rewriter, and afterwards **17,219 cells were compared one by one against the snapshot. Two differed, both being check labels that were deliberately reworded.** ARCHIVE was only dropped after that diff came back clean and a scan confirmed nothing referenced it.
+
+The rewriter did get one thing wrong on the first pass and it is worth recording, because it is the same failure mode as the rest of this register. The regex remapped the left end of a qualified range and left the right end alone, turning `MODEL!J95:BO95` into `MODEL!J8:BO95`. That produced 143 error cells and four broken checks. It was caught within a minute because the CHECKS sheet went red, which is exactly what the checks are for, and repaired from the snapshot rather than by hand.
+
+Acceptance tests after the rebuild: all twelve checks OK, zero formula errors, the scenario switch still moves 2031 ARR from 15.44M EUR to 11.15M EUR, and editing a price on ASSUMPTIONS moves the exit, so the new sheet genuinely drives the model rather than merely documenting it.
