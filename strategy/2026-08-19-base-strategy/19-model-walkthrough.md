@@ -1,4 +1,4 @@
-# Financial plan walkthrough — for co-founder review
+# Financial plan walkthrough: for co-founder review
 
 **Purpose:** what the model contains, how it works, and every place it deliberately departs from this
 pack. Read this before approving the plan. Sixty-four months, Sep 2026 to Dec 2031, all figures EUR.
@@ -8,21 +8,33 @@ Full finding register and decision log: `18-model-reconciliation.md`.
 
 ## 1. The plan in one table
 
-Base case. Eleven integrity checks pass, zero formula errors, every P&L line reconciles to an
+Base case. Twelve integrity checks pass, zero formula errors, every P&L line reconciles to an
 independent rebuild.
 
 | Year end | ARR | Revenue | Gross margin | EBITDA | Cash | Team |
 |---|---|---|---|---|---|---|
-| 2026 | 93k | 17k | 76.9% | (66k) | 493k | 7 |
-| 2027 | 662k | 290k | 71.2% | (395k) | 2.60M | 10 |
-| 2028 | 2.00M | 1.24M | 72.5% | (718k) | 2.19M | 22 |
-| 2029 | 4.28M | 3.23M | 72.8% | (394k) | 6.71M | 31 |
-| 2030 | 8.95M | 6.97M | 75.0% | 773k | 7.09M | 50 |
-| **2031** | **15.44M** | **12.40M** | **76.7%** | **3.59M** | **10.26M** | **52** |
+| 2026 | 93k | 17k | 76.9% | (83k) | 475k | 8 |
+| 2027 | 662k | 290k | 71.2% | (522k) | 2.45M | 14 |
+| 2028 | 2.00M | 1.24M | 72.5% | (913k) | 1.54M | 24 |
+| 2029 | 4.28M | 3.23M | 72.8% | (595k) | 5.95M | 38 |
+| 2030 | 8.95M | 6.97M | 75.0% | 266k | 6.21M | 60 |
+| **2031** | **15.44M** | **12.40M** | **76.7%** | **2.73M** | **8.76M** | **69** |
 
-Exit at a 10x revenue multiple: **154.4M**. Exit-year EBITDA margin **28.9%**, first profitable year **2030**.
-Revenue per head **238k**. Minimum cash across all 64 months: **22,770**, which is month 2, today, before
-the pre-seed lands.
+Exit at a 10x revenue multiple: **154.4M**. Exit-year EBITDA margin **22.0%**, Rule of 40 score **94**,
+first profitable year **2030**. ARR per head **224k**, which sits between Benchmarkit's 2025 figures of
+200k USD per FTE at 50-100M ARR and 300k USD above 100M, so the plan claims efficiency without
+claiming the impossible.
+
+Unit economics at the end of the plan: CAC per brand seat **47,810**, LTV **471k**, LTV/CAC **9.9x**,
+CAC payback **6.1 months**. LTV/CAC falls across the plan, from 14.9x to 9.9x, because the early years
+are founder-led selling with almost no sales cost and the later years carry a real commercial
+organisation. That is the normalisation you want to see, not a deterioration.
+
+Two cash facts. Minimum across all 64 months is **14,750**, which is month 2, today, before the
+pre-seed lands. The one that matters more: after the pre-seed, cash bottoms at **113,739 in month 13**
+(Sep 2027), the month before the seed, which is 1.1 months of cover. The plan does not break in any
+sensitivity case tested, but there is no buffer at that point. Bringing the seed forward one month, or
+raising 250k more at pre-seed, removes it. **This is the one open decision in the plan.**
 
 ## 2. How the engine works
 

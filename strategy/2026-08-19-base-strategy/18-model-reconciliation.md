@@ -1,4 +1,4 @@
-# Model reconciliation — the financial model vs this strategy set
+# Model reconciliation: the financial model vs this strategy set
 
 **Status:** 2 Sep 2026, second pass. Founder decisions recorded against every finding, and the ones
 marked DONE are already applied to the model. The remaining open items are the ones that require the
@@ -53,7 +53,7 @@ Without it, the first analyst who lays the two side by side concludes the deck i
 ## A2 · The growth shape is steeper than the one this repo explicitly rejected
 
 `12-numbers-external.md`: "~48%/yr compound from Dec-2027 to Dec-2031 ... deliberately **less heroic than
-the 106% CAGR** in the previous model — credibility is worth more than steepness with funds who have
+the 106% CAGR** in the previous model: credibility is worth more than steepness with funds who have
 already passed twice."
 
 The model runs €0.651M to €16.09M over four years. That is a **123% CAGR**, above the number that
@@ -91,7 +91,7 @@ roughly 3 points off blended gross margin at exit.
 ## A5 · Cap convention still undefined, already flagged as a DD trap
 
 `fundraise-execution-guide.md` §1.1: "the plan says €6.0M **pre-money**. State it explicitly in the CLA ...
-and check the existing €80k CLA (€3.5M cap) uses the same convention — an inconsistency here surfaces in DD."
+and check the existing €80k CLA (€3.5M cap) uses the same convention: an inconsistency here surfaces in DD."
 
 The model labels `MODEL!G68 = 6,500,000` as **post-money**, and treats the €3.5M angel cap as post-money too.
 €6.0M pre + €0.5M is €6.5M post, so the arithmetic agrees and the labels do not.
@@ -350,7 +350,7 @@ stale sensitivity table is worse than none.
 
 ---
 
-# Fourth pass, 2 Sep 2026 — cost-overlap audit
+# Fourth pass, 2 Sep 2026: cost-overlap audit
 
 The go-to-market double count was found by the founder, not by the audit. Worth recording why, because
 it changes how this model should be reviewed from now on.
@@ -420,3 +420,68 @@ categories that a real company at 12.4M of revenue and 47 people across six coun
 The margin is not high because the team ratios are aggressive. It is high because those lines do not
 exist. Adding them honestly lands the exit-year margin somewhere near 15 to 20%, which is the shape a
 company still growing 72% should have. **Founder decision needed on which to add.**
+
+---
+
+## Fifth pass: full-model semantics, and staffing the plan against published benchmarks
+
+Two questions drove this pass. First, are there more errors of the family found in passes three and four, where a row's label and the money it actually represents had drifted apart. Second, is the team big enough to be believed.
+
+### Semantic findings
+
+**Seat count was gross, ARR was net.** Total brand seats never fell, because churn was applied to ARR and not to the seat stock. So "new brand seats won" measured net growth only, and nobody was staffed to re-win the seats that churned. New seats are now gross: net growth plus the seats lost in the month. This raises seats won in 2031 from 46.7 to 55.1 and raises CAC honestly.
+
+**Aggregated slots were inflating the staffing driver.** HEADCOUNT was staffed against labelled slots plus aggregated slots, 39 at the end of 2031, when there are only 27 real category-market slots. The aggregated read is the same instrumented category resold, not a second thing to build. The driver is now labelled slots only, and the per-role ratios were reset against that honest denominator.
+
+**One labour cost multiplier for everyone.** The 1.35x multiplier at the full European footprint was applied to every role including analysts, data engineers and finance, who are hired at the home base regardless of how many markets are live. The role table now carries a flag for whether a role is paid at in-market or home-base rates, and the payroll formula reads it. This is more accurate and it is cheaper, which is the rare case where the two agree.
+
+**Data acquisition cost KPI was measuring compute.** The row was labelled "data acquisition cost" and pointed at the inference line. What a brand-side investor wants to know is what the retailers take. It now reports the retailer revenue share, 20.0% of revenue in 2031.
+
+**A duplicate corporate tax rate.** Two adjacent input cells, 21% and 19%. The P&L used the 21%; the 19% was a leftover from before the rate was checked. Removed, and the cell reused for one of the new cost inputs.
+
+**Two whole cost categories were missing.** Nothing in the model paid for software, cloud and tooling, and nothing paid to recruit the people it hires. Both are now a line: 120 EUR per FTE per month, and 4,000 EUR per external hire.
+
+**Sensitivity minimum cash was not a stress test.** Every case reported the same minimum cash to the euro, because the low point was month 2, before any of the varied assumptions can bite. It now reports the low point after the pre-seed lands, which is the number that actually tests solvency. See the runway finding below.
+
+**Checked and found sound:** average slot age, the T1 and T2 slot split, the per-market T2 gate, the credit drawdown (it does deplete cumulatively), tax loss carryforward, the three-month capture ramp, chain integration reconciliation, the cap table, and the absence of double counting between pre-model funding and the cash line.
+
+### Staffing, and where each ratio comes from
+
+The team was 47 at the end of 2031 against 15.4M EUR of ARR. That is 328k EUR of ARR per employee. Benchmarkit's 2025 B2B SaaS benchmarks put ARR per FTE at 200k USD for companies at 50-100M ARR and 300k USD for companies above 100M. A 15M EUR company claiming better than a 100M USD company is not a defence of efficiency, it is a hole in the cost base.
+
+Every commercial ratio is now sourced, and the source sits beside the ratio on the HEADCOUNT tab:
+
+| Role | Ratio | Source |
+|---|---|---|
+| Account Executive | 700k EUR new ARR per AE per year | Bridge Group 2024 SaaS AE Metrics Report: median enterprise quota 800k USD at 50-60% attainment, about 440k USD realised. We assume 1.6x, because inside a live slot the target list is six named brands the retailer has already endorsed. |
+| Sales Development | 1 SDR per 1.7 AEs | Bridge Group 2025 (n=414): median 1.8 SDRs per AE at 100-500k USD ACV. We staff at a third of that. |
+| Customer Success | 2.5M EUR ARR per CSM | Gainsight CS survey via Tomasz Tunguz: 2-5M USD per CSM, enterprise reference 3.5M USD over 25 accounts at 140k USD ACV. Our seat ACV is about 123k EUR. |
+| Marketing | 1 per 6 slots | Holds marketing near 3% of ARR against SaaS Capital's 8% median. |
+| Finance / Ops / G&A | 1 per 10 headcount | Six legal entities. Holds G&A near 5% of ARR against SaaS Capital's 15% median. |
+
+Engineering stays deliberately small, per the founder decision that the team is efficient with Claude: 12 of the 62 scaling roles at the end of 2031 are engineering.
+
+### What it does to the plan
+
+| | Before | After |
+|---|---|---|
+| Headcount, Dec 2031 | 47 | 69 |
+| ARR per FTE | 328k EUR | 224k EUR |
+| 2031 EBITDA | 4.01M EUR | 2.73M EUR |
+| 2031 EBITDA margin | 32.3% | 22.0% |
+| Rule of 40, 2031 | not reported | 94 |
+| S&M as % of revenue | 13.2% | 21.3% |
+| CAC per seat, 2031 | 35,152 EUR | 47,810 EUR |
+| LTV / CAC, 2031 | 13.4x | 9.9x |
+| CAC payback | 4.5 months | 6.1 months |
+| Exit ARR | unchanged at 15.44M EUR | unchanged |
+
+Nothing on the revenue side moved. The whole delta is cost, which is the point: the revenue engine was never the weak part of the story, the cost base was.
+
+LTV/CAC now declines across the plan, from 14.9x to 9.9x, and that is correct rather than a defect. The early years are founder-led selling with almost no sales cost. As a real commercial organisation is built the ratio normalises toward benchmark. Ending at 9.9x with a six-month payback is still roughly three times the 3x that is considered healthy.
+
+### The open item: month 13
+
+The stress test that now works surfaced something the old one hid. Cash bottoms at 113,739 EUR in month 13, September 2027, the month before the seed lands. That is 1.1 months of cover. If pricing lands 20% below plan it is 91k EUR.
+
+The plan does not break in any case tested, and the exit range across all eight cases runs from 118M EUR to 185M EUR. But there is no buffer at month 13, and an investor will find it. The fix is timing rather than economics: bring the seed forward one month, or raise 250k EUR more at pre-seed. Founder decision.
