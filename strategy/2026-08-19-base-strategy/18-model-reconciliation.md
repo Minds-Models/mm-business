@@ -480,8 +480,12 @@ Nothing on the revenue side moved. The whole delta is cost, which is the point: 
 
 LTV/CAC now declines across the plan, from 14.9x to 9.9x, and that is correct rather than a defect. The early years are founder-led selling with almost no sales cost. As a real commercial organisation is built the ratio normalises toward benchmark. Ending at 9.9x with a six-month payback is still roughly three times the 3x that is considered healthy.
 
-### The open item: month 13
+### Resolved: month 13, and a scenario that was not testing itself
 
 The stress test that now works surfaced something the old one hid. Cash bottoms at 113,739 EUR in month 13, September 2027, the month before the seed lands. That is 1.1 months of cover. If pricing lands 20% below plan it is 91k EUR.
 
-The plan does not break in any case tested, and the exit range across all eight cases runs from 118M EUR to 185M EUR. But there is no buffer at month 13, and an investor will find it. The fix is timing rather than economics: bring the seed forward one month, or raise 250k EUR more at pre-seed. Founder decision.
+Founder decision taken: the seed moves to month 13. The trough becomes 214,510 EUR in month 12, which is 6.5 months of cover, and it holds between 195k EUR and 234k EUR across all eight sensitivity cases.
+
+Re-running the scenarios against the new cost base then found one more of the same family. Scenario 2 is labelled "No Series A", but the funding line paid the Series A out regardless of the scenario, so the scenario only slowed market entry and never tested the thing its name claims. The Series A amount is now conditional on the scenario. With it genuinely removed, total funding falls from 8.02M EUR to 3.02M EUR, 2031 ARR lands at 11.15M EUR instead of 15.44M EUR, cash never dips below 225,460 EUR and the company closes 2031 with 6.58M EUR. The Series A does not buy survival, it buys coverage.
+
+Scenario 3, the accelerated case, is the tight one: faster entry burns ahead of revenue and cash bottoms at 55,982 EUR. Worth knowing before anyone proposes running faster.

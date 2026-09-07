@@ -31,10 +31,14 @@ are founder-led selling with almost no sales cost and the later years carry a re
 organisation. That is the normalisation you want to see, not a deterioration.
 
 Two cash facts. Minimum across all 64 months is **14,750**, which is month 2, today, before the
-pre-seed lands. The one that matters more: after the pre-seed, cash bottoms at **113,739 in month 13**
-(Sep 2027), the month before the seed, which is 1.1 months of cover. The plan does not break in any
-sensitivity case tested, but there is no buffer at that point. Bringing the seed forward one month, or
-raising 250k more at pre-seed, removes it. **This is the one open decision in the plan.**
+pre-seed lands. After the pre-seed, cash bottoms at **214,510 in month 12**, which is 6.5 months of
+cover, and it holds between 195k and 234k across all eight sensitivity cases.
+
+The stronger statement is what happens without the Series A. Set the scenario cell on MARKETS to 2 and
+the Series A is not raised at all: 3.02M of total funding instead of 8.02M. Expansion slows, 2031 ARR
+lands at **11.15M instead of 15.44M**, and the company still never dips below 225k of cash and closes
+2031 with 6.58M. **The Series A does not buy survival. It buys four years of European coverage.** That
+is the single most useful thing in the plan to be able to say in a room.
 
 ## 2. How the engine works
 

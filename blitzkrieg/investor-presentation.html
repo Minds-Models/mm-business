@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Investor Update: 2026 Q3/Q4 Action Plan</title>
+    <title>Investor Update: Sep 2026</title>
     <style>
         :root {
             /* Minds & Models brand tokens */
@@ -26,14 +26,14 @@
             --warn: #A8621A;
             --warn-soft: #F8EFE3;
             --gold: #9A7B1F;
-            
+
             --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             --numeric: 'Inter', sans-serif;
-            
+
             --shadow: 0 4px 12px rgba(26, 26, 26, 0.05);
             --shadow-sm: 0 1px 3px rgba(26, 26, 26, 0.04);
         }
-        
+
         body {
             font-family: var(--sans);
             background-color: var(--paper);
@@ -104,7 +104,7 @@
             letter-spacing: 0.05em;
         }
         .param-card .value {
-            font-size: 28px;
+            font-size: 26px;
             color: var(--ink);
             font-weight: 700;
             font-family: var(--numeric);
@@ -117,7 +117,7 @@
             margin: 8px 0 0 0;
         }
 
-        /* --- THE VC CASE (EXPANDABLE) --- */
+        /* --- EXPANDABLE / VC CASE --- */
         details.vc-case {
             background: var(--surface);
             border: 1px solid var(--line);
@@ -159,7 +159,7 @@
             transition: transform 0.2s;
         }
         details.vc-case[open] summary::before {
-            content: '−';
+            content: '\2212';
             transform: rotate(180deg);
         }
         .vc-case-content {
@@ -181,25 +181,203 @@
             color: var(--ink);
         }
 
-        /* --- STRATEGIC PILLARS --- */
-        .pillars-section {
-            margin-bottom: 48px;
+        /* --- SECTION SCAFFOLDING --- */
+        .section-block {
+            margin-bottom: 56px;
         }
-        .pillars-section h2 {
-            font-size: 22px;
-            margin: 0 0 16px 0;
+        .section-eyebrow {
+            font-size: 0.72rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        h2.section-title {
+            font-size: 26px;
             border-bottom: 2px solid var(--ink);
             padding-bottom: 12px;
+            margin-bottom: 20px;
+            margin-top: 0;
         }
-        .pillars-section p {
+        .section-block > p.lede {
             color: var(--ink-2);
-            margin-bottom: 24px;
-            font-size: 15px;
+            font-size: 15.5px;
+            max-width: 80ch;
+            margin-bottom: 28px;
         }
+
+        /* --- PULL QUOTE / CALLOUT --- */
+        .pull-quote {
+            background: var(--surface);
+            border-left: 4px solid var(--accent);
+            border-radius: 0 12px 12px 0;
+            padding: 20px 24px;
+            margin: 0 0 28px 0;
+            box-shadow: var(--shadow-sm);
+        }
+        .pull-quote .qlabel {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+            color: var(--muted);
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+        .pull-quote p {
+            margin: 0;
+            font-size: 18px;
+            color: var(--ink);
+            font-weight: 600;
+            line-height: 1.4;
+        }
+        .callout {
+            background: var(--surface-2);
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin-bottom: 28px;
+        }
+        .callout.warn { background: var(--warn-soft); border-color: var(--warn); }
+        .callout.positive { background: var(--positive-soft); border-color: var(--positive); }
+        .callout h4 {
+            margin: 0 0 8px 0;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--ink-2);
+        }
+        .callout p {
+            margin: 0;
+            font-size: 14.5px;
+            color: var(--ink-2);
+            line-height: 1.6;
+        }
+        .callout p + p { margin-top: 10px; }
+
+        /* --- TWO-UP COMPARISON --- */
+        .compare-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+            margin-bottom: 28px;
+        }
+        .compare-card {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 22px 24px;
+            box-shadow: var(--shadow-sm);
+        }
+        .compare-card.no {
+            border-top: 4px solid var(--negative);
+        }
+        .compare-card.yes {
+            border-top: 4px solid var(--positive);
+        }
+        .compare-card h4 {
+            margin: 0 0 14px 0;
+            font-size: 15px;
+            color: var(--ink);
+        }
+        .compare-card ul {
+            margin: 0;
+            padding-left: 18px;
+        }
+        .compare-card li {
+            font-size: 14px;
+            color: var(--ink-2);
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+        .compare-card li strong { color: var(--ink); }
+
+        /* --- MECHANISM / WAS-IS TABLE --- */
+        .mech-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 8px;
+            margin-bottom: 28px;
+        }
+        .mech-table td {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            padding: 14px 18px;
+            font-size: 14px;
+            color: var(--ink-2);
+            vertical-align: top;
+        }
+        .mech-table td:first-child {
+            border-radius: 8px 0 0 8px;
+            border-right: none;
+            color: var(--negative);
+            background: var(--negative-soft);
+            width: 42%;
+        }
+        .mech-table td:last-child {
+            border-radius: 0 8px 8px 0;
+            border-left: none;
+            color: var(--positive);
+            background: var(--positive-soft);
+            font-weight: 600;
+        }
+        .mech-table th {
+            text-align: left;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--muted);
+            padding: 0 18px 6px 18px;
+        }
+
+        /* --- GATE TIMELINE --- */
+        .gate-timeline {
+            list-style: none;
+            margin: 0 0 28px 0;
+            padding: 0;
+            border-left: 2px solid var(--line);
+        }
+        .gate-timeline li {
+            position: relative;
+            padding: 2px 0 22px 28px;
+        }
+        .gate-timeline li::before {
+            content: '';
+            position: absolute;
+            left: -7px;
+            top: 4px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--surface);
+            border: 3px solid var(--accent);
+        }
+        .gate-timeline li.done::before { border-color: var(--positive); background: var(--positive); }
+        .gate-timeline li.final::before { border-color: var(--negative); background: var(--negative); }
+        .gate-timeline .gdate {
+            font-weight: 700;
+            font-size: 13px;
+            color: var(--ink);
+            font-family: var(--numeric);
+        }
+        .gate-timeline .glabel {
+            font-weight: 700;
+            font-size: 15px;
+            color: var(--ink);
+            margin: 2px 0 4px 0;
+        }
+        .gate-timeline .gdesc {
+            font-size: 14px;
+            color: var(--ink-2);
+            line-height: 1.5;
+        }
+
+        /* --- STRATEGIC PILLARS --- */
         .pillars-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
             gap: 16px;
+            margin-bottom: 28px;
         }
         .pillar-card {
             background: var(--surface);
@@ -249,21 +427,14 @@
         }
 
         /* --- TABLE DESIGN --- */
-        h2.section-title {
-            font-size: 26px;
-            border-bottom: 2px solid var(--ink);
-            padding-bottom: 12px;
-            margin-bottom: 32px;
-            margin-top: 48px;
-        }
-        
         .table-container {
             background: var(--surface);
             border-radius: 12px;
             box-shadow: var(--shadow);
             border: 1px solid var(--line);
             overflow: hidden;
-            margin-bottom: 48px;
+            margin-bottom: 28px;
+            overflow-x: auto;
         }
         table {
             width: 100%;
@@ -271,30 +442,41 @@
         }
         th {
             text-align: left;
-            font-size: 0.75rem;
+            font-size: 0.72rem;
             text-transform: uppercase;
-            letter-spacing: 0.07em;
+            letter-spacing: 0.06em;
             color: var(--muted);
-            padding: 16px 24px;
+            padding: 14px 20px;
             background: var(--surface-2);
             border-bottom: 1px solid var(--line);
+            white-space: nowrap;
         }
         td {
-            padding: 16px 24px;
+            padding: 14px 20px;
             border-bottom: 1px solid var(--line-soft);
             color: var(--ink-2);
             vertical-align: top;
-            font-size: 15px;
+            font-size: 14.5px;
         }
         tr:last-child td {
             border-bottom: none;
+        }
+        tr.total td {
+            font-weight: 700;
+            color: var(--ink);
+            background: var(--surface-2);
         }
         .client-name {
             font-weight: 700;
             color: var(--ink);
             font-size: 16px;
         }
-        
+        .table-caption {
+            font-size: 12.5px;
+            color: var(--muted);
+            margin: -18px 0 28px 0;
+        }
+
         /* Status Tags */
         .status-tag {
             display: inline-block;
@@ -304,393 +486,486 @@
             border-radius: 6px;
             text-transform: uppercase;
             letter-spacing: 0.05em;
+            white-space: nowrap;
         }
-        .status-live {
-            background: var(--positive-soft);
-            color: var(--positive);
-        }
-        .status-pipeline {
-            background: var(--warn-soft);
-            color: var(--warn);
-        }
-        
+        .status-live, .status-signed { background: var(--positive-soft); color: var(--positive); }
+        .status-pipeline, .status-negotiation { background: var(--warn-soft); color: var(--warn); }
+        .status-target { background: var(--surface-2); color: var(--ink-2); }
+        .status-cancelled { background: var(--negative-soft); color: var(--negative); }
+
         .metric-val {
             font-family: var(--numeric);
             font-variant-numeric: tabular-nums;
             font-weight: 600;
             color: var(--ink);
         }
+
+        .footnote {
+            font-size: 12.5px;
+            color: var(--muted);
+            border-top: 1px solid var(--line);
+            padding-top: 20px;
+            margin-top: 8px;
+        }
+
+        .close-card {
+            background: var(--ink);
+            color: var(--paper);
+            border-radius: 16px;
+            padding: 32px;
+            margin-top: 8px;
+        }
+        .close-card h2 {
+            margin-top: 0;
+            font-size: 24px;
+        }
+        .close-card p {
+            color: #d8d6d2;
+            font-size: 15.5px;
+            line-height: 1.6;
+        }
+        .close-card ol {
+            padding-left: 20px;
+            color: #d8d6d2;
+        }
+        .close-card li { margin-bottom: 10px; }
+        .close-card strong { color: #ffffff; }
     </style>
 </head>
 <body>
 
 <div class="container">
     <header>
-        <div class="eyebrow">Investor Update</div>
-        <h1>Sep 2026 - investor update after pilots</h1>
-        <p class="kicker">An all-in sprint executing our data-first business model strategy. We are executing our 2026 Q3/Q4 Action Plan to maximize our VC-backable case by focusing exclusively on data value, pivoting away from in-store personalization (which will be maintained as a legacy product only where it makes sense for existing clients). Timeline: 21 Aug &rarr; 21 Nov 2026.</p>
-        
+        <div class="eyebrow">Investor Update &middot; Prepared for &Scaron;imon &#352;ebek &middot; September 2026</div>
+        <h1>Same engine, different buyer: why we're going all-in on data</h1>
+        <p class="kicker">Since we last spoke, we've made a deliberate call: focus everything on the data business and put in-store personalization into a funded-only holding pattern. This update walks through why we think that's the higher-probability path to a real venture outcome, what the new financial model actually says, where we stand against our own 21 Nov deadline, and how we're spending money while we get there.</p>
+
         <div class="params-grid">
             <div class="param-card highlight">
                 <h3>Core Moat</h3>
                 <p class="value">Data Value</p>
-                <p class="sub">100% Margin on Aggregate</p>
+                <p class="sub">Perpetual rights + POS match, 100% margin on the aggregate</p>
             </div>
             <div class="param-card">
                 <h3>Exit Path</h3>
-                <p class="value" style="font-size: 24px;">8-12x Multiple</p>
-                <p class="sub">Syndicated Channel Reads</p>
+                <p class="value" style="font-size: 22px;">10&times; Revenue</p>
+                <p class="sub">Measurement-currency comps, not a SaaS multiple</p>
             </div>
-            <div class="param-card alert" style="border-top: 4px solid var(--accent); background: var(--accent-soft);">
+            <div class="param-card" style="border-top: 4px solid var(--accent); background: var(--accent-soft);">
                 <h3 style="color: var(--accent);">Ultimate ICP</h3>
-                <p class="value" style="font-size: 22px;">The Brand</p>
-                <p class="sub">Retailer is our Data Partner</p>
+                <p class="value" style="font-size: 20px;">The Brand</p>
+                <p class="sub">Retailer is our data partner, not our customer</p>
+            </div>
+            <div class="param-card alert">
+                <h3 style="color: var(--negative);">Current Round</h3>
+                <p class="value" style="font-size: 22px;">&euro;500k @ &euro;6.5M post</p>
+                <p class="sub">Pre-seed CLA, targeting close 15 Nov</p>
             </div>
         </div>
 
         <details class="vc-case" open>
-            <summary>Core Axioms of the Strategy</summary>
+            <summary>The three things we are not re-litigating this window</summary>
             <div class="vc-case-content">
                 <ul>
-                    <li><strong>Data Value is VC-Backable:</strong> Our core value proposition and exit multiple (8-12x) are driven by the cross-retailer aggregate and syndicated channel reads.</li>
-                    <li><strong>Moving Away from Hardware:</strong> Own-hardware personalization is not VC-backable. We are pivoting purely into a data business model.</li>
-                    <li><strong>Revenue Share Clarity:</strong> We keep 100% of the cross-retailer aggregate and syndicated channel reads. Retailer revenue sharing (max 40%) applies only to retailer-attributed audience/Retail Media Network (RMN) products.</li>
+                    <li><strong>Data value is the VC-backable case.</strong> Our exit multiple and our margin structure both come from the cross-retailer aggregate and syndicated category reads, not from any single retailer relationship.</li>
+                    <li><strong>Own-hardware personalization is not venture-backable.</strong> It is good, fundable-by-a-brand business at the margin, and we keep it exactly there. It stops being something we sell as the company.</li>
+                    <li><strong>Revenue-share clarity.</strong> The cross-retailer aggregate and syndicated reads stay 100% ours, always. A retailer only ever earns a share on the labelled, single-chain read tied to their own store, and even there the model runs that share at 30%, trending toward zero as a category matures into the aggregate.</li>
                 </ul>
             </div>
         </details>
     </header>
 
-    <section class="pillars-section">
-        <h2>The 5 Pillars of our Action Plan</h2>
-        <p>To succeed in the Q3/Q4 Action Plan, we execute across 5 interconnected strategic pillars. The outcomes of each pillar compound into our 8-12x "currency" valuation.</p>
+    <section class="section-block">
+        <div class="section-eyebrow">01 &middot; Why we're doing this</div>
+        <h2 class="section-title">We changed the payer, not the product</h2>
+        <p class="lede">The engine, the visual model, and the receipt-matching are the same asset we've been building for two years, and they keep compounding. What changed is who we ask to pay for the read. We assumed retailers would buy this as personalization. Eight months of pilots taught us they structurally can't, and that brands structurally can. That's not a change of belief, it's a change we bought with real pilot data.</p>
+
+        <div class="pull-quote">
+            <div class="qlabel">The one-line version</div>
+            <p>"We changed the payer, not the product." Same engine, same data asset. Retailers give us supply for free; brands pay for the read.</p>
+        </div>
+
+        <div class="compare-grid">
+            <div class="compare-card no">
+                <h4>Retailer as the customer (what we tried)</h4>
+                <ul>
+                    <li>~4% net margins, leaving little room for a discretionary insight line</li>
+                    <li>Roughly one analyst covering two or three categories</li>
+                    <li>No existing budget line for "shopper insight"; every euro needs a CFO and a procurement cycle</li>
+                    <li>Result: strong pilot engagement, real willingness to test, but conversion from pilot to paid rollout kept stalling, because insight was never one of their top three problems</li>
+                </ul>
+            </div>
+            <div class="compare-card yes">
+                <h4>Brand as the customer (where we're going)</h4>
+                <ul>
+                    <li>14&ndash;16% margins and a dedicated data/insights team that evaluates products like ours for a living</li>
+                    <li>An existing annual measurement budget, already spent on syndicated data from incumbents</li>
+                    <li>Buys the same read once, then sells it to every brand in the category (syndication, not a bespoke project)</li>
+                    <li>Budget windows lock every October and November, which is exactly the calendar we're racing right now</li>
+                </ul>
+            </div>
+        </div>
+
+        <p style="color: var(--ink-2); font-size: 15px; margin-bottom: 28px;">This also answers the objection almost every fund has given us: why won't the next eight months look like the last eight? The honest answer isn't a promise to move faster, it's that the thing which made us slow has been structurally removed.</p>
+
+        <table class="mech-table">
+            <tr><th>Was</th><th>Is</th></tr>
+            <tr>
+                <td>Retailer had to fund it: CFO, procurement, capex</td>
+                <td>Retailer pays nothing. No budget line means no CFO and no procurement committee.</td>
+            </tr>
+            <tr>
+                <td>Our hardware in every store, mounted and maintained</td>
+                <td>Software on cameras the retailer already owns; a chain deploys in remote waves</td>
+            </tr>
+            <tr>
+                <td>First signature was a commercial contract</td>
+                <td>First signature is a 60-day, revocable, veto-everything mandate that no procurement process can block</td>
+            </tr>
+            <tr>
+                <td>We sold to the side of the market with no budget for us</td>
+                <td>We sell to brands, on a measurement budget that already exists and locks every Oct&ndash;Nov</td>
+            </tr>
+            <tr>
+                <td>Outbound, cold chains, one at a time</td>
+                <td>Inbound: a 206-store chain sent us an RFI asking for exactly this model</td>
+            </tr>
+        </table>
+
+        <div class="callout">
+            <h4>What we're not saying</h4>
+            <p>We're not saying personalization "didn't work." Where a brand funds it directly (the tobacco screens, at &euro;120/device/month), it's good, real revenue and we keep it. What we're saying is narrower: it's a poor foundation for a venture-scale company when the buyer is a 4%-margin retailer with no line item for it, and we now have the pilot evidence to say that with confidence instead of a hunch.</p>
+        </div>
+    </section>
+
+    <section class="section-block">
+        <div class="section-eyebrow">02 &middot; The pitch and the number</div>
+        <h2 class="section-title">The new VC case: it's the multiple, not the revenue</h2>
+        <p class="lede">The feedback we've heard from most rounds we've run has been consistent: this can be a nice business, but the maths didn't reach a fund-returning outcome. That feedback was right about the old model. It's the reason the new one is built backwards from the exit rather than forwards from a sales plan.</p>
+
+        <div class="pull-quote">
+            <div class="qlabel">The reframe</div>
+            <p>You don't grow your way to a venture outcome here. You re-rate your way there. The same revenue is worth a different multiple depending on what kind of asset it is.</p>
+        </div>
+
+        <p style="color: var(--ink-2); font-size: 15px;">Syndicated measurement assets trade on revenue, not earnings, because the data set is the asset and margin follows scale later. The reference points are public: Advent acquired Nielsen Global Connect in 2021 for roughly $2.7bn; NielsenIQ merged with GfK in 2023 and listed on the NYSE in 2025 in an $11bn offering; Circana acquired Nielsen's marketing-mix modelling business; VusionGroup has been acquiring computer-vision and retail-media assets (Belive.ai, In-Store Media) rather than building them. Mature, slow-growing measurement trades near the bottom of an 8&ndash;12&times; band. A cross-chain rights portfolio still compounding above 60% a year sits in the middle of it, which is where our 10&times; working assumption comes from.</p>
+        <p style="color: var(--ink-2); font-size: 15px; margin-bottom: 28px;">The multiple only holds if the underlying rights are durable. A licence a retailer can terminate prices as a rented service, at 3&ndash;4&times; revenue, not 10&times;. That's the entire reason the perpetual, irrevocable aggregate licence and the k&ge;25 anonymisation regime live in the data-processing agreement rather than in the deck: they are, literally, the multiple.</p>
+
+        <h3 style="font-size:17px; margin-bottom: 6px;">The base case, year by year</h3>
+        <p class="table-caption">Bottom-up from the unit economics (slot = product, seat = brand's annual subscription to it), not a top-down growth curve. EUR, calendar year-end.</p>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr><th>Year-end</th><th>ARR (run-rate)</th><th>Revenue recognised</th><th>Gross margin</th><th>EBITDA</th><th>Cash</th><th>Team</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>2026</td><td class="metric-val">&euro;93k</td><td class="metric-val">&euro;17k</td><td class="metric-val">76.9%</td><td class="metric-val">(&euro;83k)</td><td class="metric-val">&euro;475k</td><td class="metric-val">8</td></tr>
+                    <tr><td>2027</td><td class="metric-val">&euro;662k</td><td class="metric-val">&euro;290k</td><td class="metric-val">71.2%</td><td class="metric-val">(&euro;522k)</td><td class="metric-val">&euro;2.45M</td><td class="metric-val">14</td></tr>
+                    <tr><td>2028</td><td class="metric-val">&euro;2.00M</td><td class="metric-val">&euro;1.24M</td><td class="metric-val">72.5%</td><td class="metric-val">(&euro;913k)</td><td class="metric-val">&euro;1.54M</td><td class="metric-val">24</td></tr>
+                    <tr><td>2029</td><td class="metric-val">&euro;4.28M</td><td class="metric-val">&euro;3.23M</td><td class="metric-val">72.8%</td><td class="metric-val">(&euro;595k)</td><td class="metric-val">&euro;5.95M</td><td class="metric-val">38</td></tr>
+                    <tr><td>2030</td><td class="metric-val">&euro;8.95M</td><td class="metric-val">&euro;6.97M</td><td class="metric-val">75.0%</td><td class="metric-val">+&euro;266k</td><td class="metric-val">&euro;6.21M</td><td class="metric-val">60</td></tr>
+                    <tr class="total"><td>2031 (exit year)</td><td>&euro;15.44M</td><td>&euro;12.40M</td><td>76.7%</td><td>+&euro;2.73M (22%)</td><td>&euro;8.76M</td><td>69</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <p style="color: var(--ink-2); font-size: 15px; margin-bottom: 28px;">First EBITDA-positive year: 2030. Exit-year ARR of &euro;15.44M at a 10&times; multiple is a <strong style="color:var(--ink)">&euro;154M</strong> outcome. That's inside, and toward the strong end of, the &euro;100&ndash;150M band we think is the fund-returning zone for this round's entry price, and it's derived from unit economics (seats per slot, price ladder, churn, CAC/LTV) rather than asserted as a growth rate.</p>
+
+        <h3 style="font-size:17px; margin-bottom: 6px;">What this round buys, and what it returns</h3>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr><th>Round</th><th>Timing</th><th>Amount</th><th>Post-money</th><th>MOIC at exit (10&times;)</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Angel (done)</td><td>Q2 2026</td><td class="metric-val">&euro;80k</td><td class="metric-val">&euro;3.5M cap</td><td class="metric-val">27.7&times;</td></tr>
+                    <tr><td><strong>Pre-seed (this is the live ask)</strong></td><td>Nov 2026</td><td class="metric-val">&euro;500k</td><td class="metric-val">&euro;6.5M cap</td><td class="metric-val">16.2&times;</td></tr>
+                    <tr><td>Seed</td><td>Oct 2027</td><td class="metric-val">&euro;2.5M</td><td class="metric-val">&euro;13M post</td><td class="metric-val">10.0&times;</td></tr>
+                    <tr><td>Series A</td><td>Mar 2029</td><td class="metric-val">&euro;5.0M</td><td class="metric-val">&euro;32M post</td><td class="metric-val">4.8&times;</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <p style="color: var(--ink-2); font-size: 15px; margin-bottom: 28px;">Cap table at exit reconciles to 100%: founders 55.3%, ESOP 6.1%, investors 38.5% across all rounds. Total capital raised across all sources including pre-model money: &euro;8.1M.</p>
+
+        <h3 style="font-size:17px; margin-bottom: 6px;">We stress-tested it before showing it to you</h3>
+        <p class="table-caption">Same model, one variable moved at a time. Everything below still ends funded.</p>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr><th>Case</th><th>2031 ARR</th><th>Exit value @ 10&times;</th><th>Min. cash after pre-seed</th><th>Verdict</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Base case</td><td class="metric-val">&euro;15.44M</td><td class="metric-val">&euro;154.4M</td><td class="metric-val">&euro;114k</td><td><span class="status-tag status-live">Funded</span></td></tr>
+                    <tr><td>Price 20% below plan</td><td class="metric-val">&euro;12.35M</td><td class="metric-val">&euro;123.5M</td><td class="metric-val">&euro;91k</td><td><span class="status-tag status-live">Funded</span></td></tr>
+                    <tr><td>Price 20% above plan</td><td class="metric-val">&euro;18.52M</td><td class="metric-val">&euro;185.2M</td><td class="metric-val">&euro;137k</td><td><span class="status-tag status-live">Funded</span></td></tr>
+                    <tr><td>Churn 25% (base case: 8%)</td><td class="metric-val">&euro;11.82M</td><td class="metric-val">&euro;118.2M</td><td class="metric-val">&euro;105k</td><td><span class="status-tag status-live">Funded</span></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="callout warn">
+            <h4>The one honest weak point in the plan</h4>
+            <p>The tightest month isn't now, it's month 13 (Sep 2027), where modelled cash bottoms out around &euro;114k, about a month of cover, before the seed round lands. We saw this ourselves rather than waiting for diligence to find it. Two independent fixes remove it: bring the seed forward by a month, or raise roughly &euro;250k more at this pre-seed. We'd rather flag it now than have it surface as a surprise later.</p>
+        </div>
+    </section>
+
+    <section class="section-block">
+        <div class="section-eyebrow">03 &middot; The sprint</div>
+        <h2 class="section-title">Blitzkrieg: 21 Aug &rarr; 21 Nov</h2>
+        <p class="lede">We've committed the company to an all-in, thirteen-week sprint on three axioms: the data business is the venture-backable case, own-hardware personalization is not, and the brand is the ultimate customer. Three clocks are running at once, and only one of them is fully in our control.</p>
+
+        <div class="compare-grid" style="grid-template-columns: repeat(3, 1fr);">
+            <div class="compare-card"><h4>Clock 1 &middot; Retailer rights</h4><ul><li>First data-rights mandate, in motion now</li><li>Determines whether "free supply for rights" actually holds</li></ul></div>
+            <div class="compare-card"><h4>Clock 2 &middot; Brand budgets</h4><ul><li>Locks in Oct&ndash;Nov</li><li>Miss it, and 2027 brand revenue slips a full year</li></ul></div>
+            <div class="compare-card"><h4>Clock 3 &middot; Cash</h4><ul><li>Wall hits mid-December at current burn</li><li>The pre-seed has to land ahead of this, not react to it</li></ul></div>
+        </div>
+
+        <h3 style="font-size:17px; margin-bottom: 6px;">The dated checkpoints, so you can check us against them</h3>
+        <ol class="gate-timeline">
+            <li class="done"><div class="gdate">5 Sep</div><div class="glabel">Gate 0: rights mandate + real pilot MRR</div><div class="gdesc">First read on whether a retailer will grant a free, revocable rights mandate, and an honest number on what today's pilots actually bill.</div></li>
+            <li><div class="gdate">30 Sep</div><div class="glabel">Gate 1: tobacco verdict, pricing reaction, bridge papered</div><div class="gdesc">A real budget-owner conversation on the tobacco brand line, first read on whether pilots would pay if priced, and the standby bridge signed regardless of anything else.</div></li>
+            <li><div class="gdate">15 Oct</div><div class="glabel">Gate 2: last responsible moment</div><div class="gdesc">Rights contract shape fixed, brand budget window open, round visibly in motion. This is where we'd change course if the evidence said to.</div></li>
+            <li><div class="gdate">15 Nov</div><div class="glabel">Gate 3: round closes, or the bridge draws</div><div class="gdesc">Money in the account, or the pre-agreed survival variant runs, calmly, on schedule.</div></li>
+            <li class="final"><div class="gdate">21 Nov</div><div class="glabel">The checkpoint this whole sprint is judged against</div><div class="gdesc">Full scoreboard read: rights, brands, investors, and proof, all at once.</div></li>
+        </ol>
+
+        <div class="callout positive">
+            <h4>How to read 21 Nov honestly (so a modest number doesn't read as failure)</h4>
+            <p>The whole scoreboard collapses to one test: by 21 Nov, has every currency converted at least once? One retailer paid us in rights. One brand paid us in cash. One investor paid us in money. One proof point verified against a real receipt. One inbound lead we didn't chase. That's the floor, and it proves the loop turns. It is deliberately not the same thing as being on track for a big February revenue number, and we'd rather you judge us on that basis from the start than have us explain it after the fact if November's ARR line looks small.</p>
+        </div>
+
+        <h3 style="font-size:17px; margin-bottom: 6px;">The five pillars we're executing against</h3>
         <div class="pillars-grid">
             <div class="pillar-card p-fund">
                 <h3>Fundraising</h3>
-                <div class="pillar-goal">€500k @ €6M Pre</div>
-                <p class="pillar-outcome"><strong>Outcome:</strong> Close the round leveraging the other 4 pillars.</p>
+                <div class="pillar-goal">&euro;500k @ &euro;6.5M post</div>
+                <p class="pillar-outcome"><strong>Outcome:</strong> Close the round on the evidence the other four pillars produce.</p>
             </div>
             <div class="pillar-card p-brand">
                 <h3>Brands</h3>
-                <div class="pillar-goal">2 paying, 3 committed (Min ARR €70k)</div>
-                <p class="pillar-outcome"><strong>Outcome:</strong> Proves audience monetization model.</p>
+                <div class="pillar-goal">2 paying + 3 committed &middot; &ge;&euro;80k combined</div>
+                <p class="pillar-outcome"><strong>Outcome:</strong> Proves brands will actually buy the read.</p>
             </div>
             <div class="pillar-card p-ret">
                 <h3>Retailers</h3>
-                <div class="pillar-goal">2x Mandates (>60% margin, stat-sig)</div>
-                <p class="pillar-outcome"><strong>Outcome:</strong> Proves the exclusive data asset.</p>
+                <div class="pillar-goal">2 signed rights mandates</div>
+                <p class="pillar-outcome"><strong>Outcome:</strong> Proves the free-supply thesis and the exclusive data asset.</p>
             </div>
             <div class="pillar-card p-brok">
-                <h3>Data Brokers</h3>
-                <div class="pillar-goal">Establish relationship (NielsenIQ, etc.)</div>
-                <p class="pillar-outcome"><strong>Outcome:</strong> Validates strategic exit path.</p>
+                <h3>Data brokers</h3>
+                <div class="pillar-goal">2 second-tier pilots live</div>
+                <p class="pillar-outcome"><strong>Outcome:</strong> Validates a strategic-exit path without tipping our hand to the incumbents yet.</p>
             </div>
             <div class="pillar-card p-alt">
-                <h3>Alt Data Sources</h3>
+                <h3>Alt data sources</h3>
                 <div class="pillar-goal">Validate non-visual alternatives</div>
-                <p class="pillar-outcome"><strong>Outcome:</strong> De-risks hardware/privacy concerns.</p>
+                <p class="pillar-outcome"><strong>Outcome:</strong> De-risks the plan against any single hardware or privacy objection.</p>
             </div>
         </div>
     </section>
 
-    <h2 class="section-title">Financial Runway & Burn Rate (Q3 2026)</h2>
-    <p class="kicker" style="font-size: 15px; margin-bottom: 24px;">Based on our latest 3-month rolling average, our operational burn is highly optimized. &gt;95% of capital is deployed directly into the core tech team and founders, maintaining a lean SaaS footprint.</p>
-    
-    <div class="params-grid" style="margin-bottom: 24px;">
-        <div class="param-card highlight" style="border-top-color: var(--negative);">
-            <h3 style="color: var(--negative);">Average Monthly Burn</h3>
-            <p class="value">~310k CZK</p>
-            <p class="sub">~€12,800 / month</p>
-        </div>
-        <div class="param-card">
-            <h3>Wages & Team</h3>
-            <p class="value" style="font-size: 24px;">297.8k CZK</p>
-            <p class="sub">Historical Q3 average</p>
-        </div>
-        <div class="param-card">
-            <h3>HW, Tech & SaaS</h3>
-            <p class="value" style="font-size: 24px;">~16.5k CZK</p>
-            <p class="sub">~€680 / month</p>
-        </div>
-    </div>
+    <section class="section-block">
+        <div class="section-eyebrow">04 &middot; Spending discipline</div>
+        <h2 class="section-title">Cutting cost without going quiet</h2>
+        <p class="lede">We're reallocating hours, not gutting the team. Through 21 Nov, we're deliberately shifting engineering time away from personalization features and into business-facing work: rights conversations, brand meetings, the proof artifacts the raise needs. Net effect on burn is close to neutral. This is a deliberate, time-boxed choice, not a survival measure, and it reverts automatically if we don't have a term sheet by 16 October.</p>
 
-    <details class="vc-case" style="margin-bottom: 16px;">
-        <summary>Team Roster & Monthly Run-rate</summary>
-        <div class="vc-case-content">
-            <div class="table-container" style="margin-bottom: 0; box-shadow: none; border-radius: 8px;">
-                <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
-                    <thead>
-                        <tr>
-                            <th style="padding: 12px 16px; border-bottom: 1px solid var(--line); background: var(--surface-2); text-align: left; font-size: 0.7rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em;">Team Member</th>
-                            <th style="padding: 12px 16px; border-bottom: 1px solid var(--line); background: var(--surface-2); text-align: left; font-size: 0.7rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em;">Role</th>
-                            <th style="padding: 12px 16px; border-bottom: 1px solid var(--line); background: var(--surface-2); text-align: right; font-size: 0.7rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em;">Avg Monthly Cost</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td colspan="3" style="padding: 8px 16px; background: var(--surface-2); font-weight: 700; font-size: 12px; color: var(--ink-2); text-transform: uppercase;">Engineering, Data & Strategy</td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); font-weight: 600; color: var(--ink);">Petr Morávek</td>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); color: var(--ink-2);">Full Stack, CTO potential</td>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); text-align: right; font-family: var(--numeric); font-weight: 600;">~56,000 CZK</td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); font-weight: 600; color: var(--ink);">Jan Mazoch</td>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); color: var(--ink-2);">Computer Vision</td>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); text-align: right; font-family: var(--numeric); font-weight: 600;">~45,700 CZK</td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); font-weight: 600; color: var(--ink);">Martin Bartoš</td>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); color: var(--ink-2);">Backend / Full Stack</td>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); text-align: right; font-family: var(--numeric); font-weight: 600;">~38,000 CZK</td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); font-weight: 600; color: var(--ink);">Dima Bohatyrov</td>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); color: var(--ink-2);">Data Wizard, Business / Tech combination</td>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); text-align: right; font-family: var(--numeric); font-weight: 600;">~15,300 CZK</td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); font-weight: 600; color: var(--ink);">Matěj Hodek</td>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); color: var(--ink-2);">Full Stack / AI / Agentic</td>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); text-align: right; font-family: var(--numeric); font-weight: 600;">~14,300 CZK</td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); font-weight: 600; color: var(--ink);">Jan Trojak</td>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); color: var(--ink-2);"><span style="display: block;">Cyber Security Expert</span><span style="display: block; font-size: 12px; color: var(--muted); margin-top: 4px;">Currently paid from CzechInvest grant. Future: ad-hoc consultations up to 10k/mo.</span></td>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); text-align: right; font-family: var(--numeric); font-weight: 600;">0 CZK <span style="font-size: 11px; font-weight: normal; color: var(--muted); display: block;">(Covered by Grant)</span></td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); font-weight: 600; color: var(--ink);">Naty Netušilová</td>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); color: var(--ink-2);">NielsenIQ Insider</td>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); text-align: right; font-style: italic; color: var(--muted); font-size: 13px;">Ad-hoc consultation</td>
-                        </tr>
-                        <tr>
-                            <td colspan="3" style="padding: 8px 16px; background: var(--surface-2); font-weight: 700; font-size: 12px; color: var(--ink-2); text-transform: uppercase;">Founders (Management & GTM)</td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); font-weight: 600; color: var(--ink);">Josef Němeček</td>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); color: var(--ink-2);"><span style="display: block;">Co-Founder / Management</span><span style="display: block; font-size: 12px; color: var(--muted); margin-top: 4px;">Structure: Minimum wage + DPP to minimize taxes.</span></td>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); text-align: right; font-family: var(--numeric); font-weight: 600;">~30,000 CZK</td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 12px 16px; border-bottom: none; font-weight: 600; color: var(--ink);">Ondřej Šantora</td>
-                            <td style="padding: 12px 16px; border-bottom: none; color: var(--ink-2);"><span style="display: block;">Co-Founder / Management</span><span style="display: block; font-size: 12px; color: var(--muted); margin-top: 4px;">Structure: Minimum wage + DPP to minimize taxes.</span></td>
-                            <td style="padding: 12px 16px; border-bottom: none; text-align: right; font-family: var(--numeric); font-weight: 600;">~30,000 CZK</td>
-                        </tr>
-                    </tbody>
-                </table>
+        <div class="compare-grid">
+            <div class="compare-card">
+                <h4>Why we can do this without stalling the roadmap</h4>
+                <ul>
+                    <li>We already made the call to run on cameras retailers already own, not our own hardware, so there's no capex schedule to protect</li>
+                    <li>The ingest pipeline was built generically (any camera, not one vendor), so the same engineering keeps compounding into the data product even while personalization work slows</li>
+                    <li>Personalization isn't being killed. Where a brand already funds it directly, we keep shipping it exactly as committed</li>
+                </ul>
+            </div>
+            <div class="compare-card">
+                <h4>What doesn't change</h4>
+                <ul>
+                    <li>Existing brand-funded screen commitments (tobacco, &euro;120/device/month) continue unchanged, since a brand is paying for that work, so it's good business as-is</li>
+                    <li>Core calibration and data-science work is untouched and fully protected, since it's the proof the whole raise depends on</li>
+                    <li>No layoffs. This is an hours reallocation with a revert trigger, not a headcount cut</li>
+                </ul>
             </div>
         </div>
-    </details>
 
-    <details class="vc-case" style="margin-bottom: 48px;">
-        <summary>Detailed SaaS & Ops Breakdown</summary>
-        <div class="vc-case-content">
-            <div class="table-container" style="margin-bottom: 0; box-shadow: none; border-radius: 8px;">
-                <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
-                    <thead>
-                        <tr>
-                            <th style="padding: 12px 16px; border-bottom: 1px solid var(--line); background: var(--surface-2); text-align: left; font-size: 0.7rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em;">Vendor / Service</th>
-                            <th style="padding: 12px 16px; border-bottom: 1px solid var(--line); background: var(--surface-2); text-align: left; font-size: 0.7rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em;">Description</th>
-                            <th style="padding: 12px 16px; border-bottom: 1px solid var(--line); background: var(--surface-2); text-align: right; font-size: 0.7rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em;">Avg Monthly Cost</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td colspan="2" style="padding: 8px 16px; background: var(--surface-2); font-weight: 700; font-size: 12px; color: var(--ink-2); text-transform: uppercase;">Tech Stack & Infrastructure</td>
-                            <td style="padding: 8px 16px; background: var(--surface-2); text-align: right; font-weight: 700; font-size: 12px; color: var(--ink-2);">SUM: ~3,560 CZK</td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); font-weight: 600; color: var(--ink);">Anthropic (Claude AI)</td>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); color: var(--ink-2);">Core LLM engine</td>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); text-align: right; font-family: var(--numeric); font-weight: 600;">~2,254 CZK <span style="font-size: 11px; font-weight: normal; color: var(--muted); display: block;">(90 EUR)</span></td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); font-weight: 600; color: var(--ink);">Clerk.com</td>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); color: var(--ink-2);">Auth infrastructure</td>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); text-align: right; font-family: var(--numeric); font-weight: 600;">~537 CZK <span style="font-size: 11px; font-weight: normal; color: var(--muted); display: block;">(25 USD)</span></td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); font-weight: 600; color: var(--ink);">Cursor IDE</td>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); color: var(--ink-2);">AI dev tooling</td>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); text-align: right; font-family: var(--numeric); font-weight: 600;">520 CZK</td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); font-weight: 600; color: var(--ink);">Netcup</td>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); color: var(--ink-2);">Hosting / Server</td>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); text-align: right; font-family: var(--numeric); font-weight: 600;">~249 CZK <span style="font-size: 11px; font-weight: normal; color: var(--muted); display: block;">(9.89 EUR)</span></td>
-                        </tr>
-                        
-                        <tr>
-                            <td colspan="2" style="padding: 8px 16px; background: var(--surface-2); font-weight: 700; font-size: 12px; color: var(--ink-2); text-transform: uppercase;">Hardware</td>
-                            <td style="padding: 8px 16px; background: var(--surface-2); text-align: right; font-weight: 700; font-size: 12px; color: var(--ink-2);">SUM: ~5,830 CZK</td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); font-weight: 600; color: var(--ink);">RPISHOP</td>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); color: var(--ink-2);">Raspberry Pi & sensors</td>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); text-align: right; font-family: var(--numeric); font-weight: 600;">~4,270 CZK</td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); font-weight: 600; color: var(--ink);">Alza.cz</td>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); color: var(--ink-2);">Peripherals & electronics</td>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); text-align: right; font-family: var(--numeric); font-weight: 600;">~1,560 CZK</td>
-                        </tr>
-
-                        <tr>
-                            <td colspan="2" style="padding: 8px 16px; background: var(--surface-2); font-weight: 700; font-size: 12px; color: var(--ink-2); text-transform: uppercase;">Comms & Productivity</td>
-                            <td style="padding: 8px 16px; background: var(--surface-2); text-align: right; font-weight: 700; font-size: 12px; color: var(--ink-2);">SUM: ~4,918 CZK</td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); font-weight: 600; color: var(--ink);">Google Workspace</td>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); color: var(--ink-2);">Company email & storage</td>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); text-align: right; font-family: var(--numeric); font-weight: 600;">~3,259 CZK <span style="font-size: 11px; font-weight: normal; color: var(--muted); display: block;">(129.60 EUR)</span></td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); font-weight: 600; color: var(--ink);">Slack</td>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); color: var(--ink-2);">Team communication</td>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); text-align: right; font-family: var(--numeric); font-weight: 600;">~1,659 CZK <span style="font-size: 11px; font-weight: normal; color: var(--muted); display: block;">(66.00 EUR)</span></td>
-                        </tr>
-
-                        <tr>
-                            <td colspan="2" style="padding: 8px 16px; background: var(--surface-2); font-weight: 700; font-size: 12px; color: var(--ink-2); text-transform: uppercase;">Sales & Growth</td>
-                            <td style="padding: 8px 16px; background: var(--surface-2); text-align: right; font-weight: 700; font-size: 12px; color: var(--ink-2);">SUM: 2,198 CZK</td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); font-weight: 600; color: var(--ink);">LinkedIn</td>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); color: var(--ink-2);">Premium / Sales Navigator</td>
-                            <td style="padding: 12px 16px; border-bottom: 1px solid var(--line-soft); text-align: right; font-family: var(--numeric); font-weight: 600;">2,198 CZK</td>
-                        </tr>
-
-                        <tr>
-                            <td colspan="2" style="padding: 8px 16px; background: var(--surface-2); font-weight: 700; font-size: 12px; color: var(--ink-2); text-transform: uppercase;">Travel, Meetings & Ad-hoc Operations</td>
-                            <td style="padding: 8px 16px; background: var(--surface-2); text-align: right; font-weight: 700; font-size: 12px; color: var(--ink-2);">SUM: ~3,000 CZK</td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 12px 16px; border-bottom: none; font-weight: 600; color: var(--ink);">Various</td>
-                            <td style="padding: 12px 16px; border-bottom: none; color: var(--ink-2);">T&E, Client meetings, Bank fees</td>
-                            <td style="padding: 12px 16px; border-bottom: none; text-align: right; font-family: var(--numeric); font-weight: 600;">~3,000 CZK</td>
-                        </tr>
-                    </tbody>
-                </table>
+        <h3 style="font-size:17px; margin-bottom: 6px;">Where the money is going &middot; Q3 2026 average</h3>
+        <div class="params-grid" style="margin-bottom: 24px;">
+            <div class="param-card highlight" style="border-top-color: var(--negative);">
+                <h3 style="color: var(--negative);">Average Monthly Burn</h3>
+                <p class="value">~310k CZK</p>
+                <p class="sub">~&euro;12,800 / month</p>
+            </div>
+            <div class="param-card">
+                <h3>Wages &amp; Team</h3>
+                <p class="value" style="font-size: 22px;">297.8k CZK</p>
+                <p class="sub">Historical Q3 average</p>
+            </div>
+            <div class="param-card">
+                <h3>HW, Tech &amp; SaaS</h3>
+                <p class="value" style="font-size: 22px;">~16.5k CZK</p>
+                <p class="sub">~&euro;680 / month</p>
             </div>
         </div>
-    </details>
 
-    <div class="params-grid" style="margin-bottom: 48px;">
-        <div class="param-card highlight">
-            <h3>Total Recurring Revenue</h3>
-            <p class="value">17,700 CZK</p>
-            <p class="sub">Monthly Recurring Revenue (MRR) from running pilots</p>
+        <details class="vc-case" style="margin-bottom: 16px;">
+            <summary>Team roster &amp; monthly run-rate</summary>
+            <div class="vc-case-content">
+                <div class="table-container" style="margin-bottom: 0; box-shadow: none; border-radius: 8px;">
+                    <table>
+                        <thead>
+                            <tr><th>Team member</th><th>Role</th><th style="text-align:right;">Avg monthly cost</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td colspan="3" style="background: var(--surface-2); font-weight: 700; font-size: 12px; color: var(--ink-2); text-transform: uppercase;">Engineering, data &amp; strategy</td></tr>
+                            <tr><td style="font-weight:600; color:var(--ink);">Petr Mor&aacute;vek</td><td>Full stack, CTO potential</td><td style="text-align:right;" class="metric-val">~56,000 CZK</td></tr>
+                            <tr><td style="font-weight:600; color:var(--ink);">Jan Mazoch</td><td>Computer vision</td><td style="text-align:right;" class="metric-val">~45,700 CZK</td></tr>
+                            <tr><td style="font-weight:600; color:var(--ink);">Martin Barto&scaron;</td><td>Backend / full stack</td><td style="text-align:right;" class="metric-val">~38,000 CZK</td></tr>
+                            <tr><td style="font-weight:600; color:var(--ink);">Dima Bohatyrov</td><td>Data science, business/tech combination</td><td style="text-align:right;" class="metric-val">~15,300 CZK</td></tr>
+                            <tr><td style="font-weight:600; color:var(--ink);">Mat&#283;j Hodek</td><td>Full stack / AI / agentic</td><td style="text-align:right;" class="metric-val">~14,300 CZK</td></tr>
+                            <tr><td style="font-weight:600; color:var(--ink);">Jan Troj&aacute;k</td><td>Cyber security expert <span style="display:block; font-size:12px; color:var(--muted);">Currently paid from CzechInvest grant. Future: ad-hoc consultations up to 10k/mo.</span></td><td style="text-align:right;">0 CZK <span style="font-size:11px; font-weight:normal; color:var(--muted); display:block;">(covered by grant)</span></td></tr>
+                            <tr><td style="font-weight:600; color:var(--ink);">Naty Netu&scaron;ilov&aacute;</td><td>NielsenIQ insider</td><td style="text-align:right; font-style:italic; color:var(--muted); font-size:13px;">Ad-hoc consultation</td></tr>
+                            <tr><td colspan="3" style="background: var(--surface-2); font-weight: 700; font-size: 12px; color: var(--ink-2); text-transform: uppercase;">Founders (management &amp; GTM)</td></tr>
+                            <tr><td style="font-weight:600; color:var(--ink);">Josef N&#283;me&#269;ek</td><td>Co-founder / management <span style="display:block; font-size:12px; color:var(--muted);">Structure: minimum wage + DPP to minimize taxes.</span></td><td style="text-align:right;" class="metric-val">~30,000 CZK</td></tr>
+                            <tr><td style="font-weight:600; color:var(--ink);">Ond&#345;ej &Scaron;antora</td><td>Co-founder / management <span style="display:block; font-size:12px; color:var(--muted);">Structure: minimum wage + DPP to minimize taxes.</span></td><td style="text-align:right;" class="metric-val">~30,000 CZK</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </details>
+
+        <details class="vc-case" style="margin-bottom: 48px;">
+            <summary>Detailed SaaS &amp; ops breakdown</summary>
+            <div class="vc-case-content">
+                <div class="table-container" style="margin-bottom: 0; box-shadow: none; border-radius: 8px;">
+                    <table>
+                        <thead>
+                            <tr><th>Vendor / service</th><th>Description</th><th style="text-align:right;">Avg monthly cost</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td colspan="2" style="background: var(--surface-2); font-weight: 700; font-size: 12px; color: var(--ink-2); text-transform: uppercase;">Tech stack &amp; infrastructure</td><td style="background: var(--surface-2); text-align: right; font-weight: 700; font-size: 12px; color: var(--ink-2);">SUM: ~3,560 CZK</td></tr>
+                            <tr><td style="font-weight:600; color:var(--ink);">Anthropic (Claude AI)</td><td>Core LLM engine</td><td style="text-align:right;" class="metric-val">~2,254 CZK <span style="font-size:11px; font-weight:normal; color:var(--muted); display:block;">(&euro;90)</span></td></tr>
+                            <tr><td style="font-weight:600; color:var(--ink);">Clerk.com</td><td>Auth infrastructure</td><td style="text-align:right;" class="metric-val">~537 CZK <span style="font-size:11px; font-weight:normal; color:var(--muted); display:block;">($25)</span></td></tr>
+                            <tr><td style="font-weight:600; color:var(--ink);">Cursor IDE</td><td>AI dev tooling</td><td style="text-align:right;" class="metric-val">520 CZK</td></tr>
+                            <tr><td style="font-weight:600; color:var(--ink);">Netcup</td><td>Hosting / server</td><td style="text-align:right;" class="metric-val">~249 CZK <span style="font-size:11px; font-weight:normal; color:var(--muted); display:block;">(&euro;9.89)</span></td></tr>
+                            <tr><td colspan="2" style="background: var(--surface-2); font-weight: 700; font-size: 12px; color: var(--ink-2); text-transform: uppercase;">Hardware</td><td style="background: var(--surface-2); text-align: right; font-weight: 700; font-size: 12px; color: var(--ink-2);">SUM: ~5,830 CZK</td></tr>
+                            <tr><td style="font-weight:600; color:var(--ink);">RPISHOP</td><td>Raspberry Pi &amp; sensors</td><td style="text-align:right;" class="metric-val">~4,270 CZK</td></tr>
+                            <tr><td style="font-weight:600; color:var(--ink);">Alza.cz</td><td>Peripherals &amp; electronics</td><td style="text-align:right;" class="metric-val">~1,560 CZK</td></tr>
+                            <tr><td colspan="2" style="background: var(--surface-2); font-weight: 700; font-size: 12px; color: var(--ink-2); text-transform: uppercase;">Comms &amp; productivity</td><td style="background: var(--surface-2); text-align: right; font-weight: 700; font-size: 12px; color: var(--ink-2);">SUM: ~4,918 CZK</td></tr>
+                            <tr><td style="font-weight:600; color:var(--ink);">Google Workspace</td><td>Company email &amp; storage</td><td style="text-align:right;" class="metric-val">~3,259 CZK <span style="font-size:11px; font-weight:normal; color:var(--muted); display:block;">(&euro;129.60)</span></td></tr>
+                            <tr><td style="font-weight:600; color:var(--ink);">Slack</td><td>Team communication</td><td style="text-align:right;" class="metric-val">~1,659 CZK <span style="font-size:11px; font-weight:normal; color:var(--muted); display:block;">(&euro;66.00)</span></td></tr>
+                            <tr><td colspan="2" style="background: var(--surface-2); font-weight: 700; font-size: 12px; color: var(--ink-2); text-transform: uppercase;">Sales &amp; growth</td><td style="background: var(--surface-2); text-align: right; font-weight: 700; font-size: 12px; color: var(--ink-2);">SUM: 2,198 CZK</td></tr>
+                            <tr><td style="font-weight:600; color:var(--ink);">LinkedIn</td><td>Premium / Sales Navigator</td><td style="text-align:right;" class="metric-val">2,198 CZK</td></tr>
+                            <tr><td colspan="2" style="background: var(--surface-2); font-weight: 700; font-size: 12px; color: var(--ink-2); text-transform: uppercase;">Travel, meetings &amp; ad-hoc ops</td><td style="background: var(--surface-2); text-align: right; font-weight: 700; font-size: 12px; color: var(--ink-2);">SUM: ~3,000 CZK</td></tr>
+                            <tr><td style="font-weight:600; color:var(--ink);">Various</td><td>T&amp;E, client meetings, bank fees</td><td style="text-align:right;" class="metric-val">~3,000 CZK</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </details>
+    </section>
+
+    <section class="section-block">
+        <div class="section-eyebrow">05 &middot; Evidence on the ground</div>
+        <h2 class="section-title">Pilot portfolio &amp; revenue progress</h2>
+        <p class="lede">Signed / in negotiation / target, always labelled as such, nothing here is dressed up as more than it is. This is also the live proof for the mechanism argument above: notice which pilots stalled (retailer-funded, no budget line) and which are converting into the data conversation (brand-funded or rights-oriented).</p>
+
+        <div class="params-grid" style="margin-bottom: 24px;">
+            <div class="param-card highlight">
+                <h3>Total Recurring Revenue</h3>
+                <p class="value">17,700 CZK</p>
+                <p class="sub">Monthly recurring revenue from running pilots</p>
+            </div>
+            <div class="param-card highlight" style="border-top-color: var(--gold);">
+                <h3 style="color: var(--gold);">Total One-off Revenue</h3>
+                <p class="value" style="font-size: 22px;">15,000+ CZK</p>
+                <p class="sub">From pilots and trials</p>
+            </div>
         </div>
-        <div class="param-card highlight" style="border-top-color: var(--gold);">
-            <h3 style="color: var(--gold);">Total One-off Revenue</h3>
-            <p class="value" style="font-size: 24px;">15,000+ CZK</p>
-            <p class="sub">From pilots and trials</p>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr><th>Client / pilot</th><th>Status</th><th>Revenue</th><th>Goal alignment &amp; update</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><div class="client-name">EuroOil</div></td>
+                        <td><span class="status-tag status-signed">Live</span></td>
+                        <td class="metric-val">11,800 CZK MRR</td>
+                        <td>4 devices deployed. In active talks with major tobacco brands to fund a data-model deployment. Working with Moris Design &amp; &#268;epro. <em>Note: POS matching on this pilot is modelled/illustrative, not yet receipt-verified, and we say so every time this data is used.</em></td>
+                    </tr>
+                    <tr>
+                        <td><div class="client-name">SuperZoo</div></td>
+                        <td><span class="status-tag status-signed">Live</span></td>
+                        <td class="metric-val">5,900 CZK MRR</td>
+                        <td>2 devices deployed, real receipt-level POS matching. Exploring both internal use and external brand-data monetisation. Highly engaged; some requested features sit outside our core focus and we're keeping the scope narrow.</td>
+                    </tr>
+                    <tr>
+                        <td><div class="client-name">CPI Property Group</div></td>
+                        <td><span class="status-tag status-signed">Live</span></td>
+                        <td class="metric-val">15,000 CZK <span style="font-size: 11px; font-weight: normal; color: var(--muted); display: block;">(one-off / 14 days)</span></td>
+                        <td>Paid pilot running now. Strong potential for rollout across the full CPI shopping-mall network.</td>
+                    </tr>
+                    <tr>
+                        <td><div class="client-name">Spiroq (vending)</div></td>
+                        <td><span class="status-tag status-negotiation">In negotiation</span></td>
+                        <td class="metric-val">Negotiating</td>
+                        <td>Pilot deployed on the Vilgain vending network. Negotiating expansion to 20 machines and eventually the full network. Primary goal is retaining data rights for cross-retailer monetisation, not the vending revenue itself.</td>
+                    </tr>
+                    <tr>
+                        <td><div class="client-name">GymBeam</div></td>
+                        <td><span class="status-tag status-target" style="background: var(--surface-2); color: var(--ink-2);">Completed</span></td>
+                        <td class="metric-val">2,950 CZK / mo</td>
+                        <td>Paid pilot completed; the flagship methodology proof (92% receipt-match rate). Value wasn't proven for the retailer's own direct use, which is itself the data point: another confirmation that a single-brand retailer is a hard ICP as a customer, but the calibration asset it produced is now core evidence for the brand pitch.</td>
+                    </tr>
+                    <tr>
+                        <td><div class="client-name">Manufaktura</div></td>
+                        <td><span class="status-tag status-target" style="background: var(--surface-2); color: var(--ink-2);">Completed</span></td>
+                        <td class="metric-val">Paid pilot</td>
+                        <td>Delivered a 4% sales uplift (12&times; ROI) for the retailer, but their broad pricing strategy meant deep visual segmentation didn't translate into direct recurring value for them. Data retained and used to validate the monetisation model. Another single-brand-retailer ICP miss.</td>
+                    </tr>
+                    <tr>
+                        <td><div class="client-name">O2</div></td>
+                        <td><span class="status-tag status-target" style="background: var(--surface-2); color: var(--ink-2);">Completed</span></td>
+                        <td class="metric-val">Paid pilot</td>
+                        <td>Ran for several months with cross-departmental interest (incl. PPF group). No immediate post-pilot use case pinned down; the topic stays alive internally. Deprioritised in our own pipeline given the shift toward FMCG brands.</td>
+                    </tr>
+                    <tr>
+                        <td><div class="client-name">&#268;SOB</div></td>
+                        <td><span class="status-tag status-target">Target</span></td>
+                        <td class="metric-val">15,000 CZK <span style="font-size: 11px; font-weight: normal; color: var(--muted); display: block;">(one-off offer)</span></td>
+                        <td>In preparation with the retail network team. One-off paid pilot offer awaiting final approval, not yet signed.</td>
+                    </tr>
+                    <tr>
+                        <td><div class="client-name">COOP</div></td>
+                        <td><span class="status-tag status-target">Target</span></td>
+                        <td class="metric-val">Awaiting</td>
+                        <td>Backing from central HQ; identifying the specific regional cooperative to launch the paid pilot with, not yet signed.</td>
+                    </tr>
+                    <tr>
+                        <td><div class="client-name">Planeo &amp; Teta drogerie</div></td>
+                        <td><span class="status-tag status-target">Target</span></td>
+                        <td class="metric-val">Awaiting</td>
+                        <td>Both approved by management, deployment scheduled Q3 2026, not yet live.</td>
+                    </tr>
+                    <tr>
+                        <td><div class="client-name">LUXX</div></td>
+                        <td><span class="status-tag status-cancelled">Cancelled</span></td>
+                        <td class="metric-val">-</td>
+                        <td>US/GER/CHN e-shelf manufacturer. After months of integration testing we couldn't find common ground; devices are being returned.</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
+    </section>
+
+    <div class="close-card">
+        <h2>To &Scaron;imon</h2>
+        <p>We wanted you to hear this directly from us, and in full, rather than as a headline: we've made a deliberate call to focus everything on the data business and put in-store personalization into a funded-only holding pattern. Your introduction to Marek, and his read on our old pitch, is a real part of why this update is structured the way it is: everything above is labelled as signed, in negotiation, or target, and every number in the financial model comes with its honest weak point attached rather than hidden.</p>
+        <p>As someone who's already in this with us, we'd genuinely value your read: if the multiple argument, the model, or the timeline looks thinner than it should from where you sit, we'd rather hear that now than in October.</p>
+        <p style="margin-bottom:0;">And if this ever crosses your mind for someone else in your circle, we'd welcome the introduction, but that's not why we're sending this. Thank you for backing us, and for staying close to this as it's changed shape. Happy to walk through any of it live whenever suits you.</p>
     </div>
 
-    <h2 class="section-title">Pilot Portfolio & Revenue Progress</h2>
-    <p class="kicker" style="font-size: 15px; margin-bottom: 24px;">Our progress towards the goals of our Q3/Q4 Action Plan across all current pilots and pipeline opportunities.</p>
-    
-    <div class="table-container">
-        <table>
-            <thead>
-                <tr>
-                    <th>Client / Pilot</th>
-                    <th>Status</th>
-                    <th>Revenue</th>
-                    <th>Goal Alignment & Update</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><div class="client-name">EuroOil</div></td>
-                    <td><span class="status-tag status-live">Live</span></td>
-                    <td class="metric-val">11,800 CZK MRR</td>
-                    <td>4 devices deployed. We are in active talks with major tobacco brands to deploy a "data model" where the brands pay for the insights. Working closely with Moris Design & Čepro.</td>
-                </tr>
-                <tr>
-                    <td><div class="client-name">Super zoo</div></td>
-                    <td><span class="status-tag status-live">Live</span></td>
-                    <td class="metric-val">5,900 CZK MRR</td>
-                    <td>2 devices deployed. Exploring further integration for both SuperZoo's internal use and external brand data monetization. They are highly engaged, though some of their requested features fall outside our core focus.</td>
-                </tr>
-                <tr>
-                    <td><div class="client-name">CPI Property Group</div></td>
-                    <td><span class="status-tag status-live">Live</span></td>
-                    <td class="metric-val">15,000 CZK <span style="font-size: 11px; font-weight: normal; color: var(--muted); display: block;">(One-off / 14 days)</span></td>
-                    <td>Paid pilot currently running. Strong potential for rollout across the entire CPI shopping mall network.</td>
-                </tr>
-                <tr>
-                    <td><div class="client-name">Spiroq</div></td>
-                    <td><span class="status-tag status-live">Live</span></td>
-                    <td class="metric-val">[Negotiating]</td>
-                    <td>Vending machine network. Pilot deployed for Vilgain. Currently negotiating expansion to 20 machines and eventually the full network. Our primary goal is retaining data rights for cross-retailer monetization.</td>
-                </tr>
-                <tr>
-                    <td><div class="client-name">GymBeam</div></td>
-                    <td><span class="status-tag" style="background: var(--surface-2); color: var(--ink-2);">Completed</span></td>
-                    <td class="metric-val">2,950 CZK / mo</td>
-                    <td>Paid pilot completed. The core value wasn't definitively proven for the retailer's direct use, but we are utilizing it to refine the data/external monetization model. Another confirmation that Monobrand is a challenging ICP.</td>
-                </tr>
-                <tr>
-                    <td><div class="client-name">Manufaktura</div></td>
-                    <td><span class="status-tag" style="background: var(--surface-2); color: var(--ink-2);">Completed</span></td>
-                    <td class="metric-val">Paid Pilot</td>
-                    <td>Delivered a 4% sales uplift (12x ROI). However, due to their broad pricing strategy, deep visual segmentation did not yield direct recurring value for them. Analyzed alternative use cases while we use the data to validate our monetization model. Monobrand setup proved challenging.</td>
-                </tr>
-                <tr>
-                    <td><div class="client-name">O2</div></td>
-                    <td><span class="status-tag" style="background: var(--surface-2); color: var(--ink-2);">Completed</span></td>
-                    <td class="metric-val">Paid Pilot</td>
-                    <td>Pilot ran for several months with cross-departmental meetings (incl. PPF group). We could not pinpoint an immediate post-pilot use-case, but the topic remains alive internally. Deployment is complicated by our shift in focus toward data and FMCG brands.</td>
-                </tr>
-                <tr>
-                    <td><div class="client-name">ČSOB</div></td>
-                    <td><span class="status-tag status-pipeline">Pipeline</span></td>
-                    <td class="metric-val">15,000 CZK <span style="font-size: 11px; font-weight: normal; color: var(--muted); display: block;">(One-off offer)</span></td>
-                    <td>In preparation with the retail network team. A one-off paid pilot offer is currently awaiting final approval.</td>
-                </tr>
-                <tr>
-                    <td><div class="client-name">COOP</div></td>
-                    <td><span class="status-tag status-pipeline">Pipeline</span></td>
-                    <td class="metric-val">[Awaiting]</td>
-                    <td>We have backing from the central HQ and are currently identifying a specific regional cooperative (družstvo) to launch the paid pilot.</td>
-                </tr>
-                <tr>
-                    <td><div class="client-name">Planeo</div></td>
-                    <td><span class="status-tag status-pipeline">Pipeline</span></td>
-                    <td class="metric-val">[Awaiting]</td>
-                    <td>Pilot officially approved by management, with deployment scheduled for Q3 2026.</td>
-                </tr>
-                <tr>
-                    <td><div class="client-name">Teta drogerie</div></td>
-                    <td><span class="status-tag status-pipeline">Pipeline</span></td>
-                    <td class="metric-val">[Awaiting]</td>
-                    <td>Pilot officially approved by management, with deployment scheduled for Q3 2026.</td>
-                </tr>
-                <tr>
-                    <td><div class="client-name">LCD Denmark</div></td>
-                    <td><span class="status-tag status-pipeline">Pipeline</span></td>
-                    <td class="metric-val">[Awaiting]</td>
-                    <td>Technology supplier for retail in Denmark. Currently in internal testing; discussing specific client deployments.</td>
-                </tr>
-                <tr>
-                    <td><div class="client-name">Eventique</div></td>
-                    <td><span class="status-tag status-pipeline">Pipeline</span></td>
-                    <td class="metric-val">[Awaiting]</td>
-                    <td>US event agency met in NYC. Potential deployment at their events. Awaiting a specific concrete opportunity.</td>
-                </tr>
-                <tr>
-                    <td><div class="client-name">LUXX</div></td>
-                    <td><span class="status-tag" style="background: var(--negative-soft); color: var(--negative);">Cancelled</span></td>
-                    <td class="metric-val">-</td>
-                    <td>US/GER/CHN manufacturer of e-shelves. After months of integration testing and discussions, we could not find common ground. Devices are being shipped back from China.</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
+    <p class="footnote">Prepared for &Scaron;imon &#352;ebek &middot; confidential, not for further distribution without checking with us first. Figures are the base case from our Sep 2026 financial model unless marked otherwise; tobacco/EuroOil POS figures are modelled and illustrative, not receipt-verified. Client names shared on the basis of our existing relationship; please don't forward externally.</p>
 </div>
 
 </body>
