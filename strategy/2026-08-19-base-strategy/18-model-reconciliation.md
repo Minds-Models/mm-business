@@ -489,3 +489,41 @@ Founder decision taken: the seed moves to month 13. The trough becomes 214,510 E
 Re-running the scenarios against the new cost base then found one more of the same family. Scenario 2 is labelled "No Series A", but the funding line paid the Series A out regardless of the scenario, so the scenario only slowed market entry and never tested the thing its name claims. The Series A amount is now conditional on the scenario. With it genuinely removed, total funding falls from 8.02M EUR to 3.02M EUR, 2031 ARR lands at 11.15M EUR instead of 15.44M EUR, cash never dips below 225,460 EUR and the company closes 2031 with 6.58M EUR. The Series A does not buy survival, it buys coverage.
 
 Scenario 3, the accelerated case, is the tight one: faster entry burns ahead of revenue and cash bottoms at 55,982 EUR. Worth knowing before anyone proposes running faster.
+
+---
+
+## Sixth pass: annual billing, and an ARR bridge instead of an assumed expansion rate
+
+### Annual billing in advance
+
+The model billed monthly in arrears with no working capital at all. That is not how syndicated measurement is sold: Nielsen, Circana and Kantar all take annual subscriptions in advance, and so do we. A new input sets the share of seats billed that way (60% in the base case). The unearned portion sits as deferred revenue and funds the business at no cost, held at half a year of the prepaid base on the assumption that renewals fall evenly through the year.
+
+The effect is on cash, not on the P&L. Closing cash at the end of 2031 rises from 8.76M EUR to 13.39M EUR, and the month-12 trough rises from 214,510 EUR to 297,130 EUR, which is nine months of cover rather than six and a half. The plan needs less capital than the burn alone suggests, which is worth being able to say.
+
+### Expansion: what I did not do, and why
+
+The instruction was to add expansion revenue and report NRR. I did not add an expansion rate, because it would have been a double count. The price ladder already delivers expansion: a seat sold into a slot at the founding tier is repriced to T1 after six months and to T2 once the category runs in two chains. That is expansion on an existing contract, and it is already in the revenue build. Layering an assumed growth rate on top of it would have counted the same money twice, which is the exact error this whole audit has been unwinding.
+
+So instead of assuming expansion, the model now measures it. A six-line ARR bridge sits under the annual summary:
+
+| | 2027 | 2028 | 2029 | 2030 | 2031 |
+|---|---|---|---|---|---|
+| Opening seat ARR | 81k | 650k | 1.99M | 4.26M | 8.94M |
+| + New business | 291k | 919k | 1.85M | 3.73M | 5.32M |
+| + Expansion (price ladder) | 301k | 524k | 695k | 1.52M | 2.20M |
+| - Churn | 23k | 103k | 269k | 582k | 1.04M |
+| = Closing seat ARR | 650k | 1.99M | 4.26M | 8.94M | 15.43M |
+| **NRR** | 443% | 165% | 121% | 122% | **113%** |
+
+Expansion is computed directly from slots crossing the T1 and T2 gates, priced at the gap between tiers. New business is then the balancing item. The bridge ties to ending ARR in every year.
+
+Two cautions belong with that 113%, and both are on the sheet. The 2027 and 2028 figures sit on a base of one to three slots, where a single slot repricing moves the percentage enormously: arithmetically right, comparatively meaningless. And the ladder is a one-time uplift per slot, not a perpetual engine. Once every slot has reached T2, NRR converges on 92%, which is one minus gross churn. Holding 113% past this horizon needs a real cross-sell motion into new categories and markets, and that is not modelled.
+
+Against a Benchmarkit 2025 median NRR of 101%, ending the plan at 113% on a derived rather than an assumed number is a good place to be.
+
+### Still open, not done
+
+Two items from the recommendation list were deferred by founder decision:
+
+- **Sales ramp.** The AE count uses the Bridge Group quota but not the Bridge Group ramp, which is 10 to 12 months to full productivity at 30 to 70% during ramp. Using half of a source is the same class of problem this audit keeps finding, and a partner who knows the benchmark will notice.
+- **Inference cost.** 45 EUR per capture store per month is 0.06 EUR per hour of continuous visual inference. It is the COGS input most likely to be challenged, and it has not been checked against real Gemini pricing at our frame rate.

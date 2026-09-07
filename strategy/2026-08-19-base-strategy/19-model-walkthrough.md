@@ -13,12 +13,12 @@ independent rebuild.
 
 | Year end | ARR | Revenue | Gross margin | EBITDA | Cash | Team |
 |---|---|---|---|---|---|---|
-| 2026 | 93k | 17k | 76.9% | (83k) | 475k | 8 |
-| 2027 | 662k | 290k | 71.2% | (522k) | 2.45M | 14 |
-| 2028 | 2.00M | 1.24M | 72.5% | (913k) | 1.54M | 24 |
-| 2029 | 4.28M | 3.23M | 72.8% | (595k) | 5.95M | 38 |
-| 2030 | 8.95M | 6.97M | 75.0% | 266k | 6.21M | 60 |
-| **2031** | **15.44M** | **12.40M** | **76.7%** | **2.73M** | **8.76M** | **69** |
+| 2026 | 93k | 17k | 76.9% | (83k) | 503k | 8 |
+| 2027 | 662k | 290k | 71.2% | (522k) | 2.65M | 14 |
+| 2028 | 2.00M | 1.24M | 72.5% | (913k) | 2.14M | 24 |
+| 2029 | 4.28M | 3.23M | 72.8% | (595k) | 7.23M | 38 |
+| 2030 | 8.95M | 6.97M | 75.0% | 266k | 8.90M | 60 |
+| **2031** | **15.44M** | **12.40M** | **76.7%** | **2.73M** | **13.39M** | **69** |
 
 Exit at a 10x revenue multiple: **154.4M**. Exit-year EBITDA margin **22.0%**, Rule of 40 score **94**,
 first profitable year **2030**. ARR per head **224k**, which sits between Benchmarkit's 2025 figures of
@@ -30,9 +30,15 @@ CAC payback **6.1 months**. LTV/CAC falls across the plan, from 14.9x to 9.9x, b
 are founder-led selling with almost no sales cost and the later years carry a real commercial
 organisation. That is the normalisation you want to see, not a deterioration.
 
-Two cash facts. Minimum across all 64 months is **14,750**, which is month 2, today, before the
-pre-seed lands. After the pre-seed, cash bottoms at **214,510 in month 12**, which is 6.5 months of
-cover, and it holds between 195k and 234k across all eight sensitivity cases.
+Net revenue retention ends the plan at **113%**, and it is measured rather than assumed: the only
+mechanism that raises revenue on a seat already sold is the price ladder, so expansion is computed
+from slots crossing the T1 and T2 gates. The ARR bridge under the annual summary shows the four
+moving parts. Benchmarkit's 2025 median NRR is 101%.
+
+Two cash facts. Minimum across all 64 months is **18,350**, which is month 2, today, before the
+pre-seed lands. After the pre-seed, cash bottoms at **297,130 in month 12**, which is 9.0 months of
+cover, and it holds between 262k and 333k across all eight sensitivity cases. Seats are billed
+annually in advance, so deferred revenue funds a meaningful part of the business at no cost.
 
 The stronger statement is what happens without the Series A. Set the scenario cell on MARKETS to 2 and
 the Series A is not raised at all: 3.02M of total funding instead of 8.02M. Expansion slows, 2031 ARR

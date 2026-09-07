@@ -1,125 +1,83 @@
-# Internal memo: Šimon meeting prep (not for Šimon)
+# Interní memo: osnova na schůzku se Šimonem (není pro Šimona)
 
-**Purpose:** align Ondrej and Josef on what we say, how we say it, and what we hold back, before
-we walk Šimon through `investor-presentation.html`. This file never leaves the two of us.
+**Účel:** jednoduchá struktura, kterou máme oba (Ondřej, Josef) před sebou během hodiny se
+Šimonem, a které se držíme. Nahrazuje předchozí, delší verzi tohoto memoranda. Tento soubor
+nikdy neopustí nás dva.
 
-**Who Šimon is, and what this meeting is actually for.** Šimon Šebek is an existing investor, and
-he's also the connector who introduced us to Marek Stacha. Marek's original critique of our old
-pitch (didn't separate reality from plan, couldn't see the VC case, questioned scale) is a big part
-of why this shift looks the way it does. **The primary purpose of this meeting is to update Šimon
-as someone who already has money in, not to pitch him or fish for favors.** He should walk out
-feeling well informed and more confident in the company, full stop. If a natural opening for
-introductions comes up, take it, but don't build the meeting around asking for one, and don't treat
-it as the point of sending him this update. This is also not the anchor ask (that's a separate,
-later conversation with Marek himself: anchor with real money, lend his name, five introductions).
-Don't blur the two.
+**Kdo je Šimon:** stávající investor, seznámil nás s Marekem Stachou. Tohle je update pro
+někoho, kdo už je s námi, ne pitch a ne žádost o peníze.
 
-## 1. The words we use and don't use
+**Jedno pravidlo pro celou hodinu:** neříkat "pivot". Říkat "změnili jsme plátce, ne produkt".
+Personalizaci rámovat jako utlumenou, ne zrušenou nebo zabitou.
 
-- Never say **"pivot."** Never say "the old model didn't work" or "we're changing direction."
-- Do say: **"we changed the payer, not the product."** Same engine, same data asset, different
-  buyer. If either of us slips and says "pivot" out loud in the meeting, don't correct it
-  mid-sentence, just don't repeat it.
-- Frame personalization as **demoted, not killed.** It's a real, working product where a brand
-  funds it directly (tobacco screens, EUR 120/device/month, unchanged). It stops being something
-  we sell as the company, or lead with.
-- Frame the cost changes as **reallocation, not survival.** We're deliberately shifting engineering
-  hours away from personalization work and into business-facing execution (rights conversations,
-  brand meetings, the proof artifacts the raise needs), roughly cost-neutral, time-boxed to 21 Nov,
-  reverts automatically if we don't have a term sheet by 16 Oct. Keep this qualitative in the room;
-  don't quote specific FTE percentages, since we haven't actually pinned down a precise split. This
-  is a founders' call under the EUR 400/day discipline, not a cash-emergency measure. If Šimon asks
-  "are you running out of money," the honest answer is: the wall is mid-December without new money,
-  the round is designed to land before that, and the standby bridge exists specifically so December
-  is never a surprise.
+## 1. Úvod, co chceme sdělit
 
-## 2. What's in the deck vs. what's true underneath (read this before the meeting)
+- Vnímáme dvě business lines: personalizaci a data.
+- Co jsme zjistili z pilotů o personalizaci:
+  - Retaileři nám říkali, že je to cool, ale prodávat víc přes obrazovky pro ně není jasný
+    business case, netrefuje se to do jejich core KPI.
+  - Nasazení personalizace má moc propojení na další oddělení retailera, technicky i
+    byznysově, interně i externě (retail media, agentury, potřeba interně zavést úplně
+    novou business line).
+- Co jsme zjistili od investorů, včetně toho, co říkal Marek, a co jsme slyšeli i od dalších VC:
+  - Omezená škálovatelnost personalizace: škáluje lineárně s počtem kusů hardwaru.
+  - Hardware je vždycky problém (instalace, servis, závislost na kapacitě retailera).
+  - Na Markův tip jsme mluvili s podobnými VC-backed firmami v oboru (Cruxo, SharpGrid),
+    abychom si ověřili, jak řeší škálování a exit.
 
-The deck is honest, but it necessarily simplifies. Know the fuller picture so a follow-up question
-doesn't catch either of us off guard.
+## 2. Hlavní bottlenecky, které jsme si definovali
 
-- **The financial model is the live Google Sheet, pulled the morning of this memo.** It already
-  has the D17 fix applied (founding seat at EUR 40k, not the old EUR 35k mix-up) and states the
-  pre-seed cap as EUR 6.5M post-money cleanly. It supersedes the older `12-numbers-external.md`
-  curve in the strategy pack, which is more conservative in the near term (EUR 0.4-0.7M by end
-  2026 vs. the model's EUR 93k), and that older doc has not been reconciled to this model yet. If
-  Šimon has seen an older number from us, that's why it looks different; the model in the deck is
-  the current, corrected one.
-- **Retailer revenue share is still an open internal question (C1).** The model runs 30% on the
-  single-chain labelled read and 0% on the cross-retailer aggregate. The mandate letter language
-  still says "up to 40%." We haven't fully closed this. Don't state a revenue-share number to
-  Šimon as final if he pushes on it; say it's a negotiating range we're still tuning per retailer
-  and per product, and that the aggregate (the part that actually drives the multiple) is never
-  shared, full stop.
-- **The tobacco / EuroOil POS numbers in the pilot table are modelled, not receipt-verified.**
-  Only GymBeam and SuperZoo have real receipt-level matching today. The deck already labels this,
-  but if either of us talks through the pilot table live, don't let the tobacco numbers sound as
-  solid as the SuperZoo/GymBeam ones in conversation, even though they're both in the same row
-  format on the page.
-- **21 Nov is a floor test, not a revenue milestone.** Internally we're using the "rule of one"
-  (one retailer paid in rights, one brand paid in cash, one investor paid in money, one
-  receipt-verified proof, one inbound we didn't chase) as the bar. If all we have by 21 Nov is a
-  small ARR number, that is not a bad outcome by our own design, and we should say that to Šimon
-  now so we're not explaining it defensively in December.
-- **The honest weak point in the model (month 13, ~Sep 2027, ~EUR 114k cash, about a month of
-  cover) is disclosed in the deck on purpose.** We found it, we're not hiding it, and we have two
-  named fixes (seed a month earlier, or ~EUR 250k more at pre-seed). If Šimon zeroes in on this,
-  that's a good sign he's actually testing the model rather than skimming it. Treat it as the
-  moment to show rigor, not a moment to get defensive.
-- **Team costs and vendor line items are exact, per your call to keep full detail.** Note for the
-  record: our own numbers file marks unit-cost and cost-structure detail as never-external
-  material, written with brand- and retailer-facing documents in mind, not an existing trusted
-  investor relationship. We're treating Šimon as the exception that rule was never meant to cover.
-  Keep it that way deliberately, not by default. If this deck's audience ever widens beyond
-  Šimon, that table should come out first.
-- **Client names (EuroOil, SuperZoo, GymBeam, CPI, etc.) are shown in full.** None of them currently
-  have written sign-off to be named publicly (`can_name_publicly: false` across the board in
-  `clients/*/facts.yaml`). That's fine for an existing relationship update, but it's the reason the
-  deck carries a "please don't forward externally" footer, and it's worth saying to Šimon out loud,
-  not just in a footnote: this is for him, not for wider circulation yet.
+- Hodnota a měřitelnost pro retailera, z toho vyplývající nízká urgence na jeho straně, z toho
+  vyplývající dlouhý sales cyklus.
+- Deployment: hardware, instalace a servis v každé prodejně, dlouhý lead time, závislost na
+  kapacitě a ochotě retailera.
 
-## 3. Likely questions, and who takes them
+## 3. Jak na to reagujeme
 
-- **"Why should I believe the next eight months look different?"** Lead with the mechanism
-  table (no CFO/procurement, software on existing cameras, mandate not a commercial contract,
-  inbound RFI), not a promise. Whoever is asked this should point at dates on the gate timeline
-  and invite him to check us against them.
-- **"Why does the model start so slow (EUR 93k this year) if the exit story is EUR 150M+?"**
-  Because it's bottom-up from unit economics (seats per slot, price ladder, churn), not a growth
-  curve we picked to look good. The shape is deliberately unglamorous near-term and the payoff is
-  in the compounding once the aggregate read exists. Don't oversell the near-term number; let the
-  stress-test table (still funded at -20% price, still funded at 25% churn) do the reassuring.
-- **"What if the retailer mandate gets refused?"** That's Gate 0/Gate 2 territory in the
-  strategy pack's own decision rule: mandate refused + pilots wouldn't pay is the scenario where we
-  go back to a paid-rights model instead. We don't need to volunteer the full fork logic to Šimon,
-  but whoever fields this should not improvise a new answer live; the answer is "we have a
-  pre-written decision rule for exactly that, tied to the 15 Oct gate."
-- **"What's Marek's role in this?"** He's still expected to lead/anchor a later conversation.
-  Don't ask Šimon to make that ask on our behalf, and don't let him think this meeting is
-  softening him up for a pitch to invest more himself. If he offers, take it warmly, but that's his
-  call to raise, not ours to angle for.
+- Flipujeme ICP z retailera na značky (na "consumer intelligence").
+  - Cenotvorba odvozená z nabídky NIQ a podobných měřicích firem, ne z ceníku personalizace.
+  - Retailery ale pořád potřebujeme, využíváme k tomu stávající kontakty, jako zdroj dat a
+    práv, ne jako platícího zákazníka.
+- Odstřihujeme se od lineární škálovatelnosti.
+  - Starý model: tržby rostou lineárně s počtem instalací.
+  - Nový model: stavíme vhled do retailu, jehož data a modely prodáváme univerzálně, stejné
+    čtení opakovaně nabídneme různým značkám v kategorii (syndikace), místo abychom budovali
+    jednoho zákazníka najednou.
+- Používáme stejný produkt a tech stack (naše IP) k tomu, abychom prodávali data.
+  - Hluboká vizuální analýza a interpretace vizuálních dat zákazníků zůstává stejná.
+- Personalizaci nezabíjíme, ale mrazíme; rozvíjíme její potenciál generovat výnos tam, kde už
+  funguje, například u EuroOil nebo SuperZoo.
+  - Možnost užší spolupráce s Moris Design na tendrech.
+- Větší focus na byznys: přesouváme čas inženýrů z vývoje personalizace do obchodní práce
+  (jednání o právech, schůzky se značkami, důkazní materiály pro raise), bez najímání navíc.
 
-## 4. How the meeting should feel, and the one soft opening if it comes up naturally
+## 4. Next steps a KPI do 21. listopadu
 
-This is an update, not a pitch and not an ask. The measure of success is that Šimon leaves better
-informed and more confident, and feels like we came to him with the honest picture, weak points
-included, before he had to go looking for it.
+- Retaileři: získat druhý datový mandát (2&times; mandát celkem).
+- Brandy: aspoň jedna značka reálně platící za čtení, podle vlastního "pravidla jednoho".
+- Investoři: naraisovat 500 tis. &euro;; mít připravenou odpověď na use of funds, včetně
+  možnosti část kola směrovat i na získávání dat od retailerů.
+- Data brokeři: cíl zatím přesně nemáme, doplnit před schůzkou nebo nechat otevřené.
 
-Two things worth doing, in this order of priority:
+## 5. Bottom line, 3 hlavní takeaways
 
-1. **Ask for his honest read.** Where does the multiple argument, the model, or the timeline look
-   thinner than it should from where he sits? He's earned candor, and getting it now beats getting
-   it in October.
-2. **Only if it comes up naturally,** mention that if anyone in his circle would find this specific
-   thesis, data and rights rather than cameras and hardware, worth a conversation, we'd welcome an
-   introduction. This is a "by the way," not a numbered ask, and the meeting should not feel
-   incomplete if it never comes up.
+1. Produkt a tech stack zůstává z 90 % stejný, mění se ICP.
+2. Posouváme se blíže k tomu, co je pro VC "backable" (škálovatelnost, exitovatelnost).
+3. Po dobu trvání blitzkriegu:
+   - neděláme personalizaci jako nový byznys,
+   - ICP je značka, věříme, že data pro značky mají hodnotu (srovnání s NIQ, v čem jsme lepší:
+     vizuál, výhodnější propozice),
+   - čas inženýrů přesouváme z personalizace do obchodní práce, bez propouštění a bez
+     najímání navíc.
 
-Do not ask him for money in this meeting. If he offers, that's his initiative, not something either
-of us steered toward.
+## 6. Eventuality (volitelné, jen pokud na to dojde)
 
-## 5. One-line alignment check before you walk in
+- Pokud by retailer odmítl datový mandát a piloti by za personalizaci neplatili: vracíme se k
+  placenému modelu práv s retailerem (vlastní rozhodovací pravidlo, vázané na gate 15. 10.).
+- Využití stávajícího tech stacku a týmu pro custom vývoj: SuperZoo, Nanovo, možnosti přes
+  Deloitte.
 
-Say it out loud to each other once, in these words, so you both open with the same frame:
-**"This is an update for someone who's already with us, not a pitch. We changed the payer, not the
-product, and we owe him the honest version of why, weak points included."**
+## Jak to podat (krátká připomínka)
+
+- Nejdřív si vyžádat Šimonův upřímný názor, teprve pak, jen pokud to přijde samo, zmínit
+  případná doporučení dalších lidí. Neptat se ho v této schůzce na peníze.
