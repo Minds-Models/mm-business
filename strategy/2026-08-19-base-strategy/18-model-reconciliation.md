@@ -752,3 +752,20 @@ A basis line under the table reads every relevant input straight from ASSUMPTION
 The row labels also carry their base values live now, so "seats per slot 0.5 lower" reads "2.8 at maturity, base 3.3" and recomputes if the depth or penetration inputs change, and "US entry slips 12 months" reads "month 40, base month 28" off the MARKETS preset rather than a typed number.
 
 Worth noting what this immediately surfaced: the basis line reads "1 months to first sale", which is the input drift flagged two passes ago and still unresolved. The mechanism works.
+
+---
+
+## The sensitivity basis, rebuilt as a card grid
+
+The live assumptions line under the sensitivity table worked but read as one long run-on sentence, which is the wrong shape for something a reader scans rather than reads. It is now a grid of sixteen cards under the table, four across and four down, each one a merged block carrying the assumption name in small grey type above its live value in bold:
+
+| | | | |
+|---|---|---|---|
+| Scenario | Founding seat price | T1 seat price, one chain | T2 seat price, two chains or more |
+| Aggregated seat price | Payable brands per category | Brand penetration at maturity | Aggregated attach rate |
+| Months to first paying seat | Months to mature penetration | Months to T2 density | Annual gross seat churn |
+| Billed annually in advance | United States entry | Tempo multiplier | Exit multiple |
+
+Every value is a formula reading the named range on ASSUMPTIONS or the live cell on MARKETS, so the grid restates the basis the moment anything moves, and the CHECKS guard turns red at the same time. Splitting the name and the value onto their own sheet rows is what allows the two to be styled differently while both stay live; a single cell containing a formula cannot carry mixed formatting.
+
+Small thing worth noting because it is the kind of detail that gets read as sloppiness: the month cards decline properly, so a value of one reads "1 month" rather than "1 months".
