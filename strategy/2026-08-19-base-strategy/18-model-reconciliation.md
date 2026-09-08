@@ -590,3 +590,56 @@ On top of these, in-market roles carry the labour multiplier to 1.35x at the ful
 ### One input moved and it was not me
 
 `Months_To_First_Sale` reads 1. It was 2 when the ASSUMPTIONS sheet was built, and 2 is the value the whole Sep-2026 revenue correction depended on. Nothing in this session wrote to it. It is flagged rather than reverted, because it is an input cell and the founder owns it. At 1 the plan ends 2031 at 15.69M EUR of ARR rather than 15.44M EUR. Every number in the workbook, the sensitivity table included, has been recomputed at the current setting so the sheet is internally consistent either way.
+
+---
+
+## Seventh pass: the raise was three times the need, and the fix was a bigger plan
+
+### The finding
+
+Running the model with the funding line switched off entirely showed what the business actually consumes. The worst point on that path was **minus 901,256 EUR in month 29**, so the true peak capital requirement was about **1.1M EUR**. The plan was raising **8,016,500 EUR** and finishing 2031 with **13.6M EUR of unspent cash**.
+
+Round by round it was worse than the total suggests. The pre-seed consumed 40% of itself before the seed. The seed consumed 17% of itself before the Series A. **The Series A consumed nothing at all**: after it landed, cash never fell again. Founders were giving away 38.5% of the company for capital that was 85% idle.
+
+That is not a modelling error. It is a capital-efficient European rollout wearing a venture costume, and any partner would have found it in ten minutes.
+
+### The fix: make the plan worth the money
+
+Rather than shrink the story to fit the burn, the plan now does more with the capital, and each round buys something specific that cannot happen without it.
+
+**The United States is a seventh market**, entering in month 28 with the Series A landing in month 27 to pay for it. Its cost is modelled as a one-off entry fee of 600,000 EUR plus 18,000 EUR a month of local fixed cost, roughly twice the DACH rate. The fee is deliberately a single number rather than a build-up: it covers a US entity, multi-state privacy counsel including the biometric-privacy regimes that govern camera-based systems in several states, a commercial beachhead, and a twelve to eighteen month retailer cycle carried before any revenue. A build-up would look more precise and be less honest.
+
+**The seed now pulls DACH forward** from month 25 to month 18, so it buys European proof rather than sitting on deposit.
+
+**Every round is sized to the runway it needs**, roughly six months of cover at the seed and nine at the Series A, rather than to a round number.
+
+### What it does
+
+| | Before | After |
+|---|---|---|
+| Total raised | 8,124,898 EUR | 6,374,898 EUR |
+| Capital actually consumed | ~1.1M of 8.0M | all of it |
+| 2031 ARR | 15.69M EUR | **20.29M EUR** |
+| Exit at 10x | 156.9M EUR | **202.9M EUR** |
+| **Founders at exit** | 55.3% | **60.1%** |
+| Pre-seed MOIC | 16x | **23x** |
+| 2031 EBITDA margin | 22.8% | 8.7% |
+| Headcount 2031 | 69 | 88 |
+
+Founders keep five points more of a company worth 46M EUR more, and the investors do better too because the pre-seed now returns 23x rather than 16x. Raising less and building more is not a trade here, it is strictly better on both sides of the table.
+
+The cost is the exit-year margin, down to 8.7%, because the US is still ramping in the final year of the horizon. With ARR growing 77% that is a Rule of 40 score in the mid eighties, which is the number that matters at this stage.
+
+### Salaries
+
+Raised to the Czech ninetieth percentile for the two scarce engineering roles, 107,000 EUR of employer cost, which implies about CZK 167,000 a month gross and matches the platy.cz upper decile for software engineers. Everything else sits near the seventy-fifth percentile. Applying the ninetieth percentile to all twelve roles was tested and lands the exit year at 1.9%, which is not a fundable plan and is not what any company does: the ninetieth percentile is what you pay a scarce ML engineer, not an SDR. The split is the defensible position and every rate is now checkable on the sheet in both EUR and CZK.
+
+### Two things flagged, not hidden
+
+**Scenario 3 no longer funds itself.** The accelerated case ends at 31.1M EUR of ARR but dips to minus 81,565 EUR of cash. Deploying harder than the base case needs more than a 4.0M Series A. That is worth knowing before anyone proposes it in a room.
+
+**Churn at 25% was the case that broke the plan** at the first sizing of the Series A. That is what moved it from 3.5M to 4.0M. At 4.0M every one of the nine tested cases stays funded, with the low point in month 12 in all of them, between 223k and 298k EUR.
+
+### Still open
+
+The T2 gate and the aggregated read both count chains rather than retailer groups. Two banners owned by one group satisfy the gate today. The T2 price rests on cross-chain coverage being a channel benchmark, and the aggregated read's 0% revenue share and 100% gross margin rest on no single retailer being able to claim it. Both weaken if the two chains are one group. Founder decision was to keep the chain mechanic and document it rather than re-gate on groups.
