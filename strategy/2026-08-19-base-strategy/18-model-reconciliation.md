@@ -712,3 +712,43 @@ The company exits the plan at a 17.9% run-rate, not at 8.7%.
 The tempo multiplier sat between the market entry columns as though it were another market. It has moved to the right of the US entry column, carries its own background and a divider, and is now explained: it multiplies every market's monthly opening rate, so at 1.25 a market that would take four months to open its next slot takes a little over three. It does not touch inventory, chain availability, entry months or price, only the speed at which live slots and chains accumulate once a market is open, and it is the only lever separating the accelerated scenario from the base case.
 
 All seven markets were then reconciled independently against the model rather than trusted. Per-market slots sum to 37 against a sheet total of 37, chains to 18 against 18, active markets 7, local fixed cost 49,500 EUR a month against 49,500 expected, cumulative entry cost 985,000 EUR against 985,000 expected, and the seven per-market T2 rows sum to the T2 total. The MODEL tab picks up all of it unchanged.
+
+---
+
+## Ninth pass: the exit multiple was argued from the wrong comparables
+
+### The mistake
+
+The previous pass defended the 10x exit by benchmarking it against disclosed SaaS M&A: median 4.5x revenue, upper quartile 8.1x, therefore 10x needs justifying. That was wrong, and it was wrong in a way that undercut the entire thesis. This company is not being built as software. The whole point of the model rebuild, the perpetual licence, the chain masking, the k>=25 regime and the POS match is to be a measurement currency rather than an analytics subscription. Benchmarking it against SaaS concedes the argument before it starts, and SaaS multiples are depressed right now for reasons that have nothing to do with data assets.
+
+The canon already had the derivation and it should have been used. From `why-not-nielseniq.md`: "a rented asset prices as a service at 3x to 4x, an owned rights portfolio prices as measurement at 8x to 12x." From `12-numbers-external.md`: the exit is stated at "a measurement-currency multiple of 8-12x". And the floor is in `11-research-annex.md`: a footfall incumbent was acquired at about 2.3x revenue, which the annex calls "the category's verdict on undifferentiated analytics".
+
+So the band was never 4.5x to 8.1x. It is 2.3x to 12x, and where a given asset lands inside it is a rights question, not a technology question.
+
+### What replaced it
+
+The exit section no longer mentions software comparables at all. It states what is actually being bought, which per the canon is not the models and not the deployed stores but the licence portfolio plus the POS match that makes it a currency, and it ranks the buyer set by what each is short of: measurement incumbents pay most because they buy a currency, in-store retail technology pays less because it buys capability, retail media pays for closed-loop proof, and a single retailer group pays least because it caps the asset at one chain.
+
+Beside it sits a live ladder where each multiple is labelled with what it assumes the buyer thinks they are buying:
+
+| Multiple | Exit value | Pre-seed MOIC | What it prices |
+|---|---|---|---|
+| 2.3x | 46.7M EUR | 5.3x | Undifferentiated store analytics, the footfall comparable |
+| 4x | 81.2M EUR | 9.2x | A rented asset, a terminable licence, priced as a service |
+| 8x | 162.3M EUR | 18.5x | An owned rights portfolio, low end of the measurement band |
+| **10x** | **202.9M EUR** | **23.1x** | **The plan. Midpoint of the measurement-currency band** |
+| 12x | 243.5M EUR | 27.7x | Competitive process, or more markets live |
+
+The returns paragraph now leads with the downside rather than the plan: even if the rights work fails entirely and this prices as undifferentiated analytics at 2.3x, the pre-seed returns 5.3x. At 4x it returns 9.2x. The case does not require winning the multiple argument, and saying so is stronger than defending 10x.
+
+This also makes the data-processing terms legible as what they are. The spread from 2.3x to 12x is roughly 200M EUR of exit value, and it turns on whether the licence is perpetual and cross-chain. That is why those terms sit in the model's assumptions rather than in a commercial annex.
+
+### The sensitivity table now shows its own basis
+
+The remaining objection to a typed sensitivity table was that a reader cannot see what it was computed on. Two things fixed that without pretending the table is live.
+
+A basis line under the table reads every relevant input straight from ASSUMPTIONS and MARKETS: scenario, all four seat prices, seat depth, penetration at maturity, the three timing gates, aggregated attach, churn, billing share, US entry month, tempo and the exit multiple. If an assumption moves, that line changes immediately, and the CHECKS guard added in the previous pass turns red at the same moment. The reader sees both the current basis and the warning.
+
+The row labels also carry their base values live now, so "seats per slot 0.5 lower" reads "2.8 at maturity, base 3.3" and recomputes if the depth or penetration inputs change, and "US entry slips 12 months" reads "month 40, base month 28" off the MARKETS preset rather than a typed number.
+
+Worth noting what this immediately surfaced: the basis line reads "1 months to first sale", which is the input drift flagged two passes ago and still unresolved. The mechanism works.
