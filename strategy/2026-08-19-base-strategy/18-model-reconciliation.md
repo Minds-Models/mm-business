@@ -661,3 +661,54 @@ Two banners under one owner are two different shopping environments: different a
 ## Formatting
 
 The scenario preset table on MARKETS had header and input styling that stopped at column F, so the three columns added since, Nordics entry, tempo and US entry, rendered as unstyled plain numbers next to styled ones, and integer entry months displayed with a trailing decimal point. Styling was extended by copying the existing formats rather than re-specifying colours, entry months now format as integers, the tempo multiplier as two decimals, and the scenario description column is widened and wrapped.
+
+---
+
+## Eighth pass: the exit multiple gets a floor, and the sensitivity table gets a guard
+
+### Why the sensitivity table is typed in, and what now stops it lying
+
+The question was fair: why are those numbers hard-coded rather than computed. The answer is that they cannot be computed in place. Each row requires changing an input, recalculating the entire model, and reading the result, and a sheet cannot recalculate itself under a different assumption while also displaying the base case. Excel has a Data Table feature for exactly this; Google Sheets has no equivalent. Every serious model handles it the same way: the sensitivity block is pasted values from a scripted run.
+
+The real risk is not that the values are typed, it is that they go stale silently when an assumption moves. That is now closed. A thirteenth integrity check compares the sensitivity table's own base-case ARR against the live model, and turns to CHECK the moment they diverge. The table cannot quietly misrepresent the plan any more; it can only be visibly out of date.
+
+Also fixed there: a stray Verdict column sitting one row below its header with a leftover tenth case underneath it, and a base-case row that had lost its number formatting. The verdicts are now live formulas reading the min-cash column rather than typed words.
+
+### The exit multiple now has a floor, not just an assertion
+
+The plan prices the exit at 10x ending ARR, which is 12.4x recognised 2031 revenue. Against disclosed SaaS M&A that is high: across 543 transactions the median is about 4.5x revenue and the upper quartile 8.1x, and deal size is the strongest single predictor of where a deal lands. Asserting 10x without acknowledging that was a weak spot.
+
+Two things were added. First, an honest paragraph: the multiple sits above general software comparables and stands only on the data argument, that an exclusive perpetually licensed panel matched to verified purchase is a scarce asset rather than a software subscription, bought by strategics rather than financial buyers. The category evidence is named rather than hinted at: Tesco built dunnhumby into a shopper data business it explored selling at close to 1bn USD, and Kroger bought the dunnhumbyUSA assets and built 84.51 around them. Retailers and measurement incumbents do buy these assets, and they buy them on the data.
+
+Second, a live exit multiple ladder beside the cap table:
+
+| Multiple on exit ARR | Exit value | On 2031 revenue | Pre-seed MOIC |
+|---|---|---|---|
+| 5x | 101.5M EUR | 6.2x | 11.6x |
+| 8x | 162.3M EUR | 9.9x | 18.5x |
+| 10x | 202.9M EUR | 12.4x | 23.1x |
+| 12x | 243.5M EUR | 14.8x | 27.7x |
+
+The useful line is the first one. Even at 5x, near the SaaS median rather than any data premium, the pre-seed still returns about 11.6x. The case does not depend on winning the multiple argument, which is a far stronger position than defending 10x to the death.
+
+### Is breakeven too late
+
+EBITDA turns positive in **month 57, May 2031**, and stays positive every month after. That is four and a half years from the pre-seed, at 20.3M EUR of ARR, on 6.4M EUR of total capital. For comparison, a venture-backed company at that ARR has typically raised ten times as much and is nowhere near profitable, so on capital efficiency this is not late at all.
+
+The honest weakness is different: the plan ends eight months after crossover, so it never demonstrates *sustained* profitability inside the horizon, and the full-year 2031 margin of 8.7% averages six loss-making months with six profitable ones. That understates where the business actually is at the end.
+
+Two rows were added next to EBITDA margin to show it properly, and neither is spin, both are the correct way to read a crossover year:
+
+| | 2029 | 2030 | 2031 |
+|---|---|---|---|
+| EBITDA margin, full year | (59.3%) | (22.0%) | 8.7% |
+| EBITDA margin, Q4 only | (48.0%) | (13.6%) | **16.2%** |
+| EBITDA margin, December annualised | (51.2%) | (15.9%) | **17.9%** |
+
+The company exits the plan at a 17.9% run-rate, not at 8.7%.
+
+### Tempo, and market arithmetic verified
+
+The tempo multiplier sat between the market entry columns as though it were another market. It has moved to the right of the US entry column, carries its own background and a divider, and is now explained: it multiplies every market's monthly opening rate, so at 1.25 a market that would take four months to open its next slot takes a little over three. It does not touch inventory, chain availability, entry months or price, only the speed at which live slots and chains accumulate once a market is open, and it is the only lever separating the accelerated scenario from the base case.
+
+All seven markets were then reconciled independently against the model rather than trusted. Per-market slots sum to 37 against a sheet total of 37, chains to 18 against 18, active markets 7, local fixed cost 49,500 EUR a month against 49,500 expected, cumulative entry cost 985,000 EUR against 985,000 expected, and the seven per-market T2 rows sum to the T2 total. The MODEL tab picks up all of it unchanged.
