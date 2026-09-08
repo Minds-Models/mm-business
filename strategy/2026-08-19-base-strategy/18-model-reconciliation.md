@@ -769,3 +769,36 @@ The live assumptions line under the sensitivity table worked but read as one lon
 Every value is a formula reading the named range on ASSUMPTIONS or the live cell on MARKETS, so the grid restates the basis the moment anything moves, and the CHECKS guard turns red at the same time. Splitting the name and the value onto their own sheet rows is what allows the two to be styled differently while both stay live; a single cell containing a formula cannot carry mixed formatting.
 
 Small thing worth noting because it is the kind of detail that gets read as sloppiness: the month cards decline properly, so a value of one reads "1 month" rather than "1 months".
+
+---
+
+## The card grid was live, and that made it lie
+
+The question was when the case table recomputes, and testing it properly exposed a flaw I had built in the previous pass rather than confirming the design worked.
+
+The test: change the T2 seat price on ASSUMPTIONS from 170,000 to 200,000 and watch three things.
+
+- Live 2031 ARR moved from 20,292,581 to 22,187,390. Correct.
+- The case table stayed at 20,292,581. Correct, it is a pasted run.
+- The CHECKS guard turned to CHECK. Correct.
+- **And the assumption card showed 200,000**, under a header reading "THE ASSUMPTIONS THIS TABLE WAS COMPUTED AT".
+
+That last one is the problem. The grid was built with live formulas, so the moment anything changed it displayed the *new* assumptions while claiming they were the ones the table below was computed at. It asserted something false, confidently, in the one place a reader goes to check the basis. That is worse than having no grid at all, and a guard on a separate tab does not fix it, because the contradiction sits right there on the page.
+
+### What it is now
+
+The sixteen cards are **frozen**. They are written as values when the sensitivity is run, so they are a record of that run rather than a mirror of the current state. They can no longer contradict the table they sit under.
+
+Staleness is instead surfaced where it cannot be missed, by a live banner directly above the table that reads one of two things:
+
+> CURRENT. This table was computed at the assumptions shown underneath it, and those still match the live model.
+
+> OUT OF DATE. An assumption has changed since this table was computed, so every number below is from the previous basis. Live 2031 ARR is now X against the Y this run used. Re-run the sensitivity before quoting anything from it.
+
+It names both numbers so the size of the drift is visible, not just its existence. Conditional formatting turns the banner green or red, the grid header changes to match, and the CHECKS guard still fires as a third signal.
+
+Verified end to end: at baseline the banner reads CURRENT; with the T2 price changed it reads OUT OF DATE and quotes 22,187,390 against 20,292,581 while the frozen cards still correctly show 170,000; reverting returns everything to CURRENT.
+
+### Answering the question directly
+
+Nothing recomputes the case table automatically, and nothing can, because a sheet cannot recalculate itself under a different assumption while displaying the base case. What the workbook now guarantees is that it cannot be quietly wrong: the moment an assumption moves, the banner goes red and names the gap, the header says the frozen basis no longer matches, and CHECKS flags it. The table is re-run by script, and after this pass the re-run also rewrites the frozen cards so the record and the results always move together.
