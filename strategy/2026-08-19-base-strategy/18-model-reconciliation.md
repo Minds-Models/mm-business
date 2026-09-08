@@ -802,3 +802,26 @@ Verified end to end: at baseline the banner reads CURRENT; with the T2 price cha
 ### Answering the question directly
 
 Nothing recomputes the case table automatically, and nothing can, because a sheet cannot recalculate itself under a different assumption while displaying the base case. What the workbook now guarantees is that it cannot be quietly wrong: the moment an assumption moves, the banner goes red and names the gap, the header says the frozen basis no longer matches, and CHECKS flags it. The table is re-run by script, and after this pass the re-run also rewrites the frozen cards so the record and the results always move together.
+
+---
+
+## Tenth pass: the sensitivity table is gone, and the model is better for it
+
+Founder call, and the right one. The case table was the only non-live block in an otherwise fully live workbook, and defending that one inconsistency had accumulated four moving parts: frozen assumption cards, a staleness banner, a CHECKS guard, and a re-run script. Four mechanisms to maintain nine rows of typed numbers.
+
+The argument that settled it: an analyst does not trust somebody else's precomputed cases anyway. They change the input and watch. The model now supports that properly, with every driver on one named ASSUMPTIONS sheet and the whole chain live through to the cap table and the exit.
+
+What made deletion safe rather than lossy is that the two cases that actually mattered were already live somewhere else:
+
+- **No Series A, US never opens.** Scenario cell on MARKETS set to 2. One cell, fully live.
+- **The exit at any multiple.** The ladder beside the cap table, live from 2.3x to 12x.
+
+So the table was mostly carrying tests an analyst can run in a minute, plus two it could not run better than the model already does.
+
+Removed: the nine-row case table, the sixteen frozen assumption cards, the staleness banner, the thirteenth CHECKS guard, and the narrative that read its ranges from the table. Also cleaned up while in there: a duplicate RETURNS paragraph left behind by an earlier row insert, and the rights-durability paragraph which had drifted out of order below it.
+
+In its place, a short section 7 that does three things. It says there is no pre-baked sensitivity table and why. It points at the two one-cell structural cases. And it states, as a claim we stand behind rather than a table that needs maintaining, what the plan was stress-tested against: pricing 20% below plan, gross churn at three times plan, half a seat less per slot, US entry slipping a year, and the US never opening. It stayed funded in all of them, and churn was the case that came closest, which is what sized the Series A at 4.0M rather than 3.5M.
+
+The ASSUMPTIONS header now carries the same instruction, since that is where someone will be sitting when they want to test something.
+
+Eleven integrity checks, zero formula errors, and SUMMARY is 76 rows instead of 96.
