@@ -643,3 +643,21 @@ Raised to the Czech ninetieth percentile for the two scarce engineering roles, 1
 ### Still open
 
 The T2 gate and the aggregated read both count chains rather than retailer groups. Two banners owned by one group satisfy the gate today. The T2 price rests on cross-chain coverage being a channel benchmark, and the aggregated read's 0% revenue share and 100% gross margin rest on no single retailer being able to claim it. Both weaken if the two chains are one group. Founder decision was to keep the chain mechanic and document it rather than re-gate on groups.
+
+---
+
+## Definition fix: the labelled read was described as single-chain
+
+The README defined the labelled read as "data from one named chain", and that was wrong at T2. The tier ladder does not sell a second seat when a second chain goes live; it reprices the same seat, because the read now spans both chains with each still named. The step from 80k to 170k buys a cross-retailer comparison, not extra volume. A brand can hold that labelled seat and the aggregated seat at the same time, so its ceiling in one category and one market is the T2 price plus the aggregated price.
+
+The distinction that matters is whether the retailer is NAMED, not how many chains feed the read. Labelled means named, aggregated means masked. Both can span several chains. The README now carries a worked example spelling this out month by month, written with neutral chain descriptions rather than real banner names, because naming real chains in a fundraising model implies partnerships that are not yet signed.
+
+## Chains, not parent companies, and why that is right
+
+Earlier passes flagged that the T2 gate and the aggregated read count chains rather than retail groups, and treated it as a weakness. On reflection and after founder input, it is the correct mechanic and the flag was overcautious.
+
+Two banners under one owner are two different shopping environments: different assortment, different buyer, different shopper mission. A brand comparing its conversion across them is getting real information, not an artefact of the data model. And the commercial point that the revenue-share waiver depends on rests on the contract rather than on the org chart: each chain is signed as its own counterparty with its own data-processing agreement, so an aggregate spanning two of them spans two counterparties regardless of who owns the shares above them. This is now stated on the README rather than left as an open item.
+
+## Formatting
+
+The scenario preset table on MARKETS had header and input styling that stopped at column F, so the three columns added since, Nordics entry, tempo and US entry, rendered as unstyled plain numbers next to styled ones, and integer entry months displayed with a trailing decimal point. Styling was extended by copying the existing formats rather than re-specifying colours, entry months now format as integers, the tempo multiplier as two decimals, and the scenario description column is widened and wrapped.
