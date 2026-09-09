@@ -1,6 +1,6 @@
 # Narrative library — approved strategic copy
 
-Status: working versions as of 2026-07-30. Copy marked ✅ is locked; ◻ is candidate.
+Status: working versions as of 2026-09-08 (brands section refreshed from the ICP research). Copy marked ✅ is locked; ◻ is candidate.
 Rule: deliverables reuse these lines verbatim. New strategic copy → founder sign-off → added here.
 
 ## Company one-liners (cover slogans)
@@ -38,10 +38,65 @@ Rule: deliverables reuse these lines verbatim. New strategic copy → founder si
   committují rozpočty."
 - **Brand:** "Closed-loop in-store measurement that exists nowhere else — starts as a study
   on live stores today. Three founding seats per category."
+  ⚠ This is the *company* line. It is not what you open a persona conversation with: see
+  "Brand messaging by persona" below. A brand is a buying centre of two to six people who
+  want opposite things, and one line for all of them lands on none of them.
 - **Data broker / partner:** "You own 'what sold'. We built the layer that doesn't exist —
   'who buys' — matched to transactions. Schema available; methodology is the kitchen."
 - **Investor:** "The measurement layer for physical retail — moat at data collection,
   margin at insights, partners do execution."
+
+## Brand messaging by persona (refreshed 8 Sep 2026)
+
+Full set of 18, with empathy maps, objections and talk tracks:
+**[`blitzkrieg/brands/icp/icp-brands.md` Part II](../blitzkrieg/brands/icp/icp-brands.md#part-ii-the-persona-playbook)**
+is the working file and the place to edit. The lines below are the locked subset for the personas
+who can actually commit money. If the two ever disagree, the playbook is newer.
+
+**The rule that governs all of it:** the person with the pain is almost never the person with the
+pen. Lead with the pain of the person in the room, not with the capability.
+
+- ◻ **Owner / jednatel (the pen):** "One number about your own shelf that you did not know, that
+  you can act on this quarter, and that nobody else in your category has."
+- ◻ **Trade / shopper marketing (the wallet):** "Independent proof of what your in-store money
+  actually bought, from a source the chain did not hand you."
+- ◻ **Sales / commercial director:** "A read your competitors do not have, funded from trade, that
+  changes where next year's investment goes."
+- ◻ **Private-label / own-brand lead:** "The first read of your own shopper that anyone has ever
+  offered you, and the answer to cannibalisation versus share-taking."
+- ◻ **Distributor / importer:** "Something to put in front of your principal that the principal
+  does not have: the Czech shopper for brands with no Czech entity."
+- ◻ **KAM (champion, never the buyer):** "An argument your buyer cannot answer with 'our numbers
+  say otherwise', because it came through them."
+
+### The KAM reframe (the answer to the publication lag)
+
+◻ "This is not ammunition your buyer will resent. It is evidence your buyer has already accepted."
+
+Because the retailer holds 90-day insight priority and a veto, anything a brand receives has
+already been seen and approved by its buyer. Against a panel read any buyer can contest, an
+uncontestable buyer-approved read is the better commercial instrument. Use this whenever the lag,
+the masking or the refused competitor cut comes up.
+
+### Never lead with, by persona
+
+- **Owner:** method, GDPR reassurance, or any version of "we can make you safe". He carries money
+  risk, not career risk; safety framing invents a doubt he did not have.
+- **Trade:** the words "insight" or "research". They route his spend to a budget he does not control.
+- **Brand manager:** personas. He has personas, and producing them is his own job.
+- **Insights / category / analyst:** a recommendation. Recommending is their status, and a
+  prescriptive vendor reads as a competitor. Descriptive first, "so what" only on request.
+- **Sales director:** a market claim from one store. Admit n=1 before he raises it; he is testing
+  whether we will.
+
+### Demo page copy (approved 7 Sep 2026)
+
+- ✅ **/brand hero:** "You are spending on a shopper you have never seen." / "Ask who they are."
+- ✅ **/investor hero:** "Online-grade behavioural data." / "Now from a physical shelf."
+- ✅ **/broker hero:** "You know what was bought." / "Ask who actually bought it."
+- ✅ **Section head, by audience:** "What the aisle knows that your sell-out cannot" (brand) /
+  "...that the receipt cannot" (investor) / "...that your POS cannot" (broker).
+  Note: "POS" is ambiguous on the brand page, where it reads as point-of-sale *materials*.
 
 ## Key metaphors & vocabulary
 
@@ -55,6 +110,18 @@ Rule: deliverables reuse these lines verbatim. New strategic copy → founder si
   Aggregated patterns only (k≥25)."
 - Avoid: "personal touch"/"disconnected" (old stage-4 framing), "collect data about
   individuals", "deep visual analysis of individuals", "tracking".
+- **Banned by the capability audit (8 Sep 2026), because we cannot measure them:**
+  **shelf, facing, fixture, planogram, share of shelf.** `attention_seconds` measures
+  attention to the camera on the ad screen, not to a product. Say "at the instrumented
+  screen location, store level".
+- **"Conversion" never travels alone.** The funnel stages attention and has no POS join.
+  The only honest buyer-versus-non-buyer claim is the receipt-matched visitors-against-
+  orders gap, which is store level and cannot say which product was declined.
+- **Never** "detection", "recognition", "verification", "age-gating" or "biometric
+  identification". Age is an estimate in decade bands with error bands, and "unknown" is
+  a real value that is never hidden or reallocated.
+- **One store is one store.** "At this store", never "the chain", "the market" or "your
+  category". Correct it in the same breath as the finding, not afterwards.
 
 ## Strategy spine (context for any new material)
 

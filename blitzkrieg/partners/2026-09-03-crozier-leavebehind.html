@@ -1,0 +1,749 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Who-Layer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&display=swap">
+<style>
+:root{
+  --page:#f7f9fc;
+  --card:#ffffff;
+  --card-2:#eef2f8;
+  --ink:#101a2b;
+  --ink-2:#3a4a60;
+  --muted:#6b7c93;
+  --line:#dee5ef;
+  --line-2:#c2ccdb;
+  --accent:#2563eb;
+  --accent-deep:#17356e;
+  --accent-soft:#eef4ff;
+  --accent-line:#d2e0fb;
+  --warn:#9a5518;
+  --warn-soft:#fbf3e8;
+  --warn-line:#e8d5b8;
+  --shadow:0 1px 2px rgba(16,26,43,.04),0 8px 22px -16px rgba(16,26,43,.22);
+  --inner:900px;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --page:#0b1017;
+    --card:#121a25;
+    --card-2:#18222f;
+    --ink:#e6ecf5;
+    --ink-2:#bcc9da;
+    --muted:#8496ad;
+    --line:#232f3f;
+    --line-2:#34435b;
+    --accent:#6ea8fe;
+    --accent-deep:#a8c8ff;
+    --accent-soft:#111f36;
+    --accent-line:#1e3560;
+    --warn:#d79a5e;
+    --warn-soft:#241a10;
+    --warn-line:#453a25;
+    --shadow:0 1px 2px rgba(0,0,0,.45),0 8px 22px -16px rgba(0,0,0,.8);
+  }
+}
+:root[data-theme="dark"]{
+  --page:#0b1017;
+  --card:#121a25;
+  --card-2:#18222f;
+  --ink:#e6ecf5;
+  --ink-2:#bcc9da;
+  --muted:#8496ad;
+  --line:#232f3f;
+  --line-2:#34435b;
+  --accent:#6ea8fe;
+  --accent-deep:#a8c8ff;
+  --accent-soft:#111f36;
+  --accent-line:#1e3560;
+  --warn:#d79a5e;
+  --warn-soft:#241a10;
+  --warn-line:#453a25;
+  --shadow:0 1px 2px rgba(0,0,0,.45),0 8px 22px -16px rgba(0,0,0,.8);
+}
+
+*{box-sizing:border-box}
+html{color-scheme:light dark;scroll-behavior:smooth}
+body{
+  margin:0;background:var(--page);color:var(--ink);
+  font-family:"IBM Plex Serif","Iowan Old Style",Georgia,serif;
+  font-size:16.5px;line-height:1.6;-webkit-font-smoothing:antialiased;
+}
+img{max-width:100%}
+.inner{max-width:var(--inner);margin:0 auto;padding:0 24px}
+
+.mono{font-family:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace}
+.cond{font-family:"IBM Plex Sans Condensed","Helvetica Neue",Arial,sans-serif}
+
+/* ---------- cover ---------- */
+.cover{padding:52px 0 30px;border-bottom:3px solid var(--accent)}
+.cover .eyebrow{
+  font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-size:10.5px;font-weight:600;
+  letter-spacing:.15em;text-transform:uppercase;color:var(--accent);
+  margin:0 0 18px;display:flex;flex-wrap:wrap;gap:6px 14px;
+}
+.cover .eyebrow .dot{color:var(--line-2)}
+.cover h1{
+  font-family:"IBM Plex Sans Condensed","Helvetica Neue",Arial,sans-serif;
+  font-size:clamp(1.9rem,4.8vw,2.85rem);font-weight:700;letter-spacing:-.02em;
+  line-height:1.06;margin:0 0 16px;text-wrap:balance;
+}
+.cover .sub{font-size:1.02rem;color:var(--ink-2);max-width:56ch;margin:0}
+
+/* ---------- slides ---------- */
+.slide{padding:42px 0 4px}
+.snum{
+  font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-size:10px;font-weight:600;
+  letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin:0 0 9px;
+}
+h2{
+  font-family:"IBM Plex Sans Condensed","Helvetica Neue",Arial,sans-serif;
+  font-size:clamp(1.4rem,3.1vw,1.9rem);font-weight:700;letter-spacing:-.014em;
+  line-height:1.1;margin:0 0 10px;text-wrap:balance;
+}
+.dek{font-size:1rem;color:var(--muted);max-width:58ch;margin:0 0 20px}
+h3{
+  font-family:"IBM Plex Sans Condensed","Helvetica Neue",Arial,sans-serif;
+  font-weight:600;font-size:1.02rem;letter-spacing:.005em;margin:26px 0 10px;
+}
+p{margin:0 0 13px;max-width:68ch}
+strong{font-weight:600}
+ul{margin:0 0 15px;padding-left:1.2em;max-width:68ch}
+li{margin-bottom:8px}
+li::marker{color:var(--line-2)}
+a{color:var(--accent)}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+/* ---------- chapter dividers ---------- */
+.chapter{
+  background:var(--accent-soft);
+  border-top:3px solid var(--accent);border-bottom:1px solid var(--accent-line);
+  margin-top:46px;
+}
+.chapter .inner{padding-top:26px;padding-bottom:26px}
+.chapter .tagline{
+  font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-size:10px;font-weight:600;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin:0 0 8px;
+}
+.chapter h2{
+  font-size:clamp(1.75rem,4.6vw,2.5rem);font-weight:700;letter-spacing:-.025em;
+  line-height:1;margin:0 0 10px;color:var(--accent-deep);text-transform:uppercase;
+}
+.chapter .pay{
+  font-family:"IBM Plex Sans Condensed","Helvetica Neue",Arial,sans-serif;
+  font-size:1rem;font-weight:600;color:var(--ink-2);margin:0;max-width:none;
+}
+.chapter .pay b{color:var(--accent-deep);font-weight:700}
+
+/* ---------- filter lists ---------- */
+.filters{list-style:none;margin:0 0 20px;padding:0;display:grid;gap:10px;max-width:none}
+.filter{
+  display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start;
+  background:var(--card);border:1px solid var(--line);border-left:3px solid var(--accent);
+  padding:16px 18px;margin:0;box-shadow:var(--shadow);
+}
+.filter .fnum{
+  font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-size:12px;font-weight:600;
+  color:var(--accent);line-height:1.2;padding-top:4px;
+}
+.filter .fbody{min-width:0}
+.filter .ftitle{
+  font-family:"IBM Plex Sans Condensed","Helvetica Neue",Arial,sans-serif;
+  font-size:1.1rem;font-weight:700;letter-spacing:-.008em;line-height:1.22;
+  margin:0 0 6px;display:block;text-wrap:balance;
+}
+.filter .fwhy{margin:0;color:var(--ink-2);font-size:.94rem;line-height:1.52;max-width:70ch}
+.filter .fwhy + .fwhy{margin-top:6px}
+.filter .fail{
+  display:inline-block;margin-top:8px;font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  font-size:9.5px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--warn);background:var(--warn-soft);border:1px solid var(--warn-line);padding:3px 8px;
+}
+.hardlabel{
+  display:inline-block;font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-size:10px;
+  font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);
+  border:1px solid var(--accent-line);background:var(--accent-soft);
+  padding:6px 11px;margin:0 0 14px;
+}
+
+/* ---------- emphasis ---------- */
+.oneline{
+  background:var(--card);border:1px solid var(--line);border-left:3px solid var(--accent);
+  padding:18px 20px;margin:0 0 20px;box-shadow:var(--shadow);max-width:none;
+}
+.oneline small{
+  display:block;font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-size:9.5px;
+  font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:9px;
+}
+.oneline span{
+  font-family:"IBM Plex Sans Condensed","Helvetica Neue",Arial,sans-serif;
+  font-size:clamp(1.08rem,2.4vw,1.3rem);font-weight:700;letter-spacing:-.012em;
+  line-height:1.24;display:block;text-wrap:balance;
+}
+.rule{
+  font-family:"IBM Plex Sans Condensed","Helvetica Neue",Arial,sans-serif;
+  font-size:clamp(1.05rem,2.3vw,1.24rem);font-weight:600;letter-spacing:-.008em;line-height:1.28;
+  border-top:2px solid var(--ink);border-bottom:1px solid var(--line);
+  padding:14px 0;margin:20px 0;text-wrap:balance;max-width:none;
+}
+
+/* ---------- loop ---------- */
+.loop{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);margin:0 0 9px}
+@media (min-width:700px){.loop{grid-template-columns:repeat(5,1fr)}}
+.loop .node{background:var(--card);padding:13px 13px}
+.loop .node b{
+  display:block;font-family:"IBM Plex Sans Condensed","Helvetica Neue",Arial,sans-serif;
+  font-size:.82rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:5px;
+}
+.loop .node span{display:block;font-size:.83rem;color:var(--ink-2);line-height:1.4}
+.loopnote{
+  font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-size:10px;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--muted);margin:0 0 20px;max-width:none;
+}
+
+/* ---------- tables ---------- */
+.tw{overflow-x:auto;margin:0 0 20px;border:1px solid var(--line);background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.9rem;min-width:520px}
+thead th{
+  font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-size:9.5px;font-weight:600;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-align:left;
+  padding:11px 14px;background:var(--card-2);border-bottom:1px solid var(--line-2);white-space:nowrap;
+}
+tbody td{padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.48;color:var(--ink-2)}
+tbody th{
+  font-family:"IBM Plex Sans Condensed","Helvetica Neue",Arial,sans-serif;
+  text-align:left;padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top;
+  font-size:.96rem;font-weight:600;line-height:1.3;color:var(--ink);
+}
+tbody tr:last-child td,tbody tr:last-child th{border-bottom:0}
+td.num{font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--ink);font-weight:600}
+.sm{display:block;font-weight:400;font-size:.86em;color:var(--muted);margin-top:3px;font-family:"IBM Plex Serif",Georgia,serif}
+
+/* ---------- cards ---------- */
+.note,.warn,.say{padding:16px 18px;margin:0 0 20px;max-width:none}
+.note{background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow)}
+.warn{background:var(--warn-soft);border:1px solid var(--warn-line);border-left:3px solid var(--warn)}
+.say{background:var(--accent-soft);border:1px solid var(--accent-line);border-left:3px solid var(--accent)}
+.note > :last-child,.warn > :last-child,.say > :last-child{margin-bottom:0}
+.h{
+  font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-size:9.5px;font-weight:600;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0 0 10px;
+}
+.warn .h{color:var(--warn)}
+.say .quote{font-style:italic;font-size:1.02rem;margin:0;color:var(--ink);max-width:70ch}
+
+/* ---------- principles ---------- */
+.prin{list-style:none;margin:0;padding:0;display:grid;gap:10px;max-width:none}
+@media (min-width:800px){.prin{grid-template-columns:repeat(3,1fr)}}
+.prin li{
+  background:var(--card);border:1px solid var(--line);border-top:3px solid var(--accent);
+  padding:17px 18px 19px;margin:0;box-shadow:var(--shadow);
+}
+.prin .pn{
+  font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-size:10px;font-weight:600;
+  letter-spacing:.14em;color:var(--accent);display:block;margin-bottom:8px;
+}
+.prin .pt{
+  font-family:"IBM Plex Sans Condensed","Helvetica Neue",Arial,sans-serif;
+  font-size:1.06rem;font-weight:700;letter-spacing:-.008em;line-height:1.22;
+  display:block;margin-bottom:8px;
+}
+.prin p{font-size:.91rem;color:var(--ink-2);margin:0;line-height:1.5;max-width:none}
+
+/* ---------- roles ---------- */
+.roles{list-style:none;margin:0 0 20px;padding:0;display:grid;gap:10px;max-width:none}
+.roles li{
+  display:grid;grid-template-columns:auto 1fr;gap:14px;background:var(--card);
+  border:1px solid var(--line);padding:15px 18px;margin:0;box-shadow:var(--shadow);
+}
+.roles .rn{
+  font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-size:12px;font-weight:600;
+  color:var(--accent);padding-top:3px;
+}
+.roles b{
+  font-family:"IBM Plex Sans Condensed","Helvetica Neue",Arial,sans-serif;
+  display:block;font-size:1.06rem;font-weight:700;letter-spacing:-.008em;margin-bottom:4px;
+}
+.roles span.t{color:var(--ink-2);font-size:.94rem;line-height:1.5}
+
+footer{margin-top:52px;border-top:2px solid var(--ink)}
+footer .inner{padding-top:16px;padding-bottom:34px}
+footer p{
+  font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-size:10px;letter-spacing:.11em;
+  text-transform:uppercase;color:var(--muted);margin:0;max-width:none;
+}
+/* ============ PRINT: 16:9 presentation deck, one section per page ============ */
+@page{size:13.333in 7.5in;margin:0}
+@media print{
+  /* force the light palette: a dark-mode machine must not tint the deck */
+  :root,:root[data-theme="dark"]{
+    --page:#ffffff;--card:#ffffff;--card-2:#eef2f8;
+    --ink:#101a2b;--ink-2:#3a4a60;--muted:#6b7c93;
+    --line:#dee5ef;--line-2:#c2ccdb;
+    --accent:#2563eb;--accent-deep:#17356e;--accent-soft:#eef4ff;--accent-line:#d2e0fb;
+    --warn:#9a5518;--warn-soft:#fbf3e8;--warn-line:#e8d5b8;
+    --shadow:none;
+  }
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  html,body{background:#fff}
+  body{font-size:10.7pt;line-height:1.46}
+
+  /* every top-level block is exactly one slide */
+  .cover,.slide,.chapter{
+    position:relative;
+    width:13.333in;height:7.5in;padding:12mm 18mm 16mm;margin:0;
+    display:flex;flex-direction:column;overflow:hidden;
+    break-after:page;page-break-after:always;break-inside:avoid;
+    border-top:0;border-bottom:0;
+  }
+  .cover{justify-content:center}
+  .chapter{justify-content:center;background:var(--accent-soft)}
+  .cover::before,.chapter::before{
+    content:"";display:block;width:52mm;height:0;
+    border-top:2.6pt solid var(--accent);margin-bottom:7mm;
+  }
+  .cover .inner,.slide .inner,.chapter .inner{max-width:none;width:100%;padding:0;margin:0}
+
+  /* running foot on every slide */
+  .cover::after,.slide::after,.chapter::after{
+    content:"Minds & Models  \00b7  Confidential  \00b7  Prepared for Rodolph Crozier  \00b7  3 Sep 2026";
+    position:absolute;left:18mm;right:18mm;bottom:7mm;
+    padding-top:3mm;border-top:.5pt solid var(--line);
+    font-family:"IBM Plex Mono",monospace;font-size:6.2pt;letter-spacing:.09em;
+    text-transform:uppercase;color:var(--muted);
+  }
+  footer{display:none}
+
+  /* deck type scale */
+  .cover h1{font-size:36pt;line-height:1.03;margin-bottom:6mm}
+  .cover .sub{font-size:13pt;line-height:1.38;max-width:62ch}
+  .cover .eyebrow{font-size:7.5pt;margin-bottom:7mm}
+  .chapter h2{font-size:46pt;line-height:.96;margin-bottom:4mm}
+  .chapter .tagline{font-size:8pt;margin-bottom:3mm}
+  .chapter .pay{font-size:14pt}
+  h2{font-size:21pt;line-height:1.06;margin-bottom:2.5mm}
+  .snum{font-size:7.5pt;margin-bottom:2.5mm}
+  .dek{font-size:11.6pt;margin-bottom:5mm;max-width:74ch}
+  .rule{font-size:13.5pt;padding:3mm 0;margin:4mm 0;max-width:none}
+  .oneline{padding:4mm 5mm;margin-bottom:4.5mm}
+  .oneline span{font-size:14pt}
+  .oneline small{margin-bottom:2.5mm}
+
+  /* use the width: bullets and card lists run two-up */
+  ul{columns:2;column-gap:14mm;max-width:none;margin-bottom:4mm}
+  li{break-inside:avoid;margin-bottom:3.2mm}
+  p{max-width:none}
+  .filters{grid-template-columns:1fr 1fr;gap:3mm 4mm;margin-bottom:4.5mm}
+  .roles{grid-template-columns:1fr 1fr;gap:3mm 4mm}
+  .prin{grid-template-columns:repeat(3,1fr);gap:4mm}
+
+  .filter{padding:3.4mm 4.4mm}
+  .filter .ftitle{font-size:11.5pt}
+  .filter .fwhy{font-size:9.7pt;line-height:1.42;max-width:none}
+  .filter .fail{font-size:6.4pt}
+  .prin li{padding:4mm 4.6mm}
+  .prin .pt{font-size:12pt}
+  .prin p{font-size:9.8pt}
+  .roles li{padding:3.4mm 4.6mm}
+  .roles b{font-size:11.5pt}
+  .roles span.t{font-size:9.8pt}
+  .note,.warn,.say{padding:3.6mm 4.6mm;margin-bottom:4mm}
+  .say .quote{font-size:11.5pt;max-width:none}
+  .hardlabel{margin-bottom:3.5mm}
+  .loop .node{padding:3mm 3.2mm}
+  .loop .node span{font-size:9pt}
+  .loopnote{margin-bottom:4.5mm;max-width:none}
+
+  /* tables must not scroll or clip on paper */
+  .tw{overflow:visible;margin-bottom:4mm}
+  table{min-width:0;font-size:10.1pt}
+  thead th{padding:2.4mm 4mm;font-size:7.2pt}
+  tbody td,tbody th{padding:2.8mm 4mm}
+  tbody th{font-size:10.2pt}
+
+  .filter,.prin li,.roles li,.note,.warn,.say,.oneline,.tw,.loop{
+    box-shadow:none;break-inside:avoid;
+  }
+  a{color:var(--ink);text-decoration:none}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+
+<header class="cover">
+  <div class="inner">
+    <p class="eyebrow">
+      <span>Minds &amp; Models</span><span class="dot">/</span>
+      <span>Partner brief</span><span class="dot">/</span>
+      <span>3 Sep 2026</span><span class="dot">/</span>
+      <span>Confidential</span>
+    </p>
+    <h1>Retail knows what sold.<br>Nobody knows who buys.</h1>
+    <p class="sub">We built the missing layer. This is how the business works, who pays for it, and exactly which companies are worth an hour.</p>
+  </div>
+</header>
+
+<section class="slide">
+  <div class="inner">
+    <p class="snum">01 / The product</p>
+    <h2>What we actually sell</h2>
+    <p class="dek">Not a screen, not a device, not a store. We sell a category read.</p>
+
+    <div class="oneline">
+      <small>The licensed sentence</small>
+      <span>Syndicated data tells you what sold. We show you who buys it, in the aisle, receipt-verified.</span>
+    </div>
+
+    <ul>
+      <li><strong>450+ detectable visual attributes</strong>, about 88 captured per shopper.</li>
+      <li><strong>Matched to the receipt: 92%</strong> of orders at our pilot store.</li>
+      <li>No faces, no identities, no cross-visit tracking. Aggregated outputs only.</li>
+      <li><strong>No substitute exists.</strong> Counters count bodies. Shelf cameras watch shelves. Panels are recall.</li>
+    </ul>
+
+    <p class="rule">The unit is the category read: built once, sold to every brand in that category. Store count is supply, never revenue.</p>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="inner">
+    <p class="snum">02 / The pivot</p>
+    <h2>Why we stopped selling screens</h2>
+    <p class="dek">Same technology. Different customer.</p>
+    <ul>
+      <li><strong>The data was always the base.</strong> To personalize anything, you first have to read who is standing there. That capture layer is what we actually built.</li>
+      <li><strong>In-store media is a hard market.</strong> Many stakeholders, long chains, slow decisions.</li>
+      <li><strong>Retailers do not use in-store media to lift their own sales.</strong> They use it to sell space to brands. In that model the retailer is a landlord, not a user.</li>
+      <li><strong>So we were not solving any of their top three problems.</strong> We were selling them a channel they resell.</li>
+      <li><strong>Brands have a far bigger appetite for the data, and it scales better.</strong> One retailer estate serves many brands.</li>
+    </ul>
+    <div class="note">
+      <p class="h">What did not get thrown away</p>
+      <p>Personalization and in-store media stay in the portfolio as an application layer and a partner channel. They are no longer the pitch.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="inner">
+    <p class="snum">03 / The system</p>
+    <h2>One loop, three currencies</h2>
+    <div class="loop">
+      <div class="node"><b>Rights</b><span>Retailers licence anonymous aggregates</span></div>
+      <div class="node"><b>Data</b><span>Their cameras, our software, at the edge</span></div>
+      <div class="node"><b>Proof</b><span>Matched to the receipt</span></div>
+      <div class="node"><b>Revenue</b><span>Brands buy the category read</span></div>
+      <div class="node"><b>Pull</b><span>Paid brands make retailer no. 2 say yes</span></div>
+    </div>
+    <p class="loopnote">The loop compounds. Proof is reusable across chains, and outbound turns into inbound.</p>
+
+    <div class="tw">
+      <table>
+        <thead><tr><th>Market</th><th>Pays in</th><th>Gets</th></tr></thead>
+        <tbody>
+          <tr><th>Brands</th><td class="num">Cash</td><td>The category read, as an annual seat</td></tr>
+          <tr><th>Retailers</th><td class="num">Rights</td><td>Free platform, own-store insight, share of attributed revenue</td></tr>
+          <tr><th>Media operators, brokers</th><td class="num">Distribution</td><td>The audience layer under their own product</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="rule">Collect at 1, sell at 2 and 3, partner at 4.</p>
+    <p>1 collect (hard, the moat) &middot; 2 insight &middot; 3 actions &middot; 4 execution (crowded, capital-heavy).</p>
+  </div>
+</section>
+
+<div class="chapter">
+  <div class="inner">
+    <p class="tagline">Chapter one</p>
+    <h2>Brands</h2>
+    <p class="pay">They pay in <b>cash</b>. This is the customer.</p>
+  </div>
+</div>
+
+<section class="slide">
+  <div class="inner">
+    <p class="snum">04 / Inside a brand</p>
+    <h2>Three buyers, three budgets, three reasons</h2>
+    <p class="dek">The one who loves it is rarely the one who signs. You need all three.</p>
+    <div class="tw">
+      <table>
+        <thead><tr><th>Who</th><th>Their question</th><th>Budget</th></tr></thead>
+        <tbody>
+          <tr>
+            <th>Trade marketing<span class="sm">category, key account</span></th>
+            <td>Where do I sell, on what terms, how do I argue with the retailer</td>
+            <td class="num">Trade marketing<span class="sm">the biggest wallet</span></td>
+          </tr>
+          <tr>
+            <th>Insights<span class="sm">P&amp;G calls it CMK, Nestl&eacute; calls it Market Intelligence</span></th>
+            <td>Is the method sound, does it beat what I buy today</td>
+            <td class="num">Research</td>
+          </tr>
+          <tr>
+            <th>Brand or marketing manager</th>
+            <td>Which segment moves, did the campaign work</td>
+            <td class="num">Brand and media</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="rule">Trade marketing pays. Insights vetoes. Never single-thread a brand.</p>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="inner">
+    <p class="snum">05 / The brand filter</p>
+    <h2>Which brands are worth an hour</h2>
+    <p class="dek">Not size. Not category. Five filters, applied in this order.</p>
+    <p class="hardlabel">All five are non-negotiable</p>
+
+    <ol class="filters">
+      <li class="filter">
+        <span class="fnum">01</span>
+        <span class="fbody">
+          <span class="ftitle">A local pen</span>
+          <p class="fwhy">Can this legal entity sign about EUR 40k <strong>without the signature leaving the country?</strong> Owner-managed Czech or Slovak firms qualify, and so does a country GM who is personally a registered statutory officer.</p>
+          <span class="fail">Fails if the budget sits in Warsaw, Bucharest, Vienna, Bratislava or Basel</span>
+        </span>
+      </li>
+      <li class="filter">
+        <span class="fnum">02</span>
+        <span class="fbody">
+          <span class="ftitle">A wallet that makes EUR 40k trivial</span>
+          <p class="fwhy">Measured against <strong>filed net profit, not revenue.</strong> A big top line with thin margins prices at the floor and argues about every crown.</p>
+        </span>
+      </li>
+      <li class="filter">
+        <span class="fnum">03</span>
+        <span class="fbody">
+          <span class="ftitle">Physically on shelf in an estate we have</span>
+          <p class="fwhy">Or one we will have. A brand with no presence in our stores has nothing to buy.</p>
+        </span>
+      </li>
+      <li class="filter">
+        <span class="fnum">04</span>
+        <span class="fbody">
+          <span class="ftitle">Decides in weeks, not quarters</span>
+          <p class="fwhy">Weeks to three months is a live seat. Three to six months is next year's order. Slower than that is pipeline, not plan.</p>
+        </span>
+      </li>
+      <li class="filter">
+        <span class="fnum">05</span>
+        <span class="fbody">
+          <span class="ftitle">Sits in a category with depth</span>
+          <p class="fwhy">We need roughly five payable brands in a category for the read to syndicate. One buyer is a study. Three or more is a currency.</p>
+        </span>
+      </li>
+    </ol>
+
+    <div class="say">
+      <p class="h">When the pen is unknown, ask this. End of the meeting, before any price</p>
+      <p class="quote">"If you wanted to commission a Czech-only shopper study, roughly CZK 1m, from a new vendor, would that be your signature, or would it clear above Prague?"</p>
+    </div>
+    <p><strong>The parent's nationality is not the filter. The budget's location is.</strong> Some Czech-owned companies fail this test, and some multinationals pass it.</p>
+  </div>
+</section>
+
+<div class="chapter">
+  <div class="inner">
+    <p class="tagline">Chapter two</p>
+    <h2>Retailers</h2>
+    <p class="pay">They pay in <b>rights</b>, never in cash.</p>
+  </div>
+</div>
+
+<section class="slide">
+  <div class="inner">
+    <p class="snum">06 / The offer</p>
+    <h2>Free platform, and a share of what we sell</h2>
+    <ul>
+      <li><strong>They never pay cash.</strong> They grant rights.</li>
+      <li>They receive the platform free on their existing cameras, their own store insight from day one, an AI chatbot over their own traffic data, and a ready-to-sign compliance pack.</li>
+      <li><strong>Revenue share is a real model, not a concession.</strong> Up to 40% on retailer-attributed products. The frame is "we help you monetize your own audience", a business we build for them.</li>
+      <li><strong>It is a founding data-partner term.</strong> Once a category read exists, later chains in that category no longer need the share to make the deal work, and they do not get it.</li>
+      <li><strong>Their footage and till data stay theirs.</strong> Footage never leaves the store. What we hold is the anonymous aggregate, licensed to us, perpetual and non-exclusive.</li>
+    </ul>
+    <div class="note">
+      <p class="h">Why they say yes</p>
+      <p>The asymmetry inverted. Today their suppliers know their shopper better than they do, and that gap is used against them in every trade negotiation.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="inner">
+    <p class="snum">07 / The retailer score</p>
+    <h2>Which chains we want</h2>
+
+    <div class="oneline">
+      <small>Start here</small>
+      <span>Do not count stores. A 90-store multibrand drugstore chain beats a 300-store own-brand chain.</span>
+    </div>
+    <p class="hardlabel">Five filters, all non-negotiable</p>
+
+    <ol class="filters">
+      <li class="filter">
+        <span class="fnum">01</span>
+        <span class="fbody">
+          <span class="ftitle">Multibrand, not private label</span>
+          <p class="fwhy">High third-party SKU share is the whole point. We sell brands a read of their own shoppers, so if the shelf is mostly the retailer's own brands, there is nobody to sell to.</p>
+          <span class="fail">Fails if the assortment is majority own-brand</span>
+        </span>
+      </li>
+      <li class="filter">
+        <span class="fnum">02</span>
+        <span class="fbody">
+          <span class="ftitle">Company-operated, with central IT</span>
+          <p class="fwhy">One signature covers the estate. Franchise means negotiating twice. A co-operative multiplies the cycle by the number of independent owners.</p>
+          <span class="fail">Fails on fragmented co-ops, however big the store count looks</span>
+        </span>
+      </li>
+      <li class="filter">
+        <span class="fnum">03</span>
+        <span class="fbody">
+          <span class="ftitle">Category breadth: how many reads it unlocks</span>
+          <p class="fwhy">This is where the value actually sits. Grocery <strong>15 to 25</strong> &middot; drugstore and HPC <strong>5 to 8</strong> &middot; petrol and convenience <strong>2 to 4</strong> &middot; electro and sport <strong>1 to 3</strong> &middot; pet specialty <strong>1 to 2</strong>.</p>
+          <p class="fwhy">Two 200-store chains can differ by an order of magnitude on this one line alone.</p>
+        </span>
+      </li>
+      <li class="filter">
+        <span class="fnum">04</span>
+        <span class="fbody">
+          <span class="ftitle">60 to 150 stores</span>
+          <p class="fwhy">The sweet spot: fast enough to decide, big enough to be statistically real. Under 30 is thin. Over 500 is a two-year procurement cycle.</p>
+        </span>
+      </li>
+      <li class="filter">
+        <span class="fnum">05</span>
+        <span class="fbody">
+          <span class="ftitle">A warm way in</span>
+          <p class="fwhy">Founder-led, mid-size, one person can say yes. Warm intro beats second degree beats cold, every time, and the gap is not small.</p>
+        </span>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<div class="chapter">
+  <div class="inner">
+    <p class="tagline">Chapter three</p>
+    <h2>Partners</h2>
+    <p class="pay">They pay in <b>distribution</b>.</p>
+  </div>
+</div>
+
+<section class="slide">
+  <div class="inner">
+    <p class="snum">08 / Media operators and brokers</p>
+    <h2>We are the layer under retail media</h2>
+    <p class="dek">Not a competitor to it.</p>
+    <ul>
+      <li><strong>RMN and DOOH operators are already asked by their clients for audience proof</strong> and cannot deliver it. We can, running on their own players and under their own site contracts. This is the NANOVO conversation.</li>
+      <li><strong>Two different deals, never merged:</strong> operator access (their estate, our measurement) and data distribution (a partner reselling the read).</li>
+      <li>Brokers and insight agencies are distribution and optionality, not the core.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="inner">
+    <p class="snum">09 / Money</p>
+    <h2>What it costs</h2>
+    <div class="tw">
+      <table>
+        <thead><tr><th>Layer</th><th>Price</th><th>What it is</th></tr></thead>
+        <tbody>
+          <tr><th>Study</th><td class="num">150 to 500k CZK<span class="sm">one-off</span></td><td>A single read. Not a subscription</td></tr>
+          <tr><th>Founding seat</th><td class="num">floor EUR 40k</td><td>Year one, max 3 per category, discounted, density escrow</td></tr>
+          <tr><th>List</th><td class="num">EUR 75 to 122k / yr</td><td>30 to 60 stores, one chain</td></tr>
+          <tr><th>Channel currency</th><td class="num">EUR 122 to 327k / yr</td><td>150 to 300 stores, two or more chains</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <ul>
+      <li><strong>Public anchor:</strong> a Czech state agency pays ACNielsen about 3.7M CZK a year for a monthly sell-out feed, and 230 to 240k CZK for one narrow category report.</li>
+      <li><strong>Do not quote a price in a first meeting.</strong> "That depends on the coverage you would need."</li>
+    </ul>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="inner">
+    <p class="snum">10 / The lines</p>
+    <h2>How we say it</h2>
+    <div class="tw">
+      <table>
+        <thead><tr><th>Audience</th><th>We are</th><th>The line</th></tr></thead>
+        <tbody>
+          <tr><th>Retailer</th><td>In-store data intelligence platform</td><td>"Full visibility into your own stores, free. In exchange you licence anonymous aggregates, and you see everything before any brand sees a masked version."</td></tr>
+          <tr><th>Brand</th><td>The measurement layer, the who-layer</td><td>"Syndicated data tells you what sold. We show you who buys it, in the aisle, receipt-verified."</td></tr>
+          <tr><th>Media or data partner</th><td>The missing layer</td><td>"You own what sold. We built who buys, matched to transactions."</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Attached to any depth claim, always: no facial recognition, no biometric templates, no identities, aggregated outputs only.</p>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="inner">
+    <p class="snum">11 / Principles</p>
+    <h2>Three things we do not bend</h2>
+    <ol class="prin">
+      <li>
+        <span class="pn">01</span>
+        <span class="pt">No exclusivity, ever</span>
+        <p>To a brand or a retailer. Syndication is the entire multiplier, and exclusivity turns a currency into a one-off study. The real scarcity is stronger anyway: three founding seats per category, one to two founding retailer slots.</p>
+      </li>
+      <li>
+        <span class="pn">02</span>
+        <span class="pt">Privacy by design is the moat</span>
+        <p>Not the constraint. No facial recognition, no biometric templates, no identities, no cross-visit tracking, aggregated outputs only. The compliant version of this can only be built the way we built it, and anyone arriving later has to solve that first.</p>
+      </li>
+      <li>
+        <span class="pn">03</span>
+        <span class="pt">Trading data stays theirs</span>
+        <p>We never ingest cost, margin, sell-through or elasticity, so we cannot leak them. What we help a retailer sell is their <strong>audience</strong>, never their trading terms. That distinction is what makes the rights conversation possible at all.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="inner">
+    <p class="snum">12 / The open problem</p>
+    <h2>Chicken and egg</h2>
+    <div class="warn">
+      <p class="h">Yours to navigate. There is no rule that solves it</p>
+      <ul>
+        <li>To sell a brand a specific retailer's data, we need that retailer's mandate.</li>
+        <li>To get the mandate, it helps enormously to show brand demand.</li>
+        <li><strong>Safe in any conversation:</strong> the method, the privacy design, the shape of the product, the categories we are building.</li>
+        <li><strong>Handle with care:</strong> naming or implying a specific chain's data before its mandate is signed. If that trade looks worth making in a given room, make the call and tell us afterwards.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="inner">
+    <p class="snum">13 / You</p>
+    <h2>Where you plug in</h2>
+    <ol class="roles">
+      <li><span class="rn">01</span><span><b>Doors</b><span class="t">The named person, and the reason they take the call. One right name beats ten names.</span></span></li>
+      <li><span class="rn">02</span><span><b>Budget cartography</b><span class="t">Which budget funds this, whose signature clears it, what band, and when their planning cycle runs. This is the answer we are missing most.</span></span></li>
+      <li><span class="rn">03</span><span><b>Posture</b><span class="t">Two founders read as a startup. Add twenty years of CEE retail services and we read as a vendor a category director can buy from without career risk.</span></span></li>
+      <li><span class="rn">04</span><span><b>Your 2022 experience</b><span class="t">You already tried to sell offline retail analytics into Czech retail. Who bought, who blocked, at what price, in which job title. That debrief is worth more to us than an introduction.</span></span></li>
+    </ol>
+    <p class="rule">Brand budgets for next year lock in October and November. First contact has to happen in September.</p>
+    <p>A brand not already in conversation by then is buying out of a locked budget, which usually means waiting a full cycle. The next few weeks matter more than the following six months.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="inner">
+    <p>Minds &amp; Models &middot; Confidential &middot; Prepared for Rodolph Crozier &middot; 3 Sep 2026</p>
+  </div>
+</footer>

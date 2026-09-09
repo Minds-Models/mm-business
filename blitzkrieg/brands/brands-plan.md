@@ -66,6 +66,15 @@ Founding-seat 2-doc set (2026 invoice + 2027 order w/ density escrow) · LOI tem
 order** ("activates when coverage reaches N stores / 2 chains") — the scripted counter to
 "come back when you have more chains"; converts a pass into paper.
 
+**STATUS 4 Sep 2026: drafted.** All four live in [`paper/`](paper/), each as a counsel brief
+plus a signable CZ and EN draft. Commercial spec closed by founder decisions of 4 Sep and
+recorded in [`paper/00-paper-set.md`](paper/00-paper-set.md). Scope unit is **channel x
+competitive set** (not a fixed taxonomy level): 3 seats per set, so petrol yields ~5 sets
+and pet yields 2, because scarcity only counts where real competitors want the same slot.
+Numbers: study 300k CZK, founding seat 1.0M CZK yr 1 with 100% study credit, renewal 1.5M
+held, escrow 30 rights-clean outlets on 30 Jun 2027. No firm retained yet: counsel
+selection is the critical path.
+
 ## 6. The FOMO cascade (answers Q18 — founders' reinterpretation, adopted)
 
 The cascade trigger is not a famous brand buying — it's **a famous retail estate being

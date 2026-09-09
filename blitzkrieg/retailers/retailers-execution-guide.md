@@ -1,5 +1,14 @@
 # Retailers pillar — deep execution guide (v1.1, 26 Aug 2026)
 
+> **⚠ Before drafting any retailer instrument, read
+> [`../brands/paper/05-retailer-paper-dependencies.md`](../brands/paper/05-retailer-paper-dependencies.md).**
+> The brand paper set is drafted and its four documents make promises only a retailer instrument
+> can keep (perpetual aggregate licence, 30-outlet density, 95-day termination notice, POS field
+> list, naming permission). Three blockers are already visible, including that the current mandate
+> template promises the retailer the majority of data revenue, which contradicts D1, the C1 ruling
+> and the signed brand pricing.
+
+
 Companion to `retailers-plan.html`. **This is the working document.**
 **Goal:** 2 DPA-level data mandates · stat-sig + seat depth in each category · by 21 Nov.
 **Core Reframing:** In-Store Data Intelligence Platform (never "Retail Media" or "screens" — pure edge-AI data & analytics platform running on existing CCTV).

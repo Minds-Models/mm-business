@@ -1,0 +1,779 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Crozier Briefing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&display=swap">
+<style>
+:root {
+  --ground:#F2F4F0;
+  --surface:#FFFFFF;
+  --surface-2:#E8EDE6;
+  --ink:#14201A;
+  --ink-2:#39493F;
+  --muted:#67766C;
+  --rule:#D5DCD3;
+  --rule-strong:#B6C0B5;
+  --accent:#1B4D3E;
+  --accent-ink:#1B4D3E;
+  --accent-soft:#DEEAE2;
+  --warn:#96431E;
+  --warn-soft:#F7E8E0;
+  --warn-rule:#E0BFAC;
+  --shadow:0 1px 2px rgba(20,32,26,.05), 0 10px 28px -16px rgba(20,32,26,.22);
+  --maxw:74ch;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ground:#0D1210;
+    --surface:#151C18;
+    --surface-2:#1C2621;
+    --ink:#E7EBE6;
+    --ink-2:#C3CCC5;
+    --muted:#8B9990;
+    --rule:#26312B;
+    --rule-strong:#3B4841;
+    --accent:#77C7A2;
+    --accent-ink:#8FD4B4;
+    --accent-soft:#172B23;
+    --warn:#E2926C;
+    --warn-soft:#2A1C15;
+    --warn-rule:#4A3227;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 28px -16px rgba(0,0,0,.7);
+  }
+}
+:root[data-theme="dark"] {
+  --ground:#0D1210;
+  --surface:#151C18;
+  --surface-2:#1C2621;
+  --ink:#E7EBE6;
+  --ink-2:#C3CCC5;
+  --muted:#8B9990;
+  --rule:#26312B;
+  --rule-strong:#3B4841;
+  --accent:#77C7A2;
+  --accent-ink:#8FD4B4;
+  --accent-soft:#172B23;
+  --warn:#E2926C;
+  --warn-soft:#2A1C15;
+  --warn-rule:#4A3227;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 28px -16px rgba(0,0,0,.7);
+}
+
+*{box-sizing:border-box}
+html{color-scheme:light dark}
+body{margin:0}
+img{max-width:100%}
+body{
+  background:var(--ground);
+  color:var(--ink);
+  font-family:"IBM Plex Serif","Iowan Old Style",Georgia,serif;
+  font-size:16.5px;
+  line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{display:grid;grid-template-columns:minmax(0,1fr);max-width:1180px;margin:0 auto;padding:0 20px 96px}
+@media (min-width:1040px){
+  .wrap{grid-template-columns:210px minmax(0,1fr);gap:56px;padding:0 32px 120px}
+}
+
+/* ---------- masthead ---------- */
+.mast{grid-column:1/-1;padding:44px 0 26px;border-bottom:2px solid var(--ink);margin-bottom:34px}
+.kicker{
+  font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--accent-ink);font-weight:600;margin:0 0 14px;
+  display:flex;flex-wrap:wrap;gap:8px 16px;align-items:baseline;
+}
+.kicker .sep{color:var(--rule-strong)}
+h1{
+  font-family:"IBM Plex Sans Condensed","Helvetica Neue",Arial,sans-serif;
+  font-weight:700;font-size:clamp(2.1rem,6vw,3.3rem);line-height:1.02;
+  letter-spacing:-.015em;margin:0 0 12px;text-wrap:balance;
+}
+h1 .sub{display:block;color:var(--muted);font-weight:500;font-size:clamp(1rem,2.4vw,1.35rem);letter-spacing:0;margin-top:10px}
+.standfirst{max-width:64ch;color:var(--ink-2);font-size:1.02rem;margin:0}
+
+/* ---------- meta strip ---------- */
+.strip{
+  grid-column:1/-1;display:grid;gap:1px;background:var(--rule);
+  border:1px solid var(--rule);margin:0 0 40px;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+}
+@media (min-width:720px){.strip{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.strip div{background:var(--surface);padding:14px 16px}
+.strip dt{
+  font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--muted);margin:0 0 6px;
+}
+.strip dd{
+  margin:0;font-family:"IBM Plex Sans Condensed",sans-serif;font-weight:600;
+  font-size:1.18rem;line-height:1.2;font-variant-numeric:tabular-nums;
+}
+.strip dd small{display:block;font-family:"IBM Plex Serif",serif;font-weight:400;font-size:.78rem;color:var(--muted);margin-top:4px;line-height:1.35}
+
+/* ---------- nav rail ---------- */
+nav{grid-column:1/-1;margin-bottom:36px}
+@media (min-width:1040px){
+  nav{grid-column:1;grid-row:3;position:sticky;top:24px;align-self:start;margin-bottom:0;max-height:calc(100vh - 48px);overflow-y:auto}
+}
+nav .navlabel{
+  font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--muted);margin:0 0 10px;
+}
+nav ol{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+@media (min-width:1040px){nav ol{display:block}}
+nav a{
+  display:flex;gap:9px;text-decoration:none;color:var(--ink-2);
+  font-family:"IBM Plex Sans Condensed",sans-serif;font-size:.86rem;font-weight:500;
+  padding:4px 9px;border:1px solid var(--rule);line-height:1.3;
+}
+@media (min-width:1040px){nav a{border:0;border-left:2px solid transparent;padding:4px 0 4px 11px}}
+nav a:hover{color:var(--accent-ink);border-color:var(--rule-strong)}
+@media (min-width:1040px){nav a:hover{border-left-color:var(--accent)}}
+nav a .n{font-family:"IBM Plex Mono",monospace;font-size:.72rem;color:var(--muted);padding-top:1px}
+nav a[aria-current="true"]{color:var(--accent-ink);font-weight:600}
+@media (min-width:1040px){nav a[aria-current="true"]{border-left-color:var(--accent)}}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+/* ---------- main ---------- */
+main{grid-column:1/-1;min-width:0}
+@media (min-width:1040px){main{grid-column:2;grid-row:3}}
+section{scroll-margin-top:24px;margin:0 0 60px;max-width:var(--maxw)}
+section.wide{max-width:none}
+h2{
+  font-family:"IBM Plex Sans Condensed",sans-serif;font-weight:700;
+  font-size:clamp(1.45rem,3.2vw,1.95rem);line-height:1.1;letter-spacing:-.01em;
+  margin:0 0 6px;text-wrap:balance;display:flex;gap:14px;align-items:baseline;
+}
+h2 .n{
+  font-family:"IBM Plex Mono",monospace;font-size:.72rem;font-weight:500;
+  color:var(--accent-ink);letter-spacing:.08em;flex:none;padding-top:2px;
+}
+h2 + .lede{color:var(--muted);margin:0 0 22px;font-size:.95rem;padding-left:0}
+@media (min-width:640px){h2 + .lede{padding-left:44px}}
+h3{
+  font-family:"IBM Plex Sans Condensed",sans-serif;font-weight:600;
+  font-size:1.06rem;letter-spacing:.01em;margin:30px 0 10px;color:var(--ink);
+}
+p{margin:0 0 15px}
+strong{font-weight:600}
+em{font-style:italic}
+ul,ol{margin:0 0 16px;padding-left:1.25em}
+li{margin-bottom:8px}
+li::marker{color:var(--rule-strong)}
+ol li::marker{color:var(--muted);font-family:"IBM Plex Mono",monospace;font-size:.82em}
+hr{border:0;border-top:1px solid var(--rule);margin:44px 0}
+
+/* ---------- callouts ---------- */
+.card{
+  background:var(--surface);border:1px solid var(--rule);
+  padding:20px 22px;margin:0 0 22px;box-shadow:var(--shadow);
+}
+.card > :last-child{margin-bottom:0}
+.card .cardhead{
+  font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--accent-ink);font-weight:600;margin:0 0 12px;
+}
+.say{
+  background:var(--accent-soft);border-left:3px solid var(--accent);
+  padding:16px 20px;margin:0 0 20px;
+}
+.say .cardhead{color:var(--accent-ink);margin-bottom:8px}
+.say p{font-style:italic;font-size:1.03rem;margin:0 0 10px;color:var(--ink)}
+.say p:last-child{margin-bottom:0}
+.danger{
+  background:var(--warn-soft);border:1px solid var(--warn-rule);
+  border-left:3px solid var(--warn);padding:18px 22px;margin:0 0 22px;
+}
+.danger .cardhead{color:var(--warn)}
+.danger > :last-child{margin-bottom:0}
+.pull{
+  font-family:"IBM Plex Sans Condensed",sans-serif;font-weight:600;
+  font-size:clamp(1.1rem,2.6vw,1.32rem);line-height:1.32;letter-spacing:-.005em;
+  border-top:2px solid var(--ink);border-bottom:1px solid var(--rule);
+  padding:16px 0;margin:26px 0;color:var(--ink);text-wrap:balance;
+}
+
+/* ---------- tables ---------- */
+.tw{overflow-x:auto;margin:0 0 24px;border:1px solid var(--rule);background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:.9rem;min-width:520px}
+thead th{
+  font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.11em;
+  text-transform:uppercase;color:var(--muted);font-weight:600;text-align:left;
+  padding:11px 14px;border-bottom:1px solid var(--rule-strong);white-space:nowrap;
+  background:var(--surface-2);
+}
+tbody td{padding:12px 14px;border-bottom:1px solid var(--rule);vertical-align:top;line-height:1.5}
+tbody tr:last-child td{border-bottom:0}
+tbody th{
+  font-family:"IBM Plex Sans Condensed",sans-serif;font-weight:600;font-size:.95rem;
+  text-align:left;padding:12px 14px;border-bottom:1px solid var(--rule);vertical-align:top;
+  line-height:1.4;
+}
+tbody tr:last-child th{border-bottom:0}
+td.num,th.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+.tw table code{font-size:.88em}
+code{
+  font-family:"IBM Plex Mono",monospace;font-size:.86em;
+  background:var(--surface-2);padding:1px 5px;border-radius:2px;
+}
+
+/* ---------- misc bits ---------- */
+.tag{
+  display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:9.5px;
+  letter-spacing:.1em;text-transform:uppercase;font-weight:600;
+  padding:3px 7px;border:1px solid currentColor;line-height:1;vertical-align:1px;
+}
+.tag.no{color:var(--warn)}
+.tag.yes{color:var(--accent-ink)}
+.checklist{list-style:none;padding:0;margin:0}
+.checklist li{
+  display:flex;gap:14px;align-items:flex-start;
+  padding:13px 0;border-bottom:1px solid var(--rule);margin:0;
+}
+.checklist li:last-child{border-bottom:0}
+.checklist .box{
+  flex:none;width:16px;height:16px;border:1.5px solid var(--rule-strong);margin-top:5px;
+}
+.checklist .when{
+  flex:none;font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--muted);margin-top:5px;text-align:right;min-width:74px;
+}
+.checklist .what{flex:1;min-width:0}
+.checklist .what b{font-family:"IBM Plex Sans Condensed",sans-serif;font-weight:600}
+.qa{border-top:1px solid var(--rule);padding-top:18px;margin-bottom:22px}
+.qa .q{
+  font-family:"IBM Plex Sans Condensed",sans-serif;font-weight:600;font-size:1.05rem;
+  margin:0 0 10px;color:var(--ink);
+}
+.qa .q .n{font-family:"IBM Plex Mono",monospace;font-size:.72rem;color:var(--accent-ink);margin-right:10px}
+.qa .a{margin:0;color:var(--ink-2)}
+.foot{
+  grid-column:1/-1;border-top:2px solid var(--ink);margin-top:20px;padding-top:18px;
+  font-size:.84rem;color:var(--muted);max-width:var(--maxw);
+}
+.foot code{background:transparent;padding:0;color:var(--ink-2)}
+@media print{nav{display:none}.wrap{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+html{scroll-behavior:smooth}
+</style>
+
+<div class="wrap">
+
+<header class="mast">
+  <p class="kicker">
+    <span>Meeting brief</span><span class="sep">/</span>
+    <span>3 Sep 2026</span><span class="sep">/</span>
+    <span>Internal, do not forward</span>
+  </p>
+  <h1>Rodolph Crozier
+    <span class="sub">Strategic partner and sales advisor, first working session</span>
+  </h1>
+  <p class="standfirst">He walks out able to open the right door, at the right company, to the right person, with the right sentence, without breaking a rights rule. Nothing else from this meeting matters.</p>
+</header>
+
+<dl class="strip">
+  <div><dt>Window closes</dt><dd>21 Nov<small>Blitzkrieg go / no-go. 11 weeks.</small></dd></div>
+  <div><dt>Brand target</dt><dd>2 + 3<small>paying seats plus signed 2027 orders, combined ARR &ge; EUR 80k</small></dd></div>
+  <div><dt>Rights signed</dt><dd>0<small>the binding constraint on every euro</small></dd></div>
+  <div><dt>Seat floor</dt><dd>EUR 40k<small>below this it is a study, not a seat</small></dd></div>
+</dl>
+
+<nav aria-label="Sections">
+  <p class="navlabel">Running order</p>
+  <ol>
+    <li><a href="#s0"><span class="n">00</span><span>Walk-out test</span></a></li>
+    <li><a href="#s1"><span class="n">01</span><span>Read him first</span></a></li>
+    <li><a href="#s2"><span class="n">02</span><span>The pivot story</span></a></li>
+    <li><a href="#s3"><span class="n">03</span><span>What the value is</span></a></li>
+    <li><a href="#s4"><span class="n">04</span><span>Framing and words</span></a></li>
+    <li><a href="#s5"><span class="n">05</span><span>Retailers pay in rights</span></a></li>
+    <li><a href="#s6"><span class="n">06</span><span>The brands filter</span></a></li>
+    <li><a href="#s7"><span class="n">07</span><span>Who inside the brand</span></a></li>
+    <li><a href="#s8"><span class="n">08</span><span>His role and comp</span></a></li>
+    <li><a href="#s9"><span class="n">09</span><span>Hard rules</span></a></li>
+    <li><a href="#s10"><span class="n">10</span><span>Speed</span></a></li>
+    <li><a href="#s11"><span class="n">11</span><span>Five questions</span></a></li>
+    <li><a href="#s12"><span class="n">12</span><span>What he leaves with</span></a></li>
+  </ol>
+</nav>
+
+<main>
+
+<!-- 0 -->
+<section id="s0">
+  <h2><span class="n">00</span>The walk-out test</h2>
+  <p class="lede">Before he leaves, make him say these back in his own words. If he cannot, the meeting is not finished.</p>
+  <div class="card">
+    <p class="cardhead">He must be able to state</p>
+    <ol>
+      <li><strong>What we sell now, and who pays.</strong> Retailers pay in rights and never in cash. Brands pay cash. Media operators and brokers pay in distribution.</li>
+      <li><strong>The single filter that decides whether a brand is worth an hour.</strong> Can this legal entity sign about EUR 40k without the signature leaving the country.</li>
+      <li><strong>Who inside a brand pays and who vetoes.</strong> Trade marketing pays, insights vetoes, never single-thread.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- 1 -->
+<section id="s1" class="wide">
+  <h2><span class="n">01</span>Read him first</h2>
+  <p class="lede">Do this before you pitch anything. It re-orders everything below, and it is the part he will enjoy.</p>
+  <div class="tw">
+    <table>
+      <thead><tr><th>His asset</th><th>What it is worth to us</th><th>The ask</th></tr></thead>
+      <tbody>
+        <tr>
+          <th>Offline Retail Analytics, Altavia &Ccaron;esk&aacute;, 2022</th>
+          <td>He already tried to sell in-store analytics into Czech retail. He knows who said no, at what price, and which job title was the buyer. Free market research from someone who ran our experiment four years earlier.</td>
+          <td><strong>Debrief him properly.</strong> Half an hour here is worth more than his whole address book.</td>
+        </tr>
+        <tr>
+          <th>NANOVO group (external sales)</th>
+          <td>Already a live thread in our RMN pillar. Their customers were asking them for audience data. He knows the room.</td>
+          <td>Right person, what their clients actually asked for, will he open it.</td>
+        </tr>
+        <tr>
+          <th>Altavia CEE: POS production, install, logistics, technology</th>
+          <td>Twenty years selling in-store infrastructure programmes to retail head offices. He knows how a chain procures anything that touches a store.</td>
+          <td>Sanity-check our retailer ask ladder and the IT and security path.</td>
+        </tr>
+        <tr>
+          <th>Femme Palette C-level network</th>
+          <td>Current, live network of Czech and CEE executives. Exactly the layer where "who signs a EUR 40k line" gets answered.</td>
+          <td>Ask for the autonomy map (section 06), not for a sales intro.</td>
+        </tr>
+        <tr>
+          <th>L'Or&eacute;al (ADBA, HR / RS)</th>
+          <td>Real HPC relationship, but see the caveat.</td>
+          <td>Regional, 2027, methodology only.</td>
+        </tr>
+        <tr>
+          <th>Carrefour (RO), Tesco (CZ / SK history)</th>
+          <td>Grocery is the biggest slot prize we have and the slowest cycle we have.</td>
+          <td>Seed the two-year clock. Expect nothing before 2027.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="danger" style="max-width:var(--maxw)">
+    <p class="cardhead">Say the caveats out loud, so he does not burn his best relationship on the wrong ask</p>
+    <ul>
+      <li><strong>L'Or&eacute;al Czech Republic has no local pen.</strong> Its sole statutory officer is resident in Poland (registry-settled). Same pattern at Henkel (owned from Vienna), Coty, Beiersdorf, Mars CZ and P&amp;G (Bucharest intelligence hub, twenty years). A Czech HPC intro cannot produce a 2026 signature at any effort level.</li>
+      <li><strong>Carrefour Romania is out of scope.</strong> Market scope is fixed at CZ plus SK (D7). Romania is a logged 2027 asset, not worked.</li>
+      <li><strong>Tesco CZ is grocery</strong>, which unlocks 15 to 25 category slots, more than every channel we are working combined, on a two-year procurement cycle. Open the clock, never count it in the 21 Nov plan.</li>
+    </ul>
+  </div>
+
+  <div class="say" style="max-width:var(--maxw)">
+    <p class="cardhead">Say this</p>
+    <p>"Two thirds of your network is worth a great deal to us in 2027 and almost nothing before 21 November. I would rather tell you that now than have you spend goodwill on my behalf in the wrong place."</p>
+  </div>
+</section>
+
+<!-- 2 -->
+<section id="s2">
+  <h2><span class="n">02</span>The pivot story</h2>
+  <p class="lede">Ninety seconds. Say it before he asks, and open with the correction rather than waiting to be caught.</p>
+
+  <div class="say">
+    <p class="cardhead">Open with this</p>
+    <p>"Last time we spoke I sold you personalization: screens in stores, content adapted to the person standing in front of them, priced per device. Ignore all of it. We kept the technology and threw away the business model."</p>
+  </div>
+
+  <h3>The beats, in order</h3>
+  <ol>
+    <li><strong>The data was always the base.</strong> To personalize anything you first have to read who is standing there. That capture layer is what we actually built, and it turned out to be worth far more than the screen. We describe a shopper across 450+ detectable visual attributes (about 88 captured per person) and match them to the actual receipt. At the GymBeam pilot, 92% of 2,622 orders across 21 days matched to a shopper profile. No faces, no identities.</li>
+    <li><strong>In-store media is a hard market.</strong> Many stakeholders, long chains, slow decisions. The number of parties who have to agree before anything ships is the whole problem.</li>
+    <li><strong>Retailers do not use in-store media to lift their own sales.</strong> They use it to sell space to brands. That single fact reframes everything: in that model the retailer is a landlord, not a user.</li>
+    <li><strong>So we were not solving any of a retailer's top three problems.</strong> We were selling them a channel they resell. Wrong product, wrong buyer, wrong urgency.</li>
+    <li><strong>Brands have a far bigger appetite for the underlying data, and it scales better.</strong> One retailer estate serves many brands. The unit of account moves from revenue per device (EUR 120 per device per month, capex-bound, linear, small) to the <strong>category x channel read</strong>: built once from the same capture, sold to every brand in that category at close to zero marginal cost. Roughly ten live reads at about EUR 500k each is a EUR 5M business.</li>
+    <li><strong>We no longer need to own the estate.</strong> Our software runs on the chain's existing CCTV, so deployment cost per store collapses, which is why we can hand the retailer the platform free.</li>
+  </ol>
+  <div class="card">
+    <p class="cardhead">What did not get thrown away</p>
+    <p>Personalization and in-store media stay in the portfolio as an application layer and a partner channel. They are no longer the pitch and no longer how we make money. <strong>We are the data infrastructure under retail media, not a competitor to it.</strong> That is the NANOVO conversation.</p>
+  </div>
+
+  <p><strong>Formal status, so he knows this is decided and not a mood:</strong> D2 (19 Aug) demoted personalization to a brand-funded deployment subsidy, never the pitch and never sold standalone. D16 (21 Aug) is an all-in commitment to the data model until 21 Nov, with a dated go/no-go on that date.</p>
+
+  <h3>If he asks why the next eight months differ from the last eight</h3>
+  <p>The old model had no compounding: every sale started from zero, new store, new install, new price. The new one is a loop.</p>
+  <p class="pull">Rights (retailers) &rarr; Data &rarr; Proof &rarr; Revenue (brands) &rarr; Pull, where paid brands make retailer number two say yes.</p>
+  <p>Proof is reusable across chains, masking gets stronger with every chain added, and outbound turns into inbound. The first turn is the expensive one, and we are in it now.</p>
+
+  <div class="card">
+    <p class="cardhead">Be honest about this, unprompted</p>
+    <p>Rights signed today: zero. Eleven devices live, about 133k unique visitors captured, and none of it legally sellable until a mandate exists. He will find out anyway. Saying it first buys the credibility for everything else.</p>
+  </div>
+</section>
+
+<!-- 3 -->
+<section id="s3">
+  <h2><span class="n">03</span>What the value is</h2>
+  <p class="lede">The section he has to be able to repeat without notes.</p>
+
+  <p><strong>The wedge:</strong> e-commerce runs on behaviour, physical retail got left behind with receipts. Physical retail knows <strong>what sold</strong>. Nobody knows <strong>who buys</strong>.</p>
+
+  <div class="say">
+    <p class="cardhead">The licensed sentence, external use approved</p>
+    <p>"Syndicated data tells you what sold. We show you who buys it, in the aisle, receipt-verified."</p>
+  </div>
+
+  <h3>Why the data is worth real money, in the order that persuades</h3>
+  <ul>
+    <li><strong>It has no substitute.</strong> Footfall counters count bodies at a door. Shelf cameras, including NIQ's own in-store vision product, look at the shelf and not the shopper. Panels are recall-based and small. Nobody occupies depth x transaction-link, so a brand cannot buy the who-layer anywhere else.</li>
+    <li><strong>It is sold N times, not once.</strong> Every brand in a category buys the same read. That is the definition of a measurement currency, and it is why we refuse exclusivity to everyone who asks for it.</li>
+    <li><strong>It attaches to three different budgets inside the same company</strong> (section 07).</li>
+    <li><strong>The EU is the moat, not the obstacle.</strong> The compliant version of this can only be built the way we built it: no facial recognition, no biometric templates, no cross-visit tracking, aggregates of 25 or more people only. Anyone arriving later has to solve that first.</li>
+    <li><strong>The public price anchor:</strong> UZEI, a Czech state agency, pays ACNielsen about 3.7M CZK a year for a monthly sell-out feed, and about 230 to 240k CZK for a single narrow category report. On the public procurement record, so it is quotable.</li>
+  </ul>
+
+  <h3>What we sell to a brand</h3>
+  <div class="tw">
+    <table>
+      <thead><tr><th>Layer</th><th class="num">Price</th><th>What it is</th></tr></thead>
+      <tbody>
+        <tr><th>Study (T0)</th><td class="num">150 to 500k CZK, one-off</td><td>A single read. Take the money. <strong>Not a seat.</strong></td></tr>
+        <tr><th>Founding seat</th><td class="num">floor EUR 40k, ask 40 to 60k</td><td>Year one only, max three per category, 50% off list, density escrow</td></tr>
+        <tr><th>List (T1)</th><td class="num">EUR 75 to 122k / yr</td><td>Undiscounted. 30 to 60 stores, one chain</td></tr>
+        <tr><th>Channel currency (T2)</th><td class="num">EUR 122 to 327k / yr</td><td>150 to 300 stores across two or more chains</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p><strong>The number he needs burned in: EUR 40k is the floor.</strong> Below it we take the money, call it a study, and never use it as the year-two reference. He should never quote a price at all (section 08), but he must know the size of the room he is opening doors to, so he does not aim at wallets that cannot get there.</p>
+
+  <h3>And the value to whom, inside the brand</h3>
+  <p>The same product has three buyers, three budgets and three reasons to care. He needs all three, because the one who loves it is rarely the one who signs.</p>
+  <div class="tw">
+    <table>
+      <thead><tr><th>Who</th><th>Their question</th><th>Budget</th></tr></thead>
+      <tbody>
+        <tr><th>Trade marketing, category, key account</th><td>Where do I sell, on what terms, how do I argue with the retailer</td><td>Trade marketing. <strong>The biggest wallet</strong></td></tr>
+        <tr><th>Insights, research<br><span style="font-weight:400;color:var(--muted);font-size:.88em">P&amp;G calls it CMK, Nestl&eacute; calls it Market Intelligence</span></th><td>Is the method sound, does it beat what I buy today</td><td>Research</td></tr>
+        <tr><th>Brand or marketing manager</th><td>Which segment moves, did the campaign work</td><td>Brand and media</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p><strong>Trade marketing pays. Insights vetoes.</strong> Full detail in section 07.</p>
+</section>
+
+<!-- 4 -->
+<section id="s4" class="wide">
+  <h2><span class="n">04</span>Framing: the exact words</h2>
+  <p class="lede">One stage per audience. Never mix these in a single conversation.</p>
+  <div class="tw">
+    <table>
+      <thead><tr><th>Audience</th><th>What we are called</th><th>The line</th></tr></thead>
+      <tbody>
+        <tr><th>Retailer</th><td>In-Store Data Intelligence Platform</td><td>"You get full visibility into your own stores, free, forever. In exchange you licence anonymous aggregates. You see every insight from your own stores before any brand sees a masked version."</td></tr>
+        <tr><th>Brand</th><td>The measurement layer, the who-layer</td><td>"Syndicated data tells you what sold. We show you who buys it, in the aisle, receipt-verified. Three founding seats per category."</td></tr>
+        <tr><th>Media operator, data broker</th><td>The missing layer</td><td>"You own what sold. We built the layer that does not exist, who buys, matched to transactions. Schema available, methodology is the kitchen."</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="max-width:var(--maxw)"><strong>Company one-liner:</strong> "Teaching physical stores who their customers are."</p>
+
+  <div class="card" style="max-width:var(--maxw)">
+    <p class="cardhead">Retail media is a partner channel, not an enemy</p>
+    <p>We are the data infrastructure underneath it. RMN and DOOH operators are already asked by their clients for audience proof and cannot deliver it. We can, running on their own players and under their own site contracts. That is the NANOVO conversation.</p>
+    <p><strong>Two deals there, never merged:</strong> operator access (their estate, our measurement) and data distribution (a partner reselling the read).</p>
+  </div>
+
+  <div class="danger" style="max-width:var(--maxw)">
+    <p class="cardhead">Words that stay out of his mouth</p>
+    <ul>
+      <li><strong>"Personalization", "screens", "digital signage"</strong> as our offer in a retailer or brand conversation. They put us back in the AV category and kill the data pitch. Retail media is fine when framed as the partner channel above.</li>
+      <li><strong>"Tracking", "collect data about individuals", "deep visual analysis of individuals".</strong></li>
+      <li><strong>"100x better than NIQ"</strong> or any comparative superlative. Fine internally, never externally: unfalsifiable, and it wakes the incumbent.</li>
+      <li><strong>Any promise of exclusivity.</strong> See section 09.</li>
+    </ul>
+  </div>
+  <p style="max-width:var(--maxw)"><strong>The disarm line, attached to every depth claim, always:</strong> no facial recognition, no identities, no biometric templates, aggregated outputs only, minimum 25 people per segment.</p>
+</section>
+
+<!-- 5 -->
+<section id="s5">
+  <h2><span class="n">05</span>Retailers pay in rights, never in cash</h2>
+  <p class="lede">They receive the platform, their own store insights, an AI chatbot over their own traffic data and a ready-to-sign compliance pack. What they give is a rights rider.</p>
+
+  <p><strong>Why we refuse their money:</strong> it makes yes cost nothing, it removes procurement, and it keeps our legal position clean. Under the EU Data Act the party who pays for the analytics can restrict monetisation of the output, so being paid would make our rights position worse, not better.</p>
+
+  <h3>The ask ladder, and the revenue-share model</h3>
+  <ol>
+    <li><strong>Open: 0% share, free platform.</strong> The value is their own store insights, deliverable day one, needing no other retailer's data. This is why "you cannot benchmark me yet" never blocks the door.</li>
+    <li><strong>Revenue share is a real model, not a concession:</strong> up to 40% on <strong>retailer-attributed products</strong>. The frame is "we help you monetize your own audience", a business we build for them rather than a discount we give them.</li>
+    <li><strong>It is a founding data-partner term.</strong> Once a category read exists, later chains in that category no longer need the share to make the deal work, and they do not get it. Scarcity on the supply side, and it is true rather than invented.</li>
+    <li><strong>Never, at any rung:</strong> a share of the cross-retailer aggregate. That is the currency, and sharing it turns us back into a vendor.</li>
+  </ol>
+
+  <div class="card">
+    <p class="cardhead">Instruction for him</p>
+    <p>Do not <em>open</em> with revenue share, because it starts a negotiation about percentages before they have understood what they get for free. If they ask "what is our cut", answer with the asymmetry first and money second: <em>"the first thing you get is knowing more about your shoppers than your suppliers do, and then yes, there is a share on anything attributed to you."</em></p>
+  </div>
+
+  <h3>The scoring filter, and the part he will get wrong without being told</h3>
+  <p>Score a chain on <strong>slots unlocked x density tier reachable</strong>, never on store count.</p>
+  <ul>
+    <li><strong>Category slot-unlock counts (CZ):</strong> grocery <strong>15 to 25</strong>, drugstore and HPC <strong>5 to 8</strong>, petrol and convenience <strong>2 to 4</strong> (tobacco is the prize), electro and sport <strong>1 to 3</strong>, pet specialty <strong>1 to 2</strong>, mall landlord <strong>0</strong> (a different product entirely).</li>
+    <li><strong>Four scores, multiplied:</strong> sales-cycle speed (company-operated with central IT = 5, hybrid franchise = 3, fragmented co-op = 1) x multibrand depth (high third-party SKU share = 5, heavy private label = 2, all own-brand = 1) x footprint sweet spot (60 to 150 stores = 5, 30 to 60 = 4, 200 to 500 = 3, 500+ = 1) x access path (warm intro = 5, second degree = 3, cold = 2).</li>
+  </ul>
+
+  <p class="pull">A 90-store multibrand drugstore chain outranks a 300-store own-brand chain, and no deployment dashboard will ever tell you that.</p>
+
+  <ul>
+    <li><strong>Co-ops and franchises multiply the cycle by the number of independent owners.</strong> A federation's headline store count is not a signature. Target company-operated chains with centralised IT.</li>
+    <li><strong>The second chain in a category is worth more than the 200th store in the first.</strong> Crossing from one chain to two roughly triples the price per brand seat, and it is what makes chain-masking honest.</li>
+  </ul>
+
+  <h3>The objection that kills rights deals</h3>
+  <p>"We do not want brands to have our data, they will use it against us." It is not irrational: two of its five components are genuinely true (cross-chain benchmarking, and disintermediation). The answer is to invert the asymmetry.</p>
+
+  <div class="say">
+    <p class="cardhead">Say this</p>
+    <p>"Today the brand knows more about your shopper than you do. They run research departments, you have one analyst per two or three categories, and that gap is already used against you in every trade negotiation. Your category manager will walk into the next supplier negotiation knowing which shopper segments actually convert on their SKUs in your stores, before the supplier sees any version of it. You have never had that."</p>
+  </div>
+
+  <p>Backed by contract controls he can name: trading-data firewall (we never ingest cost, margin, sell-through or elasticity), chain masking by default, no competitor-ranking cuts ever, category and brand embargo, publication lag, veto on every published output, k&ge;25 suppression, 90-day insight priority.</p>
+
+  <h3>Ownership, in three sentences he should know cold</h3>
+  <div class="card">
+    <ol>
+      <li>"You own your footage and you own your till data. We never take title to either, and the footage never leaves your store."</li>
+      <li>"What we own is the anonymous aggregate that comes out of the far end, and only because you licence it to us. Nothing in it identifies a person, and by default nothing in it identifies you either."</li>
+      <li>"The licence is perpetual because a benchmark that can be switched off next quarter is not a benchmark. It is not exclusive: you can grant the same right to anyone else tomorrow."</li>
+    </ol>
+  </div>
+  <p><strong>Why perpetual is non-negotiable:</strong> a rented data asset prices as a service, roughly 3 to 4x revenue. An owned cross-chain measurement right prices at roughly 8 to 12x. That single clause is the difference between a vendor and a currency. If counsel pushes, we park and escalate. We never drop it to close a week.</p>
+</section>
+
+<!-- 6 -->
+<section id="s6">
+  <h2><span class="n">06</span>The brands filter</h2>
+  <p class="lede">The most valuable single page for him. The filter is not size, and it is not category.</p>
+
+  <p class="pull">Can this legal entity sign about EUR 40k without the signature leaving the country?</p>
+
+  <p>We ran 181 companies through it. 53 shortlisted, 43 unique legal entities, <strong>8 workable</strong>. The deletions are the instructive part.</p>
+
+  <h3><span class="tag yes">Bin A</span> &nbsp;Genuine local pen, work these first</h3>
+  <p>Owner-managed Czech or Slovak firms, or a country GM who is personally a registered statutory officer. Consumer Brands International and DanCzek (each jednatel signs alone, the 65% owner is the chairman). BAT CZ, where the GM and the jednatel have been the same person since 2014 and Slovakia runs as a branch of the Czech entity, so <strong>one signature covers CZ and SK</strong>. Kofola, its own ultimate parent, Prague-listed, nothing above it. Then Mattoni, VAFO, Pla&ccaron;ek, Teta, GymBeam, Dermacol, Nutrend, Big Shock.</p>
+
+  <h3><span class="tag no">Bin B</span> &nbsp;Escalates to a cluster, do not pace as founding-speed</h3>
+  <p>P&amp;G (Bucharest CEE intelligence hub for twenty years, a structural pattern rather than a fresh reorg). Colgate (Warsaw CEE hub owns budgeting). Haleon (RHCS cluster stood up July 2025). L'Or&eacute;al, Coty, Henkel, Beiersdorf and Mars CZ (sole officers resident in Poland, Warsaw or Vienna). Farmina, whose Czech entity is capitalised at exactly CZK 20,000, the textbook rep-office signal. GGT, which routes to Bratislava.</p>
+
+  <div class="card">
+    <p class="cardhead">The nuance he needs</p>
+    <p>The parent's nationality is not the filter. <strong>The budget's location is.</strong> Sportisimo's private-label cluster is 100% Czech-owned and still fails, because the decision sits in central merchandising rather than in a discrete brand-marketing budget.</p>
+  </div>
+
+  <h3><span class="tag">Bin C</span> &nbsp;Unknown, so ask</h3>
+  <p>This is his highest-leverage contribution. The question goes at the <strong>end</strong> of a methodology call, after the method has been explained and <strong>before any price is named</strong>.</p>
+
+  <div class="say">
+    <p class="cardhead">The question, verbatim</p>
+    <p>"If you wanted to commission a Czech-only shopper-data study, roughly CZK 1m, from a new vendor, would that be your signature, or would it need to clear insights or procurement above Prague?"</p>
+  </div>
+  <p>A "yes, that's me" moves the account up a tier. A hesitation is worth more than another week of desk research. He should ask it every time and log the answer verbatim.</p>
+
+  <h3>Three secondary filters, applied after autonomy</h3>
+  <ul>
+    <li><strong>Wallet, measured against filed net profit, not revenue.</strong> EUR 40k is CZK 980,000. If that is a material fraction of net profit, the account prices at the floor and not above it.</li>
+    <li><strong>Estate presence.</strong> Is this brand physically on shelf in an estate we have, or will have, rights to? A brand with no presence on our estate has nothing to buy.</li>
+    <li><strong>Speed.</strong> Weeks to three months is a possible 2026 seat. Three to six months is a 2027 order. Anything slower is pipeline, not plan.</li>
+  </ul>
+
+  <div class="danger">
+    <p class="cardhead">Capacity, which he must respect</p>
+    <p>Eight live enterprise negotiations maximum, about 50 founder-hours each, which is 36 hours a week for eleven weeks. <strong>Slot nine does not exist.</strong> No new enterprise logo after 15 Nov, so the last useful first meeting is the week of 3 November, which means the opening contact has to happen in September.</p>
+  </div>
+</section>
+
+<!-- 7 -->
+<section id="s7" class="wide">
+  <h2><span class="n">07</span>Who inside the brand</h2>
+  <p class="lede">Three named people per company, always. One is not enough, and the wrong one is fatal.</p>
+  <div class="tw">
+    <table>
+      <thead><tr><th>Role</th><th>What they do</th><th>Their vocabulary</th></tr></thead>
+      <tbody>
+        <tr><th>Trade marketing, category, key account</th><td><strong>Holds the money.</strong> Biggest wallet in the building. Uses it to negotiate with retailers and decide where and how to sell.</td><td>trade spend, listing, channel</td></tr>
+        <tr><th>Insights, research</th><td><strong>Vetoes on method.</strong> Owns the incumbent data relationship. Can kill us without ever writing a cheque.</td><td>P&amp;G calls it <strong>CMK</strong> (Consumer &amp; Market Knowledge), Nestl&eacute; Market Intelligence, others Consumer Insights</td></tr>
+        <tr><th>Brand, marketing manager</th><td>The campaign use-case: build and test campaigns, find the segment that moves the market. Agency-influenced.</td><td>activation, reach, measurement</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p class="pull" style="max-width:var(--maxw)">Trade marketing pays, insights vetoes. You need both. Never approach only one.</p>
+
+  <div style="max-width:var(--maxw)">
+    <h3>The three budgets, which is why the same product has three prices</h3>
+    <ol>
+      <li><strong>Sales and trade:</strong> negotiate with retailers, choose where to sell and on what terms. The biggest wallet.</li>
+      <li><strong>Marketing and media:</strong> build and test campaigns, find the segment that actually moves.</li>
+      <li><strong>Product development:</strong> find the gap in the line, decide the next product or pack.</li>
+    </ol>
+
+    <h3>Two quiet losers to plan around, not hope past</h3>
+    <ul>
+      <li>The <strong>insights manager who owns the incumbent relationship</strong>. A new source they did not bring in threatens their authority.</li>
+      <li>The <strong>agency of record</strong>, if measurement insources.</li>
+    </ul>
+    <p>Mitigation is structural, not hopeful: <strong>sell through them, not around them.</strong> Co-design credit, a seat on a brand advisory micro-board, and they present the read internally as their own find. The champion is the gatekeeper, flipped. If a brand mentions its agency, the right move is <em>"would it help if we briefed them alongside you?"</em></p>
+
+    <div class="card">
+      <p class="cardhead">One shortcut worth giving him</p>
+      <p>Hunt people who moved from NielsenIQ, GfK or Kantar into a brand. They understand syndicated data instantly and convert fastest. LinkedIn filter: past company = NielsenIQ, current company = the brand.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 8 -->
+<section id="s8">
+  <h2><span class="n">08</span>His role, and what he gets</h2>
+  <p class="lede">Door-opener, budget cartographer, and grey hair in the room. Not a closer.</p>
+
+  <h3>Three jobs, in order of value to us</h3>
+  <ol>
+    <li><strong>Doors.</strong> Named warm introductions to a specific person, with the reason they should take the call. Volume is not the metric. Correctness of the name is.</li>
+    <li><strong>Budget cartography.</strong> Which budget funds this, whose signature clears it, what band, and when their planning cycle runs. This is research task R2 and it is currently unfilled. The renewal date <em>is</em> the account's calendar.</li>
+    <li><strong>Posture.</strong> Two founders in a room read as a startup. Two founders plus a man who ran a multi-country retail services business for twenty years read as a vendor a category director can buy from without career risk.</li>
+  </ol>
+
+  <div class="danger">
+    <p class="cardhead">Rules of engagement, non-negotiable</p>
+    <ul>
+      <li><strong>He opens, we close.</strong> He books the meeting and attends. Josef runs the commercial conversation.</li>
+      <li><strong>He never quotes a price.</strong> If asked: "that depends on the coverage you would need, which is the first thing Josef will ask you."</li>
+      <li><strong>The sequencing problem is his to navigate</strong> (section 09). Safe everywhere: method, privacy design, product shape, the categories we are building. Handle with care: naming a specific chain's data before its mandate is signed.</li>
+      <li><strong>He never offers exclusivity</strong>, in any form, to anyone.</li>
+      <li><strong>He does not receive the target list.</strong> It carries internal wallet bands, autonomy downgrades and named individuals. He gets the leave-behind, plus a per-account brief for accounts he is actually working.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <p class="cardhead">Already settled, do not reopen</p>
+    <p>Compensation is agreed and the NDA is signed. Neither is an agenda item, which means the whole meeting is available for the work itself.</p>
+  </div>
+</section>
+
+<!-- 9 -->
+<section id="s9" class="wide">
+  <h2><span class="n">09</span>Hard rules</h2>
+  <p class="lede">Short list. These are the ones that are actually load-bearing.</p>
+  <div class="tw">
+    <table>
+      <thead><tr><th>Rule</th><th>Why it exists</th></tr></thead>
+      <tbody>
+        <tr><th>No exclusivity, ever, to a brand or a retailer</th><td>Syndication is the entire multiplier. Exclusivity turns a currency into a one-off study. The compliant scarcity is stronger anyway: three founding seats per category, one to two founding data-partner slots per retail category, and real Q4 budget deadlines.</td></tr>
+        <tr><th>Trading-data firewall. Retailer margins, sell-through and elasticity never reach a brand</th><td>A technical fact, not a promise. We never ingest it, so we cannot leak it.</td></tr>
+        <tr><th>One chain in a category is a channel read, never a market average or a benchmark</th><td>Cross-chain claims require two or more chains. This is the claim that would fail diligence.</td></tr>
+        <tr><th>Pooled brand-worn claims only, never per-brand</th><td>Fill rate is 4 to 10%. Per-brand claims are indefensible until volume grows about tenfold.</td></tr>
+        <tr><th>Internal benchmark numbers never leave the building</th><td>Competitor contract values, incumbent supply prices, our unit costs.</td></tr>
+        <tr><th>Sell through the gatekeeper, not around them</th><td>The insights manager can kill us without ever writing a cheque. Co-design credit converts them.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="danger" style="max-width:var(--maxw)">
+    <p class="cardhead">The sequencing problem: not a rule, his judgment</p>
+    <ul>
+      <li>To sell a brand a specific retailer's data, we need that retailer's mandate.</li>
+      <li>To get the mandate, it helps enormously to show brand demand.</li>
+      <li>Classic chicken and egg. There is no rule that resolves it, and we are not giving him one.</li>
+      <li><strong>Safe in any conversation:</strong> the method, the privacy design, the shape of the product, the categories we are building.</li>
+      <li><strong>Handle with care:</strong> naming or implying a specific chain's data before its mandate is signed. If that trade looks worth making in a given room, he makes the call and tells us afterwards.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 10 -->
+<section id="s10">
+  <h2><span class="n">10</span>Speed</h2>
+  <p class="lede">The only pacing message he gets.</p>
+
+  <div class="danger">
+    <p class="cardhead">Do not share</p>
+    <p>Do not walk him through the scoreboard, the 21 Nov go / no-go, the raise or the cash position. None of it helps him sell, and the cash line invites the wrong kind of care.</p>
+  </div>
+
+  <div class="say">
+    <p class="cardhead">Say this and stop</p>
+    <p>"Brand budgets for next year lock in October and November. A brand not already in conversation by then is buying out of a locked budget, which usually means waiting a full cycle. So first contact has to happen in September. The next few weeks matter more than the following six months."</p>
+  </div>
+
+  <p><strong>Kept internal, for your own pacing only:</strong> the 21 Nov scoreboard (2 paying seats plus 3 signed 2027 orders, combined ARR at or above EUR 80k, 2 DPA-level mandates, the raise, 2 partner pilots), the 15 Nov no-new-logo cutoff, and the December cash position. If he asks directly how we are funded, answer plainly and briefly, then return to the market calendar.</p>
+</section>
+
+<!-- 11 -->
+<section id="s11">
+  <h2><span class="n">11</span>The five questions he will ask</h2>
+  <p class="lede">Answers from the objection bank. Use them verbatim.</p>
+
+  <div class="qa">
+    <p class="q"><span class="n">Q1</span>Is this legal? Is it not surveillance?</p>
+    <p class="a">"By design we cannot identify anyone. No facial recognition, no biometric templates, no re-identification, no cross-visit tracking. Sessions are opaque one-time observations. Everything leaves the system as aggregates of 25 or more people. We describe audiences, not persons. That constraint is also the moat: the compliant version of this can only be built the way we built it."</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">Q2</span>Footfall counters and heatmaps already exist.</p>
+    <p class="a">"Counters track bodies, a number at the door. We describe shoppers across 450+ detectable attributes, about 88 per person, and match them to actual transactions, 92% at our pilot. Counting is solved and cheap. Understanding who buys is neither. Nobody else occupies depth x transaction-link."</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">Q3</span>Why will NIQ not just do this?</p>
+    <p class="a">"Their business is POS feeds and panels. They have no in-store visual shopper layer and no fast legal path to build one in the EU. Their own camera product looks at shelves, not shoppers. We are complementary, the who on top of their what, which makes them a distribution partner or an acquirer rather than a competitor. And our retailer rights are perpetual, so the portfolio compounds."</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">Q4</span>Retail sales cycles are two years. How is this a three-month plan?</p>
+    <p class="a">"Tier-one grocery is two years, which is exactly why we do not start there. Our pipeline is founder-led mid-size chains where one person can say yes. Our first eight chains took three and a half months to engage. The giants come later, approached with a proven multi-chain product and brand demand already in hand."</p>
+  </div>
+  <div class="qa">
+    <p class="q"><span class="n">Q5</span>What have you actually sold?</p>
+    <p class="a">Answer straight: zero rights instruments signed, zero brand contracts signed today. Pilots running, one live retailer procurement process, one verbal greenlight, and a receipt-verified proof at GymBeam. Then: "which is precisely why the next eleven weeks are structured the way they are, and why you are in this room."</p>
+  </div>
+</section>
+
+<!-- 12 -->
+<section id="s12">
+  <h2><span class="n">12</span>What he leaves with</h2>
+  <p class="lede">Agree these before he stands up.</p>
+  <ul class="checklist">
+    <li><span class="box" aria-hidden="true"></span><span class="what"><b>The 2022 debrief.</b> Who bought or blocked in-store analytics in CZ retail, at what price, in which job title.</span><span class="when">in room</span></li>
+    <li><span class="box" aria-hidden="true"></span><span class="what"><b>NANOVO.</b> The right person, what their clients asked for on audience measurement, and whether he will open it.</span><span class="when">10 Sep</span></li>
+    <li><span class="box" aria-hidden="true"></span><span class="what"><b>Autonomy answers</b> for three to five companies where he knows someone: does the Czech entity sign a CZK 1m research line, or does it escalate.</span><span class="when">19 Sep</span></li>
+    <li><span class="box" aria-hidden="true"></span><span class="what"><b>Two named warm intros</b> he will personally make, with the person's name and the reason they take the call.</span><span class="when">12 Sep</span></li>
+    <li><span class="box" aria-hidden="true"></span><span class="what"><b>The leave-behind handed over.</b> "How the business works", the short shareable brief.</span><span class="when">in room</span></li>
+    <li><span class="box" aria-hidden="true"></span><span class="what"><b>Next check-in booked.</b></span><span class="when">in room</span></li>
+  </ul>
+  <div class="danger">
+    <p><strong>Do not leave without the two named intros and the next date.</strong> An advisor without named targets and a date in the calendar is a pleasant conversation, not a channel. Compensation and the NDA are already settled, so the whole meeting is available for the work itself.</p>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <p><strong>Post-meeting, same day.</strong> Full note to CRM, deal stage moved, next action dated. Commitments both ways into the ledger. If his 2022 debrief or his autonomy answers contradict anything in <code>blitzkrieg/brands/targets/</code>, record the delta there rather than in this brief.</p>
+  <p>Sources: <code>strategy/2026-08-19-base-strategy/</code> (D1, D2, D7, D16, D17, files 13, 14, 15, 16) &middot; <code>blitzkrieg/00-alignment.md</code> &middot; <code>blitzkrieg/brands/targets/DECISION.md</code> (2 Sep) &middot; <code>blitzkrieg/retailers/retailers-execution-guide.md</code> &middot; <code>messaging/</code>. Internal document. Not for forwarding.</p>
+</footer>
+
+</div>
+
+<script>
+(function () {
+  var links = Array.prototype.slice.call(document.querySelectorAll('nav a'));
+  var map = {};
+  links.forEach(function (a) { map[a.getAttribute('href').slice(1)] = a; });
+  var sections = Array.prototype.slice.call(document.querySelectorAll('main section'));
+  if (!('IntersectionObserver' in window)) return;
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      links.forEach(function (a) { a.removeAttribute('aria-current'); });
+      var a = map[e.target.id];
+      if (a) a.setAttribute('aria-current', 'true');
+    });
+  }, { rootMargin: '-10% 0px -75% 0px', threshold: 0 });
+  sections.forEach(function (s) { io.observe(s); });
+})();
+</script>

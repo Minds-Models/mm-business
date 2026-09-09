@@ -98,6 +98,18 @@ carries both the budget and the freedom to act.
 
 ## 1.4 Paper batch to counsel · O ⏱4h
 
+> **⚡ STATUS 4 Sep 2026: steps 1 and 2 done, step 3 blocked.** Commercial substance decided
+> by the founders and all four documents drafted to signable standard in CZ and EN, each with
+> a counsel brief naming what is load-bearing and what counsel must not touch: [`paper/`](paper/).
+> **No firm is retained**, so counsel selection is now the critical path, not drafting.
+> The real forcing date is not 5 Sep but the **JTI meeting, week of 7 Sep** (ČEPRO-brokered,
+> `clients/eurooil/facts.yaml`). Two prerequisites for that meeting sit outside this task:
+> the ČEPRO brand-approach greenlight is still **verbal only** and needs written confirmation
+> before we probe tobacco brands (canon: the retailer hears it from us first), and EuroOil
+> stations are **tenant-operated**, which the facts file flags as something to verify
+> *before any escrow language is signed*. The escrow is drafted to confirm density at
+> activation rather than at signature precisely because of that.
+
 ⛔ **Prereq:** commercial terms decided by the founders **before** counsel touches it (price band,
 escrow trigger, term, cap on founding seats).
 
@@ -239,6 +251,34 @@ DPO, a competitor, and a journalist all read it tonight.
 ✅ **Done when:** live, lint-passed, story identical to the outreach.
 
 ## 2.6 ICP research — primary + secondary sources · J ⏱4h (+ ongoing)
+
+> **⚡ STATUS 4 Sep 2026, updated 8 Sep 2026 to v1.1. COMPLETE, and the audit changes the plan.** Output in
+> [`icp/icp-brands.md`](icp/icp-brands.md); raw research, four cluster files and the adversarial
+> audit in [`icp/raw/`](icp/raw/). 25 personas, 31 audit defects (6 critical). **Read §2 of the ICP
+> doc before quoting any use case.** Headlines: (a) fixture/shelf-level attribution does not exist,
+> `attention_seconds` measures attention to the ad-screen camera, so ban shelf/facing/planogram
+> language; (b) the conversion funnel has **no POS join** and is not purchase conversion; (c) ~20
+> use cases confused capability with permission, and rights signed are **zero**; (d) three of the
+> four highest-value payers sit **inside the mandate partner**, so the 21 Nov goal is currently
+> most likely to be met by retailers paying cash, which inverts D1 and needs a written founder
+> ruling; (e) the **Brand-Worn Index**, the only mandate-free 2026 line, has zero persona coverage
+> and is gated on the 1 Oct fill-rate experiment; (f) the country insights manager is largely a
+> **vacancy** in CZ/SK, so "insights vetoes" is half-false at the eight Bin-A targets.
+>
+> **v1.1 (8 Sep) folds in the second and third podcast passes** (self-reported problems, incumbent
+> deep read, AI) as corrections (m) to (t) in the ICP doc. The three that change outreach: **the top
+> three pains brands state in their own voice are mostly not ours to fix**, so never open on "we
+> prove your ROI" (m); **an honest number is commercially unwelcome to the budget owner it
+> re-grades**, so target the owner, the private-label lead and the category challenger and route
+> around the media budget owner (n); and **a brand is on record crediting dunnhumby and Nectar 360
+> with answering the who-question**, so no asset ships until it says what a loyalty-card product
+> cannot see (p).
+>
+> **Against the DoD below:** the ICP one-pager v1 now exists at
+> [`icp/icp-one-pager-v1.md`](icp/icp-one-pager-v1.md) (who · budget line · trigger event · first
+> objection · buying process · consumption format). **Still open: the "how they buy" field in the
+> CRM**, which is a setup action outside this repo. Its answers come from 3.1, not from 2.6.
+> Field schema and the positions to seek per bin: [`icp/crm-schema.md`](icp/crm-schema.md).
 
 **Steps**
 1. **Secondary:** what CZ/CEE brand insights and trade-marketing people actually read and listen
