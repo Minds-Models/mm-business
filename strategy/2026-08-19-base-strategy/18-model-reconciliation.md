@@ -977,3 +977,202 @@ not a P&L argument, and the sheet now says so in section 5.
   named as such on ASSUMPTIONS and READ ME.
 - `18a-model-adversarial-review-2026-09-09.md` stays as the finding register for this pass. Per
   CLAUDE.md rule 5 it should fold into this file once the decisions above are taken.
+
+# Twelfth pass, 9 Sep 2026: the plan re-sized, a rollout defect found, and the final audit
+
+Context. The eleventh pass corrected the revenue engine and left the cost base untouched, which produced
+a plan that did not break even and needed 8.17M of capital. The founder read that as a half-done job,
+and it was: the corrections were right, the plan around them had not been re-derived. This pass
+re-derives it, finds one more implementation defect on the way, and closes with two full audits of the
+workbook. Method as before: values snapshotted before each block, the engine re-implemented
+independently in Python from the inputs on ASSUMPTIONS and MARKETS and compared month by month, zero
+difference on every line, thirteen lines on CHECKS all OK at the end.
+
+Base case at the start: 2031 ARR 15.22M, EBITDA (2.20M), 83 people, raised 8.17M, founders 56.6%.
+Base case at the end: **2031 ARR 18.12M, EBITDA +2.31M (15.2%), Q4 2031 21.7%, 74 people, raised
+7.12M, founders 55.7%, exit 181.2M at 10x.**
+
+## Step 1: fewer markets, deeper, and a lighter raise
+
+Per-market attribution on the eleventh-pass model, each market switched off in turn, showed France with
+Benelux (entry month 31) and the Nordics with Iberia (entry month 49) both dilutive inside the horizon:
+0.44M and 0 of 2031 ARR against (1.17M) and (0.99M) of 2031 EBITDA. Both were taken out of the base
+preset (entry 99), left in the table and in the Series A deployed scenario. Founder decision, recorded
+in MARKETS column O: fewer markets at depth are worth more than more flags on the map, and the capital
+efficiency of the later rounds is what leaves room to open them later. Rule of 40 was removed from
+SUMMARY entirely: below 10M of ARR both of its terms swing with discrete market openings, so it said
+nothing about this company and read as noise. The row and every reference to it are gone.
+
+## Step 2: the defect behind "Nordics returns zero"
+
+The founder did not accept a market that costs a million and returns nothing as a result, and he was
+right. The eleventh pass added the rule that a slot cannot exist before its chain, capped at
+`Slots_Per_Chain_Max` times the chains deployed two months earlier. It left the market table as it was:
+every market outside Czechia started with **zero** chains live at entry and grew chains at 0.06 to
+0.075 a month, so the first chain appeared fourteen to seventeen months after entry, and until then the
+slot cap was zero times four. Slovakia (entry month 9) got its first chain in month 25, Poland in month
+28, DACH in month 33, the United States in month 42, and the Nordics never. Meanwhile local fixed cost,
+inference and the in-market team were charged from the entry month. That is not a rollout, it is
+fourteen months of pure cost per market.
+
+Fix: the entry month is defined as the month the first chain in that market is live and capturing,
+with its launch category as the first labelled slot, exactly as the Czech row already read (one chain,
+one slot live at month 1). MARKETS columns C and E now carry 1 for every market, headed "live at
+entry", and column O explains what the entry month means and what the entry cost, the integration cost
+and the retailer BD team pay for before it. Further chains and categories open at the monthly rates in
+the table from there. Effect on the base case with everything else unchanged: 2031 ARR 14.78M to
+18.36M, EBITDA +1.07M to +4.23M. Slovakia moved from month 9 to month 14 and Poland from 13 to 16 so
+that the hires they trigger, staffed six months ahead, land after the seed rather than on the
+pre-seed; before that move the pre-seed low point was 170k.
+
+## Step 3: ARR per head, and two roles the plan did not have
+
+At 18.4M of ARR on 60 people the plan showed 306k of ARR per head, which is above the top quartile for
+B2B software at that scale and invites the question "who is actually doing the work". The only honest
+way to move that number is to add people the plan needs and did not carry. Two roles were missing:
+a **country manager** for every market outside the home base (Czechia and Slovakia are run from
+Prague), hired at entry, 95k, in-market, and a **product manager** per twelve live category products,
+75k, home base. Both are new rows in the HEADCOUNT role table and the monthly build, with their
+reasoning in column F, and the delivery ratios were brought back toward the benchmarked values the
+seventh pass had used before the eleventh-pass cost squeeze: analyst 1 per 4 slots (was 5), data or ML
+engineer 1 per 6 (was 9), backend 1 per 4.5 (was 5), deployment 1 per 3.5 (was 4.5). GTM and G&A ratios
+stayed as they were. Three configurations were measured before choosing:
+
+| | People 2031 | ARR per head | 2031 EBITDA | Raise (seed + A) |
+|---|---|---|---|---|
+| Lean, eleventh-pass ratios plus the two roles | 65 | 281k | 23% | 2.1M + 2.75M |
+| **Chosen: delivery ratios tightened, GTM and G&A left** | **74** | **245k** | **15%** | **2.5M + 4.0M** |
+| Full benchmark ratios | 78 | 234k | 15% | 2.75M + 4.3M |
+
+An error of my own is on the record here. After inserting the two role rows I wrote the ratio changes
+to the old row numbers, which set the country manager to one per nine markets (zero people) and put
+the marketing and finance ratios into the wrong rows. The second audit caught it through the role-by-
+role re-derivation, the corrected ratios added three country managers and moved the raise from
+2.4M + 3.65M to 2.5M + 4.0M.
+
+## Rounds re-sized from the unfunded path
+
+With the funding line at zero, the trough before the Series A is (1.80M) and the overall trough
+(4.16M) in month 47. Sized on cash, pre-seed held at 500k: seed **2.5M at 12M post** (20.8%; cash
+bottoms at 873k in month 26, about six months of the period's average burn) and Series A **4.0M at
+30M post** (13.3%; cash never below 1.39M after it lands, month 48). Raised 7.12M across all sources.
+Founders 55.7% at exit, pool 6.2%. Pre-seed 19.1x at 10x and 4.4x at the 2.3x floor, seed 13.1x,
+Series A 6.0x. The Series A prices at 16.7x current ARR (1.80M in month 27) and 6.2x forward.
+
+## The audit, twice
+
+The founder asked for a final check, then for the whole thing again from the beginning. First pass:
+every formula on every tab read, every prose cell in every column read, an independent Python
+re-implementation of MARKETS and MODEL compared month by month (exact, except the 20k the sheet
+correctly does not charge for the Czech chain that is already integrated). Second pass, done
+differently on purpose: sheet metadata (frozen panes, hidden rows, merges, protections, all 45 named
+ranges checked against their target cells, number format of every input and output cell), then the
+re-derivation extended to every HEADCOUNT role from its driver and to every SUMMARY line, the ARR
+bridge, all sixteen KPIs, the cap table and the exit ladder. All exact.
+
+What the two audits found and fixed, beyond the ratio error above:
+
+- MARKETS O18: my own prose edit had overwritten the live "PHASE 3, DACH" formula with text. Restored;
+  the entry-month explanation moved to O23.
+- MARKETS O19 named France and the Nordics "at month 99". Rewritten as a live formula that explains
+  why they are outside the base plan.
+- Scenario 2's preset had Slovakia at month 9 and Poland at 15, earlier than the base case it is meant
+  to fall short of. Now 14 and 18, description corrected. Scenario 2: 2031 ARR 10.78M, EBITDA 24%,
+  never runs out of cash.
+- ASSUMPTIONS F62 still showed the eleventh pass's 6,000,000 in an unreferenced cell. The Series A now
+  reads `Series_A_If_Raised` from that cell, one place of truth.
+- SUMMARY section 5 still said the base case exits near breakeven (it exits at 15% with a 22% fourth
+  quarter), "roughly 200M" of ladder spread was hard-coded (live: 176M), the seed text claimed it
+  "produces the first aggregated read" (that arrives in month 30, after the Series A), and section 7
+  carried a block of stress numbers from a previous state of the model. All rewritten as live
+  formulas. The round-slip stresses are now computed in-cell from the cash line: a late round is the
+  same plan with that cash missing until it arrives, so seed three months late is cash in month 15
+  less the seed, and so on.
+- SUMMARY B74 claimed scenario 3 goes negative before the Series A lands; it now goes negative in
+  month 46 after it. Sentence made general and true.
+- DSO_Days displayed as 6000.0% (inherited percent format). MODEL row 29, the trailing churn, displayed
+  as a percentage (values in the millions of percent). HEADCOUNT row 71 had no number format. Seat rows
+  on MODEL displayed as integers although seats are fractional. The AE ramp-cover ratio cell said
+  "see B20:B21" in a numeric column; it now carries the derived value 0.5. The three "(not used)"
+  columns in the market table are now entry date, slots live at end and chains live at end, all live.
+- "Seven markets" and "seventh market" wording on HEADCOUNT, MARKETS and READ ME rephrased as "the
+  market rows in the table"; one en dash removed; the Founding tier labelled as a launch subscription
+  of the founding-window length that renews at list, because a VC will ask how a 40k annual seat bills
+  80k six months later.
+- READ ME updated last, after the model was frozen: the entry-month definition, the headline KPI name,
+  the worked example tied to the inputs rather than to bare numbers, the two new roles, and two
+  simplifications added to the list (repricing at the gate month rather than at each seat's renewal;
+  the launch subscription).
+
+## What it did to the plan
+
+| | Eleventh pass | Twelfth pass |
+|---|---|---|
+| 2031 ARR | 15.22M | **18.12M** |
+| 2031 revenue | 11.28M | 15.20M |
+| 2031 EBITDA | (2.20M) | **+2.31M (15.2%)** |
+| Q4 2031 margin, December annualised | (3.7%), (1.7%) | 21.7%, 22.7% |
+| First month of sustained positive EBITDA | none | 52 |
+| Exit at 10x | 152.2M | 181.2M |
+| Raised, all sources | 8.17M | 7.12M |
+| Founders at exit | 56.6% | 55.7% |
+| Headcount Dec 2031, ARR per head | 83, 183k | 74, 245k |
+| Live categories, chains, capture stores | 36, 18, 1,040 | 35 labelled + 13 aggregated, 19, 1,100 |
+| Categories at T2, Dec 2031 | 15 of 36 | 18 of 35 |
+| Cash low after the pre-seed | 232k, month 12 | 204k, month 12 |
+| Cash net of prepayments, low | (3.57M), month 64 | (1.49M), month 53 |
+| 2031 NRR | 133% | 110% |
+
+## Stress, measured on the final model
+
+Every case is one cell. Cash low is the minimum after the pre-seed lands.
+
+| Case | 2031 ARR | 2031 EBITDA | Cash low | Funded |
+|---|---|---|---|---|
+| Base | 18.12M | +2.31M | 204k, month 12 | yes |
+| Seed lands 3 months late | | | (84k), month 15 | bridge |
+| Seed lands 6 months late | | | (569k), month 18 | bridge |
+| Series A lands 3 months late | | | (361k), month 29 | bridge |
+| Series A lands 6 months late | | | (840k), month 32 | bridge |
+| Pricing 20% below plan | 14.50M | +0.60M | 172k, month 12 | yes |
+| Gross churn 24%, three times plan | 18.12M | +1.34M | 202k, month 12 | yes |
+| Half a seat less per slot | 15.90M | +1.43M | 198k, month 12 | yes |
+| US entry slips 12 months | 16.22M | +0.99M | 204k, month 12 | yes |
+| US never opens, Series A kept | 13.93M | +2.20M | 204k, month 12 | yes |
+| Labour multiplier 1.7 instead of 1.55 | 18.12M | +1.98M | 200k, month 12 | yes |
+| Scenario 2, no Series A, no US | 10.78M | +2.20M | 296k, month 12 | yes |
+| Scenario 3, Series A deployed | 26.95M | +2.76M | (877k), month 46 | no |
+
+The revenue stresses no longer break the plan, for two reasons that are both on the sheet: the rounds
+carry a real buffer, and the team ratios respond to a revenue miss because every role is driven by
+slots, chains, ARR or seats rather than by a calendar. Round timing is the stress that bites, and the
+pre-seed is the reason: 500k reaches month 13 with 204k to spare, so a seed a quarter late needs the
+standby bridge.
+
+## Founder decisions, measured, not taken
+
+| # | Decision | One-cell test | 2031 ARR | 2031 EBITDA | Cash low after pre-seed |
+|---|---|---|---|---|---|
+| 9a | Aggregated attach 0.75 to 0.35 | `Attach_Rate_Aggregated` | 15.27M | +0.70M | 204k |
+| 9b | Aggregated price 150k to 75k | `Price_Aggregated` | 15.50M | +0.79M | 204k |
+| 10a | 30% retailer share on aggregated | `Rev_Share_Aggregated` | 18.12M | +1.10M | 204k |
+| 10b | 40% on both reads | both share inputs | 18.12M | (0.42M) | 1k, month 50 |
+| 11 | Edge hardware, proxy: chain integration 50k | MARKETS!B7 | 18.12M | +2.19M | 204k |
+| 12 | 150 capture stores per chain | `Stores_Per_Chain` | 18.12M | +1.51M | 204k |
+| 13 | First slot live Jan 2027, first seat Mar 2027 | MARKETS!B11 = 5 | 17.92M | +1.92M | 152k |
+| 14 | US never opens, Series A kept | MARKETS!H11 = 99 | 13.93M | +2.20M | 204k |
+| 15 | 10% post-money pool at the Series A | not a model input | founders 55.7% to about 50%, every MOIC times 0.9 | | |
+| 16 | Pre-seed 600k instead of 500k | ASSUMPTIONS!B60 | 18.12M | +2.31M | 304k; seed a quarter late still (−84k + 100k) |
+| 17 | Series A ownership 13.3% | ASSUMPTIONS!F62 | a lead fund usually wants 15 to 20%; 4.5M at 30M post is 15% and adds cover | | |
+| 18 | Labour multiplier 1.55 at all seven rows | HEADCOUNT!B16 | 1.7 costs 0.33M of 2031 EBITDA; US in-market roles at 1.37x Czech rates are thin for US sales | | |
+
+## What I chose not to do
+
+- No change to prices, retailer share, store count, inference cost or the US row. Same reasons as the
+  eleventh pass; these are the founder's numbers and they are on ASSUMPTIONS.
+- Repricing happens in the month a slot passes a gate, not at each seat's renewal. Stated on READ ME
+  as a simplification rather than modelled contract by contract.
+- France with Benelux and the Nordics with Iberia stay in the table and in scenario 3. Opening them
+  is a Series B question and the sheet says so.
+- The `18a` review file stays as the finding register for the eleventh pass; nothing from it is
+  reopened here.

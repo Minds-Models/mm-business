@@ -147,55 +147,65 @@ exit_multiple_band_rented:
 
 # --- Added 2026-09-08 for blitzkrieg/fundraise/pitch-deck-2026-09.html ---
 # Source of record for every entry below: the live VC financial model
-# (Google Sheets, SUMMARY tab), read 2026-09-08. The workbook carries 13 live
-# integrity checks; if any reads CHECK rather than OK, these figures are stale.
+# (Google Sheets, SUMMARY tab), re-read 2026-09-09 after the twelfth pass and two
+# full audits (strategy/2026-08-19-base-strategy/18-model-reconciliation.md).
+# The workbook carries 13 live integrity checks; if any reads CHECK rather than OK,
+# these figures are stale. Base case is five markets: CZ, SK, PL, DACH, US.
 # These SUPERSEDE the curve in strategy/.../12-numbers-external.md, which was
 # written against the pre-US, pre-resize model and now argues against our own plan.
 # ACTION: 12-numbers-external.md must be re-cast from these before diligence.
+# ACTION: pitch-deck-2026-09.html/.pdf still carry the 2026-09-08 figures (20.3M ARR,
+# seed 1.75M, Rule of 40) and must be re-cut from this block before they go out.
 
 model_arr_curve:
-  value: "Ending ARR: 95k (2026) · 677k (2027) · 2.07M (2028) · 4.78M (2029) · 11.45M (2030) · 20.29M (2031), EUR"
-  source: "VC financial model, SUMMARY section 1, read 2026-09-08"
+  value: "Ending ARR: 94k (2026) · 494k (2027) · 1.99M (2028) · 5.58M (2029) · 11.51M (2030) · 18.12M (2031), EUR"
+  source: "VC financial model, SUMMARY section 1, read 2026-09-09"
   status: internal-estimate
-  note: "Live run-rate ARR, not contracted ARR including LOIs. Definition differs from the older external curve."
+  note: "Live run-rate ARR, not contracted ARR including LOIs. Definition differs from the older external curve. Revenue recognised 2031: 15.20M."
 
 model_margins:
-  value: "Gross margin 77.1% (2031); EBITDA margin 8.7% full-year 2031, 16.2% Q4 2031, 17.9% December 2031 annualised"
+  value: "Gross margin 74.5% (2031); EBITDA +2.31M, 15.2% full-year 2031, 21.7% Q4 2031, 22.7% December 2031 annualised; EBITDA positive and stays positive from month 52 (Dec 2030)"
   source: "VC financial model, SUMMARY section 1"
   status: internal-estimate
-  note: "2031 is the crossover year, so the full-year figure averages loss-making and profitable months. Always show the run-rate beside it."
+  note: "Show the run-rate beside the full-year figure; 2031 still averages a loss-making January with a profitable December."
 
 model_operating_metrics:
-  value: "2031: 53 live slots · 3.19 seats per slot · NRR 113.1% · LTV/CAC 7.4x · CAC payback 8.2 months · Rule of 40 = 86 · headcount 88"
+  value: "2031: 35 live categories plus 13 aggregated reads (48 sellable products) on 19 chains and 1,100 capture stores · 2.9 seats per slot, 137 brand seats · NRR 110% · LTV/CAC 8.4x · CAC payback 7.2 months · ARR per instrumented category 518k · headcount 74, ARR per head 245k"
   source: "VC financial model, SUMMARY sections 2 and 3"
   status: internal-estimate
-  note: "NRR is computed from slots crossing the T1 and T2 price gates, not assumed."
+  note: "NRR is computed from slots crossing the T1 and T2 price gates, not assumed. Rule of 40 was removed from the model on 2026-09-09: below 10M of ARR both of its terms swing with discrete market openings and it says nothing about this company. Do not quote it."
 
 model_capital:
-  value: "Total capital raised across all sources 6,374,898 EUR; founders 60.1% and ESOP 6.7% at exit"
+  value: "Total capital raised across all sources 7,124,898 EUR; founders 55.7% and ESOP 6.2% at exit"
   source: "VC financial model, SUMMARY section 4"
   status: internal-estimate
 
 model_rounds:
-  value: "Pre-seed 500k at 6.5M post (Nov 2026) · Seed 1.75M at 12M post (Sep 2027) · Series A 4.0M at 30M post (Nov 2028)"
+  value: "Pre-seed 500k at 6.5M post (Nov 2026) · Seed 2.5M at 12M post (Sep 2027, 20.8%) · Series A 4.0M at 30M post (Nov 2028, 13.3%)"
   source: "VC financial model, SUMMARY section 4"
   status: internal-estimate
-  note: "Instrument is a term-sheet question and is not named in the model. Do NOT state the cap or the instrument in the deck unless asked."
+  note: "Rounds are sized from the unfunded cash path: about six months of cover before the Series A, a 1.39M floor after it. Instrument is a term-sheet question and is not named in the model. Do NOT state the cap or the instrument in the deck unless asked."
 
 model_exit_ladder:
-  value: "Exit ARR 20.29M EUR. 2.3x = 46.7M (pre-seed 5.3x) · 4x = 81.2M (9.2x) · 8x = 162.3M (18.5x) · 10x = 202.9M (23.1x) · 12x = 243.5M (27.7x)"
+  value: "Exit ARR 18.12M EUR. 2.3x = 41.7M (pre-seed 4.4x) · 4x = 72.5M (7.7x) · 8x = 145.0M (15.3x) · 10x = 181.2M (19.1x) · 12x = 217.4M (23.0x)"
   source: "VC financial model, SUMMARY section 4 exit ladder"
   status: internal-estimate
-  note: "Lead with the downside. The 2.3x floor is the footfall-incumbent comparable in 11-research-annex.md."
+  note: "Lead with the downside. The 2.3x floor is the footfall-incumbent comparable in 11-research-annex.md. Seed 13.1x and Series A 6.0x at 10x."
 
 model_series_a_test:
-  value: "With the Series A switched off (MARKETS scenario 2) the US never opens, 2031 ARR lands near half the base case, and the company never runs out of cash"
+  value: "With the Series A switched off (MARKETS scenario 2) the US never opens, 2031 ARR lands at 10.78M, about three fifths of the base case, 2031 EBITDA margin 24%, and the company never runs out of cash"
   source: "VC financial model, MARKETS scenario 2"
   status: internal-estimate
   note: "The Series A buys the American half of the exit, not survival."
 
+model_stress:
+  value: "Measured one cell at a time on the base case: pricing 20% below plan, churn at three times plan, half a seat less per slot, the US a year late and the US never opening all stay funded; a seed one quarter late leaves (84k) in month 15 and a Series A one quarter late (361k) in month 29, which is what the standby bridge is for"
+  source: "VC financial model, SUMMARY section 7 (live) and 19-model-walkthrough.md section 5"
+  status: internal-estimate
+  note: "Round timing is the stress that bites; the pre-seed reaches month 13 with 204k to spare."
+
 model_preseed_window:
-  value: "Between the pre-seed (Nov 2026) and the seed (Sep 2027) the plan goes from 1 live slot, 1 chain, 2 brand seats and 93k of ARR to 2 slots, 3 active markets, 5 seats and 286k of ARR"
+  value: "Between the pre-seed (Nov 2026) and the seed (Sep 2027) the plan goes from 1 live slot, 1 chain, 2 brand seats and 92k of ARR to 2 slots, 1 chain, 4.7 seats and 302k of ARR, with Slovakia and Poland opening in the two quarters after the seed"
   source: "VC financial model, MODEL tab months 3 to 13"
   status: internal-estimate
   note: "This is the use-of-funds basis for the pre-seed ask slide."
@@ -237,8 +247,8 @@ niq_client_arithmetic:
   note: "Label the average as implied, not disclosed. It is the price-point comparison for a brand seat."
 
 market_check_ratio:
-  value: "The 2031 plan is 169 brand seats, which is 0.7% of the incumbent's ~23,000 client companies"
-  source: "seats = model ending ARR 20.29M / ARPU 120,017; client count from the NIQ S-1"
+  value: "The 2031 plan is 137 brand seats, which is 0.6% of the incumbent's ~23,000 client companies"
+  source: "seats = model ending ARR 18.12M / ARPU 132,575, read 2026-09-09; client count from the NIQ S-1"
   status: internal-estimate
   note: >
     The deck's top-down check. The point is that the plan needs a small share of buyers who
