@@ -144,3 +144,159 @@ exit_multiple_band_rented:
   source: "same comparable band as exit_multiple_band_measurement"
   status: internal-estimate
   note: "The contrast pair. This is the argument for the perpetual aggregate licence."
+
+# --- Added 2026-09-08 for blitzkrieg/fundraise/pitch-deck-2026-09.html ---
+# Source of record for every entry below: the live VC financial model
+# (Google Sheets, SUMMARY tab), read 2026-09-08. The workbook carries 13 live
+# integrity checks; if any reads CHECK rather than OK, these figures are stale.
+# These SUPERSEDE the curve in strategy/.../12-numbers-external.md, which was
+# written against the pre-US, pre-resize model and now argues against our own plan.
+# ACTION: 12-numbers-external.md must be re-cast from these before diligence.
+
+model_arr_curve:
+  value: "Ending ARR: 95k (2026) · 677k (2027) · 2.07M (2028) · 4.78M (2029) · 11.45M (2030) · 20.29M (2031), EUR"
+  source: "VC financial model, SUMMARY section 1, read 2026-09-08"
+  status: internal-estimate
+  note: "Live run-rate ARR, not contracted ARR including LOIs. Definition differs from the older external curve."
+
+model_margins:
+  value: "Gross margin 77.1% (2031); EBITDA margin 8.7% full-year 2031, 16.2% Q4 2031, 17.9% December 2031 annualised"
+  source: "VC financial model, SUMMARY section 1"
+  status: internal-estimate
+  note: "2031 is the crossover year, so the full-year figure averages loss-making and profitable months. Always show the run-rate beside it."
+
+model_operating_metrics:
+  value: "2031: 53 live slots · 3.19 seats per slot · NRR 113.1% · LTV/CAC 7.4x · CAC payback 8.2 months · Rule of 40 = 86 · headcount 88"
+  source: "VC financial model, SUMMARY sections 2 and 3"
+  status: internal-estimate
+  note: "NRR is computed from slots crossing the T1 and T2 price gates, not assumed."
+
+model_capital:
+  value: "Total capital raised across all sources 6,374,898 EUR; founders 60.1% and ESOP 6.7% at exit"
+  source: "VC financial model, SUMMARY section 4"
+  status: internal-estimate
+
+model_rounds:
+  value: "Pre-seed 500k at 6.5M post (Nov 2026) · Seed 1.75M at 12M post (Sep 2027) · Series A 4.0M at 30M post (Nov 2028)"
+  source: "VC financial model, SUMMARY section 4"
+  status: internal-estimate
+  note: "Instrument is a term-sheet question and is not named in the model. Do NOT state the cap or the instrument in the deck unless asked."
+
+model_exit_ladder:
+  value: "Exit ARR 20.29M EUR. 2.3x = 46.7M (pre-seed 5.3x) · 4x = 81.2M (9.2x) · 8x = 162.3M (18.5x) · 10x = 202.9M (23.1x) · 12x = 243.5M (27.7x)"
+  source: "VC financial model, SUMMARY section 4 exit ladder"
+  status: internal-estimate
+  note: "Lead with the downside. The 2.3x floor is the footfall-incumbent comparable in 11-research-annex.md."
+
+model_series_a_test:
+  value: "With the Series A switched off (MARKETS scenario 2) the US never opens, 2031 ARR lands near half the base case, and the company never runs out of cash"
+  source: "VC financial model, MARKETS scenario 2"
+  status: internal-estimate
+  note: "The Series A buys the American half of the exit, not survival."
+
+model_preseed_window:
+  value: "Between the pre-seed (Nov 2026) and the seed (Sep 2027) the plan goes from 1 live slot, 1 chain, 2 brand seats and 93k of ARR to 2 slots, 3 active markets, 5 seats and 286k of ARR"
+  source: "VC financial model, MODEL tab months 3 to 13"
+  status: internal-estimate
+  note: "This is the use-of-funds basis for the pre-seed ask slide."
+
+demo_asset:
+  value: "Public demo at chat.mindsmodels.ai: 10 convenience and drugstore locations, 18,830,280 visual data points, 484,120 POS data points, 30 days"
+  source: "chat.mindsmodels.ai landing metrics, read 2026-09-08"
+  status: needs-source
+  note: "RE-CONFIRM against the database before these four numbers appear as a claim in any deck. The deck links to the demo rather than restating them."
+
+model_price_ladder:
+  value: "Brand seat price ladder: 40k founding, 80k at T1 (one chain at depth), 170k at T2 (two or more chains in the market), EUR per brand per category per year"
+  source: "VC financial model, ASSUMPTIONS section 3, read 2026-09-08"
+  status: internal-estimate
+  note: >
+    NOT internal_only. These three prices are printed on the ASSUMPTIONS tab of the model that
+    goes into the data room, so withholding them from the deck while shipping the model is
+    incoherent. CONFLICT TO RESOLVE: the older `pricing_ladder` entry above carries
+    internal_only: true and a different T1/T2 band in CZK. The founder should retire or re-scope
+    that entry; until then, external materials use THIS entry and never the CZK bands, the
+    study tier, or the max-seats-per-category rule.
+
+# --- Added 2026-09-09 for the top-down market check on the pitch deck ---
+
+niq_stated_tam:
+  value: "The incumbent's own IPO filing sizes its combined TAM at $57bn for 2024: $18bn Consumer Measurement plus $39bn Consumer Analytics"
+  source: "NIQ Global Intelligence Form S-1, SEC EDGAR, filed 2025 (accessed 2026-09-09)"
+  status: verified
+  note: >
+    The $18bn Consumer Measurement line is the layer we sit in and is the anchor for the deck's
+    top-down check. Citable because it is the incumbent's own filed estimate, not a third-party
+    market report. Same filing: revenue $3.3bn FY23 and $4.0bn FY24, ~80% recurring, ~84% of
+    Intelligence revenue on multi-year or annual subscriptions.
+
+niq_client_arithmetic:
+  value: "~23,000 client companies against $4.0bn FY24 revenue implies an average of about $173k per client per year"
+  source: "NIQ Global Intelligence Form S-1 (client count and revenue); average is our arithmetic"
+  status: verified
+  note: "Label the average as implied, not disclosed. It is the price-point comparison for a brand seat."
+
+market_check_ratio:
+  value: "The 2031 plan is 169 brand seats, which is 0.7% of the incumbent's ~23,000 client companies"
+  source: "seats = model ending ARR 20.29M / ARPU 120,017; client count from the NIQ S-1"
+  status: internal-estimate
+  note: >
+    The deck's top-down check. The point is that the plan needs a small share of buyers who
+    already fund this category, not market growth and not a new budget line.
+
+insights_industry_size:
+  value: "Global insights industry $153bn in 2024, of which the market research sector is $56bn"
+  source: "Research World / ESOMAR, 'Inside the $153bn Insights Industry' (accessed 2026-09-09)"
+  status: verified
+  note: "Context only. The NIQ-stated $18bn Consumer Measurement figure is the tighter and more defensible anchor."
+
+# --- Added 2026-09-09 for the SaaS comparison on the pitch deck ---
+
+saas_ma_multiples:
+  value: "SaaS M&A median EV/Revenue 4.5x across 543 disclosed transactions (2015-2026); 2025 median 3.8x; public SaaS median 4.6x as of Aug 2026"
+  source: "Aventis Advisors, SaaS Valuation Multiples 2015-2026 (accessed 2026-09-09)"
+  status: verified
+  note: >
+    Used as the CONTRAST, never as our own benchmark. The deck argues a data asset is not priced
+    like software; it does not benchmark itself against software. Pair it with
+    exit_multiple_band_measurement, which is our own estimate and must be labelled as such
+    on the same slide.
+
+# --- Added 2026-09-09: public data-infrastructure comparables for the deck's slide 8 ---
+
+data_infra_public_multiples:
+  value: "EV/Revenue as of 8 Sep 2026: Verisk 8.9x on 5% revenue growth; MSCI 14.1x on 12% growth; Experian 4.5x on 8% growth"
+  source: "multiples.vc public comps pages for VRSK, MSCI and EXPN (accessed 2026-09-09)"
+  status: verified
+  note: >
+    Used on the deck to show that owned-data subscription businesses trade well above the SaaS
+    M&A median, so the 10x exit assumption sits inside an observable band rather than being
+    asserted. Experian at 4.5x is the counter-example and is deliberately NOT on the slide;
+    if an investor raises it, the honest answer is that the band is wide and position inside it
+    depends on growth and on whether the data is owned or licensed in.
+
+attributes_per_shopper_100:
+  value: "100+ visual attributes per shopper"
+  source: "founder decision 2026-09-09 for the pitch deck"
+  status: needs-source
+  note: >
+    ACTION REQUIRED. The verified figures in this file are pilot_attributes (88+ per shopper,
+    ~155 columns) and pilot_attributes_detectable (450+ detectable). "100+ per shopper" is above
+    the measured average and is currently unsourced. Either confirm it against the sessions
+    schema and change the status, or the deck should read 88+.
+
+# --- Added 2026-09-09: the compounding-asset figures on the traction slide ---
+
+data_asset_scale:
+  value: "7 retail brands instrumented or in pilot; 133k+ shoppers observed; 18.8M visual data points; 484k POS records matched"
+  source: >
+    Brand count from decks/retailer-pitch-deck.html logo wall. Shopper count from the base
+    strategy pack state of play (19 Aug 2026, '~133k unique visitors captured'). Visual and POS
+    point counts from the chat.mindsmodels.ai landing metrics (30-day window).
+  status: needs-source
+  note: >
+    ACTION REQUIRED before this ships. Three separate vintages sit in one strip: the 133k figure
+    is three weeks old and is almost certainly low now; the 18.8M and 484k are the demo's 30-day
+    window rather than the cumulative estimate, so they understate the asset if read as a total
+    and overstate it if read as monthly. Re-pull all four from the database as one cumulative
+    figure with one as-of date, then change this status.
