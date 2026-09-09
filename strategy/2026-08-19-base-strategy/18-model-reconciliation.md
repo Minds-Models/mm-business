@@ -825,3 +825,155 @@ In its place, a short section 7 that does three things. It says there is no pre-
 The ASSUMPTIONS header now carries the same instruction, since that is where someone will be sitting when they want to test something.
 
 Eleven integrity checks, zero formula errors, and SUMMARY is 76 rows instead of 96.
+
+
+---
+
+# Eleventh pass, 9 Sep 2026: the adversarial review applied
+
+Source: `18a-model-adversarial-review-2026-09-09.md`, findings 1 to 8 and 16 to 22 applied, 9 to 15
+left as founder decisions with their impact measured. Method as instructed: every value on every tab
+snapshotted unformatted before the first edit, the workbook diffed cell by cell after each block with
+inserted rows mapped, zero unintended formula changes at either checkpoint, thirteen lines on CHECKS
+all OK at the end with zero error cells on any tab.
+
+Base case as reviewed: 2031 ARR 20.29M, EBITDA 1.42M, exit 202.9M, raised 6.37M.
+Base case after this pass: **2031 ARR 15.22M, EBITDA (2.20M), exit 152.2M at 10x, raised 8.17M.**
+
+## What was wrong, in the order it was fixed
+
+**Slots existed before their chains (finding 1).** MARKETS built slots and chains as two independent
+linear ramps from the entry month, and at the rates in the table the first slot appeared about nine
+months after entry and the first chain about fifteen. Every market except Czechia was billing a
+category read with no store capturing, the United States for eleven months on up to three slots. The
+seven slot rows now cap live slots at `Slots_Per_Chain_Max` (new input, 4) times the chains deployed
+two months earlier, the month the capture-store ramp on MODEL completes. Categories keep being opened
+commercially from entry, nothing goes live until a chain is capturing.
+
+**The T2 gate was per market, not per category, and it fired the month the second chain signed
+(finding 2).** The B1 fix of the second pass gated on chains anywhere in the market, which is not what
+CLAUDE.md's benchmark-integrity rule says and not what a slot is. Two new inputs: `T2_Cross_Chain_Share`
+(0.75, the share of a market's mature categories that run in two of its chains) and `Months_T2_History`
+(6, second-chain history before the reprice, covering the store ramp). The seven T2 rows read both.
+Categories at T2 in Dec 2031 fall from 22 of 37 to 15 of 36.
+
+**Churn was deducted twice in substance (finding 3).** The penetration curve is seats held, a net
+position, and row 28 accumulated a permanent hole on top of it that was never backfilled, while row 20
+counted replacement seats as wins, HEADCOUNT staffed AEs to sell them and row 44 charged nothing for
+them. One convention now: churn is a flow of seats that sales re-wins. Row 28 is seat ARR churned in
+the month, row 29 its trailing twelve months, row 30 is legacy plus the two seat ARR lines with no
+retained-share factor, revenue share in row 37 follows, and row 44 pays the per-seat cost on gross wins.
+The bridge's churn line reads row 28 by year.
+
+**Seats per slot used the fleet's average age (finding 5).** Section 5 was added at the foot of MODEL:
+slots opened per month, seats on slots inside the Founding window, seats on slots past it, the same for
+aggregated slots, each a SUMPRODUCT over the vintage of every slot opened so far against the ramp on
+ASSUMPTIONS. Row 14 is now the derived fleet average, row 19 reads the vintages, row 26 prices the
+Founding-window seats at the founding price and the rest at T1, with the T2 premium applied to the
+post-founding average on the T2 slot count, and row 27 prices aggregated seats from their own launch.
+
+**Re-measure after that block, cross-chain share at 0.6, old rounds in place:** 2031 ARR 12.64M,
+EBITDA (2.58M), 2031 headcount 76, cash net of prepayments (4.64M). Findings 1 and 2 carried 7.5M of
+the 7.7M; findings 3 and 5 net to (0.2M), because removing the double churn deduction adds about 1.4M
+and the vintages remove about 1.6M. Slot and chain counts barely moved, so the ratio-driven team did
+not, and the plan stopped reaching breakeven. The sensitivity on the two inputs I had set:
+
+| Cross-chain share / history months | 2031 ARR | 2031 EBITDA |
+|---|---|---|
+| 0.6 / 6 | 12.48M | (2.83M) |
+| 0.6 / 0 | 12.55M | (2.62M) |
+| 0.8 / 3 | 15.37M | (1.73M) |
+| 1.0 / 6 | 18.76M | (757k) |
+| 1.0 / 0 | 18.98M | +111k |
+
+The share is the whole story; the history lag is worth 0.2M. Share 1.0 is the old assumption that
+every category spans two chains, which is what the finding said was wrong. I reset the default to
+0.75, on the reading of `13-revenue-model.md` §7 that once a grocery chain is in a market most
+categories overlap and before that few do. It is the founder's number and it is on ASSUMPTIONS.
+
+**The rest of the register.** The ARR bridge priced a T1 to T2 move at 50k per seat instead of 90k
+(finding 4): expansion now counts the founding-to-T1 step for slots entering T1 or T2 and the T1-to-T2
+step for slots entering T2, and 2031 NRR reads 133% rather than 113%. Deferred revenue no longer
+includes the legacy business, and receivables on the monthly-billed share at `DSO_Days` (60) sit in two
+new rows with the change flowing to cash (finding 6). Row 63 is cash net of unearned prepayments and
+CHECKS row 17 reports its low point (finding 7). SUMMARY section 7 now states the round-slip cases in
+words from measured numbers (finding 8). SUMMARY D65 read the tempo cell for the US entry month and
+said "month 1" (16). HEADCOUNT column G and MARKETS column O were rewritten from the live tables as
+formulas, so the ratios, the team size, the seat count and the phase months cannot drift again (17, 18).
+READ ME says thirteen lines and CHECKS has thirteen (19). Hard-codes moved to named inputs:
+`Angel_Amount`, `Angel_Post_Money`, `Series_A_If_Raised`, `GTM_Start_Month`, `Prepaid_Unearned_Share`,
+the employer-contribution rate on HEADCOUNT, and the bridge's legacy deduction (20). The slot-opening
+cost no longer charges aggregated slots (21). Tax never refunds and recruiting charges only hires above
+the previous peak (22). `Months_To_First_Sale` is set to 2, which puts the first paying seats in Nov
+2026 as the 21 Nov gate expects. The Bridge Group ramp is in: an AE ramp-cover role carries half an AE
+for every AE hired in the trailing twelve months, two people at the end of the plan. A twelfth true
+check tests the physical limits the earlier findings broke: seats per slot never above depth, T2 never
+above the slots old enough, aggregated never above T2, no slot where no chain is deployed.
+
+## Rounds re-sized from the unfunded path
+
+With the funding line at zero the cash trough is (7.51M) in month 61 on a cash basis and (11.6M) in
+month 64 net of prepayments. Sized on cash, pre-seed held at 500k: seed **1.55M** (was 1.75M; the
+trough before the Series A is 661k in month 26, 6.3 months of cover) and Series A **6.0M** (was 4.0M;
+trough 540k in month 61, 9.6 months). Total raised 8.17M. Founders 56.6% at exit, pre-seed 16.3x at
+10x and 3.8x at the 2.3x floor, Series A 5.1x. Headcount ratios were left as they are and checked
+against column F: 83 people, 183k EUR of ARR per head, 10 seats per salesperson, 20 accounts per CSM,
+3 categories per analyst.
+
+Stress, measured: the seed three months late leaves 16k of cash, six months late (229k); the Series A
+three months late (437k), six months late (910k). Pricing 20% below plan (1.48M), churn at 24%
+(814k), half a seat less (317k), all in the last two years, because the ratios do not respond to a
+revenue miss. US slipping a year and US never opening both stay funded. Scenario 3 dips to (701k) in
+month 26. The previous section 7 claim that the plan stayed funded in every case is gone.
+
+## What it did to the plan
+
+| | Reviewed | After block A (share 0.6) | Final (share 0.75, rounds re-sized) |
+|---|---|---|---|
+| 2031 ARR | 20.29M | 12.64M | **15.22M** |
+| 2031 revenue | 16.43M | 9.82M | 11.28M |
+| 2031 EBITDA | 1.42M | (2.58M) | **(2.20M)** |
+| December 2031 annualised margin | 17.9% | | (1.7%) |
+| Exit at 10x | 202.9M | | 152.2M |
+| Raised | 6.37M | | 8.17M |
+| Founders at exit | 60.1% | | 56.6% |
+| Headcount Dec 2031 | 88 | 76 | 83 |
+| Categories at T2, Dec 2031 | 22 of 37 | 10 of 36 | 15 of 36 |
+| ARR per instrumented category | 548k | | 423k |
+| Cash low after the pre-seed | 260k, month 12 | | 232k, month 12 |
+| Cash net of prepayments, low | (642k), month 56 | (4.64M) | (3.57M), month 64 |
+
+The scenario-2 result is the one to sit with: no Series A, no US, 2.17M raised, 2031 ARR 9.23M, 2031
+EBITDA +1.14M, founders 70.7%. Inside this horizon the United States costs about 1.5M of 2031 EBITDA
+for about 2.9M of 2031 ARR and 6.0M of dilution. That is a rights-portfolio argument about the exit,
+not a P&L argument, and the sheet now says so in section 5.
+
+## Founder decisions, measured, not taken
+
+| # | Decision | One-cell test | 2031 ARR | 2031 EBITDA | Cash low after pre-seed |
+|---|---|---|---|---|---|
+| 9a | Aggregated attach 0.75 to 0.35 | `Attach_Rate_Aggregated` | 12.96M | (2.98M) | (685k) |
+| 9b | Aggregated price 150k to 75k | `Price_Aggregated` | 13.33M | (3.08M) | (707k) |
+| 10a | 30% retailer share on aggregated | `Rev_Share_Aggregated` | 15.22M | (2.95M) | (298k) |
+| 10b | 40% on both reads | both share inputs | 15.22M | (4.07M) | (2.16M) |
+| 11 | Edge hardware, proxy: chain integration 50k | MARKETS!B7 | 15.22M | (2.38M) | 90k |
+| 12 | 150 capture stores per chain | `Stores_Per_Chain` | 15.22M | (2.91M) | (873k) |
+| 13 | First slot live Jan 2027, first seat Mar 2027 | MARKETS!B11 = 5 | 15.00M | (2.80M) | (379k) |
+| 14 | US never opens, Series A kept | MARKETS!H11 = 99 | 12.35M | (677k) | 232k |
+| 15 | 10% post-money pool at the Series A | not a model input | founders 56.6% to about 50.9%, every MOIC times 0.9 | | |
+
+## What I chose not to do
+
+- No change to the team ratios, the prices, the retailer share, the store count or the US row. The
+  plan not breaking even is the consequence of the corrections on an unchanged cost base, and the
+  cost base is the founder's to move.
+- Rounds sized on cash including prepayments, as the seventh pass did. Sizing on cash net of
+  prepayments would mean raising about 13M, which is the venture costume the seventh pass took off.
+  The net-of-prepayments low point is reported instead, on MODEL and on CHECKS.
+- Inference cost still unchecked against list pricing at the intended frame rate. The empirical
+  anchor is the current all-in cost under 1,000 CZK per store per month in `13-revenue-model.md` §4a,
+  which supports 45 EUR only at today's sampling.
+- The three-month store deployment ramp on MODEL row 11 stays as the one structural constant; it is
+  named as such on ASSUMPTIONS and READ ME.
+- `18a-model-adversarial-review-2026-09-09.md` stays as the finding register for this pass. Per
+  CLAUDE.md rule 5 it should fold into this file once the decisions above are taken.
