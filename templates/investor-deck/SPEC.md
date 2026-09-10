@@ -48,10 +48,12 @@ present the pilots as how we learned where the money is.
    subscription, priced against the incumbent line they already fund. Same read sold to every brand
    in the category — syndication is the multiplier. Never exclusivity.
 8. **The exit maths** ⭐ *the VC-case slide — numbers from `12-numbers-external.md`* — Buyers are the incumbents whose blind spot we fill.
-   The same ARR is worth ~2.4× more as a measurement currency than as a mixed vendor. Target:
-   €8–12.5M ARR by 2031 at a currency multiple → €100–150M outcome. **We do not grow our way there;
-   we re-rate our way there** — and this round buys exactly the four things that earn the multiple:
-   rights breadth, recurring revenue, multi-country coverage, the cross-retailer aggregate.
+   The same ARR is worth about four times more as a measurement currency (10x) than as
+   undifferentiated store analytics (2.3x). Target: €18.1M ARR by Dec 2031 on five markets, the
+   financial model's base case → €181M at 10x, with the ladder from €42M to €217M shown beside it
+   and the downside stated first. **We do not grow our way there; we re-rate our way there** — and
+   this round buys exactly the four things that earn the multiple: rights breadth, recurring
+   revenue, multi-country coverage, the cross-retailer aggregate.
 9. **Traction & the next six months** — Rights-clean locations, signed rights instruments, gold
    stores, POS-matched sessions — plus the **dated gate list**. Invite them to check us on dates.
 10. **Competition** — 2×2: depth of shopper understanding × link to transactions. Counters and
@@ -88,8 +90,9 @@ Close the slide with: *"Don't take our word for the speed — here are the dated
   the ARR curve, the cap table — must be added to `stats.yaml` with source and status **before**
   the deck ships.
 - **One number set.** Every figure in this deck comes from
-  `strategy/2026-08-19-base-strategy/12-numbers-external.md` — the canonical external curve
-  (€0.8–1.4M at the Feb-2027 checkpoint → €10–14M by 2031 → €80–168M at currency multiples). The
+  `strategy/2026-08-19-base-strategy/12-numbers-external.md` — the canonical external curve, read
+  from the financial model (€94k at Dec 2026 → €494k → €1.99M → €5.58M → €11.51M → €18.12M by
+  2031 → €181M at 10x; `messaging/stats.yaml` `model_*` entries carry the same figures). The
   internal operating target never appears as an external forecast. Do not reuse the old exit
   model's figures: its 2027 line, its retailer-split economics and its €3M angel cap are all
   superseded.

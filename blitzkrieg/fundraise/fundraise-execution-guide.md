@@ -55,7 +55,7 @@ only figures anyone may quote) circulated internally.
    - **Slide 5 (velocity/mechanism):** answers *"why won't the next 8 months look like the last 8"* — the was/is table (retailer paid → pays nothing, our hardware → their cameras, etc.).
    - **Slide 6 (The Moat):** explicit argument that we are the first and only to connect visual human behavior with POS ground truth (receipts). We are building the most accurate behavioral model backed by real transactions, not just hardware.
    - **Slide 7 (The Capital Flywheel):** tells the exact story of the investors' money. **Step 1:** Invest €500k to cover "Store Ops" (€40/store) and build the network to acquire data. **Step 2:** Form a unified "Category Read" from this data. **Step 3 (20x return):** Sell this one dataset to 6 different brands at €30k each. Margins skyrocket because supply cost is fixed.
-   - **Slide 8 (exit maths):** answers *"can't see the VC case"* — €8–12.5M ARR by 2031 → €100–150M strategic exit → 10–16× for this round.
+   - **Slide 8 (exit maths):** answers *"can't see the VC case"* — €18.1M ARR by 2031 on five markets (the financial model's base case) → €181M strategic exit at 10x, €42M at the 2.3x floor → about 19x for this round at 10x, 4.4x at the floor. Numbers from `messaging/stats.yaml` `model_*`.
 3. Traction slide: three labels only — **SIGNED / IN NEGOTIATION / TARGET** — merciless.
 4. One appendix slide: the **survival variant** ("if you all say no, here is the company that still
    exists"). It removes the desperation discount.

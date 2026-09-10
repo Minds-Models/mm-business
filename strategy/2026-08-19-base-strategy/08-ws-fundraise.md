@@ -62,12 +62,14 @@ This is what answers *"we can't see the VC case"*, and it must come early in the
 - A five-year outcome here is a **strategic acquisition**, not an IPO. Buyers: consumer-insight
   and measurement incumbents (the "who" layer they structurally lack — buy or be disrupted),
   retailer data arms, retail-media platforms, and data/PE roll-ups.
-- **The multiple is the lever, not the revenue.** The same €8M ARR is a ~€40M exit as a mixed
-  vendor and a ~€96M exit as a measurement currency. You do not grow your way to the outcome —
-  you **re-rate** your way there.
-- Therefore the target: **€8–12.5M ARR by 2031 at a currency multiple** → a €100–150M exit →
-  roughly 10–16× for money invested at today's terms. A €50M exit is the trap: a fine business,
-  ~5× for the seed, below what a seed investor underwrites.
+- **The multiple is the lever, not the revenue.** The same €18M of ARR is a €42M exit priced as
+  undifferentiated store analytics (2.3x) and a €181M exit priced as a measurement currency (10x).
+  You do not grow your way to the outcome, you **re-rate** your way there.
+- Therefore the target: **€18.1M ARR by Dec 2031 at a currency multiple**, the financial model's
+  base case on five markets (CZ, SK, PL, DACH, US) → a €181M exit at 10x, €145M at the low end of
+  the measurement band → about 19x for the pre-seed at today's terms, and 4.4x even at the 2.3x
+  floor. The €42M exit is the trap: a fine business, below what a seed investor underwrites, and it
+  is what the rights work failing looks like.
 - **What earns the multiple** (and therefore what this round buys): breadth of perpetual
   aggregate rights across several retailers · recurring revenue rather than studies ·
   multi-country coverage · a live cross-retailer aggregate product.
@@ -78,15 +80,18 @@ This is what answers *"we can't see the VC case"*, and it must come early in the
 apart for 2027 and ran on different economics. One reconciled external curve now exists in
 **`12-numbers-external.md`** — that file is canonical for every number that leaves the building.
 
-- **Externally pitch the base case:** €0.8–1.4M contracted ARR at the Feb-2027 checkpoint, on a
-  curve reaching €10–14M by 2031 → €80–168M at currency multiples, centred on the €100–150M band.
+- **Externally pitch the model's base case:** €94k of run-rate ARR at Dec 2026, €494k at Dec 2027,
+  €1.99M at Dec 2028, €5.58M, €11.51M and **€18.12M at Dec 2031** → €181M at 10x, with the exit
+  ladder from €42M (2.3x) to €217M (12x) shown beside it. The Feb-2027 checkpoint is an internal
+  gate, not a forecast point.
 - **Internally run** the €4.40M architecture (`04-revenue-architecture.md`); it never appears as an
   external forecast.
-- **Brands-only improved the exit story:** keeping the whole brand euro instead of ~50% pulls the
-  old curve forward by ~12 months and lifts the CZ-only ceiling to ~€7–10M — so European expansion
-  becomes upside rather than a precondition. Use this; it directly answers "can't see the VC case".
-- The **published exit artifact still shows the old numbers** and sits on an open share link with
-  the cap table in it. Re-publish or restrict before diligence.
+- **The Series A buys the exit, not survival:** with the Series A switched off (model scenario 2,
+  CZ, SK and PL only) the plan still ends at €10.8M of ARR, a 24% EBITDA margin and never runs out
+  of cash. The United States and DACH are what the later capital buys, and they are what earns the
+  multiple. Use this; it directly answers "can't see the VC case".
+- The **financial model is the exit artifact**. The old exit model with the unreconciled 2027 line,
+  the old split and the €3M angel cap must not be in any data room.
 
 ---
 
@@ -161,8 +166,8 @@ Both assume the standby bridge is papered by 30 Sep regardless (`03-business-mod
 
 ### Strategy B — "Re-rate & Raise" (the seed the exit math actually requires)
 
-- **Raise:** €1.5–2.5M seed at €8–12M post, on the measurement-currency thesis and the exit-first
-  spine, positioning M&M as a European data company that happens to be based in CZ.
+- **Raise:** €1.5–2.5M seed at €8–12M post (the financial model carries the seed at €2.5M at €12M
+  post in Sep 2027), on the measurement-currency thesis and the exit-first spine, positioning M&M as a European data company that happens to be based in CZ.
 - **Who:** Western EU/UK data & retail-tech specialists (they price multiples correctly and know
   the incumbent-displacement story) + CEE regional funds with commerce-data theses. **These
   audiences carry no old anchor — for them this is a first impression, not a pivot.**
