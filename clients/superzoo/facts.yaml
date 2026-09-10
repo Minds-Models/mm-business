@@ -194,6 +194,10 @@ rights:
     Ladder: mandate (60d, revocable, veto) -> study-rights (pet category) -> chain subscription."
 
 naming:
+  # 2026-09-09 (founder): naming by logo is approved for 1:1 client decks —
+  # see decks/coop-pitch-deck-v2.html, founding-partner-per-category slide.
+  # can_name_publicly stays false: it governs public/press material, not a
+  # deck handed to a named counterparty.
   can_name_publicly: false
   approved_fallback: "the leading Czech pet-specialist chain"
   written_ok_for: []
