@@ -6,8 +6,8 @@ with the live financial model, the model wins and this file is stale.
 
 Written 20 Aug 2026 to resolve a contradiction that would have been caught in diligence: the then
 exit model showed **€0.5M ARR in 2027** while the operating plan targeted **€4.40M by Feb 2027**, a
-~9x gap between two documents that would sit in the same data room. Re-cast 10 Sep 2026 from the VC
-financial model after its twelfth pass and two full audits (`18-model-reconciliation.md`,
+~9x gap between two documents that would sit in the same data room. Re-cast 13 Sep 2026 from the VC
+financial model after its thirteenth pass (`18-model-reconciliation.md`,
 `19-model-walkthrough.md`). Sections 1 and 2 are the history and the definitions; sections 3 to 5
 are read from the model.
 
@@ -49,50 +49,54 @@ carries all three conventions explicitly, so the disagreement cannot recur.
 
 ## 3. What the model assumes, so the curve can be argued
 
-Five markets in the base case: Czechia from month 1 (Sep 2026), Slovakia from month 14, Poland from
-month 16, DACH from month 18, the United States from month 28 (Dec 2028). France with Benelux and the
-Nordics with Iberia are in the market table but outside the plan; they open only in the accelerated
-scenario. A market's entry month is the month its first chain is live and capturing with its launch
-category.
+Seven markets in the base case: Czechia from month 1 (Sep 2026), Slovakia from month 14, Poland from
+month 16, DACH from month 18, the United States from month 28 (Dec 2028), France with Benelux from
+month 31 and the Nordics with Iberia from month 41. A market's entry month is the month its first chain
+is live and capturing. Categories follow chains: a chain goes live with two categories already sold in
+and carries four within six months; when the next chain in a market goes live, three quarters of its
+categories on average already run in a live chain and become cross-chain density, the rest are new.
 
 Price ladder per brand seat per category per year: **€40k** founding (a six-month launch
 subscription), **€80k** at T1 (one chain at depth), **€170k** at T2 (two or more chains in the same
-market), plus an **€150k** aggregated read sold into three quarters of the T2 categories, with no
-retailer share on it and a 30% share on the labelled read. Six payable brands per category, 55%
-penetration at maturity over 24 months, 8% gross seat churn, 60% of seats billed annually in advance.
+market), plus an **€150k** market read (aggregated, chain-masked) sold into three quarters of the T2
+categories, with no retailer share on it and a 30% share on the labelled read. Six payable brands per
+category: three buy the labelled read at maturity, two of the remaining three buy the market read, no
+brand holds both on the same category, ramp over 24 months, 8% gross seat churn, 60% of seats billed
+annually in advance.
 Supply is 60 capture stores per chain at €45 per store per month of inference, no hardware capex.
 
-Where this lands: 35 live categories and 13 aggregated reads on 19 chains and 1,100 capture stores
-by Dec 2031, 137 brand seats at an average of €133k, 2.9 seats per category, 18 of 35 categories at
-T2. ARR per instrumented category €518k, inside the €300 to 600k band the revenue model was built on.
+Where this lands: 40 live categories and 17 market reads on 24 chains and 1,400 capture stores by
+Dec 2031, 143 brand seats (114 labelled, 29 market) at an average of €135k, 2.8 labelled seats per
+category, 23 of 40 categories at T2. ARR per instrumented category €480k, inside the €300 to 600k band
+the revenue model was built on; ARR per chain deployed €800k.
 
 ---
 
 ## 4. The external curve: this is the only one that goes in a deck
 
-Read from SUMMARY section 1 of the model, base case, 10 Sep 2026.
+Read from SUMMARY section 1 of the model, base case, 13 Sep 2026.
 
 | Year-end | Run-rate ARR (base case) | Revenue recognised | EBITDA | What has to be true |
 |---|---|---|---|---|
-| **Dec 2026** | **€94k** | €18k | (€87k) | First category live in one Czech chain, two founding seats, pre-seed closed in November |
-| **Dec 2027** | **€494k** | €270k | (€842k) | Three Czech categories, two of them at T1, second Czech chain live, seed closed in September, Slovakia and Poland opening |
-| **Dec 2028** | **€1.99M** | €1.23M | (€2.73M) | Eleven live categories, the first at T2, DACH live, Series A closed in November, US entered in December |
-| **Dec 2029** | **€5.58M** | €3.60M | (€2.63M) | 22 live products across five markets, first aggregated read sold in February, aggregated reads 8% of seat revenue |
-| **Dec 2030** | **€11.51M** | €8.34M | (€1.48M) | EBITDA positive from December and stays positive |
-| **Dec 2031** | **€18.12M** | €15.20M | **+€2.31M** | The exit year: 48 sellable products, 74 people, 15% full-year margin, 22% in Q4 |
+| **Dec 2026** | **€175k** | €31k | (€108k) | One Czech chain live with three categories, four founding seats, pre-seed closed in November |
+| **Dec 2027** | **€955k** | €589k | (€1.01M) | Four chains and eight categories in three markets, second Czech chain live, seed closed in September |
+| **Dec 2028** | **€4.39M** | €2.82M | (€2.79M) | Seven chains, 19 categories, the first three at T2, first market reads sold, DACH live, Series A closed in November, US entered in December |
+| **Dec 2029** | **€9.78M** | €6.37M | (€2.96M) | 11 chains, 28 categories, 12 at T2, France with Benelux live, expansion peaks as categories cross the gates |
+| **Dec 2030** | **€15.10M** | €12.33M | (€915k) | 18 chains, 36 categories, Nordics with Iberia live, EBITDA positive from November and stays positive |
+| **Dec 2031** | **€19.21M** | €17.19M | **+€1.70M** | The exit year: 24 chains, 57 sellable products, 82 people, 10% full-year margin, 12% in Q4 |
 
-**Growth shape:** the curve is a rollout, not a compound rate. It steps with each market and each
-category crossing a price gate: 5.58M to 11.51M to 18.12M in the last three years, about 80% a year
-over 2029 to 2031 and 57% in the final year. ARR per head ends at €245k.
+**Growth shape:** the curve is a rollout, not a compound rate. It steps with each chain deployed and
+each category crossing a price gate: 4.39M to 9.78M to 15.10M to 19.21M over the last four years,
+about 64% a year over 2028 to 2031 and 27% in the final year. ARR per head ends at €234k.
 
-**Where this lands the exit:** €18.12M of ARR at the measurement-currency multiple of 10x is
-**€181M**, which is 11.9x recognised 2031 revenue. The ladder beside the cap table prices the same
-asset from 2.3x (undifferentiated analytics, €42M) through 4x (a rented asset, €72M) and 8x (owned
-rights, low end of the band, €145M) to 12x (competitive process, €217M). Returns per round are not
+**Where this lands the exit:** €19.21M of ARR at the measurement-currency multiple of 10x is
+**€192M**, which is 11.2x recognised 2031 revenue. The ladder beside the cap table prices the same
+asset from 2.3x (undifferentiated analytics, €44M) through 4x (a rented asset, €77M) and 8x (owned
+rights, low end of the band, €154M) to 12x (competitive process, €231M). Returns per round are not
 restated here: the model carries the live cap table and the MOIC per round, and reconciles to 100%
-of the company. For orientation only: the pre-seed returns 19x at 10x and 4.4x at the 2.3x floor.
+of the company. For orientation only: the pre-seed returns 20x at 10x and 4.6x at the 2.3x floor.
 
-**The Feb-2027 checkpoint** is not on this curve. The model shows about €100k of run-rate ARR that
+**The Feb-2027 checkpoint** is not on this curve. The model shows about €220k of run-rate ARR that
 month; the operating architecture targets €4.40M of contracted annuals across every engine on the
 same date. Those are different quantities on different scopes and neither is an external forecast.
 The pre-seed use-of-funds slide is built from the model's months 3 to 13 instead (`messaging/
@@ -109,10 +113,10 @@ amounts of the later rounds are the model's, sized from the unfunded cash path.
 |---|---|
 | Angel money already in | **€80k convertible at a €3.5M cap** (not €3M), modelled as if priced at the cap |
 | CzechInvest grant | €45k in total, €16.5k still to land in Oct 2026; non-dilutive |
-| Current round, pre-seed | **€500k at €6.5M post-money** (state post, never pre). It reaches the seed with about €200k to spare; a seed one quarter late is what the standby bridge is for |
-| Seed | **€2.5M at €12M post**, Sep 2027, 20.8%. Priced on about €300k of ARR: the round is priced on evidence, not on the plan |
-| Series A | **€4.0M at €30M post**, Nov 2028, 13.3%. Priced at 16.7x current and 6.2x forward ARR. It buys the United States, not survival: with it switched off the plan still ends at €10.8M of ARR, 24% EBITDA margin and never runs out of cash |
-| Ownership at exit | Founders 55.7%, ESOP 6.2%, investors 38.1%; a later pool top-up is not modelled |
+| Current round, pre-seed | **€500k at €6.5M post-money** (state post, never pre). It reaches the seed with about €285k to spare; a seed one quarter late is what the standby bridge is for |
+| Seed | **€2.6M at €12M post**, Sep 2027, 21.7%. Priced on about €755k of ARR: the round is priced on evidence, not on the plan |
+| Series A | **€4.0M at €30M post**, Nov 2028, 13.3%. Priced at 7.1x current and 3.2x forward ARR. It buys the United States and the second European wave, not survival: with it switched off the plan still ends at €9.0M of ARR, 27% EBITDA margin and never runs out of cash |
+| Ownership at exit | Founders 55.1%, ESOP 6.1%, investors 38.8%; a later pool top-up is not modelled |
 | Instrument | A term-sheet question, not named in the model. Do not state the cap or the instrument in the deck unless asked |
 
 The two fundraise strategies in `08-ws-fundraise.md` §6 (bridge and convert versus re-rate and
@@ -134,4 +138,4 @@ raise) describe how the pre-seed is papered; they do not change the amounts abov
    been shown to an investor.
 4. Figures here are strategy-internal until they are added to `messaging/stats.yaml` with source
    and status; that gate still applies before anything reaches a deck. The `model_*` entries there
-   were re-read from the workbook on 9 Sep 2026 and match this file.
+   were re-read from the workbook on 13 Sep 2026 and match this file.

@@ -1176,3 +1176,149 @@ standby bridge.
   is a Series B question and the sheet says so.
 - The `18a` review file stays as the finding register for the eleventh pass; nothing from it is
   reopened here.
+
+# Thirteenth pass, 13 Sep 2026: categories follow chains, buyers are disjoint, and the business summary
+
+Three founder decisions taken in one sitting, all of them about what a seat actually is, and one
+presentation change so that a reader sees the business before the P&L. Method as before: baseline
+snapshot before the first edit, the rollout engine and the seat vintages re-implemented in Python from
+the inputs and compared month by month (zero difference on slots, chains, T2, aggregated slots and all
+four seat lines), zero error cells on any tab, thirteen lines on CHECKS all OK.
+
+Base case at the start: 2031 ARR 18.12M, EBITDA +2.31M, 74 people, five markets, raised 7.12M.
+Base case at the end: **2031 ARR 19.21M, EBITDA +1.70M (9.9%), Q4 2031 12.2%, 82 people, seven
+markets, raised 7.22M, founders 55.1%, exit 192.1M at 10x.**
+
+## Decision 1: no brand pays for the same read twice (3 + 2)
+
+The founder asked whether the same brands pay for the T2 labelled read and the aggregated read. On the
+labelled ladder the answer was already no: founding, T1 and T2 are three prices of one seat, and the
+vintage rows partition seats by slot age, so a seat is in exactly one tier at any time. On the aggregated
+read the answer was yes: it was a second vintage on the same six-brand depth at the same penetration, so
+3.3 of 6 brands bought labelled and 3.3 of 6 bought aggregated, and READ ME said a brand could hold
+both at 320k. That is the same two chains sold twice to the same brand, once named and once masked.
+
+Fix: the six payable brands are split into disjoint buyers. `Seats_Labelled_Mature` (3, replaces
+`Penetration_Mature`) and `Seats_Agg_Mature` (2 of the remaining 3, replaces `Seat_Depth_Agg`) are the
+inputs; the sixth brand buys nothing. The labelled ramp goes from two founding seats to three, the
+aggregated ramp is the labelled ramp scaled by two thirds. READ ME carries a new block, WHAT ONE BRAND
+PAYS FOR: one seat is one category on one channel in one market; a brand never holds two seats on the
+same read; a brand present in two channels or two markets holds two seats and that is real. Measured
+alone on the old engine: 2031 ARR 18.12M to 15.15M, EBITDA +2.31M to +0.88M. The founder chose the
+split over the alternatives that were measured (aggregated as a 50k add-on for the same brands, a
+three-step 40/80/150 ladder with no separate aggregated product, both in `19-model-walkthrough.md`).
+
+## Decision 2: categories follow chains, and a chain is harvested in six months
+
+The founder asked what `Slots_Per_Chain_Max` meant and whether two petrol networks give four categories
+or eight. The answer exposed the last piece of the old engine: categories opened at a rate per market
+(Czechia one every seven months) that had nothing to do with chains, and the chain cap never bound. That
+is the opposite of how the business runs: once a chain is deployed, the commercial energy goes into
+selling as many categories on it as fast as possible, and brand demand is pre-sold while the retailer
+deal is being negotiated.
+
+New engine. A chain goes live with `Categories_At_Launch` (2) categories and carries its full set of
+`Slots_Per_Chain_Max` (4) within `Months_To_Full_Categories` (6), linearly. A category is a shelf on a
+channel in a market, not a shelf per chain, so when the next chain in a market goes live, the existing
+input `T2_Cross_Chain_Share` (0.75) is the share of its categories that already run in a live chain
+(two petrol networks share tobacco, drinks and snacks) and only the rest are new to the market (a petrol
+network and a supermarket share almost nothing). The seven slot rows on MARKETS are now a per-cell
+convolution of new chains against that ramp with the overlap weight, capped at the market's category
+inventory. The "labelled slots per month" column is retired; tempo now applies to chain signing only.
+Column I of the market table shows categories live one year after entry as a diagnostic.
+
+Effect: ARR is pulled forward hard (2028 ending ARR 4.39M against 1.99M) and the T2 and aggregated
+products arrive sooner, but a market saturates once its chains are in, because each further chain adds
+one new category on average. On five markets the plan flattened in 2030 and 2031 (12.95M to 14.65M,
++13%) and the Series A shrank to 1.3M with nothing to buy. The two markets dropped in the twelfth pass
+because they returned nothing inside the horizon on the old engine now return within a year of entry.
+Founder decision: **seven markets in the base case**, France with Benelux from month 31 and the Nordics
+with Iberia from month 41, the accelerated scenario's timing. Alternatives measured: five markets
+(14.65M, +2.87M, 59 people, seed 2.5M and Series A 1.3M) and seven markets later (months 36 and 42:
+18.89M, +1.25M).
+
+## Rounds re-sized from the unfunded path
+
+Seed **2.6M at 12M post** (21.7%; trough before the Series A 1.19M in month 26, about seven months
+of the period's average burn), Series A **4.0M at 30M post** (13.3%; cash never below 2.24M after it
+lands, month 47). Raised 7.22M. Founders 55.1%, pool 6.1%. Pre-seed 20.1x at 10x and 4.6x at the 2.3x
+floor, seed 13.9x, Series A 6.4x. The Series A now prices at 7.1x current ARR (4.24M in month 27) and
+3.2x forward. Minimum cash across the horizon is 2.5k in month 2, the month before the pre-seed lands,
+because two live categories at month 1 pull the first analyst hire forward; that is a founder decision
+about hiring before the round closes, not a modelling defect, and it is flagged in the walkthrough.
+
+## Presentation: SUMMARY section 1b and the chart
+
+SUMMARY has a new block between the financial summary and the ARR bridge, SECTION 1b · HOW THE
+BUSINESS SCALES: ten December lines read from MODEL (markets, chains, capture stores, categories,
+market reads, labelled seats, market-read seats, seats per category, ARR per chain, retailer share
+paid), each with a one-sentence explanation in column J on a worked example with illustrative names
+(EuroOil, Orlen, Albert, Lidl, Kaufland; Coca-Cola HBC, Kofola, Mattoni, PepsiCo, Red Bull, Maspex),
+headed by a line that says they are archetypes and not signed relationships. Five detail lines and a
+seats-versus-companies note sit in a collapsed row group beneath; section 3, the operating metrics,
+is collapsed too. An embedded combo chart beside the block plots capture stores (columns, left axis)
+against ARR (area, right axis) by month, base case, with a caption: the same stores, more paying
+brands. READ ME's slot, seat, market read, worked example and simplification texts were rewritten
+to match, with the worked example now on the named archetypes.
+
+## What it did to the plan
+
+| | Twelfth pass | Thirteenth pass |
+|---|---|---|
+| Markets in the base case | 5 | 7 |
+| 2031 ARR | 18.12M | **19.21M** |
+| ARR 2027 / 2028 / 2029 | 0.49M / 1.99M / 5.58M | 0.96M / 4.39M / 9.78M |
+| 2031 revenue | 15.20M | 17.19M |
+| 2031 EBITDA | +2.31M (15.2%) | **+1.70M (9.9%)** |
+| First month of sustained positive EBITDA | 52 | 51 |
+| Exit at 10x | 181.2M | 192.1M |
+| Raised, all sources | 7.12M | 7.22M |
+| Founders at exit | 55.7% | 55.1% |
+| Headcount Dec 2031, ARR per head | 74, 245k | 82, 234k |
+| Chains, capture stores | 19, 1,100 | 24, 1,400 |
+| Categories, market reads | 35, 13 | 40, 17 |
+| Brand seats (labelled + market) | 137 | 143 (114 + 29) |
+| Categories at T2, Dec 2031 | 18 of 35 | 23 of 40 |
+| Cash low after the pre-seed | 204k, month 12 | 285k, month 12 |
+| Cash net of prepayments, low | (1.49M), month 53 | (1.66M), month 51 |
+| 2031 NRR | 110% | 102% |
+
+NRR ends near 100% because by 2031 most repricing has already happened; the bridge shows expansion
+peaking in 2029 (2.87M) as categories cross the gates, then new business carrying growth.
+
+## Stress and founder decisions, measured on this engine
+
+| Case | 2031 ARR | 2031 EBITDA | Cash low after pre-seed | Funded |
+|---|---|---|---|---|
+| Base | 19.21M | +1.70M (9.9%) | 285k, month 12 | yes |
+| Seed lands 3 months late | | | (85k), month 15 | bridge |
+| Seed lands 6 months late | | | (814k), month 18 | bridge |
+| Series A lands 3 months late | | | 131k, month 29 | yes |
+| Series A lands 6 months late | | | (588k), month 32 | bridge |
+| Pricing 20% below plan | 15.37M | (0.33M) | 93k, month 50 | yes |
+| Gross churn 24% | 19.21M | +0.59M | 281k | yes |
+| Labelled seats 2.5 instead of 3 | 17.12M | +1.00M | 268k | yes |
+| Categories 1 at launch, 4 in 12 months | 17.70M | +0.65M | 216k | yes |
+| US entry slips 12 months | 18.83M | +0.80M | 285k | yes |
+| US never opens, Series A kept | 16.66M | +2.04M | 285k | yes |
+| Second European wave never opens | 14.65M | +2.87M | 285k | yes |
+| Aggregated attach 0.35 | 16.77M | +0.14M | 285k | yes |
+| 30% retailer share on the market read | 19.21M | +0.57M | 285k | yes |
+| 150 capture stores per chain | 19.21M | +0.69M | 285k | yes |
+| Scenario 2, no Series A | 9.03M | +2.29M (27%) | 381k | yes |
+| Scenario 3, Series A deployed | 21.11M | +2.20M | (292k), month 12 | no |
+
+The plan is now thinner on margin than the twelfth pass and more robust on growth: every revenue
+stress stays funded, the two that hurt most are price and the market-read attach rate, and scenario 3
+fails on the pre-seed rather than on the Series A because it signs chains faster before the seed.
+
+## Open with the founder
+
+- Retailer share on the market read is 0%. The founder's own reading is that a retailer whose share
+  goes to zero as the product matures will use the data feed as leverage at renewal; the model measures
+  a 30% share at (1.13M) of 2031 EBITDA. A pooled 10 to 15% share and a free own-performance benchmark
+  for the retailer is the likely landing and is not yet modelled.
+- The chain-read plus market-read architecture (a brand buys named chains one by one, priced by chain
+  weight, plus the market read) was discussed and deferred; the 3 + 2 split is the interim.
+- The aggregated gate stays at two chains; three would be safer for both k-anonymity and leverage.
+- Hiring runs six months ahead of slots and now starts before the pre-seed lands (month 2 low point).
