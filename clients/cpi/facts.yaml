@@ -1,0 +1,48 @@
+# Client facts — single source of truth for this company.
+# Agents: use ONLY these values in deliverables. Missing value => ask, don't invent.
+
+name: "CPI"                 # CPI Property Group — shopping-centre operator
+legal_entity: "CPI Property Group"
+segment: "shopping-centre"
+stores_total: null          # network of CPI centres (Olympia + others) — verify before external use
+stores_live: 1              # Olympia Mladá Boleslav (store_id 16), 2 entrance cameras (Vchod A/B)
+
+pilot:
+  start: 2026-08-26         # Wednesday, 00:00 Europe/Prague
+  end: 2026-09-09           # Wednesday, 00:00 Europe/Prague — 14 full days (26.8.–8.9. inclusive)
+  pos_matching: none        # mall operator, no POS access — no basket/conversion sections
+  match_rate: null
+  key_metrics:
+    visitors_entering: 92456    # Facing (facing_camera_ratio >= 0.28), valid visits, staff excluded
+    visitors_leaving: 77125     # Passing by (< 0.28), same filters
+    entrances: 2                # screen 32 "Vchod A", screen 33 "Vchod B"
+    personas: 8                 # NMF k=8 run f421ab1d-7a48-492d-af8b-7d29ae17df60
+    exit_purchase_signal: 0.321 # share of exiting visitors with a carried purchase signal (n=7000 sample)
+
+deal:
+  status: "pilot-live"      # pilot finished 9. 9. 2026, report delivery phase
+  next_step: >
+    Prezentace pilotního reportu; hlavní focus CPI je analytika a sjednocení systémů
+    napříč centry. Diskutované směry: (1) plošné nasazení v síti CPI center,
+    (2) "blindspot" senzory u vstupů konkrétních nájemců, (3) real-time personalizace
+    obsahu obrazovek.
+  personalization_live: false
+
+rights:
+  mandate_signed: false
+  aggregate_license: false
+  notes: ""
+
+naming:
+  can_name_publicly: false
+  approved_fallback: "přední provozovatel obchodních center v ČR"
+  written_ok_for: []
+
+contacts: []
+
+sensitivities: >
+  Nikdy necitovat absolutní počty z hloubkové analýzy (54 092 návštěv — podchycuje
+  ~71,5 % skutečného provozu; podíly jsou validované, absolutní čísla ne). Počty
+  vstupů/odchodů z pilotního okna (raw tracking) jsou v pořádku. Nezmiňovat
+  absenci POS dat. Dvě z osmi person mají sníženou spolehlivost u časových vzorců
+  (artefakt pipeline disrupce) — neuvádět v klientských materiálech.

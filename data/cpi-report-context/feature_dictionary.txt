@@ -1,0 +1,1252 @@
+================================================================================
+COMPOSITE DATASET — FIELD DICTIONARY (plain-text extract, verbatim descriptions)
+================================================================================
+
+Dataset:  ops/cpi-combined/data/joined.jsonl  (54,092 records, one JSON object
+per line, one line per visitor)
+
+This file documents the EXACT meaning of every field present in that dataset.
+Descriptions marked "verbatim" are copied unmodified from the source schema
+Field(description=...) strings — these are the literal instructions given to
+the vision model that produced the value, i.e. the ground truth for what the
+value means. Two independent source schemas feed this dataset:
+
+  GOLDEN  = analysis-api's structured Gemini output schema
+            file: analysis-api/libs/analyzer/schema.py
+            (auto-generated from config/golden/009-C29/{perception,gestalt}/schema.json)
+            column names below are the analysis-api "normalized" column
+            names (see analysis-api/libs/datalayer/transforms/normalize.py,
+            _SECTION_MAP), NOT the short schema.py field names — the mapping
+            from schema.py short key -> column name is given for every field
+            below as "schema key".
+
+  BD      = brand-extractor's structured Gemini output schema
+            file: brand-extractor/brand_detector/schema.py
+            class Detection (garments[], accessories[], carried_items[],
+            person, trip). Composite dataset columns are prefixed bd_.
+
+Every GOLDEN and BD field below was independently produced by a Gemini
+structured-output call reading the SAME stored visitor photo (face
+pre-anonymized) — GOLDEN via two calls (perception + gestalt), BD via one
+call. They are two separate reads of one image, not two measurements of
+different things, except where noted.
+
+Encoding notes (apply throughout):
+ - GOLDEN boolean fields are stored as integer 1 / 0 / NULL (NULL = "not
+   observed", not false). BD boolean fields are native JSON true / false /
+   null (null = "torso not visible" etc., not false) — do not treat GOLDEN
+   NULL and BD null as the same "no signal" reason without checking the
+   field description; the two schemas use it differently in places.
+ - GOLDEN enum fields carry an explicit closed value list; a value outside
+   that list should not occur. Most GOLDEN enums include their own
+   "unknown" member (the model's own "cannot tell" answer), which is
+   distinct from a NULL/missing field.
+ - BD enum fields carry their own closed value list ending in "unclear"
+   instead of "unknown" — same role, different literal spelling. Do not
+   assume the two zero-signal sentinels are the identical string.
+ - BD's `type` field (inside every bd_items entry) is FREE TEXT lowercase
+   snake_case, not a closed enum — see note C3 below.
+ - GOLDEN brand-type free-text fields do not appear in this dataset at all
+   (superseded by bd_items — see "fields intentionally absent" at the end
+   of this file); the only free text worth noting is BD's `brand` field
+   inside bd_items.
+
+================================================================================
+SECTION A — IDENTIFIERS & TIMING
+================================================================================
+
+person_id
+  UUID. Primary key / join key. Same person_id used across all upstream
+  tables (visitors_v2, visitors_normalized_v2, brand-detector's per-visitor
+  result file <person_id>.json).
+
+entered_at
+  Timestamp, UTC, ISO-like string with fractional seconds and a "+00"
+  offset (e.g. "2026-09-08 16:51:53.970901+00"). Camera-session start time
+  for this visitor, taken from the raw visitors_v2 row — NOT re-derived or
+  altered by the join.
+
+left_at
+  Timestamp, UTC, same format as entered_at. Camera-session end time.
+
+hour
+  Integer 0-23. Hour of entered_at converted to local time, zone
+  Europe/Prague (source store's timezone). Derived field, computed by the
+  join script (ops/cpi-combined/build_joined.py), not present upstream.
+
+day_of_week
+  String, full English weekday name (e.g. "Tuesday"). Local-time weekday of
+  entered_at, Europe/Prague. Derived by the join script.
+
+is_weekend
+  Boolean. True if local weekday (Europe/Prague) is Saturday or Sunday.
+  Derived by the join script.
+
+================================================================================
+SECTION B — GOLDEN FIELDS
+(source: analysis-api/libs/analyzer/schema.py; column names as normalized
+into visitors_normalized_v2 by analysis-api/libs/datalayer/transforms/normalize.py)
+================================================================================
+
+--------------------------------------------------------------------------------
+B1. Demographics & individual activity — schema.py class Demographics (section "1")
+--------------------------------------------------------------------------------
+
+age            [schema key: age]
+  Values: 10s | 20s | 30s | 40s | 50s | 60s+ | unknown
+  Verbatim: "Read the decade age bracket from the image; use facial
+  features, skin texture, hair colour and texture, and body proportions as
+  cues; 60s is open-ended (60+); unknown if age cannot be confidently
+  estimated from visible cues. 10s=teens — smooth skin, no facial ageing,
+  youthful facial proportions; 20s=twenties — mature facial structure with
+  no visible ageing markers; 30s=thirties — early fine lines, fuller facial
+  definition than twenties; 40s=forties — visible fine lines, softening
+  jawline, early greying possible; 50s=fifties — established lines, common
+  greying, clear loss of jawline definition; 60s+=sixty and over — deep
+  lines, substantial greying or white hair, visible skin laxity;
+  unknown=face not in frame or genuinely unreadable; do not use when a
+  reasonable bracket is apparent"
+
+ageOnEdgeGenerated
+  Boolean, stored 't'/'f' text in this CSV-derived export. Always False —
+  hard-set to False by normalize.py for every row (extracted["ageOnEdgeGenerated"]
+  = False). Reserved/legacy flag distinguishing an on-device (edge) age
+  estimate from the LLM read; currently always the LLM read, so this field
+  carries no variation in this dataset.
+
+sex            [schema key: gen]
+  Values: female | male | other | unknown
+  Verbatim: "Read biological sex from the image. Distinct from aesthetic
+  gender presentation (apparel, grooming, styling) — judge physiology
+  only. Use physiological cues — facial structure, body proportions, hair.
+  Unknown if sex cannot be determined from visible cues; prefer unknown
+  over guessing. female=physiological cues indicate female — facial
+  structure, body proportions, hair; male=physiological cues indicate male
+  — facial structure, body proportions, hair; other=physiology is visible
+  but matches neither typical male nor typical female cues; unknown=
+  physiological cues insufficient to determine sex; prefer this over
+  guessing"
+
+sexOnEdgeGenerated
+  Boolean, same status as ageOnEdgeGenerated — always False in this dataset.
+
+is_staff       [schema key: staff]
+  Boolean (1/0/NULL). Verbatim: "Decide whether this person is store staff
+  rather than a customer; used to filter sessions before any downstream
+  analysis — staff sessions should never enter the pipeline as shoppers."
+  Note: every visitor already known/flagged as staff by the separate
+  visitor_exclusions mechanism was removed from the population before this
+  composite was built (see accompanying note.md, "population"); this
+  column is the model's own per-photo staff read, kept as-is.
+
+occupational_context   [schema key: occ]
+  Values: none | healthcare | manual_trades | uniformed_authority |
+  food_service | school_uniform | branded_workwear | delivery_logistics |
+  unknown
+  Verbatim: "Visible occupational context indicated by uniform, workwear,
+  or distinctive occupational equipment; most shoppers wear civilian dress
+  and should be classified as none; only flag when clear, unambiguous
+  workwear or equipment is directly visible — do not infer occupation from
+  style alone. none=civilian dress with no occupational indicators — the
+  correct value for most shoppers; healthcare=scrubs, lab coat,
+  stethoscope, nursing shoes, or other healthcare workwear visible;
+  manual_trades=high-vis vest, hard hat, work boots, tool belt, or other
+  trade workwear visible; uniformed_authority=police, military, security,
+  or fire service uniform with visible insignia; food_service=chef whites,
+  kitchen apron, or food service uniform visible; school_uniform=school or
+  college uniform with identifiable institutional dress;
+  branded_workwear=generic corporate uniform, branded polo shirt, or work
+  fleece with company logo (non-trade); delivery_logistics=courier
+  uniform, delivery vest, or logistics company branded outerwear;
+  unknown=occupational cues present but type cannot be determined"
+
+individual_activity    [schema key: act]
+  Values: waiting | browsing | inspecting | comparing | reading | on_phone
+  | paying | queueing | passing | unknown
+  Verbatim: "Name what this shopper is primarily doing at the display;
+  unknown if activity cannot be determined from the image. waiting=
+  standing without engaging with products or display and not in a
+  checkout line — idle rather than queueing; browsing=actively looking at
+  products or display without picking anything up; inspecting=picking up
+  or closely examining a specific item — high intent signal; comparing=
+  evaluating two or more items side by side — highest intent signal;
+  reading=reading a label, price tag, or product information; on_phone=
+  primary attention on phone — may be checking prices, reviews, or
+  distracted; paying=engaged in the payment or checkout interaction;
+  queueing=standing in or moving along a checkout line — waiting for a
+  turn to pay, not idling and not passing through; passing=moving through
+  the area without stopping to engage; not waiting for anything;
+  unknown=activity cannot be determined from the image"
+
+--------------------------------------------------------------------------------
+B2. Social context — schema.py class SocialContext (section "2")
+--------------------------------------------------------------------------------
+Absent section 2 (i.e. the model reported no group) is normalized as
+group_size=1, group_activity=NULL, group_gender_mix=NULL (solo shopper) —
+NULL here means "not applicable to a solo shopper", not "unknown".
+
+group_size     [schema key: size]
+  Integer, always present (1 = solo). Verbatim: "Number of people in the
+  shopper's group; always present — 1 = solo shopper; NULL only on LLM
+  extraction failure."
+
+group_activity [schema key: act]
+  Values: no_interaction | talking | browsing | physical_interaction |
+  selling | unknown (NULL when group_size=1)
+  Verbatim: "Name how the shopper and their companion(s) are interacting;
+  NULL when group_size=1 (not applicable for solo shoppers); unknown when
+  group is present but interaction cannot be determined. no_interaction=
+  multiple people present but no social connection — co-located strangers;
+  talking=shopper and companion(s) talking, not actively shopping
+  together; browsing=group casually looking at products together;
+  physical_interaction=group actively handling or evaluating products
+  together; selling=staff member actively selling to or assisting the
+  shopper — strongest purchase intent signal; unknown=group present but
+  interaction pattern cannot be determined"
+
+group_gender_mix   [schema key: mix]
+  Values: all_female | all_male | mixed_gender | unknown (NULL when
+  group_size=1)
+  Verbatim: "Gender composition of the group; NULL when group_size=1 (not
+  applicable for solo shoppers); unknown when group gender cannot be
+  determined. all_female=group composed entirely of women; all_male=group
+  composed entirely of men; mixed_gender=male + female pair or
+  mixed-gender group; unknown=group present but gender composition cannot
+  be determined"
+
+--------------------------------------------------------------------------------
+B3. Body / grooming detail — schema.py class Body (section "3")
+Only the fields NOT superseded by brand-detector's body_archetype are kept
+(golden's body_type and body_composition_archetype are dropped from this
+dataset — see bd_body_archetype in Section C, and "fields intentionally
+absent" at the end of this file).
+--------------------------------------------------------------------------------
+
+body_shape     [schema key: shape]
+  Values: hourglass | pear | inverted_triangle | apple | rectangle |
+  unknown
+  Verbatim: "Read body shape from the outline of the torso; free-text in
+  source, canonicalized to buckets. hourglass=shoulders and hips roughly
+  equal width with a visibly narrower waist; pear=hips noticeably wider
+  than shoulders; inverted_triangle=shoulders noticeably wider than hips;
+  apple=weight carried at the midsection — the waist is the widest point,
+  wider than both shoulders and hips; rectangle=shoulders, waist, and hips
+  roughly the same width with little definition; a positive reading of a
+  straight silhouette, NOT a fallback for an unclear one — use unknown for
+  that; unknown=body not sufficiently visible to assess proportions — use
+  liberally; this attribute is hard to assess from store cameras"
+
+height         [schema key: ht]
+  Values: short | average | tall | unknown
+  Verbatim: "Judge height against an average adult population; do not use
+  average as a fallback when uncertain — use unknown instead. short=
+  visibly shorter than a typical adult — noticeably below average, not
+  just slightly under; average=clearly typical adult height — only use
+  when you can positively confirm an unremarkable height; NOT a fallback
+  when uncertain; tall=visibly taller than a typical adult — noticeably
+  above average, not just slightly over; unknown=height cannot be assessed
+  from the image; prefer over average when unsure"
+
+chest_size     [schema key: chest]
+  Values: s | m | l | unknown
+  Verbatim: "Upper-body chest width read from the torso itself — how the
+  fabric sits across the shoulders and chest. Judge it independently of
+  overall build: a heavy shopper can have a narrow chest and a slim one a
+  broad chest, so do not read this off body_type. Do not use m as a
+  fallback when uncertain — use unknown instead. s=visibly slim upper
+  body, fabric hangs loosely or chest appears narrow relative to typical
+  adult; m=clearly typical chest width — only use when you can positively
+  confirm an unremarkable fit; NOT a fallback when uncertain; l=visibly
+  broad or full chest, fabric appears stretched or fitted across the upper
+  body; unknown=upper body not visible or chest size cannot be assessed"
+
+skin_tone      [schema key: skin]
+  Values: light | medium | dark | unknown
+  Verbatim: "Read skin tone from exposed skin — face, hands, neck.
+  light=pale to fair skin — minimal melanin, cool or neutral undertones;
+  medium=tan to olive or warm brown skin — moderate melanin; dark=deep
+  brown to dark skin — high melanin; unknown=skin not sufficiently visible
+  to assess"
+
+hair_colour    [schema key: h_col]
+  Values: blonde | brown | ginger | black | grey | white | exotic |
+  unknown
+  Verbatim: "Dominant visible hair colour. blonde=light yellow to golden
+  hair; brown=any shade of brown from light to dark; ginger=red or auburn
+  hair; black=very dark brown to black hair; grey=mixed grey and natural
+  colour, or fully grey; white=fully white or platinum hair; exotic=
+  clearly dyed in an unnatural colour — blue, pink, green, purple, etc.;
+  unknown=hair not visible, fully covered by headwear, or colour
+  indeterminate in the available light"
+
+hair_length    [schema key: h_len]
+  Values: no_hair | short | medium | long | unknown
+  Verbatim: "Visible hair length. no_hair=bald or fully shaved head;
+  short=above the ear or close-cropped — ear and neck fully visible;
+  medium=ear to shoulder length; long=below the shoulder; unknown=hair not
+  visible or length cannot be assessed"
+
+hair_texture   [schema key: h_tex]
+  Values: straight | wavy | curly | unknown
+  Verbatim: "Read hair texture from the visible hair; free-text
+  canonicalized to descriptive buckets. straight=hair lies flat without
+  curl or wave — includes blow-dried or chemically straightened; wavy=
+  loose S-shaped curves or bends; curly=defined curls or coils; unknown=
+  hair not visible, obscured by headwear, or texture indeterminate"
+
+hair_style     [schema key: h_sty]
+  Values: loose | fringe | ponytail | bun | braid | updo | cropped |
+  buzz_cut | afro | dreadlocks | unknown
+  Verbatim: "How the hair is ARRANGED, not how long it is — length is
+  recorded separately in hair_length and texture in hair_texture, so do
+  not restate either here. Pick the arrangement that is actually visible;
+  when the hair is simply worn without arrangement, choose loose or
+  cropped according to its length. loose=worn down and unarranged, any
+  length — no tie, clip, or deliberate shaping; fringe=hair falls across
+  the forehead as the defining feature; when the fringe sits alongside a
+  tied arrangement, record the arrangement instead; ponytail=hair pulled
+  back and tied at the nape or crown; bun=hair twisted or coiled into a
+  compact form, including topknots; braid=single or multiple plaits;
+  updo=hair pinned or arranged up — more formal or elaborate than a bun;
+  cropped=too short to arrange but cut and shaped — side-parted, textured,
+  or swept; buzz_cut=clipped to uniform stubble over the whole head, with
+  no shaping; afro=natural volume forming a rounded shape around the head;
+  dreadlocks=hair formed into rope-like strands; unknown=hair style not
+  visible or cannot be determined"
+
+facial_hair    [schema key: f_hair]
+  Values: no_hair | stubble | moustache | goatee | beard | unknown
+  Verbatim: "Name the facial hair you can see; free-text canonicalized to
+  canonical styles. no_hair=clean-shaven or no visible facial hair;
+  stubble=short unshaven growth, a few days old — not yet a formed beard;
+  moustache=facial hair on the upper lip only; goatee=hair on the chin
+  with or without moustache; cheeks clean; beard=substantial facial hair
+  covering most of the lower face; unknown=face not visible or facial
+  hair status cannot be determined"
+
+skin_condition [schema key: sk_cond]
+  Values: clear | blemished | unknown
+  Verbatim: "Read overall skin condition from the visible skin. clear=
+  smooth, even skin with no visible blemishes or discolouration;
+  blemished=any visible deviation — acne, spots, redness, uneven tone, or
+  discolouration; unknown=face not clearly visible or skin condition
+  cannot be assessed at this resolution"
+
+skin_weathering [schema key: sk_weather]
+  Values: indoor_pale | neutral | sun_exposed | weathered | unknown
+  Verbatim: "Visible degree of sun/wind exposure on skin, separate from
+  skin_tone (pigmentation) and skin_condition (acne/clarity). Cumulative
+  weathering reflects outdoor habitual exposure — strong corroborating
+  signal for habitual activity orientation. indoor_pale=clearly
+  unweathered, indoor-lifestyle skin — no visible tan, sun damage, or wind
+  exposure; neutral=a positive reading of ordinary incidental sun exposure
+  — skin shows neither pallor nor tan. Not a middle-ground default: when
+  the skin does look pale or does look tanned, say so; sun_exposed=
+  visible tan lines, sun-darkened areas, or moderate sun-exposure markers
+  without long-term damage; weathered=deep cumulative weathering —
+  leathery texture, deep tan, sun-aged skin; signals long-term
+  outdoor/manual lifestyle; unknown=skin not sufficiently visible to
+  assess weathering"
+
+has_tattoos    [schema key: tattoo]
+  Boolean (1/0/NULL). Verbatim: "Say whether a tattoo is visible on this
+  person. true when ink on skin is visible anywhere in frame, including a
+  partially obscured or small piece. false when skin is visible and
+  carries no ink. null only when essentially no skin is visible. Do not
+  infer from style or dress."
+
+has_piercings  [schema key: pierce]
+  Boolean (1/0/NULL). Verbatim: "Say whether a piercing is visible on this
+  person. true for jewellery worn through skin — ears, nose, septum, lip,
+  brow, or elsewhere; ordinary earrings count. false when the relevant
+  areas are visible and bare. null only when ears and face are both not
+  visible."
+
+has_visible_marks [schema key: marks]
+  Boolean (1/0/NULL). Verbatim: "Say whether a distinctive mark is visible
+  on this person. true when a scar, birthmark, prominent mole, burn, or
+  vitiligo patch is visible on skin. Transient or artefactual things are
+  not marks and are false: dirt, makeup, shadow, wet skin, motion blur,
+  and JPEG compression noise. false when skin is visible and unmarked.
+  null only when no skin is visible at all."
+
+has_notable_nails [schema key: nails]
+  Boolean (1/0/NULL). Verbatim: "Say whether this person's nails are
+  notable. true when nails are long, painted, french-manicured,
+  decorated, sculpted, or otherwise distinctive enough to read as a
+  deliberate choice. Plain, short or bitten unpainted nails are false, not
+  null — an ordinary hand is an observation, not a missing one. null only
+  when no hand or fingertip is visible."
+
+makeup_visible [schema key: makeup]
+  Values: none | subtle | prominent | theatrical | unknown
+  Verbatim: "Read makeup at face level — eyes, lips, cheeks, brows.
+  Independent of skin_condition (which captures clarity/blemishes) and
+  has_notable_nails (which captures hand-grooming). Primary direct signal
+  for feminine-pole gender presentation when present, but absence does NOT
+  signal masculine — many feminine-presenting shoppers wear no makeup.
+  none=no visible makeup — bare face or imperceptible grooming-only
+  product use; subtle=light everyday makeup — minimal foundation, neutral
+  lip, light brow definition; reads natural at a casual glance; prominent=
+  clearly visible makeup — defined eye makeup, bold lip colour, contoured
+  cheeks, or other clearly-applied looks; theatrical=heavy or stylised
+  makeup — full glam, dramatic eye, bold lip combined with strong contour,
+  or stage-style application; unknown=face not sufficiently visible to
+  assess makeup"
+
+grooming_state [schema key: groom]
+  Values: high | standard | minimal | unkempt | unknown
+  Verbatim: "Holistic assessment of personal grooming and upkeep level
+  visible across hair, facial hair, skin, and nails as a whole.
+  Independent of which gender direction the grooming goes — captures HOW
+  MUCH effort is visibly invested in personal upkeep, not which
+  presentation it supports. high=clearly high effort visible — hair
+  styled or carefully kept, facial hair groomed (or clean-shaven by
+  choice), skin appears cared-for, polished overall personal upkeep;
+  standard=typical everyday upkeep — clean and tidy without notable
+  styling or extra effort; the default observable state; minimal=
+  low-effort upkeep — hair functional but not styled, basic grooming, no
+  styling investment visible; unkempt=visibly low or no upkeep — bedhead,
+  unkempt facial hair, dishevelled overall appearance; unknown=face/head
+  not sufficiently visible to assess grooming"
+
+(golden `preg` / visible_pregnancy is dropped from this dataset — see
+bd_visible_pregnancy in Section C.)
+
+--------------------------------------------------------------------------------
+B4. Accessories (survivors only) — schema.py class Accessories (section "8")
+Every per-category accessory type/brand field (jewellery_type, belt_type,
+watch_type, watch_brand, glasses_type, neck_wear_type, handbag_type,
+handbag_brand) is dropped from this dataset (superseded by bd_items).
+Only two fields from this section survive:
+--------------------------------------------------------------------------------
+
+visible_luxury_item   [schema key: lux_item]
+  Boolean (1/0/NULL). Verbatim: "Whether at least one clearly luxury or
+  designer item is visible — recognisable luxury handbag, watch brand, or
+  designer garment with visible branding; flag true even if the rest of
+  the outfit is unremarkable; null when items cannot be assessed"
+
+(apparel_condition / schema key `cond` from this same section is dropped —
+see bd_outfit_condition in Section C.)
+
+--------------------------------------------------------------------------------
+B5. Personal items (survivors only) — schema.py class PersonalItems (section "9")
+Luggage, headphones, gadget and pet/mobility type+brand fields are dropped
+(superseded by bd_items / out of scope). Two fields survive:
+--------------------------------------------------------------------------------
+
+smoking_type   [schema key: smoke]
+  Values: none | cigarette | nicotine_pouches | vape | cigar | unknown
+  Verbatim: "Smoking or vaping item held or used by the shopper. none=no
+  smoking or vaping item visible; cigarette=traditional lit or unlit
+  cigarette; nicotine_pouches=small nicotine pouch visible (e.g. Zyn);
+  vape=electronic vape device or e-cigarette; cigar=cigar; unknown=item
+  visible but type cannot be determined"
+
+other_visible_items   [schema key: other]
+  Free text (JSON array as text; NULL = none reported). Verbatim: "List
+  any other personal item you can see that no other field captures. LLM
+  returns all observed items not matching any canonical attribute; stored
+  verbatim as a JSON array for downstream analysis and future attribute
+  discovery."
+
+--------------------------------------------------------------------------------
+B6. Shopping (survivors only) — schema.py class Shopping (section "10")
+shopping_tool_type, shopping_bag_brand and merchandise_brand are dropped
+(superseded by bd_items / bd's per-item brand). Four fields survive:
+--------------------------------------------------------------------------------
+
+shopping_tool_fill   [schema key: fill]
+  Values: empty | light | moderate | full | unknown
+  Verbatim: "Fill level of the primary shopping vessel (cart, basket, or
+  bag); refers to the most prominent tool if multiple are present. empty=
+  vessel is visibly empty or nearly empty; light=a few items visible —
+  early in the shopping trip; moderate=noticeably filled but not packed;
+  full=visibly full or overflowing; unknown=vessel present but fill level
+  cannot be assessed"
+
+merchandise_items   [schema key: items]
+  Free text (NULL = none reported). Verbatim: "Free-text list of ALL
+  visible merchandise items associated with the shopper, regardless of
+  where they are located — held in hand, placed in a shopping cart or
+  trolley, inside a basket, in a bag, on a counter, being tried on, or
+  being examined on a shelf. Each distinct item should be listed
+  separately. Raw LLM descriptions stored verbatim; categorization into
+  business buckets (clothing, electronics, etc.) is deferred to downstream
+  analysis."
+
+merchandise_quantity   [schema key: qty]
+  Integer (NULL = none reported). Verbatim: "Total count of ALL visible
+  merchandise items associated with the shopper across all locations — in
+  hand, in cart/trolley, in basket, in bag, on counter, etc."
+
+merchandise_location   [schema key: loc]
+  Values (JSON array as text): in_hand | in_cart | in_basket | in_bag |
+  on_counter | unknown
+  Verbatim: "Where each merchandise item is located; report ALL observed
+  locations — a shopper may have items in hand AND in a cart
+  simultaneously. in_hand=item held in hand or being actively examined;
+  in_cart=item inside a shopping trolley or cart; in_basket=item inside a
+  handheld shopping basket; in_bag=item inside a carrier bag; on_counter=
+  item placed on a display or checkout counter; unknown=item visible but
+  location cannot be determined"
+
+--------------------------------------------------------------------------------
+B7. Holistic gestalt impressions — schema.py class Impressions (section "11")
+All fields in this section are kept in full (none dropped).
+--------------------------------------------------------------------------------
+
+apparent_spending_tier   [schema key: spend]
+  Values: luxury | premium | mid_range | budget | unknown
+  Verbatim: "Apparent overall spending tier inferred from visible signals
+  — clothing quality, fit, accessories, and brands serve as observable
+  proxies for general spending capacity, not a measure of appearance spend
+  specifically. luxury=visibly premium materials and construction —
+  designer brands, bespoke fit, high-end accessories; overall appearance
+  signals significant discretionary spend; premium=quality materials and
+  considered styling — polished, well-fitted, deliberate choices; may or
+  may not carry visible brands but overall finish signals above-average
+  spend; mid_range=standard mass-market appearance — basic fit and
+  condition, no quality cues in either direction; generic and
+  unremarkable presentation; budget=visibly low-cost — ill-fitting, worn,
+  or clearly low-quality materials; fast-fashion appearance; unknown=the
+  outfit is not visible enough to read material quality or finish — a
+  legitimate answer, not a failure; prefer it over guessing mid_range"
+  NOTE: kept as a deliberate cross-check pair against bd_spending_signal
+  (Section C) — same whole-outfit construct, read independently by two
+  different models/prompts/schemas from the same photo.
+
+gender_expression   [schema key: gen_exp]
+  Values: feminine | feminine_leaning | androgynous | masculine_leaning |
+  masculine | unknown
+  Verbatim: "The gender aesthetic projected through STYLING CHOICES ONLY —
+  garment cut, colour, accessories, grooming, and hair treatment.
+  Physiology is explicitly out of scope: face shape, body proportions, and
+  apparent sex must not influence this value, which is recorded separately
+  in `sex`. A masculine-presenting woman is masculine here; a man in
+  decorative, fitted, or expressively groomed styling is feminine or
+  feminine_leaning. If the answer merely restates `sex`, the styling
+  evidence has not been examined. feminine=presentation clearly indexes to
+  traditional feminine styling — dresses, heels, decorative accessories,
+  long styled hair, expressive grooming; feminine_leaning=more feminine
+  than neutral but not unambiguously so — e.g. fitted clothing, handbag,
+  some jewellery alongside neutral pieces; androgynous=balanced or
+  intentionally gender-neutral presentation — styling cues do not lean
+  clearly toward either feminine or masculine conventions;
+  masculine_leaning=more masculine than neutral but not unambiguously so —
+  e.g. structured outerwear, functional footwear, minimal accessories;
+  masculine=presentation clearly indexes to traditional masculine styling
+  — suits, structured jackets, close-cropped hair, no feminine styling
+  cues; unknown=gender expression cannot be assessed from the image"
+
+subcultural_alignment   [schema key: subcult]
+  Values: classic | minimalist | streetwear | goth | punk | granola |
+  grunge | bohemian | glamorous | mainstream | unknown
+  Verbatim: "The aesthetic subculture or tribe the shopper's overall look
+  belongs to; requires pattern-matching across multiple visual cues into a
+  named aesthetic. classic=polished, heritage, conservative styling —
+  structured pieces, neutral palette, understated accessories;
+  minimalist=intentionally simple and clean — monochrome or tonal palette,
+  minimal accessories, clean silhouettes; streetwear=urban, logo or
+  brand-driven, sneaker culture — hoodies, caps, graphic tees, chunky
+  shoes; goth=dark palette, boots, silver accessories, dramatic —
+  black-dominant with theatrical or dark romantic elements; punk=rebellion
+  markers — piercings, visible tattoos, band tees, studs, distressed
+  clothing; granola=outdoorsy and earthy — natural fibres, athletic
+  sandals, practical layering, eco-conscious cues; grunge=loose or
+  oversized, muted tones, effortless-messy — flannel, worn denim, layered
+  carelessness; bohemian=free-spirited layering — earth tones, patterned
+  fabrics, layered jewellery, flowing silhouettes; glamorous=fashion-
+  forward maximalism — statement pieces, bold accessories, luxe textures,
+  attention-seeking; mainstream=generic everyday dress with no
+  identifiable subcultural aesthetic — the correct value for most
+  shoppers; not a fallback but a positive classification; unknown=visual
+  information genuinely insufficient to make any assessment — use
+  sparingly"
+
+merchandise_context_fit   [schema key: merch_fit]
+  Values: self_consistent | mismatch | no_merchandise | unknown
+  Verbatim: "Whether ALL visible merchandise (in hand, cart, basket, bag,
+  counter) is consistent with the shopper's own demographic and style
+  profile, or suggests they are shopping for someone else or cross-
+  category exploring. self_consistent=visible merchandise matches the
+  shopper's own apparent age, gender, and style profile; mismatch=
+  merchandise clearly mismatches the shopper's profile — different
+  demographic target, or a style-category inconsistency that suggests
+  gifting or cross-category exploration; no_merchandise=no active
+  merchandise visible to evaluate; unknown=merchandise visible but context
+  fit cannot be determined"
+
+brand_tier_mix   [schema key: brand_mix]
+  Values: luxury | premium | mid_range | budget | mixed | unknown
+  Verbatim: "Quality tier of the visible brands; captures whether the
+  shopper gravitates to one tier or mixes across tiers; uses both legible
+  logos and recognisable brand DNA (signature silhouettes, patterns,
+  design language). luxury=all identifiable brands are luxury tier (e.g.
+  Louis Vuitton, Gucci, Rolex, Chanel); premium=all identifiable brands are
+  premium tier (e.g. Ralph Lauren, Tommy Hilfiger, Apple, Coach);
+  mid_range=all identifiable brands are mainstream mass-market (e.g. Zara,
+  H&M, Nike, Samsung); budget=all identifiable brands are value or
+  discount tier (e.g. Primark, supermarket own-brand); mixed=identifiable
+  brands span two or more tiers — e.g. a luxury bag with fast-fashion
+  clothing; unknown=no brand is identifiable from either a logo or design
+  DNA; when one IS identifiable, name its tier rather than retreating
+  here"
+
+brand_culture_alignment   [schema key: brand_cult]
+  Values: hype_streetwear | heritage_classic | utilitarian_workwear |
+  athletic_performance | mainstream | mixed | unknown
+  Verbatim: "Cultural identity of the visible brands, orthogonal to
+  economic tier; captures whether the shopper gravitates to a specific
+  brand subculture (workwear, streetwear, heritage, performance)
+  regardless of price point; uses both legible logos and recognisable
+  brand DNA (signature silhouettes, patterns, design language).
+  hype_streetwear=brands and styling signal streetwear/hype culture (e.g.
+  Supreme, Palace, Off-White, BAPE, Stussy, Fear of God, or premium
+  streetwear collaborations) — logo-forward, drop culture, sneaker-driven;
+  heritage_classic=brands and styling signal heritage/preppy/traditional
+  culture (e.g. Ralph Lauren, Barbour, Brooks Brothers, Burberry, Hackett,
+  Polo) — established, conservative, status-via-tradition;
+  utilitarian_workwear=brands and styling signal utilitarian/workwear
+  culture (e.g. Carhartt worn functionally, Dickies, Filson, Helly Hansen,
+  Red Wing) — durability-led, function-over-fashion; athletic_performance=
+  brands and styling signal performance-athletic culture (e.g. Nike Pro,
+  Lululemon, On Running, Hoka, Gymshark, Under Armour, Patagonia) —
+  technical fabrics, sport-led identity; mainstream=identifiable brands
+  but no distinct cultural alignment beyond mass-market default (e.g.
+  Zara, H&M, generic Nike casualwear); mixed=identifiable brands span two
+  or more distinct cultures — e.g. heritage blazer with hype sneakers;
+  unknown=no brands identifiable from logos or design DNA — no brand
+  signal present in the image"
+
+logo_prominence   [schema key: logo_prom]
+  Values: none | discreet | prominent | multiple_loud | unknown
+  Verbatim: "Visibility/loudness of brand logos and markings on the
+  outfit, independent of which brand tier those logos belong to. Captures
+  the Patrician/Parvenu signal — wealthy stealth shoppers can wear luxury
+  items with no visible branding (Patek dial, no-logo Loro Piana
+  cashmere), while aspirational shoppers can wear loud logos at any tier.
+  Decorrelated by design from brand_tier_mix (which captures tier, not
+  visibility). none=no logos or brand markings visible anywhere on the
+  outfit; could be true unbranded or could be luxury-stealth (Loro Piana
+  cashmere, no-logo Brunello Cucinelli, plain Patek); discreet=a single
+  small or subtle logo — embroidered chest emblem (Lacoste croc), small
+  bag hardware, watch dial branding visible only on close inspection;
+  prominent=one or more clearly visible medium-to-large logos — Gucci
+  belt buckle, Polo chest logo, Nike swoosh on prominent placement,
+  Supreme box logo; multiple_loud=multiple prominent logos visible across
+  the outfit — logo belt + logo bag + logo shoes; head-to-toe monogram
+  patterns; layered branding; unknown=too little of the outfit is in
+  frame to say whether logos are present — prefer it over reading none
+  from a partial view"
+
+outfit_formality   [schema key: formal]
+  Values: formal | smart_casual | casual | very_casual | unknown
+  Verbatim: "Overall formality level of the outfit; requires holistic
+  visual judgment because the same garment types combine into different
+  formality levels depending on context (e.g. blazer + jeans + sneakers =
+  smart_casual, not formal). formal=structured outfit for professional or
+  ceremonial occasions — suit, dress trousers, blazer with formal shirt,
+  dress shoes; smart_casual=elevated everyday dress — e.g. blazer with
+  jeans, chinos with a smart shirt, dress with casual footwear; polished
+  but not formal; casual=relaxed everyday wear — jeans, t-shirts,
+  sneakers, hoodies; the default for most shoppers; very_casual=visibly
+  informal or unkempt presentation — sweatpants, tracksuits worn outside
+  athletic context, baggy or worn casualwear with no polish; unknown=too
+  little of the outfit is in frame to place it on the formality scale — a
+  legitimate answer, not a failure"
+
+outfit_functionality   [schema key: func]
+  Values: everyday | athletic_performance | technical_outdoor |
+  workwear_uniform | occasion | unknown
+  Verbatim: "Functional category of the outfit — what the outfit is built
+  for. Orthogonal to outfit_formality (which captures polish/occasion
+  level). The same outfit_formality value can pair with different
+  functionality values (e.g. a tuxedo = formal + occasion; an office suit
+  = formal + everyday; a track suit = casual + athletic_performance;
+  Patagonia layered = casual + technical_outdoor). everyday=default
+  casual/business clothing with no functional specialisation — t-shirts,
+  jeans, chinos, blouses, regular sneakers; covers the bulk of shoppers;
+  athletic_performance=clothing engineered for active sport — leggings,
+  athletic shorts, performance tops, running/training shoes, gym-brand
+  activewear; technical_outdoor=outdoor-engineered layering and gear —
+  hardshell jackets, hiking trousers, technical fleeces, hiking boots,
+  outdoor-brand items (Patagonia, Arc'teryx, North Face, etc.);
+  workwear_uniform=protective or uniformed work clothing — hi-vis vests,
+  scrubs, branded uniforms, work boots with safety toe, utility overalls;
+  occasion=clothing built for special social occasions — evening dresses,
+  suits worn in non-business contexts, party/cocktail wear, ceremonial
+  dress; unknown=too little of the outfit is in frame to say what it is
+  built for — prefer it over defaulting to everyday"
+
+outfit_coordination   [schema key: coord]
+  Values: highly_coordinated | coordinated | mixed | mismatched | unknown
+  Verbatim: "Holistic assessment of outfit-curation effort — how
+  coherently the pieces of the outfit work together as a deliberate
+  ensemble. Captures the clothing-curation dimension, complementing
+  grooming_state (which captures personal upkeep). Independent of tier
+  (well-coordinated cheap items still read as coordinated; mismatched
+  expensive items still read as mismatched) and independent of formality
+  (a coordinated tracksuit reads as coordinated). highly_coordinated=
+  clearly curated ensemble — colour palette intentional, all pieces work
+  together stylistically, accessories complement; reads as an outfit, not
+  a collection of items; coordinated=pieces work together coherently with
+  no clashing notes — typical "put-together" appearance; mixed=some
+  pieces work together, others don't — middle ground; partly curated,
+  partly random; mismatched=visibly random pieces that don't work
+  together — clashing colours, conflicting styles, no apparent curation
+  intent; unknown=too few pieces of the outfit are visible to judge how
+  they work together — prefer it over defaulting to coordinated"
+
+signal_richness   [schema key: sig_rich]
+  Values: minimal | standard | rich | saturated | unknown
+  Verbatim: "Holistic assessment of how many distinct identity cues the
+  shopper visibly broadcasts — accessories, body modifications,
+  distinctive apparel choices, visible brands, hair statements, jewellery,
+  watches. Captures information density of the presentation regardless of
+  direction (mainstream or expressive). minimal=very few visible identity
+  cues — plain apparel, no accessories, no body modifications, no visible
+  logos or distinctive choices; little information broadcast;
+  standard=typical cue density — one or two accessories (e.g. watch +
+  glasses), some style choices visible, default population state;
+  rich=multiple visible cues across categories — accessories + visible
+  body modifications OR distinctive apparel OR visible logos;
+  saturated=heavily-signaled presentation — many accessories, body
+  modifications, statement apparel, prominent logos, distinctive
+  hair/styling all combined; unknown=too little of the person is in frame
+  to count identity cues — prefer it over reading minimal from a partial
+  view"
+
+occupational_signal   [schema key: occ_sig]
+  Values: none | mild | clear | strong | unknown
+  Verbatim: "Holistic assessment of how readably the outfit broadcasts a
+  work role, regardless of WHICH role. Captures the intensity of
+  occupational self-presentation — strong uniforms, hi-vis, scrubs,
+  branded workwear, formal business attire in business context,
+  role-specific equipment (helmets, tool belts, lanyards). Distinct from
+  `occupational_context` (which captures the specific occupation category)
+  — this is the strength-of-display axis. none=no occupational cues
+  visible — default everyday casualwear with no role signal; mild=subtle
+  occupational hint — basic business-casual with no clear role markers,
+  generic suit-without-context; clear=visible occupational signal —
+  scrubs, branded workwear, partial uniform, hi-vis vest, work boots,
+  lanyard/ID badge, branded polo; strong=unambiguous role display — full
+  uniform with role-specific equipment (helmet, gun, tool belt, complete
+  scrubs, formal service uniform, hi-vis full kit); unknown=presentation
+  not sufficiently visible to assess occupational signal"
+
+supplementary_context_tags   [schema key: ctx_tags]
+  Values (JSON array as text, zero or more of): pet_owner | parent |
+  athlete | traveler | creative | student | commuter | pop_culture_fan |
+  sports_fan | hobbyist_enthusiast
+  Verbatim: "Evidence-based lifestyle role tags inferred from carried
+  items and contextual cues; returns an empty array when no lifestyle
+  signals are present; each tag requires observable evidence — do not
+  infer without it. pet_owner=leash, pet carrier, dog treats, or other
+  pet-related items visible; parent=children's items, baby bottle, kids'
+  snacks, stroller, or toys visible; athlete=gym bag, sports equipment, or
+  clear post-workout appearance (sweat, sports kit + bag combo);
+  traveler=travel pillow, luggage tag, passport holder, suitcase, or
+  similar travel accessories; creative=art supplies, sketchbook, musical
+  instrument, or craft materials; student=textbooks, school supplies,
+  notebook, or student card visible; commuter=transit card, helmet, bike
+  lock, or other active commuting items; pop_culture_fan=wearing apparel
+  with pop culture media, band/music, or gaming graphics; sports_fan=
+  wearing apparel with sports team logos or team colors;
+  hobbyist_enthusiast=wearing apparel with technical illustrations,
+  hobby-related text, or niche enthusiast graphics"
+
+store_context_congruence   [schema key: store_fit]
+  Values: congruent | cross_interest | incongruent | neutral_context |
+  unknown
+  Verbatim: "Whether the shopper's visual presentation and style align
+  with the store's retail category; requires store category to be
+  injected into the prompt at inference time — returns unknown when store
+  category is unavailable. congruent=shopper's presentation clearly
+  matches the store category — e.g. athletic wear in a sports store,
+  professional attire in a business supplies store; cross_interest=
+  shopper's presentation suggests primary affinity with a different retail
+  category but is actively engaging here — may be gifting or exploring;
+  incongruent=shopper's appearance and behaviour strongly mismatch the
+  store category in a way that is notable — use only when the mismatch is
+  clearly evident; neutral_context=a store category WAS provided but is
+  too broad to support a congruence judgment — department store, mall
+  common area, grocery; unknown=no store category was provided, or the
+  shopper is not visible enough to compare against it"
+  NOTE: this dataset's single store's category is a broad "shopping mall
+  concourse" string (see accompanying note.md) — check the value
+  distribution before relying on this field.
+
+tech_ecosystem   [schema key: tech_eco]
+  Values: premium_apple | premium_other | mainstream_tech | minimal_tech |
+  unknown
+  Verbatim: "The tech brand ecosystem the shopper belongs to, inferred
+  from visible devices; requires LLM world-knowledge to classify device
+  brands into ecosystem tiers. premium_apple=Apple ecosystem — AirPods,
+  Apple Watch, iPhone, or MacBook visibly present; premium_other=premium
+  non-Apple ecosystem — Samsung, Sony, Bose, or other high-end brand
+  devices; mainstream_tech=mixed or mid-range tech devices without a clear
+  premium ecosystem signal; minimal_tech=no visible tech devices, or only
+  very basic/budget items that carry no ecosystem signal; unknown=tech
+  device visible but brand or tier cannot be determined"
+  NOTE: this field is rolled up from golden's own gadgets_type/gadgets_brand
+  fields, which are themselves dropped from this dataset (superseded by
+  bd_items) — tech_ecosystem is the only surviving trace of that read.
+
+apparent_lifestyle_orientation   [schema key: act_life]
+  Values: active_sporty | outdoor_active | professional | social_fashion |
+  casual_leisure | unknown
+  Verbatim: "Holistic lifestyle activity orientation inferred from overall
+  visual presentation — apparel, footwear, accessories, carried items, and
+  body language combined; the gestalt lifestyle signal that individual
+  apparel fields cannot reliably derive alone. active_sporty=athletic
+  wear, sports footwear, gym/sports bag, or activewear-dominated
+  presentation — lifestyle oriented toward fitness or sport;
+  outdoor_active=practical outdoor or hiking-oriented dress — trail shoes,
+  technical layers, outdoor accessories; lifestyle oriented toward nature
+  and outdoor activity; professional=business, formal, or work-oriented
+  presentation — suits, blazers, formal footwear, work bag; lifestyle
+  oriented toward professional or corporate context; social_fashion=
+  fashion-forward or trend-aware presentation dressed for social occasion
+  — styled outfit, fashion accessories, on-trend items; lifestyle oriented
+  toward self-expression and social visibility; casual_leisure=relaxed
+  everyday dress with no dominant activity or fashion signal — jeans,
+  t-shirts, sneakers without athletic intent; the default for most
+  shoppers; unknown=presentation does not clearly map to any lifestyle
+  orientation or insufficient visual information"
+
+apparent_life_stage   [schema key: life_stg]
+  Values: student | young_adult | parent | established_adult |
+  mature_adult | unknown
+  Verbatim: "Synthesised life stage role inferred from visual age, carried
+  items, social context, and accessories; more actionable than raw age
+  decade because it incorporates context into a role-based label.
+  student=student-age appearance (teens to mid-20s) with student or
+  youthful cues — backpack, school supplies, casual/youthful dress; OR any
+  age with clear academic context; young_adult=apparent 20s-early 30s
+  adult; independent; no clear parenting or student signals; parent=
+  parenting items visible (stroller, children's items, baby bottle)
+  regardless of shopper's age; established_adult=apparent 30s-50s adult;
+  settled presentation; no strong parenting or student signals;
+  mature_adult=apparent 55+ presentation; mature or senior styling;
+  unknown=age and context signals insufficient to determine life stage"
+  NOTE: this is the sole life-stage field in this dataset — bd's own
+  lifestage read (Person.lifestage) is not included (see "fields
+  intentionally absent").
+
+apparent_engagement_state   [schema key: eng_state]
+  Values: engaged | neutral | distracted | passive | unknown
+  Verbatim: "Holistic assessment of the shopper's visible engagement state
+  inferred from body language, posture, attention direction, and movement
+  energy; a purely behavioural observation from the image — not a health
+  or emotional assessment. engaged=upright posture, attention directed at
+  products or display, active body language — leaning forward, reaching,
+  closely examining items; neutral=present and upright without strong
+  directional focus — standing or moving normally; the baseline for most
+  shoppers; distracted=attention captured by something other than the
+  store — a phone, a companion, or a point outside the aisle; passive=
+  posture itself reads low-energy — slumped shoulders, leaning for
+  support, slow laboured movement; not merely unfocused; unknown=body
+  language not readable — posture obscured, back turned, or too little of
+  the body in frame; use it rather than defaulting to neutral"
+
+physical_activity_level   [schema key: phys_act]
+  Values: none | light | moderate | high | elite | unknown
+  Verbatim: "Holistic gauge of how much this person is into physical
+  activity / sports / fitness in general. Single chosen value per session.
+  Most non-athletic shoppers should be `none` or `light` — honest
+  baseline, not a fallback. Universal — at non-sports venues still
+  informs sport-tech / energy / wellness targeting. none=sedentary build,
+  no body-side fitness signal; light=generally healthy build, mild
+  activity at most; no specific training body signal; moderate=mildly
+  toned build, visible regular activity (street clothes or athletic wear —
+  body is the cue); high=serious fitness — clearly defined muscle,
+  athletic frame, athletic posture (regardless of outfit); elite=
+  exceptional body development — competitive/pro-athlete physique;
+  unknown=the body is not readable — heavy occlusion, bad angle, or bulky
+  layers hiding the build; a legitimate answer, not a failure"
+
+physical_activity_orientation   [schema key: phys_ori]
+  Values: team_sport | gym_lifting | endurance | outdoor | wellness |
+  aesthetic | none | unknown
+  Verbatim: "The dominant sport/fitness category the build and gear point
+  to. MECE — pick ONE. Independent of physical_activity_level: a
+  light-activity shopper can still show a readable orientation, and a
+  moderate one can be unreadable. team_sport=team-athletic build / kit
+  (football, basketball, hockey, etc.); gym_lifting=muscular lifting build
+  (with or without gym attire); endurance=runner / cyclist build — lean,
+  low BF, athletic but not bulky; outdoor=outdoorsy weathered / sun-tanned
+  active build (hikers, climbers, trail); wellness=toned flexible build,
+  yoga / pilates / general athleisure orientation; aesthetic=bodybuilder
+  physique focused on visible muscle development; none=no orientation
+  signal at all — the build and dress show no sport or fitness direction;
+  use unknown when a direction may exist but cannot be read; unknown=an
+  activity orientation may be present but the body and gear do not show
+  which — use at any activity level, including light"
+
+(golden `body_comp` / body_composition_archetype from this same section is
+dropped — superseded by bd_body_archetype in Section C.)
+
+--------------------------------------------------------------------------------
+B8. Open keyword sweep (survivors only) — schema.py class Keywords /
+KeywordsKwKeywords (section "12")
+Two of the original dimensions, apparel_items and apparel_brand_logo, are
+removed from this dataset (superseded by bd_items). The remaining 9
+dimensions are kept verbatim, unmodified.
+--------------------------------------------------------------------------------
+
+keywords_json
+  JSON object. Structure: {<dimension_name>: {"keywords": [<string>, ...]}}
+  for each of the 9 dimensions listed below. 3-7 short English kebab-case
+  noun phrases per dimension, produced in one open-ended structured pass
+  over the whole photo (distinct from and in addition to the closed-enum
+  section 1-11 fields above). Per the schema class docstring: "Open-ended
+  structured keyword sweep across 15 commercial-relevance dimensions" —
+  note the class currently defines 11 dimensions total (2 of which,
+  apparel_items/apparel_brand_logo, are removed here); "Be brutally
+  honest and specific — no generic placeholders, no synonyms within a
+  dimension. When a dimension has nothing to say, still produce 3
+  keywords at the lowest applicable confidence." Some rows may carry a
+  legacy nested {"keywords": [...], "confidence": 0|1|2} shape per key
+  instead — see analysis-api/libs/datalayer/transforms/normalize.py
+  _recombine_s12 for the exact historical shape variants.
+
+  Dimensions present, each with its verbatim per-field description:
+
+  demographic_observable — "[observable] Visible demographic descriptors
+    that ADD SIGNAL beyond section 1. Section 1 already captures sex
+    (male/female/other/unknown) and age decade — do NOT emit keywords
+    like 'male', 'female', 'male-shopper', 'middle-aged', '30s'. Focus on
+    physique, hair (color/length/style), facial hair, skin tone/
+    condition, distinguishing features."
+
+  grooming_presentation — "[observable] Upkeep and polish level —
+    well-groomed, scruffy, polished, salon-fresh, just-woke-up."
+
+  material_color_signal — "[observable] Distinctive materials, colors, or
+    color combinations that carry signal — hi-vis-yellow, faded-denim,
+    leather-tan, technical-fabric."
+
+  style_archetype — "[inferred] Aesthetic taste cluster — streetwear,
+    business-casual, gorpcore, dad-style, normcore, prep, techwear. Pick
+    the closest existing label even if imperfect."
+
+  subculture_signal — "[inferred] Recognizable cultural or lifestyle
+    tribe — hypebeast, tradesman, biker, hiker, soccer-mom,
+    retiree-gardener, outdoorsman."
+
+  economic_signal — "[inferred] Affluence cues — budget-conscious,
+    mid-market, splurge-posture, conspicuous-luxury. Judge from apparent
+    quality, brand mix, and condition — not pose."
+
+  aspirational_projection — "[inferred] What the outfit projects
+    intentionally — status-seeking, professional, anti-fashion, invisible,
+    attention-seeking, nostalgic."
+
+  life_context — "[inferred] Implied current life situation — commuter,
+    on-shift-worker, weekend-errand, post-gym, school-pickup,
+    on-vacation."
+
+  social_role — "[inferred] Implied life role — tradesman, parent,
+    student, retiree, white-collar-professional, gig-worker. Do NOT emit
+    content-free placeholders like 'consumer', 'customer', 'shopper',
+    'adult-shopper', 'solo-shopper' — those describe the act of shopping,
+    not a life role. If no clear role is visible, use confidence=0 and the
+    closest specific guess."
+
+  (apparel_items and apparel_brand_logo dimensions are removed from this
+  dataset's keywords_json — superseded by bd_items, Section C.)
+
+================================================================================
+SECTION C — BRAND-DETECTOR FIELDS
+(source: brand-extractor/brand_detector/schema.py, class Detection)
+================================================================================
+
+All bd_* fields are read from the SAME stored photo as the golden fields
+above, but by a separate, single Gemini structured-output call using a
+schema built specifically around itemized garment/accessory/carried-object
+detection with brand identification (see brand-extractor/README.md).
+
+--------------------------------------------------------------------------------
+C1. Person-level reads — schema.py class Person
+--------------------------------------------------------------------------------
+
+bd_body_archetype   [Detection.person.body_archetype]
+  Values: lean | athletic | average | soft | plus_size | unclear
+  Verbatim: "lean / athletic / average / soft / plus_size / unclear -
+  apparent build, judged by proportion not size. athletic: visible muscle
+  bulk and definition, broad built shoulders, a waist narrower than the
+  shoulders from muscle, not fat. soft: rounded midsection, shoulder-to-
+  waist ratio still roughly normal. plus_size: width carried in the torso
+  and hips, waist near or past shoulder width. unclear when clothing or
+  framing hides the torso, never a fallback to average."
+
+bd_outfit_condition   [Detection.person.outfit_condition]
+  Values: pristine | well_maintained | visibly_worn | damaged | unclear
+  Verbatim: "Upkeep state of the outfit, independent of spend tier.
+  pristine is just-bought looking - crisp, uncreased, no wear at all.
+  well_maintained is the default - normal cared-for everyday wear.
+  visibly_worn shows real use (faded, pilling, scuffed, softened) short of
+  damage. damaged is torn / stained / broken fastenings / holes, not
+  stylistic distressing. unclear when you cannot tell."
+
+bd_spending_signal   [Detection.person.spending_signal]
+  Values: budget | mid_range | premium | luxury | unclear
+  Verbatim: "Apparent spend level of the whole outfit - brands, quality,
+  fit, coherence. A single item at price_tier luxury or premium is enough
+  on its own to set this - it does not take two. Not the person's
+  demographics. unclear when you cannot tell."
+  NOTE: kept as a deliberate cross-check pair against golden's
+  apparent_spending_tier (Section B7) — same 5-rung whole-outfit
+  construct (SpendingTier), different wording for the "no signal" member
+  (unclear vs unknown).
+
+bd_visible_pregnancy   [Detection.person.visible_pregnancy]
+  Type: boolean or null.
+  Verbatim: "True only on an unambiguous baby bump. False when the torso
+  is clearly visible with no signs. Null when the torso is cropped or
+  obscured."
+
+bd_attire   [Detection.person.attire]
+  Type: free text (open value set — not a closed enum, though the model is
+  steered toward a documented preferred vocabulary; see ATTIRE_TYPES in
+  brand_detector/schema.py for the full preferred list: everyday,
+  police_uniform, military_uniform, security_uniform, paramedic_uniform,
+  firefighter_gear, medical_scrubs, retail_or_hospitality_uniform,
+  courier_or_delivery_uniform, transit_uniform, hi_vis_workwear,
+  trade_workwear, mechanic_overalls, painter_whites, chef_whites,
+  lab_coat, hazmat_suit, gym_or_running_kit, cycling_kit, team_sport_kit,
+  ski_or_snow_gear, hiking_or_outdoor_gear, swimwear, motorcycle_gear,
+  business_suit, formal_eveningwear, costume_or_fancy_dress,
+  traditional_or_cultural_dress, unclear).
+  Verbatim: "The recognisable KIND of outfit the person is wearing - name
+  what you see, not their job (occupation is inferred downstream). Common
+  values, grouped, not a closed set. [...] Otherwise the most specific
+  true short phrase. A branded matching employer set is the relevant
+  *_uniform; unbranded generic site gear with hi-vis colouring is
+  hi_vis_workwear, otherwise trade_workwear."
+  (No equivalent golden field — this concept has no counterpart in the
+  golden schema.)
+
+--------------------------------------------------------------------------------
+C2. Trip-level reads — schema.py class Trip
+--------------------------------------------------------------------------------
+
+bd_companions   [Detection.trip.companions]
+  Values: solo | with_child | with_adult | with_family | with_group |
+  unclear
+  Verbatim: "Who is with the person on this visit - the subject never
+  counts as one of the others. solo unless togetherness is clear. Any
+  child alongside another adult, or two or more children together, is
+  with_family - this takes priority over with_child, with_adult and
+  with_group. Exactly one child and no other adult is with_child. One
+  other adult and no child is with_adult. Three or more others with no
+  child is with_group."
+  NOTE: kept alongside golden's group_size + group_gender_mix
+  (Section B2) as a complementary, not redundant, read — bd's is the only
+  field in this dataset that explicitly flags child presence.
+
+bd_shopping_mission   [Detection.trip.shopping_mission]
+  Values: immediate_consumption | top_up | stock_up | browsing |
+  passing_through | service_only | unclear
+  Verbatim: "What the visit is for. The venue sets the prior - a
+  shopping-centre concourse defaults to passing_through, not browsing.
+  browsing needs a real engagement cue (looking at goods, entering or
+  exiting a shop, lingering), not just empty hands.
+  immediate_consumption / top_up / stock_up / browsing / passing_through /
+  service_only / unclear."
+  NOTE: kept alongside golden's individual_activity (Section B1) as a
+  complementary, not redundant, read — different construct (momentary
+  verb vs. inferred whole-visit purpose), calibrated in-prompt for a
+  shopping-centre concourse specifically.
+
+--------------------------------------------------------------------------------
+C3. Item inventory — schema.py classes Item / Garment / Accessory / CarriedItem
+--------------------------------------------------------------------------------
+
+bd_items
+  Type: JSON array of {"type": <string|null>, "brand": <string|null>}
+  objects. Built by the join script (build_joined.py) by flattening BD's
+  three separate arrays — garments[], accessories[], carried_items[] —
+  into one list and keeping only the `type` and `brand` sub-fields of
+  each; the source-array distinction (garment vs. worn accessory vs.
+  carried object) is NOT preserved in this dataset once flattened, nor are
+  each item's `evidence`, `brand_detail`, `brand_basis` or `price_tier`
+  sub-fields (all present in the raw per-visitor JSON files under
+  ops/cpi-brand-score-full/results/<person_id>.json, but intentionally
+  excluded from the composite — see "fields intentionally absent" below).
+
+  Per-object field meanings (verbatim, shared base description in
+  schema.py class Item, then refined per array in Garment/Accessory/
+  CarriedItem):
+
+  type (garments[])   — "Garment type: the single most specific common
+    noun or short noun phrase for what it is - lowercase snake_case, keep
+    a pair or plural-only name as-is ('shoes', 'sneakers'), otherwise
+    singular ('ring' not 'rings'), matching the specificity of your own
+    evidence line. Not a broad category word when a specific one applies
+    (a backpack is 'backpack', a crossbody purse is 'crossbody_bag' - not
+    'bag'). Barefoot or minimalist shoes (wide toe box, flat zero-drop
+    sole) are 'barefoot_shoes', not 'sneakers'."
+
+  type (accessories[]) — "Worn-accessory type: the single most specific
+    common noun for what it is - lowercase snake_case, keep a pair or
+    plural-only name as-is ('shoes', 'sneakers'), otherwise singular
+    ('ring' not 'rings'), matching the specificity of your own evidence
+    line. Not a broad category word when a specific one applies (a
+    digital watch is 'digital_watch', sunglasses are 'sunglasses' - not
+    'watch' or 'eyewear')."
+
+  type (carried_items[]) — "Carried-item type: the single most specific
+    common noun for what it is - lowercase snake_case, keep a pair or
+    plural-only name as-is ('shoes', 'sneakers'), otherwise singular
+    ('ring' not 'rings'), matching the specificity of your own evidence
+    line. Not a broad category word when a specific one applies (a gym
+    holdall is 'sports_bag', a shoebox is 'box' - not a broader word that
+    only roughly fits)."
+
+  IMPORTANT — `type` is OPEN free text, not a closed enum, across all
+  three arrays: the model names whatever it sees in its own words
+  (normalized only to lowercase snake_case by a formatting-only regex,
+  normalize_type() in brand_detector/schema.py — no synonym/plural
+  unification, e.g. "shoe" vs "shoes" or "watch" vs "wristwatch" remain
+  distinct raw strings). A reference vocabulary the model is NOT shown as
+  a pick-list exists in schema.py for calibration only: GARMENT_TYPES,
+  ACCESSORY_TYPES, CARRIED_ITEM_TYPES tuples — useful as a seed list for
+  building your own canonicalization, not as ground truth for what values
+  can appear.
+
+  brand (all three arrays, same description) — "Brand name, or null only
+    if you genuinely cannot tell, including from design signature."
+    Free text, as normally written (not slugified/lowercased in this
+    dataset — unlike golden's dropped per-category brand fields, which
+    were lowercased at normalize-time; bd_items brand strings retain
+    original casing as emitted by the model). null = no brand identifiable.
+
+  What every array can contain, verbatim from Detection's own field
+  descriptions (useful for interpreting which array an item most likely
+  came from, even though the array split itself is not preserved in
+  bd_items):
+
+  garments[] — clothing worn on the body (shoes count as garments in bd's
+    scheme, along with bags, hats and scarves per the accessories[]
+    description below).
+
+  accessories[] — "Small items worn on the body that are not principal
+    clothing - a watch or smartwatch, a bracelet, necklace, ring or
+    earrings, a rubber or fabric wristband, worn eyewear, worn earbuds or
+    headphones, hair accessories, gloves. One object per item; list
+    duplicates (e.g. two rings) as separate entries. Bags, hats and
+    scarves are garments. Anything held or carried, not worn, is a
+    carried_item. Empty list if nothing."
+
+  carried_items[] — "Things held, pushed or led that are not worn - keys,
+    a cup or bottle, a wallet, a payment card, a box or parcel, a shopping
+    bag (name the shop if legible), a basket, luggage, a pushchair, a pet,
+    a fuel nozzle, a walking stick or cane, a helmet carried in the hand, a
+    wheeled or led bicycle. One object per item; list duplicates as
+    separate entries. Name a phone only when it is the only object
+    detected anywhere on the person - otherwise leave it out. A jacket
+    over the arm or a shoulder bag is a garment entry, not this. Empty
+    list if nothing."
+
+  Multiple items of the same kind (two watches, three bags, N garments)
+  each get their own separate entry in bd_items — unlike golden's
+  per-category fields (one slot per category), bd's arrays are unbounded.
+
+================================================================================
+SECTION D — SEGMENTATION TOPIC ASSIGNMENT
+(companion file, NOT embedded in joined.jsonl — join on person_id yourself)
+source: prod Postgres nmf_assignment_v2 / nmf_topic_v2, run_id
+f421ab1d-7a48-492d-af8b-7d29ae17df60, company CPI (org_3H8O3cM27KXg3hbwlyuregcZmHY)
+================================================================================
+
+A real per-tenant NMF segmentation build ran and completed against this same
+CPI population (k=8, 77,226 sessions, built 2026-09-11). It is PERSISTED in
+prod Postgres but NOT published (no row in tenant_active_segmentation) — it
+is not live for scoring/serving, but the build itself is real, not a draft.
+Every person_id in joined.jsonl has a row in this build (verified: 54,092/
+54,092, 100%) — the assignment population is a superset of this composite's.
+
+Two files:
+
+nmf_topic_assignment.csv   [person_id, nmf_topic_id]
+  77,226 rows (incl. all 54,092 in joined.jsonl). nmf_topic_id: integer 0-7.
+  This is the DOMINANT topic only — i.e. argmax of each visitor's per-topic
+  loading vector (see libs/segmentation/scoring.py: `dominant_share = max
+  loading / sum of loadings`). The full soft loading vector and the
+  dominant_share confidence value are NOT exported to this file — only in
+  nmf_assignment_v2 in prod Postgres, per visitor, if you need them.
+
+nmf_topics_raw.json   [topic_id → top_terms, sessions_dominant]
+  The 8 topics' raw NMF decomposition output: for each topic_id, its top 15
+  weighted terms (term = a section-12 keyword-canon token or a curated
+  closed-enum value, in the form "<dimension>::<value>"; weight = that
+  term's loading in the topic, unitless, relative ordering matters more than
+  absolute magnitude) and sessions_dominant (count of visitors in the full
+  77,226-session build for whom this topic is the dominant one — note this
+  is NOT the same denominator as joined.jsonl's 54,092).
+
+  DELIBERATELY EXCLUDED from this export: nmf_topic_v2 also stores `label`,
+  `description`, `themes`, `distinguishing_axes`, `top_personas` per
+  topic — an LLM's own naming/interpretation of each cluster (e.g. this
+  build's topic_id 5 is internally labeled around a retiree/mature-adult
+  identity, topic_id 6 around an athletic/active identity — visible on
+  inspection of the raw terms above, without being told so directly). Those
+  columns, and the equivalent named "shopper type" cards with share% and
+  narrative traits rendered in ops/cpi-value-report/report.html, are
+  finished analysis output — this handover gives you the clustering itself,
+  not anyone's read of what the clusters mean, so that read is yours to
+  make from the ground up.
+
+================================================================================
+FIELDS INTENTIONALLY ABSENT FROM THIS DATASET
+(present upstream, in schema.py and/or the raw per-visitor files, but
+dropped by the join script — listed here so their absence is not mistaken
+for missing data)
+================================================================================
+
+From GOLDEN (analysis-api), dropped because bd_items now covers the
+construct at higher (multi-item, brand-aware) fidelity, or because the
+field was judged out of scope:
+  body_type, body_composition_archetype (→ bd_body_archetype)
+  visible_pregnancy (→ bd_visible_pregnancy)
+  apparel_condition (→ bd_outfit_condition)
+  shoe_type, shoe_fit, shoe_color, shoe_brand
+  bottom_type, bottom_fit, bottom_color, bottom_brand
+  upper_type, upper_fit, upper_color, upper_brand, apparel_graphics_type
+  headwear_type, headwear_color, headwear_brand
+  jewellery_type, belt_type, watch_type, watch_brand, glasses_type,
+    neck_wear_type, handbag_type, handbag_brand
+  personal_luggage_type, personal_luggage_brand
+  headphones_type, headphones_brand
+  gadgets_type, gadgets_brand
+  consumables_type, mobility_type, companion_pet_type
+  shopping_tool_type, shopping_bag_brand, merchandise_brand
+  (all per-category *_fit and *_color fields: dropped outright, out of
+  scope, no bd replacement)
+  section-12 keyword dims: apparel_items, apparel_brand_logo (→ bd_items)
+
+From BD (brand-extractor), dropped per-item, kept only in the raw
+per-visitor JSON files under ops/cpi-brand-score-full/results/:
+  evidence, brand_detail, brand_basis, price_tier (all per-item)
+  style (Person.style — free text; golden's outfit_formality +
+    subcultural_alignment cover this ground with closed enums instead)
+  lifestage (Person.lifestage — golden's apparent_life_stage is the sole
+    life-stage field kept)
+  trip_evidence (Trip.trip_evidence — scratch/working field)
+  the garments[] / accessories[] / carried_items[] array split itself
+    (flattened into one bd_items list)
+
+Not part of this dataset at all (different system, different join):
+  NMF/segmentation topic assignments — real, persisted, joinable by
+    person_id, but shipped as a separate companion file (Section D above),
+    not merged into joined.jsonl.
+  Persona cards (LLM-named/described segments, with share% and narrative
+    traits) — exist (report.html, nmf_persona_card_v2) but withheld on
+    purpose, see Section D.
+  Raw images.
+  Any visitors_v2 columns other than person_id/entered_at/left_at (e.g.
+    device_id, screen_id, age_min/age_max, gender/gender_confidence from
+    the on-device model, attention_seconds, photo_metadata).

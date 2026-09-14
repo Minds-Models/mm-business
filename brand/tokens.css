@@ -1,8 +1,10 @@
-/* Minds & Models — report/deck design tokens
- * Base system extracted from the GymBeam pilot deck (best current deliverable).
- * Warm-paper neutral ground is FIXED across all client reports;
- * the accent pair swaps per client (see per-client blocks below).
- * TODO: confirm exact M&M brand blue from Pitch Deck 2026 master. */
+/* Minds & Models — LEGACY design tokens. DO NOT START NEW WORK FROM THIS FILE.
+ * The canonical system for all decks and data reports lives in
+ * templates/deck-style/ (STYLE.md + skeleton.html) and
+ * templates/data-report/skeleton.html, ported from the product frontends
+ * (Instrument Sans, paper #fbfbfa, accent #2f6df6, no per-client accents).
+ * This warm-paper/Inter palette is kept only so deliverables shipped before
+ * September 2026 can be re-rendered faithfully. */
 
 :root {
   /* ground & surfaces (warm paper — shared by all reports) */

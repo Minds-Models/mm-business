@@ -1,0 +1,600 @@
+<!doctype html>
+<title>CPI Visitor Insight Report</title>
+<style>
+  :root{
+    --bg:#fff; --ink:#1a1a1a; --muted:#666; --line:#e2e2e2;
+    --accent:#b8641a; --accent-soft:#f3e2d2; --card:#fafafa;
+    --c-mature:#b8641a; --c-parent:#3d7a5c; --c-student:#3a6ea8; --c-young:#7a4fa0;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --bg:#16181c; --ink:#eee; --muted:#9aa0a6; --line:#2c2f34; --accent:#e0932f; --accent-soft:#3a2c1c; --card:#1e2126;
+      --c-mature:#e0932f; --c-parent:#4f9e79; --c-student:#5b93d1; --c-young:#a685c9; }
+  }
+  *{box-sizing:border-box}
+  body{background:var(--bg); color:var(--ink); font-family:system-ui,-apple-system,"Segoe UI",sans-serif;
+    max-width:900px; margin:0 auto; padding:2rem 1.25rem 4rem; line-height:1.5;}
+  h1{font-size:1.6rem; margin-bottom:.15rem;}
+  .sub{color:var(--muted); margin-top:0;}
+  h2{font-size:1.25rem; border-top:1px solid var(--line); padding-top:1.5rem; margin-top:2.5rem;}
+  h2 .n{color:var(--accent); font-weight:800; margin-right:.4rem;}
+  p{max-width:640px;}
+  .stats{display:flex; gap:1rem; flex-wrap:wrap; margin:1.2rem 0;}
+  .stat{background:var(--card); border:1px solid var(--line); border-radius:6px; padding:.8rem 1rem; min-width:150px;}
+  .stat .v{font-size:1.5rem; font-weight:700; color:var(--accent);}
+  .stat .l{font-size:.8rem; color:var(--muted);}
+  .chart{margin:1.5rem 0;}
+  .chart svg{width:100%; height:auto; overflow:visible; font-family:inherit;}
+  .bar{fill:var(--accent);}
+  .bar:hover{opacity:.75;}
+  .axis{stroke:var(--line); stroke-width:1;}
+  .tick{fill:var(--muted); font-size:10px;}
+  .callout{background:var(--card); border-left:3px solid var(--accent); border-radius:0 6px 6px 0;
+    padding:1rem 1.2rem; margin:1.5rem 0; max-width:640px;}
+  .callout b{color:var(--accent);}
+  .tag{font-size:.7rem; text-transform:uppercase; letter-spacing:.05em; color:var(--muted); border:1px solid var(--line); border-radius:3px; padding:.1rem .4rem;}
+  .legend{display:flex; gap:1rem; flex-wrap:wrap; font-size:.8rem; color:var(--muted); margin-bottom:.3rem;}
+  .legend span{display:inline-flex; align-items:center; gap:.35rem;}
+  .legend i{width:14px; height:2px; display:inline-block;}
+  .line{fill:none; stroke-width:2;}
+  .endlabel{font-size:10px; font-weight:600;}
+  .caption{font-size:.78rem; color:var(--muted); margin:.3rem 0 0; max-width:640px;}
+  .barval{font-size:10px; font-weight:700; fill:var(--ink);}
+  .persona-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(160px,1fr)); gap:.6rem; margin:1rem 0;}
+  .persona-tile{background:var(--card); border:1px solid var(--line); border-radius:6px; padding:.5rem .6rem;}
+  .persona-tile .pname{font-size:.72rem; font-weight:600; line-height:1.25; min-height:2.2em;}
+  .persona-tile svg{width:100%; height:auto; display:block; margin-top:.2rem;}
+  .hbar-label{font-size:11px; fill:var(--ink); text-anchor:end;}
+  .hbar-val{font-size:11px; font-weight:600;}
+</style>
+
+<h1>CPI — Olympia Mladá Boleslav: Visitor Insight Report</h1>
+<p class="sub">Working draft &middot; reporting period 29 Jul – 11 Sep 2026</p>
+
+<h2><span class="n">01</span>Traffic &amp; Timing</h2>
+
+<p>The mall's visitor traffic follows a clear and consistent daily and weekly rhythm.</p>
+
+<div class="stats">
+  <div class="stat"><div class="v">11:00–16:00</div><div class="l">peak hours</div></div>
+  <div class="stat"><div class="v">Sat / Thu</div><div class="l">busiest / quietest day</div></div>
+</div>
+
+<p><b>Daily pattern.</b> Footfall builds through the morning, peaks in the early-to-mid afternoon, and tapers into the evening. Very few visitors are recorded before 7:00 or after 21:00.</p>
+
+<div class="chart">
+  <svg id="chartHour" viewBox="0 0 760 220"></svg>
+  <p class="caption">% of all visits, by hour of day.</p>
+</div>
+
+<p><b>Weekly pattern.</b> Saturday is consistently the busiest day of the week; Thursday is consistently the quietest. On a per-day basis, weekends draw roughly 12% more visitors than an average weekday.</p>
+
+<div class="chart">
+  <svg id="chartDow" viewBox="0 0 760 220"></svg>
+  <p class="caption">Each weekday's share of a typical week's traffic (e.g. if the pattern below held for one week, Saturday would account for that % of the week's visits) — corrected so days that occurred more or fewer times across the reporting period aren't skewed.</p>
+</div>
+
+<p><b>Who shows up when.</b> Different visitor types don't just add up to the daily curve above — each has its own rhythm inside it. Retirees peak mid-morning and fade through the day; parents hold a steady presence through the whole shopping day rather than a single peak; students build through the afternoon into an after-school peak; young adults become steadily more dominant into the evening.</p>
+
+<div class="chart">
+  <div class="legend">
+    <span><i style="background:var(--c-mature)"></i>Mature adult (retiree-age)</span>
+    <span><i style="background:var(--c-parent)"></i>Parent</span>
+    <span><i style="background:var(--c-student)"></i>Student</span>
+    <span><i style="background:var(--c-young)"></i>Young adult</span>
+  </div>
+  <svg id="chartLifeStage" viewBox="0 0 760 220"></svg>
+  <p class="caption">Each line is that life-stage's share of <em>all visitors arriving in that hour</em> — e.g. "Mature adult" at 22% at 9:00 means 22% of everyone who entered between 9:00–10:00 read as mature-adult/retiree-age, not 22% of all mature adults. The four lines are four slices of the same hourly pool, not four separate totals.</p>
+</div>
+
+<p><b>Solo vs. accompanied traffic follows the same daily curve in reverse.</b> Visitors are most likely to be alone right at opening and closing. On weekends, they're least likely to be alone right around midday (as low as 60% alone at noon); on weekdays the lowest point comes later, around 18:00 (66% alone). Weekend visitors are more likely to be accompanied than weekday visitors at every single hour of the day — this isn't just a byproduct of weekends being busier, it holds hour-for-hour.</p>
+
+<div class="chart">
+  <div class="legend">
+    <span><i style="background:var(--muted)"></i>Weekday</span>
+    <span><i style="background:var(--accent)"></i>Weekend</span>
+  </div>
+  <svg id="chartSolo" viewBox="0 0 760 220"></svg>
+  <p class="caption">% of visitors arriving that hour who came alone (no companion in frame), shown separately for weekday hours and weekend hours — e.g. "60%" for Weekend at 12:00 means 60% of everyone who entered between 12:00–13:00 on a Saturday or Sunday was alone.</p>
+</div>
+
+<p><b>Child-accompanied traffic is a weekend story, and an all-day story.</b> Visits involving a child — whether with one parent or the whole family — are more common on weekends than weekdays (10.5% of all weekend visits vs. 7.6% of weekday visits). On weekdays specifically, this traffic doesn't cluster around school drop-off/pickup times — it holds a steady, flat share from mid-morning to early evening, more consistent with parents of pre-school-age children than a school-run errand.</p>
+
+<div class="chart">
+  <div class="legend">
+    <span><i style="background:var(--muted)"></i>Weekday</span>
+    <span><i style="background:var(--accent)"></i>Weekend</span>
+  </div>
+  <svg id="chartChild" viewBox="0 0 760 220"></svg>
+  <p class="caption">% of visitors arriving that hour who were accompanied by a child (one parent + child, no other adult present), shown separately for weekday and weekend hours — same reading as the chart above, just for "with a child" instead of "alone."</p>
+</div>
+
+<p style="font-size:.9rem; color:var(--muted); max-width:640px;">One smaller pattern worth a footnote: the visitor mix stays close to gender-balanced through the entire main shopping day (8:00–18:00), then skews increasingly male late in the evening (19:00 onward) as overall traffic thins out.</p>
+
+<p><b>Through the lens of visitor personas.</b> Each persona has its own daily rhythm, and they're not all shaped like the aggregate curve. <b>Retirees in their 60s and Above</b> peak sharply in a 4-hour morning window (8:00–11:00 holds ~47% of their entire day) then fade to almost nothing by evening — a much sharper spike than the "mature adult" life-stage line earlier, because that persona is largely what's driving it.</p>
+
+<div class="persona-grid">
+  <div class="persona-tile"><div class="pname">Practical Men in Workwear</div><svg id="pt0" viewBox="0 0 170 70"></svg></div>
+  <div class="persona-tile"><div class="pname">Mainstream Adult Shoppers</div><svg id="pt1" viewBox="0 0 170 70"></svg></div>
+  <div class="persona-tile"><div class="pname">Young Adults in their 20s</div><svg id="pt2" viewBox="0 0 170 70"></svg></div>
+  <div class="persona-tile"><div class="pname">Parents with a Natural Look</div><svg id="pt3" viewBox="0 0 170 70"></svg></div>
+  <div class="persona-tile"><div class="pname">Teenagers in Youth Culture</div><svg id="pt4" viewBox="0 0 170 70"></svg></div>
+  <div class="persona-tile"><div class="pname">Retirees in their 60s and Above</div><svg id="pt5" viewBox="0 0 170 70"></svg></div>
+  <div class="persona-tile"><div class="pname">Active Adults in Athleisure</div><svg id="pt6" viewBox="0 0 170 70"></svg></div>
+  <div class="persona-tile"><div class="pname">Polished Professionals in Smart Casual</div><svg id="pt7" viewBox="0 0 170 70"></svg></div>
+</div>
+<p class="caption">Each tile: that persona's own visits, by hour of day (6:00–21:00), as a % of that persona's total — e.g. a tall point means a large share of that persona's whole day happens in that one hour. All 8 tiles share the same vertical scale (0–14%), so tile height is directly comparable across personas — a flatter tile (Practical Men in Workwear) genuinely has a flatter day, not just a differently-scaled chart.</p>
+
+<p>Personas also differ sharply in <b>when in the week</b> they show up, not just when in the day — far more than the aggregate "+12% on weekends" figure suggests:</p>
+
+<div class="chart">
+  <svg id="chartPersonaWeekend" viewBox="0 0 760 260"></svg>
+  <p class="caption">% difference between each persona's average weekend visits/day and its average weekday visits/day (same method as the "roughly 12%" aggregate figure above, applied per persona). Bars right of center (orange) are weekend-heavier personas; bars left of center (grey) are weekday-heavier. The aggregate +12% is a population-wide average across all 8 of these — most personas sit well above or below it.</p>
+</div>
+
+<div class="callout">
+  <b>What this suggests for operations:</b> staffing, on-floor promotions, and event scheduling deliver the most impact concentrated in the 11:00–16:00 window, with extra weight on Saturday. Morning hours (8:00–10:00) are the natural window for anything aimed at older shoppers, before the crowd — and family-facing amenities (seating, changing facilities, stroller access) earn their keep across the whole week, not just weekends, since parent traffic doesn't disappear on weekdays. Weekend programming should assume a more social, more accompanied audience even during the same hours a weekday sees mostly solo visitors. And any weekend-specific activation should be targeted, not blanket — <b>Active Adults in Athleisure</b> and <b>Teenagers in Youth Culture</b> are the personas actually driving the weekend uplift (+43% and +35%), while <b>Retirees</b> and <b>Polished Professionals</b> are, if anything, more of a weekday audience.
+</div>
+
+<h2><span class="n">02</span>Demographics &amp; Appearance</h2>
+
+<p>Who's actually in the mall, and what they look like — independent of when they show up (Section 1) or what they're wearing/carrying (Section 3).</p>
+
+<div class="stats">
+  <div class="stat"><div class="v">52% / 47%</div><div class="l">male / female split</div></div>
+  <div class="stat"><div class="v">20s</div><div class="l">most common age bracket (28%)</div></div>
+</div>
+
+<p><b>Age skews young-to-middle, not old.</b> Visitors in their 20s-40s make up two-thirds of all traffic; visitors 60+ are the smallest bracket after teens.</p>
+
+<div class="chart">
+  <svg id="chartAge" viewBox="0 0 760 220"></svg>
+  <p class="caption">% of all visitors in each age bracket, as read from the photo (not a self-reported age).</p>
+</div>
+
+<p><b>By life stage, established adults and young adults are almost the whole picture.</b> Together they're nearly three-quarters of all traffic; parents and students are real but much smaller pools.</p>
+
+<div class="chart">
+  <svg id="chartLifeStageDist" viewBox="0 0 760 220"></svg>
+  <p class="caption">% of all visitors reading as each life-stage category.</p>
+</div>
+
+<p><b>Appearance tells one consistent story: mainstream, not styled-up.</b> Build reads as "average" for 81% of visitors, athletic for 12%, and everything else (soft, lean, unclear, plus-size) in the low single digits each. Grooming reads "standard" (not high-effort) for 95%. Makeup reads "none" for the largest single group of women at every age bracket, once you set aside cases where it simply couldn't be judged — it's never "subtle" or "prominent" instead. This isn't one field's quirk — it's three independent visual reads (build, grooming, makeup) all landing on the same "unremarkable, low-effort" picture of the population, on top of the same conclusion Section 1's persona lens already reached from the timing data.</p>
+
+<div class="chart">
+  <svg id="chartBodyArchetype" viewBox="0 0 760 220"></svg>
+  <p class="caption">% of all visitors by build/physique archetype.</p>
+</div>
+
+<p style="font-size:.9rem; color:var(--muted); max-width:640px;">Two smaller appearance facts, not charted: visible tattoos are more common on men than women (11% vs 7%, of those where skin was visible enough to judge). Skin tone reads light for 71% of visitors and medium for 29% — expected for this market, included here as a population fact rather than a finding.</p>
+
+<p><b>Most visitors come alone; of those who don't, it's mostly mixed-gender.</b> 70% of all visits are solo. Of the 30% that involve a companion, six in ten are mixed-gender groups — same-gender groups (all-female or all-male) are each smaller, and all-female groups outnumber all-male ones.</p>
+
+<div class="chart">
+  <svg id="chartGroupComposition" viewBox="0 0 760 220"></svg>
+  <p class="caption">% of grouped (non-solo) visits by the group's gender composition — e.g. "60%" mixed-gender means 60% of the 30% of visits that involve a companion, not 60% of all visits.</p>
+</div>
+
+<p><b>Through the lens of visitor personas.</b> Demographics is where the 8 personas differ most sharply and most predictably — each one is essentially built around a specific age/sex/life-stage combination:</p>
+
+<div class="chart" style="overflow-x:auto;">
+  <table style="width:100%; border-collapse:collapse; font-size:.85rem; min-width:600px;">
+    <tr style="text-align:left; border-bottom:1px solid var(--line);">
+      <th style="padding:.4rem .5rem;">Persona</th><th style="padding:.4rem .5rem;">Sex</th><th style="padding:.4rem .5rem;">Age</th><th style="padding:.4rem .5rem;">Life stage</th>
+    </tr>
+    <tr style="border-bottom:1px solid var(--line);"><td style="padding:.4rem .5rem;">Practical Men in Workwear</td><td style="padding:.4rem .5rem;">97% male</td><td style="padding:.4rem .5rem;">38% in 40s</td><td style="padding:.4rem .5rem;">70% established adult</td></tr>
+    <tr style="border-bottom:1px solid var(--line);"><td style="padding:.4rem .5rem;">Mainstream Adult Shoppers</td><td style="padding:.4rem .5rem;">59% male</td><td style="padding:.4rem .5rem;">27% in 40s</td><td style="padding:.4rem .5rem;">66% established adult</td></tr>
+    <tr style="border-bottom:1px solid var(--line);"><td style="padding:.4rem .5rem;">Young Adults in their 20s</td><td style="padding:.4rem .5rem;">77% female</td><td style="padding:.4rem .5rem;">93% in 20s</td><td style="padding:.4rem .5rem;">97% young adult</td></tr>
+    <tr style="border-bottom:1px solid var(--line);"><td style="padding:.4rem .5rem;">Parents with a Natural Look</td><td style="padding:.4rem .5rem;">98% female</td><td style="padding:.4rem .5rem;">37% in 30s</td><td style="padding:.4rem .5rem;">48% established adult</td></tr>
+    <tr style="border-bottom:1px solid var(--line);"><td style="padding:.4rem .5rem;">Teenagers in Youth Culture</td><td style="padding:.4rem .5rem;">60% male</td><td style="padding:.4rem .5rem;">90% in 10s</td><td style="padding:.4rem .5rem;">94% student</td></tr>
+    <tr style="border-bottom:1px solid var(--line);"><td style="padding:.4rem .5rem;">Retirees in their 60s and Above</td><td style="padding:.4rem .5rem;">55% male</td><td style="padding:.4rem .5rem;">78% in 60s+</td><td style="padding:.4rem .5rem;">99% mature adult</td></tr>
+    <tr style="border-bottom:1px solid var(--line);"><td style="padding:.4rem .5rem;">Active Adults in Athleisure</td><td style="padding:.4rem .5rem;">81% male</td><td style="padding:.4rem .5rem;">52% in 20s</td><td style="padding:.4rem .5rem;">77% young adult</td></tr>
+    <tr><td style="padding:.4rem .5rem;">Polished Professionals in Smart Casual</td><td style="padding:.4rem .5rem;">75% female</td><td style="padding:.4rem .5rem;">30% in 30s</td><td style="padding:.4rem .5rem;">50% established adult</td></tr>
+  </table>
+  <p class="caption">Each cell is that persona's single most common value in that column, and what share of that persona it accounts for — e.g. "97% male" for Practical Men in Workwear means 97% of that persona's own visitors are male, not 97% of all men.</p>
+</div>
+
+<div class="callout">
+  <b>What this suggests for operations:</b> the demographic base is broad (young-to-middle-aged, mainstream-presenting) rather than niche, which supports general-audience tenant mix and marketing over narrow targeting. Where targeting does make sense, the personas give a sharper handle than raw demographics alone — e.g. reaching "parents" as a group is really two different asks (established-adult parents vs. the Parents with a Natural Look persona, itself nearly all-female and 30s-skewed), and the retiree audience is essentially one clean, well-defined persona rather than a fuzzy age cutoff. And since most non-solo visits are mixed-gender rather than same-gender groups, promotions framed around couples, partners, or families reach a bigger share of the accompanied audience than "bring your girlfriends" or "lads' day out"-style same-gender framing would.
+</div>
+
+<h2><span class="n">03</span>Garments, Accessories, Carried Items, Brands &amp; Spending Signal</h2>
+
+<p>What people wear and carry, what brands are actually visible, and what that implies about spend.</p>
+
+<div class="stats">
+  <div class="stat"><div class="v">67%</div><div class="l">read as mid-market spend</div></div>
+  <div class="stat"><div class="v">6.4%</div><div class="l">carry a premium or luxury-tier item</div></div>
+</div>
+
+<p><b>Spending signal.</b> Most visitors read as mid-market spenders. A meaningful minority — 6.4% of all visitors — carry at least one item that reads as premium or luxury tier: a small but clearly identifiable higher-spend segment, not noise. A further one in five outfits simply don't give enough visible signal to place on the spend scale at all, and are reported that way rather than defaulted into "mid-market."</p>
+
+<div class="chart">
+  <svg id="chartSpendBd" viewBox="0 0 760 220"></svg>
+  <p class="caption">% of all visitors, whole-outfit spend tier. "Unclear" is a genuine answer, not missing data — it means there wasn't enough visible signal to judge, not that judgment was skipped.</p>
+</div>
+
+<p><b>Branding is the exception, not the rule.</b> No identifiable brand-tier is readable on 64% of outfits, and 76% show no visible logo at all. Individual items carry a brand ID only 9% of the time — but since people wear multiple items at once, that still adds up to 32% of visitors having at least one branded item somewhere on them. Two things sharpen this picture: a premium or luxury read is essentially always tied to a specific identified brand — among items with no brand identified, essentially none were still read as premium or luxury — so "premium" is best understood as a brand-recognition signal, not an independent quality judgment. And of the items where a brand WAS identified, roughly half came from recognizing a design or silhouette (5.4% of all items) rather than a readable logo (5.7% combined) — the adidas stripes or a Birkenstock sole shape count as much as an actual wordmark.</p>
+
+<div class="chart">
+  <svg id="chartLogoProminence" viewBox="0 0 760 220"></svg>
+  <p class="caption">% of all visitors by how loud the branding on their outfit is, regardless of which brand.</p>
+</div>
+
+<div class="chart">
+  <svg id="chartBrandTierMix" viewBox="0 0 760 220"></svg>
+  <p class="caption">% of all visitors by the price tier of whichever brands ARE identifiable on their outfit. Deliberately a different, decorrelated read from logo_prominence above — a brand can be identified from design or silhouette with zero visible logo (luxury-stealth dressing), and a visible logo doesn't always resolve to a known price tier, so "unknown" here (64%) and "none" there (76%) are large overlapping populations, not the same one. Also a narrower, different question from the spending-signal chart further up: this one only counts outfits where a specific brand can be identified, so its own "Premium"/"Luxury" shares are much smaller than the whole-outfit spend read above, which doesn't require a brand ID at all.</p>
+</div>
+
+<p><b>What people actually wear.</b> T-shirts, sneakers, and shorts dominate — consistent with the casual, mainstream picture the rest of this report has already built up.</p>
+
+<div class="chart">
+  <svg id="chartGarments" viewBox="0 0 760 220"></svg>
+  <p class="caption">% of all visitors wearing each garment type (not mutually exclusive — most visitors wear several at once).</p>
+</div>
+
+<p><b>Accessories and carried items are a smaller, different story.</b> Only half of all visitors (50%) show any visible accessory at all, and just over a third (38%) are carrying anything. Watches lead accessories; phones and shopping trolleys lead carried items. One honest wrinkle: bags don't sort into one clean bucket — a crossbody bag shows up as a garment for 9.8% of all visitors, as an accessory for 4.5%, and as a carried item for 3.0%, depending on how it's worn or held in each specific case. That's a real, case-by-case read, not an inconsistency smoothed over for tidiness.</p>
+
+<div class="chart">
+  <svg id="chartAccessories" viewBox="0 0 760 220"></svg>
+  <p class="caption">% of all visitors with each accessory type visible (of the 50% who have any accessory at all).</p>
+</div>
+
+<div class="chart">
+  <svg id="chartCarriedItems" viewBox="0 0 760 220"></svg>
+  <p class="caption">% of all visitors carrying each item type (of the 38% who are carrying anything at all).</p>
+</div>
+
+<p><b>Top brands.</b> Where a brand IS identifiable, sportswear dominates by a wide margin.</p>
+
+<div class="chart">
+  <svg id="chartTopBrands" viewBox="0 0 760 220"></svg>
+  <p class="caption">% of all visitors with at least one item identified as this brand.</p>
+</div>
+
+<p><b>Premium and luxury draw on almost entirely different brands.</b> The names behind a premium read and the names behind a luxury read barely overlap — sportswear and accessible premium brands drive one, classic fashion houses drive the other.</p>
+
+<div class="chart" style="overflow-x:auto;">
+  <table style="width:100%; border-collapse:collapse; font-size:.85rem; min-width:400px;">
+    <tr style="text-align:left; border-bottom:1px solid var(--line);">
+      <th style="padding:.4rem .5rem;">Premium-tier brand</th><th style="padding:.4rem .5rem;">Luxury-tier brand</th>
+    </tr>
+    <tr style="border-bottom:1px solid var(--line);"><td style="padding:.4rem .5rem;">Apple (3.51%)</td><td style="padding:.4rem .5rem;">Gucci (0.13%)</td></tr>
+    <tr style="border-bottom:1px solid var(--line);"><td style="padding:.4rem .5rem;">Nike (0.5%)</td><td style="padding:.4rem .5rem;">Louis Vuitton (0.1%)</td></tr>
+    <tr style="border-bottom:1px solid var(--line);"><td style="padding:.4rem .5rem;">Ralph Lauren (0.25%)</td><td style="padding:.4rem .5rem;">Hermès (0.08%)</td></tr>
+    <tr style="border-bottom:1px solid var(--line);"><td style="padding:.4rem .5rem;">Birkenstock (0.22%)</td><td style="padding:.4rem .5rem;">Prada (0.04%)</td></tr>
+    <tr style="border-bottom:1px solid var(--line);"><td style="padding:.4rem .5rem;">Lacoste (0.17%)</td><td style="padding:.4rem .5rem;">Golden Goose (0.04%)</td></tr>
+    <tr style="border-bottom:1px solid var(--line);"><td style="padding:.4rem .5rem;">On (0.13%)</td><td style="padding:.4rem .5rem;">Burberry (0.03%)</td></tr>
+    <tr style="border-bottom:1px solid var(--line);"><td style="padding:.4rem .5rem;">Tommy Hilfiger (0.11%)</td><td style="padding:.4rem .5rem;">Dior (0.03%)</td></tr>
+    <tr><td style="padding:.4rem .5rem;">adidas (0.09%)</td><td style="padding:.4rem .5rem;">Balenciaga (0.02%)</td></tr>
+  </table>
+  <p class="caption">Top brands by visitor-%, split by whether the item carrying that brand reads as premium-tier or luxury-tier — e.g. "Apple (3.51%)" means 3.51% of all visitors carry an Apple item that itself reads as premium. The two lists are independent rankings, not a single list split in half.</p>
+</div>
+
+<p><b>Brand culture and tech ecosystem.</b> Where a cultural read is possible at all, it's overwhelmingly generic mainstream rather than any specific subculture; visible tech follows the same pattern.</p>
+
+<div class="chart">
+  <svg id="chartBrandCulture" viewBox="0 0 760 220"></svg>
+  <p class="caption">% of all visitors by the cultural alignment of their identifiable brands (mainstream/athletic/streetwear/etc.) — "unknown" means no brand was culturally placeable.</p>
+</div>
+
+<div class="chart">
+  <svg id="chartTechEcosystem" viewBox="0 0 760 220"></svg>
+  <p class="caption">% of all visitors by visible tech-device ecosystem.</p>
+</div>
+
+<p><b>A small, genuine long tail of non-shopper presence.</b> 98% of visitors show no occupational dress signal at all — but the remaining 2% isn't one thing, it's a real long tail of small categories: manual trades, delivery/logistics, healthcare, uniformed authority, food service, each individually well under 1.5% of traffic. Outfit-type reads corroborate the same tail from a different angle — trade workwear, hi-vis, courier/delivery uniforms, security — no single category dominates it.</p>
+
+<div class="chart">
+  <svg id="chartOccupational" viewBox="0 0 760 220"></svg>
+  <p class="caption">% of all visitors by occupational dress signal. Excludes "none" (98.3%) so the long tail is actually visible on the chart.</p>
+</div>
+
+<p><b>A small, genuine long tail of visit purpose sits underneath the daily footfall numbers.</b> The large majority of visits (94%) show no distinct shopping purpose beyond simply moving through the mall — but the remaining 6% splits into real, individually small groups: browsing without a specific purchase in mind, larger stock-up trips, quick top-up purchases, buying something to use right away, and visits that are for a service rather than goods at all.</p>
+
+<div class="chart">
+  <svg id="chartShoppingMission" viewBox="0 0 760 220"></svg>
+  <p class="caption">% of all visitors by visible shopping purpose. Excludes "passing through" (94.04%) so the long tail is actually visible on the chart.</p>
+</div>
+
+<p><b>Through the lens of visitor personas.</b> Spend and brand signals split the 8 personas sharply — and loud branding and high spend signal turn out not to be the same thing at all.</p>
+
+<div class="chart">
+  <svg id="chartPersonaPremium" viewBox="0 0 760 260"></svg>
+  <p class="caption">% of each persona carrying a premium or luxury-tier item.</p>
+</div>
+
+<div class="chart">
+  <svg id="chartPersonaLogo" viewBox="0 0 760 260"></svg>
+  <p class="caption">% of each persona showing prominent or multiple loud logos.</p>
+</div>
+
+<p>Two personas make the clearest contrast. Polished Professionals in Smart Casual lead premium/luxury spend signal by a wide margin, yet sit near the bottom on loud branding — a classic quiet-luxury pattern. Teenagers in Youth Culture sit at the opposite end: middling spend signal, but the second-loudest, most logo-forward presentation of any persona — loud branding here doesn't track with actually spending more. Active Adults in Athleisure is a third, different pattern worth naming on its own: both high spend signal AND the loudest branding of any persona — logo-forward premium sportswear, where loud and high-spend genuinely go together rather than pulling apart.</p>
+
+<div class="chart" style="overflow-x:auto;">
+  <table style="width:100%; border-collapse:collapse; font-size:.85rem; min-width:700px;">
+    <tr style="text-align:left; border-bottom:1px solid var(--line);">
+      <th style="padding:.4rem .5rem;">Persona</th><th style="padding:.4rem .5rem;">Most-associated brand</th><th style="padding:.4rem .5rem;">Most-associated accessory</th><th style="padding:.4rem .5rem;">Most-associated carried item</th>
+    </tr>
+    <tr style="border-bottom:1px solid var(--line);"><td style="padding:.4rem .5rem;">Practical Men in Workwear</td><td style="padding:.4rem .5rem;">adidas</td><td style="padding:.4rem .5rem;">Digital watch</td><td style="padding:.4rem .5rem;">Smartphone</td></tr>
+    <tr style="border-bottom:1px solid var(--line);"><td style="padding:.4rem .5rem;">Mainstream Adult Shoppers</td><td style="padding:.4rem .5rem;">adidas</td><td style="padding:.4rem .5rem;">Digital watch</td><td style="padding:.4rem .5rem;">Smartphone</td></tr>
+    <tr style="border-bottom:1px solid var(--line);"><td style="padding:.4rem .5rem;">Young Adults in their 20s</td><td style="padding:.4rem .5rem;">adidas</td><td style="padding:.4rem .5rem;">Necklace</td><td style="padding:.4rem .5rem;">Smartphone</td></tr>
+    <tr style="border-bottom:1px solid var(--line);"><td style="padding:.4rem .5rem;">Parents with a Natural Look</td><td style="padding:.4rem .5rem;">Apple</td><td style="padding:.4rem .5rem;">Smartwatch</td><td style="padding:.4rem .5rem;">Shoulder bag</td></tr>
+    <tr style="border-bottom:1px solid var(--line);"><td style="padding:.4rem .5rem;">Teenagers in Youth Culture</td><td style="padding:.4rem .5rem;">Nike</td><td style="padding:.4rem .5rem;">Wristband</td><td style="padding:.4rem .5rem;">Smartphone</td></tr>
+    <tr style="border-bottom:1px solid var(--line);"><td style="padding:.4rem .5rem;">Retirees in their 60s and Above</td><td style="padding:.4rem .5rem;">adidas</td><td style="padding:.4rem .5rem;">Wristwatch</td><td style="padding:.4rem .5rem;">Shopping trolley</td></tr>
+    <tr style="border-bottom:1px solid var(--line);"><td style="padding:.4rem .5rem;">Active Adults in Athleisure</td><td style="padding:.4rem .5rem;">Nike</td><td style="padding:.4rem .5rem;">Digital watch</td><td style="padding:.4rem .5rem;">Smartphone</td></tr>
+    <tr><td style="padding:.4rem .5rem;">Polished Professionals in Smart Casual</td><td style="padding:.4rem .5rem;">Apple</td><td style="padding:.4rem .5rem;">Smartwatch</td><td style="padding:.4rem .5rem;">Tote bag</td></tr>
+  </table>
+  <p class="caption">Each cell is that persona's single most-associated brand, accessory, or carried item, among its own visitors who have one at all. adidas and Nike split the sportswear-leaning personas on brand, while Apple stands out for the two more professional-presenting personas. The accessory and carried-item columns add texture beyond brand: retirees are defined by a classic wristwatch and a shopping trolley, parents most often carry a shoulder bag, and polished professionals carry a tote — while a smartphone is the top carried item for most other personas.</p>
+</div>
+
+<div class="callout">
+  <b>What this suggests for operations:</b> the visitor base reads as mainstream and largely unbranded, which argues for a value-forward, general-audience tenant and merchandising mix over a premium-first strategy — the ~6% carrying a premium/luxury-tier item are a real but narrow segment better served by targeted outreach than a broad repositioning. Because only half of visitors show any accessory and barely a third carry anything, accessory- and carry-forward categories (jewellery, eyewear, tech accessories, bags) are working from a smaller addressable share of foot traffic than apparel is. The small but real non-shopper long tail — tradespeople, delivery, security — is worth a line in any footfall-based planning as genuine traffic, not noise to filter out. And premium messaging aimed at Polished Professionals should lean on quality and fit rather than logo visibility — that segment's own spend signal is real but quiet; loud branding on its own (as with Teenagers in Youth Culture) isn't a reliable stand-in for higher spend, though for Active Adults in Athleisure it genuinely is both.
+</div>
+
+<script>
+function bar(svgId, data, opts){
+  const svg = document.getElementById(svgId);
+  const W=760,H=220,padL=36,padB=28,padT=18,padR=6;
+  const w=W-padL-padR, h=H-padT-padB;
+  const max = Math.max(...data.map(d=>d.v)) * 1.18;
+  const bw = w/data.length;
+  const suffix = opts.suffix || '';
+  const fmt = v => v >= 10 ? Math.round(v) : (v >= 1 ? Math.round(v*10)/10 : Math.round(v*100)/100);
+  let s = `<line class="axis" x1="${padL}" y1="${padT+h}" x2="${padL+w}" y2="${padT+h}"/>`;
+  data.forEach((d,i)=>{
+    const bh = h*(d.v/max);
+    const bwidth = Math.min(bw*0.7, opts.maxBar||999);
+    const xc = padL + i*bw + bw/2 - bwidth/2;
+    const y = padT + h - bh;
+    s += `<rect class="bar" x="${xc}" y="${y}" width="${bwidth}" height="${bh}" rx="3"><title>${d.label}: ${d.v.toLocaleString()}${suffix}</title></rect>`;
+    s += `<text class="barval" x="${padL+i*bw+bw/2}" y="${y-6}" text-anchor="middle">${fmt(d.v)}${suffix}</text>`;
+    if(!opts.skipLabel || i%opts.skipLabel===0){
+      s += `<text class="tick" x="${padL+i*bw+bw/2}" y="${padT+h+16}" text-anchor="middle">${d.label}</text>`;
+    }
+  });
+  svg.innerHTML = s;
+}
+
+bar('chartHour', [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23].map(h=>({
+  label:h, v:[0.0,0.03,0.01,0.02,0.0,0.03,0.13,2.45,5.2,7.18,8.25,9.09,8.73,8.5,8.51,9.09,8.99,8.43,7.23,5.01,2.16,0.86,0.11,0.0][h]
+})), {suffix:'%', maxBar:22, skipLabel:2});
+
+bar('chartDow', [
+  {label:'Mon', v:13.86},{label:'Tue', v:13.66},{label:'Wed', v:13.76},
+  {label:'Thu', v:13.18},{label:'Fri', v:14.69},{label:'Sat', v:16.18},{label:'Sun', v:14.67}
+], {suffix:'%', maxBar:60});
+
+function lineChart(svgId, hours, series, opts){
+  const svg = document.getElementById(svgId);
+  const W=760,H=220,padL=32,padB=24,padT=10,padR=34;
+  const w=W-padL-padR, h=H-padT-padB;
+  const max = opts.max;
+  const x = i => padL + w*(i/(hours.length-1));
+  const y = v => padT + h - h*(v/max);
+  let s = `<line class="axis" x1="${padL}" y1="${padT+h}" x2="${padL+w}" y2="${padT+h}"/>`;
+  hours.forEach((hr,i)=>{
+    if(i%3===0) s += `<text class="tick" x="${x(i)}" y="${padT+h+15}" text-anchor="middle">${hr}:00</text>`;
+  });
+  series.forEach(ser=>{
+    const pts = ser.values.map((v,i)=>`${x(i)},${y(v)}`).join(' ');
+    s += `<polyline class="line" points="${pts}" style="stroke:${ser.color}"><title>${ser.label}</title></polyline>`;
+    const lastV = ser.values[ser.values.length-1];
+    s += `<text class="endlabel" x="${x(ser.values.length-1)+4}" y="${y(lastV)+3}" style="fill:${ser.color}">${lastV}%</text>`;
+  });
+  svg.innerHTML = s;
+}
+
+const hrs = [6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21];
+lineChart('chartLifeStage', hrs, [
+  {label:'Mature adult', color:getComputedStyle(document.documentElement).getPropertyValue('--c-mature'),
+    values:[8.22,12.24,18.98,22.21,19.15,17.21,13.54,12.79,13.11,10.04,8.90,7.54,7.04,5.39,7.18,5.83]},
+  {label:'Parent', color:getComputedStyle(document.documentElement).getPropertyValue('--c-parent'),
+    values:[0.0,0.38,2.74,5.33,6.66,6.16,6.16,6.05,5.37,5.81,6.91,6.38,6.04,4.87,3.08,1.51]},
+  {label:'Student', color:getComputedStyle(document.documentElement).getPropertyValue('--c-student'),
+    values:[1.37,4.91,4.23,4.92,6.10,7.08,6.95,8.39,7.82,8.70,9.03,9.64,10.41,8.05,6.84,6.05]},
+  {label:'Young adult', color:getComputedStyle(document.documentElement).getPropertyValue('--c-young'),
+    values:[41.10,40.63,33.44,25.33,26.97,27.71,31.67,32.73,33.64,36.02,35.78,34.57,36.68,44.85,46.50,50.54]},
+], {max:55});
+
+const hrs2 = [7,8,9,10,11,12,13,14,15,16,17,18,19,20,21];
+lineChart('chartSolo', hrs2, [
+  {label:'Weekday', color:getComputedStyle(document.documentElement).getPropertyValue('--muted'),
+    values:[89.87,84.42,77.00,73.65,71.64,73.87,73.05,72.99,71.08,69.45,68.00,65.91,68.61,74.91,82.09]},
+  {label:'Weekend', color:getComputedStyle(document.documentElement).getPropertyValue('--accent'),
+    values:[87.38,83.67,72.83,62.72,60.27,60.04,60.55,60.62,61.75,60.40,62.44,63.18,64.59,73.09,75.78]},
+], {max:100});
+
+lineChart('chartChild', hrs2, [
+  {label:'Weekday', color:getComputedStyle(document.documentElement).getPropertyValue('--muted'),
+    values:[0.30,2.66,5.47,5.93,5.79,5.51,6.08,5.30,6.18,6.80,7.03,6.71,5.31,3.06,1.49]},
+  {label:'Weekend', color:getComputedStyle(document.documentElement).getPropertyValue('--accent'),
+    values:[0.95,2.41,6.79,9.29,8.63,9.34,8.37,7.45,8.42,7.49,8.24,6.14,6.09,5.38,2.34]},
+], {max:11});
+
+// small-multiples sparkline: one persona's hour-of-day shape, shared y-scale across all 8
+function sparkline(svgId, values, max){
+  const svg = document.getElementById(svgId);
+  const W=170,H=70,pad=4;
+  const w=W-2*pad, h=H-2*pad;
+  const accent = getComputedStyle(document.documentElement).getPropertyValue('--accent');
+  const x = i => pad + w*(i/(values.length-1));
+  const y = v => pad + h - h*(v/max);
+  const pts = values.map((v,i)=>`${x(i)},${y(v)}`).join(' ');
+  const areaPts = `${x(0)},${pad+h} ${pts} ${x(values.length-1)},${pad+h}`;
+  svg.innerHTML = `
+    <line class="axis" x1="${pad}" y1="${pad+h}" x2="${pad+w}" y2="${pad+h}"/>
+    <polygon points="${areaPts}" fill="${accent}" opacity=".12"/>
+    <polyline class="line" points="${pts}" style="stroke:${accent}; stroke-width:1.5"/>`;
+}
+
+const personaHourValues = {
+  0:[0.16,2.22,3.47,6.73,8.31,10.17,8.65,8.88,9.04,9.18,8.93,9.22,8.63,4.55,1.56,0.29],
+  1:[0.24,3.00,5.48,7.59,8.50,8.99,8.92,8.34,8.22,8.59,8.57,7.91,6.97,5.02,2.49,1.18],
+  2:[0.07,2.76,5.76,5.28,6.12,6.96,7.79,8.08,9.03,9.99,9.84,8.87,7.82,7.16,3.31,1.18],
+  3:[0.07,1.26,3.97,6.15,7.84,9.87,9.17,8.44,9.27,10.04,11.13,10.79,6.85,4.02,0.94,0.19],
+  4:[0.03,1.08,2.09,4.70,6.92,8.60,8.26,9.53,9.06,10.53,11.18,10.53,9.84,5.47,1.65,0.52],
+  5:[0.04,2.12,8.45,13.10,13.08,12.33,9.45,8.39,8.53,6.88,5.43,4.75,3.84,2.04,1.12,0.45],
+  6:[0.11,2.84,4.26,4.95,6.89,7.86,9.35,8.64,8.14,9.43,9.35,8.90,8.42,6.68,2.97,1.21],
+  7:[0.00,1.80,6.10,7.49,7.78,9.24,7.98,8.93,7.80,10.48,9.89,9.55,7.00,4.30,1.31,0.33],
+};
+const SPARK_MAX = 14; // shared scale across all 8 tiles, see caption
+for(const [topic, values] of Object.entries(personaHourValues)){
+  sparkline('pt'+topic, values, SPARK_MAX);
+}
+
+// horizontal diverging bar: weekend lift %, one row per persona, ordered by value
+function divergingBar(svgId, rows){
+  const svg = document.getElementById(svgId);
+  const W=760, H=260, labelW=230, rightPad=50, rowH=28, padT=6;
+  const scaleW = W-labelW-rightPad;
+  const domain = 45; // fixed +/-45% domain, symmetric
+  const zeroX = labelW + scaleW/2;
+  const xFor = v => zeroX + (v/domain)*(scaleW/2);
+  const accent = getComputedStyle(document.documentElement).getPropertyValue('--accent');
+  const muted = getComputedStyle(document.documentElement).getPropertyValue('--muted');
+  let s = `<line class="axis" x1="${zeroX}" y1="${padT}" x2="${zeroX}" y2="${padT+rows.length*rowH}"/>`;
+  rows.forEach((r,i)=>{
+    const cy = padT + i*rowH + rowH/2;
+    const x0 = xFor(0), x1 = xFor(r.v);
+    const color = r.v >= 0 ? accent : muted;
+    s += `<text class="hbar-label" x="${labelW-10}" y="${cy+4}">${r.label}</text>`;
+    s += `<rect x="${Math.min(x0,x1)}" y="${cy-9}" width="${Math.abs(x1-x0)}" height="18" rx="3" fill="${color}"><title>${r.label}: ${r.v>0?'+':''}${r.v}%</title></rect>`;
+    const lx = r.v>=0 ? x1+6 : x1-6;
+    s += `<text class="hbar-val" x="${lx}" y="${cy+4}" text-anchor="${r.v>=0?'start':'end'}" fill="${color}">${r.v>0?'+':''}${r.v}%</text>`;
+  });
+  svg.innerHTML = s;
+}
+
+bar('chartGroupComposition', [
+  {label:'Mixed-gender', v:59.5},{label:'All-female', v:21.1},{label:'All-male', v:14.7},{label:'Unknown', v:4.7},
+], {suffix:'%', maxBar:100});
+
+bar('chartAge', [
+  {label:'10s', v:6.9},{label:'20s', v:27.8},{label:'30s', v:20.6},{label:'40s', v:18.9},
+  {label:'50s', v:16.8},{label:'60s+', v:7.8},{label:'unk.', v:1.3},
+], {suffix:'%', maxBar:70});
+
+bar('chartLifeStageDist', [
+  {label:'Established adult', v:40.2},{label:'Young adult', v:33.6},{label:'Mature adult', v:12.8},
+  {label:'Student', v:7.6},{label:'Parent', v:5.6},{label:'Unknown', v:0.2},
+], {suffix:'%', maxBar:70});
+
+bar('chartBodyArchetype', [
+  {label:'Average', v:81.3},{label:'Athletic', v:11.6},{label:'Soft', v:3.6},
+  {label:'Lean', v:3.2},{label:'Unclear', v:0.3},{label:'Plus size', v:0.1},
+], {suffix:'%', maxBar:70});
+
+bar('chartSpendBd', [
+  {label:'Mid-range', v:67.25},{label:'Unclear', v:20.47},{label:'Budget', v:5.85},
+  {label:'Premium', v:5.84},{label:'Luxury', v:0.6},
+], {suffix:'%', maxBar:80});
+
+bar('chartLogoProminence', [
+  {label:'None', v:75.54},{label:'Discreet', v:14.92},{label:'Prominent', v:9.37},
+  {label:'Unknown', v:0.16},{label:'Multiple/loud', v:0.01},
+], {suffix:'%', maxBar:80});
+
+bar('chartBrandTierMix', [
+  {label:'Unknown', v:64.29},{label:'Mid-range', v:21.44},{label:'Mainstream', v:12.74},
+  {label:'Premium', v:0.66},{label:'Mixed', v:0.6},{label:'Budget', v:0.19},{label:'Value', v:0.06},{label:'Luxury', v:0.02},
+], {suffix:'%', maxBar:80});
+
+bar('chartGarments', [
+  {label:'T-shirt', v:55.36},{label:'Sneakers', v:52.85},{label:'Shorts', v:41.14},{label:'Trousers', v:21.08},
+  {label:'Sandals', v:18.27},{label:'Jeans', v:12.06},{label:'Crossbody bag', v:9.82},{label:'Polo', v:8.07},
+  {label:'Socks', v:7.34},{label:'Backpack', v:6.85},{label:'Dress', v:6.69},{label:'Shirt', v:6.63},
+], {suffix:'%', maxBar:40});
+
+bar('chartAccessories', [
+  {label:'Watch (digital)', v:10.62},{label:'Smartwatch', v:7.39},{label:'Sunglasses', v:6.77},{label:'Bracelet', v:5.97},
+  {label:'Necklace', v:5.45},{label:'Wristband', v:4.92},{label:'Watch (other)', v:4.61},{label:'Crossbody bag', v:4.51},
+  {label:'Wristwatch', v:3.97},{label:'Sandals', v:2.70},{label:'Glasses', v:1.39},{label:'Ring', v:0.99},
+], {suffix:'%', maxBar:40});
+
+bar('chartCarriedItems', [
+  {label:'Smartphone', v:5.53},{label:'Trolley', v:3.68},{label:'Shoulder bag', v:3.49},{label:'Tote bag', v:3.07},
+  {label:'Crossbody bag', v:3.0},{label:'Plastic bag', v:2.11},{label:'Paper bag', v:1.64},{label:'Handbag', v:1.46},
+  {label:'Shopping bag', v:1.41},{label:'Wallet', v:1.28},
+], {suffix:'%', maxBar:40});
+
+bar('chartTopBrands', [
+  {label:'adidas', v:8.15},{label:'Nike', v:7.33},{label:'Apple', v:3.55},{label:'Converse', v:1.58},
+  {label:'Birkenstock', v:1.3},{label:'Puma', v:1.19},{label:'Vans', v:0.95},{label:'New Balance', v:0.83},
+  {label:'Crocs', v:0.69},{label:'Under Armour', v:0.58},{label:'Tommy Hilfiger', v:0.45},{label:'Casio', v:0.33},
+], {suffix:'%', maxBar:40});
+
+bar('chartBrandCulture', [
+  {label:'Mainstream', v:80.94},{label:'Unknown', v:8.47},{label:'Athletic', v:7.63},
+  {label:'Workwear', v:1.48},{label:'Streetwear', v:0.83},{label:'Heritage', v:0.42},{label:'Mixed', v:0.24},
+], {suffix:'%', maxBar:70});
+
+bar('chartTechEcosystem', [
+  {label:'Minimal', v:73.97},{label:'Mainstream', v:14.5},{label:'Premium Apple', v:5.94},
+  {label:'Premium other', v:4.13},{label:'Unknown', v:1.46},
+], {suffix:'%', maxBar:70});
+
+bar('chartOccupational', [
+  {label:'Manual trades', v:1.33},{label:'Delivery/logistics', v:0.19},{label:'Branded workwear', v:0.09},
+  {label:'Healthcare', v:0.04},{label:'Uniformed authority', v:0.04},{label:'Food service', v:0.03},
+], {suffix:'%', maxBar:60});
+
+bar('chartShoppingMission', [
+  {label:'Browsing', v:1.96},{label:'Stock-up trip', v:1.84},{label:'Immediate use', v:0.94},
+  {label:'Service only', v:0.78},{label:'Top-up', v:0.25},{label:'Unclear', v:0.19},
+], {suffix:'%', maxBar:12});
+
+// horizontal ranked bar: one row per category, bars grow rightward from
+// a left label column. For simple 0-to-max %s across long-labeled
+// categories (e.g. persona names) where a vertical bar chart's labels
+// wouldn't fit.
+function hbarChart(svgId, rows, opts){
+  const svg = document.getElementById(svgId);
+  const W=760, H=260, labelW=230, rightPad=50, rowH=28, padT=6;
+  const scaleW = W-labelW-rightPad;
+  const max = opts.max;
+  const accent = getComputedStyle(document.documentElement).getPropertyValue('--accent');
+  const x0 = labelW;
+  let s = `<line class="axis" x1="${x0}" y1="${padT}" x2="${x0}" y2="${padT+rows.length*rowH}"/>`;
+  rows.forEach((r,i)=>{
+    const cy = padT + i*rowH + rowH/2;
+    const bw = scaleW * (r.v/max);
+    s += `<text class="hbar-label" x="${labelW-10}" y="${cy+4}">${r.label}</text>`;
+    s += `<rect x="${x0}" y="${cy-9}" width="${bw}" height="18" rx="3" fill="${accent}"><title>${r.label}: ${r.v}%</title></rect>`;
+    s += `<text class="hbar-val" x="${x0+bw+6}" y="${cy+4}" fill="${accent}">${r.v}%</text>`;
+  });
+  svg.innerHTML = s;
+}
+
+hbarChart('chartPersonaPremium', [
+  {label:'Polished Professionals in Smart Casual', v:13.18},
+  {label:'Active Adults in Athleisure', v:10.46},
+  {label:'Young Adults in their 20s', v:8.83},
+  {label:'Parents with a Natural Look', v:6.34},
+  {label:'Mainstream Adult Shoppers', v:5.29},
+  {label:'Teenagers in Youth Culture', v:4.21},
+  {label:'Practical Men in Workwear', v:3.92},
+  {label:'Retirees in their 60s and Above', v:3.13},
+], {max:15});
+
+hbarChart('chartPersonaLogo', [
+  {label:'Active Adults in Athleisure', v:25.27},
+  {label:'Teenagers in Youth Culture', v:20.48},
+  {label:'Mainstream Adult Shoppers', v:9.53},
+  {label:'Young Adults in their 20s', v:7.32},
+  {label:'Practical Men in Workwear', v:5.39},
+  {label:'Retirees in their 60s and Above', v:2.91},
+  {label:'Polished Professionals in Smart Casual', v:2.88},
+  {label:'Parents with a Natural Look', v:2.25},
+], {max:28});
+
+divergingBar('chartPersonaWeekend', [
+  {label:'Active Adults in Athleisure', v:42.7},
+  {label:'Teenagers in Youth Culture', v:35.0},
+  {label:'Young Adults in their 20s', v:19.0},
+  {label:'Parents with a Natural Look', v:15.4},
+  {label:'Mainstream Adult Shoppers', v:10.7},
+  {label:'Practical Men in Workwear', v:3.0},
+  {label:'Retirees in their 60s and Above', v:-18.5},
+  {label:'Polished Professionals in Smart Casual', v:-34.1},
+]);
+</script>

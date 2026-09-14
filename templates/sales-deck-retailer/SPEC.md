@@ -21,3 +21,10 @@
 ## Rules
 - Never show brand-facing pricing (internal_only). Never name other retailers without
   their `can_name_publicly`. The whole deck must pass the forwardability litmus.
+
+## Visual system
+
+Use the canonical deck style: `templates/deck-style/STYLE.md`, starting from
+`templates/deck-style/skeleton.html`. Not `brand/tokens.css` (legacy report palette). The
+reference deliverables above predate the current system: take structure and copy from them,
+take the look from the template.

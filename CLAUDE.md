@@ -81,7 +81,10 @@ any of them appears in a client-, brand- or investor-facing deliverable, add it 
 ## Quick reference
 
 - **Strategy pack (start here for strategy work): `strategy/2026-08-19-base-strategy/00-INDEX.md`**
-- Brand tokens: `brand/tokens.css` (report palette; per-client accent variables)
+- Visual system (canonical for ALL decks + reports): `templates/deck-style/STYLE.md`;
+  deck skeleton `templates/deck-style/skeleton.html`, report skeleton (charts, personas)
+  `templates/data-report/skeleton.html`. `brand/tokens.css` is legacy (pre-Sep-2026
+  deliverables only).
 - Stats with sources: `messaging/stats.yaml`
 - Objection answers (GDPR, footfall counters, NIQ…): `messaging/objections.md`
 - Outreach templates (email/LinkedIn/WhatsApp, CZ+EN): `templates/email/outreach-library.md`

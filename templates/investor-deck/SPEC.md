@@ -107,6 +107,13 @@ Close the slide with: *"Don't take our word for the speed — here are the dated
 - **Test for every slide:** does it sell **measurement and rights**, or does it sell a camera
   product? It must be the former (slide 3 is the only place mechanism appears).
 
+## Visual system
+
+Use the canonical deck style: `templates/deck-style/STYLE.md`, starting from
+`templates/deck-style/skeleton.html` (same system as the product frontends and the brand
+sales deck). The older HTML decks in this directory predate it: reuse their content, not
+their look.
+
 ## Companion documents
 
 The deck never travels alone. Send with: the one-page **milestone contract**, the **calibration

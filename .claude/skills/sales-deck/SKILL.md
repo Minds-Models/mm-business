@@ -16,6 +16,7 @@ description: Build a sales deck for a retailer or brand. Usage: /sales-deck reta
    methodology proof only (GymBeam 92% flow) — NO category aggregates from that retailer.
 5. The ask slide must match `deal.status` (mandate → study → subscription ladder for
    retailers; study pre-order / contingent LOI for brands).
-6. Style: reference decks in `clients/*/delivered/`, tokens from `brand/tokens.css`.
+6. Style: `templates/deck-style/STYLE.md`, start from `templates/deck-style/skeleton.html`
+   (canonical deck system; `brand/tokens.css` is the legacy report palette, not for decks).
 7. Output: `clients/<slug>/delivered/YYYY-MM-DD-sales-deck-<audience>/` + PDF.
    Final check: the forwardability litmus from CLAUDE.md.

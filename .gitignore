@@ -9,3 +9,5 @@ dist/
 *.HEIC
 node_modules/
 .env
+
+data/cpi-brand-score-leaving/
