@@ -1322,3 +1322,37 @@ fails on the pre-seed rather than on the Series A because it signs chains faster
   weight, plus the market read) was discussed and deferred; the 3 + 2 split is the interim.
 - The aggregated gate stays at two chains; three would be safer for both k-anonymity and leverage.
 - Hiring runs six months ahead of slots and now starts before the pre-seed lands (month 2 low point).
+
+## Addendum, 13 Sep 2026: the market read pays the retailer, hiring waits for the pre-seed, and the sheets are made readable
+
+Four founder instructions after the thirteenth pass, applied the same afternoon.
+
+**Retailer share on the market read: 20%, pooled.** `Rev_Share_Aggregated` is no longer zero. It is
+the total paid out on market-read revenue, and READ ME says how it is split: each contributing chain is
+paid in proportion to the data it supplies to the read (capture stores, or observations once the read
+is live), so a chain that adds density is paid for the density it adds. The split is a contract term;
+the total is the model input. Cost: 0.75M of 2031 EBITDA (+1.70M to +0.95M, margin 9.9% to 5.5%),
+gross margin 2031 72.6% to 68.3%, retailer share paid in 2031 4.0M to 4.8M. The plan stays funded, but
+the price stress no longer does: pricing 20% below plan runs 618k short in month 59 where before it
+kept 93k. Founder's reasoning, on the record: a retailer whose share goes to zero as the product
+matures uses the data feed as leverage at renewal; paying the pool is cheaper than that renewal.
+
+**Hiring gate.** New parameter HEADCOUNT B23, first scaling hire month 4. Every role row is zero before
+it. Cash in month 2 goes from 2.5k to 25k, the pre-seed low point from 285k to 312k in month 12, and
+2026 EBITDA improves by 25k. The current team of seven carries the plan until the pre-seed lands.
+
+**Readability.** SUMMARY section 1b now carries the same year header and styling as section 1; the
+ARR bridge (section 2) and the operating metrics (section 3) are collapsed groups under their headers,
+and section 3 is regrouped into commercial efficiency, product density and mix, and cost structure,
+with the three lines that duplicated section 1b removed. On MODEL, MARKETS and HEADCOUNT the detail
+rows of every section are collapsed groups with the totals visible: slot age, tiers and seat flows;
+churn detail; inference and retailer share; the cost lines behind payroll; working capital; the seat
+vintages; the per-market monthly rows; the T2 rows by market; the staffing bases and the role-by-role
+build. Every section header says what the plus sign opens. Formats swept on every tab: the two
+per-market rate columns and the diagnostic column on MARKETS, the employer-contribution rate on
+HEADCOUNT, wrapped text on the HEADCOUNT source column, the CHECKS labels and the SUMMARY narrative.
+
+Base case after the addendum: **2031 ARR 19.21M, revenue 17.19M, EBITDA +0.95M (5.5%), Q4 7.8%,
+cash 4.20M, 82 people, raised 7.22M, founders 55.1%, exit 192.1M at 10x, pre-seed 20.1x.** All
+thirteen checks OK. The stress table in `19-model-walkthrough.md` section 5 is re-measured on this
+base and now includes the market-read share at 0% and 40%.

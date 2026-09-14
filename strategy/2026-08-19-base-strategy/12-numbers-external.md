@@ -19,7 +19,7 @@ are read from the model.
 |---|---|
 | **Different metrics** | The exit model counted *recurring data ARR only*. The operating plan counts every signed annual line: seats, index, Twin, retainers, AI-data, landlord, legacy screens |
 | **Different dates** | The exit model's "2027" was a calendar-year figure and its monthly table ended mid-2027. The operating plan's €4.40M is a **run-rate on 18 Feb 2027** |
-| **Different economics** | The exit model still assumed the **old up-to-40%-to-retailer split**. Decision **D1** replaced that: retailers pay €0 for the platform and take a revenue share only on the labelled read, none on the aggregated read |
+| **Different economics** | The exit model still assumed the **old up-to-40%-to-retailer split**. Decision **D1** replaced that: retailers pay €0 for the platform and take a 30% share on the labelled read and a 20% pool on the market read |
 
 The third cause mattered most, and it moved the number **up**, not down. The financial model now
 carries all three conventions explicitly, so the disagreement cannot recur.
@@ -59,7 +59,7 @@ categories on average already run in a live chain and become cross-chain density
 Price ladder per brand seat per category per year: **€40k** founding (a six-month launch
 subscription), **€80k** at T1 (one chain at depth), **€170k** at T2 (two or more chains in the same
 market), plus an **€150k** market read (aggregated, chain-masked) sold into three quarters of the T2
-categories, with no retailer share on it and a 30% share on the labelled read. Six payable brands per
+categories, with a 20% pooled retailer share on it (split between the contributing chains by the data each supplies) and a 30% share on the labelled read. Six payable brands per
 category: three buy the labelled read at maturity, two of the remaining three buy the market read, no
 brand holds both on the same category, ramp over 24 months, 8% gross seat churn, 60% of seats billed
 annually in advance.
@@ -78,12 +78,12 @@ Read from SUMMARY section 1 of the model, base case, 13 Sep 2026.
 
 | Year-end | Run-rate ARR (base case) | Revenue recognised | EBITDA | What has to be true |
 |---|---|---|---|---|
-| **Dec 2026** | **€175k** | €31k | (€108k) | One Czech chain live with three categories, four founding seats, pre-seed closed in November |
+| **Dec 2026** | **€175k** | €31k | (€83k) | One Czech chain live with three categories, four founding seats, pre-seed closed in November |
 | **Dec 2027** | **€955k** | €589k | (€1.01M) | Four chains and eight categories in three markets, second Czech chain live, seed closed in September |
-| **Dec 2028** | **€4.39M** | €2.82M | (€2.79M) | Seven chains, 19 categories, the first three at T2, first market reads sold, DACH live, Series A closed in November, US entered in December |
-| **Dec 2029** | **€9.78M** | €6.37M | (€2.96M) | 11 chains, 28 categories, 12 at T2, France with Benelux live, expansion peaks as categories cross the gates |
-| **Dec 2030** | **€15.10M** | €12.33M | (€915k) | 18 chains, 36 categories, Nordics with Iberia live, EBITDA positive from November and stays positive |
-| **Dec 2031** | **€19.21M** | €17.19M | **+€1.70M** | The exit year: 24 chains, 57 sellable products, 82 people, 10% full-year margin, 12% in Q4 |
+| **Dec 2028** | **€4.39M** | €2.82M | (€2.83M) | Seven chains, 19 categories, the first three at T2, first market reads sold, DACH live, Series A closed in November, US entered in December |
+| **Dec 2029** | **€9.78M** | €6.37M | (€3.09M) | 11 chains, 28 categories, 12 at T2, France with Benelux live, expansion peaks as categories cross the gates |
+| **Dec 2030** | **€15.10M** | €12.33M | (€1.38M) | 18 chains, 36 categories, Nordics with Iberia live, EBITDA positive from December and stays positive |
+| **Dec 2031** | **€19.21M** | €17.19M | **+€0.95M** | The exit year: 24 chains, 57 sellable products, 82 people, 5.5% full-year margin, 8% in Q4 |
 
 **Growth shape:** the curve is a rollout, not a compound rate. It steps with each chain deployed and
 each category crossing a price gate: 4.39M to 9.78M to 15.10M to 19.21M over the last four years,
@@ -113,9 +113,9 @@ amounts of the later rounds are the model's, sized from the unfunded cash path.
 |---|---|
 | Angel money already in | **€80k convertible at a €3.5M cap** (not €3M), modelled as if priced at the cap |
 | CzechInvest grant | €45k in total, €16.5k still to land in Oct 2026; non-dilutive |
-| Current round, pre-seed | **€500k at €6.5M post-money** (state post, never pre). It reaches the seed with about €285k to spare; a seed one quarter late is what the standby bridge is for |
+| Current round, pre-seed | **€500k at €6.5M post-money** (state post, never pre). It reaches the seed with about €310k to spare; a seed one quarter late is what the standby bridge is for |
 | Seed | **€2.6M at €12M post**, Sep 2027, 21.7%. Priced on about €755k of ARR: the round is priced on evidence, not on the plan |
-| Series A | **€4.0M at €30M post**, Nov 2028, 13.3%. Priced at 7.1x current and 3.2x forward ARR. It buys the United States and the second European wave, not survival: with it switched off the plan still ends at €9.0M of ARR, 27% EBITDA margin and never runs out of cash |
+| Series A | **€4.0M at €30M post**, Nov 2028, 13.3%. Priced at 7.1x current and 3.2x forward ARR. It buys the United States and the second European wave, not survival: with it switched off the plan still ends at €9.0M of ARR, 22% EBITDA margin and never runs out of cash |
 | Ownership at exit | Founders 55.1%, ESOP 6.1%, investors 38.8%; a later pool top-up is not modelled |
 | Instrument | A term-sheet question, not named in the model. Do not state the cap or the instrument in the deck unless asked |
 

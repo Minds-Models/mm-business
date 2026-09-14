@@ -15,20 +15,22 @@ rollout engine and seat vintages re-implemented independently from the inputs wi
 
 | Year end | ARR | Revenue | Gross margin | EBITDA | Cash | Team |
 |---|---|---|---|---|---|---|
-| 2026 | 175k | 31k | 73.9% | (108k) | 488k | 9 |
-| 2027 | 955k | 589k | 70.6% | (1.01M) | 2.26M | 29 |
-| 2028 | 4.39M | 2.82M | 68.5% | (2.79M) | 4.28M | 45 |
-| 2029 | 9.78M | 6.37M | 68.2% | (2.96M) | 2.57M | 67 |
-| 2030 | 15.10M | 12.33M | 71.6% | (915k) | 2.90M | 78 |
-| **2031** | **19.21M** | **17.19M** | **72.6%** | **+1.70M** | **5.56M** | **82** |
+| 2026 | 175k | 31k | 73.9% | (83k) | 513k | 9 |
+| 2027 | 955k | 589k | 70.6% | (1.01M) | 2.29M | 29 |
+| 2028 | 4.39M | 2.82M | 67.0% | (2.83M) | 4.26M | 45 |
+| 2029 | 9.78M | 6.37M | 66.1% | (3.09M) | 2.43M | 67 |
+| 2030 | 15.10M | 12.33M | 67.8% | (1.38M) | 2.29M | 78 |
+| **2031** | **19.21M** | **17.19M** | **68.3%** | **+0.95M** | **4.20M** | **82** |
 
 Exit at 10x ending ARR: **192.1M**, which is 11.2x recognised 2031 revenue. The plan reaches sustained
-positive EBITDA in month 51 (Nov 2030). The full-year 2031 margin is 9.9%, the fourth quarter 12.2%
-and December annualised 12.9%, with ARR growing 27% in the last year. ARR per head 234k EUR at the end.
+positive EBITDA in month 52 (Dec 2030). The full-year 2031 margin is 5.5%, the fourth quarter 7.8%
+and December annualised 8.4%, with ARR growing 27% in the last year. The margin is thin by design:
+the founder chose a 20% pooled retailer share on the market read (decision 2 in section 6) over the
+0% the twelfth pass carried, which costs 0.75M of 2031 EBITDA and buys a retailer that grows with us. ARR per head 234k EUR at the end.
 
-Unit economics at the end of the plan: CAC per brand seat **79k**, ARPU **135k**, LTV **490k**
-(gross margin, life capped at five years), LTV/CAC **6.2x**, CAC payback **9.7 months**. The ratio
-falls from 16.9x in 2026 because the early years are founder-led selling with almost no sales cost and
+Unit economics at the end of the plan: CAC per brand seat **79k**, ARPU **135k**, LTV **460k**
+(gross margin, life capped at five years), LTV/CAC **5.8x**, CAC payback **10.4 months**. The ratio
+falls from 33.8x in 2026 because the early years are founder-led selling with almost no sales cost and
 the later years carry a real commercial organisation with an explicit ramp.
 
 Net revenue retention is measured, not assumed: expansion is computed from categories crossing the
@@ -36,17 +38,17 @@ T1 and T2 gates at the full gap between tiers, churn is the seat ARR that churne
 259% in 2027 and 238% in 2028 while the ladder reprices a small base, 154% in 2029 when expansion peaks
 at 2.87M, and **102%** in 2031 when most repricing has already happened and new business carries growth.
 
-Cash. Minimum across all 64 months is **2.5k in month 2**, the month before the pre-seed lands, because
-two live categories at month 1 pull the first analyst hire forward (decision 10 in section 6). After the
-pre-seed, cash bottoms at **285k in month 12**, the month before the seed, at **1.19M in month 26**, the
-month before the Series A, and at **2.24M in month 47** after it. Cash net of unearned prepayments, the
-cash the company would hold if every seat were billed monthly, turns negative in month 26 and bottoms
-at **(1.66M) in month 51**: from the Series A onward the plan leans on annual billing in advance, and
+Cash. Minimum across all 64 months is **25k in month 2**, the month before the pre-seed lands; no
+scaling hire is made before month 4 (HEADCOUNT B23), the current team carries the plan until the round
+closes. After the pre-seed, cash bottoms at **312k in month 12**, the month before the seed, at
+**1.19M in month 26**, the month before the Series A, and at **1.84M in month 47** after it. Cash net
+of unearned prepayments, the cash the company would hold if every seat were billed monthly, turns
+negative in month 26 and bottoms at **(2.25M) in month 54**: from the Series A onward the plan leans on annual billing in advance, and
 CHECKS reports that low point.
 
 Without the Series A. Set the scenario cell on MARKETS to 2: the round drops out, the United States,
 France with Benelux and the Nordics with Iberia never open, 3.22M is raised in total, 2031 ARR lands at
-**9.03M**, 2031 EBITDA is **+2.29M (27%)**, cash never dips below 381k after the pre-seed and founders
+**9.03M**, 2031 EBITDA is **+1.90M (22%)**, cash never dips below 407k after the pre-seed and founders
 hold about 64% at exit. The Series A does not buy survival. It buys the American half of the exit and
 the pan-European rights portfolio, and inside this horizon it also buys the burn those markets add
 before their revenue arrives, which is why the no-Series-A case shows a higher margin on a smaller base.
@@ -57,12 +59,12 @@ Seven tabs, in reading order.
 
 | Tab | What it holds |
 |---|---|
-| **READ ME** | What the company does, the vocabulary, what one brand pays for, a worked example on named archetypes, and what the model deliberately simplifies |
+| **READ ME** | What the company does, the vocabulary, what one brand pays for, a worked example on named archetypes, the pooled retailer share on the market read, and what the model deliberately simplifies |
 | **SUMMARY** | The plan on one page: the financial summary, the business summary (section 1b, with a worked-example explanation beside each line and a deployments-versus-ARR chart), the ARR bridge, cap table, exit ladder, how we raise. Detail rows and the operating metrics are collapsed under plus signs |
 | **ASSUMPTIONS** | Every input that drives the P&L, in one vertical list, each one carrying a name (47 named ranges) |
-| **MODEL** | The monthly engine: rollout, P&L, cashflow, and the seat vintages, 64 columns |
-| **MARKETS** | How fast chains are signed, how categories follow them, entry months, category inventory, tempo, the scenario switch, the T2 gate by market |
-| **HEADCOUNT** | What the team costs, with the benchmark source or the internal reasoning printed beside every staffing ratio |
+| **MODEL** | The monthly engine: rollout, P&L, cashflow, and the seat vintages, 64 columns; detail rows collapsed under plus signs in every section |
+| **MARKETS** | How fast chains are signed, how categories follow them, entry months, category inventory, tempo, the scenario switch, the T2 gate by market; the per-market monthly rows are collapsed |
+| **HEADCOUNT** | What the team costs, with the benchmark source or the internal reasoning printed beside every staffing ratio; the monthly role build is collapsed, totals stay visible |
 | **CHECKS** | Thirteen live integrity lines. If any says CHECK rather than OK, do not trust SUMMARY |
 
 MARKETS and HEADCOUNT keep their own inputs, because those are rollout and staffing rather than
@@ -89,14 +91,15 @@ MODEL row 11.
   category. Seats are contracts, not companies: two to three seats per company is the rule of thumb.
 - **Price rises with density.** 40k founding as a six-month launch subscription, 80k after it, 170k
   once the category runs in two or more chains of the same market (slot 15 months old, second chain
-  with six months of history). The market read is 150k with no retailer share. Repricing lands in the
+  with six months of history). The market read is 150k with a 20% pooled retailer share, paid to the contributing chains in
+  proportion to the data each supplies. Repricing lands in the
   month a gate is passed, not at each seat's renewal; READ ME lists that as a simplification.
 - **Churn is a flow of seats, not a hole in revenue.** 8% gross seat churn a year. The churned seats
   are counted as gross wins, staffed on HEADCOUNT and paid for in go-to-market, and the seats held
   are the net result.
 - **Cost scales with chains and categories, not seats.** COGS is inference at 45 per capture store per
-  month plus the 30% retailer share on labelled reads (4.0M paid to chains in 2031). Gross margin runs
-  68% to 74%.
+  month plus the retailer share, 30% on labelled reads and a 20% pool on market reads (4.8M paid to
+  chains in 2031). Gross margin runs 66% to 74%.
 - **Team scales with products.** Every role is driven by categories, chains, markets, new ARR won or
   ARR under management, never by a calendar. Eighty-two people at the end: 10 analysts, 6 data
   engineers, 5 platform, 6 deployment, 7 account executives, 4 SDRs, 6 retailer BD, 7 customer
@@ -118,7 +121,7 @@ MODEL row 11.
 Total raised across all sources including pre-model money: **7.22M**. Founders hold **55.1%** at exit,
 the pool **6.1%**; a Series A pool top-up is not modelled (decision 7 in section 6). Both later rounds
 are sized from the unfunded cash path: about seven months of the period's average burn at the trough
-before the Series A, and a floor of 2.24M after it. The seed prices at 16x current ARR (755k in month
+before the Series A, and a floor of 1.84M after it. The seed prices at 16x current ARR (755k in month
 13); the Series A at 7.1x current (4.24M) and 3.2x forward (9.46M).
 
 Exit multiple ladder, live beside the cap table:
@@ -139,25 +142,29 @@ cases are also computed live on SUMMARY section 7.
 
 | Case | 2031 ARR | 2031 EBITDA | Cash low | Funded |
 |---|---|---|---|---|
-| Base | 19.21M | +1.70M | 285k, month 12 | yes |
-| Seed lands 3 months late | | | (85k), month 15 | bridge |
-| Seed lands 6 months late | | | (814k), month 18 | bridge |
-| Series A lands 3 months late | | | 131k, month 29 | yes |
-| Series A lands 6 months late | | | (588k), month 32 | bridge |
-| Pricing 20% below plan | 15.37M | (0.33M) | 93k, month 50 | yes |
-| Gross churn 24%, three times plan | 19.21M | +0.59M | 281k, month 12 | yes |
-| Labelled seats 2.5 instead of 3 | 17.12M | +1.00M | 268k, month 12 | yes |
-| Categories 1 at launch, 4 in 12 months | 17.70M | +0.65M | 216k, month 12 | yes |
-| US entry slips 12 months | 18.83M | +0.80M | 285k, month 12 | yes |
-| US never opens, Series A kept | 16.66M | +2.04M | 285k, month 12 | yes |
-| Second European wave never opens | 14.65M | +2.87M | 285k, month 12 | yes |
-| Scenario 2, no Series A | 9.03M | +2.29M | 381k, month 12 | yes |
-| Scenario 3, Series A deployed | 21.11M | +2.20M | (292k), month 12 | no |
+| Base | 19.21M | +0.95M | 312k, month 12 | yes |
+| Seed lands 3 months late | | | (58k), month 15 | bridge |
+| Seed lands 6 months late | | | (787k), month 18 | bridge |
+| Series A lands 3 months late | | | 107k, month 29 | yes |
+| Series A lands 6 months late | | | (634k), month 32 | bridge |
+| Pricing 20% below plan | 15.37M | (0.93M) | (618k), month 59 | no |
+| Gross churn 24%, three times plan | 19.21M | (0.15M) | 307k, month 12 | yes |
+| Labelled seats 2.5 instead of 3 | 17.12M | +0.21M | 295k, month 12 | yes |
+| Categories 1 at launch, 4 in 12 months | 17.70M | (0.03M) | 232k, month 12 | yes |
+| US entry slips 12 months | 18.83M | +0.12M | 312k, month 12 | yes |
+| US never opens, Series A kept | 16.66M | +1.39M | 312k, month 12 | yes |
+| Second European wave never opens | 14.65M | +2.22M | 312k, month 12 | yes |
+| Market-read share 0% instead of 20% | 19.21M | +1.70M | 312k, month 12 | yes |
+| Market-read share 40% | 19.21M | +0.20M | 312k, month 12 | yes |
+| Scenario 2, no Series A | 9.03M | +1.90M | 407k, month 12 | yes |
+| Scenario 3, Series A deployed | 21.11M | +1.36M | (240k), month 12 | no |
 
-Every revenue stress stays funded. The two that hurt most are price and the market-read attach rate
-(decision 1 below); a slower category ramp costs 1.5M of ARR but not the plan. Round timing is the
-stress that bites, and the reason is the pre-seed: 500k reaches month 13 with 285k to spare, so a seed
-that lands a quarter late is answered by the standby bridge on ASSUMPTIONS, not by the plan.
+Every revenue stress but one stays funded: pricing 20% below plan now runs 618k short in month 59,
+because the 20% market-read pool has taken the margin cushion the twelfth pass had. Price and the
+market-read attach rate (decision 1 below) are the two inputs that hurt most; a slower category ramp
+costs 1.5M of ARR but not the plan. Round timing is the other stress that bites, and the reason is the
+pre-seed: 500k reaches month 13 with 312k to spare, so a seed that lands a quarter late is answered by
+the standby bridge on ASSUMPTIONS, not by the plan.
 
 ---
 
@@ -167,16 +174,17 @@ Founder decisions the thirteenth pass deliberately did not take. Each is measure
 case above; every number is a one-cell change on ASSUMPTIONS or MARKETS.
 
 1. **The market-read attach rate.** 75% of T2 categories are packaged and sold as a market read.
-   At 35%: 2031 ARR 16.77M, EBITDA +0.14M. This is now the single most sensitive commercial input.
+   At 35%: 2031 ARR 16.77M, EBITDA (0.18M). This is now the single most sensitive commercial input.
 
-2. **Retailer share on the market read.** The mandate letter presumes up to 40% of any future
-   economics; the model pays 0% on the market read and 30% on labelled. Your own reading is that a
-   retailer whose share goes to zero as the product matures will use the data feed as leverage at
-   renewal. 30% on the market read: 2031 EBITDA +0.57M. A pooled 10 to 15% plus a free own-performance
-   benchmark for the retailer is the likely landing; it is not yet modelled.
+2. **Retailer share on the market read, now 20% and pooled.** The model pays 30% on the labelled read
+   to the chain it is about and a 20% pool on the market read, split between the contributing chains
+   in proportion to the data each supplies (the split is a contract term, the total is the input).
+   Your reasoning: a retailer whose share goes to zero as the product matures will use the data feed
+   as leverage at renewal. At 0% the 2031 EBITDA is +1.70M, at 40% (the mandate letter's ceiling)
+   +0.20M. The free own-performance benchmark for the retailer is not modelled and costs nothing.
 
 3. **Edge hardware and stores per chain.** No hardware line; 60 capture stores per chain. At 150 per
-   chain: 2031 EBITDA +0.69M.
+   chain: 2031 EBITDA (0.06M).
 
 4. **Chain read plus market read.** The architecture discussed on 11 Sep (a brand buys named chains
    one by one, priced by chain weight, plus the market read) aligns the retailer with growth and
@@ -186,20 +194,21 @@ case above; every number is a one-cell change on ASSUMPTIONS or MARKETS.
    at the cost of later market reads.
 
 6. **The United States and the second European wave.** With the US never opening and the Series A
-   kept: 2031 ARR 16.66M, EBITDA +2.04M. With France, Benelux, the Nordics and Iberia never opening:
-   14.65M, +2.87M, 59 people, and a plan that flattens in 2030. The Series A is what buys both.
+   kept: 2031 ARR 16.66M, EBITDA +1.39M. With France, Benelux, the Nordics and Iberia never opening:
+   14.65M, +2.22M, 59 people, and a plan that flattens in 2030. The Series A is what buys both.
 
 7. **ESOP top-up at the Series A.** A 10% post-money pool at the A takes founders from 55.1% to
    about 50% at exit and every investor's MOIC down by a tenth: pre-seed 20.1x becomes about 18x.
 
-8. **Pre-seed size.** 500k reaches the seed with 285k to spare and no room for a late seed. 600k at
+8. **Pre-seed size.** 500k reaches the seed with 312k to spare and no room for a late seed. 600k at
    the same post-money absorbs a seed one quarter late; it costs 1.5 points of founder ownership.
 
 9. **Series A ownership.** 4.0M at 30M post is 13.3%; a lead fund usually wants 15 to 20%.
 
-10. **Hiring before the pre-seed lands.** Staffing runs six months ahead of categories, and with two
-    categories live at month 1 the first analyst is hired in month 2, which takes cash to 2.5k the
-    month before the round closes. Either the hire waits for the money or the pre-seed lands in month 2.
+10. **Hiring gate.** Staffing runs six months ahead of categories, which with two categories live at
+    month 1 would hire the first analyst in month 2 and take cash to 2.5k. HEADCOUNT B23 now holds every
+    scaling hire until month 4, after the pre-seed lands; cash bottoms at 25k in month 2 instead. If the
+    pre-seed slips, the gate moves with it.
 
 11. **US salaries.** In-market roles carry 1.55x Czech rates at all seven rows open, thin for US
     enterprise sales; 1.7 costs about 0.3M of 2031 EBITDA.
