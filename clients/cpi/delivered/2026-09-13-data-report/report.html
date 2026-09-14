@@ -111,21 +111,21 @@ svg.i{width:16px; height:16px; flex:none; stroke:currentColor; fill:none; stroke
 
 /* -------------------------------------------------------------- cards -- */
 .card{background:var(--paper-lift); border:1px solid rgba(16,24,40,.055); border-radius:var(--r-lg);
-  box-shadow:var(--sh-1); padding:18px 20px 16px; display:flex; flex-direction:column}
-.card .ch{font-size:13.5px; font-weight:600; letter-spacing:-.014em; margin-bottom:11px; display:flex; align-items:center; gap:8px}
+  box-shadow:var(--sh-1); padding:13px 16px 11px; display:flex; flex-direction:column}
+.card .ch{font-size:13.5px; font-weight:600; letter-spacing:-.014em; margin-bottom:8px; display:flex; align-items:center; gap:8px}
 .card .ch svg.i{width:15px; height:15px; color:var(--ink-3)}
 .card .cm{font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:.085em; color:var(--ink-4)}
 .grid2{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px}
 .grid3{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px}
 .grid4{display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:14px}
-.two{display:flex; gap:18px; flex:1; min-height:0; --l:1; --r:1}
+.two{display:flex; gap:14px; flex:1; min-height:0; --l:1; --r:1}
 .two>*{min-width:0}
 .two>*:first-child{flex:var(--l) 1 0}
 .two>*:last-child{flex:var(--r) 1 0}
 
 /* Stat tiles: the hero-number form. No plot, value + caption + context line. */
 .tile{background:var(--paper-lift); border:1px solid rgba(16,24,40,.055); border-radius:var(--r-lg);
-  box-shadow:var(--sh-1); padding:16px 18px 14px}
+  box-shadow:var(--sh-1); padding:12px 16px 11px}
 .tile .v{font-size:30px; font-weight:600; letter-spacing:-.036em; line-height:1; font-variant-numeric:tabular-nums; color:var(--ink)}
 .tile .v.b{color:var(--accent)}
 .tile .k{font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:.08em; color:var(--ink-4); margin-top:8px; line-height:1.35}
@@ -133,16 +133,16 @@ svg.i{width:16px; height:16px; flex:none; stroke:currentColor; fill:none; stroke
 
 /* The dark impact node: near-black reserved for the thing that acts.
    At most one per page. */
-.core{background:#16181d; border:1px solid #16181d; border-radius:var(--r-lg); color:#fff; padding:16px 19px;
+.core{background:#16181d; border:1px solid #16181d; border-radius:var(--r-lg); color:#fff; padding:12px 16px;
   box-shadow:0 2px 4px rgba(16,24,40,.22), 0 16px 34px -12px rgba(16,24,40,.5), 0 44px 90px -44px rgba(16,24,40,.5)}
 .core .l{font-size:9.5px; font-weight:600; text-transform:uppercase; letter-spacing:.11em; color:#8d94a2; margin-bottom:7px}
 .core p,.core{font-size:12.5px; line-height:1.55}
 .core p{color:#c8ccd4}
 .core p b{color:#fff; font-weight:600}
 
-.note{font-size:10.5px; color:var(--ink-4); margin-top:8px; line-height:1.45}
+.note{font-size:10.5px; color:var(--ink-4); margin-top:6px; line-height:1.4}
 .panel{border:1px solid var(--hair); border-radius:var(--r-md); background:rgba(255,255,255,.6);
-  padding:12px 15px; font-size:12px; line-height:1.55; color:var(--ink-2)}
+  padding:10px 13px; font-size:11.5px; line-height:1.5; color:var(--ink-2)}
 .panel .l{font-size:9.5px; font-weight:600; text-transform:uppercase; letter-spacing:.095em; color:var(--ink-4); margin-bottom:5px}
 .panel b{color:var(--ink); font-weight:600}
 .panel.blue{background:var(--accent-wash); border-color:var(--accent-edge); color:#1e40af}
@@ -153,7 +153,7 @@ svg.i{width:16px; height:16px; flex:none; stroke:currentColor; fill:none; stroke
   stroke-linecap:round; stroke-linejoin:round; color:var(--accent)}
 .shield b{color:#1e3a8a; font-weight:600}
 
-.kv{display:flex; justify-content:space-between; align-items:baseline; gap:14px; padding:8px 0; border-top:1px solid var(--hair); font-size:12.5px}
+.kv{display:flex; justify-content:space-between; align-items:baseline; gap:14px; padding:6px 0; border-top:1px solid var(--hair); font-size:12px}
 .kv:first-of-type{border-top:none}
 .kv .k{font-weight:600; color:var(--ink)}
 .kv .v{color:var(--ink-3); text-align:right; font-variant-numeric:tabular-nums}
@@ -161,7 +161,7 @@ svg.i{width:16px; height:16px; flex:none; stroke:currentColor; fill:none; stroke
 /* ---------------------------------------------------- charts, in CSS -- */
 /* Horizontal bars: label / track / value. Track shows the remainder, fill
    is flat-left rounded-right by the overflow-hidden track. */
-.hbars{display:flex; flex-direction:column; gap:7px}
+.hbars{display:flex; flex-direction:column; gap:6px}
 .hbar{display:grid; grid-template-columns:88px 1fr 48px; gap:9px; align-items:center; font-size:12px}
 .hbar.w{grid-template-columns:130px 1fr 52px}
 .hbars.wide .hbar{grid-template-columns:215px 1fr 52px}
@@ -235,6 +235,50 @@ svg .base{stroke:var(--ink-4); stroke-dasharray:4 3}
 .ktag{position:absolute; top:11px; right:12px; font-size:9px; font-weight:600; letter-spacing:.06em; text-transform:uppercase;
   color:var(--pos); background:var(--pos-soft); padding:3px 8px; border-radius:999px}
 
+/* next-step ladder (slide 09): numbered cards with a connector line in the gaps */
+.steps{position:relative; display:flex; flex-direction:column; gap:9px}
+.steps.g2{display:grid; grid-template-columns:1fr 1fr; gap:11px}
+.steps.g2::before{display:none}
+.steps::before{content:''; position:absolute; left:28px; top:30px; bottom:30px; width:2px;
+  background:linear-gradient(180deg,var(--accent-edge),rgba(207,224,255,.2)); border-radius:2px}
+.steps>.card{position:relative; flex-direction:row; gap:11px; align-items:flex-start; padding:11px 14px 10px}
+.stepno{display:grid; place-items:center; width:28px; height:28px; border-radius:999px; flex:none;
+  background:var(--accent); color:#fff; font-size:12.5px; font-weight:700; line-height:1;
+  font-variant-numeric:tabular-nums; box-shadow:0 1px 2px rgba(47,109,246,.35)}
+.steps .ch{margin-bottom:2px}
+.steps .lead{font-size:12.5px; line-height:1.45}
+
+/* bottom action strip: one action for CPI, one for its tenants. Sits in the slot
+   the dark Dopad bar used to occupy, so no slide grows taller. Identity is carried
+   by the label text as well as by the colour. */
+.acts{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:11px}
+.act{border:1px solid var(--accent-edge); background:var(--accent-wash); border-radius:var(--r-md);
+  padding:8px 14px 9px; color:#1E40AF}
+.act.ten{border-color:#FCD34D; background:#FEF3C7; color:#B45309}
+.act .l{font-size:9.5px; font-weight:600; text-transform:uppercase; letter-spacing:.095em;
+  color:var(--accent); margin-bottom:3px}
+.act.ten .l{color:#B45309}
+.act .x{font-size:12.5px; line-height:1.35; font-weight:500}
+.act .x b{font-weight:600; font-variant-numeric:tabular-nums}
+/* group composition (slide 04): three icon columns, no bars. The dominant
+   mode carries the accent, the tail is grey — same de-emphasis as .fill.mut. */
+.gcomp{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px; text-align:center}
+.gcomp .gi{display:grid; place-items:center; height:30px; color:var(--accent)}
+.gcomp .gi svg{width:27px; height:27px; stroke:currentColor; fill:none; stroke-width:1.5;
+  stroke-linecap:round; stroke-linejoin:round}
+.gcomp .gv{font-size:21px; font-weight:600; letter-spacing:-.032em; line-height:1;
+  font-variant-numeric:tabular-nums; margin-top:7px; color:var(--ink)}
+.gcomp .gk{font-size:10.5px; color:var(--ink-3); margin-top:4px; line-height:1.3}
+.gcomp .mt .gi{color:var(--ink-4)}
+.gcomp .mt .gv{color:var(--ink-2)}
+
+/* icon-led bar row: icon, left-aligned label, track, value. */
+.hbar.ic{grid-template-columns:19px 128px 1fr 52px; gap:8px}
+.hbar.ic .nm{text-align:left}
+.hbar .ico{display:grid; place-items:center; color:var(--ink-3)}
+.hbar .ico svg{width:17px; height:17px; stroke:currentColor; fill:none; stroke-width:1.7;
+  stroke-linecap:round; stroke-linejoin:round}
+
 /* -------------------------------------------------------------- print -- */
 @media print{
   @page{size:1280px 720px; margin:0}
@@ -269,15 +313,13 @@ svg .base{stroke:var(--ink-4); stroke-dasharray:4 3}
   </div>
   <p class="label">Pilotn&iacute; zpr&aacute;va &middot; OC Olympia Mlad&aacute; Boleslav</p>
   <h1>Kolik lid&iacute; p&#345;i&scaron;lo, u&#382; v&iacute;te.<br><span class="dim">Te&#271; v&iacute;te i kdo to je a co si odn&aacute;&scaron;&iacute;.</span></h1>
-  <p class="sub mt14" style="max-width:66ch">14denn&iacute; m&#283;&#345;en&iacute; na dvou vchodech Olympie: ka&#382;d&aacute; n&aacute;v&scaron;t&#283;va popsan&aacute; p&#345;es 100 vizu&aacute;ln&iacute;ch atribut&#367;, slo&#382;en&aacute; do 8 n&aacute;v&scaron;t&#283;vnick&yacute;ch person s&nbsp;&#269;asov&yacute;mi vzorci. Nadstavba nad po&#269;&iacute;t&aacute;n&iacute; n&aacute;v&scaron;t&#283;vnosti a&nbsp;z&aacute;kladn&iacute; odhady v&#283;ku a&nbsp;pohlav&iacute;.</p>
-  <div class="grid4 mt22" style="width:1000px; max-width:100%">
-    <div class="tile"><div class="v b">92&nbsp;456</div><div class="k">vstup&#367; do centra</div><div class="s">2 vchody &middot; 14 dn&iacute; v kuse</div></div>
-    <div class="tile"><div class="v b">6&nbsp;604</div><div class="k">&Oslash; vstup&#367; za den</div><div class="s">maximum: sobota 8&nbsp;119</div></div>
-    <div class="tile"><div class="v">8</div><div class="k">n&aacute;v&scaron;t&#283;vnick&yacute;ch person</div><div class="s">ze 100+ atribut&#367; na n&aacute;v&scaron;t&#283;vu</div></div>
-    <div class="tile"><div class="v">32,1&nbsp;%</div><div class="k">n&aacute;v&scaron;t&#283;v kon&#269;&iacute; s n&aacute;kupem</div><div class="s">ta&scaron;ka, voz&iacute;k &#269;i bal&iacute;k v ruce</div></div>
+  <p class="sub mt14" style="max-width:70ch">14denn&iacute; m&#283;&#345;en&iacute; na dvou vchodech Olympie zachytilo <b style="color:var(--ink); font-weight:600">92&nbsp;456 vstup&#367;</b> do centra. Ka&#382;d&aacute; n&aacute;v&scaron;t&#283;va je popsan&aacute; p&#345;es 100 vizu&aacute;ln&iacute;ch atribut&#367; a&nbsp;slo&#382;en&aacute; do <b style="color:var(--ink); font-weight:600">8 n&aacute;v&scaron;t&#283;vnick&yacute;ch person</b> s&nbsp;&#269;asov&yacute;mi vzorci &mdash; nadstavba nad po&#269;&iacute;t&aacute;n&iacute; n&aacute;v&scaron;t&#283;vnosti a&nbsp;z&aacute;kladn&iacute; odhady v&#283;ku a&nbsp;pohlav&iacute;.</p>
+  <div class="shield mt18" style="display:inline-flex; padding:7px 15px 8px; border-radius:999px; font-size:11.5px; letter-spacing:.01em">
+    <svg viewBox="0 0 24 24" style="width:15px; height:15px"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z"/></svg>
+    <span><b>GDPR</b> &middot; bez rozpozn&aacute;v&aacute;n&iacute; obli&#269;ej&#367;, bez identit</span>
   </div>
-  <p class="note mt14" style="max-width:100ch">Zdroj: senzory Minds &amp; Models na vchodech A a B, &#269;as Europe/Prague. Zapo&#269;&iacute;t&aacute;n ka&#382;d&yacute; validn&iacute; pr&#367;chod, person&aacute;l odfiltrov&aacute;n. Bez rozpozn&aacute;v&aacute;n&iacute; obli&#269;ej&#367;, bez identit.</p>
-  <div class="flow"><b>DATA</b> &rarr; INSIGHT &rarr; DOPAD</div><div class="pageno">01 / 09</div>
+  <p class="note" style="max-width:100ch; margin-top:16px">Zdroj: senzory Minds &amp; Models na vchodech A a B, &#269;as Europe/Prague. Zapo&#269;&iacute;t&aacute;n ka&#382;d&yacute; validn&iacute; pr&#367;chod, person&aacute;l odfiltrov&aacute;n.</p>
+  <div class="flow"><b>DATA</b> &rarr; INSIGHT &rarr; DOPAD</div><div class="pageno">01 / 10</div>
 </section>
 
 <!-- ========================================= 2. METHODOLOGY + PRIVACY == -->
@@ -313,7 +355,7 @@ svg .base{stroke:var(--ink-4); stroke-dasharray:4 3}
       <p>Footfall po&#269;&iacute;tadlo &#345;ekne <b>kolik</b>. Tohle m&#283;&#345;en&iacute; &#345;&iacute;k&aacute; <b>kdo p&#345;i&scaron;el, kdy chod&iacute;, co nos&iacute; a co si odn&aacute;&scaron;&iacute;</b>, a to na stejn&eacute; kame&#345;e.</p>
     </div>
   </div>
-  <div class="flow"><b>DATA</b> &rarr; INSIGHT &rarr; DOPAD</div><div class="pageno">02 / 09</div>
+  <div class="flow"><b>DATA</b> &rarr; INSIGHT &rarr; DOPAD</div><div class="pageno">02 / 10</div>
 </section>
 
 <!-- ================================================== 3. FOOTFALL, WHEN == -->
@@ -328,7 +370,7 @@ svg .base{stroke:var(--ink-4); stroke-dasharray:4 3}
     <div style="display:flex; flex-direction:column; gap:10px; min-width:0">
       <div class="card" style="padding-bottom:10px">
         <div class="ch">Vstupy po dnech: ob&#283; soboty nejsiln&#283;j&scaron;&iacute;, druh&yacute; t&yacute;den u&#382; bez pr&aacute;zdnin</div>
-        <svg viewBox="0 0 700 200" width="100%">
+        <svg viewBox="0 0 700 200" width="100%" height="172">
           <line class="grid" x1="14" y1="166" x2="690" y2="166"/>
           <g font-size="9">
             <path d="M20 54 a4 4 0 0 1 4 -4 h26 a4 4 0 0 1 4 4 V166 h-34 z" fill="var(--ink-3)"/>
@@ -372,7 +414,7 @@ svg .base{stroke:var(--ink-4); stroke-dasharray:4 3}
       </div>
       <div class="card" style="padding-bottom:10px">
         <div class="ch">Hodinov&yacute; profil: dv&#283; &scaron;pi&#269;ky kolem 11. a mezi 15.&ndash;17. hodinou</div>
-        <svg viewBox="0 0 700 118" width="100%">
+        <svg viewBox="0 0 700 118" width="100%" height="98">
           <line class="grid" x1="14" y1="92" x2="690" y2="92"/>
           <g fill="var(--accent)">
             <path d="M20 82 a3 3 0 0 1 3 -3 h24 a3 3 0 0 1 3 3 V92 h-30 z"/>
@@ -418,8 +460,12 @@ svg .base{stroke:var(--ink-4); stroke-dasharray:4 3}
       <div class="panel"><div class="l">Insight</div>V&scaron;edn&iacute; dny po konci pr&aacute;zdnin jsou o&nbsp;<b>18&nbsp;%</b> slab&scaron;&iacute; ne&#382; koncem srpna, v&iacute;kend v&scaron;ak s&iacute;l&iacute; d&aacute;l (sobota 5.&nbsp;9. = maximum pilotu).</div>
     </div>
   </div>
+  <div class="acts">
+    <div class="act"><div class="l">Akce pro CPI</div><div class="x">Nacenit plochy dle vchodu <b>A 76 %</b> / <b>B 24 %</b></div></div>
+    <div class="act ten"><div class="l">Akce pro n&aacute;jemce</div><div class="x">Obsadit pokladny ve &scaron;pi&#269;ce <b>11 a&#382; 18 h</b></div></div>
+  </div>
   <div class="scope"><b>Populace:</b> validn&iacute; pr&#367;chody (&ge;&nbsp;2&nbsp;s), person&aacute;l odfiltrov&aacute;n; ob&#283;ma vchody, &#269;as Europe/Prague.</div>
-  <div class="pageno">03 / 09</div>
+  <div class="pageno">03 / 10</div>
 </section>
 
 <!-- ======================================================= 4. WHO VISITS == -->
@@ -462,13 +508,21 @@ svg .base{stroke:var(--ink-4); stroke-dasharray:4 3}
             </div>
           </div>
         </div>
-        <div class="tile"><div class="v">70&nbsp;%</div><div class="k">p&#345;ich&aacute;z&iacute; samo</div><div class="s">doprovod = p&#345;edev&scaron;&iacute;m p&aacute;ry</div></div>
+        <div class="card" style="padding:14px 16px 12px">
+          <div class="ch" style="margin-bottom:10px">Slo&#382;en&iacute; skupin</div>
+          <div class="gcomp">
+            <div><div class="gi"><svg viewBox="0 0 24 24"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><div class="gv">70&nbsp;%</div><div class="gk">s&aacute;m</div></div>
+            <div class="mt"><div class="gi"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div class="gv">25&nbsp;%</div><div class="gk">ve dvou</div></div>
+            <div class="mt"><div class="gi"><svg viewBox="0 0 24 24"><path d="M13 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="7.5" cy="7" r="3.2"/><path d="M17.5 21v-2a4 4 0 0 0-2.6-3.4"/><path d="M13.3 3.95a3.2 3.2 0 0 1 0 6.1"/><path d="M22 21v-2a4 4 0 0 0-2.6-3.4"/><path d="M17.8 3.95a3.2 3.2 0 0 1 0 6.1"/></svg></div><div class="gv">4&nbsp;%</div><div class="gk">3 a v&iacute;ce</div></div>
+          </div>
+        </div>
       </div>
+      <div class="panel"><div class="l">Doprovod</div>Z doprov&aacute;zen&yacute;ch n&aacute;v&scaron;t&#283;v je <b>60&nbsp;%</b> sm&iacute;&scaron;en&yacute;ch (p&aacute;ry, rodiny); &#269;ist&#283; &#382;ensk&eacute; skupiny 21&nbsp;%, mu&#382;sk&eacute; 15&nbsp;%. N&aacute;v&scaron;t&#283;vy s d&iacute;t&#283;tem: <b>10,5&nbsp;%</b> o v&iacute;kendu vs 7,6&nbsp;% ve v&scaron;edn&iacute; den a dr&#382;&iacute; se cel&yacute; den, ne jen po &scaron;kole.</div>
     </div>
     <div style="display:flex; flex-direction:column; gap:12px">
       <div class="card">
-        <div class="ch">&#381;ivotn&iacute; f&aacute;ze: dosp&#283;l&iacute; a mlad&iacute; dosp&#283;l&iacute; tvo&#345;&iacute; t&eacute;m&#283;&#345; t&#345;i &#269;tvrtiny</div>
-        <div class="hbars">
+        <div class="ch" style="margin-bottom:11px">&#381;ivotn&iacute; f&aacute;ze: dosp&#283;l&iacute; a mlad&iacute; dosp&#283;l&iacute; tvo&#345;&iacute; t&eacute;m&#283;&#345; t&#345;i &#269;tvrtiny</div>
+        <div class="hbars" style="gap:12px">
           <div class="hbar w"><span class="nm">Etablovan&iacute; dosp&#283;l&iacute;</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="vl">40,2&nbsp;%</span></div>
           <div class="hbar w"><span class="nm">Mlad&iacute; dosp&#283;l&iacute;</span><span class="track"><span class="fill" style="width:84%"></span></span><span class="vl">33,6&nbsp;%</span></div>
           <div class="hbar w"><span class="nm">Zral&iacute; / seniorsk&yacute; v&#283;k</span><span class="track"><span class="fill mut" style="width:32%"></span></span><span class="vl">12,8&nbsp;%</span></div>
@@ -476,12 +530,25 @@ svg .base{stroke:var(--ink-4); stroke-dasharray:4 3}
           <div class="hbar w"><span class="nm">Rodi&#269;e s d&iacute;t&#283;tem</span><span class="track"><span class="fill mut" style="width:14%"></span></span><span class="vl">5,6&nbsp;%</span></div>
         </div>
       </div>
-      <div class="panel"><div class="l">Insight &middot; t&#345;i nez&aacute;visl&eacute; sign&aacute;ly, jeden z&aacute;v&#283;r</div>Publikum vypad&aacute; <b>b&#283;&#382;n&#283;, bez stylizace</b>: postava &#8222;pr&#367;m&#283;rn&aacute;&#8220; u <b>81&nbsp;%</b> n&aacute;v&scaron;t&#283;vn&iacute;k&#367;, standardn&iacute; (nikoli stylizovan&aacute;) &uacute;prava u <b>95&nbsp;%</b>, l&iacute;&#269;en&iacute; nej&#269;ast&#283;ji &#382;&aacute;dn&eacute;. Nen&iacute; to n&aacute;kupn&iacute; destinace &uacute;zk&eacute; skupiny. Je to cel&eacute; m&#283;sto.</div>
-      <div class="panel"><div class="l">Doprovod</div>Z doprov&aacute;zen&yacute;ch n&aacute;v&scaron;t&#283;v je <b>60&nbsp;%</b> sm&iacute;&scaron;en&yacute;ch (p&aacute;ry, rodiny); &#269;ist&#283; &#382;ensk&eacute; skupiny 21&nbsp;%, mu&#382;sk&eacute; 15&nbsp;%. N&aacute;v&scaron;t&#283;vy s d&iacute;t&#283;tem: <b>10,5&nbsp;%</b> o v&iacute;kendu vs 7,6&nbsp;% ve v&scaron;edn&iacute; den a dr&#382;&iacute; se cel&yacute; den, ne jen po &scaron;kole.</div>
+      <div class="card">
+        <div class="ch" style="margin-bottom:11px">Styl, kter&yacute; v&#283;k neprozrad&iacute;: fitness je nejsiln&#283;j&scaron;&iacute; stylov&aacute; skupina</div>
+        <div class="hbars" style="gap:17px; margin-top:2px">
+          <div class="hbar ic"><span class="ico"><svg viewBox="0 0 24 24"><path d="M3.5 9.5v5M7 6.8v10.4M17 6.8v10.4M20.5 9.5v5M7 12h10"/></svg></span><span class="nm">Fitness a aktivn&iacute;</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="vl">16,4&nbsp;%</span></div>
+          <div class="hbar ic"><span class="ico"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></span><span class="nm">Profese a kancel&aacute;&#345;e</span><span class="track"><span class="fill" style="width:39%"></span></span><span class="vl">6,4&nbsp;%</span></div>
+          <div class="hbar ic"><span class="ico"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></span><span class="nm">D&#283;lnick&eacute; profese</span><span class="track"><span class="fill" style="width:25%"></span></span><span class="vl">4,1&nbsp;%</span></div>
+          <div class="hbar ic"><span class="ico"><svg viewBox="0 0 24 24"><path d="m12 3 2 5.4 5.4 2-5.4 2-2 5.4-2-5.4-5.4-2 5.4-2z"/><path d="M18.8 16.4 19.5 18.2 21.3 18.9 19.5 19.6 18.8 21.4 18.1 19.6 16.3 18.9 18.1 18.2z"/></svg></span><span class="nm">Alternativn&iacute; styl</span><span class="track"><span class="fill" style="width:19%"></span></span><span class="vl">3,1&nbsp;%</span></div>
+          <div class="hbar ic"><span class="ico"><svg viewBox="0 0 24 24"><circle cx="18.5" cy="17.5" r="3.5"/><circle cx="5.5" cy="17.5" r="3.5"/><circle cx="15" cy="5" r="1"/><path d="M12 17.5V14l-3-3 4-3 2 3h2"/></svg></span><span class="nm">Cyklist&eacute; a motork&aacute;&#345;i</span><span class="track"><span class="fill mut" style="width:2%"></span></span><span class="vl">0,4&nbsp;%</span></div>
+        </div>
+        <p class="note" style="margin-top:11px">Zbytek n&aacute;v&scaron;t&#283;v nem&aacute; v&yacute;razn&yacute; stylov&yacute; sign&aacute;l, nebo se p&#345;ekr&yacute;v&aacute; s v&#283;kem a &#382;ivotn&iacute; f&aacute;z&iacute; v&yacute;&scaron;e.</p>
+      </div>
     </div>
   </div>
+  <div class="acts">
+    <div class="act"><div class="l">Akce pro CPI</div><div class="x">Stav&#283;t mix na j&aacute;dru <b>20 a&#382; 49 let</b></div></div>
+    <div class="act ten"><div class="l">Akce pro n&aacute;jemce</div><div class="x">Form&aacute;ty pro jednotlivce, nejen pro rodiny</div></div>
+  </div>
   <div class="scope"><b>Zdroj:</b> vizu&aacute;ln&iacute; anal&yacute;za n&aacute;v&scaron;t&#283;v pilotn&iacute;ho nasazen&iacute;; agregace k&nbsp;&ge;&nbsp;25, pod&iacute;ly z analyzovan&yacute;ch n&aacute;v&scaron;t&#283;v.</div>
-  <div class="pageno">04 / 09</div>
+  <div class="pageno">04 / 10</div>
 </section>
 
 <!-- ============================================== 5. PERSONA GALLERY == -->
@@ -551,8 +618,12 @@ svg .base{stroke:var(--ink-4); stroke-dasharray:4 3}
       <ul><li><b>75&nbsp;%</b> &#382;eny, nej&#269;ast&#283;ji 30&ndash;39 let</li><li>v&scaron;ednodenn&iacute; publikum; v&iacute;kend &minus;34&nbsp;%</li><li>Apple, tote bag; pr&eacute;miov&yacute; sign&aacute;l <b>13&nbsp;%</b></li></ul>
     </div>
   </div>
+  <div class="acts">
+    <div class="act"><div class="l">Akce pro CPI</div><div class="x">Prod&aacute;vat n&aacute;v&scaron;t&#283;vy c&iacute;lovky, ne footfall</div></div>
+    <div class="act ten"><div class="l">Akce pro n&aacute;jemce</div><div class="x">Zn&aacute;t sv&eacute; dv&#283; hlavn&iacute; persony</div></div>
+  </div>
   <div class="scope"><b>Zdroj:</b> vizu&aacute;ln&iacute; anal&yacute;za n&aacute;v&scaron;t&#283;v + segmenta&#269;n&iacute; model (k&nbsp;=&nbsp;8); pod&iacute;ly = % analyzovan&yacute;ch n&aacute;v&scaron;t&#283;v, v&iacute;kendov&aacute; &#269;&iacute;sla = rozd&iacute;l n&aacute;v&scaron;t&#283;v/den vs v&scaron;edn&iacute; den; agregace k&nbsp;&ge;&nbsp;25. Avatary jsou ilustra&#269;n&iacute;.</div>
-  <div class="pageno">05 / 09</div>
+  <div class="pageno">05 / 10</div>
 </section>
 
 <!-- ================================================ 6. WHEN, PER PERSONA == -->
@@ -593,11 +664,14 @@ svg .base{stroke:var(--ink-4); stroke-dasharray:4 3}
       <div class="panel"><div class="l">R&aacute;no pat&#345;&iacute; senior&#367;m</div><b>Rann&iacute; senio&#345;i</b> maj&iacute; ostrou rann&iacute; &scaron;pi&#269;ku: <b>8:00&ndash;11:00 obslou&#382;&iacute; ~47&nbsp;%</b> jejich cel&eacute;ho dne. Do ve&#269;era t&eacute;m&#283;&#345; zmiz&iacute;.</div>
       <div class="panel"><div class="l">Odpoledne pat&#345;&iacute; &scaron;kole</div>Teenage&#345;i nab&iacute;haj&iacute; po &scaron;kole a vrchol&iacute; <b>15:00&ndash;18:00</b>; mlad&iacute; dosp&#283;l&iacute; s&iacute;l&iacute; do ve&#269;era a po 19. hodin&#283; dominuj&iacute;.</div>
       <div class="panel"><div class="l">Rodi&#269;e dr&#382;&iacute; cel&yacute; den</div>Maminky nemaj&iacute; jednu &scaron;pi&#269;ku, dr&#382;&iacute; stabiln&iacute; p&#345;&iacute;tomnost od r&aacute;na do podve&#269;era, i&nbsp;ve v&scaron;edn&iacute; dny.</div>
-      <div class="core"><div class="l">Dopad</div><p>Program, staffing i&nbsp;kampan&#283; lze c&iacute;lit <b>na konkr&eacute;tn&iacute; publikum v&nbsp;jeho okn&#283;</b>, ne na anonymn&iacute; pr&#367;m&#283;rnou k&#345;ivku.</p></div>
     </div>
   </div>
+  <div class="acts">
+    <div class="act"><div class="l">Akce pro CPI</div><div class="x">V&iacute;kend programovat na sport a streetwear, <b>+43 %</b></div></div>
+    <div class="act ten"><div class="l">Akce pro n&aacute;jemce</div><div class="x">Pl&aacute;novat sm&#283;ny dle okna sv&eacute; persony</div></div>
+  </div>
   <div class="scope"><b>Metoda:</b> rozd&iacute;l pr&#367;m&#283;rn&yacute;ch n&aacute;v&scaron;t&#283;v/den v&iacute;kend vs v&scaron;edn&iacute; den, po person&aacute;ch; denn&iacute; profily z hodinov&eacute;ho rozlo&#382;en&iacute; n&aacute;v&scaron;t&#283;v dan&eacute; persony.</div>
-  <div class="pageno">06 / 09</div>
+  <div class="pageno">06 / 10</div>
 </section>
 
 <!-- ================================================ 7. BRANDS AND SPEND == -->
@@ -607,7 +681,7 @@ svg .base{stroke:var(--ink-4); stroke-dasharray:4 3}
     <span class="meta">Zna&#269;ky &middot; spend sign&aacute;l &middot; pod&iacute;ly z analyzovan&yacute;ch n&aacute;v&scaron;t&#283;v</span>
   </div>
   <p class="label">07 &middot; Co nos&iacute; a co to &#345;&iacute;k&aacute; o &uacute;trat&#283;</p>
-  <h2>Mid-market z&aacute;klad s&nbsp;m&#283;&#345;iteln&yacute;m pr&eacute;miov&yacute;m okrajem. <span class="dim">A&nbsp;hlasit&aacute; loga nejsou tot&eacute;&#382; co &uacute;trata.</span></h2>
+  <h2>Mid-market z&aacute;klad s&nbsp;pr&eacute;miov&yacute;m okrajem. <span class="dim">Hlasit&aacute; loga nejsou tot&eacute;&#382; co &uacute;trata.</span></h2>
   <div class="two mt14 grow" style="--l:1.05; --r:.95; align-items:flex-start">
     <div style="display:flex; flex-direction:column; gap:12px">
       <div class="card">
@@ -619,7 +693,7 @@ svg .base{stroke:var(--ink-4); stroke-dasharray:4 3}
           <div class="hbar w"><span class="nm">Premium</span><span class="track"><span class="fill" style="width:9%"></span></span><span class="vl">5,8&nbsp;%</span></div>
           <div class="hbar w"><span class="nm">Luxury</span><span class="track"><span class="fill" style="width:1%"></span></span><span class="vl">0,6&nbsp;%</span></div>
         </div>
-        <p class="note"><b>6,4&nbsp;%</b> n&aacute;v&scaron;t&#283;vn&iacute;k&#367; nese aspo&#328; jednu pr&eacute;miovou &#269;i luxusn&iacute; polo&#382;ku: mal&yacute;, ale jasn&#283; identifikovateln&yacute; vy&scaron;&scaron;&iacute; segment. 76&nbsp;% outfit&#367; je zcela bez viditeln&eacute;ho loga; zna&#269;ku nese 32&nbsp;% n&aacute;v&scaron;t&#283;vn&iacute;k&#367;.</p>
+        <p class="note"><b>6,4&nbsp;%</b> nese pr&eacute;miovou &#269;i luxusn&iacute; polo&#382;ku; <b>76&nbsp;%</b> outfit&#367; je zcela bez loga.</p>
       </div>
       <div class="card">
         <div class="ch">Nej&#269;ast&#283;ji identifikovan&eacute; zna&#269;ky: sportswear + Apple</div>
@@ -631,7 +705,7 @@ svg .base{stroke:var(--ink-4); stroke-dasharray:4 3}
           <div class="hbar"><span class="nm">Birkenstock</span><span class="track"><span class="fill mut" style="width:16%"></span></span><span class="vl">1,3&nbsp;%</span></div>
           <div class="hbar"><span class="nm">Puma</span><span class="track"><span class="fill mut" style="width:15%"></span></span><span class="vl">1,2&nbsp;%</span></div>
         </div>
-        <p class="note">Pod&iacute;l n&aacute;v&scaron;t&#283;vn&iacute;k&#367; s aspo&#328; jednou polo&#382;kou dan&eacute; zna&#269;ky; identifikace i&nbsp;podle st&#345;ihu &#269;i siluety, nejen loga.</p>
+        <p class="note">Pod&iacute;l n&aacute;v&scaron;t&#283;vn&iacute;k&#367; s polo&#382;kou dan&eacute; zna&#269;ky; i&nbsp;podle st&#345;ihu, nejen loga.</p>
       </div>
     </div>
     <div style="display:flex; flex-direction:column; gap:12px">
@@ -644,11 +718,14 @@ svg .base{stroke:var(--ink-4); stroke-dasharray:4 3}
       </div>
       <div class="panel"><div class="l">Insight</div>Pr&eacute;miov&aacute; komunikace c&iacute;len&aacute; podle log by minula pr&aacute;v&#283; ty, kdo re&aacute;ln&#283; nesou nejvy&scaron;&scaron;&iacute; &uacute;tratov&yacute; sign&aacute;l. <b>Profesion&aacute;lov&eacute; cht&#283;j&iacute; kvalitu a st&#345;ih, ne logo</b> a chod&iacute; ve v&scaron;edn&iacute; dny.</div>
       <div class="panel"><div class="l">Persona &times; v&yacute;bava</div>Senio&#345;i: klasick&eacute; hodinky + n&aacute;kupn&iacute; voz&iacute;k. Maminky: smartwatch + ta&scaron;ka p&#345;es rameno. Profesion&aacute;lov&eacute;: Apple + tote bag. Teenage&#345;i a sportovn&iacute;: Nike.</div>
-      <div class="core"><div class="l">Dopad</div><p>Tenant mix i&nbsp;marketing m&aacute; st&aacute;t na <b>value-forward z&aacute;kladu</b>; pr&eacute;miov&yacute;ch ~6&nbsp;% se vyplat&iacute; oslovit c&iacute;len&#283;, ne repozic&iacute; cel&eacute;ho centra.</p></div>
     </div>
   </div>
+  <div class="acts">
+    <div class="act"><div class="l">Akce pro CPI</div><div class="x">Dr&#382;et value-forward z&aacute;klad mixu</div></div>
+    <div class="act ten"><div class="l">Akce pro n&aacute;jemce</div><div class="x">Nec&iacute;lit pr&eacute;mium podle log, <b>13,2 %</b> vs <b>2,9 %</b></div></div>
+  </div>
   <div class="scope"><b>Zdroj:</b> dv&#283; nez&aacute;visl&aacute; vizu&aacute;ln&iacute; &#269;ten&iacute; t&eacute;&#382;e n&aacute;v&scaron;t&#283;vy (spend sign&aacute;l vs identifikace zna&#269;ek); agregace k&nbsp;&ge;&nbsp;25.</div>
-  <div class="pageno">07 / 09</div>
+  <div class="pageno">07 / 10</div>
 </section>
 
 <!-- ============================================== 8. EXIT PURCHASE SIGNAL == -->
@@ -661,8 +738,8 @@ svg .base{stroke:var(--ink-4); stroke-dasharray:4 3}
   <h2>T&#345;etina n&aacute;v&scaron;t&#283;v kon&#269;&iacute; s n&aacute;kupem v ruce, <span class="dim">dosp&#283;l&eacute; persony a&#382; dvakr&aacute;t &#269;ast&#283;ji ne&#382; mlad&eacute;.</span></h2>
   <div class="two mt14 grow" style="--l:.95; --r:1.05; align-items:flex-start">
     <div style="display:flex; flex-direction:column; gap:12px">
-      <div class="tile" style="padding:20px 22px">
-        <div class="v b" style="font-size:44px">32,1&nbsp;%</div>
+      <div class="tile" style="padding:18px 20px 14px">
+        <div class="v b" style="font-size:42px">32,1&nbsp;%</div>
         <div class="k">n&aacute;v&scaron;t&#283;v kon&#269;&iacute; s jasn&yacute;m n&aacute;kupn&iacute;m sign&aacute;lem</div>
         <div class="s">nesen&aacute; n&aacute;kupn&iacute; ta&scaron;ka, voz&iacute;k, ko&scaron;&iacute;k, krabice &#269;i bal&iacute;k, nikoli osobn&iacute; ta&scaron;ky</div>
       </div>
@@ -678,33 +755,98 @@ svg .base{stroke:var(--ink-4); stroke-dasharray:4 3}
           <div class="hbar w"><span class="nm">Upraven&iacute; profesion&aacute;lov&eacute;</span><span class="track"><span class="fill mut" style="width:68%"></span></span><span class="vl">25,8&nbsp;%</span></div>
           <div class="hbar w"><span class="nm">Teenage&#345;i ve streetwearu</span><span class="track"><span class="fill mut" style="width:50%"></span></span><span class="vl">19,1&nbsp;%</span></div>
         </div>
-        <p class="note">Pod&iacute;l n&aacute;v&scaron;t&#283;v dan&eacute; persony s n&aacute;kupem v ruce; modr&#283; nad pr&#367;m&#283;rem centra (32&nbsp;%), kter&yacute; dr&#382;&iacute; 31&ndash;34&nbsp;% ka&#382;d&yacute; den t&yacute;dne. P&#345;i&#345;azen&iacute; rebalancov&aacute;no podle vizu&aacute;ln&iacute; evidence: mu&#382;i v b&#283;&#382;n&eacute;m oble&#269;en&iacute; pat&#345;&iacute; do Mainstreamu, &#8222;v pracovn&iacute;m&#8220; = jen skute&#269;n&eacute; uniformy. Ti nakupuj&iacute; m&eacute;n&#283;, v centru jsou v pr&aacute;ci.</p>
       </div>
     </div>
     <div style="display:flex; flex-direction:column; gap:12px">
       <div class="card">
-        <div class="ch">Co n&aacute;kupn&iacute; sign&aacute;l tvo&#345;&iacute;</div>
-        <div class="kv"><span class="k">N&aacute;kupn&iacute; voz&iacute;k</span><span class="v">nej&#269;ast&#283;j&scaron;&iacute;: velk&eacute; n&aacute;kupy potravin</span></div>
-        <div class="kv"><span class="k">Plastov&aacute; / pap&iacute;rov&aacute; ta&scaron;ka</span><span class="v">druh&aacute; nejsiln&#283;j&scaron;&iacute; skupina</span></div>
-        <div class="kv"><span class="k">Krabice, bal&iacute;ky</span><span class="v">men&scaron;&iacute;, ale viditeln&yacute; pod&iacute;l</span></div>
-        <div class="kv"><span class="k">&#268;iteln&eacute; ta&scaron;ky obchod&#367;</span><span class="v">Albert &middot; Reserved &middot; Lidl &middot; New Yorker &middot; Datart &middot; Kaufland</span></div>
-        <p class="note">V&#283;t&scaron;ina ta&scaron;ek &#382;&aacute;dn&eacute; &#269;iteln&eacute; logo nenese; jmenovan&eacute; obchody = jen p&#345;&iacute;pady s &#269;iteln&yacute;m logem.</p>
+        <div class="ch">Nej&#269;ast&#283;j&scaron;&iacute;m n&aacute;kupn&iacute;m n&aacute;strojem je voz&iacute;k, ne ta&scaron;ka</div>
+        <div class="hbars">
+          <div class="hbar w"><span class="nm">N&aacute;kupn&iacute; voz&iacute;k</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="vl">33,9&nbsp;%</span></div>
+          <div class="hbar w"><span class="nm">Plastov&aacute; ta&scaron;ka</span><span class="track"><span class="fill" style="width:76%"></span></span><span class="vl">25,8&nbsp;%</span></div>
+          <div class="hbar w"><span class="nm">Pap&iacute;rov&aacute; ta&scaron;ka</span><span class="track"><span class="fill" style="width:59%"></span></span><span class="vl">20,0&nbsp;%</span></div>
+          <div class="hbar w"><span class="nm">Krabice</span><span class="track"><span class="fill mut" style="width:31%"></span></span><span class="vl">10,4&nbsp;%</span></div>
+          <div class="hbar w"><span class="nm">Ta&scaron;ka s logem obchodu</span><span class="track"><span class="fill mut" style="width:30%"></span></span><span class="vl">10,1&nbsp;%</span></div>
+          <div class="hbar w"><span class="nm">Ko&scaron;&iacute;k, bal&iacute;k</span><span class="track"><span class="fill mut" style="width:6%"></span></span><span class="vl">2,1&nbsp;%</span></div>
+        </div>
+        <p class="note">Pod&iacute;l mezi n&aacute;v&scaron;t&#283;vami s n&aacute;kupem. Samotn&yacute; voz&iacute;k = <b>10,8&nbsp;%</b> v&scaron;ech n&aacute;v&scaron;t&#283;v centra, plastov&aacute; ta&scaron;ka 8,2&nbsp;%, pap&iacute;rov&aacute; 6,4&nbsp;%.</p>
       </div>
-      <div class="panel"><div class="l">Jak se skupiny li&scaron;&iacute;</div>Nej&#269;ast&#283;ji odn&aacute;&scaron;ej&iacute; n&aacute;kup <b>mu&#382;i 30&ndash;50 let (43&nbsp;%)</b>; senio&#345;i nej&#269;ast&#283;ji s <b>voz&iacute;kem</b> (19&nbsp;% v&scaron;ech jejich n&aacute;v&scaron;t&#283;v), maminky a mlad&iacute; s ta&scaron;kami. &#268;iteln&eacute; ta&scaron;ky: potraviny (Albert, Lidl) u dosp&#283;l&yacute;ch, m&oacute;da (Reserved, New Yorker) u mlad&yacute;ch a profesion&aacute;l&#367;.</div>
-      <div class="core"><div class="l">Dopad</div><p>Tohle je metrika, kterou footfall neum&iacute;: <b>pod&iacute;l n&aacute;v&scaron;t&#283;v kon&#269;&iacute;c&iacute;ch viditeln&yacute;m n&aacute;kupem</b>. Kontinu&aacute;ln&#283; m&#283;&#345;iteln&aacute;, po dnech i&nbsp;segmentech. Tvrd&yacute; argument pro jedn&aacute;n&iacute; s&nbsp;n&aacute;jemci.</p></div>
+      <div class="panel"><div class="l">Konverze je ploch&aacute; cel&yacute; t&yacute;den</div>Pod&iacute;l n&aacute;v&scaron;t&#283;v s n&aacute;kupem dr&#382;&iacute; <b>31&ndash;34&nbsp;%</b> ka&#382;d&yacute; den; rozd&iacute;ly mezi dny jsou v&nbsp;mez&iacute;ch n&aacute;hody. V&iacute;kend p&#345;iv&aacute;d&iacute; <b>v&iacute;c lid&iacute;</b>, ne v&#283;t&scaron;&iacute; ochotu nakoupit.</div>
     </div>
   </div>
+  <div class="acts">
+    <div class="act"><div class="l">Akce pro CPI</div><div class="x">Zav&eacute;st KPI odchod s n&aacute;kupem, <b>32,1 %</b></div></div>
+    <div class="act ten"><div class="l">Akce pro n&aacute;jemce</div><div class="x">Srovnat se s pr&#367;m&#283;rem centra <b>32 %</b></div></div>
+  </div>
   <div class="scope"><b>Metoda:</b> stratifikovan&yacute; vzorek 7&nbsp;000 n&aacute;v&scaron;t&#283;v (dle dn&iacute; v t&yacute;dnu); n&aacute;kupn&iacute; sign&aacute;l = nesen&eacute; n&aacute;kupn&iacute; vybaven&iacute;, bez osobn&iacute;ch ta&scaron;ek. Persony p&#345;i&#345;azeny segmenta&#269;n&iacute;m modelem a rebalancov&aacute;ny podle vizu&aacute;ln&iacute; evidence; &#269;teme m&iacute;ry uvnit&#345; skupin, ne jejich mix.</div>
-  <div class="pageno">08 / 09</div>
+  <div class="pageno">08 / 10</div>
 </section>
 
-<!-- =========================================== 9. ACTIONS + NEXT STEPS == -->
+<!-- ============================================ 9. WHAT IS IN THE BAGS == -->
+<section class="slide">
+  <div class="top">
+    <span class="brand"><img class="clogo" src="cpi.png" alt="CPI"><span class="x">&times;</span><span class="wm sm"></span></span>
+    <span class="meta">Obsah n&aacute;kup&#367; &middot; ta&scaron;ky s &#269;iteln&yacute;m logem</span>
+  </div>
+  <p class="label">09 &middot; Co je v&nbsp;t&#283;ch ta&scaron;k&aacute;ch</p>
+  <h2>Potraviny a m&oacute;da si d&#283;l&iacute; centrum. <span class="dim">A&nbsp;v&#283;k rozhoduje, na kterou stranu pat&#345;&iacute;te.</span></h2>
+  <div class="two mt14 grow" style="--l:.92; --r:1.08; align-items:flex-start">
+    <div style="display:flex; flex-direction:column; gap:12px">
+      <div class="card">
+        <div class="ch">Dv&#283; kategorie tvo&#345;&iacute; t&#345;i &#269;tvrtiny &#269;iteln&yacute;ch ta&scaron;ek</div>
+        <div class="hbars">
+          <div class="hbar w"><span class="nm">Potraviny a gastro</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="vl">41&nbsp;%</span></div>
+          <div class="hbar w"><span class="nm">M&oacute;da a obuv</span><span class="track"><span class="fill" style="width:85%"></span></span><span class="vl">35&nbsp;%</span></div>
+          <div class="hbar w"><span class="nm">Ostatn&iacute; retail</span><span class="track"><span class="fill mut" style="width:59%"></span></span><span class="vl">24&nbsp;%</span></div>
+        </div>
+        <p class="note">Elektro, drogerie, knihy, &scaron;perky a dal&scaron;&iacute; tvo&#345;&iacute; zbylou &#269;tvrtinu. Po&#269;&iacute;t&aacute;me i&nbsp;obaly produkt&#367; (krabice od bot, n&aacute;poje), ne jen ta&scaron;ky obchod&#367;.</p>
+      </div>
+      <div class="card">
+        <div class="ch">Albert je dvakr&aacute;t &#269;ast&#283;j&scaron;&iacute; ne&#382; druh&yacute; v&nbsp;po&#345;ad&iacute;</div>
+        <div class="hbars">
+          <div class="hbar"><span class="nm">Albert</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="vl">19,6&nbsp;%</span></div>
+          <div class="hbar"><span class="nm">Reserved</span><span class="track"><span class="fill" style="width:50%"></span></span><span class="vl">9,8&nbsp;%</span></div>
+          <div class="hbar"><span class="nm">Lidl</span><span class="track"><span class="fill mut" style="width:28%"></span></span><span class="vl">5,5&nbsp;%</span></div>
+          <div class="hbar"><span class="nm">New Yorker</span><span class="track"><span class="fill mut" style="width:22%"></span></span><span class="vl">4,3&nbsp;%</span></div>
+        </div>
+        <p class="note">Pod&iacute;l na ta&scaron;k&aacute;ch s &#269;iteln&yacute;m logem. Obuv jako kategorie (Deichmann, Nike, adidas a dal&scaron;&iacute;) je dohromady na &uacute;rovni Reserved.</p>
+      </div>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:12px">
+      <div class="card">
+        <div class="ch">&#268;&iacute;m mlad&scaron;&iacute; publikum, t&iacute;m v&iacute;c m&oacute;dy a m&eacute;n&#283; potravin</div>
+        <svg viewBox="0 0 520 205" width="100%" height="198">
+          <g transform="translate(0,14)"><text class="nm" x="202" y="4" text-anchor="end" font-size="11">Rann&iacute; senio&#345;i</text><line x1="212" y1="0" x2="500" y2="0" stroke="var(--hair-2)" stroke-width="1"/><circle cx="212" cy="0" r="5.5" fill="var(--accent)" stroke="#fff" stroke-width="2"/></g>
+          <g transform="translate(0,39)"><text class="nm" x="202" y="4" text-anchor="end" font-size="11">Mainstreamov&iacute; dosp&#283;l&iacute;</text><line x1="212" y1="0" x2="500" y2="0" stroke="var(--hair-2)" stroke-width="1"/><circle cx="307" cy="0" r="5.5" fill="var(--accent)" stroke="#fff" stroke-width="2"/></g>
+          <g transform="translate(0,64)"><text class="nm" x="202" y="4" text-anchor="end" font-size="11">Maminky s p&#345;irozen&yacute;m vzhledem</text><line x1="212" y1="0" x2="500" y2="0" stroke="var(--hair-2)" stroke-width="1"/><circle cx="370" cy="0" r="5.5" fill="var(--accent)" stroke="#fff" stroke-width="2"/></g>
+          <g transform="translate(0,89)"><text class="nm" x="202" y="4" text-anchor="end" font-size="11">Mlad&iacute; minimalist&eacute;</text><line x1="212" y1="0" x2="500" y2="0" stroke="var(--hair-2)" stroke-width="1"/><circle cx="391" cy="0" r="5.5" fill="var(--accent)" stroke="#fff" stroke-width="2"/></g>
+          <g transform="translate(0,114)"><text class="nm" x="202" y="4" text-anchor="end" font-size="11">Aktivn&iacute; ve sportovn&iacute;m</text><line x1="212" y1="0" x2="500" y2="0" stroke="var(--hair-2)" stroke-width="1"/><circle cx="437" cy="0" r="5.5" fill="var(--accent)" stroke="#fff" stroke-width="2"/></g>
+          <g transform="translate(0,139)"><text class="nm" x="202" y="4" text-anchor="end" font-size="11">Teenage&#345;i ve streetwearu</text><line x1="212" y1="0" x2="500" y2="0" stroke="var(--hair-2)" stroke-width="1"/><circle cx="442" cy="0" r="5.5" fill="var(--accent)" stroke="#fff" stroke-width="2"/></g>
+          <g transform="translate(0,164)"><text class="nm" x="202" y="4" text-anchor="end" font-size="11">Upraven&iacute; profesion&aacute;lov&eacute;</text><line x1="212" y1="0" x2="500" y2="0" stroke="var(--hair-2)" stroke-width="1"/><circle cx="500" cy="0" r="5.5" fill="var(--accent)" stroke="#fff" stroke-width="2"/></g>
+          <g class="mut" font-size="10">
+            <text x="212" y="196">jen potraviny</text>
+            <text x="356" y="196" text-anchor="middle">p&#367;l na p&#367;l</text>
+            <text x="500" y="196" text-anchor="end">jen m&oacute;da a obuv</text>
+          </g>
+        </svg>
+        <p class="note">Poloha = pom&#283;r m&oacute;dn&iacute;ch a potravinov&yacute;ch ta&scaron;ek dan&eacute; persony. Sm&#283;rov&eacute;: &#269;iteln&eacute; logo nese jen desetina ta&scaron;ek, &#269;teme trend, ne p&#345;esn&eacute; &#269;&iacute;slo.</p>
+      </div>
+    </div>
+  </div>
+  <div class="acts">
+    <div class="act"><div class="l">Akce pro CPI</div><div class="x">Stav&#283;t cross-sell na potravinov&eacute; kotv&#283;</div></div>
+    <div class="act ten"><div class="l">Akce pro n&aacute;jemce</div><div class="x">M&oacute;du c&iacute;lit na odpoledne a v&iacute;kend</div></div>
+  </div>
+  <div class="scope"><b>Zdroj:</b> ta&scaron;ky a obaly s &#269;iteln&yacute;m logem ve vzorku 7&nbsp;000 n&aacute;v&scaron;t&#283;v; zna&#269;ky s&nbsp;jednotkami v&yacute;skyt&#367; jsou ilustrace, ne po&#345;ad&iacute;. Pod&iacute;ly = % ta&scaron;ek s &#269;iteln&yacute;m logem.</div>
+  <div class="pageno">09 / 10</div>
+</section>
+
+<!-- ========================================== 10. ACTIONS + NEXT STEPS == -->
 <section class="slide">
   <div class="top">
     <span class="brand"><img class="clogo" src="cpi.png" alt="CPI"><span class="x">&times;</span><span class="wm sm"></span></span>
     <span class="meta">Doporu&#269;en&eacute; akce &middot; dal&scaron;&iacute; kroky</span>
   </div>
-  <p class="label">09 &middot; Co s t&iacute;m ud&#283;lat</p>
+  <p class="label">10 &middot; Co s t&iacute;m ud&#283;lat</p>
   <h2>&#268;ty&#345;i akce z&nbsp;dat pilotu. <span class="dim">A&nbsp;kam m&#283;&#345;en&iacute; m&#367;&#382;e r&#367;st.</span></h2>
   <div class="two mt14 grow" style="--l:1.15; --r:.85; align-items:flex-start">
     <div style="display:flex; flex-direction:column; gap:10px">
@@ -729,18 +871,33 @@ svg .base{stroke:var(--ink-4); stroke-dasharray:4 3}
           <p class="lead">Nejsiln&#283;j&scaron;&iacute; &uacute;tratov&yacute; sign&aacute;l nesou Upraven&iacute; profesion&aacute;lov&eacute;: kvalita a st&#345;ih m&iacute;sto log, weekday timing. M&#283;&#345;&iacute;me pr&eacute;miov&yacute; sign&aacute;l ve v&scaron;edn&iacute; dny.</p></div>
       </div>
     </div>
-    <div style="display:flex; flex-direction:column; gap:12px">
-      <div class="card">
-        <div class="ch">Dal&scaron;&iacute; kroky</div>
-        <div class="kv"><span class="k">Te&#271;</span><span class="v">spole&#269;n&eacute; &#269;ten&iacute; reportu s veden&iacute;m CPI</span></div>
-        <div class="kv"><span class="k">S&iacute;&#357; CPI</span><span class="v">plo&scaron;n&eacute; nasazen&iacute;: jednotn&aacute; n&aacute;v&scaron;t&#283;vnick&aacute; analytika ze v&scaron;ech center na jednom m&iacute;st&#283;; tvrd&aacute; data pro intern&iacute; anal&yacute;zy i&nbsp;jedn&aacute;n&iacute; s&nbsp;n&aacute;jemci</span></div>
-        <div class="kv"><span class="k">Blindspoty</span><span class="v">senzory u vstup&#367; konkr&eacute;tn&iacute;ch n&aacute;jemc&#367;: kolik trafficu a kter&eacute; segmenty vch&aacute;zej&iacute; do kter&eacute;ho obchodu</span></div>
-        <div class="kv"><span class="k">Real-time</span><span class="v">personalizace obsahu obrazovek podle toho, kdo p&#345;ed nimi pr&aacute;v&#283; stoj&iacute;</span></div>
+    <div style="display:flex; flex-direction:column; gap:11px">
+      <p class="label" style="margin-bottom:0">Dal&scaron;&iacute; kroky</p>
+      <div class="steps">
+        <div class="card">
+          <span class="stepno">1</span>
+          <div><div class="ch">Spole&#269;n&eacute; &#269;ten&iacute; reportu</div><p class="lead">Projdeme zji&scaron;t&#283;n&iacute; s&nbsp;veden&iacute;m CPI a vybereme priority.</p></div>
+        </div>
+        <div class="card">
+          <span class="stepno">2</span>
+          <div><div class="ch">Plo&scaron;n&eacute; nasazen&iacute; v&nbsp;s&iacute;ti CPI</div><p class="lead">Analytika ze v&scaron;ech center na jednom m&iacute;st&#283;: tvrd&aacute; data pro intern&iacute; anal&yacute;zy i&nbsp;jedn&aacute;n&iacute; s&nbsp;n&aacute;jemci.</p></div>
+        </div>
+        <div class="card">
+          <span class="stepno">3</span>
+          <div><div class="ch">Blindspoty u&nbsp;n&aacute;jemc&#367;</div><p class="lead">Senzory u&nbsp;vstup&#367; konkr&eacute;tn&iacute;ch obchod&#367;: kolik trafficu a&nbsp;kter&eacute; segmenty do nich vch&aacute;zej&iacute;.</p></div>
+        </div>
+        <div class="card">
+          <span class="stepno">4</span>
+          <div><div class="ch">Real-time personalizace</div><p class="lead">Obsah obrazovek se m&#283;n&iacute; podle toho, kdo p&#345;ed nimi pr&aacute;v&#283; stoj&iacute;.</p></div>
+        </div>
       </div>
-      <div class="core"><div class="l">Dopad</div><p>Za 14 dn&iacute; z&iacute;skala Olympie to, co footfall po&#269;&iacute;tadla neum&#283;j&iacute; roky: <b>kdo p&#345;ich&aacute;z&iacute;, kdy, v&nbsp;jak&eacute;m slo&#382;en&iacute; a co si odn&aacute;&scaron;&iacute;</b>. Stejn&aacute; metodika je p&#345;ipraven&aacute; pro celou s&iacute;&#357; CPI.</p></div>
     </div>
   </div>
-  <div class="flow">DATA &rarr; INSIGHT &rarr; <b>DOPAD</b></div><div class="pageno">09 / 09</div>
+  <div class="acts">
+    <div class="act"><div class="l">Akce pro CPI</div><div class="x">Ur&#269;it vlastn&iacute;ka a datum u ka&#382;d&eacute; akce</div></div>
+    <div class="act ten"><div class="l">Akce pro n&aacute;jemce</div><div class="x">Pilot senzor&#367; u vstup&#367; t&#345;&iacute; n&aacute;jemc&#367;</div></div>
+  </div>
+  <div class="flow">DATA &rarr; INSIGHT &rarr; <b>DOPAD</b></div><div class="pageno">10 / 10</div>
 </section>
 
 </div>
