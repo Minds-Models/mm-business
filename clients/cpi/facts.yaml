@@ -14,7 +14,7 @@ pilot:
   match_rate: null
   key_metrics:
     visitors_entering: 92456    # Facing (facing_camera_ratio >= 0.28), valid visits, staff excluded
-    visitors_leaving: 77125     # Passing by (< 0.28), same filters
+    visitors_leaving: 77125     # Passing by (< 0.28) — INTERNAL ONLY, never shown in client materials
     entrances: 2                # screen 32 "Vchod A", screen 33 "Vchod B"
     personas: 8                 # NMF k=8 run f421ab1d-7a48-492d-af8b-7d29ae17df60
     exit_purchase_signal: 0.321 # share of exiting visitors with a carried purchase signal (n=7000 sample)
@@ -41,6 +41,9 @@ naming:
 contacts: []
 
 sensitivities: >
+  Do klientských materiálů nepatří odchozí směr měření: počty odchodů (77 125), Ø odchodů/den,
+  termíny Facing/Passing by, ani poznámky o fotkách zezadu či konzervativnějším záchytu odchodů.
+  Nákupní signál se prezentuje jako "podíl návštěv končících nákupem", ne jako měření odchozích.
   Nikdy necitovat absolutní počty z hloubkové analýzy (54 092 návštěv — podchycuje
   ~71,5 % skutečného provozu; podíly jsou validované, absolutní čísla ne). Počty
   vstupů/odchodů z pilotního okna (raw tracking) jsou v pořádku. Nezmiňovat
