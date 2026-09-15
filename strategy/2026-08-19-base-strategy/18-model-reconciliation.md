@@ -1356,3 +1356,143 @@ Base case after the addendum: **2031 ARR 19.21M, revenue 17.19M, EBITDA +0.95M (
 cash 4.20M, 82 people, raised 7.22M, founders 55.1%, exit 192.1M at 10x, pre-seed 20.1x.** All
 thirteen checks OK. The stress table in `19-model-walkthrough.md` section 5 is re-measured on this
 base and now includes the market-read share at 0% and 40%.
+
+
+# Fourteenth pass, 14 and 15 Sep 2026: the plan stops decelerating, and the reader gets the entities
+
+Triggered by the founder's own review of the thirteenth pass: 2031 ARR growth had fallen to 27% and
+ARR per chain was declining into the exit year, the deployments-versus-ARR chart could not be read,
+160k of ARR in November 2026 looked like an overpromise, hiring came in lumps and the headcount
+dipped, and the founder asked for a full numeric and semantic review "as a top-tier VC analyst". The
+review produced fourteen points; the founder answered each one, and this pass is those answers
+implemented. Method as before: every changed block re-implemented in Python from the inputs and
+compared cell by cell (UK rollout rows, market totals, the hiring bases and all fifteen role rows,
+the inference line, the cap table), zero difference; zero error cells; fourteen lines on CHECKS OK.
+
+Base case at the start: 2031 ARR 19.21M, EBITDA +0.95M, 82 people, seven markets, growth 27%.
+Base case at the end: **2031 ARR 21.29M, EBITDA +0.91M (4.9%), Q4 9.1%, 95 people, seven European
+markets with the US as scenario 3, growth 44%, raised 7.72M, founders 47.9%, pool 12.0%, exit 212.9M
+at 10x, pre-seed 19.3x.**
+
+## What was found first
+
+Two defects that were not in the thirteenth-pass register. The chart on SUMMARY was anchored on the
+row of the detail group under it, so it overlaid the collapsed section headers and its series read
+against two axes nobody could compare; it now sits in its own twenty rows, both series indexed to
+100 in December 2026 (stores end near 1,400, ARR near 10,700), with the legend from the helper
+block and a caption beneath it. And the SUMMARY narrative (sections 5 to 7) is displayed in column D,
+while several of the thirteenth-pass texts had been written to column B, so the sheet still showed
+five markets in places; the texts were moved and the column cleared.
+
+## Growth: the United Kingdom, one signing rate, and the inventory of what a market can sell
+
+Diagnosis, measured: the caps on chains per market bound by 2031 in every early market, each further
+chain added about one new category, and the seat ramp runs 24 months, so the last year had nothing
+left to sell. Three options were measured (depth in DACH, the US and Poland; the UK as an eighth
+row; the US moved). The founder chose the **United Kingdom as the eighth market row from month 36**
+and moved the **United States out of the base case** into scenario 3 (base plus the US from month 33),
+so that the base underwrites Europe and the US is the upside the Series A buys. Scenario 3 replaces
+the old accelerated case, which failed on the pre-seed and was never a plan.
+
+The per-market signing rates were replaced by **one uniform rate on ASSUMPTIONS**,
+`Chains_Per_Month_Per_Market` at 0.09 (a chain roughly every eleven months per open market). The
+founder's reasoning: the rate is a property of our chain-facing capacity, not of the country; market
+size belongs in the chains cap. A new CHECKS line confirms at least one chain-facing person (founders,
+retailer BD, country managers) per open market in every month, which is the calibration the rate
+rests on. The MARKETS prose says so.
+
+The category inventory, which had been a bare number per market (Czechia 9, Slovakia 4), is now
+built from a **channel table at the foot of MARKETS**: petrol and convenience (5 sellable categories,
+4 sold per chain, 2 chains per market typical, 60 capture stores), grocery and discount (9, 5, 3, 80),
+drugstore (3, 3, 1, 40), 17 categories per market in total, with a worked Czech example (EuroOil,
+Orlen, Albert, Lidl, Kaufland) showing how five chains turn into categories, overlap (0, 90, 0, 90,
+90 percent; 75 kept as the model input, the conservative side) and two-chain reads. The founder's
+instruction was that the entities (market, channel, chain, category, seat) must be unambiguous to
+the reader with an example, and that the inventory is an average across retail types, not a
+forecourt list. The old inventories were binding in Slovakia and the Nordics; lifting them to 17 is
+worth 0.73M of 2031 ARR. Other retail types (sports, DIY, pharmacy, pet, HoReCa) are named as rows
+that could be added, not modelled.
+
+## The start, and the hiring
+
+**First paying seat three months after a category goes live**, not two: Dec 2026 ARR 172k rather
+than 175k on the same four founding seats, 2027 ends at 775k rather than 955k, 2031 loses 0.45M. The
+founder chose this over halving the founding seats, which would have needed a larger pre-seed.
+
+**Hiring.** Two rules replaced the six-month staffing lead. Hires land two months before their driver
+(HEADCOUNT B24; the chain is signed, the analyst is hired), never before the pre-seed lands (B23), and
+**no role count ever falls**: every role row is the maximum of its own computed value and the month
+before, so the plan is at times slightly under-staffed against its ratios rather than ever letting
+people go because a driver dipped (the thirteenth pass had headcount fall 68 to 65, 73 to 71 and 82
+to 80). The staffing bases read their driver two months ahead through an index, so the last months
+no longer read an empty range. Payroll still steps in the months a market opens (six hires at most
+in one month), which is explainable; the labour multiplier now runs to eight rows (1.55x with all
+eight open, 1.47x with the seven European rows).
+
+## Cost of supply: inference per camera, falling
+
+The founder's own correction: 45 EUR a month is a per-camera price, not a per-store price, and more
+than one camera is needed to cover the categories a chain sells. Three inputs replace one:
+`Cameras_Per_Store` (2), `Inference_Cost_Camera_Month` (45, today's list price) and
+`Inference_Decline_Annual` (15% a year from 2028). READ ME carries the evidence the founder asked
+for: constant-capability inference prices fell 9x to 900x a year across benchmarks from 2022 to
+early 2025 (Epoch AI), about 10x a year for equivalent output (a16z), cloud H100 rental from about
+8 USD an hour in late 2024 to 2.85 to 3.50 by December 2025 with AWS cutting list prices 44% in June
+2025 (Introl, Silicon Data), and long-run GPU price-performance improving 25 to 30% a year; and the
+four levers that are ours (distilled models, frame sampling and batching, reserved or owned capacity
+past a thousand cameras, volume pricing). Net effect against the thirteenth pass: inference 0.79M in
+2031 against 0.76M, with twice the cameras; with no decline it would be 0.73M more. Tax already
+carried loss carryforward (the thirteenth-pass register was wrong to list it as a simplification);
+hardware stays out of the model because the cameras are the retailer's.
+
+## Rounds, pool, and what the reader sees
+
+**Series A 4.5M at 25M post (18%)** replaces 4.0M at 30M (13.3%), the founder's choice of the
+measured variants (24M post at 16.7%; 25M at 18% or 20%): a lead fund's usual range, 6.0x current ARR
+in month 27 rather than 7.1x, and a reserve that keeps the price stress funded. **The pool is topped
+up to 12% of the post-round company before the Series A**, created pre-money (6.7% of the post-A
+company), which dilutes every earlier holder and not the incoming investor; the cap table and CHECKS
+reconcile to 100% with it. Founders 47.9% at exit, pre-seed 19.3x, seed 13.4x, Series A 8.5x.
+
+The pre-seed stays at 500k (it already was; the review's 620k was a mis-read of the raised total,
+which includes the angel and the grant). With the later hiring and the slower start it reaches month
+13 with 450k rather than 312k, and a seed one quarter late is now absorbed without a bridge.
+
+On SUMMARY: **net revenue after the retailer share and the gross margin on it** (13.27M and 94.0% in
+2031) sit under the headline lines, the platform convention, with ARR and the exit left gross; **net
+revenue retention is removed** (it restated the tier step-up and would have read 102% in 2031) and
+the churn line shows the 8% as the assumption it is; **country managers are counted as sales cost**
+(CAC 92k, payback 12.0 months, LTV/CAC 5.0x); section 3's narrative and MARKETS' phase texts say the
+US is scenario 3 and the UK is in the second European wave.
+
+## What it did to the plan
+
+| | Thirteenth pass (13 Sep) | Fourteenth pass (15 Sep) |
+|---|---|---|
+| Markets in the base case | 7 (US in) | 7 European (UK in, US as scenario 3) |
+| 2031 ARR | 19.21M | **21.29M** |
+| ARR 2027 / 2028 / 2029 / 2030 | 0.96M / 4.39M / 9.78M / 15.10M | 0.78M / 4.33M / 9.96M / 14.76M |
+| ARR growth in 2031 | 27% | **44%** |
+| ARR per chain deployed, 2029 to 2031 | 889k, 839k, 801k | 664k, 671k, 819k |
+| 2031 revenue | 17.19M | 18.41M |
+| 2031 EBITDA | +0.95M (5.5%) | **+0.91M (4.9%)**, Q4 9.1% |
+| Net revenue 2031, margin on it | not shown | 13.27M, 94.0% |
+| Exit at 10x | 192.1M | 212.9M |
+| Raised, all sources | 7.22M | 7.72M |
+| Founders, pool at exit | 55.1%, 6.1% | 47.9%, 12.0% |
+| Headcount Dec 2031, ARR per head | 82, 234k | 95, 224k |
+| Chains, capture stores | 24, 1,400 | 26, 1,500 |
+| Categories, market reads | 40, 17 | 45, 19 |
+| Brand seats (labelled + market) | 143 (114 + 29) | 156 (125 + 32) |
+| Cash low after the pre-seed | 312k, month 12 | 446k, month 6 |
+| Pricing 20% below plan | not funded, (618k) month 59 | funded |
+| Seed one quarter late | (58k), bridge | 268k, funded |
+
+## Open with the founder
+
+- The chain-signing rate is the growth lever and the first thing the pilots calibrate: 0.075 gives
+  20.23M and +0.42M, 0.10 gives 22.12M and +1.39M.
+- Chain caps per market bind in the last year; raising them buys 2032, not 2031 (measured: ARR
+  unchanged, EBITDA 0.47M lower).
+- Cameras per store and the decline are list-price assumptions until the pilot invoice exists.
+- The market-read attach rate and the pooled share remain the two commercial inputs that hurt most.

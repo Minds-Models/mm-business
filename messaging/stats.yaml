@@ -155,61 +155,61 @@ exit_multiple_band_rented:
 # written against the pre-US, pre-resize model and now argues against our own plan.
 # ACTION: 12-numbers-external.md must be re-cast from these before diligence.
 # ACTION: pitch-deck-2026-09.html/.pdf were re-cut on 2026-09-10 to the twelfth-pass figures
-# (18.12M ARR, seed 2.5M); the thirteenth pass (19.21M, seed 2.6M, seven markets) is not in the
-# deck yet. Re-cut from this block before it goes out.
+# (18.12M ARR, seed 2.5M); the fourteenth pass (21.29M, seed 2.6M, Series A 4.5M at 25M, UK in, US as the upside
+# scenario) is not in the deck yet. Re-cut from this block before it goes out.
 
 model_arr_curve:
-  value: "Ending ARR: 175k (2026) · 955k (2027) · 4.39M (2028) · 9.78M (2029) · 15.10M (2030) · 19.21M (2031), EUR"
-  source: "VC financial model, SUMMARY, read 2026-09-13 after the thirteenth pass"
+  value: "Ending ARR: 172k (2026) · 775k (2027) · 4.33M (2028) · 9.96M (2029) · 14.76M (2030) · 21.29M (2031), EUR"
+  source: "VC financial model, SUMMARY, read 2026-09-15 after the fourteenth pass"
   status: internal-estimate
-  note: "Live run-rate ARR, not contracted ARR including LOIs. Seven markets in the base case; categories follow chains (2 at launch, 4 within 6 months). Revenue recognised 2031: 17.19M."
+  note: "Live run-rate ARR, not contracted ARR including LOIs. Seven European markets in the base case (UK from month 36); the United States is scenario 3, the upside, not the curve. Growth 44% in the final year, ARR per chain rising into the exit. Revenue recognised 2031: 18.41M; net revenue after the retailer share 13.27M."
 
 model_margins:
-  value: "Gross margin 68.3% (2031); EBITDA +0.95M, 5.5% full-year 2031, 7.8% Q4 2031, 8.4% December 2031 annualised; EBITDA positive and stays positive from month 52 (Dec 2030)"
-  source: "VC financial model, SUMMARY, read 2026-09-13 after the thirteenth pass"
+  value: "Gross margin 67.7% (2031) with the retailer share as cost of sales; 94.0% on net revenue after the share; EBITDA +0.91M, 4.9% full-year 2031, 9.1% Q4 2031, 9.3% December 2031 annualised; EBITDA positive and stays positive from month 56 (Apr 2031)"
+  source: "VC financial model, SUMMARY, read 2026-09-15 after the fourteenth pass"
   status: internal-estimate
-  note: "Show the run-rate beside the full-year figure. The margin is thin by founder decision: a 20% pooled retailer share on the market read (0% would give +1.70M, 9.9%)."
+  note: "Quote the net-revenue margin only beside the gross one. The margin is thin by founder decision: a 20% pooled retailer share on the market read (0% would give +1.66M) and two cameras per store at list price falling 15% a year."
 
 model_operating_metrics:
-  value: "2031: 40 live categories plus 17 market reads (57 sellable products) on 24 chains and 1,400 capture stores in 7 markets · 143 brand seats (114 labelled, 29 market reads) · 2.8 labelled seats per category · NRR 102% · LTV/CAC 5.8x · CAC payback 10.4 months · ARR per instrumented category 480k · ARR per chain deployed 800k · headcount 82, ARR per head 234k"
-  source: "VC financial model, SUMMARY, read 2026-09-13 after the thirteenth pass"
+  value: "2031: 45 live categories plus 19 market reads (64 sellable products) on 26 chains and 1,500 capture stores in 7 markets · 156 brand seats (125 labelled, 32 market reads) · 2.8 labelled seats per category · LTV/CAC 5.0x · CAC payback 12.0 months · ARR per instrumented category 473k · ARR per chain deployed 819k · headcount 95, ARR per head 224k"
+  source: "VC financial model, SUMMARY, read 2026-09-15 after the fourteenth pass"
   status: internal-estimate
-  note: "NRR is computed from categories crossing the T1 and T2 price gates, not assumed. Rule of 40 is not in the model; do not quote it. No brand holds both the labelled and the market read on the same category (3 of 6 payable brands buy labelled, 2 of the remaining 3 buy the market read)."
+  note: "NRR is no longer reported (it restated the tier step-up); churn is an 8% assumption shown as such. Rule of 40 is not in the model; do not quote it. No brand holds both the labelled and the market read on the same category. Country managers count as sales cost in CAC."
 
 model_capital:
-  value: "Total capital raised across all sources 7,224,898 EUR; founders 55.1% and ESOP 6.1% at exit"
-  source: "VC financial model, SUMMARY, read 2026-09-13 after the thirteenth pass"
+  value: "Total capital raised across all sources 7,724,898 EUR; founders 47.9%, ESOP 12.0% and investors 40.1% at exit"
+  source: "VC financial model, SUMMARY, read 2026-09-15 after the fourteenth pass"
   status: internal-estimate
 
 model_rounds:
-  value: "Pre-seed 500k at 6.5M post (Nov 2026) · Seed 2.6M at 12M post (Sep 2027, 21.7%) · Series A 4.0M at 30M post (Nov 2028, 13.3%)"
-  source: "VC financial model, SUMMARY, read 2026-09-13 after the thirteenth pass"
+  value: "Pre-seed 500k at 6.5M post (Nov 2026) · Seed 2.6M at 12M post (Sep 2027, 21.7%) · Series A 4.5M at 25M post (Nov 2028, 18.0%), with the option pool topped up to 12% pre-money before the A"
+  source: "VC financial model, SUMMARY, read 2026-09-15 after the fourteenth pass"
   status: internal-estimate
-  note: "Rounds are sized from the unfunded cash path: about seven months of cover before the Series A, a 2.24M floor after it. Instrument is a term-sheet question and is not named in the model. Do NOT state the cap or the instrument in the deck unless asked."
+  note: "Seed priced at 16x current ARR (742k in month 13), Series A at 6.0x current and 2.6x forward. The A carries a reserve: pricing 20% below plan stays funded. Instrument is a term-sheet question and is not named in the model. Do NOT state the cap or the instrument in the deck unless asked."
 
 model_exit_ladder:
-  value: "Exit ARR 19.21M EUR. 2.3x = 44.2M (pre-seed 4.6x) · 4x = 76.9M (8.0x) · 8x = 153.7M (16.1x) · 10x = 192.1M (20.1x) · 12x = 230.6M (24.1x)"
-  source: "VC financial model, SUMMARY, read 2026-09-13 after the thirteenth pass"
+  value: "Exit ARR 21.29M EUR. 2.3x = 49.0M (pre-seed 4.4x) · 4x = 85.2M (7.7x) · 8x = 170.4M (15.5x) · 10x = 212.9M (19.3x) · 12x = 255.5M (23.2x)"
+  source: "VC financial model, SUMMARY, read 2026-09-15 after the fourteenth pass"
   status: internal-estimate
-  note: "Lead with the downside. The 2.3x floor is the footfall-incumbent comparable in 11-research-annex.md. Seed 13.9x and Series A 6.4x at 10x."
+  note: "Lead with the downside. The 2.3x floor is the footfall-incumbent comparable in 11-research-annex.md. Seed 13.4x and Series A 8.5x at 10x."
 
 model_series_a_test:
-  value: "With the Series A switched off (MARKETS scenario 2) the US, France with Benelux and the Nordics with Iberia never open, 2031 ARR lands at 9.03M, about half of the base case, 2031 EBITDA margin 22%, and the company never runs out of cash"
-  source: "VC financial model, SUMMARY, read 2026-09-13 after the thirteenth pass"
+  value: "With the Series A switched off (MARKETS scenario 2) only Czechia, Slovakia and Poland open, 2031 ARR lands at 10.79M, about half of the base case, 2031 EBITDA margin 22.5%, 43 people, and the company never runs out of cash. With the United States added (scenario 3, from month 33) 2031 ARR is 23.98M on the same rounds"
+  source: "VC financial model, SUMMARY, read 2026-09-15 after the fourteenth pass"
   status: internal-estimate
-  note: "The Series A buys the American half of the exit, not survival."
+  note: "The Series A buys the second European wave and the option on the US, not survival."
 
 model_stress:
-  value: "Measured one cell at a time on the base case: churn at three times plan, half a seat less per category, a slower category ramp, the US a year late, the US never opening and the second European wave never opening all stay funded; pricing 20% below plan runs 618k short in month 59; a seed one quarter late leaves (58k) in month 15 and a Series A two quarters late (634k) in month 32, which is what the standby bridge is for"
-  source: "VC financial model, SUMMARY section 7 (live) and 19-model-walkthrough.md section 5, read 2026-09-13"
+  value: "Measured one cell at a time on the base case: pricing 20% below plan, churn at three times plan, half a seat less per category, a slower category ramp, the market-read attach rate at 35%, the UK a year late and the second European wave never opening all stay funded; a seed one quarter late leaves 268k in month 15 (funded), two quarters late (332k) in month 18, which is what the standby bridge is for; a Series A two quarters late still leaves 0.9M"
+  source: "VC financial model, SUMMARY section 7 (live) and 19-model-walkthrough.md section 5, read 2026-09-15"
   status: internal-estimate
-  note: "Round timing and price are the stresses that bite; the pre-seed reaches month 13 with 312k to spare. The most sensitive commercial input is the market-read attach rate."
+  note: "Price and the market-read attach rate are the commercial inputs that hurt most; the chain-signing rate (one uniform rate, a chain every eleven months per open market) is the growth lever. The pre-seed reaches month 13 with 450k to spare."
 
 model_preseed_window:
-  value: "Between the pre-seed (Nov 2026) and the seed (Sep 2027) the plan goes from 1 chain, 2 categories, 4 brand seats and 172k of ARR to 1 chain, 4 categories, 9.3 seats and 755k of ARR in Czechia, with the second Czech chain live in month 14 and Slovakia and Poland opening in the two quarters after the seed"
-  source: "VC financial model, MODEL tab months 3 to 13, read 2026-09-13"
+  value: "Between the pre-seed (Nov 2026) and the seed (Sep 2027) the plan goes from 1 chain, 2 categories and 12k of legacy ARR to 2 chains, 4 categories, 9 brand seats and 742k of ARR in Czechia, with the first four founding seats sold in month 4, the second Czech chain live in month 12 and Slovakia and Poland opening in the two quarters after the seed"
+  source: "VC financial model, MODEL tab months 3 to 13, read 2026-09-15"
   status: internal-estimate
-  note: "This is the use-of-funds basis for the pre-seed ask slide."
+  note: "This is the use-of-funds basis for the pre-seed ask slide. The first paying seat lands three months after a category goes live."
 
 demo_asset:
   value: "Public demo at chat.mindsmodels.ai: 10 convenience and drugstore locations, 18,830,280 visual data points, 484,120 POS data points, 30 days"
@@ -316,34 +316,34 @@ data_asset_scale:
 # Source of record: live VC financial model (Google Sheets, SUMMARY), read 2026-09-10.
 
 model_arr_curve_v2:
-  value: "Ending ARR: 175k (2026) · 955k (2027) · 4.39M (2028) · 9.78M (2029) · 15.10M (2030) · 19.21M (2031), EUR"
-  source: "VC financial model, SUMMARY, read 2026-09-13 after the thirteenth pass"
+  value: "Ending ARR: 172k (2026) · 775k (2027) · 4.33M (2028) · 9.96M (2029) · 14.76M (2030) · 21.29M (2031), EUR"
+  source: "VC financial model, SUMMARY, read 2026-09-15 after the fourteenth pass"
   status: internal-estimate
-  note: "Same figures as model_arr_curve; both re-read 2026-09-13. The 2026-09-10 values (18.12M in 2031) are superseded."
+  note: "Same figures as model_arr_curve; both re-read 2026-09-15. The 2026-09-13 values (19.21M in 2031) are superseded."
 
 model_margins_v2:
-  value: "Gross margin 68.3% (2031); EBITDA +0.95M, 5.5% full-year 2031, 7.8% Q4 2031, 8.4% December 2031 annualised; EBITDA positive and stays positive from month 52 (Dec 2030)"
-  source: "VC financial model, SUMMARY, read 2026-09-13 after the thirteenth pass"
+  value: "Gross margin 67.7% (2031), 94.0% on net revenue after the retailer share; EBITDA +0.91M, 4.9% full-year 2031, 9.1% Q4 2031, 9.3% December 2031 annualised; EBITDA positive and stays positive from month 56 (Apr 2031)"
+  source: "VC financial model, SUMMARY, read 2026-09-15 after the fourteenth pass"
   status: internal-estimate
 
 model_operating_metrics_v2:
-  value: "2031: 40 live categories plus 17 market reads (57 sellable products) on 24 chains and 1,400 capture stores in 7 markets · 143 brand seats (114 labelled, 29 market reads) · 2.8 labelled seats per category · NRR 102% · LTV/CAC 5.8x · CAC payback 10.4 months · ARR per instrumented category 480k · ARR per chain deployed 800k · headcount 82, ARR per head 234k"
-  source: "VC financial model, SUMMARY, read 2026-09-13 after the thirteenth pass"
+  value: "2031: 45 live categories plus 19 market reads (64 sellable products) on 26 chains and 1,500 capture stores in 7 markets · 156 brand seats (125 labelled, 32 market reads) · 2.8 labelled seats per category · LTV/CAC 5.0x · CAC payback 12.0 months · ARR per instrumented category 473k · ARR per chain deployed 819k · headcount 95, ARR per head 224k"
+  source: "VC financial model, SUMMARY, read 2026-09-15 after the fourteenth pass"
   status: internal-estimate
 
 model_capital_v2:
-  value: "Total capital raised 7,224,898 EUR; rounds pre-seed 500k at 6.5M post, seed 2.6M at 12M post, Series A 4.0M at 30M post; founders 55.1% and ESOP 6.1% at exit"
-  source: "VC financial model, SUMMARY, read 2026-09-13 after the thirteenth pass"
+  value: "Total capital raised 7,724,898 EUR; rounds pre-seed 500k at 6.5M post, seed 2.6M at 12M post, Series A 4.5M at 25M post; founders 47.9% and ESOP 12.0% at exit"
+  source: "VC financial model, SUMMARY, read 2026-09-15 after the fourteenth pass"
   status: internal-estimate
 
 model_exit_ladder_v2:
-  value: "Exit ARR 19.21M EUR. 2.3x = 44.2M (pre-seed 4.6x) · 4x = 76.9M (8.0x) · 8x = 153.7M (16.1x) · 10x = 192.1M (20.1x) · 12x = 230.6M (24.1x)"
-  source: "VC financial model, SUMMARY, read 2026-09-13 after the thirteenth pass"
+  value: "Exit ARR 21.29M EUR. 2.3x = 49.0M (pre-seed 4.4x) · 4x = 85.2M (7.7x) · 8x = 170.4M (15.5x) · 10x = 212.9M (19.3x) · 12x = 255.5M (23.2x)"
+  source: "VC financial model, SUMMARY, read 2026-09-15 after the fourteenth pass"
   status: internal-estimate
 
 market_check_ratio_v2:
-  value: "The 2031 plan is 143 brand seats, 0.6% of the incumbent's ~23,000 client companies"
-  source: "seats from the model, read 2026-09-13; client count from the NIQ Form S-1"
+  value: "The 2031 plan is 156 brand seats, 0.7% of the incumbent's ~23,000 client companies"
+  source: "seats from the model, read 2026-09-15; client count from the NIQ Form S-1"
   status: internal-estimate
 
 vc_defensibility_language_2026:
@@ -362,8 +362,8 @@ data_asset_scale_v2:
     database with a single as-of date before this ships to anyone outside the room.
 
 use_of_funds_drivers:
-  value: "Pre-seed use of funds, taken from the model's own drivers: 20k EUR per chain integrated (460k for 23 chains across the plan); one category analyst per 4 live categories, one data or ML engineer per 6, one deployment engineer per 3.5 chains; sales sized at 700k EUR of new ARR per account executive; one legal/DPO per 1.5 markets; a country manager per market outside the home base"
-  source: "VC financial model, HEADCOUNT section B and CHECKS chain-integration reconciliation, read 2026-09-13"
+  value: "Pre-seed use of funds, taken from the model's own drivers: 20k EUR per chain integrated (500k for 25 chains across the plan); one category analyst per 4 live categories, one data or ML engineer per 6, one deployment engineer per 3.5 chains; sales sized at 700k EUR of new ARR per account executive; one legal/DPO per 1.5 markets; a country manager per market outside the home base; hires land two months before their driver and never before the pre-seed"
+  source: "VC financial model, HEADCOUNT section B and CHECKS chain-integration reconciliation, read 2026-09-15"
   status: internal-estimate
   note: "No percentage split is stated because the model does not carry one for the pre-seed window. The drivers are what make the ask checkable."
 
