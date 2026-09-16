@@ -519,6 +519,13 @@ a{color:inherit; text-decoration:none}
 .ktab tr:last-child td.k{color:var(--accent)}
 
 .priv.p3{grid-template-columns:repeat(3,minmax(0,1fr))}
+
+/* cover: proven-by logo row (backgrounds, so the logos are baked into the PDF layer) */
+.proof{position:absolute; left:58px; right:58px; bottom:58px; display:flex; flex-direction:column; align-items:center; gap:14px}
+.proof .pl{font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.12em; color:var(--ink-3)}
+.proof .logos{display:flex; align-items:center; justify-content:center; gap:44px}
+.proof .logos i{display:block; height:30px; background-position:center; background-size:contain; background-repeat:no-repeat; filter:grayscale(1); opacity:.6}
+.proof .logos i.strip7{width:980px; height:50px; background-image:url('assets/logos/proven-logos.png'); filter:none; opacity:1}
 /* ---- PDF-safe print layer (keep in every deliverable) ----------------------
    Chrome's PDF export turns some CSS into constructs that viewers disagree on:
    - blurred box-shadow, filter:blur, semi-transparent gradients -> soft masks,
@@ -563,7 +570,8 @@ a{color:inherit; text-decoration:none}
     <svg viewBox="0 0 24 24" style="width:15px; height:15px"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z"/></svg>
     <span><b>Privacy by design</b> &middot; no facial recognition, no identities, aggregates only</span>
   </div>
-  <div class="flow"><b>COVER</b> &rsaquo; DECISIONS &rsaquo; DATA &rsaquo; PROOF &rsaquo; PRODUCT &rsaquo; ROLLOUT</div><div class="pageno">01 / 09</div>
+  <div class="flow"><b>COVER</b> &rsaquo; DECISIONS &rsaquo; DATA &rsaquo; PROOF &rsaquo; PRODUCT &rsaquo; ROLLOUT</div><div class="pageno">01 / 08</div>
+  <div class="proof"><span class="pl">Proven in the field by</span><div class="logos"><i class="strip7" role="img" aria-label="ČEPRO, SuperZoo, Manufaktura, O2, GymBeam, Vilgain, CPI"></i></div></div>
 </section>
 
 <!-- 02 DECISIONS ======================================================== -->
@@ -592,7 +600,7 @@ a{color:inherit; text-decoration:none}
     </div>
   </div>
   <div class="strip mt14"><div class="l">The shift</div><p>Footfall already underpins how your assets are valued and marketed. <b>The next question is not how many people came. It is who they were.</b></p></div>
-  <div class="flow">COVER &rsaquo; <b>DECISIONS</b> &rsaquo; DATA &rsaquo; PROOF &rsaquo; PRODUCT &rsaquo; ROLLOUT</div><div class="pageno">02 / 09</div>
+  <div class="flow">COVER &rsaquo; <b>DECISIONS</b> &rsaquo; DATA &rsaquo; PROOF &rsaquo; PRODUCT &rsaquo; ROLLOUT</div><div class="pageno">02 / 08</div>
 </section>
 
 <!-- 03 WHY TODAY'S DATA ================================================== -->
@@ -609,31 +617,7 @@ a{color:inherit; text-decoration:none}
     </div>
   <div class="grow"></div>
   <div class="strip"><div class="l">Not a replacement</div><p>We do not replace these sources. We add the layer none of them can see: <b>who is walking through your entrance</b>, described without identifying anyone, and joinable with the data you already buy.</p></div>
-  <div class="flow">COVER &rsaquo; DECISIONS &rsaquo; <b>DATA</b> &rsaquo; PROOF &rsaquo; PRODUCT &rsaquo; ROLLOUT</div><div class="pageno">03 / 09</div>
-</section>
-
-<!-- 04 WHAT WE MEASURE =================================================== -->
-<section class="slide">
-  <div class="top"><span class="brand"><span class="wm sm"></span></span><span class="meta">How it works</span></div>
-  <p class="label">03 &middot; What we measure</p>
-  <h2>Every shopper described across 88+ attributes.<br><span class="dim">No one identified.</span></h2>
-  <div class="two mt22 grow" style="--l:1.25; --r:.75; gap:18px">
-    <div class="card" style="justify-content:center">
-      <div class="ch"><svg class="i" viewBox="0 0 24 24"><path d="M12 3 3 7.5l9 4.5 9-4.5L12 3z"/><path d="m3 12 9 4.5 9-4.5"/><path d="m3 16.5 9 4.5 9-4.5"/></svg>What every visit turns into</div>
-      <div class="kv"><span class="k">Capture</span><span class="v">every valid entry at the instrumented entrances</span></div>
-      <div class="kv"><span class="k">Visual description</span><span class="v">88+ attributes per visit: age band, style, brands worn, company, items carried</span></div>
-      <div class="kv"><span class="k">Audiences</span><span class="v">a model groups the attributes into distinct personas, each with its own time pattern</span></div>
-      <div class="kv"><span class="k">Purchase signal</span><span class="v">share of visits that end with a purchase in hand: bags, carts, boxes</span></div>
-      <div class="kv"><span class="k">Quality</span><span class="v">staff filtered out, only valid entries, every number traceable</span></div>
-      <div class="kv"><span class="k">Delivery</span><span class="v">AI chat and live dashboard, plus data into your own systems</span></div>
-    </div>
-    <div style="display:flex; flex-direction:column; gap:12px">
-      <div class="tile" style="padding:16px 18px"><div class="big b">88+</div><div class="k">visual attributes per visit</div><div class="s">from a vocabulary of 450+ detectable details</div></div>
-      <div class="tile" style="padding:16px 18px"><div class="big">0</div><div class="k">IT projects on your side</div><div class="s">a device, a power socket and wifi at each entrance</div></div>
-      <div class="tile" style="padding:16px 18px"><div class="big">25+</div><div class="k">people behind every number</div><div class="s">aggregates only, never an individual</div></div>
-    </div>
-  </div>
-  <div class="flow">COVER &rsaquo; DECISIONS &rsaquo; <b>DATA</b> &rsaquo; PROOF &rsaquo; PRODUCT &rsaquo; ROLLOUT</div><div class="pageno">04 / 09</div>
+  <div class="flow">COVER &rsaquo; DECISIONS &rsaquo; <b>DATA</b> &rsaquo; PROOF &rsaquo; PRODUCT &rsaquo; ROLLOUT</div><div class="pageno">03 / 08</div>
 </section>
 
 <!-- 05 CASE STUDY: AUDIENCES ============================================ -->
@@ -641,7 +625,7 @@ a{color:inherit; text-decoration:none}
   <div class="frame"></div>
   <span class="cs cs-corner"><i>Case study</i>A paying customer &middot; major mall operator in Europe</span>
   <div class="top"><span class="brand"><span class="wm sm"></span></span></div>
-  <p class="label">04 &middot; The audiences</p>
+  <p class="label">03 &middot; The audiences</p>
   <h2>Behind the average visitor are eight audiences, <span class="dim">each with its own rhythm and basket.</span></h2>
   <div class="legend3"><span><span class="pi"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.5"/><path d="M5 20a7 7 0 0 1 14 0"/></svg></span>Who and when</span><span><span class="pi"><svg viewBox="0 0 24 24"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="2.8"/></svg></span>What we see</span><span class="buy"><span class="pi"><svg viewBox="0 0 24 24"><path d="M5 8h14l-1.2 12H6.2z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></svg></span>How they shop</span></div>
   <div class="pgrid grow">
@@ -707,13 +691,13 @@ a{color:inherit; text-decoration:none}
     <div class="kpi ten"><div class="l">Tenant KPI</div><div class="m">Purchase rate of the core audiences</div><div class="e">e.g. Mainstream Adults <b>38%</b> vs Teens in Streetwear <b>19%</b></div></div>
   </div>
   <div class="scope"><b>Source:</b> visual analysis of visits and a segmentation model; shares of analyzed visits, weekend figures are visits per day vs weekdays, purchase share from a sample of visits; at least 25 people per figure. Avatars are illustrative.</div>
-  <div class="pageno">05 / 09</div>
+  <div class="pageno">04 / 08</div>
 </section>
 
 <!-- 08 AI-FIRST ========================================================== -->
 <section class="slide">
   <div class="top"><span class="brand"><span class="wm sm"></span></span><span class="meta">The product, running today</span></div>
-  <p class="label">05 &middot; AI-first</p>
+  <p class="label">04 &middot; AI-first</p>
   <h2>Next generation, AI-first platform.<br><span class="dim">Ask a question instead of waiting for a dashboard.</span></h2>
   <div class="two mt18 grow" style="--l:1.15; --r:.85; gap:18px">
     <div class="roles">
@@ -745,13 +729,13 @@ a{color:inherit; text-decoration:none}
       </a>
     </div>
   </div>
-  <div class="flow">COVER &rsaquo; DECISIONS &rsaquo; DATA &rsaquo; PROOF &rsaquo; <b>PRODUCT</b> &rsaquo; ROLLOUT</div><div class="pageno">06 / 09</div>
+  <div class="flow">COVER &rsaquo; DECISIONS &rsaquo; DATA &rsaquo; PROOF &rsaquo; <b>PRODUCT</b> &rsaquo; ROLLOUT</div><div class="pageno">05 / 08</div>
 </section>
 
 <!-- 07 KPIs ================================================================ -->
 <section class="slide">
   <div class="top"><span class="brand"><span class="wm sm"></span></span><span class="meta">From insight to KPIs</span></div>
-  <p class="label">06 &middot; Make it measurable</p>
+  <p class="label">05 &middot; Make it measurable</p>
   <h2>Turn audience data into KPIs you manage and improve.</h2>
   <div class="card mt18" style="padding:6px 18px 4px">
     <table class="ktab">
@@ -764,26 +748,26 @@ a{color:inherit; text-decoration:none}
     <div class="strip"><div class="l">Monetize with your tenants</div><p>Offer tenants audience reports for their storefront and category, with benchmarks against the center. <b>Data your cameras already collect becomes a paid tenant service.</b></p></div>
     <div class="strip"><div class="l">Like for like across the portfolio</div><p>The same KPI definitions in every center, from one platform. <b>Compare centers directly, with no reconciling of legacy counters from different vendors.</b></p></div>
   </div>
-  <div class="flow">COVER &rsaquo; DECISIONS &rsaquo; DATA &rsaquo; <b>PROOF</b> &rsaquo; PRODUCT &rsaquo; ROLLOUT</div><div class="pageno">07 / 09</div>
+  <div class="flow">COVER &rsaquo; DECISIONS &rsaquo; DATA &rsaquo; <b>PROOF</b> &rsaquo; PRODUCT &rsaquo; ROLLOUT</div><div class="pageno">06 / 08</div>
 </section>
 
 <!-- 11 PRIVACY =========================================================== -->
 <section class="slide">
   <div class="top"><span class="brand"><span class="wm sm"></span></span><span class="meta">Privacy and compliance</span></div>
-  <p class="label">07 &middot; Privacy by design</p>
+  <p class="label">06 &middot; Privacy by design</p>
   <h2>We understand every visitor<br><span class="dim">without identifying anyone.</span></h2>
   <div class="mid"><div class="priv p3">
     <div class="card"><span class="tile-i"><svg class="i" viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z"/></svg></span><div class="ch">No faces, no identities</div><p>No facial recognition and no biometric templates. Visits cannot be linked or re-identified.</p></div>
     <div class="card"><span class="tile-i"><svg class="i" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="16" cy="9" r="2.5"/><path d="M3.5 19a5.5 5.5 0 0 1 11 0M14 19a4 4 0 0 1 7 0"/></svg></span><div class="ch">Aggregates only</div><p>Every output describes at least 25 people. No number ever points to an individual.</p></div>
     <div class="card"><span class="tile-i"><svg class="i" viewBox="0 0 24 24"><path d="m5 12 4 4 10-10"/></svg></span><div class="ch">GDPR certified and audited</div><p>Independently audited and GDPR certified. We work through your data processing agreement and impact assessment with your legal team.</p></div>
   </div></div><p class="note" style="margin-top:12px">All analysis runs without facial recognition or biometric templates. Visits cannot be linked or re-identified. All outputs are aggregated (minimum 25 persons per segment).</p>
-  <div class="flow">COVER &rsaquo; DECISIONS &rsaquo; DATA &rsaquo; PROOF &rsaquo; PRODUCT &rsaquo; <b>ROLLOUT</b></div><div class="pageno">08 / 09</div>
+  <div class="flow">COVER &rsaquo; DECISIONS &rsaquo; DATA &rsaquo; PROOF &rsaquo; PRODUCT &rsaquo; <b>ROLLOUT</b></div><div class="pageno">07 / 08</div>
 </section>
 
 <!-- 12 HOW TO START ====================================================== -->
 <section class="slide">
   <div class="top"><span class="brand"><span class="wm sm"></span></span><span class="meta">Next step</span></div>
-  <p class="label">08 &middot; How to start</p>
+  <p class="label">07 &middot; How to start</p>
   <h2>Start with one center.<br><span class="dim">Grow into the future of mall audience analytics.</span></h2>
   <div class="mid"><div class="steps3">
     <div class="card"><span class="stepno">1</span><div class="ch">Pilot</div><div class="when">one center</div>
@@ -799,7 +783,7 @@ a{color:inherit; text-decoration:none}
     <div><div class="nm">Ondřej Šantora</div><div class="rl">Co-Founder, Minds &amp; Models</div></div>
     <div class="ln"><a href="mailto:ondrej@mindsmodels.ai">ondrej@mindsmodels.ai</a><span>+420 720 571 736</span><a href="https://mindsmodels.ai"><b>Try the chat at mindsmodels.ai &rsaquo;</b></a></div>
   </div>
-  <div class="flow">COVER &rsaquo; DECISIONS &rsaquo; DATA &rsaquo; PROOF &rsaquo; PRODUCT &rsaquo; <b>ROLLOUT</b></div><div class="pageno">09 / 09</div>
+  <div class="flow">COVER &rsaquo; DECISIONS &rsaquo; DATA &rsaquo; PROOF &rsaquo; PRODUCT &rsaquo; <b>ROLLOUT</b></div><div class="pageno">08 / 08</div>
 </section>
 
 </div>
