@@ -318,6 +318,16 @@ svg .base{stroke:var(--ink-4); stroke-dasharray:4 3}
 .pgrid .pcard ul{font-size:10px; gap:2px; margin-top:6px}
 .pgrid .av{width:44px; height:44px}
 
+
+/* PDF export fix (Mac Preview): Chrome exports blurred box-shadows and filter:blur
+   as soft-mask transparency groups, which Preview draws as grey/black rectangles.
+   In print, depth comes from a hairline border instead of a shadow. */
+@media print{
+  *,*::before,*::after{box-shadow:none !important; text-shadow:none !important; filter:none !important; backdrop-filter:none !important}
+  html,body{-webkit-print-color-adjust:exact; print-color-adjust:exact}
+  .card,.tile,.pc,.pcard{border:1px solid rgba(16,24,40,.10) !important}
+  .pcard.key{border-color:var(--pos-edge) !important}
+}
 </style>
 </head>
 <body>

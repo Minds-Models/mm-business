@@ -158,3 +158,9 @@ CLAUDE.md: `decks/YYYY-MM-DD-.../` or `clients/<slug>/delivered/YYYY-MM-DD-.../`
   has two subjects: cut one.
 - Content rules (never-lists, scope footers, forwardability) stay in each deck type's
   own SPEC.md. This file owns only the look.
+
+## PDF export
+
+Chrome turns blurred `box-shadow` and `filter:blur` into soft-mask transparency groups, which
+Mac Preview renders as grey or black rectangles. Every template carries a `@media print` block
+that drops shadows and filters and draws a hairline border instead. Keep it in every new deliverable.

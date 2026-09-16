@@ -223,6 +223,16 @@ svg.i{width:16px; height:16px; flex:none; stroke:currentColor; fill:none; stroke
     width:1280px; max-width:1280px; height:720px; min-height:720px; max-height:720px}
   .slide:last-child{page-break-after:auto; break-after:auto}
 }
+
+/* PDF export fix (Mac Preview): Chrome exports blurred box-shadows and filter:blur
+   as soft-mask transparency groups, which Preview draws as grey/black rectangles.
+   In print, depth comes from a hairline border instead of a shadow. */
+@media print{
+  *,*::before,*::after{box-shadow:none !important; text-shadow:none !important; filter:none !important; backdrop-filter:none !important}
+  html,body{-webkit-print-color-adjust:exact; print-color-adjust:exact}
+  .card,.tile,.pc,.pcard{border:1px solid rgba(16,24,40,.10) !important}
+  .pcard.key{border-color:var(--pos-edge) !important}
+}
 </style>
 </head>
 <body>
