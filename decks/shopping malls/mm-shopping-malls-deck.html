@@ -511,6 +511,21 @@ a{color:inherit; text-decoration:none}
 .role .askbar .q .mn{font-size:13px; padding:1px 8px 1px 3px; vertical-align:-3px}
 .role .askbar .q .mn i{width:17px; height:17px}
 
+/* Cover logo rail: same baked greyscale+fade PNGs as the brand sales deck.
+   Absolute on the cover so the field-proof sits where a mall operator's eye
+   lands after the privacy chip, above the COVER › … flow. */
+.crlabel{font-size:9.5px; font-weight:600; text-transform:uppercase; letter-spacing:.11em;
+  color:var(--ink-4)}
+.slide>.crailwrap{position:absolute; left:58px; right:58px; bottom:56px;
+  display:flex; flex-direction:column; align-items:center}
+.crail{display:flex; align-items:center; justify-content:center; gap:50px;
+  width:fit-content; max-width:100%; margin-top:14px}
+.crail .lg{display:grid; place-items:center; flex:none}
+.crail img{display:block; object-fit:contain; opacity:.55}
+.crail [data-shape="wordmark"] img{height:28px; width:auto; max-width:168px}
+.crail [data-shape="stacked"] img{height:40px; width:auto; max-width:96px}
+.crail [data-shape="tile"] img{height:37px; width:37px; border-radius:8px; opacity:.42}
+
 .ktab{width:100%; border-collapse:collapse}
 .ktab th{font-size:13.5px; font-weight:600; color:var(--ink); text-align:left; padding:12px 10px 10px; border-bottom:1.5px solid var(--hair-2)}
 .ktab td{font-size:13.5px; color:var(--ink-2); padding:11px 10px; border-bottom:1px solid var(--hair); vertical-align:top; line-height:1.4}
@@ -558,7 +573,7 @@ a{color:inherit; text-decoration:none}
 <div class="deck">
 
 <!-- 01 COVER ============================================================ -->
-<section class="slide center">
+<section class="slide center" style="padding-bottom:118px">
   <div class="top" style="position:absolute; top:44px; left:58px; right:58px; width:auto; margin:0">
     <span class="brand"><span class="wm"></span></span>
     <span class="meta">Mall audience analytics<br>mindsmodels.ai</span>
@@ -570,8 +585,19 @@ a{color:inherit; text-decoration:none}
     <svg viewBox="0 0 24 24" style="width:15px; height:15px"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z"/></svg>
     <span><b>Privacy by design</b> &middot; no facial recognition, no identities, aggregates only</span>
   </div>
+  <div class="crailwrap">
+  <p class="crlabel">Proven in the field by</p>
+  <div class="crail">
+    <span class="lg" data-shape="wordmark"><img src="../2026-09-10-brand-sales-deck/assets/logos/rail/manufaktura.png" alt="Manufaktura"></span>
+    <span class="lg" data-shape="wordmark"><img src="../2026-09-10-brand-sales-deck/assets/logos/rail/cepro.png" alt="&Ccaron;EPRO"></span>
+    <span class="lg" data-shape="tile"><img src="../2026-09-10-brand-sales-deck/assets/logos/rail/o2.png" alt="O2"></span>
+    <span class="lg" data-shape="stacked"><img src="../2026-09-10-brand-sales-deck/assets/logos/rail/superzoo.png" alt="Super zoo"></span>
+    <span class="lg" data-shape="tile"><img src="../2026-09-10-brand-sales-deck/assets/logos/rail/cpi.png" alt="CPI"></span>
+    <span class="lg" data-shape="wordmark"><img src="../2026-09-10-brand-sales-deck/assets/logos/rail/vilgain.png" alt="Vilgain"></span>
+    <span class="lg" data-shape="wordmark"><img src="../2026-09-10-brand-sales-deck/assets/logos/rail/gymbeam.png" alt="GymBeam"></span>
+  </div>
+  </div>
   <div class="flow"><b>COVER</b> &rsaquo; DECISIONS &rsaquo; DATA &rsaquo; PROOF &rsaquo; PRODUCT &rsaquo; ROLLOUT</div><div class="pageno">01 / 08</div>
-  <div class="proof"><span class="pl">Proven in the field by</span><div class="logos"><i class="strip7" role="img" aria-label="ČEPRO, SuperZoo, Manufaktura, O2, GymBeam, Vilgain, CPI"></i></div></div>
 </section>
 
 <!-- 02 DECISIONS ======================================================== -->

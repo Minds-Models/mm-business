@@ -69,6 +69,15 @@ h2{font-size:33px; font-weight:550; letter-spacing:-.028em; line-height:1.14}
 .grow{flex:1; min-height:0}
 
 .pageno{position:absolute; bottom:16px; right:58px; font-size:11px; color:var(--ink-4); font-variant-numeric:tabular-nums}
+/* The argument, named, with the reader's place in it. Printed on every slide
+   but the cover: a deck that is forwarded is read out of order, and six words
+   along the bottom are what tell a reader who opened page 5 first what the
+   other four were for. Same register as the page number — ink-4, 9.5px,
+   uppercase — so it is furniture, never content; only the current step lifts to
+   ink-2. Kept off the cover, where nothing has happened yet. */
+.flow{position:absolute; bottom:16px; left:58px; font-size:9.5px; letter-spacing:.13em;
+  text-transform:uppercase; color:var(--ink-4); font-weight:600}
+.flow b{color:var(--ink-2); font-weight:700}
 .scope{position:absolute; bottom:15px; left:58px; right:120px; font-size:9.5px; line-height:1.5;
   letter-spacing:.02em; color:var(--ink-4)}
 .scope b{color:var(--ink-3); font-weight:600}
@@ -340,13 +349,30 @@ svg.i{width:16px; height:16px; flex:none; stroke:currentColor; fill:none; stroke
    them. Three cards each carrying a second panel was six arguments where the
    slide only ever had three. */
 .decgroup{display:flex; flex-direction:column; justify-content:center; gap:16px}
-.card .cb{font-size:13px}
-.ansband{flex:none; background:var(--accent-wash); border:1px solid var(--accent-edge);
-  border-radius:var(--r-lg); padding:14px 20px 17px}
-.abl{font-size:9.5px; font-weight:600; text-transform:uppercase; letter-spacing:.095em;
-  color:var(--accent); margin-bottom:11px}
-.ab{font-size:12px; line-height:1.55; color:#1e3a5f}
-.ab .mn{margin:0 1px}
+/* Content sets the height, not the band. Stretched to fill it, the three cards
+   opened a hand's width of white between the body and the pain line and the
+   sting arrived much too late to be one. Grid rows already equalise the three
+   against the tallest, which is all `margin-top:auto` needs to line them up. */
+.decgroup .grid3{gap:26px}
+.decgroup .card{padding:26px 24px 22px; min-height:342px}
+.decgroup .card .cm{font-size:10.5px; letter-spacing:.095em}
+.decgroup .card .ct{font-size:18px; margin-top:10px}
+.decgroup .card .cb{font-size:13.5px; line-height:1.62; margin-top:11px}
+
+/* -- The pain line. Red is used nowhere else in this deck except a cross in the
+      page-3 matrix, so it reads here as the same verdict: this is the part that
+      does not work. It sits on the card's bottom edge on `margin-top:auto`, so
+      the three of them line up across the row however long the bodies run.
+
+      It is a CLAUSE, not a paragraph. The body above it already explains the
+      mechanism; this says what the mechanism costs the person reading, in his
+      own terms (blitzkrieg/brands/icp/bdr-target-personas.md — "he owns the
+      invoice", "he is losing the shopper-knowledge argument to his own
+      customers", "briefing an agency on someone none of you has seen"). Keep it
+      to one line at this width. Two lines and it stops being a sting. --- */
+.card .pain{margin-top:auto; padding-top:14px; border-top:1px solid var(--hair);
+  font-size:12.5px; line-height:1.5; color:#b42318}
+.card .pain b{font-weight:600; color:#dc2626}
 
 /* -- Slide 3: the three sources are one row of one height ----------------- */
 .srcwrap{display:flex; align-items:center}
@@ -506,7 +532,7 @@ svg.i{width:16px; height:16px; flex:none; stroke:currentColor; fill:none; stroke
    his 2,000-household panel cannot answer about a specific store. */
 .sh.br{background:var(--p-wash); border-color:var(--p-edge)}
 .sh.br b{color:var(--p-ink)}
-/* The trait chip. Read off the person rather than off the till — a disposition
+/* The trait chip. Read off the person rather than off the receipt — a disposition
    the visual signature implies, not something anybody was asked. Marked by a
    hairline ring rather than a fill, so it sits between the plain observations
    and the one thing on the card that is an instruction. */
@@ -528,22 +554,69 @@ svg.i{width:16px; height:16px; flex:none; stroke:currentColor; fill:none; stroke
   color:var(--ink-4); background:#f6f7f9; border-bottom:1px solid var(--hair-2)}
 .xr:last-child span{border-bottom:none}
 
-/* -- Slide 7: the paper set, as a ladder --------------------------------- */
-/* Three rungs left to right, and the one that is live for a given prospect is
-   lifted. The other two stay legible: a reader who can see the whole ladder
-   knows what stopping costs, which is most of why he does not stop. */
-.ladder{align-items:stretch}
-.rung{padding:18px 19px 17px}
-.rung .cm{color:var(--ink-3)}
-.card.lift.rung{border-color:var(--accent-edge)}
-.card.lift.rung .cm{color:var(--accent)}
-/* Key ranged left and fixed, so the three facts line up down the card and
-   across all three cards. */
-.lrow{display:flex; gap:11px; margin-top:9px; padding-top:9px; border-top:1px solid var(--hair)}
-.lrow .k{flex:0 0 62px; font-size:8.5px; font-weight:600; text-transform:uppercase;
-  letter-spacing:.09em; color:var(--ink-4); padding-top:2px}
-.lrow .t{flex:1; min-width:0; font-size:12px; line-height:1.45; color:var(--ink-2)}
-.rung .cass{margin-top:auto}
+/* -- Slide 7, the close. Left: what a seat IS — three properties, nothing else.
+      Right: the first three steps, in the one thing on the page that is lifted
+      off the paper.
+
+      NO RULES, NO GUTTER LINE. The earlier landing set the left column as a list
+      with a hairline between every row and a vertical hairline down the middle.
+      Six rules on a page with nine sentences on it is furniture: it chops three
+      properties of one object into three unrelated statements. The properties of
+      a seat are one thought, so they get air and an icon each, and the only edge
+      on the slide is the card that asks for something.
+
+      THE RIGHT COLUMN IS A CARD, and it is the only lifted surface here. It is
+      not a fourth property of the seat — it is a different kind of sentence (do
+      this, then this), and it is the cheapest thing on the page. Giving it the
+      card and leaving the left bare says which half is being asked for without a
+      word.
+
+      WHAT IS NOT CLAIMED. No cadence, no deliverable count, no renewal
+      mechanics: the estate that would make those true does not exist yet, and a
+      close is the worst place on a deck to promise a number we will have to walk
+      back. What is left are three things that are true the day he signs: the
+      scope (art. 2.1: channel × competitive set × chain), the cap (art. 5.2,
+      with 5.4's promise not to subdivide behind it), and the design-partner
+      relationship, which is ours to give.
+
+      SCARCITY WITHOUT EXCLUSIVITY (C11): three at the founding price is a hard
+      cap, and being early is the edge — never "your competitor cannot have it",
+      because art. 5.3 says out loud that they can. --- */
+.ask2{display:grid; grid-template-columns:1fr 1.04fr; gap:0 46px; margin-top:24px; flex:1;
+  align-items:start; min-height:0}
+.ask2 .col{display:flex; flex-direction:column; min-height:0}
+.asklbl{font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:.11em;
+  color:var(--ink-4)}
+.arow{display:grid; grid-template-columns:38px 1fr; gap:0 16px; padding:28px 0 0}
+.arow h4{font-size:15.5px; font-weight:600; letter-spacing:-.018em; line-height:1.25}
+.arow p{margin-top:7px; font-size:13px; line-height:1.6; color:var(--ink-2)}
+/* The marker is the deck's accent-wash icon tile, at the size the numerals used
+   to hold, so the three properties read as one family. */
+.arow .ic{grid-row:1 / span 2; display:grid; place-items:center; width:38px; height:38px;
+  border-radius:12px; margin-top:1px;
+  background:linear-gradient(180deg,#f6f9ff,var(--accent-wash)); border:1px solid var(--accent-edge);
+  color:var(--accent); box-shadow:inset 0 1px 0 rgba(255,255,255,.9)}
+.arow .ic svg{width:19px; height:19px; stroke:currentColor; fill:none; stroke-width:1.6;
+  stroke-linecap:round; stroke-linejoin:round}
+
+/* The ask, carded. Steps keep the quiet numeral: it is a position in a queue,
+   not a claim, and the verb beside it is the point. */
+.startc{background:var(--paper-lift); border:1px solid rgba(16,24,40,.055);
+  border-radius:var(--r-lg); box-shadow:var(--sh-2); padding:20px 24px 22px;
+  display:flex; flex-direction:column}
+.startc .ct{font-size:18px; font-weight:600; letter-spacing:-.022em}
+.startc .arow{grid-template-columns:20px 1fr; gap:0 14px; padding:15px 0 0}
+.startc .arow .k{grid-row:1 / span 2; font-size:13px; font-weight:600; color:var(--ink-3);
+  padding-top:2px; font-variant-numeric:tabular-nums}
+.startc .arow h4{font-size:14.5px}
+.startc .arow p{margin-top:5px; font-size:12.5px; line-height:1.55}
+
+.cta{display:inline-flex; align-items:center; gap:13px; background:var(--accent); color:#fff;
+  border-radius:999px; padding:11px 24px; text-decoration:none;
+  box-shadow:0 2px 4px rgba(47,109,246,.2), 0 14px 30px -10px rgba(47,109,246,.55)}
+.cta span{font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.1em; opacity:.72}
+.cta b{font-size:18px; font-weight:600; letter-spacing:-.024em}
+.cta svg{width:17px; height:17px; stroke:#fff; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round}
 
 /* -- The pilot rail. Not a marquee and not centred motion: it is the deck's
       strongest claim and the floor the rest of it stands on. Logo shapes
@@ -565,6 +638,91 @@ svg.i{width:16px; height:16px; flex:none; stroke:currentColor; fill:none; stroke
 .proof .pr [data-shape="wordmark"] img{height:21px; width:auto; max-width:128px; object-fit:contain}
 .proof .pr [data-shape="stacked"] img{height:29px; width:auto; max-width:76px; object-fit:contain}
 .proof .pr [data-shape="tile"] img{height:29px; width:29px; object-fit:contain}
+
+/* -- The cover rail. The landing page's pilot logos (landing/ProvenInField.tsx)
+      standing where four category tags used to: on a cold cover a credential
+      outranks a taxonomy, because the tags only told a reader which shelf he
+      was on, which he already knew.
+
+      Sized by ink density and not by source dimensions, same as the landing:
+      a solid navy tile set to a wordmark's height shouts over the lettering
+      next to it, so tiles get their own, smaller slot.
+
+      GREY AND THE EDGE FADE ARE BAKED INTO THE FILES, not applied here. The
+      sources are assets/logos/rail/*.png, generated by assets/logos/build-rail.py
+      from the originals beside them. scripts/render-pdf.js sets `filter:none`
+      and `mask:none` on everything inside a sheet during its vector pass, so a
+      CSS treatment looked right in the browser and came out of the PDF in full
+      colour with square-cut edges — and the PDF is the file that gets emailed.
+      An SVG gradient would survive that pass but land in the PDF as a shading,
+      which scripts/pdf-check.py rejects outright (grey in Mac Preview, pink in
+      pdf.js). Baked alpha survives every pass and every viewer. Opacity is the
+      one part still set here, because the renderer leaves opacity alone.
+
+      Which is why the outer two slots go to the longest logotypes: a horizontal
+      fade eats WIDTH, so a square mark parked at the edge would be half-erased
+      and read as broken, while a slender wordmark simply trails away.
+      Manufaktura (~8:1) and GymBeam (~5:1) are the longest marks in the set.
+      The fade on those two goes to zero over two-thirds of the mark. -- */
+.crlabel{font-size:9.5px; font-weight:600; text-transform:uppercase; letter-spacing:.11em;
+  color:var(--ink-4)}
+.crailwrap{position:absolute; left:58px; right:58px; bottom:56px;
+  display:flex; flex-direction:column; align-items:center}
+.crail{display:flex; align-items:center; justify-content:center; gap:50px;
+  width:fit-content; max-width:100%; margin-top:14px}
+.crail .lg{display:grid; place-items:center; flex:none}
+.crail img{display:block; object-fit:contain; opacity:.55}
+.crail [data-shape="wordmark"] img{height:28px; width:auto; max-width:168px}
+.crail [data-shape="stacked"] img{height:40px; width:auto; max-width:96px}
+/* Solid tiles carry far more ink per pixel than lettering, so they never match
+   a wordmark's box, and they lose some opacity on top of that. Softening the
+   corners keeps a knocked-out square from reading as a broken image. */
+.crail [data-shape="tile"] img{height:37px; width:37px; border-radius:8px; opacity:.42}
+
+/* -- Comparison matrix, ported from the retailer deck. Four sources down the
+      left, four questions across the top, and the argument is carried by the
+      column of crosses rather than by a sentence claiming there is one. The
+      word under each mark matters more than the mark: a bare cross invites
+      "says who?", a cross with "it begins at payment" under it does not. --- */
+.mtx{display:grid; grid-template-columns:1.5fr repeat(4,1fr); margin-top:14px;
+  border:1px solid var(--hair-2); border-radius:var(--r-lg); overflow:hidden;
+  background:var(--paper-lift); box-shadow:var(--sh-1)}
+/* Rows are sized for one-to-three-word captions. They were twice this while the
+   captions were sentences; at that height, with three words in them, the grid
+   read as mostly air. The block no longer stretches to the foot of the slide —
+   `.mtxwrap` centres it instead, so what is left over is split above and below
+   rather than piling up under the last row. */
+.mtx>div{padding:11px 13px; border-bottom:1px solid var(--hair); display:flex; flex-direction:column;
+  align-items:center; justify-content:center; gap:5px; text-align:center}
+.mtx .hd{font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.08em;
+  color:var(--ink-2); background:rgba(16,24,40,.03); line-height:1.3}
+.mtx .nm{align-items:flex-start; text-align:left; gap:1px; font-size:13.5px; font-weight:600; color:var(--ink)}
+.mtx .nm small{font-weight:400; font-size:10.5px; color:var(--ink-4)}
+.mtx .q{font-size:10.5px; color:var(--ink-3); line-height:1.3}
+.mk{display:grid; place-items:center; width:22px; height:22px; border-radius:50%; flex:none}
+.mk svg{width:13px; height:13px; stroke:currentColor; fill:none; stroke-width:2.8; stroke-linecap:round; stroke-linejoin:round}
+.mk.y{background:var(--pos-soft); color:var(--pos)}
+.mk.n{background:#fdecec; color:#dc2626}
+.mk.p{background:#fff6e8; color:#b45309}
+/* Our row is the only one with no bottom hairline: it closes the table rather
+   than continuing it, and the tinted ground does the work a bold weight would
+   have done more loudly. */
+.mtx .us{background:var(--pos-soft); border-bottom:none; border-top:2px solid var(--pos-edge)}
+.mtx .us .q{color:#166534; font-weight:600}
+.mtx .us.nm{color:var(--pos); font-size:14.5px}
+.mtx .us .mk.y{background:var(--pos); color:#fff}
+.mtxwrap{display:flex; flex-direction:column; justify-content:flex-start; padding-top:32px}
+.mtxnote{margin-top:13px; text-align:center; font-size:13.5px; font-style:italic; color:var(--ink-2)}
+.mtxnote b{font-style:normal; font-weight:600; color:var(--ink)}
+
+/* -- The format chips. The whole point of page 6 is that the deliverable is not
+      chosen at signature, it is asked for on the day, so the shapes are drawn
+      as things you say to the chat rather than as a list of files you receive. */
+.flav{display:flex; align-items:center; flex-wrap:wrap; gap:7px; padding-top:1px}
+.flav span{font-size:9.5px; font-weight:600; text-transform:uppercase; letter-spacing:.095em;
+  color:var(--ink-4)}
+.flav b{font-size:11px; font-weight:500; color:var(--accent); background:var(--accent-wash);
+  border:1px solid var(--accent-edge); border-radius:999px; padding:3px 10px}
 </style>
 </head>
 <body>
@@ -581,14 +739,25 @@ svg.i{width:16px; height:16px; flex:none; stroke:currentColor; fill:none; stroke
 
   <h1>You are spending on a shopper<br>you have never seen.<br><span class="dim">Ask who they are.</span></h1>
 
-  <p class="sub mt22" style="max-width:63ch">In-store is the largest discretionary line in a Czech FMCG business,
-    and the only one still defended with the retailer&rsquo;s own sell-out curve.</p>
+  <p class="sub mt22" style="max-width:63ch">For the first time, that shopper can be described rather than surveyed,<br>
+    on live stores, joined to the receipt.</p>
 
-  <div class="pills mt26">
-    <span class="pill dot">Forecourt &amp; convenience</span>
-    <span class="pill dot">Food retail</span>
-    <span class="pill dot">Health &amp; nutrition</span>
-    <span class="pill dot">Pet specialist</span>
+  <!-- The landing page's pilot rail, not the old category tags: the tags named
+       shelves the reader already stands on, the logos name estates he can ring
+       up. Order is not alphabetical and not by size — the two longest wordmarks
+       hold the ends, because that is where the fade is. Sources are the baked
+       rail/ variants, never the originals beside them; see `.crail`. -->
+  <div class="crailwrap">
+  <p class="crlabel">Proven in the field by</p>
+  <div class="crail">
+    <span class="lg" data-shape="wordmark"><img src="assets/logos/rail/manufaktura.png" alt="Manufaktura"></span>
+    <span class="lg" data-shape="wordmark"><img src="assets/logos/rail/cepro.png" alt="&Ccaron;EPRO"></span>
+    <span class="lg" data-shape="tile"><img src="assets/logos/rail/o2.png" alt="O2"></span>
+    <span class="lg" data-shape="stacked"><img src="assets/logos/rail/superzoo.png" alt="Super zoo"></span>
+    <span class="lg" data-shape="tile"><img src="assets/logos/rail/cpi.png" alt="CPI"></span>
+    <span class="lg" data-shape="wordmark"><img src="assets/logos/rail/vilgain.png" alt="Vilgain"></span>
+    <span class="lg" data-shape="wordmark"><img src="assets/logos/rail/gymbeam.png" alt="GymBeam"></span>
+  </div>
   </div>
 </section>
 
@@ -607,71 +776,80 @@ svg.i{width:16px; height:16px; flex:none; stroke:currentColor; fill:none; stroke
   </div>
 
   <div class="label">Where the money goes on a guess</div>
-  <h2>Three decisions you make every year,<br><span class="dim">and cannot evidence when asked.</span></h2>
+  <h2>Three decisions you make every day,<br><span class="dim">and cannot back up when someone asks.</span></h2>
 
   <!-- The cards are his week and nothing else: who asks, what he asks, and why
-       he cannot answer it. Our side of it used to sit inside each card as a
-       second panel, which made three cards carry six arguments. It is one band
-       now, stated once, its columns ranged on the same grid as the cards above
-       so each answer sits under the decision it answers. -->
+       he cannot answer it. -->
   <div class="decgroup grow">
     <div class="grid3">
 
       <div class="card">
         <div class="cm">Trade marketing &middot; the promotional line</div>
-        <div class="ct mt8">Which shoppers am I discounting who would have bought anyway?</div>
-        <div class="cb">Sell-out comes late, in the chain&rsquo;s own format, and it is your only proof that a
-          promotion worked. It cannot tell the display from the leaflet from the week. You defend the biggest line
-          in your budget with a number you never measured.</div>
+        <div class="ct">Which shoppers am I discounting who would have bought anyway?</div>
+        <div class="cb">Sell-out is your only proof that a promotion worked, and it arrives weeks later in the
+          chain&rsquo;s own format. It cannot tell the display from the leaflet from the week.</div>
+        <div class="pain"><b>Why it is hard:</b> in sell-out, the two look identical.</div>
       </div>
 
       <div class="card">
         <div class="cm">Category and KAM &middot; the annual negotiation</div>
-        <div class="ct mt8">Who walked out without my category, and what did they buy instead?</div>
+        <div class="ct">Who walked out without my category, and what did they buy instead?</div>
         <div class="cb">Scan data says what sold. A 2,000-household panel says what people remember buying.
-          Neither sees the shopper who weighed up your pack and bought something else. That shopper never reaches
-          the annual negotiation.</div>
+          Neither one was standing next to the shopper who chose somebody else.</div>
+        <div class="pain"><b>Why it is hard:</b> that shopper is in no file you own.</div>
       </div>
 
       <div class="card">
         <div class="cm">Brand marketing &middot; the brief</div>
-        <div class="ct mt8">My brief targets under-30s. Who is actually at the shelf?</div>
-        <div class="cb">Your target definition came from a tracker, a panel and the agency&rsquo;s segmentation.
-          Nobody in that stack ever watched a real person choose. You are briefing an agency on someone none of
-          you has seen.</div>
+        <div class="ct">My brief targets under-30s. Who is actually at the shelf?</div>
+        <div class="cb">Your target definition came from a tracker, a panel and the agency&rsquo;s segmentation,
+          and every one of them describes a household rather than a person in an aisle.</div>
+        <div class="pain"><b>Why it is hard:</b> you are briefing on a stranger.</div>
       </div>
 
-    </div>
-
-    <div class="ansband">
-      <div class="abl">What we put in front of all three</div>
-      <div class="grid3">
-        <p class="ab">Who paid full price and who waited for the deal.
-          <span class="mn night_dorm"><i style="background-image:url('assets/night_dorm.webp')"></i>Night Dorm</span>
-          buys nothing that is not discounted;
-          <span class="mn dawn_trades"><i style="background-image:url('assets/dawn_trades.webp')"></i>Dawn Trades</span>
-          never looks at the price. You fund both at the same depth.</p>
-        <p class="ab">The people who considered the category and walked out with nothing: how many they were, who
-          they were, and at which hour. Nothing you buy today describes them, because they never paid.</p>
-        <p class="ab">Who is buying it now, observed rather than assumed.
-          <span class="mn young_streetwear"><i style="background-image:url('assets/young_streetwear.webp')"></i>Young Streetwear</span>
-          and
-          <span class="mn office_professional"><i style="background-image:url('assets/office_professional.webp')"></i>Office Professional</span>
-          buy the same category and share no media plan at all.</p>
-      </div>
     </div>
   </div>
 
-  <div class="scope">The coloured names are shopper groups the read itself produces, from what is visible in the store
-    joined to what the receipts say. Page 5 shows where they come from. Shown here as examples of the output,
-    not as a measured result for your category.</div>
+  <div class="flow"><b>Decisions</b> &rarr; Blind spot &rarr; The data &rarr; Segments &rarr; Delivery &rarr; The seat</div>
   <div class="pageno">2</div>
 </section>
 
 <!-- ==================================================== 3. THE BLIND SPOT == -->
-<!-- Never claim the who-question is open. Each source is described fairly
-     first, then its blind spot lands underneath. The residual is stated once,
-     as the subline, rather than as a separate closing panel. -->
+<!-- v2: the three fairly-described source cards are now a matrix, in the
+     retailer deck's `.mtx` style. The cards argued the point one paragraph at a
+     time, which meant a reader had to hold three blind spots in his head and
+     line them up himself to see that they were the SAME blind spot. A grid does
+     that lining-up for him: read down the third column and the hole is a column
+     of crosses, which is an observation rather than a claim.
+
+     THE GAP IS NOT "THEY ONLY START ONCE SOMEBODY HAS PAID." That was the old
+     framing and we cannot stand behind it, because we do not see the unpaid
+     either. Our camera is the point of sale. A shopper who walks in, sees the
+     queue and walks out in ten seconds is missing from our data exactly as he
+     is missing from theirs, and a category manager who works that out after
+     signing has caught us overclaiming on the page that was meant to establish
+     that we do not.
+
+     THE REAL GAP IS THE JOIN. Not "none of them describes a person" either —
+     the panel plainly does, and withholding its tick was us marking our own
+     homework in front of a reader who buys one. Every row here ticks something.
+     Sell-out owns what sold, the card is genuinely live in the store, the panel
+     genuinely tells you who the shopper is. What no row but ours does is carry
+     all four ON THE SAME SHOPPER, ON ONE VISIT, and that is a harder claim than
+     the old one rather than a softer one, because it is the thing we have and
+     they do not. It also hands straight to page 4: two records, one visit.
+
+     The third column is the version of "who didn't buy you" we can defend:
+     everyone observed at the point of sale, minus everyone who bought your
+     brand. Not the shopper who never reached the point of sale — the one who
+     reached it and chose somebody else. That population is real, it is large, and it is
+     invisible to a sell-out line that only contains your own buyers.
+
+     Nothing here is described unfairly. Every source keeps its ticks — sell-out
+     genuinely is the precise outcome measure, the card genuinely does link a
+     basket to a household — and the word under each mark says exactly what the
+     limit is, so the reader is never asked to take a bare cross on trust. The
+     scope footer states our own limit in the same breath. -->
 <section class="slide">
   <div class="top">
     <span class="brand"><span class="wm sm"></span></span>
@@ -679,39 +857,44 @@ svg.i{width:16px; height:16px; flex:none; stroke:currentColor; fill:none; stroke
   </div>
 
   <div class="label">Why none of it answers the three decisions</div>
-  <h2>Your data is good. But all three of your sources<br><span class="dim">only start once somebody has already paid.</span></h2>
+  <h2>Each of your data sources answers one question.<br><span class="dim">None of them answers one shopper.</span></h2>
 
-  <p class="lead mt10" style="max-width:104ch">Which means the shopper who considered your category and walked away with
-    nothing is missing from every one of them. <b>Not as a gap in data quality. By design.</b></p>
+  <p class="lead mt10" style="max-width:92ch">Good data, all of it. None of it joined on the person standing in front
+    of your product.</p>
 
-  <div class="grow srcwrap">
-   <div class="srcs">
-    <div class="src">
-      <div class="h">Sell-out</div>
-      <div class="y">Exactly what left the store, by product, by week, by chain. The most precise outcome measure
-        you can buy, and the number your own bonus is written on.</div>
-      <div class="blind"><b>Blind spot</b>It begins at the moment of payment. Everyone who picked your product up
-        and put it back again is missing from it, and always will be.</div>
-    </div>
-    <div class="src">
-      <div class="h">The loyalty card</div>
-      <div class="y">Where a chain runs a real card programme, it genuinely links a basket to a household and
-        follows it over time. It is the strongest who-answer on the market today.</div>
-      <div class="blind"><b>Blind spot</b>It only sees people carrying the card, and only baskets that were paid
-        for. In a forecourt or convenience trip, most shoppers do neither.</div>
-    </div>
-    <div class="src">
-      <div class="h">The panel</div>
-      <div class="y">Projectable, comparable year on year, and the only instrument here that can legitimately say
-        &ldquo;the market&rdquo; rather than &ldquo;this store&rdquo;.</div>
-      <div class="blind"><b>Blind spot</b>It asks people to remember, weeks later. It was never in the store at the
-        moment the choice was made, and your competitors buy the same one.</div>
-    </div>
+  <div class="grow mtxwrap">
+   <div class="mtx">
+    <div class="hd"></div>
+    <div class="hd">Who was<br>standing there</div>
+    <div class="hd">What they<br>bought</div>
+    <div class="hd">Who did not<br>buy you</div>
+    <div class="hd">In the store,<br>as it happens</div>
+    <div class="nm">Sell-out<small>your chain&rsquo;s EPOS report</small></div>
+    <div><span class="mk n"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></span><span class="q">a line item</span></div>
+    <div><span class="mk y"><svg viewBox="0 0 24 24"><path d="M4.5 12.5 9.5 17.5 19.5 6.5"/></svg></span><span class="q">exactly what sold</span></div>
+    <div><span class="mk n"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></span><span class="q">your buyers only</span></div>
+    <div><span class="mk n"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></span><span class="q">weekly, in arrears</span></div>
+    <div class="nm">The loyalty card<small>the chain&rsquo;s own CRM</small></div>
+    <div><span class="mk p"><svg viewBox="0 0 24 24"><path d="M6 12h12"/></svg></span><span class="q">self-declared</span></div>
+    <div><span class="mk p"><svg viewBox="0 0 24 24"><path d="M6 12h12"/></svg></span><span class="q">card baskets only</span></div>
+    <div><span class="mk p"><svg viewBox="0 0 24 24"><path d="M6 12h12"/></svg></span><span class="q">only on card</span></div>
+    <div><span class="mk y"><svg viewBox="0 0 24 24"><path d="M4.5 12.5 9.5 17.5 19.5 6.5"/></svg></span><span class="q">live, as scanned</span></div>
+    <div class="nm">The consumer panel<small>NielsenIQ, Kantar, GfK</small></div>
+    <div><span class="mk y"><svg viewBox="0 0 24 24"><path d="M4.5 12.5 9.5 17.5 19.5 6.5"/></svg></span><span class="q">recalled, then projected</span></div>
+    <div><span class="mk p"><svg viewBox="0 0 24 24"><path d="M6 12h12"/></svg></span><span class="q">from memory</span></div>
+    <div><span class="mk p"><svg viewBox="0 0 24 24"><path d="M6 12h12"/></svg></span><span class="q">projected, never seen</span></div>
+    <div><span class="mk n"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></span><span class="q">questionnaire, weeks later</span></div>
+    <div class="us nm">Minds &amp; Models</div>
+    <div class="us"><span class="mk y"><svg viewBox="0 0 24 24"><path d="M4.5 12.5 9.5 17.5 19.5 6.5"/></svg></span><span class="q">88 attributes, everyone</span></div>
+    <div class="us"><span class="mk y"><svg viewBox="0 0 24 24"><path d="M4.5 12.5 9.5 17.5 19.5 6.5"/></svg></span><span class="q">every receipt, matched</span></div>
+    <div class="us"><span class="mk y"><svg viewBox="0 0 24 24"><path d="M4.5 12.5 9.5 17.5 19.5 6.5"/></svg></span><span class="q">seen either way</span></div>
+    <div class="us"><span class="mk y"><svg viewBox="0 0 24 24"><path d="M4.5 12.5 9.5 17.5 19.5 6.5"/></svg></span><span class="q">live, at payment</span></div>
    </div>
+
+   <div class="mtxnote">Read across, not down. <b>Which is why &ldquo;who actually buys this&rdquo; is still an opinion in your building.</b></div>
   </div>
 
-  <div class="scope">We do not claim the who-question is unanswered. Where a chain sells a loyalty-based read, it answers
-    it well, for card-holders and for baskets that were paid for. This is the population that read cannot contain.</div>
+  <div class="flow">Decisions &rarr; <b>Blind spot</b> &rarr; The data &rarr; Segments &rarr; Delivery &rarr; The seat</div>
   <div class="pageno">3</div>
 </section>
 
@@ -719,7 +902,7 @@ svg.i{width:16px; height:16px; flex:none; stroke:currentColor; fill:none; stroke
 <!-- v2: redrawn as the landing page draws it (landing/HowItWorks.tsx). The two
      sources sit side by side and their wires converge DOWNWARD into one row,
      instead of stacking left and pointing right at a node. The aisle card is
-     first and the till card second on purpose: everyone already believes the
+     first and the receipt card second on purpose: everyone already believes the
      receipt exists, so it is the left-hand card that is the claim, and it has
      to be read before the right-hand one turns into a merge rather than a
      report. The vocabulary chips answer "what do you mean, 88 attributes"
@@ -731,7 +914,7 @@ svg.i{width:16px; height:16px; flex:none; stroke:currentColor; fill:none; stroke
   </div>
 
   <div class="label">How the data gets made</div>
-  <h2>Two records. One shopper.<br><span class="dim">The hard part is that they are the same visit.</span></h2>
+  <h2>Two records. One shopper.<br><span class="dim">Joined on the same visit.</span></h2>
 
   <!-- The two sources stack and feed one row to their right. What the row
        carries is chosen against page 2: who was actually there (the brief),
@@ -843,10 +1026,7 @@ svg.i{width:16px; height:16px; flex:none; stroke:currentColor; fill:none; stroke
    </div>
   </div>
 
-  <div class="scope"><b>Scope:</b> live dataset across four instrumented estates, September 2026 &middot; no identities, no
-    facial recognition, no biometric templates, no cross-visit tracking &middot; aggregates at k &ge; 25 &middot; age estimated in bands
-    with error tolerances &middot; the 92% match is measured on a 21-day pilot at one store (7,475 visitors, 2,622 matched orders) &middot;
-    one store means that store, never the chain &middot; we do not measure and do not promise sell-out lift.</div>
+  <div class="flow">Decisions &rarr; Blind spot &rarr; <b>The data</b> &rarr; Segments &rarr; Delivery &rarr; The seat</div>
   <div class="pageno">4</div>
 </section>
 
@@ -933,11 +1113,7 @@ svg.i{width:16px; height:16px; flex:none; stroke:currentColor; fill:none; stroke
     </div>
   </div>
 
-  <div class="scope">&ldquo;Your brand&rdquo; is the line you name at the start of the pilot &middot; share within a
-    chain account is a number we do not measure and do not claim &middot; trait indices are modelled from what is
-    visible, never asked, and are not a clinical measure of anybody &middot; indices against the store average,
-    never counts of people &middot; illustrative of the output, not a measured result for your category &middot; every
-    reported group sits above k &ge; 25.</div>
+  <div class="flow">Decisions &rarr; Blind spot &rarr; The data &rarr; <b>Segments</b> &rarr; Delivery &rarr; The seat</div>
   <div class="pageno">5</div>
 </section>
 
@@ -955,28 +1131,56 @@ svg.i{width:16px; height:16px; flex:none; stroke:currentColor; fill:none; stroke
   </div>
 
   <div class="label">Delivery</div>
-  <h2>One slide you can defend on Monday.<br><span class="dim">Not just another login.</span></h2>
+  <h2>One slide you can defend on Monday.<br><span class="dim">Or the Excel. Or the one-pager. Just ask.</span></h2>
 
-  <div class="grid2 mt14 grow" style="grid-template-columns:1fr 1.12fr; gap:20px">
-    <div style="display:flex; flex-direction:column; justify-content:center; gap:14px; min-height:0">
+  <!-- THE FRAME IS A PERSON, NOT A MENU. The lead used to explain that you pick
+       the shape rather than the deliverable, which is a procurement fact and
+       reads like one: true, dull, and about a contract. What is actually on
+       offer is the colleague this reader does not have. bdr-target-personas.md
+       is unambiguous about that hole — persona 2 is "frequently one person with
+       no analyst… the job ad says he must turn shopper data into commercial
+       plans, and nobody is hired to do the turning", and persona 3 is buying "a
+       decision-shaped deliverable, not a dashboard… in an organisation with no
+       analyst, the interpretation is the product". Name the missing hire and the
+       four lines below stop being a list of file formats and become the things
+       you say to somebody.
+
+       CATEGORY, NOT STORES. The stores belong to the chain; what belongs to this
+       reader is the category, which is also the unit the seat is sold against and
+       the first thing step 1 on page 7 asks him to name.
+
+       Sunday night, not "any time". Always-on is a claim about infrastructure
+       and he has heard it; Sunday night is when he is actually building the
+       Monday slide the headline promises, and it is the one detail in the
+       sentence he will recognise as his own life. -->
+  <div class="grid2 mt22 grow" style="grid-template-columns:1fr 1.12fr; gap:20px">
+    <div style="display:flex; flex-direction:column; gap:14px; min-height:0">
+      <p class="lead"><b>Think of it as the analyst you were never given.</b> It knows your category, it is
+        there on Sunday night, and it answers in whatever shape Monday needs.</p>
+      <!-- Each line is now a thing he SAYS rather than a thing he receives. A
+           list of deliverables reads as a menu he has to pick from once; a list
+           of sentences reads as a thing he can keep doing, which is the actual
+           product. The fourth line is deliberately not a format at all — it is
+           the follow-up, and it is what separates this from a report. -->
       <ul class="vlist">
         <li><svg class="i" viewBox="0 0 24 24"><path d="M4 5h16v11H4zM8 20h8"/></svg>
-          <span><b>One slide, with its scope statement printed in its own footer</b>, because it will be forwarded
-          without us in the room.</span></li>
+          <span><b>&ldquo;Give me the one slide.&rdquo;</b> With its scope statement printed in its own footer,
+          because it will be forwarded without us in the room.</span></li>
         <li><svg class="i" viewBox="0 0 24 24"><path d="M4 4h16v16H4zM4 9h16M9 9v11"/></svg>
-          <span><b>An Excel shaped like the report you already circulate</b>, one row per category pair, with the
-          count printed on every cell.</span></li>
+          <span><b>&ldquo;Give me the full Excel.&rdquo;</b> Shaped like the report you already circulate, one row
+          per category pair, with the count printed on every cell.</span></li>
         <li><svg class="i" viewBox="0 0 24 24"><path d="M6 3h9l3 3v15H6zM9 12h6M9 16h4"/></svg>
-          <span><b>A written read:</b> one finding, one so-what, two or three moves. In an organisation with no
-          analyst, the interpretation is the product.</span></li>
-        <li><svg class="i" viewBox="0 0 24 24"><path d="M12 3v18M3 12h18"/></svg>
-          <span><b>Asked in your own words.</b> The same read answers follow-up questions in plain language,
+          <span><b>&ldquo;Give me the one-pager.&rdquo;</b> One finding, one so-what, two or three moves. In an
+          organisation with no analyst, the interpretation is the product.</span></li>
+        <li><svg class="i" viewBox="0 0 24 24"><path d="M4 5h16v11H7l-3 3z"/></svg>
+          <span><b>&ldquo;Now split that by hour.&rdquo;</b> Follow-ups in your own words, answered on the spot,
           without a ticket to an analyst.</span></li>
       </ul>
 
     </div>
 
-    <div style="display:flex; flex-direction:column; justify-content:center; gap:14px; min-height:0">
+    <div style="display:flex; flex-direction:column; gap:14px; min-height:0">
+     <div style="max-width:80%; margin-left:auto; display:flex; flex-direction:column; gap:14px">
       <div class="mock">
         <div class="bar"><i></i><i></i><i></i><span>Minds &amp; Models &middot; ask &middot; illustrative example</span></div>
         <div class="body">
@@ -988,101 +1192,140 @@ svg.i{width:16px; height:16px; flex:none; stroke:currentColor; fill:none; stroke
           <div class="ans"><b>Dawn Trades pays list.</b> They buy the same two items before 07:00 whether or not
             anything is on promotion, and index at 41 against the store.</div>
           <div class="bars">
-            <div class="brow"><span class="nm">Night Dorm</span><span class="tr"><b style="width:94%; background:#4338CA"></b></span><span class="vl">186</span></div>
-            <div class="brow"><span class="nm">Value Senior</span><span class="tr"><b style="width:68%; background:#4D7C0F"></b></span><span class="vl">134</span></div>
-            <div class="brow"><span class="nm">Store average</span><span class="tr"><b style="width:50%; background:#b3b9c4"></b></span><span class="vl">100</span></div>
-            <div class="brow"><span class="nm">Dawn Trades</span><span class="tr"><b style="width:21%; background:#B45309"></b></span><span class="vl">41</span></div>
+            <div class="brow"><span class="nm">Night Dorm</span><span class="tr"><b style="width:94%; background:var(--accent-soft)"></b></span><span class="vl">186</span></div>
+            <div class="brow"><span class="nm">Value Senior</span><span class="tr"><b style="width:68%; background:var(--accent-soft)"></b></span><span class="vl">134</span></div>
+            <div class="brow"><span class="nm">Store average</span><span class="tr"><b style="width:50%; background:var(--accent-soft)"></b></span><span class="vl">100</span></div>
+            <div class="brow"><span class="nm">Dawn Trades</span><span class="tr"><b style="width:21%; background:var(--accent-soft)"></b></span><span class="vl">41</span></div>
           </div>
-          <div class="receipt"><b>How this was counted:</b> receipt lines joined to observed visits &middot; promo flag from
-            price paid against list &middot; 4 segments, each above the k &ge; 25 floor. <b>Illustrative example, not a measured result.</b></div>
         </div>
       </div>
+
+      <div style="display:flex; flex-direction:column; align-items:center; gap:9px; padding-top:2px">
+        <a class="cta" href="https://chat.mindsmodels.ai"><b>It is live. Try it now.</b><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <span style="font-size:12px; color:var(--ink-3)">chat.mindsmodels.ai</span>
+      </div>
+     </div>
 
     </div>
   </div>
 
-  <div class="scope">Interface shown with illustrative segments. <b>Every output is built to be presentable by you to your
-    buyer as category evidence, not only brand evidence</b>, and it reaches you after the retailer has seen it, which
-    is why it is evidence your buyer has already accepted.</div>
+  <div class="flow">Decisions &rarr; Blind spot &rarr; The data &rarr; Segments &rarr; <b>Delivery</b> &rarr; The seat</div>
   <div class="pageno">6</div>
 </section>
 
 <!-- ========================================================== 7. THE ASK == -->
-<!-- Rebuilt 16 Sep 2026 against blitzkrieg/brands/paper/. The old slide offered
-     founding seats, a bounded proof and thirty minutes in one undifferentiated
-     block, which under-asks where the data already exists and promises delivery
-     where it does not.
+<!-- Left: what a seat IS. Right: the first three steps. See `.ask2` for why the
+     left has no rules on it and the right is the only card on the page.
 
-     This is the paper set, in order, as a ladder: the LOI (doc 3), the 2026
-     study order (doc 1), the 2027 founding seat (doc 2). One page serves both
-     meetings, because the reader should not have to work out which case he is
-     in. Light the rung that is live for him before sending.
+     THE LEFT COLUMN IS THREE PROPERTIES OF ONE OBJECT, in the order a reader who
+     has never bought a seat needs them: what it is (a membership in one category
+     read, scoped to a channel, a chain and a set of competing houses), how many
+     exist (three at the founding price, hard cap), and what only the first one
+     gets (design partner: he shapes the platform and the data). Each row is one
+     claim and one sentence of explanation. Nothing else — the moment a fourth
+     line appears the page starts arguing instead of stating.
 
-     RUNG 1 IS THE POINT WHERE NO RIGHTS EXIST. The brief for doc 3 is explicit
-     that the naming permission is the whole reason the document exists: a
-     signed LOI is a named brand waiting on the chain's signature. So the card
-     does not ask for help. It states the true mechanism instead, which is that
-     nobody has told the chain a brand wants this, and that his own signature is
-     the fastest route to his own read.
+     THE CLUB IS THE FRAME, and it is the honest one: this is a syndicated read
+     that up to three competing houses in the same set subscribe to, which is how
+     a Nielsen-type panel is sold and what makes it lawful to sell to competitors
+     at all (aggregated, anonymised, historic, from an independent third party).
+     Saying "membership" up front also kills the question the old page invited —
+     whether this is an agency retainer.
 
-     Every device here is real and provable: the cap of three, the refusal to be
-     exclusive, the study credit, the escrow, the budget timing. The ICP records
-     this buyer as carrying "quiet suspicion of new vendors"; a manufactured
-     scarcity would be spotted and would cost more than it wins. -->
+     NOTHING IS PROMISED THAT THE ESTATE CANNOT YET DELIVER. The earlier landing
+     carried "four reads a year" and "founding terms hold while you hold the
+     seat". Both are in the paper, neither is a thing we can stand behind on a
+     slide today, and a close is the worst place to owe someone a walk-back. The
+     cap, the scope and the design-partner seat are true the day he signs.
+
+     NO "0 EXCLUSIVE DEALS, EVER" ROW. A row whose entire content is a thing the
+     reader does not get spends the strongest slot on the page arguing against a
+     benefit nobody asked for. C11 still binds: the cap is never dressed as
+     exclusivity, and art. 5.3 says out loud that his competitors can subscribe.
+
+     WHAT THE ASK IS NOT: not a meeting, not a call, not thirty minutes, not a
+     data room. Persona 1 decides alone and reads a calendar invite as the price
+     of a question; persona 2 has no budget conversation to open yet. One sentence
+     by email is the smallest move that still starts the process, and step 1 says
+     what comes back, so sending it feels like asking a question rather than
+     entering a sales cycle. The card's own title says it: start small.
+
+     NO PRICES. The seat floor, the density escrow and the renewal mechanics live
+     in the paper. What removes risk on a slide is not a number, it is "paid on
+     delivery, no deposit, credited in full, and you can stop" — which is what
+     steps 2 and 3 say. -->
 <section class="slide">
   <div class="top">
     <span class="brand"><span class="wm sm"></span></span>
-    <span class="meta">Next step</span>
+    <span class="meta">The ask</span>
   </div>
 
-  <div class="label">What we are asking for</div>
-  <h2>Name the category and the chain.<br><span class="dim">Everything after that is optional.</span></h2>
+  <div class="label">The founding members' club</div>
+  <h2>Three seats at the founding price.<br><span class="dim">The first one shapes what it measures.</span></h2>
 
-  <p class="lead mt10" style="max-width:112ch">Three rungs, and you can stop at any of them.
-    <b>Three seats per competitive set, and never exclusive: your competitors can buy the same read, and our paper
-    says so.</b></p>
+  <div class="ask2">
 
-  <div class="grid3 mt18 grow ladder">
+    <div class="col">
+      <div class="asklbl">What a seat is</div>
 
-    <div class="card lift rung">
-      <div class="cm">Rung 1 &middot; no money</div>
-      <div class="ct mt8">Letter of intent</div>
-      <div class="cb">You let us name you to the chain, and to investors under written confidentiality. Never
-        publicly, never to press.</div>
-      <div class="lrow"><span class="k">Holds</span><span class="t">One of three seats in your set, to 31 Mar 2027.</span></div>
-      <div class="lrow"><span class="k">Gets you</span><span class="t">The first read, three months before anyone outside the three.</span></div>
-      <div class="lrow"><span class="k">Binds</span><span class="t">Nothing, except confidentiality. One page.</span></div>
-      <div class="cass"><b>Why it moves</b>Your chain is not instrumented because nobody has told them a brand wants
-        it. You telling them is the fastest route to your own read.</div>
+      <div class="arow">
+        <span class="ic"><svg viewBox="0 0 24 24"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM5 20a7 7 0 0 1 14 0"/></svg></span>
+        <h4>A brand membership in one category read</h4>
+        <p>One channel, one chain, one group of competing houses.</p>
+      </div>
+
+      <div class="arow">
+        <span class="ic"><svg viewBox="0 0 24 24"><path d="M12 3.6l2.6 5.3 5.8.85-4.2 4.1 1 5.8-5.2-2.75-5.2 2.75 1-5.8-4.2-4.1 5.8-.85z"/></svg></span>
+        <h4>Three founding brand seats</h4>
+        <p>A hard cap of three at the founding price, and no fourth. The first brand in is reading its
+          own category while the rest of the set is still deciding whether to look.</p>
+      </div>
+
+      <div class="arow">
+        <span class="ic"><svg viewBox="0 0 24 24"><path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zM9.6 9.4a2.5 2.5 0 0 1 4.9.7c0 1.7-2.5 2.1-2.5 3.8M12 17.2v.01"/></svg></span>
+        <h4>The first member shapes the platform and the data</h4>
+        <p>Founding brands come in as design partners: what gets measured, which cuts, what the outputs
+          look like. You are in the room while it is built, not picking from a menu afterwards.</p>
+      </div>
     </div>
 
-    <div class="card rung">
-      <div class="cm">Rung 2 &middot; 300,000 CZK</div>
-      <div class="ct mt8">One study, one question</div>
-      <div class="cb">A question you already argue about internally, answered on live stores. You pick it from three
-        we can run today.</div>
-      <div class="lrow"><span class="k">Paid</span><span class="t">On delivery. No deposit, no advance.</span></div>
-      <div class="lrow"><span class="k">Credits</span><span class="t">100% against the 2027 seat, if both are signed.</span></div>
-      <div class="lrow"><span class="k">Budget</span><span class="t">Trade and shopper marketing. Not research.</span></div>
-      <div class="cass"><b>If it does not happen</b>The order lapses if the retailer agreement is not in force by
-        31 Mar 2027, and nothing is owed by either side.</div>
-    </div>
+    <div class="col">
+      <div class="startc">
+        <div class="ct">Let's start small &mdash; the first three steps</div>
 
-    <div class="card rung">
-      <div class="cm">Rung 3 &middot; 1,000,000 CZK</div>
-      <div class="ct mt8">A founding seat, 2027</div>
-      <div class="cb">A quarterly read: Excel, a written interpretation, a review call, and dashboard access.</div>
-      <div class="lrow"><span class="k">Less</span><span class="t">The 300,000 study, credited in full.</span></div>
-      <div class="lrow"><span class="k">Licence</span><span class="t">Your own staff, and one named agency of record.</span></div>
-      <div class="lrow"><span class="k">Sets</span><span class="t">The question set everyone after you inherits.</span></div>
-      <div class="cass"><b>Refunded in full</b>If fewer than 30 rights-clean stations carry your set on 30 Jun 2027.
-        Renewal is 1,500,000 CZK a year, named in the paper and held while you stay.</div>
+        <div class="arow">
+          <span class="k">1</span>
+          <h4>Tell us the category and the chain</h4>
+          <p>One sentence by email. We come back with whether those stores are already instrumented, and
+            what we could answer about them today.</p>
+        </div>
+        <div class="arow">
+          <span class="k">2</span>
+          <h4>One study, one question</h4>
+          <p>A question you already argue about internally, answered on live stores. Paid on delivery, no
+            deposit, and the fee comes off the seat in full.</p>
+        </div>
+        <div class="arow">
+          <span class="k">3</span>
+          <h4>Take the seat, or stop</h4>
+          <p>If it changed a decision, you take one of the three. If it did not, you stop, and you have
+            paid for one study.</p>
+        </div>
+
+        <div style="padding-top:18px">
+          <a class="cta" href="mailto:josef@mindsmodels.ai"><b>josef@mindsmodels.ai</b><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
     </div>
 
   </div>
 
-  <div class="scope">Minds &amp; Models &middot; aggregates published at k &ge; 25 &middot; no facial recognition, no identities, no biometric
-    templates &middot; age estimated with error bands &middot; retailer holds insight priority and a veto on everything published.</div>
+  <div style="margin-top:16px; display:flex; align-items:center; justify-content:space-between; padding-top:14px; border-top:1px solid var(--hair)">
+    <span class="brand" style="color:var(--ink-3)"><span class="wm sm"></span></span>
+    <span style="font-size:12.5px; color:var(--ink-2); text-align:right; line-height:1.55"><b style="color:var(--ink); font-weight:600">Josef N&#283;me&#269;ek</b> &middot; Co-Founder<br>josef@mindsmodels.ai &middot; +420 737 138 638</span>
+  </div>
+
+  <div class="flow">Decisions &rarr; Blind spot &rarr; The data &rarr; Segments &rarr; Delivery &rarr; <b>The seat</b></div>
   <div class="pageno">7</div>
 </section>
 
