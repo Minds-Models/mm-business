@@ -1,0 +1,8 @@
+{
+  "name": "mm-business-scripts",
+  "private": true,
+  "description": "PDF rendering for mm-business deliverables. Run `npm install` in this folder once.",
+  "dependencies": {
+    "playwright": "^1.47.0"
+  }
+}

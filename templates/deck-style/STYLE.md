@@ -161,6 +161,25 @@ CLAUDE.md: `decks/YYYY-MM-DD-.../` or `clients/<slug>/delivered/YYYY-MM-DD-.../`
 
 ## PDF export
 
-Chrome turns blurred `box-shadow` and `filter:blur` into soft-mask transparency groups, which
-Mac Preview renders as grey or black rectangles. Every template carries a `@media print` block
-that drops shadows and filters and draws a hairline border instead. Keep it in every new deliverable.
+**Always render PDFs with `scripts/render-pdf.sh file.html`** (one-time setup on a new machine:
+`cd scripts && npm install`). It runs `scripts/render-pdf.js`, a two-pass "baked" render:
+
+1. every `.page` / `.slide` is screenshotted at 3x with text, images and SVG hidden, which captures the
+   whole decorative layer exactly as on screen (paper, glow, dot grid, shadows, card faces, bars);
+2. the document is printed with that JPEG as the sheet background and only text, images and SVG as
+   vectors on top. Text stays sharp, selectable and searchable.
+
+Why: Chrome's plain PDF export writes blurred shadows, masks and semi-transparent gradients as soft
+masks (grey or black boxes in Mac Preview) and `radial-gradient` as function shadings (pink in pdf.js,
+i.e. Slack and most web previews). The baked render avoids both and looks the same in every viewer.
+
+Rules that keep it working:
+
+- Wrap every printable sheet in `.page` (A4) or `.slide` (16:9). Anything outside them is not baked.
+- Load Instrument Sans in **static weights** (`wght@0,400;0,500;0,600;0,700;...`), never the variable
+  `400..700` axis: the variable font embeds as Type 3 glyphs (soft text, odd spacing, poor search).
+  The renderer serves the font from `brand/fonts/instrument-sans/`, so output does not depend on network.
+- Keep the PDF-safe print layer (`templates/deck-style/print-layer.css`) at the end of `<style>`. It is
+  the fallback for a plain Chrome print and switches itself off when the renderer adds `html.baked`.
+- `scripts/render-pdf.sh` finishes with `scripts/pdf-check.py` (needs `pip install pypdf`). A FAIL means
+  the PDF will look different in some viewer.

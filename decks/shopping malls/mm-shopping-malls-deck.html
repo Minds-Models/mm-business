@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="cs">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CPI × Minds &amp; Models: Pilotní report Olympia Mladá Boleslav</title>
+<title>Minds &amp; Models: Mall Audience Analytics</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
@@ -11,23 +11,23 @@
 /* ===========================================================================
    Minds & Models data-report skeleton. Copy this file to start a client report.
    Canonical visual system: templates/deck-style/STYLE.md (paper not chrome,
-   depth by shadow not border, colour is identity, typography carries emphasis).
+   depth by shadow not border, color is identity, typography carries emphasis).
    Content structure and data rules: templates/data-report/SPEC.md.
    Pages are 1280x720. Render PDF with scripts/render-pdf.sh.
 
-   CHART COLOUR RULES (print charts, drawn in SVG/CSS, no libraries):
+   CHART COLOR RULES (print charts, drawn in SVG/CSS, no libraries):
    - One measure, one hue: magnitude series are --accent. Context or "rest"
-     marks are grey (--ink-3), which is de-emphasis by design, not an identity.
+     marks are gray (--ink-3), which is de-emphasis by design, not an identity.
    - Polarity (above/below a baseline): --accent above, --ink-3 below, the
-     baseline itself dashed grey. Never two saturated hues.
+     baseline itself dashed gray. Never two saturated hues.
    - Segments in a chart: ALWAYS one row per segment with the segment's name
      (and avatar where useful), bar in the segment ink or in --accent. Identity
      is carried by the label, never by hue alone: several segment inks are
-     indistinguishable for colourblind readers (measured deutan dE 3.2 for
+     indistinguishable for colorblind readers (measured deutan dE 3.2 for
      Suburban Parent vs Gym Regular), so no pies/scatters keyed by segment
-     colour without direct labels.
+     color without direct labels.
    - Status: --pos (#15803d) / --neg-ink (#b42318), always with a word or icon.
-   - Text in charts wears ink tokens, never the series colour. Numbers are
+   - Text in charts wears ink tokens, never the series color. Numbers are
      tabular. Grid lines are hairlines. Chart titles state the FINDING, not
      the metric. Label directly, avoid legend boxes where labels fit.
    - Bars: thin (12-14px), flat at the baseline, 4px rounded at the data end:
@@ -171,7 +171,7 @@ svg.i{width:16px; height:16px; flex:none; stroke:currentColor; fill:none; stroke
 .hbar .fill.mut{background:var(--ink-4)}
 .hbar .vl{font-variant-numeric:tabular-nums; font-weight:600; color:var(--ink); text-align:right}
 
-/* SVG chart text defaults: ink tokens, never the series colour. */
+/* SVG chart text defaults: ink tokens, never the series color. */
 svg text{font-family:'Instrument Sans',sans-serif; fill:var(--ink-3)}
 svg .lbl{fill:var(--ink); font-weight:600; font-variant-numeric:tabular-nums}
 svg .nm{fill:var(--ink-2); font-weight:500}
@@ -186,7 +186,7 @@ svg .base{stroke:var(--ink-4); stroke-dasharray:4 3}
 /* ------------------------------------------- segments, personas, avatars -- */
 /* Twelve canonical segment palettes (ink / fill / edge): see deck-style
    STYLE.md. Per-client persona sets (NMF clusters) that are not the twelve
-   canonical segments get NO identity colour: rows + avatars + accent bars. */
+   canonical segments get NO identity color: rows + avatars + accent bars. */
 .mn{display:inline-flex; align-items:center; gap:5px; padding:1px 8px 1px 3px; border-radius:999px;
   font-size:12px; font-weight:600; letter-spacing:-.01em; vertical-align:baseline;
   border:1px solid; white-space:nowrap}
@@ -250,7 +250,7 @@ svg .base{stroke:var(--ink-4); stroke-dasharray:4 3}
 
 /* bottom action strip: one action for CPI, one for its tenants. Sits in the slot
    the dark Dopad bar used to occupy, so no slide grows taller. Identity is carried
-   by the label text as well as by the colour. */
+   by the label text as well as by the color. */
 .acts{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:11px}
 .act{border:1px solid var(--accent-edge); background:var(--accent-wash); border-radius:var(--r-md);
   padding:8px 14px 9px; color:#1E40AF}
@@ -261,7 +261,7 @@ svg .base{stroke:var(--ink-4); stroke-dasharray:4 3}
 .act .x{font-size:12.5px; line-height:1.35; font-weight:500}
 .act .x b{font-weight:600; font-variant-numeric:tabular-nums}
 /* group composition (slide 04): three icon columns, no bars. The dominant
-   mode carries the accent, the tail is grey — same de-emphasis as .fill.mut. */
+   mode carries the accent, the tail is gray, same de-emphasis as .fill.mut. */
 .gcomp{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px; text-align:center}
 .gcomp .gi{display:grid; place-items:center; height:30px; color:var(--accent)}
 .gcomp .gi svg{width:27px; height:27px; stroke:currentColor; fill:none; stroke-width:1.5;
@@ -320,13 +320,212 @@ svg .base{stroke:var(--ink-4); stroke-dasharray:4 3}
 
 
 
+
+/* ---------------------------------------------- shopping-malls deck extras -- */
+.slide .top .brand .wm{width:150px}
+a{color:inherit; text-decoration:none}
+.ey{font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:.1em; color:var(--accent)}
+.big{font-size:44px; font-weight:600; letter-spacing:-.04em; line-height:1; font-variant-numeric:tabular-nums; color:var(--ink)}
+.big.b{color:var(--accent)}
+.card .ch{color:var(--ink)}
+.card p.lead{font-size:13px}
+.q3{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px}
+.q3 .card{padding:18px 18px 16px; gap:10px}
+.q3 .num{font-size:11px; font-weight:600; color:var(--accent); font-variant-numeric:tabular-nums; letter-spacing:.06em}
+.q3 .t{font-size:18px; font-weight:600; letter-spacing:-.02em; line-height:1.2; color:var(--ink)}
+.q3 .qq{font-size:13.5px; line-height:1.55; color:var(--ink-2)}
+.q3 .today{margin-top:auto; padding-top:10px; border-top:1px solid var(--hair); font-size:11.5px; color:var(--ink-3)}
+.q3 .today b{color:var(--ink-2); font-weight:600}
+
+/* comparison matrix */
+.cmp{width:100%; border-collapse:separate; border-spacing:0; font-size:12.5px}
+.cmp th{font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:.08em; color:var(--ink-4); text-align:center; padding:0 8px 10px; vertical-align:bottom}
+.cmp th:first-child{text-align:left; padding-left:16px}
+.cmp td{padding:11px 8px; text-align:center; border-top:1px solid var(--hair); color:var(--ink-3)}
+.cmp td:first-child{text-align:left; padding-left:16px}
+.cmp td .n{display:block; font-size:13.5px; font-weight:600; color:var(--ink)}
+.cmp td .s{display:block; font-size:11px; color:var(--ink-3); margin-top:1px}
+.cmp .y{display:inline-grid; place-items:center; width:22px; height:22px; border-radius:999px; background:var(--accent-wash); border:1px solid var(--accent-edge); color:var(--accent); font-size:12px; font-weight:700}
+.cmp .p{font-size:11px; color:var(--ink-3)}
+.cmp .x{color:var(--ink-4); font-size:15px}
+.cmp tr.us td{background:var(--accent-wash); border-top:1px solid var(--accent-edge)}
+.cmp tr.us td:first-child{border-radius:14px 0 0 14px}
+.cmp tr.us td:last-child{border-radius:0 14px 14px 0}
+.cmp tr.us .y{background:var(--accent); border-color:var(--accent); color:#fff}
+
+/* case study strip */
+.cs{display:inline-flex; align-items:center; gap:8px; padding:5px 12px 5px 6px; border-radius:999px;
+  background:#16181d; color:#fff; font-size:11px; font-weight:500; letter-spacing:.01em}
+.cs i{font-style:normal; font-size:9px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; background:var(--accent); border-radius:999px; padding:3px 8px}
+
+/* role question cards (AI slide) */
+.roles{display:flex; flex-direction:column; gap:10px}
+.role{background:var(--paper-lift); border:1px solid rgba(16,24,40,.055); border-radius:var(--r-lg); box-shadow:var(--sh-1); padding:13px 16px 12px}
+.role .who{font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:.09em; color:var(--ink-4)}
+.role .askbar{margin-top:7px; padding:9px 10px 9px 14px}
+.role .askbar .q{font-size:13.5px; font-weight:500}
+.role .so{font-size:11.5px; color:var(--ink-3); margin-top:7px}
+.role .so b{color:var(--accent); font-weight:600}
+.pts{display:flex; flex-direction:column; gap:10px}
+.pt{display:flex; gap:12px; align-items:flex-start}
+.pt .ch{font-size:14px; font-weight:600; color:var(--ink); letter-spacing:-.014em}
+.pt p{font-size:12.5px; line-height:1.5; color:var(--ink-2); margin-top:2px}
+.try{display:flex; align-items:center; justify-content:space-between; gap:14px; background:#16181d; color:#fff; border-radius:var(--r-lg); padding:15px 18px}
+.try .l{font-size:9.5px; font-weight:600; text-transform:uppercase; letter-spacing:.11em; color:#8d94a2}
+.try .u{font-size:22px; font-weight:600; letter-spacing:-.03em; margin-top:3px}
+.try .go{display:inline-flex; align-items:center; gap:6px; background:var(--accent); color:#fff; font-size:12.5px; font-weight:600; border-radius:999px; padding:8px 14px; white-space:nowrap}
+
+/* two-column actions */
+.cols2{display:grid; grid-template-columns:1fr 1fr; gap:16px}
+.colh{display:flex; align-items:center; gap:8px; font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:.1em; margin-bottom:9px}
+.colh .dot{width:8px; height:8px; border-radius:50%}
+.colh.you{color:var(--accent)} .colh.you .dot{background:var(--accent)}
+.colh.ten{color:#B45309} .colh.ten .dot{background:#F59E0B}
+.do{display:flex; flex-direction:column; gap:9px}
+.do .card{padding:13px 16px 12px}
+.do .ch{font-size:14.5px; font-weight:600; letter-spacing:-.015em}
+.do .ev{font-size:11.5px; color:var(--ink-3); margin-top:5px; line-height:1.45}
+.do .ev b{color:var(--ink); font-weight:600; font-variant-numeric:tabular-nums}
+.do.ten .card{border-color:#FDE68A}
+
+/* portfolio */
+.centers4{display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px}
+.cen{background:var(--paper-lift); border:1px solid rgba(16,24,40,.055); border-radius:var(--r-md); box-shadow:var(--sh-1); padding:11px 12px}
+.cen .nm{font-size:12.5px; font-weight:600; color:var(--ink)}
+.cen .sub2{font-size:10.5px; color:var(--ink-4); margin-top:1px}
+.mix{display:flex; height:10px; border-radius:999px; overflow:hidden; margin-top:10px; gap:2px}
+.mix i{display:block; height:100%}
+.cams{display:flex; gap:4px; margin-top:9px}
+.cams span{width:16px; height:16px; border-radius:5px; display:grid; place-items:center; background:var(--accent-wash); border:1px solid var(--accent-edge)}
+.cams span.t{background:#FEF3C7; border-color:#FCD34D}
+.cams span svg{width:9px; height:9px; stroke:var(--accent); fill:none; stroke-width:2}
+.cams span.t svg{stroke:#B45309}
+.hub{display:flex; align-items:center; justify-content:center; gap:10px; font-size:12px; color:var(--ink-3)}
+.hub .arrow{color:var(--ink-4)}
+
+/* privacy */
+.priv{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px}
+.priv .card{padding:16px 16px 14px; gap:8px}
+.priv .ch{font-size:15px; font-weight:600; letter-spacing:-.015em; margin:8px 0 0}
+.priv p{font-size:12.5px; line-height:1.5; color:var(--ink-2)}
+
+/* start */
+.steps3{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px}
+.steps3 .card{padding:16px 16px 14px; gap:6px}
+.steps3 .ch{font-size:16px; font-weight:600; letter-spacing:-.018em; margin-top:10px}
+.steps3 .when{font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:.09em; color:var(--ink-4)}
+.steps3 ul{list-style:none; display:flex; flex-direction:column; gap:5px; margin-top:6px}
+.steps3 li{font-size:12.5px; line-height:1.45; color:var(--ink-2); padding-left:14px; position:relative}
+.steps3 li::before{content:''; position:absolute; left:1px; top:7px; width:5px; height:5px; border-radius:50%; background:var(--accent-soft)}
+.contact{display:flex; align-items:center; gap:16px; background:var(--accent-wash); border:1px solid var(--accent-edge); border-radius:var(--r-lg); padding:14px 18px}
+.contact img{width:54px; height:54px; border-radius:50%; object-fit:cover; object-position:top center; box-shadow:0 0 0 2px #fff}
+.contact .nm{font-size:16px; font-weight:600; color:var(--ink); letter-spacing:-.018em}
+.contact .rl{font-size:11.5px; color:var(--ink-3)}
+.contact .ln{display:flex; gap:16px; font-size:12.5px; color:#1e40af; font-variant-numeric:tabular-nums; margin-left:auto; flex-wrap:wrap; justify-content:flex-end}
+
+/* sizing pass */
+.mid{flex:1; min-height:0; display:flex; flex-direction:column; justify-content:center; padding:10px 0}
+.q3 .t{font-size:22px} .q3 .qq{font-size:15.5px} .q3 .today{font-size:12.5px} .q3 .card{padding:22px 22px 18px}
+.cmp{font-size:14px} .cmp th{font-size:11px; padding-bottom:12px} .cmp td{padding:15px 8px} .cmp td .n{font-size:16px} .cmp td .s{font-size:12px} .cmp .p{font-size:12.5px}
+.cmp .y{width:26px; height:26px}
+.slide .card .kv{font-size:14px; padding:12px 0} .slide .card .kv .k{min-width:150px}
+.slide .card>.ch{font-size:15px}
+.tile .k{font-size:11px} .tile .s{font-size:12.5px}
+.hbars.w{gap:10px} .hbars.w .hbar{font-size:13px} .hbars.w .hbar .track{height:14px}
+.role .askbar .q{font-size:15px} .role .so{font-size:13px} .role .who{font-size:10.5px}
+.pt .ch{font-size:15.5px} .pt p{font-size:13.5px}
+.do .ch{font-size:16.5px} .do .ev{font-size:13.5px} .do .card{padding:16px 18px 15px} .do{gap:12px}
+.cen{padding:14px 16px} .cen .nm{font-size:15px} .cen .sub2{font-size:12px} .cams span{width:20px; height:20px}
+.mid .grid3 .card{padding:18px 18px 16px} .mid .grid3 .ch{font-size:15.5px} .mid .grid3 p.lead{font-size:14px; margin-top:6px}
+.priv .ch{font-size:17px} .priv p{font-size:14px} .priv .card{padding:18px 18px 16px}
+.steps3 .ch{font-size:20px} .steps3 li{font-size:14.5px} .steps3 .when{font-size:11px} .steps3 .card{padding:20px 20px 18px}
+.contact .ln{font-size:14px} .contact .nm{font-size:18px}
+.acts .act .x{font-size:13.5px}
+.hbars.w .hbar.w{grid-template-columns:165px 1fr 52px}
+.hbars.age{gap:11px} .hbars.age .hbar{font-size:13px} .hbars.age .hbar .track{height:14px}
+
+/* readability pass: title and header rows */
+.slide .top .meta{font-size:13px; color:var(--ink-2)}
+.slide .label{font-size:12px; color:var(--ink-2)}
+.cmp th{font-size:13.5px !important; font-weight:600; text-transform:none; letter-spacing:-.005em; color:var(--ink) !important; padding:0 8px 14px !important}
+.cmp th:first-child{padding-left:16px !important}
+.ptab{width:100%; border-collapse:collapse}
+.ptab th{font-size:12.5px; font-weight:600; color:var(--ink); text-align:right; padding:0 6px 9px; border-bottom:1px solid var(--hair-2)}
+.ptab th:first-child,.ptab th:last-child{text-align:left}
+.ptab td{font-size:13px; color:var(--ink-2); padding:9px 6px; border-bottom:1px solid var(--hair)}
+.ptab tr:last-child td{border-bottom:none}
+.ptab td.v{text-align:right; font-variant-numeric:tabular-nums; font-weight:600; color:var(--ink)}
+.ptab td.v.b{color:var(--accent)}
+.ptab .chip{font-size:11px}
+
+/* ---- revision 3 ---- */
+.strip{background:var(--accent-wash); border:1px solid var(--accent-edge); border-radius:var(--r-lg); padding:14px 18px 15px; color:#1e3a8a}
+.strip .l{font-size:10.5px; font-weight:600; text-transform:uppercase; letter-spacing:.1em; color:var(--accent); margin-bottom:5px}
+.strip p{font-size:14px; line-height:1.5; color:#1e40af}
+.strip p b{color:#1e3a8a; font-weight:600}
+.mtx{display:grid; grid-template-columns:1.4fr repeat(5,1fr); border:1px solid var(--hair-2); border-radius:var(--r-lg); overflow:hidden; background:var(--paper-lift)}
+.mtx>div{padding:11px 10px; border-bottom:1px solid var(--hair); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px; text-align:center}
+.mtx .hd{font-size:13.5px; font-weight:600; color:var(--ink); background:#f6f7f9; line-height:1.25; padding:13px 10px}
+.mtx .nm{align-items:flex-start; text-align:left; gap:2px; font-size:15px; font-weight:600; color:var(--ink); padding-left:18px}
+.mtx .nm small{font-weight:400; font-size:12px; color:var(--ink-3)}
+.mtx .q{font-size:12px; color:var(--ink-2); line-height:1.3}
+.mk{display:grid; place-items:center; width:26px; height:26px; border-radius:50%; flex:none}
+.mk svg{width:15px; height:15px; stroke:currentColor; fill:none; stroke-width:2.8; stroke-linecap:round; stroke-linejoin:round}
+.mk.y{background:var(--pos-soft); color:var(--pos)}
+.mk.n{background:#fdecec; color:#dc2626}
+.mk.p{background:#fff6e8; color:#b45309}
+.mtx .us{background:var(--pos-soft); border-bottom:none; border-top:2px solid var(--pos-edge)}
+.mtx .us .q{color:#166534; font-weight:600}
+.mtx .us.nm{color:var(--pos); font-size:16px}
+.mtx .us.nm small{color:#166534}
+.mtx .us .mk.y{background:var(--pos); color:#fff}
+
+.slide.framed .frame{position:absolute; inset:18px; border:1.5px solid #16181d; border-radius:16px; pointer-events:none; z-index:0}
+.cs-corner{position:absolute !important; top:9px; right:44px; z-index:2 !important; box-shadow:0 0 0 6px var(--paper)}
+.legend3{display:flex; gap:18px; margin:8px 0 10px; font-size:12px; color:var(--ink-2)}
+.legend3>span{display:inline-flex; align-items:center; gap:6px}
+.pi{display:inline-grid; place-items:center; width:18px; height:18px; border-radius:6px; background:#f1f3f6; color:var(--ink-2); flex:none}
+.pi svg{width:11px; height:11px; stroke:currentColor; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round}
+.buy .pi{background:var(--accent-wash); color:var(--accent)}
+.pgrid{gap:12px 12px !important}
+.pcard.pc3{padding:11px 12px 11px}
+.pcard.pc3 .share{font-size:20px}
+.pcard.pc3 .nm{font-size:13px; margin-top:6px}
+.pcard.pc3 .rl{font-size:10.5px; margin-bottom:5px}
+.pr{display:flex; align-items:flex-start; gap:7px; font-size:10.8px; line-height:1.35; color:var(--ink-2); margin-top:5px}
+.pr b{color:var(--ink); font-weight:600; font-variant-numeric:tabular-nums}
+.pr.buy b{color:var(--accent)}
+.kpis{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:10px}
+.kpi{border:1px solid var(--accent-edge); background:var(--accent-wash); border-radius:var(--r-md); padding:9px 14px 10px; color:#1e40af}
+.kpi.ten{border-color:#FCD34D; background:#FEF3C7; color:#92400E}
+.kpi .l{font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:.1em; color:var(--accent)}
+.kpi.ten .l{color:#B45309}
+.kpi .m{font-size:13.5px; font-weight:600; color:#1e3a8a; margin-top:2px}
+.kpi.ten .m{color:#78350F}
+.kpi .e{font-size:11.5px; margin-top:2px}
+.kpi .e b{font-weight:700; font-variant-numeric:tabular-nums}
+.slide.framed .scope{bottom:24px}
+.slide.framed .pageno{bottom:24px; right:44px}
+
+.mn.loc{color:#0E7490; background:#CFFAFE; border-color:#67E8F9; padding-left:3px}
+.role .askbar .q .mn{font-size:13px; padding:1px 8px 1px 3px; vertical-align:-3px}
+.role .askbar .q .mn i{width:17px; height:17px}
+
+.ktab{width:100%; border-collapse:collapse}
+.ktab th{font-size:13.5px; font-weight:600; color:var(--ink); text-align:left; padding:12px 10px 10px; border-bottom:1.5px solid var(--hair-2)}
+.ktab td{font-size:13.5px; color:var(--ink-2); padding:11px 10px; border-bottom:1px solid var(--hair); vertical-align:top; line-height:1.4}
+.ktab tr:last-child td{border-bottom:none}
+.ktab td.k{font-size:15px; font-weight:600; color:var(--ink)}
+.ktab tr:last-child td.k{color:var(--accent)}
+
+.priv.p3{grid-template-columns:repeat(3,minmax(0,1fr))}
 /* ---- PDF-safe print layer (keep in every deliverable) ----------------------
    Chrome's PDF export turns some CSS into constructs that viewers disagree on:
    - blurred box-shadow, filter:blur, semi-transparent gradients -> soft masks,
-     drawn as grey/black boxes by Mac Preview
+     drawn as gray/black boxes by Mac Preview
    - radial-gradient -> function shadings (ShadingType 1), drawn pink by pdf.js
      (Slack, most web previews)
-   In print we keep every colour opaque and flat: the dot grid becomes a PNG tile,
+   In print we keep every color opaque and flat: the dot grid becomes a PNG tile,
    the glow is dropped, depth comes from hairline borders. Check output with
    scripts/pdf-check.py. Screen rendering is unchanged. This layer is the fallback for a
    plain Chrome print; scripts/render-pdf.js adds html.baked and switches it off. */
@@ -351,584 +550,259 @@ svg .base{stroke:var(--ink-4); stroke-dasharray:4 3}
 <body>
 <div class="deck">
 
-<!-- ============================================================ 1. COVER == -->
+<!-- 01 COVER ============================================================ -->
 <section class="slide center">
   <div class="top" style="position:absolute; top:44px; left:58px; right:58px; width:auto; margin:0">
-    <span class="brand"><img class="clogo" src="cpi.png" alt="CPI"><span class="x">&times;</span><span class="wm"></span></span>
-    <span class="meta">Pilot &middot; st 26. 8. &ndash; st 9. 9. 2026 &middot; 14 dn&iacute;<br>D&#367;v&#283;rn&eacute;, pro veden&iacute; CPI</span>
+    <span class="brand"><span class="wm"></span></span>
+    <span class="meta">Mall audience analytics<br>mindsmodels.ai</span>
   </div>
-  <p class="label">Pilotn&iacute; zpr&aacute;va &middot; OC Olympia Mlad&aacute; Boleslav</p>
-  <h1>Kolik lid&iacute; p&#345;i&scaron;lo, u&#382; v&iacute;te.<br><span class="dim">Te&#271; v&iacute;te i kdo to je a co si odn&aacute;&scaron;&iacute;.</span></h1>
-  <p class="sub mt14" style="max-width:70ch">14denn&iacute; m&#283;&#345;en&iacute; na dvou vchodech Olympie zachytilo <b style="color:var(--ink); font-weight:600">92&nbsp;456 vstup&#367;</b> do centra. Ka&#382;d&aacute; n&aacute;v&scaron;t&#283;va je popsan&aacute; p&#345;es 100 vizu&aacute;ln&iacute;ch atribut&#367; a&nbsp;slo&#382;en&aacute; do <b style="color:var(--ink); font-weight:600">8 n&aacute;v&scaron;t&#283;vnick&yacute;ch person</b> s&nbsp;&#269;asov&yacute;mi vzorci. Nadstavba nad po&#269;&iacute;t&aacute;n&iacute; n&aacute;v&scaron;t&#283;vnosti a&nbsp;z&aacute;kladn&iacute; odhady v&#283;ku a&nbsp;pohlav&iacute;.</p>
+  <p class="label">The future of mall audience analytics</p>
+  <h1>You already count your visitors.<br><span class="dim">Now see who they are, and what they leave with.</span></h1>
+  <p class="sub mt14" style="max-width:66ch">We describe every shopper across <b style="color:var(--ink); font-weight:600">88+ visual attributes</b>, group your visitors into audiences and show when each one comes and how many visits end with a purchase.</p>
   <div class="shield mt18" style="display:inline-flex; padding:7px 15px 8px; border-radius:999px; font-size:11.5px; letter-spacing:.01em">
     <svg viewBox="0 0 24 24" style="width:15px; height:15px"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z"/></svg>
-    <span><b>GDPR</b> &middot; bez rozpozn&aacute;v&aacute;n&iacute; obli&#269;ej&#367;, bez identit</span>
+    <span><b>Privacy by design</b> &middot; no facial recognition, no identities, aggregates only</span>
   </div>
-  <p class="note" style="max-width:100ch; margin-top:16px">Zdroj: senzory Minds &amp; Models na vchodech A a B, &#269;as Europe/Prague. Zapo&#269;&iacute;t&aacute;n ka&#382;d&yacute; validn&iacute; pr&#367;chod, person&aacute;l odfiltrov&aacute;n.</p>
-  <div class="flow"><b>DATA</b> &rarr; INSIGHT &rarr; DOPAD</div><div class="pageno">01 / 10</div>
+  <div class="flow"><b>COVER</b> &rsaquo; DECISIONS &rsaquo; DATA &rsaquo; PROOF &rsaquo; PRODUCT &rsaquo; ROLLOUT</div><div class="pageno">01 / 09</div>
 </section>
 
-<!-- ========================================= 2. METHODOLOGY + PRIVACY == -->
+<!-- 02 DECISIONS ======================================================== -->
 <section class="slide">
-  <div class="top">
-    <span class="brand"><img class="clogo" src="cpi.png" alt="CPI"><span class="x">&times;</span><span class="wm sm"></span></span>
-    <span class="meta">Metodika &middot; 26. 8. &ndash; 9. 9. 2026 &middot; Olympia MB</span>
-  </div>
-  <p class="label">02 &middot; Jak m&#283;&#345;&iacute;me</p>
-  <h2>Jedna kamera na vchodu, dv&#283; roviny pozn&aacute;n&iacute;:<br><span class="dim">kolik lid&iacute; p&#345;i&scaron;lo a kdo to byl.</span></h2>
-  <div class="grow mt14" style="display:flex; flex-direction:column; gap:14px">
-    <div class="two" style="--l:1.05; --r:.95; align-items:stretch; flex:1; min-height:0">
-      <div class="card">
-        <div class="ch"><svg class="i" viewBox="0 0 24 24"><path d="M3 7l9-4 9 4-9 4-9-4zm0 5l9 4 9-4M3 17l9 4 9-4"/></svg>Z &#269;eho se m&#283;&#345;en&iacute; skl&aacute;d&aacute;</div>
-        <div class="kv"><span class="k">Z&aacute;b&#283;r</span><span class="v">ka&#382;d&yacute; pr&#367;chod vchody A a B, 14 dn&iacute; v kuse</span></div>
-        <div class="kv"><span class="k">Vizu&aacute;ln&iacute; popis</span><span class="v">100+ atribut&#367; na n&aacute;v&scaron;t&#283;vu: v&#283;k, styl, zna&#269;ky, doprovod, nesen&eacute; p&#345;edm&#283;ty</span></div>
-        <div class="kv"><span class="k">Segmentace</span><span class="v">model slo&#382;&iacute; atributy do 8 person + jejich &#269;asov&yacute;ch vzorc&#367;</span></div>
-        <div class="kv"><span class="k">Kontrola kvality</span><span class="v">person&aacute;l odfiltrov&aacute;n, jen validn&iacute; pr&#367;chody, ka&#382;d&eacute; &#269;&iacute;slo dohledateln&eacute;</span></div>
-        <div class="kv"><span class="k">V&yacute;stupy</span><span class="v">n&aacute;v&scaron;t&#283;vnost po dnech a hodin&aacute;ch, 8 person s &#269;asov&yacute;mi vzorci, n&aacute;kupn&iacute; sign&aacute;l</span></div>
-      </div>
-      <div class="card">
-        <div class="ch">14 dn&iacute; pilotu v jednom sloupci</div>
-        <div class="hbars mt8">
-          <div class="hbar w"><span class="nm">Nejsiln&#283;j&scaron;&iacute; den (so 5.&nbsp;9.)</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="vl">8&nbsp;119</span></div>
-        <div class="hbar w"><span class="nm">&Oslash; den pilotu</span><span class="track"><span class="fill" style="width:81%"></span></span><span class="vl">6&nbsp;604</span></div>
-        <div class="hbar w"><span class="nm">Nejslab&scaron;&iacute; den (&uacute;t 8.&nbsp;9.)</span><span class="track"><span class="fill mut" style="width:61%"></span></span><span class="vl">4&nbsp;969</span></div>
-      </div>
-        <p class="note" style="margin-top:auto">Celkem <b>92&nbsp;456 vstup&#367;</b> ob&#283;ma vchody za 14 dn&iacute;; nejsiln&#283;j&scaron;&iacute; a nejslab&scaron;&iacute; den se li&scaron;&iacute; o&nbsp;63&nbsp;%.</p>
-      </div>
-    </div>
-    <div class="core" style="margin-top:auto">
-      <div class="l">Dopad</div>
-      <p>Footfall po&#269;&iacute;tadlo &#345;ekne <b>kolik</b>. Tohle m&#283;&#345;en&iacute; &#345;&iacute;k&aacute; <b>kdo p&#345;i&scaron;el, kdy chod&iacute;, co nos&iacute; a co si odn&aacute;&scaron;&iacute;</b>, a to na stejn&eacute; kame&#345;e.</p>
-    </div>
-  </div>
-  <div class="flow"><b>DATA</b> &rarr; INSIGHT &rarr; DOPAD</div><div class="pageno">02 / 10</div>
-</section>
-
-<!-- ================================================== 3. FOOTFALL, WHEN == -->
-<section class="slide">
-  <div class="top">
-    <span class="brand"><img class="clogo" src="cpi.png" alt="CPI"><span class="x">&times;</span><span class="wm sm"></span></span>
-    <span class="meta">N&aacute;v&scaron;t&#283;vnost &middot; vstupy dle dne a hodiny</span>
-  </div>
-  <p class="label">03 &middot; N&aacute;v&scaron;t&#283;vnost centra</p>
-  <h2>V&iacute;kend p&#345;iv&aacute;d&iacute; o&nbsp;22&nbsp;% v&iacute;c lid&iacute; ne&#382; v&scaron;edn&iacute; den, <span class="dim">&scaron;pi&#269;ka dr&#382;&iacute; od 11 do 18 hodin.</span></h2>
-  <div class="two mt10 grow" style="--l:2.4; --r:.9; align-items:stretch">
-    <div style="display:flex; flex-direction:column; gap:10px; min-width:0">
-      <div class="card" style="padding-bottom:10px">
-        <div class="ch">Vstupy po dnech: ob&#283; soboty nejsiln&#283;j&scaron;&iacute;, druh&yacute; t&yacute;den u&#382; bez pr&aacute;zdnin</div>
-        <svg viewBox="0 0 700 200" width="100%" height="172">
-          <line class="grid" x1="14" y1="166" x2="690" y2="166"/>
-          <g font-size="9">
-            <path d="M20 54 a4 4 0 0 1 4 -4 h26 a4 4 0 0 1 4 4 V166 h-34 z" fill="var(--ink-3)"/>
-            <path d="M68 58 a4 4 0 0 1 4 -4 h26 a4 4 0 0 1 4 4 V166 h-34 z" fill="var(--ink-3)"/>
-            <path d="M116 49 a4 4 0 0 1 4 -4 h26 a4 4 0 0 1 4 4 V166 h-34 z" fill="var(--ink-3)"/>
-            <path d="M164 38 a4 4 0 0 1 4 -4 h26 a4 4 0 0 1 4 4 V166 h-34 z" fill="var(--accent)"/>
-            <path d="M212 43 a4 4 0 0 1 4 -4 h26 a4 4 0 0 1 4 4 V166 h-34 z" fill="var(--accent)"/>
-            <path d="M260 41 a4 4 0 0 1 4 -4 h26 a4 4 0 0 1 4 4 V166 h-34 z" fill="var(--ink-3)"/>
-            <path d="M308 58 a4 4 0 0 1 4 -4 h26 a4 4 0 0 1 4 4 V166 h-34 z" fill="var(--ink-3)"/>
-            <path d="M356 73 a4 4 0 0 1 4 -4 h26 a4 4 0 0 1 4 4 V166 h-34 z" fill="var(--ink-3)"/>
-            <path d="M404 73 a4 4 0 0 1 4 -4 h26 a4 4 0 0 1 4 4 V166 h-34 z" fill="var(--ink-3)"/>
-            <path d="M452 56 a4 4 0 0 1 4 -4 h26 a4 4 0 0 1 4 4 V166 h-34 z" fill="var(--ink-3)"/>
-            <path d="M500 30 a4 4 0 0 1 4 -4 h26 a4 4 0 0 1 4 4 V166 h-34 z" fill="var(--accent)"/>
-            <path d="M548 48 a4 4 0 0 1 4 -4 h26 a4 4 0 0 1 4 4 V166 h-34 z" fill="var(--accent)"/>
-            <path d="M596 81 a4 4 0 0 1 4 -4 h26 a4 4 0 0 1 4 4 V166 h-34 z" fill="var(--ink-3)"/>
-            <path d="M644 84 a4 4 0 0 1 4 -4 h26 a4 4 0 0 1 4 4 V166 h-34 z" fill="var(--ink-3)"/>
-          </g>
-          <g font-size="9" text-anchor="middle">
-            <text class="lbl" x="37" y="45">6&#8239;731</text><text class="lbl" x="85" y="49">6&#8239;504</text>
-            <text class="lbl" x="133" y="40">7&#8239;002</text><text class="lbl" x="181" y="29">7&#8239;680</text>
-            <text class="lbl" x="229" y="34">7&#8239;394</text><text class="lbl" x="277" y="32">7&#8239;475</text>
-            <text class="lbl" x="325" y="49">6&#8239;521</text><text class="lbl" x="373" y="64">5&#8239;631</text>
-            <text class="lbl" x="421" y="64">5&#8239;606</text><text class="lbl" x="469" y="47">6&#8239;585</text>
-            <text class="lbl" x="517" y="21">8&#8239;119</text><text class="lbl" x="565" y="39">7&#8239;061</text>
-            <text class="lbl" x="613" y="72">5&#8239;178</text><text class="lbl" x="661" y="75">4&#8239;969</text>
-          </g>
-          <g class="mut" text-anchor="middle" font-size="9">
-            <text x="37" y="180">St</text><text x="85" y="180">&#268;t</text><text x="133" y="180">P&aacute;</text>
-            <text x="181" y="180">So</text><text x="229" y="180">Ne</text><text x="277" y="180">Po</text>
-            <text x="325" y="180">&Uacute;t</text><text x="373" y="180">St</text><text x="421" y="180">&#268;t</text>
-            <text x="469" y="180">P&aacute;</text><text x="517" y="180">So</text><text x="565" y="180">Ne</text>
-            <text x="613" y="180">Po</text><text x="661" y="180">&Uacute;t</text>
-            <text x="37" y="192">26.8.</text><text x="85" y="192">27.8.</text><text x="133" y="192">28.8.</text>
-            <text x="181" y="192">29.8.</text><text x="229" y="192">30.8.</text><text x="277" y="192">31.8.</text>
-            <text x="325" y="192">1.9.</text><text x="373" y="192">2.9.</text><text x="421" y="192">3.9.</text>
-            <text x="469" y="192">4.9.</text><text x="517" y="192">5.9.</text><text x="565" y="192">6.9.</text>
-            <text x="613" y="192">7.9.</text><text x="661" y="192">8.9.</text>
-          </g>
-        </svg>
-        <div class="legend" style="margin-top:2px"><span><span class="sw" style="background:var(--accent)"></span> v&iacute;kend</span><span><span class="sw" style="background:var(--ink-3)"></span> v&scaron;edn&iacute; den</span><span>po&#269;et vstup&#367; za den</span></div>
-      </div>
-      <div class="card" style="padding-bottom:10px">
-        <div class="ch">Hodinov&yacute; profil: dv&#283; &scaron;pi&#269;ky kolem 11. a mezi 15.&ndash;17. hodinou</div>
-        <svg viewBox="0 0 700 118" width="100%" height="98">
-          <line class="grid" x1="14" y1="92" x2="690" y2="92"/>
-          <g fill="var(--accent)">
-            <path d="M20 82 a3 3 0 0 1 3 -3 h24 a3 3 0 0 1 3 3 V92 h-30 z"/>
-            <path d="M65 63 a3 3 0 0 1 3 -3 h24 a3 3 0 0 1 3 3 V92 h-30 z"/>
-            <path d="M110 47 a3 3 0 0 1 3 -3 h24 a3 3 0 0 1 3 3 V92 h-30 z"/>
-            <path d="M155 32 a3 3 0 0 1 3 -3 h24 a3 3 0 0 1 3 3 V92 h-30 z"/>
-            <path d="M200 23 a3 3 0 0 1 3 -3 h24 a3 3 0 0 1 3 3 V92 h-30 z"/>
-            <path d="M245 31 a3 3 0 0 1 3 -3 h24 a3 3 0 0 1 3 3 V92 h-30 z"/>
-            <path d="M290 30 a3 3 0 0 1 3 -3 h24 a3 3 0 0 1 3 3 V92 h-30 z"/>
-            <path d="M335 25 a3 3 0 0 1 3 -3 h24 a3 3 0 0 1 3 3 V92 h-30 z"/>
-            <path d="M380 19 a3 3 0 0 1 3 -3 h24 a3 3 0 0 1 3 3 V92 h-30 z"/>
-            <path d="M425 21 a3 3 0 0 1 3 -3 h24 a3 3 0 0 1 3 3 V92 h-30 z"/>
-            <path d="M470 24 a3 3 0 0 1 3 -3 h24 a3 3 0 0 1 3 3 V92 h-30 z"/>
-            <path d="M515 35 a3 3 0 0 1 3 -3 h24 a3 3 0 0 1 3 3 V92 h-30 z"/>
-            <path d="M560 59 a3 3 0 0 1 3 -3 h24 a3 3 0 0 1 3 3 V92 h-30 z"/>
-            <path d="M605 82 a3 3 0 0 1 3 -3 h24 a3 3 0 0 1 3 3 V92 h-30 z"/>
-            <path d="M650 89 a3 3 0 0 1 3 -3 h24 a3 3 0 0 1 3 3 V92 h-30 z"/>
-          </g>
-          <text class="lbl" x="215" y="14" text-anchor="middle" font-size="9.5">9,6&nbsp;%</text>
-          <text class="lbl" x="395" y="10" text-anchor="middle" font-size="9.5">10,1&nbsp;%</text>
-          <g class="mut" text-anchor="middle" font-size="9">
-            <text x="35" y="106">7</text><text x="80" y="106">8</text><text x="125" y="106">9</text>
-            <text x="170" y="106">10</text><text x="215" y="106">11</text><text x="260" y="106">12</text>
-            <text x="305" y="106">13</text><text x="350" y="106">14</text><text x="395" y="106">15</text>
-            <text x="440" y="106">16</text><text x="485" y="106">17</text><text x="530" y="106">18</text>
-            <text x="575" y="106">19</text><text x="620" y="106">20</text><text x="665" y="106">21</text>
-          </g>
-        </svg>
-        <p class="note" style="margin-top:2px">Pod&iacute;l vstup&#367; v dan&eacute; hodin&#283; na cel&eacute;m pilotu. P&#345;ed 7:00 a po 21:00 je provoz zanedbateln&yacute;.</p>
-      </div>
-    </div>
-    <div style="display:flex; flex-direction:column; gap:10px">
-      <div class="tile"><div class="v b">6&nbsp;604</div><div class="k">&Oslash; vstup&#367; / den</div><div class="s">rozp&#283;t&iacute; 4&nbsp;969 a&#382; 8&nbsp;119 za den</div></div>
-      <div class="tile"><div class="v">+22&nbsp;%</div><div class="k">v&iacute;kend vs v&scaron;edn&iacute; den</div><div class="s">sobota nejsiln&#283;j&scaron;&iacute;: a&#382; 8&nbsp;119 vstup&#367;</div></div>
-      <div class="card">
-        <div class="ch">Dva vchody, jedna hierarchie</div>
-        <div class="hbars">
-          <div class="hbar"><span class="nm">Vchod A</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="vl">76&nbsp;%</span></div>
-          <div class="hbar"><span class="nm">Vchod B</span><span class="track"><span class="fill mut" style="width:32%"></span></span><span class="vl">24&nbsp;%</span></div>
-        </div>
-        <p class="note">Pod&iacute;l na vstupech. Vchod A: 70&nbsp;284 vstup&#367;, Vchod B: 22&nbsp;172.</p>
-      </div>
-      <div class="panel"><div class="l">Insight</div>V&scaron;edn&iacute; dny po konci pr&aacute;zdnin jsou o&nbsp;<b>18&nbsp;%</b> slab&scaron;&iacute; ne&#382; koncem srpna, v&iacute;kend v&scaron;ak s&iacute;l&iacute; d&aacute;l (sobota 5.&nbsp;9. = maximum pilotu).</div>
-    </div>
-  </div>
-  <div class="acts">
-    <div class="act"><div class="l">Akce pro CPI</div><div class="x">Nacenit plochy dle vchodu <b>A 76 %</b> / <b>B 24 %</b></div></div>
-    <div class="act ten"><div class="l">Akce pro n&aacute;jemce</div><div class="x">Obsadit pokladny ve &scaron;pi&#269;ce <b>11 a&#382; 18 h</b></div></div>
-  </div>
-  <div class="scope"><b>Populace:</b> validn&iacute; pr&#367;chody (&ge;&nbsp;2&nbsp;s), person&aacute;l odfiltrov&aacute;n; ob&#283;ma vchody, &#269;as Europe/Prague.</div>
-  <div class="pageno">03 / 10</div>
-</section>
-
-<!-- ======================================================= 4. WHO VISITS == -->
-<section class="slide">
-  <div class="top">
-    <span class="brand"><img class="clogo" src="cpi.png" alt="CPI"><span class="x">&times;</span><span class="wm sm"></span></span>
-    <span class="meta">Demografie &middot; pod&iacute;ly z analyzovan&yacute;ch n&aacute;v&scaron;t&#283;v</span>
-  </div>
-  <p class="label">04 &middot; Kdo p&#345;ich&aacute;z&iacute;</p>
-  <h2>Mlad&scaron;&iacute; a&nbsp;st&#345;edn&iacute; v&#283;k, <span class="dim">a&nbsp;k&nbsp;tomu vyrovnan&yacute; pom&#283;r &#382;en a&nbsp;mu&#382;&#367;.</span></h2>
-  <div class="two mt14 grow" style="--l:1.05; --r:.95; align-items:flex-start">
-    <div style="display:flex; flex-direction:column; gap:12px">
-      <div class="card">
-        <div class="ch">Dvac&aacute;tn&iacute;ci jsou nejsiln&#283;j&scaron;&iacute; dek&aacute;da; 20&ndash;49 let = dv&#283; t&#345;etiny provozu</div>
-        <div class="hbars">
-          <div class="hbar"><span class="nm">10&ndash;19 let</span><span class="track"><span class="fill mut" style="width:25%"></span></span><span class="vl">6,9&nbsp;%</span></div>
-          <div class="hbar"><span class="nm">20&ndash;29 let</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="vl">27,8&nbsp;%</span></div>
-          <div class="hbar"><span class="nm">30&ndash;39 let</span><span class="track"><span class="fill" style="width:74%"></span></span><span class="vl">20,6&nbsp;%</span></div>
-          <div class="hbar"><span class="nm">40&ndash;49 let</span><span class="track"><span class="fill" style="width:68%"></span></span><span class="vl">18,9&nbsp;%</span></div>
-          <div class="hbar"><span class="nm">50&ndash;59 let</span><span class="track"><span class="fill" style="width:60%"></span></span><span class="vl">16,8&nbsp;%</span></div>
-          <div class="hbar"><span class="nm">60+ let</span><span class="track"><span class="fill mut" style="width:28%"></span></span><span class="vl">7,8&nbsp;%</span></div>
-        </div>
-        <p class="note">V&#283;k odhadovan&yacute; z fotografie, pracujeme s p&aacute;smy a chybovou toleranc&iacute;; 1,3&nbsp;% neur&#269;eno.</p>
-      </div>
-      <div class="grid2">
-        <div class="card" style="padding:14px 16px 12px">
-          <div class="ch" style="margin-bottom:6px">Pom&#283;r &#382;en a mu&#382;&#367;</div>
-          <div style="display:flex; align-items:center; gap:14px">
-            <svg viewBox="0 0 120 120" width="98" height="98" style="flex:none">
-              <circle cx="60" cy="60" r="44" fill="none" stroke="#eef0f3" stroke-width="19"/>
-              <g transform="rotate(-90 60 60)" fill="none" stroke-width="19">
-                <circle cx="60" cy="60" r="44" stroke="var(--accent)" stroke-dasharray="140.8 135.7"/>
-                <circle cx="60" cy="60" r="44" stroke="#6b7280" stroke-dasharray="126.9 149.5" stroke-dashoffset="-143.8"/>
-              </g>
-            </svg>
-            <div style="flex:1; display:flex; flex-direction:column; gap:7px">
-              <div style="display:flex; align-items:baseline; gap:8px"><span class="sw" style="background:var(--accent)"></span><span style="font-size:12.5px; color:var(--ink-2); flex:1">Mu&#382;i</span><b style="font-size:16px; font-variant-numeric:tabular-nums">52&nbsp;%</b></div>
-              <div style="display:flex; align-items:baseline; gap:8px"><span class="sw" style="background:#6b7280"></span><span style="font-size:12.5px; color:var(--ink-2); flex:1">&#381;eny</span><b style="font-size:16px; font-variant-numeric:tabular-nums">47&nbsp;%</b></div>
-              <p class="note" style="margin-top:0">Vyrovnan&eacute; a&#382; do ve&#269;era; 1&nbsp;% neur&#269;eno.</p>
-            </div>
-          </div>
-        </div>
-        <div class="card" style="padding:14px 16px 12px">
-          <div class="ch" style="margin-bottom:10px">Slo&#382;en&iacute; skupin</div>
-          <div class="gcomp">
-            <div><div class="gi"><svg viewBox="0 0 24 24"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><div class="gv">70&nbsp;%</div><div class="gk">s&aacute;m</div></div>
-            <div class="mt"><div class="gi"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div class="gv">25&nbsp;%</div><div class="gk">ve dvou</div></div>
-            <div class="mt"><div class="gi"><svg viewBox="0 0 24 24"><path d="M13 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="7.5" cy="7" r="3.2"/><path d="M17.5 21v-2a4 4 0 0 0-2.6-3.4"/><path d="M13.3 3.95a3.2 3.2 0 0 1 0 6.1"/><path d="M22 21v-2a4 4 0 0 0-2.6-3.4"/><path d="M17.8 3.95a3.2 3.2 0 0 1 0 6.1"/></svg></div><div class="gv">4&nbsp;%</div><div class="gk">3 a v&iacute;ce</div></div>
-          </div>
-        </div>
-      </div>
-      <div class="panel"><div class="l">Doprovod</div>Z doprov&aacute;zen&yacute;ch n&aacute;v&scaron;t&#283;v je <b>60&nbsp;%</b> sm&iacute;&scaron;en&yacute;ch (p&aacute;ry, rodiny); &#269;ist&#283; &#382;ensk&eacute; skupiny 21&nbsp;%, mu&#382;sk&eacute; 15&nbsp;%. N&aacute;v&scaron;t&#283;vy s d&iacute;t&#283;tem: <b>10,5&nbsp;%</b> o v&iacute;kendu vs 7,6&nbsp;% ve v&scaron;edn&iacute; den a dr&#382;&iacute; se cel&yacute; den, ne jen po &scaron;kole.</div>
-    </div>
-    <div style="display:flex; flex-direction:column; gap:12px">
-      <div class="card">
-        <div class="ch" style="margin-bottom:11px">&#381;ivotn&iacute; f&aacute;ze: dosp&#283;l&iacute; a mlad&iacute; dosp&#283;l&iacute; tvo&#345;&iacute; t&eacute;m&#283;&#345; t&#345;i &#269;tvrtiny</div>
-        <div class="hbars" style="gap:12px">
-          <div class="hbar w"><span class="nm">Etablovan&iacute; dosp&#283;l&iacute;</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="vl">40,2&nbsp;%</span></div>
-          <div class="hbar w"><span class="nm">Mlad&iacute; dosp&#283;l&iacute;</span><span class="track"><span class="fill" style="width:84%"></span></span><span class="vl">33,6&nbsp;%</span></div>
-          <div class="hbar w"><span class="nm">Zral&iacute; / seniorsk&yacute; v&#283;k</span><span class="track"><span class="fill mut" style="width:32%"></span></span><span class="vl">12,8&nbsp;%</span></div>
-          <div class="hbar w"><span class="nm">Studenti</span><span class="track"><span class="fill mut" style="width:19%"></span></span><span class="vl">7,6&nbsp;%</span></div>
-          <div class="hbar w"><span class="nm">Rodi&#269;e s d&iacute;t&#283;tem</span><span class="track"><span class="fill mut" style="width:14%"></span></span><span class="vl">5,6&nbsp;%</span></div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="ch" style="margin-bottom:11px">Styl, kter&yacute; v&#283;k neprozrad&iacute;: fitness je nejsiln&#283;j&scaron;&iacute; stylov&aacute; skupina</div>
-        <div class="hbars" style="gap:17px; margin-top:2px">
-          <div class="hbar ic"><span class="ico"><svg viewBox="0 0 24 24"><path d="M3.5 9.5v5M7 6.8v10.4M17 6.8v10.4M20.5 9.5v5M7 12h10"/></svg></span><span class="nm">Fitness a aktivn&iacute;</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="vl">16,4&nbsp;%</span></div>
-          <div class="hbar ic"><span class="ico"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></span><span class="nm">Profese a kancel&aacute;&#345;e</span><span class="track"><span class="fill" style="width:39%"></span></span><span class="vl">6,4&nbsp;%</span></div>
-          <div class="hbar ic"><span class="ico"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></span><span class="nm">D&#283;lnick&eacute; profese</span><span class="track"><span class="fill" style="width:25%"></span></span><span class="vl">4,1&nbsp;%</span></div>
-          <div class="hbar ic"><span class="ico"><svg viewBox="0 0 24 24"><path d="m12 3 2 5.4 5.4 2-5.4 2-2 5.4-2-5.4-5.4-2 5.4-2z"/><path d="M18.8 16.4 19.5 18.2 21.3 18.9 19.5 19.6 18.8 21.4 18.1 19.6 16.3 18.9 18.1 18.2z"/></svg></span><span class="nm">Alternativn&iacute; styl</span><span class="track"><span class="fill" style="width:19%"></span></span><span class="vl">3,1&nbsp;%</span></div>
-          <div class="hbar ic"><span class="ico"><svg viewBox="0 0 24 24"><circle cx="18.5" cy="17.5" r="3.5"/><circle cx="5.5" cy="17.5" r="3.5"/><circle cx="15" cy="5" r="1"/><path d="M12 17.5V14l-3-3 4-3 2 3h2"/></svg></span><span class="nm">Cyklist&eacute; a motork&aacute;&#345;i</span><span class="track"><span class="fill mut" style="width:2%"></span></span><span class="vl">0,4&nbsp;%</span></div>
-        </div>
-        <p class="note" style="margin-top:11px">Zbytek n&aacute;v&scaron;t&#283;v nem&aacute; v&yacute;razn&yacute; stylov&yacute; sign&aacute;l, nebo se p&#345;ekr&yacute;v&aacute; s v&#283;kem a &#382;ivotn&iacute; f&aacute;z&iacute; v&yacute;&scaron;e.</p>
-      </div>
-    </div>
-  </div>
-  <div class="acts">
-    <div class="act"><div class="l">Akce pro CPI</div><div class="x">Stav&#283;t mix na j&aacute;dru <b>20 a&#382; 49 let</b></div></div>
-    <div class="act ten"><div class="l">Akce pro n&aacute;jemce</div><div class="x">Form&aacute;ty pro jednotlivce, nejen pro rodiny</div></div>
-  </div>
-  <div class="scope"><b>Zdroj:</b> vizu&aacute;ln&iacute; anal&yacute;za n&aacute;v&scaron;t&#283;v pilotn&iacute;ho nasazen&iacute;; agregace k&nbsp;&ge;&nbsp;25, pod&iacute;ly z analyzovan&yacute;ch n&aacute;v&scaron;t&#283;v.</div>
-  <div class="pageno">04 / 10</div>
-</section>
-
-<!-- ============================================== 5. PERSONA GALLERY == -->
-<section class="slide">
-  <div class="top">
-    <span class="brand"><img class="clogo" src="cpi.png" alt="CPI"><span class="x">&times;</span><span class="wm sm"></span></span>
-    <span class="meta">Segmentace &middot; 8 person ze 100+ atribut&#367;</span>
-  </div>
-  <p class="label">05 &middot; Osm tv&aacute;&#345;&iacute; Olympie</p>
-  <h2>Za pr&#367;m&#283;rn&yacute;m n&aacute;v&scaron;t&#283;vn&iacute;kem je osm publik, <span class="dim">ka&#382;d&eacute; s&nbsp;vlastn&iacute;m stylem i&nbsp;re&#382;imem.</span></h2>
-  <div class="pgrid mt14 grow">
-    <div class="pcard key">
-      <span class="ktag">Nejv&#283;t&scaron;&iacute; publikum</span>
-      <div class="head"><span class="av"><img src="av-mainstream.png" alt=""></span>
-        <div><div class="share">39,0&nbsp;%</div><div class="cnt">n&aacute;v&scaron;t&#283;v centra</div></div></div>
-      <div class="nm">Mainstreamov&iacute; dosp&#283;l&iacute;</div>
-      <div class="rl">J&aacute;dro n&aacute;v&scaron;t&#283;vnosti, mid-market bez log</div>
-      <ul><li><b>59&nbsp;%</b> mu&#382;i, nej&#269;ast&#283;ji 40&ndash;49 let</li><li>adidas, smartphone; komfort p&#345;ed stylem</li><li>rovnom&#283;rn&#283; cel&yacute; t&yacute;den (v&iacute;kend +11&nbsp;%)</li></ul>
-    </div>
-    <div class="pcard">
-      <div class="head"><span class="av"><img src="av-young.png" alt=""></span>
-        <div><div class="share">12,8&nbsp;%</div><div class="cnt">n&aacute;v&scaron;t&#283;v centra</div></div></div>
-      <div class="nm">Mlad&iacute; minimalist&eacute;</div>
-      <div class="rl">Dostupn&aacute; m&oacute;da a &#269;ist&yacute; styl</div>
-      <ul><li><b>77&nbsp;%</b> &#382;eny, 93&nbsp;% ve 20&ndash;29 letech</li><li>adidas, jemn&eacute; &scaron;perky</li><li>s&iacute;l&iacute; odpoledne, po 19. h dominuj&iacute;</li></ul>
-    </div>
-    <div class="pcard">
-      <div class="head"><span class="av"><img src="av-seniors.png" alt=""></span>
-        <div><div class="share">9,5&nbsp;%</div><div class="cnt">n&aacute;v&scaron;t&#283;v centra</div></div></div>
-      <div class="nm">Rann&iacute; senio&#345;i</div>
-      <div class="rl">S n&aacute;kupn&iacute;m voz&iacute;kem, mimo &scaron;pi&#269;ku</div>
-      <ul><li><b>55&nbsp;%</b> mu&#382;i, 78&nbsp;% nad 60 let</li><li>8&ndash;11 h = polovina jejich dne; v&iacute;kend &minus;19&nbsp;%</li><li>klasick&eacute; hodinky; <b>38&nbsp;%</b> s n&aacute;kupem</li></ul>
-    </div>
-    <div class="pcard">
-      <div class="head"><span class="av"><img src="av-athleisure.png" alt=""></span>
-        <div><div class="share">8,6&nbsp;%</div><div class="cnt">n&aacute;v&scaron;t&#283;v centra</div></div></div>
-      <div class="nm">Aktivn&iacute; ve sportovn&iacute;m</div>
-      <div class="rl">Sportovn&iacute; oble&#269;en&iacute; s logem</div>
-      <ul><li><b>81&nbsp;%</b> mu&#382;i, p&#345;ev&aacute;&#382;n&#283; 20&ndash;39 let</li><li>v&iacute;kend <b>+43&nbsp;%</b>, nejv&iacute;c ze v&scaron;ech</li><li>Nike; hlasit&aacute; loga i re&aacute;ln&aacute; &uacute;trata</li></ul>
-    </div>
-    <div class="pcard">
-      <div class="head"><span class="av"><img src="av-workwear.png" alt=""></span>
-        <div><div class="share">8,2&nbsp;%</div><div class="cnt">n&aacute;v&scaron;t&#283;v centra</div></div></div>
-      <div class="nm">Prakti&#269;t&iacute; mu&#382;i v pracovn&iacute;m</div>
-      <div class="rl">Funk&#269;n&iacute; oble&#269;en&iacute;, &uacute;&#269;elov&yacute; n&aacute;kup</div>
-      <ul><li><b>97&nbsp;%</b> mu&#382;i, nej&#269;ast&#283;ji 40&ndash;49 let</li><li>nejplo&scaron;&scaron;&iacute; den: zastav&iacute; se kdykoli (+3&nbsp;%)</li><li>adidas, digit&aacute;ln&iacute; hodinky</li></ul>
-    </div>
-    <div class="pcard">
-      <div class="head"><span class="av"><img src="av-parents.png" alt=""></span>
-        <div><div class="share">7,6&nbsp;%</div><div class="cnt">n&aacute;v&scaron;t&#283;v centra</div></div></div>
-      <div class="nm">Maminky s p&#345;irozen&yacute;m vzhledem</div>
-      <div class="rl">P&#345;irozen&yacute; vzhled, n&aacute;kup s d&iacute;t&#283;tem</div>
-      <ul><li><b>98&nbsp;%</b> &#382;eny, nej&#269;ast&#283;ji 30&ndash;39 let</li><li>dr&#382;&iacute; cel&yacute; den i ve v&scaron;edn&iacute; dny; v&iacute;kend +15&nbsp;%</li><li>smartwatch, ta&scaron;ka p&#345;es rameno; <b>37&nbsp;%</b> s n&aacute;kupem</li></ul>
-    </div>
-    <div class="pcard">
-      <div class="head"><span class="av"><img src="av-teens.png" alt=""></span>
-        <div><div class="share">7,2&nbsp;%</div><div class="cnt">n&aacute;v&scaron;t&#283;v centra</div></div></div>
-      <div class="nm">Teenage&#345;i ve streetwearu</div>
-      <div class="rl">Grafick&aacute; trika a tenisky po &scaron;kole</div>
-      <ul><li><b>60&nbsp;%</b> kluci, 90&nbsp;% do 20 let</li><li>&scaron;pi&#269;ka 15&ndash;18 h; v&iacute;kend +35&nbsp;%</li><li>Nike; hlasit&aacute; loga, mal&aacute; &uacute;trata</li></ul>
-    </div>
-    <div class="pcard">
-      <div class="head"><span class="av"><img src="av-professionals.png" alt=""></span>
-        <div><div class="share">7,2&nbsp;%</div><div class="cnt">n&aacute;v&scaron;t&#283;v centra</div></div></div>
-      <div class="nm">Upraven&iacute; profesion&aacute;lov&eacute;</div>
-      <div class="rl">Smart casual, kvalita m&iacute;sto log</div>
-      <ul><li><b>75&nbsp;%</b> &#382;eny, nej&#269;ast&#283;ji 30&ndash;39 let</li><li>v&scaron;ednodenn&iacute; publikum; v&iacute;kend &minus;34&nbsp;%</li><li>Apple, tote bag; pr&eacute;miov&yacute; sign&aacute;l <b>13&nbsp;%</b></li></ul>
-    </div>
-  </div>
-  <div class="acts">
-    <div class="act"><div class="l">Akce pro CPI</div><div class="x">Prod&aacute;vat n&aacute;v&scaron;t&#283;vy c&iacute;lovky, ne footfall</div></div>
-    <div class="act ten"><div class="l">Akce pro n&aacute;jemce</div><div class="x">Zn&aacute;t sv&eacute; dv&#283; hlavn&iacute; persony</div></div>
-  </div>
-  <div class="scope"><b>Zdroj:</b> vizu&aacute;ln&iacute; anal&yacute;za n&aacute;v&scaron;t&#283;v + segmenta&#269;n&iacute; model (k&nbsp;=&nbsp;8); pod&iacute;ly = % analyzovan&yacute;ch n&aacute;v&scaron;t&#283;v, v&iacute;kendov&aacute; &#269;&iacute;sla = rozd&iacute;l n&aacute;v&scaron;t&#283;v/den vs v&scaron;edn&iacute; den; agregace k&nbsp;&ge;&nbsp;25. Avatary jsou ilustra&#269;n&iacute;.</div>
-  <div class="pageno">05 / 10</div>
-</section>
-
-<!-- ================================================ 6. WHEN, PER PERSONA == -->
-<section class="slide">
-  <div class="top">
-    <span class="brand"><img class="clogo" src="cpi.png" alt="CPI"><span class="x">&times;</span><span class="wm sm"></span></span>
-    <span class="meta">&#268;asov&eacute; vzorce &middot; v&iacute;kend vs v&scaron;edn&iacute; den &middot; denn&iacute; doba</span>
-  </div>
-  <p class="label">06 &middot; Kdy kter&aacute; persona chod&iacute;</p>
-  <h2>Pr&#367;m&#283;rn&yacute;ch +22&nbsp;% o&nbsp;v&iacute;kendu neexistuje: <span class="dim">jedny persony v&iacute;kend t&aacute;hnou, jin&eacute; se mu vyh&yacute;baj&iacute;.</span></h2>
-  <div class="two mt14 grow" style="--l:1.3; --r:.7; align-items:flex-start">
+  <div class="top"><span class="brand"><span class="wm sm"></span></span><span class="meta">The decisions</span></div>
+  <p class="label">01 &middot; What you decide every year</p>
+  <h2>Three decisions that shape your center,<br><span class="dim">made today on how many, not on who.</span></h2>
+  <div class="q3 mt22 grow">
     <div class="card">
-      <div class="ch">V&iacute;kendov&eacute; nav&yacute;&scaron;en&iacute; n&aacute;v&scaron;t&#283;v dle persony (vs jej&iacute; v&scaron;edn&iacute; den)</div>
-      <svg viewBox="0 0 660 252" width="100%">
-        <line class="base" x1="420" y1="8" x2="420" y2="238"/>
-        <g font-size="11.5">
-          <g transform="translate(0,22)"><text class="nm" x="230" y="4" text-anchor="end">Aktivn&iacute; ve sportovn&iacute;m</text>
-            <path d="M420 -7 h157 a4 4 0 0 1 4 4 v6 a4 4 0 0 1 -4 4 h-157 z" fill="var(--accent)"/><text class="lbl" x="587" y="4">+43&nbsp;%</text></g>
-          <g transform="translate(0,50)"><text class="nm" x="230" y="4" text-anchor="end">Teenage&#345;i ve streetwearu</text>
-            <path d="M420 -7 h128 a4 4 0 0 1 4 4 v6 a4 4 0 0 1 -4 4 h-128 z" fill="var(--accent)"/><text class="lbl" x="558" y="4">+35&nbsp;%</text></g>
-          <g transform="translate(0,78)"><text class="nm" x="230" y="4" text-anchor="end">Mlad&iacute; minimalist&eacute;</text>
-            <path d="M420 -7 h68 a4 4 0 0 1 4 4 v6 a4 4 0 0 1 -4 4 h-68 z" fill="var(--accent)"/><text class="lbl" x="498" y="4">+19&nbsp;%</text></g>
-          <g transform="translate(0,106)"><text class="nm" x="230" y="4" text-anchor="end">Maminky s p&#345;irozen&yacute;m vzhledem</text>
-            <path d="M420 -7 h54 a4 4 0 0 1 4 4 v6 a4 4 0 0 1 -4 4 h-54 z" fill="var(--accent)"/><text class="lbl" x="484" y="4">+15&nbsp;%</text></g>
-          <g transform="translate(0,134)"><text class="nm" x="230" y="4" text-anchor="end">Mainstreamov&iacute; dosp&#283;l&iacute;</text>
-            <path d="M420 -7 h36 a4 4 0 0 1 4 4 v6 a4 4 0 0 1 -4 4 h-36 z" fill="var(--accent)"/><text class="lbl" x="466" y="4">+11&nbsp;%</text></g>
-          <g transform="translate(0,162)"><text class="nm" x="230" y="4" text-anchor="end">Prakti&#269;t&iacute; mu&#382;i v pracovn&iacute;m</text>
-            <path d="M420 -7 h8 a4 4 0 0 1 4 4 v6 a4 4 0 0 1 -4 4 h-8 z" fill="var(--accent)"/><text class="lbl" x="438" y="4">+3&nbsp;%</text></g>
-          <g transform="translate(0,190)"><text class="nm" x="230" y="4" text-anchor="end">Rann&iacute; senio&#345;i</text>
-            <path d="M420 -7 h-66 a4 4 0 0 0 -4 4 v6 a4 4 0 0 0 4 4 h66 z" fill="var(--ink-3)"/><text class="lbl" x="344" y="4" text-anchor="end">&minus;19&nbsp;%</text></g>
-          <g transform="translate(0,218)"><text class="nm" x="230" y="4" text-anchor="end">Upraven&iacute; profesion&aacute;lov&eacute;</text>
-            <path d="M420 -7 h-125 a4 4 0 0 0 -4 4 v6 a4 4 0 0 0 4 4 h125 z" fill="var(--ink-3)"/><text class="lbl" x="285" y="4" text-anchor="end">&minus;34&nbsp;%</text></g>
-        </g>
-      </svg>
-      <div class="legend"><span><span class="sw" style="background:var(--accent)"></span> siln&#283;j&scaron;&iacute; o v&iacute;kendu</span><span><span class="sw" style="background:var(--ink-3)"></span> siln&#283;j&scaron;&iacute; ve v&scaron;edn&iacute; den</span></div>
+      <span class="num">01</span>
+      <div class="t">Tenant mix and leasing</div>
+      <p class="qq">Which tenants fit the people who actually walk in? What evidence do you bring to a renewal, a relocation or a new lease?</p>
+      <p class="today"><b>Today:</b> door counts, periodic surveys, tenant sales.</p>
     </div>
-    <div style="display:flex; flex-direction:column; gap:12px">
-      <div class="panel"><div class="l">R&aacute;no pat&#345;&iacute; senior&#367;m</div><b>Rann&iacute; senio&#345;i</b> maj&iacute; ostrou rann&iacute; &scaron;pi&#269;ku: <b>8:00&ndash;11:00 obslou&#382;&iacute; ~47&nbsp;%</b> jejich cel&eacute;ho dne. Do ve&#269;era t&eacute;m&#283;&#345; zmiz&iacute;.</div>
-      <div class="panel"><div class="l">Odpoledne pat&#345;&iacute; &scaron;kole</div>Teenage&#345;i nab&iacute;haj&iacute; po &scaron;kole a vrchol&iacute; <b>15:00&ndash;18:00</b>; mlad&iacute; dosp&#283;l&iacute; s&iacute;l&iacute; do ve&#269;era a po 19. hodin&#283; dominuj&iacute;.</div>
-      <div class="panel"><div class="l">Rodi&#269;e dr&#382;&iacute; cel&yacute; den</div>Maminky nemaj&iacute; jednu &scaron;pi&#269;ku, dr&#382;&iacute; stabiln&iacute; p&#345;&iacute;tomnost od r&aacute;na do podve&#269;era, i&nbsp;ve v&scaron;edn&iacute; dny.</div>
+    <div class="card">
+      <span class="num">02</span>
+      <div class="t">Programming and marketing</div>
+      <p class="qq">Which events, campaigns and weekend activations bring the audiences you want, and at what time do those audiences arrive?</p>
+      <p class="today"><b>Today:</b> traffic before and after, and experience.</p>
+    </div>
+    <div class="card">
+      <span class="num">03</span>
+      <div class="t">Pricing space and media</div>
+      <p class="qq">What is an entrance, a promo zone or a screen worth, based on who passes it rather than only how many?</p>
+      <p class="today"><b>Today:</b> footfall per entrance, sold as volume.</p>
     </div>
   </div>
-  <div class="acts">
-    <div class="act"><div class="l">Akce pro CPI</div><div class="x">V&iacute;kend programovat na sport a streetwear, <b>+43 %</b></div></div>
-    <div class="act ten"><div class="l">Akce pro n&aacute;jemce</div><div class="x">Pl&aacute;novat sm&#283;ny dle okna sv&eacute; persony</div></div>
-  </div>
-  <div class="scope"><b>Metoda:</b> rozd&iacute;l pr&#367;m&#283;rn&yacute;ch n&aacute;v&scaron;t&#283;v/den v&iacute;kend vs v&scaron;edn&iacute; den, po person&aacute;ch; denn&iacute; profily z hodinov&eacute;ho rozlo&#382;en&iacute; n&aacute;v&scaron;t&#283;v dan&eacute; persony.</div>
-  <div class="pageno">06 / 10</div>
+  <div class="strip mt14"><div class="l">The shift</div><p>Footfall already underpins how your assets are valued and marketed. <b>The next question is not how many people came. It is who they were.</b></p></div>
+  <div class="flow">COVER &rsaquo; <b>DECISIONS</b> &rsaquo; DATA &rsaquo; PROOF &rsaquo; PRODUCT &rsaquo; ROLLOUT</div><div class="pageno">02 / 09</div>
 </section>
 
-<!-- ================================================ 7. BRANDS AND SPEND == -->
+<!-- 03 WHY TODAY'S DATA ================================================== -->
 <section class="slide">
-  <div class="top">
-    <span class="brand"><img class="clogo" src="cpi.png" alt="CPI"><span class="x">&times;</span><span class="wm sm"></span></span>
-    <span class="meta">Zna&#269;ky &middot; spend sign&aacute;l &middot; pod&iacute;ly z analyzovan&yacute;ch n&aacute;v&scaron;t&#283;v</span>
-  </div>
-  <p class="label">07 &middot; Co nos&iacute; a co to &#345;&iacute;k&aacute; o &uacute;trat&#283;</p>
-  <h2>Mid-market z&aacute;klad s&nbsp;pr&eacute;miov&yacute;m okrajem. <span class="dim">Hlasit&aacute; loga nejsou tot&eacute;&#382; co &uacute;trata.</span></h2>
-  <div class="two mt14 grow" style="--l:1.05; --r:.95; align-items:flex-start">
-    <div style="display:flex; flex-direction:column; gap:12px">
-      <div class="card">
-        <div class="ch">Celkov&yacute; spend sign&aacute;l outfitu: dv&#283; t&#345;etiny mid-market</div>
-        <div class="hbars">
-          <div class="hbar w"><span class="nm">Mid-market</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="vl">67,3&nbsp;%</span></div>
-          <div class="hbar w"><span class="nm">Ne&#269;iteln&eacute; (m&aacute;lo sign&aacute;lu)</span><span class="track"><span class="fill mut" style="width:30%"></span></span><span class="vl">20,5&nbsp;%</span></div>
-          <div class="hbar w"><span class="nm">Budget</span><span class="track"><span class="fill mut" style="width:9%"></span></span><span class="vl">5,9&nbsp;%</span></div>
-          <div class="hbar w"><span class="nm">Premium</span><span class="track"><span class="fill" style="width:9%"></span></span><span class="vl">5,8&nbsp;%</span></div>
-          <div class="hbar w"><span class="nm">Luxury</span><span class="track"><span class="fill" style="width:1%"></span></span><span class="vl">0,6&nbsp;%</span></div>
-        </div>
-        <p class="note"><b>6,4&nbsp;%</b> nese pr&eacute;miovou &#269;i luxusn&iacute; polo&#382;ku; <b>76&nbsp;%</b> outfit&#367; je zcela bez loga.</p>
-      </div>
-      <div class="card">
-        <div class="ch">Nej&#269;ast&#283;ji identifikovan&eacute; zna&#269;ky: sportswear + Apple</div>
-        <div class="hbars">
-          <div class="hbar"><span class="nm">adidas</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="vl">8,2&nbsp;%</span></div>
-          <div class="hbar"><span class="nm">Nike</span><span class="track"><span class="fill" style="width:90%"></span></span><span class="vl">7,3&nbsp;%</span></div>
-          <div class="hbar"><span class="nm">Apple</span><span class="track"><span class="fill" style="width:44%"></span></span><span class="vl">3,6&nbsp;%</span></div>
-          <div class="hbar"><span class="nm">Converse</span><span class="track"><span class="fill mut" style="width:19%"></span></span><span class="vl">1,6&nbsp;%</span></div>
-          <div class="hbar"><span class="nm">Birkenstock</span><span class="track"><span class="fill mut" style="width:16%"></span></span><span class="vl">1,3&nbsp;%</span></div>
-          <div class="hbar"><span class="nm">Puma</span><span class="track"><span class="fill mut" style="width:15%"></span></span><span class="vl">1,2&nbsp;%</span></div>
-        </div>
-        <p class="note">Pod&iacute;l n&aacute;v&scaron;t&#283;vn&iacute;k&#367; s polo&#382;kou dan&eacute; zna&#269;ky; i&nbsp;podle st&#345;ihu, nejen loga.</p>
-      </div>
+  <div class="top"><span class="brand"><span class="wm sm"></span></span><span class="meta">The data you already have</span></div>
+  <p class="label">02 &middot; Why today's sources don't answer them</p>
+  <h2>Your data is good.<br><span class="dim">It just answers different questions.</span></h2>
+  <div class="mtx mt18">
+      <div class="hd"></div><div class="hd">How many</div><div class="hd">Where from</div><div class="hd">How much spent</div><div class="hd">Who they are</div><div class="hd">What they leave with</div>
+      <div class="nm">Footfall counters<small>sensors at the doors</small></div><div><span class="mk y"><svg viewBox="0 0 24 24"><path d="M4.5 12.5 9.5 17.5 19.5 6.5"/></svg></span><span class="q">entries per door</span></div><div><span class="mk n"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></span><span class="q">not covered</span></div><div><span class="mk n"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></span><span class="q">not covered</span></div><div><span class="mk p"><svg viewBox="0 0 24 24"><path d="M6 12h12"/></svg></span><span class="q">basic age and gender, at best</span></div><div><span class="mk n"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></span><span class="q">not covered</span></div>
+      <div class="nm">Mobile network data<small>telco location panels</small></div><div><span class="mk p"><svg viewBox="0 0 24 24"><path d="M6 12h12"/></svg></span><span class="q">estimated from a panel</span></div><div><span class="mk y"><svg viewBox="0 0 24 24"><path d="M4.5 12.5 9.5 17.5 19.5 6.5"/></svg></span><span class="q">home and work areas</span></div><div><span class="mk n"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></span><span class="q">not covered</span></div><div><span class="mk p"><svg viewBox="0 0 24 24"><path d="M6 12h12"/></svg></span><span class="q">subscriber profile, coarse</span></div><div><span class="mk n"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></span><span class="q">not covered</span></div>
+      <div class="nm">Card transaction data<small>payment networks and banks</small></div><div><span class="mk n"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></span><span class="q">card payers only</span></div><div><span class="mk p"><svg viewBox="0 0 24 24"><path d="M6 12h12"/></svg></span><span class="q">cardholder area</span></div><div><span class="mk y"><svg viewBox="0 0 24 24"><path d="M4.5 12.5 9.5 17.5 19.5 6.5"/></svg></span><span class="q">amount by category</span></div><div><span class="mk n"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></span><span class="q">no visual layer</span></div><div><span class="mk p"><svg viewBox="0 0 24 24"><path d="M6 12h12"/></svg></span><span class="q">card payments only</span></div>
+      <div class="us nm">Minds &amp; Models<small>next gen mall analytics</small></div><div class="us"><span class="mk y"><svg viewBox="0 0 24 24"><path d="M4.5 12.5 9.5 17.5 19.5 6.5"/></svg></span><span class="q">every valid entry</span></div><div class="us"><span class="mk p"><svg viewBox="0 0 24 24"><path d="M6 12h12"/></svg></span><span class="q">joins your telco data</span></div><div class="us"><span class="mk p"><svg viewBox="0 0 24 24"><path d="M6 12h12"/></svg></span><span class="q">joins your card data</span></div><div class="us"><span class="mk y"><svg viewBox="0 0 24 24"><path d="M4.5 12.5 9.5 17.5 19.5 6.5"/></svg></span><span class="q">88+ attributes per visit</span></div><div class="us"><span class="mk y"><svg viewBox="0 0 24 24"><path d="M4.5 12.5 9.5 17.5 19.5 6.5"/></svg></span><span class="q">share of visits with a purchase</span></div>
     </div>
-    <div style="display:flex; flex-direction:column; gap:12px">
-      <div class="card">
-        <div class="ch">T&#345;i pr&eacute;miov&eacute; vzorce mezi personami</div>
-        <div class="kv"><span class="k">Upraven&iacute; profesion&aacute;lov&eacute;</span><span class="v">premium 13,2&nbsp;% &middot; hlasit&aacute; loga 2,9&nbsp;% &rarr; <b>tich&yacute; luxus</b></span></div>
-        <div class="kv"><span class="k">Aktivn&iacute; ve sportovn&iacute;m</span><span class="v">premium 10,5&nbsp;% &middot; hlasit&aacute; loga 25,3&nbsp;% &rarr; <b>oboj&iacute; z&aacute;rove&#328;</b></span></div>
-        <div class="kv"><span class="k">Teenage&#345;i ve streetwearu</span><span class="v">premium 4,2&nbsp;% &middot; hlasit&aacute; loga 20,5&nbsp;% &rarr; <b>loga bez &uacute;traty</b></span></div>
-        <p class="note">Pr&eacute;miov&yacute; sign&aacute;l a hlasitost log jsou dv&#283; nez&aacute;visl&aacute; m&#283;&#345;en&iacute; a u person se rozch&aacute;zej&iacute;.</p>
-      </div>
-      <div class="panel"><div class="l">Insight</div>Pr&eacute;miov&aacute; komunikace c&iacute;len&aacute; podle log by minula pr&aacute;v&#283; ty, kdo re&aacute;ln&#283; nesou nejvy&scaron;&scaron;&iacute; &uacute;tratov&yacute; sign&aacute;l. <b>Profesion&aacute;lov&eacute; cht&#283;j&iacute; kvalitu a st&#345;ih, ne logo</b> a chod&iacute; ve v&scaron;edn&iacute; dny.</div>
-      <div class="panel"><div class="l">Persona &times; v&yacute;bava</div>Senio&#345;i: klasick&eacute; hodinky + n&aacute;kupn&iacute; voz&iacute;k. Maminky: smartwatch + ta&scaron;ka p&#345;es rameno. Profesion&aacute;lov&eacute;: Apple + tote bag. Teenage&#345;i a sportovn&iacute;: Nike.</div>
-    </div>
-  </div>
-  <div class="acts">
-    <div class="act"><div class="l">Akce pro CPI</div><div class="x">Dr&#382;et value-forward z&aacute;klad mixu</div></div>
-    <div class="act ten"><div class="l">Akce pro n&aacute;jemce</div><div class="x">Nec&iacute;lit pr&eacute;mium podle log, <b>13,2 %</b> vs <b>2,9 %</b></div></div>
-  </div>
-  <div class="scope"><b>Zdroj:</b> dv&#283; nez&aacute;visl&aacute; vizu&aacute;ln&iacute; &#269;ten&iacute; t&eacute;&#382;e n&aacute;v&scaron;t&#283;vy (spend sign&aacute;l vs identifikace zna&#269;ek); agregace k&nbsp;&ge;&nbsp;25.</div>
-  <div class="pageno">07 / 10</div>
+  <div class="grow"></div>
+  <div class="strip"><div class="l">Not a replacement</div><p>We do not replace these sources. We add the layer none of them can see: <b>who is walking through your entrance</b>, described without identifying anyone, and joinable with the data you already buy.</p></div>
+  <div class="flow">COVER &rsaquo; DECISIONS &rsaquo; <b>DATA</b> &rsaquo; PROOF &rsaquo; PRODUCT &rsaquo; ROLLOUT</div><div class="pageno">03 / 09</div>
 </section>
 
-<!-- ============================================== 8. EXIT PURCHASE SIGNAL == -->
+<!-- 04 WHAT WE MEASURE =================================================== -->
 <section class="slide">
-  <div class="top">
-    <span class="brand"><img class="clogo" src="cpi.png" alt="CPI"><span class="x">&times;</span><span class="wm sm"></span></span>
-    <span class="meta">N&aacute;kupn&iacute; sign&aacute;l &middot; vzorek 7&nbsp;000 n&aacute;v&scaron;t&#283;v</span>
-  </div>
-  <p class="label">08 &middot; Co si lid&eacute; odn&aacute;&scaron;ej&iacute;</p>
-  <h2>T&#345;etina n&aacute;v&scaron;t&#283;v kon&#269;&iacute; s n&aacute;kupem v ruce, <span class="dim">dosp&#283;l&eacute; persony a&#382; dvakr&aacute;t &#269;ast&#283;ji ne&#382; mlad&eacute;.</span></h2>
-  <div class="two mt14 grow" style="--l:.95; --r:1.05; align-items:flex-start">
-    <div style="display:flex; flex-direction:column; gap:12px">
-      <div class="tile" style="padding:18px 20px 14px">
-        <div class="v b" style="font-size:42px">32,1&nbsp;%</div>
-        <div class="k">n&aacute;v&scaron;t&#283;v kon&#269;&iacute; s jasn&yacute;m n&aacute;kupn&iacute;m sign&aacute;lem</div>
-        <div class="s">nesen&aacute; n&aacute;kupn&iacute; ta&scaron;ka, voz&iacute;k, ko&scaron;&iacute;k, krabice &#269;i bal&iacute;k, nikoli osobn&iacute; ta&scaron;ky</div>
-      </div>
-      <div class="card">
-        <div class="ch">Kdo si odn&aacute;&scaron;&iacute; n&aacute;kup: dosp&#283;l&eacute; persony vedou</div>
-        <div class="hbars wide" style="gap:8px">
-          <div class="hbar w"><span class="nm">Mainstreamov&iacute; dosp&#283;l&iacute;</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="vl">37,9&nbsp;%</span></div>
-          <div class="hbar w"><span class="nm">Rann&iacute; senio&#345;i</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="vl">37,8&nbsp;%</span></div>
-          <div class="hbar w"><span class="nm">Maminky s p&#345;irozen&yacute;m vzhledem</span><span class="track"><span class="fill" style="width:98%"></span></span><span class="vl">37,3&nbsp;%</span></div>
-          <div class="hbar w"><span class="nm">Aktivn&iacute; ve sportovn&iacute;m</span><span class="track"><span class="fill mut" style="width:75%"></span></span><span class="vl">28,6&nbsp;%</span></div>
-          <div class="hbar w"><span class="nm">Mlad&iacute; minimalist&eacute;</span><span class="track"><span class="fill mut" style="width:75%"></span></span><span class="vl">28,3&nbsp;%</span></div>
-          <div class="hbar w"><span class="nm">V pracovn&iacute;m (uniformy, hi-vis)</span><span class="track"><span class="fill mut" style="width:69%"></span></span><span class="vl">26,0&nbsp;%</span></div>
-          <div class="hbar w"><span class="nm">Upraven&iacute; profesion&aacute;lov&eacute;</span><span class="track"><span class="fill mut" style="width:68%"></span></span><span class="vl">25,8&nbsp;%</span></div>
-          <div class="hbar w"><span class="nm">Teenage&#345;i ve streetwearu</span><span class="track"><span class="fill mut" style="width:50%"></span></span><span class="vl">19,1&nbsp;%</span></div>
-        </div>
-      </div>
+  <div class="top"><span class="brand"><span class="wm sm"></span></span><span class="meta">How it works</span></div>
+  <p class="label">03 &middot; What we measure</p>
+  <h2>Every shopper described across 88+ attributes.<br><span class="dim">No one identified.</span></h2>
+  <div class="two mt22 grow" style="--l:1.25; --r:.75; gap:18px">
+    <div class="card" style="justify-content:center">
+      <div class="ch"><svg class="i" viewBox="0 0 24 24"><path d="M12 3 3 7.5l9 4.5 9-4.5L12 3z"/><path d="m3 12 9 4.5 9-4.5"/><path d="m3 16.5 9 4.5 9-4.5"/></svg>What every visit turns into</div>
+      <div class="kv"><span class="k">Capture</span><span class="v">every valid entry at the instrumented entrances</span></div>
+      <div class="kv"><span class="k">Visual description</span><span class="v">88+ attributes per visit: age band, style, brands worn, company, items carried</span></div>
+      <div class="kv"><span class="k">Audiences</span><span class="v">a model groups the attributes into distinct personas, each with its own time pattern</span></div>
+      <div class="kv"><span class="k">Purchase signal</span><span class="v">share of visits that end with a purchase in hand: bags, carts, boxes</span></div>
+      <div class="kv"><span class="k">Quality</span><span class="v">staff filtered out, only valid entries, every number traceable</span></div>
+      <div class="kv"><span class="k">Delivery</span><span class="v">AI chat and live dashboard, plus data into your own systems</span></div>
     </div>
     <div style="display:flex; flex-direction:column; gap:12px">
-      <div class="card">
-        <div class="ch">Nej&#269;ast&#283;j&scaron;&iacute;m n&aacute;kupn&iacute;m n&aacute;strojem je voz&iacute;k, ne ta&scaron;ka</div>
-        <div class="hbars">
-          <div class="hbar w"><span class="nm">N&aacute;kupn&iacute; voz&iacute;k</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="vl">33,9&nbsp;%</span></div>
-          <div class="hbar w"><span class="nm">Plastov&aacute; ta&scaron;ka</span><span class="track"><span class="fill" style="width:76%"></span></span><span class="vl">25,8&nbsp;%</span></div>
-          <div class="hbar w"><span class="nm">Pap&iacute;rov&aacute; ta&scaron;ka</span><span class="track"><span class="fill" style="width:59%"></span></span><span class="vl">20,0&nbsp;%</span></div>
-          <div class="hbar w"><span class="nm">Krabice</span><span class="track"><span class="fill mut" style="width:31%"></span></span><span class="vl">10,4&nbsp;%</span></div>
-          <div class="hbar w"><span class="nm">Ta&scaron;ka s logem obchodu</span><span class="track"><span class="fill mut" style="width:30%"></span></span><span class="vl">10,1&nbsp;%</span></div>
-          <div class="hbar w"><span class="nm">Ko&scaron;&iacute;k, bal&iacute;k</span><span class="track"><span class="fill mut" style="width:6%"></span></span><span class="vl">2,1&nbsp;%</span></div>
-        </div>
-        <p class="note">Pod&iacute;l mezi n&aacute;v&scaron;t&#283;vami s n&aacute;kupem. Samotn&yacute; voz&iacute;k = <b>10,8&nbsp;%</b> v&scaron;ech n&aacute;v&scaron;t&#283;v centra, plastov&aacute; ta&scaron;ka 8,2&nbsp;%, pap&iacute;rov&aacute; 6,4&nbsp;%.</p>
-      </div>
-      <div class="panel"><div class="l">Konverze je ploch&aacute; cel&yacute; t&yacute;den</div>Pod&iacute;l n&aacute;v&scaron;t&#283;v s n&aacute;kupem dr&#382;&iacute; <b>31&ndash;34&nbsp;%</b> ka&#382;d&yacute; den; rozd&iacute;ly mezi dny jsou v&nbsp;mez&iacute;ch n&aacute;hody. V&iacute;kend p&#345;iv&aacute;d&iacute; <b>v&iacute;c lid&iacute;</b>, ne v&#283;t&scaron;&iacute; ochotu nakoupit.</div>
+      <div class="tile" style="padding:16px 18px"><div class="big b">88+</div><div class="k">visual attributes per visit</div><div class="s">from a vocabulary of 450+ detectable details</div></div>
+      <div class="tile" style="padding:16px 18px"><div class="big">0</div><div class="k">IT projects on your side</div><div class="s">a device, a power socket and wifi at each entrance</div></div>
+      <div class="tile" style="padding:16px 18px"><div class="big">25+</div><div class="k">people behind every number</div><div class="s">aggregates only, never an individual</div></div>
     </div>
   </div>
-  <div class="acts">
-    <div class="act"><div class="l">Akce pro CPI</div><div class="x">Zav&eacute;st KPI odchod s n&aacute;kupem, <b>32,1 %</b></div></div>
-    <div class="act ten"><div class="l">Akce pro n&aacute;jemce</div><div class="x">Srovnat se s pr&#367;m&#283;rem centra <b>32 %</b></div></div>
-  </div>
-  <div class="scope"><b>Metoda:</b> stratifikovan&yacute; vzorek 7&nbsp;000 n&aacute;v&scaron;t&#283;v (dle dn&iacute; v t&yacute;dnu); n&aacute;kupn&iacute; sign&aacute;l = nesen&eacute; n&aacute;kupn&iacute; vybaven&iacute;, bez osobn&iacute;ch ta&scaron;ek. Persony p&#345;i&#345;azeny segmenta&#269;n&iacute;m modelem a rebalancov&aacute;ny podle vizu&aacute;ln&iacute; evidence; &#269;teme m&iacute;ry uvnit&#345; skupin, ne jejich mix.</div>
-  <div class="pageno">08 / 10</div>
+  <div class="flow">COVER &rsaquo; DECISIONS &rsaquo; <b>DATA</b> &rsaquo; PROOF &rsaquo; PRODUCT &rsaquo; ROLLOUT</div><div class="pageno">04 / 09</div>
 </section>
 
-<!-- ============================================ 9. WHAT IS IN THE BAGS == -->
-<section class="slide">
-  <div class="top">
-    <span class="brand"><img class="clogo" src="cpi.png" alt="CPI"><span class="x">&times;</span><span class="wm sm"></span></span>
-    <span class="meta">Obsah n&aacute;kup&#367; &middot; ta&scaron;ky s &#269;iteln&yacute;m logem</span>
-  </div>
-  <p class="label">09 &middot; Co je v&nbsp;t&#283;ch ta&scaron;k&aacute;ch</p>
-  <h2>Potraviny a m&oacute;da si d&#283;l&iacute; centrum. <span class="dim">A&nbsp;v&#283;k rozhoduje, na kterou stranu pat&#345;&iacute;te.</span></h2>
-  <div class="two mt14 grow" style="--l:.92; --r:1.08; align-items:flex-start">
-    <div style="display:flex; flex-direction:column; gap:12px">
-      <div class="card">
-        <div class="ch">Dv&#283; kategorie tvo&#345;&iacute; t&#345;i &#269;tvrtiny &#269;iteln&yacute;ch ta&scaron;ek</div>
-        <div class="hbars">
-          <div class="hbar w"><span class="nm">Potraviny a gastro</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="vl">41&nbsp;%</span></div>
-          <div class="hbar w"><span class="nm">M&oacute;da a obuv</span><span class="track"><span class="fill" style="width:85%"></span></span><span class="vl">35&nbsp;%</span></div>
-          <div class="hbar w"><span class="nm">Ostatn&iacute; retail</span><span class="track"><span class="fill mut" style="width:59%"></span></span><span class="vl">24&nbsp;%</span></div>
-        </div>
-        <p class="note">Elektro, drogerie, knihy, &scaron;perky a dal&scaron;&iacute; tvo&#345;&iacute; zbylou &#269;tvrtinu. Po&#269;&iacute;t&aacute;me i&nbsp;obaly produkt&#367; (krabice od bot, n&aacute;poje), ne jen ta&scaron;ky obchod&#367;.</p>
-      </div>
-      <div class="card">
-        <div class="ch">Albert je dvakr&aacute;t &#269;ast&#283;j&scaron;&iacute; ne&#382; druh&yacute; v&nbsp;po&#345;ad&iacute;</div>
-        <div class="hbars">
-          <div class="hbar"><span class="nm">Albert</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="vl">19,6&nbsp;%</span></div>
-          <div class="hbar"><span class="nm">Reserved</span><span class="track"><span class="fill" style="width:50%"></span></span><span class="vl">9,8&nbsp;%</span></div>
-          <div class="hbar"><span class="nm">Lidl</span><span class="track"><span class="fill mut" style="width:28%"></span></span><span class="vl">5,5&nbsp;%</span></div>
-          <div class="hbar"><span class="nm">New Yorker</span><span class="track"><span class="fill mut" style="width:22%"></span></span><span class="vl">4,3&nbsp;%</span></div>
-        </div>
-        <p class="note">Pod&iacute;l na ta&scaron;k&aacute;ch s &#269;iteln&yacute;m logem. Obuv jako kategorie (Deichmann, Nike, adidas a dal&scaron;&iacute;) je dohromady na &uacute;rovni Reserved.</p>
-      </div>
+<!-- 05 CASE STUDY: AUDIENCES ============================================ -->
+<section class="slide framed">
+  <div class="frame"></div>
+  <span class="cs cs-corner"><i>Case study</i>A paying customer &middot; major mall operator in Europe</span>
+  <div class="top"><span class="brand"><span class="wm sm"></span></span></div>
+  <p class="label">04 &middot; The audiences</p>
+  <h2>Behind the average visitor are eight audiences, <span class="dim">each with its own rhythm and basket.</span></h2>
+  <div class="legend3"><span><span class="pi"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.5"/><path d="M5 20a7 7 0 0 1 14 0"/></svg></span>Who and when</span><span><span class="pi"><svg viewBox="0 0 24 24"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="2.8"/></svg></span>What we see</span><span class="buy"><span class="pi"><svg viewBox="0 0 24 24"><path d="M5 8h14l-1.2 12H6.2z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></svg></span>How they shop</span></div>
+  <div class="pgrid grow">
+    <div class="pcard pc3">
+      <div class="head"><span class="av"><img src="assets/av-mainstream.png" alt=""></span><div><div class="share">39.0%</div><div class="cnt">of visits</div></div></div>
+      <div class="nm">Mainstream Adults</div><div class="rl">The core of your traffic</div>
+      <div class="pr"><span class="pi"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.5"/><path d="M5 20a7 7 0 0 1 14 0"/></svg></span><span>Mostly 40&ndash;49, steady all week (weekend +11%)</span></div>
+      <div class="pr"><span class="pi"><svg viewBox="0 0 24 24"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="2.8"/></svg></span><span>Comfort-first outfits, sportswear brands, smartphone in hand</span></div>
+      <div class="pr buy"><span class="pi"><svg viewBox="0 0 24 24"><path d="M5 8h14l-1.2 12H6.2z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></svg></span><span><b>38%</b> leave with a purchase: your volume buyers</span></div>
     </div>
-    <div style="display:flex; flex-direction:column; gap:12px">
-      <div class="card">
-        <div class="ch">&#268;&iacute;m mlad&scaron;&iacute; publikum, t&iacute;m v&iacute;c m&oacute;dy a m&eacute;n&#283; potravin</div>
-        <svg viewBox="0 0 520 205" width="100%" height="198">
-          <g transform="translate(0,14)"><text class="nm" x="202" y="4" text-anchor="end" font-size="11">Rann&iacute; senio&#345;i</text><line x1="212" y1="0" x2="500" y2="0" stroke="var(--hair-2)" stroke-width="1"/><circle cx="212" cy="0" r="5.5" fill="var(--accent)" stroke="#fff" stroke-width="2"/></g>
-          <g transform="translate(0,39)"><text class="nm" x="202" y="4" text-anchor="end" font-size="11">Mainstreamov&iacute; dosp&#283;l&iacute;</text><line x1="212" y1="0" x2="500" y2="0" stroke="var(--hair-2)" stroke-width="1"/><circle cx="307" cy="0" r="5.5" fill="var(--accent)" stroke="#fff" stroke-width="2"/></g>
-          <g transform="translate(0,64)"><text class="nm" x="202" y="4" text-anchor="end" font-size="11">Maminky s p&#345;irozen&yacute;m vzhledem</text><line x1="212" y1="0" x2="500" y2="0" stroke="var(--hair-2)" stroke-width="1"/><circle cx="370" cy="0" r="5.5" fill="var(--accent)" stroke="#fff" stroke-width="2"/></g>
-          <g transform="translate(0,89)"><text class="nm" x="202" y="4" text-anchor="end" font-size="11">Mlad&iacute; minimalist&eacute;</text><line x1="212" y1="0" x2="500" y2="0" stroke="var(--hair-2)" stroke-width="1"/><circle cx="391" cy="0" r="5.5" fill="var(--accent)" stroke="#fff" stroke-width="2"/></g>
-          <g transform="translate(0,114)"><text class="nm" x="202" y="4" text-anchor="end" font-size="11">Aktivn&iacute; ve sportovn&iacute;m</text><line x1="212" y1="0" x2="500" y2="0" stroke="var(--hair-2)" stroke-width="1"/><circle cx="437" cy="0" r="5.5" fill="var(--accent)" stroke="#fff" stroke-width="2"/></g>
-          <g transform="translate(0,139)"><text class="nm" x="202" y="4" text-anchor="end" font-size="11">Teenage&#345;i ve streetwearu</text><line x1="212" y1="0" x2="500" y2="0" stroke="var(--hair-2)" stroke-width="1"/><circle cx="442" cy="0" r="5.5" fill="var(--accent)" stroke="#fff" stroke-width="2"/></g>
-          <g transform="translate(0,164)"><text class="nm" x="202" y="4" text-anchor="end" font-size="11">Upraven&iacute; profesion&aacute;lov&eacute;</text><line x1="212" y1="0" x2="500" y2="0" stroke="var(--hair-2)" stroke-width="1"/><circle cx="500" cy="0" r="5.5" fill="var(--accent)" stroke="#fff" stroke-width="2"/></g>
-          <g class="mut" font-size="10">
-            <text x="212" y="196">jen potraviny</text>
-            <text x="356" y="196" text-anchor="middle">p&#367;l na p&#367;l</text>
-            <text x="500" y="196" text-anchor="end">jen m&oacute;da a obuv</text>
-          </g>
-        </svg>
-        <p class="note">Poloha = pom&#283;r m&oacute;dn&iacute;ch a potravinov&yacute;ch ta&scaron;ek dan&eacute; persony. Sm&#283;rov&eacute;: &#269;iteln&eacute; logo nese jen desetina ta&scaron;ek, &#269;teme trend, ne p&#345;esn&eacute; &#269;&iacute;slo.</p>
-      </div>
+    <div class="pcard pc3">
+      <div class="head"><span class="av"><img src="assets/av-young.png" alt=""></span><div><div class="share">12.8%</div><div class="cnt">of visits</div></div></div>
+      <div class="nm">Young Minimalists</div><div class="rl">Affordable fashion, clean style</div>
+      <div class="pr"><span class="pi"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.5"/><path d="M5 20a7 7 0 0 1 14 0"/></svg></span><span>Mostly 20&ndash;29, build up in the afternoon, lead after 7 pm</span></div>
+      <div class="pr"><span class="pi"><svg viewBox="0 0 24 24"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="2.8"/></svg></span><span>Clean looks, fine jewelry</span></div>
+      <div class="pr buy"><span class="pi"><svg viewBox="0 0 24 24"><path d="M5 8h14l-1.2 12H6.2z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></svg></span><span><b>28%</b> leave with a purchase, fashion-led bags</span></div>
+    </div>
+    <div class="pcard pc3">
+      <div class="head"><span class="av"><img src="assets/av-seniors.png" alt=""></span><div><div class="share">9.5%</div><div class="cnt">of visits</div></div></div>
+      <div class="nm">Morning Seniors</div><div class="rl">Off-peak, grocery-led</div>
+      <div class="pr"><span class="pi"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.5"/><path d="M5 20a7 7 0 0 1 14 0"/></svg></span><span>60+, half of their visits between 8 and 11 am</span></div>
+      <div class="pr"><span class="pi"><svg viewBox="0 0 24 24"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="2.8"/></svg></span><span>Classic watches, shopping carts</span></div>
+      <div class="pr buy"><span class="pi"><svg viewBox="0 0 24 24"><path d="M5 8h14l-1.2 12H6.2z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></svg></span><span><b>38%</b> leave with a purchase, mostly groceries by cart</span></div>
+    </div>
+    <div class="pcard pc3">
+      <div class="head"><span class="av"><img src="assets/av-athleisure.png" alt=""></span><div><div class="share">8.6%</div><div class="cnt">of visits</div></div></div>
+      <div class="nm">Active in Sportswear</div><div class="rl">The weekend audience</div>
+      <div class="pr"><span class="pi"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.5"/><path d="M5 20a7 7 0 0 1 14 0"/></svg></span><span>Mostly 20&ndash;39, weekends <b>+43%</b>, the most of all</span></div>
+      <div class="pr"><span class="pi"><svg viewBox="0 0 24 24"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="2.8"/></svg></span><span>Sportswear with visible logos</span></div>
+      <div class="pr buy"><span class="pi"><svg viewBox="0 0 24 24"><path d="M5 8h14l-1.2 12H6.2z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></svg></span><span><b>29%</b> leave with a purchase; premium signal <b>10.5%</b></span></div>
+    </div>
+    <div class="pcard pc3">
+      <div class="head"><span class="av"><img src="assets/av-workwear.png" alt=""></span><div><div class="share">8.2%</div><div class="cnt">of visits</div></div></div>
+      <div class="nm">Practical Men in Workwear</div><div class="rl">Quick, purposeful trips</div>
+      <div class="pr"><span class="pi"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.5"/><path d="M5 20a7 7 0 0 1 14 0"/></svg></span><span>Mostly 40&ndash;49, drop in at any time of day</span></div>
+      <div class="pr"><span class="pi"><svg viewBox="0 0 24 24"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="2.8"/></svg></span><span>Functional workwear, digital watches</span></div>
+      <div class="pr buy"><span class="pi"><svg viewBox="0 0 24 24"><path d="M5 8h14l-1.2 12H6.2z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></svg></span><span><b>26%</b> leave with a purchase: in, buy, out</span></div>
+    </div>
+    <div class="pcard pc3">
+      <div class="head"><span class="av"><img src="assets/av-parents.png" alt=""></span><div><div class="share">7.6%</div><div class="cnt">of visits</div></div></div>
+      <div class="nm">Moms with a Natural Look</div><div class="rl">Family trips, all day</div>
+      <div class="pr"><span class="pi"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.5"/><path d="M5 20a7 7 0 0 1 14 0"/></svg></span><span>Mostly 30&ndash;39, weekdays too; weekend +15%</span></div>
+      <div class="pr"><span class="pi"><svg viewBox="0 0 24 24"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="2.8"/></svg></span><span>Smartwatch, shoulder bag, child in tow</span></div>
+      <div class="pr buy"><span class="pi"><svg viewBox="0 0 24 24"><path d="M5 8h14l-1.2 12H6.2z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></svg></span><span><b>37%</b> leave with a purchase: planned family shopping</span></div>
+    </div>
+    <div class="pcard pc3">
+      <div class="head"><span class="av"><img src="assets/av-teens.png" alt=""></span><div><div class="share">7.2%</div><div class="cnt">of visits</div></div></div>
+      <div class="nm">Teens in Streetwear</div><div class="rl">After school and weekends</div>
+      <div class="pr"><span class="pi"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.5"/><path d="M5 20a7 7 0 0 1 14 0"/></svg></span><span>Under 20, peak 3&ndash;6 pm; weekend +35%</span></div>
+      <div class="pr"><span class="pi"><svg viewBox="0 0 24 24"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="2.8"/></svg></span><span>Graphic tees, sneakers, loud logos</span></div>
+      <div class="pr buy"><span class="pi"><svg viewBox="0 0 24 24"><path d="M5 8h14l-1.2 12H6.2z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></svg></span><span><b>19%</b> leave with a purchase: big on logos, small on spend</span></div>
+    </div>
+    <div class="pcard pc3">
+      <div class="head"><span class="av"><img src="assets/av-professionals.png" alt=""></span><div><div class="share">7.2%</div><div class="cnt">of visits</div></div></div>
+      <div class="nm">Polished Professionals</div><div class="rl">Quiet luxury on weekdays</div>
+      <div class="pr"><span class="pi"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.5"/><path d="M5 20a7 7 0 0 1 14 0"/></svg></span><span>Mostly 30&ndash;39, weekday audience; weekend &minus;34%</span></div>
+      <div class="pr"><span class="pi"><svg viewBox="0 0 24 24"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="2.8"/></svg></span><span>Apple devices, tote bags, quality over logos</span></div>
+      <div class="pr buy"><span class="pi"><svg viewBox="0 0 24 24"><path d="M5 8h14l-1.2 12H6.2z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></svg></span><span><b>26%</b> leave with a purchase; premium signal <b>13%</b></span></div>
     </div>
   </div>
-  <div class="acts">
-    <div class="act"><div class="l">Akce pro CPI</div><div class="x">Stav&#283;t cross-sell na potravinov&eacute; kotv&#283;</div></div>
-    <div class="act ten"><div class="l">Akce pro n&aacute;jemce</div><div class="x">M&oacute;du c&iacute;lit na odpoledne a v&iacute;kend</div></div>
+  <div class="kpis">
+    <div class="kpi"><div class="l">Landlord KPI</div><div class="m">Target-audience share of visits, per entrance, per week</div><div class="e">e.g. Polished Professionals <b>7.2%</b> of visits, weekends <b>&minus;34%</b></div></div>
+    <div class="kpi ten"><div class="l">Tenant KPI</div><div class="m">Purchase rate of the core audiences</div><div class="e">e.g. Mainstream Adults <b>38%</b> vs Teens in Streetwear <b>19%</b></div></div>
   </div>
-  <div class="scope"><b>Zdroj:</b> ta&scaron;ky a obaly s &#269;iteln&yacute;m logem ve vzorku 7&nbsp;000 n&aacute;v&scaron;t&#283;v; zna&#269;ky s&nbsp;jednotkami v&yacute;skyt&#367; jsou ilustrace, ne po&#345;ad&iacute;. Pod&iacute;ly = % ta&scaron;ek s &#269;iteln&yacute;m logem.</div>
-  <div class="pageno">09 / 10</div>
+  <div class="scope"><b>Source:</b> visual analysis of visits and a segmentation model; shares of analyzed visits, weekend figures are visits per day vs weekdays, purchase share from a sample of visits; at least 25 people per figure. Avatars are illustrative.</div>
+  <div class="pageno">05 / 09</div>
 </section>
 
-<!-- ========================================== 10. ACTIONS + NEXT STEPS == -->
+<!-- 08 AI-FIRST ========================================================== -->
 <section class="slide">
-  <div class="top">
-    <span class="brand"><img class="clogo" src="cpi.png" alt="CPI"><span class="x">&times;</span><span class="wm sm"></span></span>
-    <span class="meta">Doporu&#269;en&eacute; akce &middot; dal&scaron;&iacute; kroky</span>
-  </div>
-  <p class="label">10 &middot; Kam to roste d&#225;l</p>
-  <h2>Pilot uk&#225;zal jedno centrum. <span class="dim">Odsud se stav&#237; analytick&#225; vrstva nad celou s&#237;t&#237;.</span></h2>
-  <div class="two mt14 grow" style="--l:1.3; --r:.7; gap:50px; align-items:stretch">
-    <div style="display:flex; flex-direction:column; gap:9px">
-      <div class="card" style="flex:1; flex-direction:row; gap:13px; align-items:center; padding:12px 16px 11px">
-        <span class="tile-i" style="width:34px; height:34px"><svg class="i" viewBox="0 0 24 24" style="width:17px; height:17px"><path d="M3.5 16a8.5 8.5 0 0 1 17 0"/><path d="M12 16l4.2-4.6"/><circle cx="12" cy="16" r="1.3"/><path d="M3.5 19.5h17"/></svg></span>
-        <div style="min-width:0; flex:1"><div class="ch" style="margin-bottom:4px">Napojen&#237; na va&#353;e KPI, ne report vedle nich</div><p class="lead" style="font-size:13.5px">N&#225;v&#353;t&#283;vnost a slo&#382;en&#237; publika &#269;teme proti metrik&#225;m, kter&#233; u&#382; sledujete. Business i marketing dostanou stejn&#253; podklad, ka&#382;d&#253; ve sv&#233;m &#345;ezu.</p><div class="chips"><span class="chip">Slo&#382;en&#237; z&#225;kazn&#237;k&#367;</span><span class="chip">Dopad kampan&#237;</span><span class="chip">Po&#269;et ko&#353;&#237;k&#367;</span><span class="chip">N&#225;v&#353;t&#283;vnost</span></div></div>
+  <div class="top"><span class="brand"><span class="wm sm"></span></span><span class="meta">The product, running today</span></div>
+  <p class="label">05 &middot; AI-first</p>
+  <h2>Next generation, AI-first platform.<br><span class="dim">Ask a question instead of waiting for a dashboard.</span></h2>
+  <div class="two mt18 grow" style="--l:1.15; --r:.85; gap:18px">
+    <div class="roles">
+      <div class="role">
+        <div class="who">Marketing lead</div>
+        <div class="askbar"><svg viewBox="0 0 24 24"><path d="m12 3 1.9 5.6L19.5 10.5l-5.6 1.9L12 18l-1.9-5.6L4.5 10.5l5.6-1.9z"/></svg><span class="q">Which audience fills Saturday afternoons at <span class="mn loc"><svg viewBox="0 0 24 24" style="width:11px;height:11px;fill:none;stroke:currentColor;stroke-width:2.2;margin:0 1px 0 3px"><path d="M12 21s-6.5-6.2-6.5-11A6.5 6.5 0 0 1 18.5 10c0 4.8-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg>Dubai Mall</span>?</span><span class="kbd"><svg viewBox="0 0 24 24" style="width:11px;height:11px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:-1px"><path d="M20 5v7a3 3 0 0 1-3 3H5"/><path d="m9 11-4 4 4 4"/></svg></span></div>
+        <div class="so"><b>&rsaquo;</b> Plan the next activation around the audience that already comes.</div>
       </div>
-      <div class="card" style="flex:1; flex-direction:row; gap:13px; align-items:center; padding:12px 16px 11px">
-        <span class="tile-i" style="width:34px; height:34px"><svg class="i" viewBox="0 0 24 24" style="width:17px; height:17px"><ellipse cx="12" cy="5.5" rx="8" ry="3"/><path d="M4 5.5v6c0 1.66 3.58 3 8 3s8-1.34 8-3v-6"/><path d="M4 11.5v6c0 1.66 3.58 3 8 3s8-1.34 8-3v-6"/></svg></span>
-        <div style="min-width:0; flex:1"><div class="ch" style="margin-bottom:4px">Va&#353;e ostatn&#237; data do jednoho obrazu</div><p class="lead" style="font-size:13.5px">Na&#353;e m&#283;&#345;en&#237; spoj&#237;me s dal&#353;&#237;mi extern&#237;mi zdroji dat, kter&#233; u&#382; nakupujete. Nebo dod&#225;me &#269;ist&#225; data p&#345;es API k v&#225;m do skladu.</p><div class="chips"><span class="chip">Na&#353;e m&#283;&#345;en&#237;</span><span class="sep">+</span><span class="chip">Extern&#237; zdroje dat</span><span class="sep">+</span><span class="chip">Va&#353;e syst&#233;my</span><span class="sep">&rarr;</span><span class="chip on">Jeden obraz</span></div></div>
+      <div class="role">
+        <div class="who">Leasing manager</div>
+        <div class="askbar"><svg viewBox="0 0 24 24"><path d="m12 3 1.9 5.6L19.5 10.5l-5.6 1.9L12 18l-1.9-5.6L4.5 10.5l5.6-1.9z"/></svg><span class="q">Who comes through the side entrance, and what do they carry out?</span><span class="kbd"><svg viewBox="0 0 24 24" style="width:11px;height:11px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:-1px"><path d="M20 5v7a3 3 0 0 1-3 3H5"/><path d="m9 11-4 4 4 4"/></svg></span></div>
+        <div class="so"><b>&rsaquo;</b> Bring audience evidence to the next lease conversation.</div>
       </div>
-      <div class="card" style="flex:1; flex-direction:row; gap:13px; align-items:center; padding:12px 16px 11px">
-        <span class="tile-i" style="width:34px; height:34px"><svg class="i" viewBox="0 0 24 24" style="width:17px; height:17px"><path d="M21 14.5a2 2 0 0 1-2 2H8l-4 3.5V5a2 2 0 0 1 2-2h13a2 2 0 0 1 2 2z"/><path d="M8 8.5h9M8 12h6"/></svg></span>
-        <div style="min-width:0; flex:1"><div class="ch" style="margin-bottom:4px">Ot&#225;zky nad daty m&#237;sto &#269;ek&#225;n&#237; na report</div><p class="lead" style="font-size:13.5px">Vlastn&#237; filtry a &#345;ezy kdykoliv, bez fronty na analytika.</p><div class="askbar"><svg viewBox="0 0 24 24"><path d="m12 3 1.9 5.6L19.5 10.5l-5.6 1.9L12 18l-1.9-5.6L4.5 10.5l5.6-1.9z"/></svg><span class="q">Kdy nej&#269;ast&#283;ji nakupuj&#237; <span class="mn low_signal"><i style="background-image:url('av-professionals.png')"></i>Upraven&#237; profesion&#225;lov&#233;</span> a kolik ta&#353;ek si pr&#367;m&#283;rn&#283; odn&#225;&#353;ej&#237;?</span><span class="kbd">&#9166;</span></div></div>
-      </div>
-      <div class="card" style="flex:1; flex-direction:row; gap:13px; align-items:center; padding:12px 16px 11px">
-        <span class="tile-i" style="width:34px; height:34px"><svg class="i" viewBox="0 0 24 24" style="width:17px; height:17px"><path d="M4 20V11M9.3 20V4.5M14.7 20V13.5M20 20V7.5"/></svg></span>
-        <div style="min-width:0; flex:1"><div class="ch" style="margin-bottom:4px">Srovn&#225;n&#237; center na stejn&#233;m metru</div><p class="lead" style="font-size:13.5px">Stejn&#225; definice metriky ve v&#353;ech centrech s&#237;t&#283;. Benchmark uvnit&#345; CPI, ne proti ciz&#237;mu trhu ani proti modelovan&#253;m dat&#367;m.</p><div class="chips"><span class="chip">V&#283;kov&#253; profil</span><span class="chip">Rodinn&#253; provoz</span><span class="chip">Denn&#237; k&#345;ivka</span><span class="chip">Pod&#237;l person</span></div></div>
+      <div class="role">
+        <div class="who">Center manager</div>
+        <div class="askbar"><svg viewBox="0 0 24 24"><path d="m12 3 1.9 5.6L19.5 10.5l-5.6 1.9L12 18l-1.9-5.6L4.5 10.5l5.6-1.9z"/></svg><span class="q">On which days do <span class="mn suburban_parent"><i style="background-image:url('assets/av-parents.png')"></i>Parents with Children</span> arrive, and when?</span><span class="kbd"><svg viewBox="0 0 24 24" style="width:11px;height:11px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:-1px"><path d="M20 5v7a3 3 0 0 1-3 3H5"/><path d="m9 11-4 4 4 4"/></svg></span></div>
+        <div class="so"><b>&rsaquo;</b> Staff and program for the families you actually get.</div>
       </div>
     </div>
-    <div style="background:var(--accent-wash); border:1px solid var(--accent-edge); border-radius:var(--r-lg); box-shadow:var(--sh-1); padding:26px 24px; display:flex; flex-direction:column; justify-content:center">
-      <div style="font-size:9.5px; font-weight:600; text-transform:uppercase; letter-spacing:.11em; color:var(--accent); margin-bottom:9px">Ozv&#283;te se</div>
-      <img src="santora_ondrej.png" alt="Ond&#345;ej &#352;antora" style="width:74px; height:74px; border-radius:50%; object-fit:cover; object-position:top center; display:block; box-shadow:0 0 0 2px #fff, 0 2px 10px rgba(16,24,40,.14)">
-      <div style="font-size:19px; font-weight:600; letter-spacing:-.022em; color:var(--ink); margin-top:14px">Ond&#345;ej &#352;antora</div>
-      <div style="font-size:12px; color:var(--ink-3); margin-top:3px">Co-Founder, Minds &amp; Models</div>
-      <div style="margin-top:16px; display:flex; flex-direction:column; gap:6px; font-size:13px; color:#1e40af; font-variant-numeric:tabular-nums">
-        <span>ondrej@mindsmodels.ai</span>
-        <span>+420 720 571 736</span>
-        <span style="color:var(--ink-3)">mindsmodels.ai</span>
+    <div style="display:flex; flex-direction:column; gap:12px">
+      <div class="card pts" style="padding:16px 16px 14px">
+        <div class="pt"><span class="tile-i"><svg class="i" viewBox="0 0 24 24"><path d="M21 14.5a2 2 0 0 1-2 2H8l-4 3.5V5a2 2 0 0 1 2-2h13a2 2 0 0 1 2 2z"/><path d="M8 8.5h9M8 12h6"/></svg></span><div><div class="ch">Dashboards if you want them, never a bottleneck</div><p>Reports and dashboards are there, and we build custom views on request. Your team simply never has to wait for one: ask, and get the answer and the chart.</p></div></div>
+        <div class="pt"><span class="tile-i"><svg class="i" viewBox="0 0 24 24"><ellipse cx="12" cy="5.5" rx="8" ry="3"/><path d="M4 5.5v6c0 1.66 3.58 3 8 3s8-1.34 8-3v-6"/><path d="M4 11.5v6c0 1.66 3.58 3 8 3s8-1.34 8-3v-6"/></svg></span><div><div class="ch">Integrates with anything</div><p>Clean data into your warehouse or BI tool via API, next to the mobile and card data you already buy.</p></div></div>
+        <div class="pt"><span class="tile-i"><svg class="i" viewBox="0 0 24 24"><path d="M4 20V11M9.3 20V4.5M14.7 20V13.5M20 20V7.5"/></svg></span><div><div class="ch">One interface for every center</div><p>The same questions work across your whole portfolio.</p></div></div>
       </div>
-      <p style="margin-top:18px; padding-top:14px; border-top:1px solid var(--accent-edge); font-size:12px; line-height:1.5; color:#1e40af">R&#225;d projdu report s va&#353;&#237;m t&#253;mem a navrhnu rozsah druh&#233; f&#225;ze.</p>
+      <a class="try" href="https://mindsmodels.ai">
+        <div><div class="l">It is live. Try it now</div><div class="u">mindsmodels.ai</div></div>
+        <span class="go">Open the chat &rsaquo;</span>
+      </a>
     </div>
   </div>
-  <div class="flow">DATA &rarr; INSIGHT &rarr; <b>DOPAD</b></div><div class="pageno">10 / 10</div>
+  <div class="flow">COVER &rsaquo; DECISIONS &rsaquo; DATA &rsaquo; PROOF &rsaquo; <b>PRODUCT</b> &rsaquo; ROLLOUT</div><div class="pageno">06 / 09</div>
+</section>
+
+<!-- 07 KPIs ================================================================ -->
+<section class="slide">
+  <div class="top"><span class="brand"><span class="wm sm"></span></span><span class="meta">From insight to KPIs</span></div>
+  <p class="label">06 &middot; Make it measurable</p>
+  <h2>Turn audience data into KPIs you manage and improve.</h2>
+  <div class="card mt18" style="padding:6px 18px 4px">
+    <table class="ktab">
+      <thead><tr><th style="width:27%">KPI</th><th style="width:40%">What it measures</th><th>What it moves</th><th>Owner</th></tr></thead>
+      <tbody><tr><td class="k">Target-audience share</td><td>Share of visits from the audiences your strategy targets, per center and month</td><td>Tenant mix, marketing</td><td>Leasing, marketing</td></tr><tr><td class="k">Activation audience lift</td><td>Change in target-audience visits during an event or campaign vs its baseline</td><td>Programming, campaign spend</td><td>Marketing</td></tr><tr><td class="k">Audience reach per entrance and screen</td><td>Weekly reach of each audience at every entrance, promo zone and screen</td><td>Media and space pricing</td><td>Commercial</td></tr><tr><td class="k">Purchase rate by audience</td><td>Share of visits that end with a purchase, per audience and center</td><td>Tenant mix, promotions</td><td>Leasing, tenants</td></tr><tr><td class="k">Tenant data revenue</td><td>Revenue from audience reports and benchmarks sold to tenants</td><td>A new revenue line</td><td>Commercial</td></tr></tbody>
+    </table>
+  </div>
+  <div class="grow"></div>
+  <div class="grid2" style="gap:12px">
+    <div class="strip"><div class="l">Monetize with your tenants</div><p>Offer tenants audience reports for their storefront and category, with benchmarks against the center. <b>Data your cameras already collect becomes a paid tenant service.</b></p></div>
+    <div class="strip"><div class="l">Like for like across the portfolio</div><p>The same KPI definitions in every center, from one platform. <b>Compare centers directly, with no reconciling of legacy counters from different vendors.</b></p></div>
+  </div>
+  <div class="flow">COVER &rsaquo; DECISIONS &rsaquo; DATA &rsaquo; <b>PROOF</b> &rsaquo; PRODUCT &rsaquo; ROLLOUT</div><div class="pageno">07 / 09</div>
+</section>
+
+<!-- 11 PRIVACY =========================================================== -->
+<section class="slide">
+  <div class="top"><span class="brand"><span class="wm sm"></span></span><span class="meta">Privacy and compliance</span></div>
+  <p class="label">07 &middot; Privacy by design</p>
+  <h2>We understand every visitor<br><span class="dim">without identifying anyone.</span></h2>
+  <div class="mid"><div class="priv p3">
+    <div class="card"><span class="tile-i"><svg class="i" viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z"/></svg></span><div class="ch">No faces, no identities</div><p>No facial recognition and no biometric templates. Visits cannot be linked or re-identified.</p></div>
+    <div class="card"><span class="tile-i"><svg class="i" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="16" cy="9" r="2.5"/><path d="M3.5 19a5.5 5.5 0 0 1 11 0M14 19a4 4 0 0 1 7 0"/></svg></span><div class="ch">Aggregates only</div><p>Every output describes at least 25 people. No number ever points to an individual.</p></div>
+    <div class="card"><span class="tile-i"><svg class="i" viewBox="0 0 24 24"><path d="m5 12 4 4 10-10"/></svg></span><div class="ch">GDPR certified and audited</div><p>Independently audited and GDPR certified. We work through your data processing agreement and impact assessment with your legal team.</p></div>
+  </div></div><p class="note" style="margin-top:12px">All analysis runs without facial recognition or biometric templates. Visits cannot be linked or re-identified. All outputs are aggregated (minimum 25 persons per segment).</p>
+  <div class="flow">COVER &rsaquo; DECISIONS &rsaquo; DATA &rsaquo; PROOF &rsaquo; PRODUCT &rsaquo; <b>ROLLOUT</b></div><div class="pageno">08 / 09</div>
+</section>
+
+<!-- 12 HOW TO START ====================================================== -->
+<section class="slide">
+  <div class="top"><span class="brand"><span class="wm sm"></span></span><span class="meta">Next step</span></div>
+  <p class="label">08 &middot; How to start</p>
+  <h2>Start with one center.<br><span class="dim">Grow into the future of mall audience analytics.</span></h2>
+  <div class="mid"><div class="steps3">
+    <div class="card"><span class="stepno">1</span><div class="ch">Pilot</div><div class="when">one center</div>
+      <ul><li>Cameras at your main entrances</li><li>AI chat and live dashboard from day one</li><li>A report with your audiences, time patterns and purchase signal</li></ul></div>
+    <div class="card"><span class="stepno">2</span><div class="ch">Compare centers</div><div class="when">a few centers</div>
+      <ul><li>The same metrics side by side</li><li>Ideally across a peak season</li><li>Matched to your own segments and KPIs</li></ul></div>
+    <div class="card"><span class="stepno">3</span><div class="ch">Portfolio rollout</div><div class="when">in waves</div>
+      <ul><li>Entrances and tenant storefronts where you need them</li><li>Data into your systems via API</li><li>One view across the whole portfolio</li></ul></div>
+  </div>
+  </div>
+  <div class="contact mt14">
+    <img src="assets/santora_ondrej.png" alt="Ondřej Šantora">
+    <div><div class="nm">Ondřej Šantora</div><div class="rl">Co-Founder, Minds &amp; Models</div></div>
+    <div class="ln"><a href="mailto:ondrej@mindsmodels.ai">ondrej@mindsmodels.ai</a><span>+420 720 571 736</span><a href="https://mindsmodels.ai"><b>Try the chat at mindsmodels.ai &rsaquo;</b></a></div>
+  </div>
+  <div class="flow">COVER &rsaquo; DECISIONS &rsaquo; DATA &rsaquo; PROOF &rsaquo; PRODUCT &rsaquo; <b>ROLLOUT</b></div><div class="pageno">09 / 09</div>
 </section>
 
 </div>
+
 </body>
 </html>
