@@ -429,3 +429,24 @@ model_preseed_milestones_v2:
     next round rather than as a use-of-funds split. Round timing comes from ASSUMPTIONS section 8
     (pre-seed month 3, Nov 2026; seed month 13, Sep 2027). Seat counts are fleet averages and carry
     decimals in the model; round to whole seats in external material and never imply a signed name.
+
+# --- Added 2026-09-17: traction slide framing ---
+
+launch_quarter:
+  value: "Minds & Models went live in stores in Q2 2026"
+  source: "founder statement 2026-09-17 for the pitch deck"
+  status: needs-source
+  note: >
+    ACTION: pin this to a concrete first-capture date from the database (first store-month with
+    inference running) and change the status. The deck now opens the traction slide with it.
+
+pilot_logo_row:
+  value: "Public pilot logo row, in the order used on mindsmodels.ai: CEPRO, Super zoo, Manufaktura, O2, GymBeam, Vilgain, CPI"
+  source: "mindsmodels.ai pilot logo row, read 2026-09-17; assets from /logos/pilots/"
+  status: verified
+  note: >
+    The deck's traction slide now uses the same seven marks and the same official assets as the
+    landing page, under the label "Proven in the field by" and with no claim about what was done
+    with each one. CEPRO replaces the EuroOil mark the deck used before, which was a reconstruction
+    rather than an official asset; EuroOil is CEPRO's retail brand, so this is also the more
+    defensible naming. Written naming approval from Super zoo and GymBeam is still outstanding.

@@ -55,7 +55,7 @@ room, it is jargon: say "the largest company in the market" or name NIQ.
 | 03 | Solution | Two data sets exist in every store. Nobody has ever joined them. The join is the product. |
 | 04 | Business model | The side with the data pays nothing. The side that needs it pays, and pays more every year. |
 | 05 | Product | It is live. Here is the chat, ask it something. |
-| 06 | Traction | Real chains, real volume, and the corpus compounds. |
+| 06 | Traction | Launched Q2 2026, this much data since, and these are the chains. |
 | 07 | Numbers | The curve, and what the thing is worth at the end of it. |
 | 08 | Team | Two founders who have done the two halves of this before. |
 | 09 | Ask | 500k, four numbers the business has by the next round, and why now. |
@@ -121,13 +121,22 @@ chains of a market. Three multipliers on one deployment.
 on the slide. This is the single highest-conviction moment in the deck, so protect the time for it.
 
 ### 06 · Traction
-**Lands:** the corpus compounds. Seven retail brands instrumented or in pilot, the logo row is
-"tested with market leaders", and two numbers underneath.
-**Careful:** do not state what was done with each named brand, and check `can_name_publicly` in
-`clients/<x>/facts.yaml` before naming any of them in writing. Super zoo and GymBeam naming approval
-is still outstanding. The EuroOil mark on the wall is a reconstruction, not the official asset.
-**Open flag:** the 18,830,280 visual and 484,120 POS figures mix vintages. Re-pull as one cumulative
-number with one as-of date before this goes to a fund that will diligence it.
+**The slide reads top to bottom as one sentence:** launched Q2 2026, here is how much has
+accumulated, and here is who it ran with.
+**Lands:** the asset compounds, and it is real.
+Two numbers, very large: 18,830,280 visual data points and 484,120 POS data points matched. Then
+the line that carries the argument: every store-month adds to the same owned asset, and it is the
+one part of this business that cannot be rebuilt by spending more.
+**The logo band** is the same seven marks, same order and same official assets as the landing page,
+under "Proven in the field by". CEPRO has replaced the EuroOil mark the deck used before; that one
+was a reconstruction rather than an official asset, and EuroOil is CEPRO's retail brand, so this is
+the more defensible version.
+**Careful:** the band deliberately says nothing about what was done with each name. Do not fill that
+in unprompted, and check `can_name_publicly` in `clients/<x>/facts.yaml` before naming any of them
+in writing. Written naming approval from Super zoo and GymBeam is still outstanding.
+**Open flags:** the 18,830,280 and 484,120 figures mix vintages, re-pull as one cumulative number
+with one as-of date before a fund diligences it. "Launched Q2 2026" also needs pinning to a concrete
+first-capture date from the database.
 
 ### 07 · Numbers
 **Headline is one line:** software multiples are compressing, owned data is not.
@@ -344,6 +353,7 @@ table and exit ladder) is stale. Use this page.
 2. The traction figures on slide 06 mix three vintages. Re-pull as one cumulative number with one
    as-of date.
 3. Written naming approval from Super zoo and GymBeam for the logo row.
-4. The EuroOil mark is a reconstruction, not the official asset.
+4. "Launched Q2 2026" on the traction slide is a founder statement, not yet pinned to a first-capture
+   date in the database.
 5. `messaging/stats.yaml` still carries the older `pricing_ladder` entry with `internal_only: true`
    and different CZK bands, which conflicts with `model_price_ladder`. Retire or re-scope it.
