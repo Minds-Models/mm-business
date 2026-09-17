@@ -1496,3 +1496,67 @@ US is scenario 3 and the UK is in the second European wave.
   unchanged, EBITDA 0.47M lower).
 - Cameras per store and the decline are list-price assumptions until the pilot invoice exists.
 - The market-read attach rate and the pooled share remain the two commercial inputs that hurt most.
+
+
+## Addendum, 17 Sep 2026: profitability inside the horizon
+
+The founder asked for the plan to get close to break-even during 2030 and to hold EBITDA positive
+through 2031, so that the exit year shows durability rather than a first positive quarter. Diagnosis
+on the live model: in 2030 gross profit was 8.18M against 10.05M of operating expenses, of which
+payroll was 8.43M (84%); everything else together (go-to-market programs, chain integration, market
+entry, local fixed cost, fees, software) was 1.6M. Monthly EBITDA already turned positive in April
+2031 and rose every month to 166k in December, so the durability was in the data; it started late and
+with no margin. The only lever of size is people: fewer for the same output, or cheaper.
+
+Thirteen levers were measured one at a time (each staffing ratio, the labour multiplier, salary
+inflation, the two retailer shares, the signing rate, the Nordics entry) and are tabled in the
+walkthrough. The founder chose the milder of two ratio packages, **A2**, with salary inflation at
+3.5% instead of 5%, and asked for the Series A to be cut to what leaves a buffer without raising
+cash the plan does not use.
+
+**The ratios, now at their mature values, with the reasoning printed beside each on HEADCOUNT:**
+five live categories per analyst (a read is a tooled product with a release cadence by the third
+year, and the same category in a second market is a clone), seven per data engineer (a category that
+runs in one market is re-used when it opens in the next), 4.5 chains per deployment engineer and per
+retailer-BD person (the second chain in a market repeats the first), 3M EUR of ARR per customer-success
+manager (the middle of the Gainsight range), an 800k quota per account executive (the Bridge Group
+median) with half an SDR each, marketing per twelve categories, one finance or operations person per
+fourteen people. ARR per head ends at 266k. The role rows and the staffing bases were re-verified
+against an independent recomputation after the change.
+
+**The Series A, sized from the unfunded path.** With the ratios in place, cumulative EBITDA over the
+whole horizon is (1.11M): (2.02M) to the Series A month and +0.92M after it. With the Series A set to
+zero the base case still reaches full-year profitability in 2031 and cash never falls below 1.72M
+(month 33), but two things break: pricing 20% below plan runs 192k short in month 51, and the United
+States (scenario 3) would be entered with 301k of headroom. A round of **2.5M at the same 25M post
+(10%)** keeps 2.3M in the price case, 2.8M in the US case, 4.2M in the base, and cash net of unearned
+prepayments positive throughout; 2.0M would still cover both with 1.8M and 2.3M. The founder's
+instruction was a buffer without excess, and 2.5M is that. The pool top-up before the round falls to
+6.1% of the post-A company.
+
+**Base case after the addendum: 2031 ARR 21.29M (unchanged), 2030 EBITDA (0.41M) with the fourth
+quarter positive, 2031 EBITDA +2.75M (14.9%), Q4 2031 19.9%, EBITDA positive and rising from month 52
+(Dec 2030, one negative month in November 2030 before it), 80 people, raised 5.72M, founders 53.4%,
+pool 12.0%, exit 212.9M at 10x, pre-seed 21.5x, seed 14.9x, Series A 8.5x.** Every stress in the
+walkthrough table stays funded and every one of them is EBITDA positive in 2031; cash net of
+prepayments never turns negative after the pre-seed. CAC per seat 76k, payback 9.9 months, LTV/CAC
+6.1x.
+
+| | Before (15 Sep) | After (17 Sep) |
+|---|---|---|
+| 2030 EBITDA | (1.87M) | (0.41M), Q4 positive |
+| 2031 EBITDA, margin | +0.91M, 4.9% | +2.75M, 14.9% |
+| EBITDA positive and stays positive from | month 56 (Apr 2031) | month 52 (Dec 2030) |
+| Headcount Dec 2031, ARR per head | 95, 224k | 80, 266k |
+| Series A | 4.5M at 25M, 18% | 2.5M at 25M, 10% |
+| Raised, all sources | 7.72M | 5.72M |
+| Founders at exit | 47.9% | 53.4% |
+| Cash low after the Series A | 4.18M | 4.22M |
+| Pricing 20% below plan | funded, 2031 EBITDA (0.90M) | funded, 2031 EBITDA +0.88M |
+| Series A never raised | not measured | funded, low 1.72M, 2031 +2.75M |
+
+Open with the founder: the Series A at 2.5M for 10% is small for the name, and the plan supports two
+honest framings (a Series A that buys the United States plus a reserve, or no Series A with the seed
+carrying the company to profitability); the month-17 hiring step of nine people when Poland and DACH
+open two months apart; and the SUMMARY chart, which after the blank rows were removed again overlays
+the collapsed section headers beneath it and needs its own place.

@@ -2,7 +2,7 @@
 
 **Purpose:** what the model contains, how it works, and every place it deliberately departs from this
 pack. Read this before approving the plan. Sixty-four months, Sep 2026 to Dec 2031, all figures EUR.
-Rewritten from the live sheet on 15 Sep 2026 after the fourteenth pass. Full finding register and
+Rewritten from the live sheet on 17 Sep 2026 after the fourteenth pass and its profitability addendum. Full finding register and
 decision log: `18-model-reconciliation.md`. Every number below is read from the workbook; if the sheet
 moves, this file is stale, not the sheet.
 
@@ -17,18 +17,20 @@ build and the cap table re-implemented independently from the inputs with zero d
 | Year end | ARR | Revenue | Gross margin | EBITDA | Cash | Team |
 |---|---|---|---|---|---|---|
 | 2026 | 172k | 20k | 76.9% | (0.10M) | 0.49M | 8 |
-| 2027 | 775k | 0.55M | 67.9% | (0.62M) | 2.61M | 23 |
-| 2028 | 4.33M | 2.77M | 59.8% | (1.90M) | 6.04M | 41 |
-| 2029 | 9.96M | 6.81M | 63.8% | (2.37M) | 4.99M | 70 |
-| 2030 | 14.76M | 12.39M | 66.0% | (1.87M) | 4.24M | 86 |
-| **2031** | **21.29M** | **18.41M** | **67.7%** | **+0.91M** | **6.67M** | **95** |
+| 2027 | 775k | 0.55M | 67.9% | (0.49M) | 2.75M | 21 |
+| 2028 | 4.33M | 2.77M | 59.8% | (1.50M) | 4.58M | 35 |
+| 2029 | 9.96M | 6.81M | 63.8% | (1.35M) | 4.53M | 57 |
+| 2030 | 14.76M | 12.39M | 66.0% | (0.41M) | 5.25M | 75 |
+| **2031** | **21.29M** | **18.41M** | **67.7%** | **+2.75M** | **9.52M** | **80** |
 
 Exit at 10x ending ARR: **212.9M**, which is 11.6x recognised 2031 revenue. ARR grows **44%** in the
 last year (14.76M to 21.29M) and ARR per chain deployed rises through the horizon (172k, 196k, 542k,
 664k, 671k, 819k), which is the shape the twelfth and thirteenth passes did not have: the plan no
-longer decelerates before the exit. The plan reaches sustained positive EBITDA in month 56 (Apr 2031).
-The full-year 2031 margin is 4.9%, the fourth quarter 9.1% and December annualised 9.3%. ARR per head
-224k EUR at the end.
+longer decelerates before the exit. The plan turns EBITDA positive in the second half of 2030 (August, one negative month in November)
+and stays positive from month 52 (Dec 2030): 2030 closes at (0.41M) with the fourth quarter already
+positive, and 2031 delivers +2.75M, a **14.9%** full-year margin, 19.9% in the fourth quarter and 20.1%
+December annualised, with monthly EBITDA rising every quarter to about 355k in December. ARR per head
+266k EUR at the end.
 
 Two margin lines, both on SUMMARY. The headline gross margin treats the retailer share as a cost of
 sales: 67.7% in 2031, with 5.15M paid to chains (28% of revenue). The platform convention nets that
@@ -36,9 +38,9 @@ share from revenue instead: **net revenue 13.27M in 2031 and a 94.0% gross margi
 and hosting being the only cost of sales left. ARR and the exit stay on the gross basis; the net
 lines exist so that a reader who recomputes them finds we already did.
 
-Unit economics at the end of the plan: CAC per brand seat **92k** (country managers now count as
-sales cost), ARPU **136k**, LTV **462k** (gross margin, life capped at five years), LTV/CAC **5.0x**,
-CAC payback **12.0 months**. The ratio falls from 17x in 2026 because the early years are founder-led
+Unit economics at the end of the plan: CAC per brand seat **76k** (country managers count as sales
+cost), ARPU **136k**, LTV **462k** (gross margin, life capped at five years), LTV/CAC **6.1x**,
+CAC payback **9.9 months**. The ratio falls from 17x in 2026 because the early years are founder-led
 selling with almost no sales cost and the later years carry a real commercial organisation.
 
 Net revenue retention is no longer reported. In this model expansion is the tier step-up of existing
@@ -49,23 +51,26 @@ churn is shown as what it is, an assumption of 8% of seat ARR a year, to be repl
 renewals.
 
 Cash. Minimum across all 64 months is **25k in month 2**, the month before the pre-seed lands; no
-scaling hire is made before month 4 (HEADCOUNT B23). After the pre-seed, cash bottoms at **446k in
-month 6** and stands at 450k in month 12, the month before the seed, because hires now land two
-months before their driver rather than six (HEADCOUNT B24) and the first paying seat arrives three
-months after a category goes live rather than two. Before the Series A it bottoms at **1.75M in month
-26**, after it at **4.18M in month 51**. Cash net of unearned prepayments turns negative in month 51
-and bottoms at **(383k) in month 57**: only in the last year does the plan lean on annual billing
-in advance, and CHECKS reports that low point.
+scaling hire is made before month 4 (HEADCOUNT B23). After the pre-seed, cash bottoms at **460k in
+month 6** and stands at 497k in month 12, the month before the seed, because hires land two months
+before their driver rather than six (HEADCOUNT B24) and the first paying seat arrives three months
+after a category goes live rather than two. Before the Series A it bottoms at **2.17M in month 26**,
+after it at **4.22M in month 33**. Cash net of unearned prepayments never turns negative after the
+pre-seed (low 307k in month 12): the plan does not lean on annual billing in advance anywhere, and
+CHECKS reports that. Set the Series A to zero and the plan still reaches full-year profitability in
+2031 with cash never below 1.7M; the seed carries the company to profitability, the Series A is a
+reserve and the option on the United States.
 
 Without the Series A. Set the scenario cell on MARKETS to 2: the round drops out, only Czechia,
 Slovakia and Poland open, 3.22M is raised in total, 2031 ARR lands at **10.79M**, 2031 EBITDA is
-**+2.23M (22.5%)** on 43 people, cash never dips below 446k after the pre-seed and founders hold
-about 60% at exit. The Series A does not buy survival. It buys the second European wave and the
+**+2.95M (27%)** on 37 people, cash never dips below 460k after the pre-seed and founders hold
+about 59% at exit. The Series A does not buy survival. It buys the second European wave and the
 option on the United States, and inside this horizon it also buys the burn those markets add before
 their revenue arrives, which is why the no-Series-A case shows a higher margin on a smaller base.
 
 With the United States. Scenario 3 is the base plus the US from month 33 (May 2029), funded by the
-same Series A: 2031 ARR **23.98M**, EBITDA +0.30M, 107 people, and the plan stays funded. That is
+same Series A: 2031 ARR **23.98M**, EBITDA +2.40M (2030 (1.16M)), 93 people, and the plan stays funded
+with cash never below 2.8M after the round. That is
 the shape of an upside, not of a different company, and it is what the Series A investor is paying
 for once the European wave is on plan.
 
@@ -80,7 +85,7 @@ Seven tabs, in reading order.
 | **ASSUMPTIONS** | Every input that drives the P&L, in one vertical list, each one carrying a name (52 named ranges, five new: cameras per store, inference cost per camera, its yearly decline, the uniform chain-signing rate, the pool target after the Series A) |
 | **MODEL** | The monthly engine: rollout, P&L, cashflow, and the seat vintages, 64 columns; detail rows collapsed under plus signs in every section |
 | **MARKETS** | Eight market rows (the US is the eighth and opens only in scenario 3), how categories follow chains, entry months, the scenario switch, the T2 gate by market, and at the foot the category inventory by channel with a worked Czech example; the per-market monthly rows are collapsed |
-| **HEADCOUNT** | What the team costs, with the benchmark source or the internal reasoning printed beside every staffing ratio, the hiring gate and the hiring lead; the monthly role build is collapsed, totals stay visible |
+| **HEADCOUNT** | What the team costs, with the benchmark source or the internal reasoning printed beside every staffing ratio (the ratios are the mature ones: five categories per analyst, seven per data engineer, 4.5 chains per deployment or retailer-BD person, 3M EUR of ARR per customer-success manager, an 800k quota per account executive), the hiring gate and the hiring lead; the monthly role build is collapsed, totals stay visible |
 | **CHECKS** | Fourteen live integrity lines. If any says CHECK rather than OK, do not trust SUMMARY |
 
 MARKETS and HEADCOUNT keep their own inputs, because those are rollout and staffing rather than
@@ -124,15 +129,23 @@ MODEL row 11.
   hour during 2025, long-run GPU price-performance improves 25 to 30% a year) and the four levers
   that are ours (distilled models, frame sampling and batching, reserved or owned capacity, volume
   pricing). Inference costs 0.79M in 2031; with no decline at all it would cost 0.73M more.
-- **Team scales with products, two rules govern timing.** Every role is driven by categories,
-  chains, markets, new ARR won or ARR under management, never by a calendar. Hires land two months
+- **Team scales with products, at mature ratios, and two rules govern timing.** Every role is driven
+  by categories, chains, markets, new ARR won or ARR under management, never by a calendar, and the
+  ratios are the ones a third-year operation runs at: a category read is a tooled product with a
+  release cadence, so one analyst carries five of them; a category that runs in one market is re-used
+  when it opens in the next, so one data engineer carries seven; the second chain in a market repeats
+  the first, so deployment and retailer BD carry 4.5 chains each; customer success holds 3M EUR of ARR
+  per person, the middle of the Gainsight range; an account executive carries the Bridge Group median
+  quota of 800k with half an SDR, because the six brands per category are known by name. Salaries
+  inflate 3.5% a year. Hires land two months
   before their driver needs them and never before the pre-seed lands, and no role count ever falls:
   the plan is at times slightly under-staffed rather than ever letting people go because a driver
-  dipped. Ninety-five people at the end: 11 analysts, 7 data engineers, 5 platform, 7 deployment,
-  9 account executives and 2 ramp cover, 5 SDRs, 7 retailer BD, 8 customer success, 4 legal,
+  dipped. Eighty people at the end: 9 analysts, 6 data engineers, 5 platform, 5 deployment,
+  8 account executives and 2 ramp cover, 4 SDRs, 5 retailer BD, 7 customer success, 4 legal,
   5 country managers (Poland, DACH, France with Benelux, the United Kingdom, Nordics with Iberia),
-  3 product managers, 5 marketing, 7 finance and operations, 3 people, and the current team of 7.
-  The largest single month of hiring is six people, in the months a market opens.
+  3 product managers, 3 marketing, 5 finance and operations, 2 people, and the current team of 7.
+  Hiring steps in the months markets open; the largest step is nine people in month 17, when Poland
+  and DACH open within two months of each other.
 - **Working capital both ways.** 60% of seats are billed annually in advance and the unearned half
   year sits as deferred revenue; the other 40% are billed monthly and collected at 60 days.
 
@@ -140,30 +153,32 @@ MODEL row 11.
 
 | Round | When | Amount | Post-money | Entry | At exit | MOIC at 10x |
 |---|---|---|---|---|---|---|
-| Angel | Q2 2026, done | 80k | 3.5M | 2.3% | 1.2% | 33.1x |
+| Angel | Q2 2026, done | 80k | 3.5M | 2.3% | 1.4% | 36.9x |
 | CzechInvest grant | 2026, part received | 45k | n/a | n/a | n/a | n/a |
-| Pre-seed | Nov 2026, month 3 | 500k | 6.5M | 7.7% | 4.5% | 19.3x |
-| Seed | Sep 2027, month 13 | 2.6M | 12M | 21.7% | 16.3% | 13.4x |
-| Series A | Nov 2028, month 27 | 4.5M | 25M | 18.0% | 18.0% | 8.5x |
+| Pre-seed | Nov 2026, month 3 | 500k | 6.5M | 7.7% | 5.1% | 21.5x |
+| Seed | Sep 2027, month 13 | 2.6M | 12M | 21.7% | 18.2% | 14.9x |
+| Series A | Nov 2028, month 27 | 2.5M | 25M | 10.0% | 10.0% | 8.5x |
 
-Total raised across all sources including pre-model money: **7.72M**. Founders hold **47.9%** at exit,
+Total raised across all sources including pre-model money: **5.72M**. Founders hold **53.4%** at exit,
 the pool **12.0%**: the 10% pool granted before the first round is topped up to 12% of the post-round
-company before the Series A prices, created pre-money so that it dilutes every earlier holder (6.7%
+company before the Series A prices, created pre-money so that it dilutes every earlier holder (6.1%
 of the post-A company) and not the incoming investor. The seed prices at 16x current ARR (742k in
-month 13); the Series A at 6.0x current (4.18M) and 2.6x forward (9.49M), 18% for 4.5M, which is
-where a lead fund usually lands. The Series A carries a reserve on purpose: pricing 20% below plan
-stays funded on it (section 5), and the United States (scenario 3) is what the same round buys if the
-European wave is on plan.
+month 13); the Series A at 6.0x current (4.18M) and 2.6x forward (9.49M), 10% for 2.5M. The Series A
+is sized as a reserve, not as survival money: without it the plan still reaches full-year
+profitability in 2031 with cash never below 1.7M, but it would run 192k short in month 51 if prices
+came in 20% below plan and it would enter the United States with 300k of headroom. With 2.5M the
+price case keeps 2.3M, scenario 3 keeps 2.8M, and cash net of prepayments stays positive throughout.
+A smaller round at a lower post-money is the founder's call; the model prices it at 25M.
 
 Exit multiple ladder, live beside the cap table:
 
 | Multiple on exit ARR | Exit value | On 2031 revenue | Pre-seed MOIC | What it prices |
 |---|---|---|---|---|
-| 2.3x | 49.0M | 2.7x | 4.4x | Undifferentiated store analytics, the footfall comparable |
-| 4x | 85.2M | 4.6x | 7.7x | A rented asset, a terminable licence, priced as a service |
-| 8x | 170.4M | 9.3x | 15.5x | An owned rights portfolio, low end of the measurement band |
-| **10x** | **212.9M** | **11.6x** | **19.3x** | The plan, midpoint of the measurement-currency band |
-| 12x | 255.5M | 13.9x | 23.2x | Competitive process, or more markets live |
+| 2.3x | 49.0M | 2.7x | 5.0x | Undifferentiated store analytics, the footfall comparable |
+| 4x | 85.2M | 4.6x | 8.6x | A rented asset, a terminable licence, priced as a service |
+| 8x | 170.4M | 9.3x | 17.2x | An owned rights portfolio, low end of the measurement band |
+| **10x** | **212.9M** | **11.6x** | **21.5x** | The plan, midpoint of the measurement-currency band |
+| 12x | 255.5M | 13.9x | 25.8x | Competitive process, or more markets live |
 
 ## 5. Stress, measured on the live model
 
@@ -171,36 +186,35 @@ The base case is funded with the standby bridge undrawn. The stresses below are 
 time against the base case; "cash low" is the low point after the pre-seed lands. The round-slip
 cases are also computed live on SUMMARY section 7.
 
-| Case | 2031 ARR | 2031 EBITDA | Cash low | Funded |
+| Case | 2031 ARR | 2030 / 2031 EBITDA | Cash low | Funded |
 |---|---|---|---|---|
-| Base | 21.29M | +0.91M | 446k, month 6 | yes |
-| Seed lands 3 months late | | | 268k, month 15 | yes |
-| Seed lands 6 months late | | | (332k), month 18 | bridge |
-| Series A lands 3 months late | | | 1.33M, month 29 | yes |
-| Series A lands 6 months late | | | 0.90M, month 32 | yes |
-| Pricing 20% below plan | 17.04M | (0.90M) | 379k, month 12 | yes |
-| Gross churn 24%, three times plan | 21.29M | (0.25M) | 445k, month 6 | yes |
-| Labelled seats 2.5 instead of 3 | 19.11M | +0.09M | 436k, month 12 | yes |
-| Categories 1 at launch, 4 in 12 months | 19.13M | (0.34M) | 368k, month 12 | yes |
-| Market-read attach 35% instead of 75% | 18.66M | (0.29M) | 446k, month 6 | yes |
-| Market-read share 0% instead of 20% | 21.29M | +1.66M | 446k, month 6 | yes |
-| Market-read share 40% | 21.29M | +0.16M | 446k, month 6 | yes |
-| 150 capture stores per chain | 21.29M | (0.28M) | 397k, month 12 | yes |
-| Inference price never falls | 21.29M | +0.18M | 446k, month 6 | yes |
-| Chains signed every 13 months instead of 11 (rate 0.075) | 20.23M | +0.42M | 446k, month 6 | yes |
-| Chains signed every 10 months (rate 0.10) | 22.12M | +1.39M | 446k, month 6 | yes |
-| UK entry slips 12 months | 19.65M | +0.40M | 446k, month 6 | yes |
-| Second European wave never opens | 14.24M | +2.22M | 446k, month 6 | yes |
-| Scenario 2, no Series A | 10.79M | +2.23M | 446k, month 6 | yes |
-| Scenario 3, base plus the United States | 23.98M | +0.30M | 446k, month 6 | yes |
+| Base | 21.29M | (0.41M) / +2.75M | 460k, month 6 | yes |
+| Seed lands 3 months late | | | 401k, month 15 | yes |
+| Seed lands 6 months late | | | (175k), month 18 | bridge |
+| Series A lands 6 months late | | | 1.73M, month 31 | yes |
+| Series A never raised, base case kept | 21.29M | (0.41M) / +2.75M | 1.72M, month 33 | yes |
+| Pricing 20% below plan | 17.04M | (1.63M) / +0.88M | 427k, month 12; 2.31M after the A | yes |
+| Gross churn 24%, three times plan | 21.29M | (0.89M) / +2.05M | 459k, month 6 | yes |
+| Labelled seats 2.5 instead of 3 | 19.11M | (0.75M) / +2.03M | 459k, month 6 | yes |
+| Categories 1 at launch, 4 in 12 months | 19.13M | (1.10M) / +1.55M | 373k, month 12 | yes |
+| Market-read attach 35% instead of 75% | 18.66M | (1.03M) / +1.66M | 460k, month 6 | yes |
+| Market-read share 0% instead of 20% | 21.29M | +0.04M / +3.50M | 460k, month 6 | yes |
+| Market-read share 40% | 21.29M | (0.86M) / +2.00M | 460k, month 6 | yes |
+| 150 capture stores per chain | 21.29M | (1.49M) / +1.56M | 444k, month 12 | yes |
+| Inference price never falls | 21.29M | (0.86M) / +2.02M | 460k, month 6 | yes |
+| Chains signed every 13 months instead of 11 (rate 0.075) | 20.23M | (0.29M) / +2.14M | 460k, month 6 | yes |
+| Chains signed every 10 months (rate 0.10) | 22.12M | (0.39M) / +3.36M | 460k, month 6 | yes |
+| UK entry slips 12 months | 19.65M | +0.04M / +2.29M | 460k, month 6 | yes |
+| Second European wave never opens | 14.24M | +2.14M / +3.45M | 460k, month 6 | yes |
+| Scenario 2, no Series A | 10.79M | +1.93M / +2.95M | 460k, month 6 | yes |
+| Scenario 3, base plus the United States | 23.98M | (1.16M) / +2.40M | 460k, month 6; 2.8M after the A | yes |
 
-Every revenue stress stays funded, including the price case that broke the thirteenth pass, because
-the Series A now carries a reserve and hiring no longer runs ahead of the plan. The two inputs that
-hurt most are price and the market-read attach rate; the chain-signing rate is the growth lever
-(each month off the signing interval is worth about 0.9M of 2031 ARR). Round timing still bites at
-the seed: 500k reaches month 13 with 450k to spare, a seed one quarter late is absorbed, two quarters
-late is what the standby bridge on ASSUMPTIONS exists for. The Series A can slip two quarters without
-a bridge.
+Every revenue stress stays funded and every one of them is EBITDA positive in 2031; the plan no
+longer needs the Series A to survive, only to carry the price case and the United States with a
+buffer. The two inputs that hurt most are price and the market-read attach rate; the chain-signing
+rate is the growth lever (each month off the signing interval is worth about 0.9M of 2031 ARR).
+Round timing still bites at the seed: 500k reaches month 13 with 497k to spare, a seed one quarter
+late is absorbed, two quarters late is what the standby bridge on ASSUMPTIONS exists for.
 
 ---
 
@@ -208,6 +222,14 @@ a bridge.
 
 Founder decisions the fourteenth pass took, and the ones it deliberately left open. Each is measured
 against the base case above; every number is a one-cell change on ASSUMPTIONS or MARKETS.
+
+Taken on 17 Sep 2026: the staffing ratios moved to their mature values (five categories per
+analyst, seven per data engineer, 4.5 chains per deployment and per retailer-BD person, 3M EUR of ARR
+per customer-success manager, an 800k quota with half an SDR per account executive, marketing per
+twelve categories, one finance or operations person per fourteen), salary inflation 3.5% instead of
+5%, and the Series A cut from 4.5M to 2.5M at the same 25M post, sized so that the price case and the
+US scenario keep a buffer and the plan never leans on prepayments. Effect: 2030 EBITDA from (1.87M)
+to (0.41M), 2031 from +0.91M to +2.75M, 80 people instead of 95, founders 53.4% instead of 47.9%.
 
 Taken on 14 and 15 Sep 2026: the United Kingdom as the eighth market row from month 36; the United
 States out of the base and into scenario 3; one uniform chain-signing rate; first paying seat three
@@ -248,9 +270,17 @@ Open:
 7. **The aggregated gate.** Two chains today; three would be safer for k-anonymity and for leverage,
    at the cost of later market reads.
 
-8. **Pre-seed size.** 500k reaches the seed with 450k to spare and absorbs a seed one quarter late.
+8. **Pre-seed size.** 500k reaches the seed with 497k to spare and absorbs a seed one quarter late.
    A seed two quarters late needs the bridge or a larger pre-seed; 0.65M at the same post-money
    absorbs it and costs about two points of founder ownership.
+
+10. **The Series A itself.** At 2.5M for 10% it is small for the name. The plan supports two honest
+    framings: a Series A that buys the United States (scenario 3) and a reserve, or no Series A at all
+    with the seed carrying the company to profitability and the US left to a later, larger round. The
+    model runs either; the pitch has to pick one.
+
+11. **The month-17 hiring step.** Nine hires land in one month when Poland and DACH open two months
+    apart; staggering DACH by a quarter smooths it at no cost to 2031.
 
 9. **In-market salaries.** In-market roles carry 1.55x Czech rates with all eight rows open (1.47x
    with the seven European rows); thin for US enterprise sales if scenario 3 is run.

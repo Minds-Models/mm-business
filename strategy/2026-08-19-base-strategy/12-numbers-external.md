@@ -6,8 +6,8 @@ with the live financial model, the model wins and this file is stale.
 
 Written 20 Aug 2026 to resolve a contradiction that would have been caught in diligence: the then
 exit model showed **€0.5M ARR in 2027** while the operating plan targeted **€4.40M by Feb 2027**, a
-~9x gap between two documents that would sit in the same data room. Re-cast 15 Sep 2026 from the VC
-financial model after its fourteenth pass (`18-model-reconciliation.md`,
+~9x gap between two documents that would sit in the same data room. Re-cast 17 Sep 2026 from the VC
+financial model after its fourteenth pass and the profitability addendum (`18-model-reconciliation.md`,
 `19-model-walkthrough.md`). Sections 1 and 2 are the history and the definitions; sections 3 to 5
 are read from the model.
 
@@ -87,21 +87,21 @@ the revenue model was built on; ARR per chain deployed €819k, rising through t
 
 ## 4. The external curve: this is the only one that goes in a deck
 
-Read from SUMMARY section 1 of the model, base case, 15 Sep 2026.
+Read from SUMMARY section 1 of the model, base case, 17 Sep 2026.
 
 | Year-end | Run-rate ARR (base case) | Revenue recognised | EBITDA | What has to be true |
 |---|---|---|---|---|
 | **Dec 2026** | **€172k** | €20k | (€0.10M) | One Czech chain live with three categories, four founding seats sold in December, pre-seed closed in November |
-| **Dec 2027** | **€775k** | €0.55M | (€0.62M) | Four chains and eight categories in three markets, second Czech chain live, seed closed in September |
-| **Dec 2028** | **€4.33M** | €2.77M | (€1.90M) | Eight chains, 17 categories, the first three at T2, first market reads sold, DACH live, Series A closed in November |
-| **Dec 2029** | **€9.96M** | €6.81M | (€2.37M) | 15 chains, 29 categories, 12 at T2, France with Benelux and the United Kingdom live, expansion peaks as categories cross the gates |
-| **Dec 2030** | **€14.76M** | €12.39M | (€1.87M) | 22 chains, 39 categories, Nordics with Iberia live, seven markets open |
-| **Dec 2031** | **€21.29M** | €18.41M | **+€0.91M** | The exit year: 26 chains, 64 sellable products, 95 people, EBITDA positive from April and 9% in Q4 |
+| **Dec 2027** | **€775k** | €0.55M | (€0.49M) | Four chains and eight categories in three markets, second Czech chain live, seed closed in September |
+| **Dec 2028** | **€4.33M** | €2.77M | (€1.50M) | Eight chains, 17 categories, the first three at T2, first market reads sold, DACH live, Series A closed in November |
+| **Dec 2029** | **€9.96M** | €6.81M | (€1.35M) | 15 chains, 29 categories, 12 at T2, France with Benelux and the United Kingdom live, expansion peaks as categories cross the gates |
+| **Dec 2030** | **€14.76M** | €12.39M | (€0.41M) | 22 chains, 39 categories, Nordics with Iberia live, seven markets open, EBITDA positive from the fourth quarter |
+| **Dec 2031** | **€21.29M** | €18.41M | **+€2.75M** | The exit year: 26 chains, 64 sellable products, 80 people, 15% full-year margin and 20% in Q4 |
 
 **Growth shape:** the curve is a rollout, not a compound rate. It steps with each chain deployed and
 each category crossing a price gate: 4.33M to 9.96M to 14.76M to 21.29M over the last four years,
 about 70% a year over 2028 to 2031 and **44% in the final year**, with ARR per chain still rising
-into the exit. ARR per head ends at €224k. Net revenue after the retailer share is €13.27M in 2031 with
+into the exit. ARR per head ends at €266k. Net revenue after the retailer share is €13.27M in 2031 with
 a 94% gross margin on it; the headline gross margin, retailer share as cost of sales, is 67.7%.
 
 **Where this lands the exit:** €21.29M of ARR at the measurement-currency multiple of 10x is
@@ -109,10 +109,10 @@ a 94% gross margin on it; the headline gross margin, retailer share as cost of s
 asset from 2.3x (undifferentiated analytics, €49M) through 4x (a rented asset, €85M) and 8x (owned
 rights, low end of the band, €170M) to 12x (competitive process, €256M). Returns per round are not
 restated here: the model carries the live cap table and the MOIC per round, and reconciles to 100%
-of the company. For orientation only: the pre-seed returns 19x at 10x and 4.4x at the 2.3x floor.
+of the company. For orientation only: the pre-seed returns 21.5x at 10x and 5.0x at the 2.3x floor.
 
 **With the United States** (scenario 3, the upside the Series A buys): 2031 ARR €23.98M, EBITDA
-about break-even, 107 people, funded on the same rounds. Say it as the upside, never as the curve.
++€2.4M, 93 people, funded on the same rounds. Say it as the upside, never as the curve.
 
 **The Feb-2027 checkpoint** is not on this curve. The model shows about €170k of run-rate ARR that
 month, the four founding seats of the first chain; the operating architecture targets €4.40M of contracted annuals across every engine on the
@@ -125,8 +125,8 @@ stats.yaml`, `model_preseed_window`).
 ## 5. Round and cap-table conventions
 
 Previous documents carried three drifting versions of the same facts. These are now fixed, and the
-amounts of the later rounds are the model's, sized from the unfunded cash path with a reserve on the
-Series A.
+amounts of the later rounds are the model's: the seed carries the company to profitability, the
+Series A is a reserve and the option on the United States.
 
 | Item | Canonical |
 |---|---|
@@ -134,9 +134,9 @@ Series A.
 | CzechInvest grant | €45k in total, €16.5k still to land in Oct 2026; non-dilutive |
 | Current round, pre-seed | **€500k at €6.5M post-money** (state post, never pre). It reaches the seed with about €450k to spare and absorbs a seed one quarter late; two quarters late is what the standby bridge is for |
 | Seed | **€2.6M at €12M post**, Sep 2027, 21.7%. Priced on about €740k of ARR: the round is priced on evidence, not on the plan |
-| Series A | **€4.5M at €25M post**, Nov 2028, 18%. Priced at 6.0x current and 2.6x forward ARR. It buys the second European wave and the option on the United States, not survival: with it switched off the plan still ends at €10.8M of ARR, 22% EBITDA margin and never runs out of cash. It carries a reserve: pricing 20% below plan stays funded on it |
+| Series A | **€2.5M at €25M post**, Nov 2028, 10%. Priced at 6.0x current and 2.6x forward ARR. Set its amount to zero and the base case still reaches full-year profitability in 2031 with cash never below €1.7M; the round is what keeps pricing 20% below plan funded (€2.3M of headroom) and what enters the United States (scenario 3) with €2.8M of headroom |
 | Option pool | 10% granted before the first round, topped up to 12% of the post-round company before the Series A, created pre-money |
-| Ownership at exit | Founders 47.9%, ESOP 12.0%, investors 40.1% |
+| Ownership at exit | Founders 53.4%, ESOP 12.0%, investors 34.6% |
 | Instrument | A term-sheet question, not named in the model. Do not state the cap or the instrument in the deck unless asked |
 
 The two fundraise strategies in `08-ws-fundraise.md` §6 (bridge and convert versus re-rate and
@@ -158,4 +158,4 @@ raise) describe how the pre-seed is papered; they do not change the amounts abov
    been shown to an investor.
 4. Figures here are strategy-internal until they are added to `messaging/stats.yaml` with source
    and status; that gate still applies before anything reaches a deck. The `model_*` entries there
-   were re-read from the workbook on 15 Sep 2026 and match this file.
+   were re-read from the workbook on 17 Sep 2026 and match this file.
