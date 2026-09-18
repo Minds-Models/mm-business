@@ -1,4 +1,4 @@
-# Client facts — single source of truth for this company.
+# Client facts: single source of truth for this company.
 # Agents: use ONLY these values in deliverables. Missing value => ask, don't invent.
 # NOTE: LUXX is a channel partner / hardware vendor, not a retail client.
 #       Retail-pilot fields below are kept for template consistency and left null.
@@ -57,11 +57,11 @@ contacts:
 # Names disclosed under Sebastian's confidentiality request on the 18 Sep call.
 # Treat as internal-only. Never reproduce in any external material.
 partner_pipeline_internal_only:
-  - "Team / BFT / Ver Shell (~100 stores) — VERIFY spelling"
-  - "Orleene Octan — VERIFY spelling"
-  - "POS integration layer in DE: Hoot ~70%, Schaden Bachmann ~30% — VERIFY spelling"
-  - "Alwan Media — local and regional advertising — VERIFY spelling"
-  - "Nexmosphere sensors, Nextsense/NextsenseMe CMS — VERIFY spelling"
+  - "Team / BFT / Ver Shell (~100 stores), VERIFY spelling"
+  - "Orleene Octan, VERIFY spelling"
+  - "POS integration layer in DE: Hoot ~70%, Schaden Bachmann ~30%, VERIFY spelling"
+  - "Alwan Media, local and regional advertising, VERIFY spelling"
+  - "Nexmosphere sensors, Nextsense/NextsenseMe CMS, VERIFY spelling"
 
 hardware_reference:
   player: "Raspberry Pi 5, 4GB (field units to date: RPi 5 8GB per HW cost sheet). CONFIRM with Jan."

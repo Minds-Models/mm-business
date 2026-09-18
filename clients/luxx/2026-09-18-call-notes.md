@@ -1,4 +1,4 @@
-# LUXX / Terravada — call notes, 18 Sep 2026
+# LUXX / Terravada, call notes, 18 Sep 2026
 
 **Attendees:** Sebastian Anjou (Terravada), Georg Voegtle (LUXX, dialing in from Shenzhen),
 Ondrej Santora (M&M), Josef Nemecek (M&M). 49 minutes.

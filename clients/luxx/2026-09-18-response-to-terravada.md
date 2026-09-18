@@ -1,6 +1,9 @@
 # Response to Sebastian Anjou (Terravada) and Georg Voegtle (LUXX)
 
 **Status: INTERNAL DRAFT, 18 Sep 2026. Not sendable yet.**
+Deck built from this: `delivered/2026-09-18-integration-deck/` (8 slides, EN, sections named
+after Sebastian's action points).
+
 Owner: Ondrej. Blocking gaps are marked `[JAN]`, `[JOSEF]` or `[DECIDE]` inline and listed in
 section 6. Everything not marked is either observed from our own deployed setup or public vendor
 specification.
