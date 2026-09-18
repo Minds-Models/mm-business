@@ -1,0 +1,77 @@
+# Client facts — single source of truth for this company.
+# Agents: use ONLY these values in deliverables. Missing value => ask, don't invent.
+# NOTE: LUXX is a channel partner / hardware vendor, not a retail client.
+#       Retail-pilot fields below are kept for template consistency and left null.
+
+name: "LUXX"
+legal_entity: "LUXX Light Technology (HK) Ltd"   # per signed NNN, 24 Apr 2026
+segment: "hardware vendor / digital-signage e-shelf (LED + LCD), HK/China manufacturing"
+stores_total: null
+stores_live: 0
+
+# The deal spans two counterparties. Keep them separate in any deliverable.
+counterparties:
+  luxx:
+    role: "Hardware vendor: e-shelf LCD screens, LED, housing, media-player sourcing (Shenzhen)"
+    contact: "Georg Voegtle, General Manager, g.voegtle@luxx.com"
+    nda: "Mutual NNN signed 24 Apr 2026 (Georg Voegtle for LUXX HK). Drive: Luxx : M&M NDA signed.pdf"
+  terravada:
+    role: "Solution integrator / channel owner for DACH forecourt and convenience"
+    contact: "Sebastian Anjou, sebastian.anjou@theravada.com"
+    nda: "NOT SIGNED. Sebastian to handle on his side; Ondrej to send M&M template."
+    name_spelling: "VERIFY: transcript says 'Terravada', email domain is theravada.com"
+
+pilot:
+  start: null
+  end: null
+  pos_matching: none
+  match_rate: null
+  key_metrics: {}
+
+deal:
+  status: "pipeline"          # Attio stage reads 'Pilot'; no pilot is live. VERIFY with Josef.
+  next_step: >
+    Ondrej to send camera + player minimum requirements and CMS trigger-event mapping.
+    Josef to send licensing/subscription pricing at 150k-200k unit volume.
+    Sebastian + Georg to run media-player gap analysis (Windows / Android / Linux) and source a player.
+    Next sync scheduled only once the player is chosen.
+  personalization_live: false
+  attio_deal_id: "ff00409a-e0f6-4cef-bae3-281a136a790e"
+
+rights:
+  mandate_signed: false
+  aggregate_license: false
+  notes: "Partner channel, not a data-rights counterparty. No retailer rights flow from this deal."
+
+naming:
+  can_name_publicly: false
+  approved_fallback: "a European digital-signage hardware and integration partner"
+  written_ok_for: []
+
+contacts:
+  - {name: "Georg Voegtle", role: "General Manager, LUXX Light Technology (HK) Ltd", email: "g.voegtle@luxx.com", notes: "In Shenzhen; owns hardware and player sourcing. Signed the NNN."}
+  - {name: "Sebastian Anjou", role: "Solution integrator (Terravada)", email: "sebastian.anjou@theravada.com", notes: "Owns the DACH channel and the October Hamburg showcase. No NDA yet."}
+  - {name: "Andreas", role: "Owner/founder, LUXX", email: "", notes: "Opened the sealed test unit in China (see sensitivities)."}
+  - {name: "Tom", role: "Solution architect (UK), Terravada side", email: "", notes: "Joins the media-player platform decision."}
+
+# Names disclosed under Sebastian's confidentiality request on the 18 Sep call.
+# Treat as internal-only. Never reproduce in any external material.
+partner_pipeline_internal_only:
+  - "Team / BFT / Ver Shell (~100 stores) — VERIFY spelling"
+  - "Orleene Octan — VERIFY spelling"
+  - "POS integration layer in DE: Hoot ~70%, Schaden Bachmann ~30% — VERIFY spelling"
+  - "Alwan Media — local and regional advertising — VERIFY spelling"
+  - "Nexmosphere sensors, Nextsense/NextsenseMe CMS — VERIFY spelling"
+
+hardware_reference:
+  player: "Raspberry Pi 5, 4GB (field units to date: RPi 5 8GB per HW cost sheet). CONFIRM with Jan."
+  camera: "REDEAGLE USB webcam, 2K, 2.8mm lens, 120 deg FOV (AliExpress, REDEAGLE Official Store)"
+  os: "Raspberry Pi OS 64-bit (Debian-based). Native Linux. Android not supported today."
+
+sensitivities: >
+  Security seals on the test unit returned from China were found broken (Sep 2026). LUXX explanation:
+  the founder opened the housing to measure dimensions for a smaller enclosure, no chip readout and no
+  reverse engineering intended. Handled on the call; the ask was consultation before any future opening.
+  Do not restate this in anything forwardable to third parties.
+  Android port is gated on committed business volume. Do not promise an Android build in writing.
+  All partner and end-client names on the 18 Sep architecture slides were shared under confidentiality.

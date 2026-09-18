@@ -1,7 +1,11 @@
 # Pitch deck, Sep 2026: internal briefing
 
 **Internal only. Never send this file to an investor.**
-Companion to `pitch-deck-2026-09.html` / `.pdf` (9 slides, no appendix).
+Companion to `pitch-deck-2026-09-final.html` / `.pdf` (10 slides, no appendix).
+The final cut, assembled 17 Sep 2026, takes slides 01, 02, the business model, the numbers, the team
+and the ask from the old `pitch-deck-2026-09.html`, and the three how-it-works slides plus the proof
+slide from `pitch-deck-2026-09-v2.html`. Both source files are kept unchanged in
+`blitzkrieg/fundraise/obsolete/` and should not be sent to anyone.
 Numbers below are the live VC financial model as read 17 Sep 2026. Every figure that appears on a
 slide is also in `messaging/stats.yaml` with its source, per the repo rule.
 
@@ -50,19 +54,20 @@ room, it is jargon: say "the largest company in the market" or name NIQ.
 
 | # | Slide | The one thing it must land |
 |---|---|---|
-| 01 | Cover | This is a data company, not a retail tool. The asset did not exist before. |
+| 01 | Cover | This is a data company, not a retail tool. The insight did not exist before. |
 | 02 | Problem | Real money is already being spent, and it buys the what, never the who. |
-| 03 | Solution | Two data sets exist in every store. Nobody has ever joined them. The join is the product. |
-| 04 | Business model | The side with the data pays nothing. The side that needs it pays, and pays more every year. |
-| 05 | Product | It is live. Here is the chat, ask it something. |
-| 06 | Traction | Launched Q2 2026, this much data since, and these are the chains. |
-| 07 | Numbers | The curve, and what the thing is worth at the end of it. |
-| 08 | Team | Two founders who have done the two halves of this before. |
-| 09 | Ask | 500k, four numbers the business has by the next round, and why now. |
+| 03 | How | Three steps to knowing who buys. No panel, no survey, no recruitment. |
+| 04 | The data | What one row actually contains, and that both halves are real records. |
+| 05 | The answer | Ask it in plain words and the answer comes back in whatever shape Monday needs. |
+| 06 | Model | The side with the data pays nothing. The side that needs it pays, and pays more every year. |
+| 07 | Proof | Live since Q2 2026, half a million real shoppers in the model, these are the chains. |
+| 08 | Numbers | The curve, and what the thing is worth at the end of it. |
+| 09 | Team | Two founders who have done the two halves of this before. |
+| 10 | Ask | 500k, four numbers the business has by the next round, and why now. |
 
-Timing in a 20-minute first meeting: 1 min on 01–02, 3 min on 03–04, 4 min on 05 (open the chat
-live), 2 min on 06, 5 min on 07, 1 min on 08, 3 min on 09. If you are running short, cut 06 to the
-two numbers and keep 07 whole.
+Timing in a 20-minute first meeting: 1 min on 01–02, 4 min on 03–05 (open the chat live on 05),
+2 min on 06, 2 min on 07, 5 min on 08, 1 min on 09, 3 min on 10. If you are running short, compress
+03 and 04 into one pass and keep 08 whole.
 
 ---
 
@@ -91,15 +96,39 @@ highlighted on the slide, point at them.
 grocery euros are spent in a store.
 **Do not** use sell-out, sell-in, share of category, panel projection or any other category jargon.
 An investor does not know those words and will not ask.
+**On the design:** red now marks exactly one idea on this slide, the missing "who". It appears in
+the headline, on the three source labels, and on the word "who" in the closing claim, and nowhere
+else. The red bullet lines under each card were neutralized to grey on 17 Sep. If you edit this
+slide, keep it that way.
 
-### 03 · Solution
-**Lands:** the join. Every store already produces two data sets and nobody has joined them.
-The shopper (read on the edge, nothing identifiable leaves the store) and the receipt (the
-retailer's own POS feed). Matched at the visit. Result: who bought what.
-**Open flag:** the slide says "100+ visual attributes per shopper". The verified figures are 88+ per
-shopper and 450+ detectable. Confirm against the sessions schema or change the slide to 88+.
+### 03 · How, three steps
+**Lands:** there is a route from a camera to an answer, and none of it involves recruiting anybody.
+Three steps, left to right. *Make the data nobody has*: the signal is already in the room, every
+camera watches it happen and nobody keeps a second of it, we read it on the edge and join it to the
+receipt. *Shoppers sort themselves*: 88 visual attributes on every shopper, 18.8 million of them so
+far, and at that size the segments draw themselves rather than being authored by a marketer.
+*Ask it like an analyst*: one question in plain words against the whole model.
+**The line to land on step one:** there is nobody to buy this from. That is the moat sentence.
+**Note:** step three previews the chat, slide 05 delivers it. Do not demo here, just point.
 
-### 04 · Business model
+### 04 · The data
+**Lands:** both halves are real records, not estimates. Who is buying, what the person is actually
+wearing and carrying, 88 visual attributes from a vocabulary of 450+. What was bought, the receipt
+itself, and every claim has a receipt behind it. Joined on the same visit into one row of about 105
+data points.
+**Why the worked row matters:** it is the single most convincing object in the deck for a technical
+partner, because it is specific enough to be falsifiable. Let them read it.
+**Privacy, unprompted, the first time cameras come up:** no identities, no biometric templates,
+nothing identifiable leaves the store, aggregates only at k>=25, age estimated with error bands.
+
+### 05 · The answer, live today
+**Lands:** it is not a mockup. Open the investor chat in the meeting and ask one of the two
+questions on the slide. This is the single highest-conviction moment in the deck, so protect the
+time for it.
+The point of the three output chips (the deck, the full Excel, the one-pager) is that the buyer
+does not have to learn a tool. Say that out loud, it is what kills the dashboard objection.
+
+### 06 · Business model
 **Lands:** the two-sided structure and the non-linearity. The bullets on both cards are deliberately
 telegraphic now, four or five words each. They are prompts for you, not reading material for them.
 Retailer: pays nothing. Gives the cameras it already owns plus its POS feed, and a perpetual
@@ -116,29 +145,18 @@ revenue scales with seats. Across the plan the deployed base grows about 25x whi
 more brand seats over 24 months, and the per-seat price steps up when a category runs in two or more
 chains of a market. Three multipliers on one deployment.
 
-### 05 · Product
-**Lands:** it is not a mockup. Open chat.mindsmodels.ai in the meeting and ask one of the questions
-on the slide. This is the single highest-conviction moment in the deck, so protect the time for it.
+### 07 · Proof
+**Lands:** this is running, and the asset compounds. A green marker says launched Q2 2026, then
+three numbers: 7 enterprise pilots, 18.8M visual data points, 524,692 real shoppers observed in
+store and joined to what they bought. Then the logo rail under "Proven in the field by".
+**Careful:** the rail deliberately says nothing about what was done with each name. Do not fill that
+in unprompted, and check `can_name_publicly` in `clients/<x>/facts.yaml` before naming any of them in
+writing. Written naming approval from Super zoo and GymBeam is still outstanding.
+**Open flags:** all three figures are `needs-source` and must be re-pulled as one cumulative set
+with a single as-of date. "Launched Q2 2026" is a founder statement and needs pinning to a
+first-capture date in the database.
 
-### 06 · Traction
-**The slide reads top to bottom as one sentence:** launched Q2 2026, here is how much has
-accumulated, and here is who it ran with.
-**Lands:** the asset compounds, and it is real.
-Two numbers, very large: 18,830,280 visual data points and 484,120 POS data points matched. Then
-the line that carries the argument: every store-month adds to the same owned asset, and it is the
-one part of this business that cannot be rebuilt by spending more.
-**The logo band** is the same seven marks, same order and same official assets as the landing page,
-under "Proven in the field by". CEPRO has replaced the EuroOil mark the deck used before; that one
-was a reconstruction rather than an official asset, and EuroOil is CEPRO's retail brand, so this is
-the more defensible version.
-**Careful:** the band deliberately says nothing about what was done with each name. Do not fill that
-in unprompted, and check `can_name_publicly` in `clients/<x>/facts.yaml` before naming any of them
-in writing. Written naming approval from Super zoo and GymBeam is still outstanding.
-**Open flags:** the 18,830,280 and 484,120 figures mix vintages, re-pull as one cumulative number
-with one as-of date before a fund diligences it. "Launched Q2 2026" also needs pinning to a concrete
-first-capture date from the database.
-
-### 07 · Numbers
+### 08 · Numbers
 **Headline is one line:** software multiples are compressing, owned data is not.
 **Three numbered blocks, labelled on the slide so nobody has to guess:** 01 bottom-up financial
 model and 02 exit mathematics sit inside one card, joined by an arrow so the curve visibly runs into
@@ -158,10 +176,11 @@ sit in it depends on growth and on whether the data is owned or licensed in. Our
 one company at about $173k each, and our entire 2031 plan is 156 brand seats, 0.7% of that one
 client list. The point is that the plan is small against the market, not that the market is big.
 
-### 08 · Team
-Straightforward. LinkedIn links are live in the PDF.
+### 09 · Team
+Straightforward, and it sits immediately before the ask on purpose: the last thing they read before
+the number is who is going to do it. LinkedIn links are live in the PDF.
 
-### 09 · Ask
+### 10 · Ask
 **Headline is one line:** 500k EUR turns pilots into a signed, paying business.
 **Then four cards, one number each**, under the heading "where the business is at the next round".
 No Today column, no black conclusion box, no runway figure, no target close date. Those all made the
@@ -348,12 +367,15 @@ table and exit ladder) is stale. Use this page.
 
 ## 6. Open flags to close before a serious diligence process
 
-1. "100+ visual attributes per shopper" on slide 03 is above the verified 88+ and is unsourced.
-   Confirm against the sessions schema or change the slide.
-2. The traction figures on slide 06 mix three vintages. Re-pull as one cumulative number with one
-   as-of date.
-3. Written naming approval from Super zoo and GymBeam for the logo row.
-4. "Launched Q2 2026" on the traction slide is a founder statement, not yet pinned to a first-capture
-   date in the database.
-5. `messaging/stats.yaml` still carries the older `pricing_ladder` entry with `internal_only: true`
+1. **The traction numbers.** 7 pilots, 18.8M visual data points and 524,692 joined shoppers are all
+   `needs-source`. The retired v1 proof slide said 484,120 POS data points matched, which is a
+   different quantity of a similar size. Re-pull all of it as one cumulative set with a single
+   as-of date. This is the most exposed number in the deck.
+2. **"Launched Q2 2026"** is a founder statement, not yet pinned to a first-capture date in the
+   database.
+3. **Written naming approval** from Super zoo and GymBeam for the logo rail.
+4. `messaging/stats.yaml` still carries the older `pricing_ladder` entry with `internal_only: true`
    and different CZK bands, which conflicts with `model_price_ladder`. Retire or re-scope it.
+
+**Closed by the final cut:** the "100+ visual attributes" problem. The slides that ship now say 88
+visual attributes from a vocabulary of 450+, which is the verified figure.

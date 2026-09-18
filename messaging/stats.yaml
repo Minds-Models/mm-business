@@ -450,3 +450,17 @@ pilot_logo_row:
     with each one. CEPRO replaces the EuroOil mark the deck used before, which was a reconstruction
     rather than an official asset; EuroOil is CEPRO's retail brand, so this is also the more
     defensible naming. Written naming approval from Super zoo and GymBeam is still outstanding.
+
+# --- Added 2026-09-17: figures printed on the FINAL deck's proof slide ---
+
+data_asset_scale_final:
+  value: "7 enterprise pilots; 18.8M visual data points; 524,692 real shoppers observed in store and joined to what they bought"
+  source: "pitch-deck-2026-09-v2.html proof slide, adopted into pitch-deck-2026-09-final.html on 2026-09-17"
+  status: needs-source
+  note: >
+    ACTION REQUIRED, and now more urgent because this is the only traction figure that ships.
+    It supersedes data_asset_scale for external use. Note the conflict it resolves and the one it
+    does not: the retired v1 proof slide said 484,120 POS data points matched, this one says
+    524,692 real shoppers joined to baskets. They are different quantities with similar magnitudes
+    and only one of them is now public, so re-pull all three figures from the database as one
+    cumulative set with a single as-of date before any fund diligences them.
