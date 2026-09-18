@@ -51,9 +51,9 @@ churn is shown as what it is, an assumption of 8% of seat ARR a year, to be repl
 renewals.
 
 Cash. Minimum across all 64 months is **25k in month 2**, the month before the pre-seed lands; no
-scaling hire is made before month 4 (HEADCOUNT B23). After the pre-seed, cash bottoms at **451k in
+scaling hire is made before month 4 (HEADCOUNT B19). After the pre-seed, cash bottoms at **451k in
 month 6** and stands at 482k in month 12, the month before the seed, because hires land two months
-before their driver rather than six (HEADCOUNT B24) and the first paying seat arrives four months
+before their driver rather than six (HEADCOUNT B20) and the first paying seat arrives four months
 after a category goes live, in January 2027. Before the Series A it bottoms at **2.14M in month 26**,
 after it at **4.21M in month 34**. Cash net of unearned prepayments never turns negative after the
 pre-seed (low 289k in month 12): the plan does not lean on annual billing in advance anywhere, and
@@ -81,11 +81,11 @@ Seven tabs, in reading order.
 | Tab | What it holds |
 |---|---|
 | **READ ME** | What the company does, the vocabulary, what one brand pays for, a worked example on named archetypes, why inference gets cheaper, the two hiring rules, and what the model deliberately simplifies |
-| **SUMMARY** | The plan on one page: the financial summary with the net-revenue lines, the business summary (section 1b, with a worked-example explanation beside each line and a deployments-versus-ARR chart in its own space), the ARR bridge, cap table with the pool top-up, exit ladder, how we raise. Detail rows and the operating metrics are collapsed under plus signs |
+| **SUMMARY** | The plan on one page: the financial summary with the net-revenue lines (the headline ARR line is run-rate ARR, seats held times their current price; margins on a base under 100k read n/m), the business summary (section 1b, with a worked-example explanation beside each line and the deployments-versus-ARR chart to the right of it), the ARR bridge, cap table with the pool top-up, exit ladder, how we raise. Detail rows and the operating metrics are collapsed under plus signs |
 | **ASSUMPTIONS** | Every input that drives the P&L, in one vertical list, each one carrying a name (52 named ranges, five new: cameras per store, inference cost per camera, its yearly decline, the uniform chain-signing rate, the pool target after the Series A) |
 | **MODEL** | The monthly engine: rollout, P&L, cashflow, and the seat vintages, 64 columns; detail rows collapsed under plus signs in every section |
 | **MARKETS** | Eight market rows (the US is the eighth and opens only in scenario 3), how categories follow chains, entry months, the scenario switch, the T2 gate by market, and at the foot the category inventory by channel with a worked Czech example; the per-market monthly rows are collapsed |
-| **HEADCOUNT** | What the team costs, with the benchmark source or the internal reasoning printed beside every staffing ratio (the ratios are the mature ones: five categories per analyst, seven per data engineer, 4.5 chains per deployment or retailer-BD person, 3M EUR of ARR per customer-success manager, an 800k quota per account executive), the hiring gate and the hiring lead; the monthly role build is collapsed, totals stay visible |
+| **HEADCOUNT** | What the team costs, with the benchmark source or the internal reasoning printed beside every staffing ratio (the ratios are the mature ones: five categories per analyst, seven per data engineer, 4.5 chains per deployment or retailer-BD person, 3M EUR of ARR per customer-success manager, an 800k quota per account executive), the hiring gate and the hiring lead; the in-market flag, the source of each ratio and the implied salaries sit in columns BQ to BT, out of the reading path; the monthly role build is collapsed, totals stay visible |
 | **CHECKS** | Fourteen live integrity lines. If any says CHECK rather than OK, do not trust SUMMARY |
 
 MARKETS and HEADCOUNT keep their own inputs, because those are rollout and staffing rather than
