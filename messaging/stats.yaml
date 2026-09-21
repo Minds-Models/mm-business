@@ -464,3 +464,17 @@ data_asset_scale_final:
     524,692 real shoppers joined to baskets. They are different quantities with similar magnitudes
     and only one of them is now public, so re-pull all three figures from the database as one
     cumulative set with a single as-of date before any fund diligences them.
+
+# --- Added 2026-09-21: actual per-store supply cost, printed on the ask slide ---
+
+deployment_cost_per_store:
+  value: "About 20 USD per store per month, on one sensor per store"
+  source: "founder statement 2026-09-21 for the pitch deck ask slide"
+  status: needs-source
+  note: >
+    ACTION REQUIRED, and it conflicts with model_inference_cost_v2, which carries 45 EUR per
+    camera per month at 2 cameras per capture store, roughly 90 EUR per store per month, about
+    four to five times this figure. Both cannot be true. If 20 USD on one sensor is the real
+    number, the financial model understates gross margin and the supply line of the plan, and
+    the 45 EUR figure should be retired everywhere it is used as the why-now cost argument.
+    Reconcile against the model before any fund sees both the deck and the model.

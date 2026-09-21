@@ -50,7 +50,8 @@ const RASTER = `
   .page,.slide{box-shadow:none !important; border-radius:0 !important; margin:0 !important}
   :is(.page,.slide) *{color:transparent !important; -webkit-text-fill-color:transparent !important; text-shadow:none !important; caret-color:transparent !important}
   :is(.page,.slide) :is(img,svg){visibility:hidden !important}
-  :is(.page,.slide) .wm{color:#14161b !important}`;
+  :is(.page,.slide) .wm{color:#14161b !important}
+  :is(.page,.slide) .burst, :is(.page,.slide) .burst i{color:var(--accent, #2f6df6) !important}`;
 const VECTOR = `
   :is(.page,.slide):is(.page,.slide):is(.page,.slide){background-color:#fbfbfa !important; box-shadow:none !important}
   :is(.page,.slide):is(.page,.slide):is(.page,.slide)::before,
