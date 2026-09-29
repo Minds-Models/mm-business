@@ -10,7 +10,8 @@ operating manual (for humans and agents alike).
 - `brand/` — tokens.css, logos, guidelines
 - `data/` — SQL queries + snapshot manifests behind every report
 - `.claude/skills/` — /data-report, /sales-deck, /one-pager
-- `decks/` — current company-level decks (investor pitch, product deck)
+- `blitzkrieg/decks/`: final pitch decks: `brand/`, `retailer/`, `investor/`, each as `mm-<audience>-deck-<lang>.{html,pdf}` (lang = `en` / `cz`); shared images in `assets/`, superseded generic decks in `_outdated/`
+- `decks/`: client-specific and one-off decks, plus `logos/` and `avatars/`
 
 Code lives elsewhere: datalayer (ETL/analysis), dashboard-backend (product).
 Raw media (videos, PSD, photos) stays on local disk / Drive — not in git.

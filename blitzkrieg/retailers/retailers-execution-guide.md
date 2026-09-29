@@ -7,6 +7,9 @@
 > list, naming permission). Three blockers are already visible, including that the current mandate
 > template promises the retailer the majority of data revenue, which contradicts D1, the C1 ruling
 > and the signed brand pricing.
+> **Update, 22 Sep 2026:** that mandate-template defect was fixed on 4 Sep (DPA clause memo §8) and
+> all remaining "majority" and "≤40%" formulations have now been purged from the retailer messaging
+> and navigation files. External materials state no percentage at all.
 
 
 Companion to `retailers-plan.html`. **This is the working document.**
@@ -20,6 +23,193 @@ Slip that date and the two paying seats fall out of the Oct–Nov budget window.
 where, what to do with it) · ✅ definition of done · ⏱ estimated hours.
 **Owners:** J = Josef · O = Ondřej (paper/legal/ops) · D = Dima · N = Natka (data pipeline) · H = Honza (CV/privacy) ·
 P = Petr (backend/ingest) · M = Martin (cloud).
+
+---
+
+# The retailer pitch spine — the seven stones
+
+⛔ **Read this before writing any retailer artifact:** deck slide, one-pager, cold email, LinkedIn
+DM, talk track or objection answer. Everything retailer-facing is built from the seven stones below
+and from nothing else. Where an older file in this repo contradicts them it is stale, and it is
+named as stale in §Canonical vs stale sources at the end of this section.
+
+**Source of framing:** `blitzkrieg/decks/retailer/mm-retailer-deck-cz.html` and its EN twin (current). Founder
+rulings of 22 Sep 2026 added stone 7, deleted the monthly action brief, and closed the
+revenue-share language. When the deck changes, this section changes with it.
+
+## The stones
+
+**1. The asset already exists, costs nothing to produce, and is being destroyed.**
+Every visit produces a record of who arrived and what they bought. It carries no cost of goods,
+no stock, no write-offs, no logistics and no capex. It appears by itself, and after a few days
+they delete it. It is the only product in their network with a 100% margin and nobody is selling it.
+
+**2. The retailer never pays. Not now, not later, not at scale.**
+Zero investment, free forever, no hardware to buy, no load on their IT. Say this in the first
+sentence of any conversation, because on a floor full of vendors it is the one sentence that
+switches off the evaluation frame.
+
+**3. Brands pay, and the retailer takes a share of what brands pay.**
+The differentiator against NielsenIQ is **the direction the money flows**, not the size of the
+share: every incumbent shopper-data product bills the retailer, and this one pays them. That
+framing works with no number in it, which is what makes stone 3 sayable while the percentage is
+still open.
+⛔ **Never state a percentage in any external artifact or conversation** (founder ruling,
+22 Sep 2026). Asked directly, the answer is: *"a share of what brands pay for outputs where you
+are named, plus the platform free. The number belongs in the contract and it scales with the
+number of stores."* Never offer the share unprompted. The only place a figure legally exists is
+[`DPA preparation/00-clause-architecture-memo.md`](DPA%20preparation/00-clause-architecture-memo.md)
+(labelled output vs aggregate), and that file is internal.
+
+**4. Who walked in, not how many.**
+88+ observed attributes per shopper per visit, matched to the receipt. This is the whole separation
+from the two things they have already been sold: a counter gives a number with no link to the till,
+a syndicated POS panel gives the till with no visual layer.
+
+**5. Control, stated before they ask for it.**
+Footage and till data stay theirs and we take title to neither. Only the de-identified k≥25
+aggregate is licensed. Anything published with their name on it needs their written approval.
+Trading data (cost, margin, sell-through, elasticity) is never ingested, so it cannot leak.
+
+**6. Honest scarcity, sized by statistical relevance.**
+The limit is methodological, never commercial, and the number of founding partners per category is
+**whatever that category needs to carry statistical weight for brands**. In **fuel it is two, and
+one is already running** (founder ruling, 22 Sep 2026), so the remaining seat is the last one.
+Never write a per-category number into a generic artifact; state the rule generically and put the
+number in the category variant. Never the word "exclusivity".
+
+**7. No obligation to act on any of it. (Added 22 Sep 2026.)**
+We deliver data and money. We do not deliver, and will not accept responsibility for, store-level
+change. There is no project to staff, no team to assign, no change management, no vendor telling
+their managers what to do, and no KPI anyone has to defend. They install it, the data arrives, the
+money arrives, and what they do with either is entirely their call.
+
+💡 Stone 7 is not a gap left by removing the action brief, it is the strongest stone available for
+top management. The most common reason a commercial director defers is not doubt about value, it is
+the internal cost of adopting anything. Stone 7 deletes that cost, so say it out loud rather than
+letting them assume the usual vendor burden.
+
+## What was removed, and why it may not come back
+
+⛔ **The monthly action brief is dead** (founder ruling, 22 Sep 2026): no "three measurable changes
+per month", no "we prove what they earned", no weekly insight-and-action drip, no promise that our
+data moves their basket, margin or assortment. Two reasons, both structural: it makes us
+accountable for their execution, and it re-frames the product as a consultancy the retailer must
+work with rather than an asset they simply own. Replace it with stone 7 every time.
+
+Insights are still delivered, still free, and still theirs first. The difference is that we never
+attach a recommendation, an expected impact in CZK, or a measured outcome to them.
+
+## The single message
+
+> Your stores manufacture a product with a 100% margin every day, people elsewhere pay millions for
+> the weaker version of it, and every night you delete it. It costs you nothing to keep, you are not
+> the one who pays for it, and you do not have to do anything with it.
+
+Everything else, including how the technology works, is an answer to a question they have to ask
+first. The moment we open with our own capability we become a supplier being evaluated.
+
+## Per-role pain and the opening move
+
+The person with the pain is rarely the person with the pen. Never single-thread a chain.
+
+| Role | What actually hurts | Open with | Never open with |
+|---|---|---|---|
+| **Owner / CEO / board (the pen)** | Every new revenue line costs capex, stock, staff or all three. Growth is expensive | Stone 1 then stone 7: a revenue line with no cost of goods and no project to run | Technology, GDPR reassurance, analytics vocabulary |
+| **Commercial / retail director** | Their suppliers know their shopper better than they do, and it shows in every negotiation | Stone 4 then the asymmetry inversion (§14 of the strategy pack): they see it first, free, before any brand | The word "data" as a category; they have been pitched it repeatedly |
+| **Category manager / buyer** | The same asymmetry, weekly, with a named supplier across the table | A sharper hand in the negotiation (canon language per C4, never adversarial in writing) | Anything they could forward to that supplier |
+| **CFO / finance** | Procurement, capex approval, contract risk | Zero capex, zero opex, no procurement path needed, revocable in 60 days, pure contribution | The revenue potential before the zero cost |
+| **IT / security** | Another vendor in the estate, another integration, another licence cap | No new hardware, existing CCTV sub-streams, read-only, **no image egress**, edge processing | Business value; they are not buying it |
+| **DPO / legal** | Cameras installed for security being repurposed without a legal basis | We hand them the pack: DPIA, LIA, Art. 6(4) purpose-change memo, signage artwork, counsel's AI-Act letter | Reassurance without paper |
+
+## The nudging stack, in this order
+
+1. **Loss before gain.** They are not missing an opportunity, they are destroying an asset nightly.
+   Loss framing is roughly twice as motivating and it is also the literal truth here.
+2. **Zero price, zero risk, stated immediately.** *"I am not selling you anything. Nobody pays for
+   this."* This is what removes the defensive posture before any argument lands.
+3. **The demand already exists and has already been expressed.** Answer their real question before
+   they ask it: the major brands in their channel have told us directly that they want this. We are
+   not asking them to bet on a market forming, we are asking them to supply one that is already
+   asking. Unnamed, labelled as in conversation, nothing signed.
+4. **Proof they can check without us.** The state pays roughly 3.7M CZK a year for one subscription
+   to weaker data and 230–240k for a single narrow category report, both in the public procurement
+   registry. Handing someone the tool to verify us beats any claim we could make about ourselves.
+5. **Scarcity that is methodological.** Stone 6. Two seats in fuel, one taken. It is a real
+   constraint, so it cannot be read as a trick, and it never implies exclusivity.
+6. **Effort framing.** Stone 7. No project, no team, no accountability.
+7. **Reciprocity.** They receive four compliance documents free that they would otherwise pay
+   counsel to produce.
+8. **The smallest possible commitment.** 60 days, revocable, a few dozen stores, and they choose
+   which part of the network.
+
+## What may never be said to a retailer
+
+- ⛔ **Never "brands are paying for this", "budgets are committed" or "we have LOIs".** Brand LOIs
+  are zero and signed rights are zero. The line that must never be said is the one about money that
+  has already moved.
+  ✅ **Brand interest itself is a fact and is usable, in the room and in writing** (founder ruling,
+  22 Sep 2026). It came from real meetings and it is the answer to the retailer's actual question,
+  which is *"would anyone even want this?"* Sayable: *"we are in active conversation with the major
+  brands in this channel, they have told us directly they want this data, and nothing is signed
+  yet."* Label it per C5 as **in conversation**, never as pipeline value.
+  Two limits that stay: **do not name the brands in writing** (a deck that says which tobacco major
+  said what fails the forwardability litmus the moment it reaches them), and in fuel outreach do not
+  reveal who brokered the introductions, because that discloses the ČEPRO relationship to a
+  competing network while `can_name_publicly` is still false and the greenlight is still pending.
+  💡 If you want to upgrade "they want it" to "they said they would buy it", bring back the sentence
+  verbatim with the name of the person who said it. That is the version a diligence question will
+  test, and it is worth capturing the moment it is said.
+  The market-pays evidence in stone 3 and deck slide 04 now supports the interest claim rather than
+  substituting for it: brands want it, and the public registry proves the category of data sells.
+- ⛔ **Never a revenue-share percentage.** See stone 3.
+- ⛔ **Never open with technology.** Wait for *"and how do you intend to read that?"*, which is a win.
+- ⛔ **Never "exclusivity".** Never an invented deadline. Scarcity is the category seat and real
+  budget cycles only.
+- ⛔ **Never adversarial toward suppliers in writing** (C4). Our ICP is those suppliers.
+- ⛔ **Never name a client** beyond `can_name_publicly` in their `facts.yaml`. EuroOil is currently
+  `false`, fallback "a Czech fuel and convenience network", and the written ČEPRO greenlight is
+  still pending.
+- ⛔ **Never "veto on every output"** as contract language. The veto attaches to Labelled Output.
+  Correct as a talking point, fatal in a draft (see the DPA memo §6.5).
+
+## Canonical vs stale sources
+
+**Canonical. Build outreach from these and nothing else:**
+
+| Artifact | Use for |
+|---|---|
+| `../decks/retailer/mm-retailer-deck-{cz,en}.html` | The full argument. Every other artifact is a compression of it |
+| `decks/retailer-onepager-{cz,en}.html` + `-email` twins | Leave-behind and first-touch email body |
+| This section | Stones, per-role split, nudging order, red lines |
+| `2026-09-24-kongres-cerpacka-field-guide.md` | Fuel-category talk track, hooks, objections, verifiable numbers |
+| `../../strategy/2026-08-19-base-strategy/14-retailer-data-objection.md` | The "brands will use this against us" answer |
+| §Data ownership below | The "so you want to own our data?" answer |
+| `DPA preparation/00-clause-architecture-memo.md` | The only place a share figure exists. Internal |
+
+**Stale. Do not generate copy from these until they are rebuilt on the stones:**
+
+| Artifact | Why it is stale |
+|---|---|
+| `../../one-pagers/retailer/retailer-one-pager-en.html` | Action-brief-era P&L framing (bigger baskets, sharper assortment) and illustrative euro clusters. Retained on purpose, superseded by the one-pagers above |
+| `../decks/_outdated/retailer/retailer-pitch-deck.html`, `coop-pitch-deck*.html`, `tchibo-pitch-deck.html`, `../decks/_outdated/retailer/retailer-demo-deck-cosmetics.html` | Pre-deck generation, per-client, mixed framing |
+| `retailers-plan.html` | Carries "Max 40% Rev-Share" as a pitch line. Superseded by stone 3 |
+
+## Deck corrections pending
+
+⛔ **The HTML artifacts were deliberately not edited on 22 Sep 2026 (founder instruction: guides and
+rules only).** The deck therefore remains canonical for framing while carrying six known defects
+against the stones. Anyone presenting from it must patch these verbally; anyone authorised to edit
+the HTML later applies exactly this list.
+
+| Artifact and line | Current copy | Why it breaks a stone | Replacement |
+|---|---|---|---|
+| `mm-retailer-deck-cz.html:522` · `-en.html:509` | "Značky tato data potřebují **a mají na ně připravené rozpočty**" / "Brands need this data **and have budgets ready for it**" | The one version of the demand claim that is false. Zero LOIs, zero signed rights. Interest is sayable, committed budget is not | CZ: "Značky tato data chtějí **a už nám to řekly**." EN: "Brands want this data **and have told us so directly**." Keep the existing "not existing customers" disclaimer |
+| `-cz.html:417, 595, 640` · `-en.html:582, 628` · `retailer-onepager-{cz:101,en:107}` · `-{cz,en}-email:86` | "Jeden zakládající partner na kategorii" / "One founding partner per category" | Contradicts stone 6 and the C3 ruling. In fuel it is two with one taken, so "one" tells every fuel operator the door is already shut | "V každé kategorii jdeme s tolika partnery, kolik je potřeba, aby data měla pro značky statistickou váhu" / "We work with as many founding partners per category as the data needs to carry statistical weight for brands." Put the actual number in the category variant only |
+| `-cz.html:594` · `-en.html:581` · `retailer-onepager-cz.html:109` · `-cz-email:103` | "Ověřený koncept z jiných retail kategorií" / "A concept proven in other retail categories" over seven category chips | Overclaims. One fuel station live and calibrating, GymBeam POS-matched as a lab asset, SuperZoo matching real, the rest pilots with no rights. It will not survive one diligence question | "Běží to v provozu v několika kategoriích retailu" / "Running in the field across several retail categories", with the chips relabelled as pilots rather than proven partnerships |
+| All retailer artifacts | Stone 7 is absent everywhere | The single strongest argument for top management (no project, no team, no accountability) is not in any artifact | Add to slide 01 and the next-step slide: "Nemusíte s tím nic dělat. Žádný projekt, žádný tým, žádná změna provozu" / "Nothing is required of you: no project, no team, no change to how you operate" |
+| `-cz.html` slide 01 · `-en.html` slide 01 | Headline "až 2,5 mil. Kč+" / "Up to €100k+" against a footnote of ~30k CZK per store over ~50 stores, and an equivalence of 100M CZK at 1.5% net margin | **Arithmetic conflict inside one slide.** The footnote resolves to 1.5M CZK, and €4M at 1.5% is €60k, not €100k. A commercial director who divides in the room will find it | Founder decision required, recorded in `messaging/stats.yaml` under `retailer_network_economics`: either raise the per-store figure to ~50k CZK and the equivalence to ~167M CZK, or lower the headline to 1.5M CZK / €60k |
+| `retailer-onepager-{cz,en}.html` and the email twins | "You approve every output" | The veto attaches to Labelled Output. Fine spoken, wrong in an artifact a counsel will read | "You approve every output where you are named" / "Schvalujete každý výstup, ve kterém jste jmenovaní" |
 
 ---
 
@@ -57,7 +247,9 @@ answer below is the whole position. Do not improvise around it.
   terminate; published benchmarks do not retroactively unwind. Say this plainly, because it is what
   their counsel will actually be testing.
 - It is **not exclusive** and it is **not a transfer of ownership** of any underlying data.
-- It comes with an **audit right** on our aggregates, a veto on every published output, category
+- It comes with an **audit right** on our aggregates, a veto on every published **labelled** output
+  (the scope correction the DPA clause memo §8 asked for: spoken shorthand may say "every output",
+  a draft never may), category
   and brand embargo, and 90-day insight priority. Offer these in the same breath as the perpetuity,
   never after it.
 - If counsel proposes a term-limited licence: counter with perpetual but chain-masked and k>=25
@@ -105,7 +297,8 @@ Retrofitting it after Mandate #1 signs means reopening a signed contract.
    reach third-party resellers? per-channel written approval).
    **Protections for them:** trading-data firewall (no margins, wholesale prices, or COGS) · the toxic-cut prohibition (named retailer ×
    named brand vs named competitor) · chain-masking by default · publication lag · 90-day insight
-   priority · category/brand embargo (incl. private label) · veto on every published output.
+   priority · category/brand embargo (incl. private label) · veto on every published **labelled**
+   output (never drafted as "every output" — DPA clause memo §6.5).
 3. Mark each clause **NEGOTIABLE / NON-NEGOTIABLE**. Exactly one is non-negotiable: the perpetual
    aggregate licence. Everything else can be traded.
 4. Build the **Zero-IT PoV** as a separate, much shorter paper: 3–5 stores, read-only access,
@@ -130,8 +323,13 @@ to something that visibly cannot hurt them.
 1. **Open:** 0% share + free platform. The value is **their own store insights & AI chatbot tool** — deliverable day
    one, needs no other retailer's data, so the "you can't benchmark me yet" objection never blocks
    the door.
-2. **Rung 2:** ≤40% share on **retailer-attributed products only**. Aggregate and syndicated reads
-   stay 100% ours.
+2. **Rung 2:** a share on **labelled, retailer-attributed outputs only**. Aggregate and syndicated
+   reads stay 100% ours. ⛔ **The percentage is not written here and is never said externally**
+   (founder ruling, 22 Sep 2026: open below the ceiling, concede upward, and only if the share is a
+   condition of signing). The figure, the ceiling and the concession order live in exactly one file:
+   [`DPA preparation/00-clause-architecture-memo.md`](DPA%20preparation/00-clause-architecture-memo.md)
+   plus Příloha 3 of the Czech draft. The retired "≤40%" and "majority of data revenue" formulations
+   must not be reintroduced into any navigation, plan or messaging file.
 3. **Rung 3 (door-opener of last resort):** time-boxed year-1 share on the first category read,
    with a written sunset.
 4. **Never at any rung:** a share of the cross-retailer aggregate.
@@ -430,7 +628,7 @@ the IT rack and camera positions rather than travelling.
 **Steps**
 1. **Formalize the Commercial Data Architecture:**
    - **Cross-Retailer Syndicated Aggregate (≥2 chains in category):** 100% M&M revenue. This is the core currency sold to brand insights teams (T1/T2 subscriptions). Retailer receives free access to the market benchmark view.
-   - **Retailer-Attributed Data Intelligence (Single chain specific):** Monetized via supplier brand access or retail media targeting. Subject to C1 share ladder (≤40% share to retailer, ≥60% infra margin to M&M).
+   - **Retailer-Attributed Data Intelligence (Single chain specific):** Monetized via supplier brand access or retail media targeting. Subject to the C1 share ladder (§1.2); the percentage lives only in the DPA clause memo and Příloha 3, never here and never externally.
 2. **Specify Natka's Ingest & Delivery Pipeline:**
    - Define data ingestion from edge camera processing and POS matching into the warehouse.
    - Apply strict k≥25 aggregation and firewall filters: **exclude all retail trading data (margins, wholesale pricing, COGS)**.
@@ -450,10 +648,11 @@ the IT rack and camera positions rather than travelling.
 1. Package the standardized retailer value proposition deck & talk-track:
    - **Their Data, Free Forever:** Retailer gets full visibility into their own physical stores' traffic, demographic mix, dwell times, and conversion patterns via our platform and AI chatbot at zero subscription cost.
    - **Hundreds of Visual Attributes:** Granular shopper demographic profiling (age bands, gender, presentation style, group dynamics, shopping mission patterns — strictly no shelf-interaction tracking).
-   - **New Bottom-Line Revenue:** We commercialize audience insights to FMCG/brand suppliers and share up to 40% of attributed revenues with the retailer.
-   - **Zero IT Friction & Risk:** Runs on existing CCTV cameras, edge processing, no image egress, complete trading data firewall, full veto rights over published cuts.
+   - **New Bottom-Line Revenue:** We commercialize audience insights to FMCG/brand suppliers and the retailer takes a share of what brands pay for labelled outputs. **No percentage, externally or here** (§1.2).
+   - **Nothing Required Of Them (stone 7):** no project, no team, no change management, no KPI to defend. They receive the data and the money; what they do with either is their call.
+   - **Zero IT Friction & Risk:** Runs on existing CCTV cameras, edge processing, no image egress, complete trading data firewall, and approval rights over every **labelled** published cut.
 
-💡 The strongest positioning is: *"We build your internal shopper intelligence capability for free, and create a brand-funded revenue stream where you keep the upside."*
+💡 The strongest positioning is: *"We build your internal shopper intelligence capability for free, create a brand-funded revenue stream on top of it, and ask nothing of your organisation in return."*
 
 ✅ **Done when:** Retailer Value Proposition one-pager and presentation deck finalized.
 

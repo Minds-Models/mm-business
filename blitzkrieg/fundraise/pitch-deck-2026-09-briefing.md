@@ -1,11 +1,11 @@
 # Pitch deck, Sep 2026: internal briefing
 
 **Internal only. Never send this file to an investor.**
-Companion to `pitch-deck-2026-09-final.html` / `.pdf` (10 slides, no appendix).
+Companion to `blitzkrieg/decks/investor/mm-investor-deck-en.html` / `.pdf` (10 slides, no appendix).
 The final cut, assembled 17 Sep 2026, takes slides 01, 02, the business model, the numbers, the team
 and the ask from the old `pitch-deck-2026-09.html`, and the three how-it-works slides plus the proof
 slide from `pitch-deck-2026-09-v2.html`. Both source files are kept unchanged in
-`blitzkrieg/fundraise/obsolete/` and should not be sent to anyone.
+`blitzkrieg/decks/_outdated/investor/` and should not be sent to anyone.
 Numbers below are the live VC financial model as read 17 Sep 2026. Every figure that appears on a
 slide is also in `messaging/stats.yaml` with its source, per the repo rule.
 

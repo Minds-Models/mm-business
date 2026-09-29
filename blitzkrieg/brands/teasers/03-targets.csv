@@ -1,0 +1,35 @@
+priority,track,company,estate,wallet,decision_location,sales_cycle,find_personas,card_first,card_second,warm_path,notes
+P1,tobacco,Philip Morris ČR,PRESENT,TIER 1,Prague / Kutná Hora,3-6m,TRD; KAM (forecourt/EuroOil); SAL,b-pmi-zyn,p-insights (insights/CMK people),"Samuel Šulc (met 18 Sep, follow-up due 25 Sep); Patricia Wohlenberg",insights variant for global/CMK people
+P1,tobacco,BAT ČR,PRESENT,TIER 1,Prague,3-6m,"OWN (Štěpán Michlíček, GM + jednatel); TRD; KAM",b-bat-velo,p-insights (insights/CMK people),ČEPRO-convened room,CZ+SK one signature
+P1,tobacco,JTI,PRESENT,TIER 1,CzHuSk hub,6-12m,TRD; KAM,b-jti-ploom,p-insights (insights/CMK people),Björn Abrahamsson (Commercial Planning); ČEPRO-brokered meeting,
+P1,tobacco,Consumer Brands International / DanCzek,THIN,€40k,Košťany / Teplice,WEEKS,OWN (Jaroslav Poul / Vladimír Grée),b-cbi-strong,p-insights (insights/CMK people),cold,DOPE census opener: 2 of 285 EuroOil stations
+P2,tobacco,Imperial Brands CR,THIN,€40k,Prague,1-3m,OWN (Felix von Schwanewede); TRD,b-imperial,p-insights (insights/CMK people),ČEPRO-convened room,
+P1,tobacco,PEAL a.s.,CORE,€40k,Prague,1-3m,DIS; OWN,p-distributor,p-insights (insights/CMK people),,
+P2,tobacco,JIP východočeská,CORE,€40k,Pardubice,3-6m,OWN (Jan Plšek); DIS,p-distributor,p-insights (insights/CMK people),cold,
+P3,tobacco,GGT CZ,PRESENT,€40k,Bratislava / Jihlava,1-3m,DIS,p-distributor,p-insights (insights/CMK people),,
+P1,forecourt,Kofola,CORE,TIER 1,Ostrava / Krnov,1-3m,"OWN/SAL (Daniel Buryš); TRD; KAM (forecourt, COOP)",b-kofola,p-insights (insights/CMK people),,COOP-tied Czech-signed; kam variant
+P1,beverages,Mattoni 1873,PRESENT,TIER 1,Karlovy Vary,1-3m,SAL; TRD; KAM,b-mattoni,p-insights (insights/CMK people),via Adam Vološin (P&G),COOP-tied Czech-signed
+P1,forecourt,Coca-Cola HBC CZ/SK,PRESENT,TIER 1,Prague,1-3m,"KAM (Martin Prokeš, manažer prodeje pro čerpací stanice); TRD",b-cchbc-monster,p-insights (insights/CMK people),,distributes Monster
+P1,forecourt,Big Shock,PRESENT,STUDY/€40k,Prague,WEEKS,OWN,b-bigshock,p-insights (insights/CMK people),,Attio: two records with conflicting estate/wallet
+P2,forecourt,Maspex Czech (Tiger),PRESENT,€40k,Wadowice PL,3-6m,TRD; KAM (forecourt),p-trade,p-insights (insights/CMK people),,Tiger leads the morning card
+P1,forecourt,Nestlé Česko,PRESENT,TIER 1,Prague,3-6m,BRD; TRD; KAM,"p-brand (ask Rajnohová which brand, then a brand card)",p-insights (insights/CMK people),Dominika Rajnohová (friend); Barbora Sulovská; Lucie Klusáková,"no Nestlé brand in demo data: ask Rajnohová which brand, then add a card"
+P2,forecourt,Red Bull ČR,PRESENT,€40k,Prague (nominal),3-6m,TRD; KAM,b-redbull,p-insights (insights/CMK people),,
+P2,forecourt,Intersnack,PRESENT,€40k,Choustník,1-3m,SAL; TRD,b-intersnack,p-insights (insights/CMK people),,
+P2,forecourt,Mondelez CZ,PRESENT,TIER 1,Prague vs cluster,3-6m,SAL (Tomáš Kautský); TRD,p-trade,p-insights (insights/CMK people),,
+P2,beverages,Plzeňský Prazdroj,PRESENT,€40k,Plzeň → Asahi,3-6m,TRD; KAM,b-prazdroj,p-insights (insights/CMK people),,
+P3,beverages,Bernard / Svijany / Emco / AG Foods,THIN-PRESENT,€40k/STUDY,local,1-3m,OWN,p-owner,p-insights (insights/CMK people),COOP meeting ask,COOP-tied Czech-signed; card per brand on request
+P1,pet,VAFO Group / VAFO Praha,CORE,TIER 1,Chrášťany,1-3m,OWN (František / Pavel Bouška); BRD/TRD,b-vafo-brit,p-insights (insights/CMK people),,"real data; card says ""privátní značka"", no retailer named"
+P1,pet,Plaček Pet Products (private label),CORE,€40k,Poděbrady,WEEKS,PL; OWN (Dušan Plaček / Luboš Rejchrt),b-placek-ontario,p-insights (insights/CMK people),Super zoo relationship,real data
+P2,pet,Trixie,CORE,€40k,Střelice / Tarp,6-12m,OWN (CZ); TRD,b-trixie,p-insights (insights/CMK people),,real data
+P2,pet,Spectrum Brands,CORE,€40k,Melle DE,3-6m,TRD; KAM,b-spectrum-tetra,p-insights (insights/CMK people),,real data
+P2,pet,Colgate-Palmolive (Hill's),PRESENT,€40k,CE hub,3-6m,TRD; BRD,p-trade,p-insights (insights/CMK people),Jennifer Vasold-Singh (LinkedIn 20 May),methodology only
+P1,hpc,Dermacol,CORE,€40k,Prague,1-3m,OWN (Vladimír Komár); TRD,p-owner,p-insights (insights/CMK people),,
+P1,hpc,Gabriella Salvete,CORE,€40k,Prague,1-3m,OWN (Aleš Monteleone); TRD,p-owner,p-insights (insights/CMK people),,
+P1,hpc,Sarantis CZ,CORE,€40k,Prague,1-3m,OWN (Krzysztof Kamiński); TRD,p-owner,p-insights (insights/CMK people),named by Vološin as easier entry,
+P1,hpc,Procter & Gamble,CORE,TIER 1,Bucharest hub / Prague,3-6m,INS (CMK); TRD; KAM,b-pg-oldspice (+ p-insights for CMK),,"Adam Vološin (KAM), First Meeting 18 Aug",insights variant = default
+P1,hpc,L'Oréal,CORE,TIER 1,Poznań / Paris,1-12m,TRD; INS; KAM,b-loreal,p-insights (insights/CMK people),Petra Ivančáková (friend); Fred Orsita,
+P2,hpc,Unilever ČR,PRESENT,TIER 1,Prague,3-6m,TRD; KAM; INS,b-unilever-dove,p-insights (insights/CMK people),,
+P2,hpc,Henkel ČR,CORE,TIER 1,Vienna,1-12m,TRD; KAM,b-henkel-syoss,p-insights (insights/CMK people),,
+P2,hpc,Beiersdorf,CORE,TIER 1,Vienna,3-6m,TRD; KAM,b-beiersdorf-nivea,p-insights (insights/CMK people),,
+P2,hpc,Coty ČR,CORE,€40k,Warsaw / Amsterdam,1-12m,TRD,b-coty-adidas,p-insights (insights/CMK people),named by Vološin,
+P1,mall,Shopping-centre operators / asset & property managers (see data/malls_targets.csv),,,,,M-AM; M-MK; M-LS,p-mall (EN: b-mall-en),,CPI case,CZ/SK in Czech; international list in English

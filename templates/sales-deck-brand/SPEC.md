@@ -5,7 +5,7 @@ icp-one-pager-v1.md; raw/B-product-capability.md). The previous spec is supersed
 capability, led with measurement, used shelf-level language and never stated the residual. All four
 are now known failure modes, evidenced below.
 
-**Reference build:** `decks/2026-09-10-brand-sales-deck/` (EN, generic, 6 slides).
+**Reference build:** `blitzkrieg/decks/brand/` (EN, generic, 6 slides).
 
 ---
 
@@ -175,7 +175,7 @@ Brand-deck specifics on top of the shared system: segment avatars from
 `analytics-assistant-fe/src/assets/segments/*.webp`; the pilot-estate avatars from
 `datalayer/avatars/*.png` (crop to the alpha bbox, square from the top, 320px). Copy whichever you
 use into the deliverable so the HTML is self-contained. `decks/avatars/men40.png` is **not** for
-brand decks. The reference build (`decks/2026-09-10-brand-sales-deck/`) shows the system applied
+brand decks. The reference build (`blitzkrieg/decks/brand/`) shows the system applied
 to this spec's six slides.
 
 ---

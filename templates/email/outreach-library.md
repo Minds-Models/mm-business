@@ -5,6 +5,13 @@ Global rules: ≤120 words, ONE question-CTA, no attachments/links on first cold
 Pre-mandate guardrail: methodology only — never a retailer's category aggregates.
 Follow-up cadence: D+3 one-line bump · D+8 new value (different stat) · D+15 breakup. Stop after.
 
+⚠ **Retailer carve-out (T4, T7).** The "92% stat as hook" rule is a **brand** rule and must not be
+applied to retailers: it opens with our capability and puts us in the vendor category. Retailer
+outreach opens with the asset they are destroying, mentions technology only when asked, and is built
+from the seven stones in
+**[`blitzkrieg/retailers/retailers-execution-guide.md` §The retailer pitch spine](../../blitzkrieg/retailers/retailers-execution-guide.md#the-retailer-pitch-spine--the-seven-stones)**.
+Load that section before editing T4 or T7.
+
 ## T1 · Cold email — brand trade/shopper marketer (CZ)
 
 Předmět: 92 % nákupů spárovaných se zákazníkem u regálu — [kategorie]
@@ -42,18 +49,71 @@ Předmět: Snídaně 12 míst: Kdo skutečně nakupuje [kategorii] v ČR — prv
 > pro trade marketing a insights — z každé firmy max. dva.
 > Mám pro vás rezervovat místo?
 
-## T4 · Cold email — retailer exec (CZ)
+## T4 · Cold email — retailer, one variant per role (CZ)
 
-Předmět: Nová příjmová linka pro [řetězec] z dat, která už máte
+⚠ **Rewritten 22 Sep 2026.** The single generic "retailer exec" email is retired. It opened with our
+own accuracy number, promised "většina výnosu vám" (contradicts the contract architecture), promised
+"veto na každý výstup" (the veto attaches to labelled output only) and promised three store changes
+with an expected impact in CZK (the action brief the founder removed).
+
+**Spine every variant keeps:** first line about the asset they are destroying, never about us · no
+technology until they ask · **no percentage, no price** · never "brands are paying" or "budgets
+committed", brand **interest** only, labelled as interest · no promise of store-level change ·
+one question CTA · ≤130 words. Seat count per category is set by statistical relevance: in fuel it
+is two with one taken, so use the bracket rather than assuming.
+
+### T4a · Owner / CEO / board — the pen, and the only one who cares purely about money
+
+Předmět: Produkt se 100% marží, který u Vás vzniká a každý večer se maže
 
 > Dobrý den, [jméno],
-> řetězce vaší velikosti dnes nechávají na stole miliony korun ročně od značek — za
-> měřitelná data o tom, kdo u nich skutečně nakupuje. [Přední český řetězec] s námi už
-> měří prodejnu se stejnou přesností jako e-shop (92 % nákupů spárovaných s návštěvou).
-> Funguje to pod vaší plnou kontrolou: vaše data zůstávají vaše, většina výnosu vám,
-> veto na každý výstup.
-> První krok nestojí nic: zanalyzujeme jeden den jedné vaší prodejny a přineseme
-> 3 konkrétní kroky s očekávaným dopadem v Kč. Najdeme si 30 minut?
+> kolik [litrů nafty / kusů] musíte prodat, abyste měl milion čistého? Ve [řetězec] přitom každý den
+> vzniká produkt, který nemá nákup zboží, sklad, odpis ani logistiku: záznam o tom, kdo přišel a co
+> si koupil. Vzniká sám a po pár dnech ho smažete.
+> Vy za něj neplatíte nic a nemusíte s ním nic dělat. Platí ho značky. S velkými značkami ve Vaší
+> kategorii jsme v aktivním kontaktu a zájem nám potvrdily, podepsané zatím nic. Z toho, co zaplatí,
+> jde podíl Vám.
+> V [kategorie] jdeme jen s tolika partnery, aby data měla pro značky statistickou váhu[, a jedno
+> místo už je obsazené].
+> Vyjde na mě 15 minut?
+
+### T4b · Commercial / retail director — the asymmetry in their own negotiations
+
+Předmět: Váš dodavatel ví o Vašem zákazníkovi víc než Vy
+
+> Dobrý den, [jméno],
+> až si sednete k [dodavatel], on bude mít výzkum o Vašem nakupujícím a Vy pokladnu. To je celá
+> asymetrie a dnes hraje proti Vám.
+> Ve Vašich prodejnách vzniká při každé návštěvě záznam o tom, kdo přišel a co si koupil, 88+
+> atributů spárovaných s účtenkou. Vidíte ho Vy, zdarma, a dřív než jakákoliv značka. Nic za to
+> neplatíte a nic nemusíte měnit: platí to značky, ne Vy, a podíl z toho jde Vám.
+> Mám živou ukázku, ve které se zeptáte vlastními slovy a odpověď se vrátí ze skutečných účtenek.
+> Vyjde na Vás 15 minut?
+
+### T4c · CFO / finance — remove procurement before they invent it
+
+Předmět: Výnosová linka bez capexu, bez opexu a bez procurementu
+
+> Dobrý den, [jméno],
+> tohle není nákup, takže se to nemusí nikde schvalovat: žádný capex, žádné opex, běží to na
+> kamerách, které už máte, bez nového hardwaru a bez zátěže pro IT.
+> Ve Vašich prodejnách vzniká záznam o tom, kdo přišel a co si koupil. Nemá nákup zboží, sklad,
+> odpis ani logistiku, takže co za něj přijde, je celé příspěvek k marži. Platí to značky, ne Vy.
+> Vstupem je odvolatelná dohoda na 60 dní na pár desítkách prodejen, které vyberete Vy.
+> Vyhovovalo by Vám 15 minut [konkrétní den a čas]?
+
+### T4d · IT / security — write to them before the business does
+
+Předmět: Bez nového hardwaru a bez odchodu obrazu z prodejny
+
+> Dobrý den, [jméno],
+> píšu Vám dřív než obchodní straně, protože technicky je to celé o dvou věcech: čteme read-only
+> sub-stream z Vašich stávajících kamer a **obraz z prodejny neodchází**. Zpracování běží na místě,
+> ven jde jen anonymní agregát 25 a více osob.
+> Žádný nový hardware, žádná licence navíc, žádný nový bod v síti. DPIA, posouzení změny účelu
+> a podklady pro cedule dodáváme my, hotové.
+> Váš bezpečnostní dotazník rádi vyplníme teď, ne až po podpisu.
+> Pošlete mi ho, nebo bude snazších 15 minut hovoru?
 
 ## T5 · Partner/broker probe (CZ; EN mirror for global partners)
 
@@ -78,10 +138,17 @@ NIQ pravidlo: sdílíme schéma, nikdy metodologii.
 > s anonymním profilem zákazníka (věk, styl, značky, koš), plně GDPR. Hledají [co přesně].
 > Zabere to 20 minut. Spojím vás?"
 
-## T7 · WhatsApp insight drip — retailer ops (CZ; 1 insight, 1 akce, 👍/👎 CTA, stejný den+čas týdně)
+## T7 · Insight drip — retailer ops (CZ; same day + time weekly)
 
-> Dobrý den [jméno], datový tip z minulého týdne na [prodejna]: **[pozorování]** →
-> zkusit [konkrétní akce]. Očekávaný efekt: [X]. Dává smysl vyzkoušet? Stačí 👍/👎
+⚠ **Rewritten 22 Sep 2026.** The old version sent one observation, one recommended action and an
+expected effect, and asked for 👍/👎. That is the monthly action brief in miniature and it is retired:
+we never attach a recommendation, an expected impact in CZK, or a measured outcome, because doing so
+makes us accountable for their execution (stone 7). The observation itself still ships, free, theirs
+first, and what they do with it is not our business.
+
+> Dobrý den [jméno], jedno pozorování z minulého týdne na [prodejna]: **[pozorování]**.
+> Celý týden máte v chatu, kdyby se do toho chtěl někdo od Vás podívat hlouběji.
+> Nic po Vás nechci, jen ať to nezapadne.
 
 ## T8 · Public data listing — Datarade / AWS Data Exchange (EN)
 

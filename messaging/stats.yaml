@@ -103,10 +103,36 @@ pricing_ladder:
   internal_only: true
 
 rev_share_model:
-  value: "data/measurement products: retailer ~40-50%; retail-media revenue: retailer ~60-70%"
+  value: "RETIRED 2026-09-22. Superseded by the DPA clause architecture (labelled output vs aggregate). The old reading was: data/measurement products retailer ~40-50%; retail-media revenue retailer ~60-70%"
   source: "internal strategy (2026-07)"
-  status: internal-estimate
+  status: retired
   internal_only: true
+  note: >
+    Founder ruling 22 Sep 2026: no revenue-share percentage appears in any external artifact or
+    conversation. The only place a figure exists is
+    blitzkrieg/retailers/DPA preparation/00-clause-architecture-memo.md and Priloha 3 of the Czech
+    draft; negotiation opens below the ceiling and concedes upward only if the share is a condition
+    of signing. The "40-50%" and "majority of data revenue" formulations are purged from every
+    messaging and navigation file so no agent regenerates them. For the model that goes into the
+    data room, see model_price_ladder below, which is the figure of record.
+
+retailer_network_economics:
+  value: "Retailer-facing network potential: up to 2.5M CZK (approx EUR 100k) per year for one chain of roughly 50 stores licensing 3 to 4 categories, modeled for FMCG; presented as equivalent to the profit on 100M CZK (approx EUR 4M) of extra merchandise turnover at a 1.5% retail net margin"
+  source: "internal model; printed on slide 01 of blitzkrieg/decks/retailer/mm-retailer-deck-{cz,en}.html with the FMCG footnote attached"
+  status: needs-source
+  note: >
+    Founder ruling 22 Sep 2026: this figure STAYS in retailer decks, with the FMCG model footnote
+    always attached. Recorded here to satisfy the numbers law in CLAUDE.md.
+    ⚠ ARITHMETIC CONFLICT, founder decision needed. The slide footnote states ~30k CZK per store per
+    year across ~50 stores, which is 1.5M CZK and not 2.5M. The 1.5% net-margin equivalence also
+    resolves to 1.5M CZK on 100M CZK of turnover, so the footnote agrees with itself and disagrees
+    with the headline. The EN twin has the same gap: EUR 4M at 1.5% is EUR 60k, not EUR 100k.
+    Either the per-store figure is ~50k CZK and the equivalence is ~167M CZK, or the headline should
+    read 1.5M CZK / EUR 60k. Make slide 01 self-consistent before the next retailer meeting: a
+    commercial director who does the division in the room will find this.
+    ⛔ Not usable in fuel. The Kongres field guide bans the amount in that channel because the
+    margin base has no source; use the argument structure (no cost of goods, stock, write-offs,
+    logistics) and let the public UZEI procurement figure supply the magnitude.
 
 # --- Added 2026-09-02 for blitzkrieg/fundraise/why-not-nielseniq.md ---
 
@@ -301,7 +327,7 @@ attributes_per_shopper_100:
 data_asset_scale:
   value: "7 retail brands instrumented or in pilot; 133k+ shoppers observed; 18.8M visual data points; 484k POS records matched"
   source: >
-    Brand count from decks/retailer-pitch-deck.html logo wall. Shopper count from the base
+    Brand count from blitzkrieg/decks/_outdated/retailer/retailer-pitch-deck.html logo wall. Shopper count from the base
     strategy pack state of play (19 Aug 2026, '~133k unique visitors captured'). Visual and POS
     point counts from the chat.mindsmodels.ai landing metrics (30-day window).
   status: needs-source
@@ -455,7 +481,7 @@ pilot_logo_row:
 
 data_asset_scale_final:
   value: "7 enterprise pilots; 18.8M visual data points; 524,692 real shoppers observed in store and joined to what they bought"
-  source: "pitch-deck-2026-09-v2.html proof slide, adopted into pitch-deck-2026-09-final.html on 2026-09-17"
+  source: "pitch-deck-2026-09-v2.html proof slide, adopted into blitzkrieg/decks/investor/mm-investor-deck-en.html on 2026-09-17"
   status: needs-source
   note: >
     ACTION REQUIRED, and now more urgent because this is the only traction figure that ships.

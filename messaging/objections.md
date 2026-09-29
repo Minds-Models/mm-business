@@ -33,6 +33,39 @@ infrastruktura. Neprodáváme Vaše data, budujeme Vám nový příjem."
 > Veto se váže výhradně na výstupy, ve kterých je Řetězec jmenován (Labelled Output).
 > Viz `blitzkrieg/retailers/DPA preparation/00-clause-architecture-memo.md`.
 
+## "Proč je to zdarma? Kde je háček?" (retailers — hlavní námitka bezplatného rámce)
+
+Odpovězte doslova a bez okolků: "Háček je v tom, že potřebujeme Vaše svolení používat anonymní
+agregát z Vašich prodejen. To je celá cena. Surová data zůstávají Vaše, každý výstup, kde jste
+jmenovaní, schvalujete Vy, a z toho, co za přehledy zaplatí značky, Vám jde podíl."
+
+## "A co s tím máme dělat? Nemáme na to lidi." (retailers — stone 7)
+
+"Nic s tím dělat nemusíte. Neděláme Vám doporučení, co změnit na prodejně, a nechceme za to nést
+odpovědnost. Dostanete data a dostanete peníze. Jestli a jak to použijete, je jenom Vaše věc.
+Žádný projekt, žádný tým, žádná změna provozu, žádné KPI, které by někdo musel obhajovat."
+
+> Interní pozn.: tohle je nejsilnější argument pro top management a v žádném artefaktu zatím není.
+> Měsíční "action brief" (tři změny + očekávaný dopad v Kč) je od 22. 9. 2026 zrušený.
+
+## "Kolik je ten podíl?" (retailers)
+
+"Podíl z toho, co zaplatí značky za výstupy, kde jste jmenovaní, plus platforma zdarma. Číslo patří
+do smlouvy a odvíjí se od počtu prodejen."
+
+> Interní pozn.: **nikdy neříkat procento** (rozhodnutí zakladatele, 22. 9. 2026), a podíl nikdy
+> nenabízet sám. Číslo existuje jen v DPA clause memu a v Příloze 3.
+
+## "Chtěl by to vůbec někdo? Kdo to zaplatí?" (retailers)
+
+"Vy ne, platí značky. S velkými značkami ve Vaší kategorii jsme v aktivním kontaktu a přímo nám
+řekly, že o ta data zájem mají. Podepsané zatím není nic. A že se za tenhle typ dat na trhu platí,
+si můžete ověřit sám: stát dává skoro 4 mil. Kč ročně za jeden odběr dat o tom, co se v obchodech
+prodává, a je to ve veřejném registru zakázek."
+
+> Interní pozn.: zájem značek říct smíte, **zaplacené peníze ani committnuté rozpočty ne** (nula LOI,
+> nula podepsaných práv). Značky v tomhle kontextu nejmenujte a neříkejte, kdo schůzky zprostředkoval.
+
 ## "P&G/big brands already have deep personas" (sophisticated brands)
 
 "True — which is why we don't lead with personas. What no one has, including P&G, is

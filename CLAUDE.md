@@ -44,7 +44,9 @@ any of them appears in a client-, brand- or investor-facing deliverable, add it 
 6. **No em dashes** in anything produced for the founder: documents, commits, chat. Use
    commas, colons or parentheses. En dashes in numeric ranges are fine.
 7. **Output location:** `clients/<x>/delivered/YYYY-MM-DD-<type>/` — dated, never overwrite.
-   Company-level decks go to `decks/`. Render PDFs with `scripts/render-pdf.sh`.
+   Final pitch decks live in `blitzkrieg/decks/<audience>/mm-<audience>-deck-<lang>.{html,pdf}`
+   (audience = brand / retailer / investor, lang = en / cz; add the missing language as a sibling
+   file). Superseded versions go to `blitzkrieg/decks/_outdated/<audience>/`. Render PDFs with `scripts/render-pdf.sh`.
 
 ## Hard rules (non-negotiable, encode in every deliverable)
 
@@ -81,6 +83,11 @@ any of them appears in a client-, brand- or investor-facing deliverable, add it 
 ## Quick reference
 
 - **Strategy pack (start here for strategy work): `strategy/2026-08-19-base-strategy/00-INDEX.md`**
+- **Any retailer-facing artifact (deck, one-pager, email, DM, talk track): load
+  `blitzkrieg/retailers/retailers-execution-guide.md` §The retailer pitch spine FIRST.** It carries
+  the seven stones, the per-role split, the nudging order, the red lines, and the list of which
+  artifacts are canonical versus stale. Older retailer copy in this repo predates it and contradicts
+  it: no revenue-share percentage, no monthly action brief, brand interest yes but brand money no.
 - Visual system (canonical for ALL decks + reports): `templates/deck-style/STYLE.md`;
   deck skeleton `templates/deck-style/skeleton.html`, report skeleton (charts, personas)
   `templates/data-report/skeleton.html`. `brand/tokens.css` is legacy (pre-Sep-2026

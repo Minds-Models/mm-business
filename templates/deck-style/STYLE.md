@@ -9,7 +9,7 @@ the product's own look, so deliverables and product read as one company.
 1. `analytics-assistant-fe/src/styles.css` (the chat assistant frontend, the fullest
    implementation, opens with the four-rule manifesto)
 2. `frontend/src/styles/landing.css` (the new frontend's public landing page, namespaced `.mm`)
-3. `decks/2026-09-10-brand-sales-deck/index.html` (the reference deck build of this system)
+3. `blitzkrieg/decks/brand/mm-brand-deck-en.html` (the reference deck build of this system)
 4. `templates/deck-style/skeleton.html` (this directory: copy it to start any new deck)
 
 For data reports, start from `templates/data-report/skeleton.html` instead: same system,

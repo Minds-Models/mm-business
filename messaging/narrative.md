@@ -33,9 +33,16 @@ Rule: deliverables reuse these lines verbatim. New strategic copy → founder si
 
 ## Per-audience one-liners (the menu rule — one stage per audience)
 
-- **Retailer:** "Každý měsíc vám řekneme tři věci, které na prodejně změnit — a dokážeme,
-  kolik vydělaly. Zdarma. Výměnou licencujete anonymní agregáty; značky už proti nim
-  committují rozpočty."
+- **Retailer:** ✅ (approved 22 Sep 2026) "Vaše prodejny každý den vyrobí produkt se stoprocentní
+  marží: záznam o tom, kdo přišel a co si koupil. Nemá nákup zboží, sklad, odpis ani logistiku,
+  vzniká sám a Vy ho po pár dnech smažete. Neplatíte za něj nic, platí ho značky, a nemusíte s ním
+  nic dělat. Výměnou licencujete anonymní agregát."
+  ⚠ The previous version ("každý měsíc vám řekneme tři věci, které na prodejně změnit… značky už
+  proti nim committují rozpočty") is **retired**: the founder removed the monthly action brief on
+  22 Sep 2026 because it makes us accountable for their execution, and no brand budget is committed.
+  Brand *interest* is real and sayable; brand *money* is not. Full doctrine, per-role split and red
+  lines: **[`blitzkrieg/retailers/retailers-execution-guide.md` §The retailer pitch spine](../blitzkrieg/retailers/retailers-execution-guide.md#the-retailer-pitch-spine--the-seven-stones)**
+  — load it before writing any retailer copy.
 - **Brand:** "Closed-loop in-store measurement that exists nowhere else — starts as a study
   on live stores today. Three founding seats per category."
   ⚠ This is the *company* line. It is not what you open a persona conversation with: see
@@ -129,8 +136,12 @@ the masking or the refused competitor cut comes up.
   → 4 execution (HIGH, crowded). **Collect at 1, sell at 2–3, partner at 4.**
 - Retailers pay in RIGHTS (mandate → study-rights → chain subscription), brands pay CASH,
   brokers = distribution/optionality only.
-- Retailer-as-monetizer (dunnhumby model): their audience, their control, their revenue share (max 40%);
-  we are the intelligence layer. Trading data (margins, sell-through, elasticity) is
-  firewalled from brands, forever.
+- Retailer-as-monetizer (dunnhumby model): their audience, their control, a share of what brands
+  pay for outputs where they are named; we are the intelligence layer. Trading data (margins,
+  sell-through, elasticity) is firewalled from brands, forever.
+  ⛔ **No share percentage in any external artifact or conversation** (founder ruling, 22 Sep 2026).
+  The old "max 40%" line is retired everywhere; the only place a figure exists is
+  `blitzkrieg/retailers/DPA preparation/00-clause-architecture-memo.md`, which is internal.
+  Asked directly: "the number belongs in the contract and it scales with the number of stores."
 - Rights sequencing rule: NEVER pre-sell a retailer's data without their knowledge —
   mandate letter first, then brand outreach. Pre-mandate brand talk = methodology only.
