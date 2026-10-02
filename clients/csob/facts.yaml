@@ -1,0 +1,53 @@
+# Client facts — single source of truth for this company.
+# Agents: use ONLY these values in deliverables. Missing value => ask, don't invent.
+# Source: Attio meeting note 7c49b4e6-09a7-4750-a255-df489c0ccfca (meeting with ČSOB, Sep/Oct 2026).
+
+name: "ČSOB"
+legal_entity: "Československá obchodní banka, a. s."   # verify before contract
+segment: "bank-branch-network"   # treated like a retailer: branches = stores, paid pilot (CPI model)
+stores_total: null               # branch count not confirmed, do not state
+stores_live: 0
+
+pilot:
+  proposed_location: "Pobočka Mladá Boleslav (u Klaudiánovy nemocnice)"   # suggested by p. Špitálníková; newly merged large branch, benchmarks not yet set
+  duration_days: 14
+  devices_proposed: 1            # founder 2026-10-01: propose 1 device, adjustable by agreement
+  price_czk_excl_vat: 15000      # founder 2026-10-01
+  scope: "analytika návštěvníků (segmenty, časové vzorce, traffic) + ukázka personalizace obsahu na obrazovce"
+  start: null
+  end: null
+  pos_matching: none             # bank, no POS; no basket/conversion sections
+  key_metrics: {}
+
+deal:
+  status: "pipeline"
+  next_step: >
+    Poslat specifikaci 14denního pilotu (deck s nabídkou). Marcela předá interně Simonovi (IT)
+    a Vítovi (marketing) po návratu z dovolených; p. Špitálníková definuje detaily testu v MB.
+  personalization_live: false
+  interests:
+    - "Měření reálného trafficu a hodnocení investic do lokalit poboček"
+    - "Benchmark nové sloučené pobočky v MB"
+    - "Personalizace: LCD ve výlohách (cílení na kolemjdoucí), LCD uvnitř, mini-LCD na stolech, kiosek pro volbu služeb"
+    - "Integrace s asistentkou KATE (kontext pro bankéře po vizuální klasifikaci)"
+
+rights:
+  mandate_signed: false
+  aggregate_license: false
+  notes: "DPA bude potřeba před instalací (viz průběh u CPI)."
+
+naming:
+  can_name_publicly: false
+  approved_fallback: "velká česká banka s pobočkovou sítí"
+  written_ok_for: []
+
+contacts:
+  - {name: "Marcela Houlík Babková", role: "Strategie a inovace pobočkové sítě (velikost, formáty, vizuální prvky)", email: null, notes: "Vlajkonoš inovací na pobočkách. Hlavní obava: pocit Velkého bratra, anonymizace kolemjdoucích. Uklidnila ji certifikace a edge processing."}
+  - {name: "Špitálníková", role: "Pobočková síť / lokality", email: null, notes: "Zpočátku skeptická k AI, pochopila přes retail use-case. Zajímají ji data pro hodnocení efektivity a umístění poboček. Navrhla MB."}
+  - {name: "Simon", role: "IT", email: null, notes: "Dostane brief od Marcely."}
+  - {name: "Vít", role: "Marketing", email: null, notes: "Dostane brief od Marcely."}
+
+sensitivities: >
+  Privacy framing first (no facial recognition, no identities, aggregates only k>=25, edge
+  anonymization). Never imply recognizing bank clients or linking to their bank history in the pilot;
+  KATE integration is a future phase only.
